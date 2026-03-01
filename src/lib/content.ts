@@ -26,9 +26,11 @@ export function readMarkdownFile(filePath: string): ContentItem | null {
   const raw = fs.readFileSync(filePath, 'utf-8');
   const { data, content } = matter(raw);
 
-  // Normalize date: gray-matter parses YAML dates as Date objects
-  if (data.date instanceof Date) {
-    data.date = data.date.toISOString().split('T')[0];
+  // Normalize dates: gray-matter parses YAML date-like values as Date objects
+  for (const key of Object.keys(data)) {
+    if (data[key] instanceof Date) {
+      data[key] = (data[key] as Date).toISOString().split('T')[0];
+    }
   }
 
   return {
