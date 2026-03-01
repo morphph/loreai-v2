@@ -76,6 +76,12 @@ export default function RootLayout({
                 >
                   Blog
                 </Link>
+                <Link
+                  href="/glossary"
+                  className="text-sm text-muted transition-colors hover:text-foreground"
+                >
+                  Glossary
+                </Link>
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -101,6 +107,12 @@ export default function RootLayout({
               className="text-sm text-muted transition-colors hover:text-foreground"
             >
               Blog
+            </Link>
+            <Link
+              href="/glossary"
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              Glossary
             </Link>
           </div>
         </header>

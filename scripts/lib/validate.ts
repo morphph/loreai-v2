@@ -43,3 +43,113 @@ export function validateZhNewsletter(md: string): ValidationResult {
   if (md.match(/^# .*\d{4}-\d{2}-\d{2}/m)) errors.push('Date-based title');
   return { valid: errors.length === 0, errors };
 }
+
+// ============================================================
+// SEO Page Validators
+// ============================================================
+
+const FORBIDDEN_PHRASES = /in conclusion|as we can see|it's worth noting|in this article|without further ado|let's dive in|let's break it down|game-changing|revolutionary|unprecedented|stay tuned|in today's post|as we all know|it goes without saying|at the end of the day|moving forward/i;
+
+function countWords(md: string): number {
+  return md
+    .replace(/^---[\s\S]*?---/m, '') // strip frontmatter
+    .replace(/^#+.+$/gm, '')          // strip headings
+    .replace(/\|[^|]*\|/g, '')        // strip table cells
+    .replace(/[*_`~\[\]()#>|-]/g, '') // strip markdown formatting
+    .split(/\s+/)
+    .filter((w) => w.length > 0).length;
+}
+
+export function validateGlossary(md: string): ValidationResult {
+  const errors: string[] = [];
+
+  // Must have H1
+  if (!md.match(/^# .+/m)) errors.push('Missing H1 title');
+
+  // Word count: 200-400
+  const wordCount = countWords(md);
+  if (wordCount < 150) errors.push(`Too short: ${wordCount} words (min 200, hard floor 150)`);
+  if (wordCount > 500) errors.push(`Too long: ${wordCount} words (max 400, hard ceiling 500)`);
+
+  // No forbidden phrases
+  if (md.match(FORBIDDEN_PHRASES)) errors.push('Forbidden phrase detected');
+
+  // Should have subscribe CTA
+  if (!md.match(/\[.*subscribe.*\]/i)) errors.push('Missing newsletter CTA');
+
+  return { valid: errors.length === 0, errors };
+}
+
+export function validateFaq(md: string): ValidationResult {
+  const errors: string[] = [];
+
+  // Must have H1
+  if (!md.match(/^# .+/m)) errors.push('Missing H1 title');
+
+  // Word count: 200-500
+  const wordCount = countWords(md);
+  if (wordCount < 150) errors.push(`Too short: ${wordCount} words (min 200, hard floor 150)`);
+  if (wordCount > 600) errors.push(`Too long: ${wordCount} words (max 500, hard ceiling 600)`);
+
+  // No forbidden phrases
+  if (md.match(FORBIDDEN_PHRASES)) errors.push('Forbidden phrase detected');
+
+  // Should have subscribe CTA
+  if (!md.match(/\[.*subscribe.*\]/i)) errors.push('Missing newsletter CTA');
+
+  return { valid: errors.length === 0, errors };
+}
+
+export function validateCompare(md: string): ValidationResult {
+  const errors: string[] = [];
+
+  // Must have H1
+  if (!md.match(/^# .+/m)) errors.push('Missing H1 title');
+
+  // Must have >= 2 H2 sections
+  const h2Count = (md.match(/^## .+/gm) || []).length;
+  if (h2Count < 2) errors.push(`Only ${h2Count} H2 sections (need >= 2)`);
+
+  // Word count: 400-800
+  const wordCount = countWords(md);
+  if (wordCount < 300) errors.push(`Too short: ${wordCount} words (min 400, hard floor 300)`);
+  if (wordCount > 1000) errors.push(`Too long: ${wordCount} words (max 800, hard ceiling 1000)`);
+
+  // No forbidden phrases
+  if (md.match(FORBIDDEN_PHRASES)) errors.push('Forbidden phrase detected');
+
+  // Should have a comparison table
+  if (!md.match(/\|.*\|.*\|/)) errors.push('Missing comparison table');
+
+  // Should have subscribe CTA
+  if (!md.match(/\[.*subscribe.*\]/i)) errors.push('Missing newsletter CTA');
+
+  return { valid: errors.length === 0, errors };
+}
+
+export function validateTopicHub(md: string): ValidationResult {
+  const errors: string[] = [];
+
+  // Must have H1
+  if (!md.match(/^# .+/m)) errors.push('Missing H1 title');
+
+  // Must have >= 2 H2 sections
+  const h2Count = (md.match(/^## .+/gm) || []).length;
+  if (h2Count < 2) errors.push(`Only ${h2Count} H2 sections (need >= 2)`);
+
+  // Word count: 500-1000
+  const wordCount = countWords(md);
+  if (wordCount < 350) errors.push(`Too short: ${wordCount} words (min 500, hard floor 350)`);
+  if (wordCount > 1200) errors.push(`Too long: ${wordCount} words (max 1000, hard ceiling 1200)`);
+
+  // No forbidden phrases
+  if (md.match(FORBIDDEN_PHRASES)) errors.push('Forbidden phrase detected');
+
+  // Should have internal links
+  if (!md.match(/\[.+?\]\(\/.+?\)/)) errors.push('No internal links found');
+
+  // Should have subscribe CTA
+  if (!md.match(/\[.*subscribe.*\]/i)) errors.push('Missing newsletter CTA');
+
+  return { valid: errors.length === 0, errors };
+}

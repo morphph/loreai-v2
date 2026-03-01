@@ -83,6 +83,10 @@ export function getGlossaryTerm(term: string, lang: string = 'en'): ContentItem 
   return readMarkdownFile(path.join(CONTENT_DIR, `glossary/${lang}/${term}.md`));
 }
 
+export function getFaq(slug: string, lang: string = 'en'): ContentItem | null {
+  return readMarkdownFile(path.join(CONTENT_DIR, `faq/${lang}/${slug}.md`));
+}
+
 export function getAllFaq(lang: string = 'en'): ContentItem[] {
   const files = listContentFiles(`faq/${lang}`);
   return files
@@ -90,11 +94,19 @@ export function getAllFaq(lang: string = 'en'): ContentItem[] {
     .filter((item): item is ContentItem => item !== null);
 }
 
+export function getCompare(slug: string, lang: string = 'en'): ContentItem | null {
+  return readMarkdownFile(path.join(CONTENT_DIR, `compare/${lang}/${slug}.md`));
+}
+
 export function getAllCompare(lang: string = 'en'): ContentItem[] {
   const files = listContentFiles(`compare/${lang}`);
   return files
     .map((f) => readMarkdownFile(path.join(CONTENT_DIR, `compare/${lang}`, f)))
     .filter((item): item is ContentItem => item !== null);
+}
+
+export function getTopic(slug: string, lang: string = 'en'): ContentItem | null {
+  return readMarkdownFile(path.join(CONTENT_DIR, `topics/${lang}/${slug}.md`));
 }
 
 export function getAllTopics(lang: string = 'en'): ContentItem[] {
