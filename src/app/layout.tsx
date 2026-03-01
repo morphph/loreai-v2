@@ -1,7 +1,9 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
+import Script from 'next/script';
 import Link from 'next/link';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import FloatingBanner from '@/components/FloatingBanner';
 import './globals.css';
 
 const geistSans = Geist({
@@ -41,6 +43,11 @@ export const metadata: Metadata = {
       'application/rss+xml': '/rss.xml',
     },
   },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
 };
 
 export default function RootLayout({
@@ -117,6 +124,14 @@ export default function RootLayout({
           </div>
         </header>
 
+        {/* Analytics */}
+        <Script
+          defer
+          data-domain="loreai.dev"
+          src="https://plausible.io/js/script.js"
+          strategy="afterInteractive"
+        />
+
         {/* Main content */}
         <main className="min-h-screen">{children}</main>
 
@@ -154,6 +169,8 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        {/* Floating signup banner */}
+        <FloatingBanner />
       </body>
     </html>
   );

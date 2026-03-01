@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import NewsletterSignup from '@/components/NewsletterSignup';
+import SubscriberCount from '@/components/SubscriberCount';
 
 export const metadata: Metadata = {
   title: 'Subscribe',
@@ -49,9 +50,7 @@ export default function SubscribePage() {
 
         {/* Social proof */}
         <div className="mt-16 text-center">
-          <p className="text-sm text-muted">
-            Read by AI engineers, researchers, and founders every morning.
-          </p>
+          <SubscriberCount />
         </div>
       </section>
     </div>

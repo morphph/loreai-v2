@@ -1,5 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+export async function GET() {
+  // TODO: Replace with actual subscriber count from database
+  // For now, return a placeholder count
+  return NextResponse.json({ count: 0 });
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
