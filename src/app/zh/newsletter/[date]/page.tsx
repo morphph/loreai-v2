@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getAllNewsletters, getNewsletter, markdownToHtml } from '@/lib/content';
+import { getAllNewsletters, getNewsletter, getWeeklyNewsletters, getWeeklyNewsletter, markdownToHtml } from '@/lib/content';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 interface PageProps {
@@ -9,27 +9,30 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const newsletters = getAllNewsletters('zh');
-  return newsletters.map((item) => ({
-    date: item.meta.date,
-  }));
+  const daily = getAllNewsletters('zh');
+  const weekly = getWeeklyNewsletters('zh');
+  return [
+    ...daily.map((item) => ({ date: item.meta.date })),
+    ...weekly.map((item) => ({ date: (item.meta.slug as string) || item.meta.date })),
+  ];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { date } = await params;
-  const newsletter = getNewsletter(date, 'zh');
+  const newsletter = getNewsletter(date, 'zh') || getWeeklyNewsletter(date, 'zh');
   if (!newsletter) {
     return { title: '日报未找到 | LoreAI' };
   }
+  const isWeekly = newsletter.meta.type === 'weekly';
   return {
-    title: `${newsletter.meta.title} | LoreAI 日报`,
+    title: `${newsletter.meta.title} | LoreAI ${isWeekly ? '周刊' : '日报'}`,
     description: newsletter.meta.description || `${date} AI 日报`,
   };
 }
 
 export default async function ZhNewsletterPage({ params }: PageProps) {
   const { date } = await params;
-  const newsletter = getNewsletter(date, 'zh');
+  const newsletter = getNewsletter(date, 'zh') || getWeeklyNewsletter(date, 'zh');
 
   if (!newsletter) {
     notFound();

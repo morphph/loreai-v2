@@ -123,6 +123,10 @@ export function getWeeklyNewsletters(lang: string = 'en'): ContentItem[] {
     .filter((item): item is ContentItem => item !== null);
 }
 
+export function getWeeklyNewsletter(slug: string, lang: string = 'en'): ContentItem | null {
+  return readMarkdownFile(path.join(CONTENT_DIR, `newsletters/weekly/${lang}/${slug}.md`));
+}
+
 export async function markdownToHtml(md: string): Promise<string> {
   const result = await remark().use(html, { sanitize: false }).process(md);
   return result.toString();

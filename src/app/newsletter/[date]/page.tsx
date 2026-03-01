@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getAllNewsletters, getNewsletter, markdownToHtml } from '@/lib/content';
+import { getAllNewsletters, getNewsletter, getWeeklyNewsletters, getWeeklyNewsletter, markdownToHtml } from '@/lib/content';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 interface PageProps {
@@ -9,31 +9,36 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const newsletters = getAllNewsletters('en');
-  return newsletters.map((item) => ({
-    date: item.meta.date,
-  }));
+  const daily = getAllNewsletters('en');
+  const weekly = getWeeklyNewsletters('en');
+  return [
+    ...daily.map((item) => ({ date: item.meta.date })),
+    ...weekly.map((item) => ({ date: (item.meta.slug as string) || item.meta.date })),
+  ];
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { date } = await params;
-  const newsletter = getNewsletter(date, 'en');
+  const newsletter = getNewsletter(date, 'en') || getWeeklyNewsletter(date, 'en');
   if (!newsletter) {
     return { title: 'Newsletter Not Found | LoreAI' };
   }
+  const isWeekly = newsletter.meta.type === 'weekly';
   return {
-    title: `${newsletter.meta.title} | LoreAI Newsletter`,
+    title: `${newsletter.meta.title} | LoreAI ${isWeekly ? 'Weekly' : 'Newsletter'}`,
     description: newsletter.meta.description || `AI newsletter for ${date}`,
   };
 }
 
 export default async function NewsletterPage({ params }: PageProps) {
   const { date } = await params;
-  const newsletter = getNewsletter(date, 'en');
+  const newsletter = getNewsletter(date, 'en') || getWeeklyNewsletter(date, 'en');
 
   if (!newsletter) {
     notFound();
   }
+
+  const isWeekly = newsletter.meta.type === 'weekly';
 
   const htmlContent = await markdownToHtml(newsletter.content);
 

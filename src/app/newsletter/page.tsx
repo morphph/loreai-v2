@@ -48,11 +48,12 @@ export default async function NewsletterArchivePage({
         <ul className="divide-y divide-zinc-200 dark:divide-zinc-800">
           {paginatedItems.map((item) => {
             const date = item.meta.date;
-            const isWeekly = !!(item.meta.slug?.startsWith('weekly') || item.rawMarkdown?.includes('type: weekly'));
+            const isWeekly = item.meta.type === 'weekly';
+            const linkSlug = isWeekly ? (item.meta.slug as string) || date : date;
             return (
-              <li key={date}>
+              <li key={linkSlug}>
                 <Link
-                  href={`/newsletter/${date}`}
+                  href={`/newsletter/${linkSlug}`}
                   className="group block py-5 transition-colors hover:bg-zinc-50 dark:hover:bg-zinc-900/50 sm:py-6"
                 >
                   <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">

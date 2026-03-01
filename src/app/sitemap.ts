@@ -102,7 +102,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── EN Weekly newsletters ─────────────────────────────────────────────
   const enWeekly: MetadataRoute.Sitemap = getWeeklyNewsletters('en').map(
     (item) => ({
-      url: `${SITE_URL}/newsletter/weekly/${item.meta.slug}`,
+      url: `${SITE_URL}/newsletter/${item.meta.slug}`,
       lastModified: new Date(item.meta.date),
       changeFrequency: 'never' as const,
       priority: 0.8,
@@ -112,7 +112,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── ZH Weekly newsletters ─────────────────────────────────────────────
   const zhWeekly: MetadataRoute.Sitemap = getWeeklyNewsletters('zh').map(
     (item) => ({
-      url: `${SITE_URL}/zh/newsletter/weekly/${item.meta.slug}`,
+      url: `${SITE_URL}/zh/newsletter/${item.meta.slug}`,
       lastModified: new Date(item.meta.date),
       changeFrequency: 'never' as const,
       priority: 0.7,
