@@ -1,65 +1,136 @@
-import Image from "next/image";
+import Link from 'next/link';
+import { getAllNewsletters, getAllBlogPosts } from '@/lib/content';
+import NewsletterSignup from '@/components/NewsletterSignup';
+import NewsletterCard from '@/components/NewsletterCard';
 
 export default function Home() {
+  const newsletters = getAllNewsletters('en');
+  const blogPosts = getAllBlogPosts('en');
+
+  const latestNewsletter = newsletters[0] ?? null;
+  const recentBlogs = blogPosts.slice(0, 3);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="mx-auto max-w-3xl px-6">
+      {/* Hero Section */}
+      <section className="py-16 sm:py-24">
+        <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
+          Your daily AI briefing.
+        </h1>
+        <p className="mt-4 text-xl text-muted sm:text-2xl">
+          Models. Tools. Code. Trends.
+        </p>
+        <div className="mt-8">
+          <NewsletterSignup variant="hero" />
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        <p className="mt-4 text-sm text-muted">
+          Join AI practitioners who start their day with LoreAI.
+        </p>
+      </section>
+
+      {/* TODAY'S AI NEWS */}
+      <section className="border-t border-border py-12">
+        <div className="flex items-baseline justify-between">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">
+            Today&apos;s AI News
+          </h2>
+          <Link
+            href="/newsletter"
+            className="text-sm text-accent hover:text-accent-hover"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+            All issues &rarr;
+          </Link>
         </div>
-      </main>
+
+        {latestNewsletter ? (
+          <div className="mt-6">
+            <NewsletterCard meta={latestNewsletter.meta} />
+            <div className="prose mt-6 text-foreground">
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: latestNewsletter.content.slice(0, 1000) + (latestNewsletter.content.length > 1000 ? '...' : ''),
+                }}
+              />
+            </div>
+            {latestNewsletter.content.length > 1000 && (
+              <Link
+                href={`/newsletter/${latestNewsletter.meta.date}`}
+                className="mt-4 inline-block text-sm font-medium text-accent hover:text-accent-hover"
+              >
+                Read full issue &rarr;
+              </Link>
+            )}
+          </div>
+        ) : (
+          <div className="mt-6 rounded-xl border border-border bg-surface p-8 text-center">
+            <p className="text-muted">
+              First issue coming soon. Subscribe to be the first to read it.
+            </p>
+          </div>
+        )}
+      </section>
+
+      {/* DEEP DIVES */}
+      <section className="border-t border-border py-12">
+        <div className="flex items-baseline justify-between">
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-muted">
+            Deep Dives
+          </h2>
+          <Link
+            href="/blog"
+            className="text-sm text-accent hover:text-accent-hover"
+          >
+            All posts &rarr;
+          </Link>
+        </div>
+
+        {recentBlogs.length > 0 ? (
+          <div className="mt-6 grid gap-4">
+            {recentBlogs.map((post) => (
+              <Link
+                key={post.meta.slug}
+                href={`/blog/${post.meta.slug}`}
+                className="group block rounded-xl border border-border p-5 transition-colors hover:border-accent/40 hover:bg-surface"
+              >
+                <time className="text-xs font-medium uppercase tracking-wide text-muted">
+                  {new Date(post.meta.date + 'T00:00:00').toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
+                <h3 className="mt-1.5 text-lg font-semibold leading-snug group-hover:text-accent">
+                  {post.meta.title}
+                </h3>
+                {post.meta.description && (
+                  <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted">
+                    {post.meta.description}
+                  </p>
+                )}
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <div className="mt-6 rounded-xl border border-border bg-surface p-8 text-center">
+            <p className="text-muted">
+              Deep dives coming soon. Stay tuned.
+            </p>
+          </div>
+        )}
+      </section>
+
+      {/* Bottom CTA */}
+      <section className="border-t border-border py-16 text-center">
+        <h2 className="text-2xl font-bold tracking-tight sm:text-3xl">
+          Never miss an AI breakthrough
+        </h2>
+        <p className="mx-auto mt-3 max-w-md text-muted">
+          Get the sharpest AI briefing delivered to your inbox every weekday morning. Free.
+        </p>
+        <div className="mx-auto mt-8 max-w-lg">
+          <NewsletterSignup variant="hero" />
+        </div>
+      </section>
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { remark } from 'remark';
+import html from 'remark-html';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 
@@ -23,6 +25,12 @@ export function readMarkdownFile(filePath: string): ContentItem | null {
   if (!fs.existsSync(filePath)) return null;
   const raw = fs.readFileSync(filePath, 'utf-8');
   const { data, content } = matter(raw);
+
+  // Normalize date: gray-matter parses YAML dates as Date objects
+  if (data.date instanceof Date) {
+    data.date = data.date.toISOString().split('T')[0];
+  }
+
   return {
     meta: data as ContentMeta,
     content,
@@ -99,4 +107,9 @@ export function getWeeklyNewsletters(lang: string = 'en'): ContentItem[] {
   return files
     .map((f) => readMarkdownFile(path.join(CONTENT_DIR, `newsletters/weekly/${lang}`, f)))
     .filter((item): item is ContentItem => item !== null);
+}
+
+export async function markdownToHtml(md: string): Promise<string> {
+  const result = await remark().use(html, { sanitize: false }).process(md);
+  return result.toString();
 }
