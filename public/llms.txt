@@ -1,0 +1,27 @@
+# LoreAI — AI News & Content Platform
+> Your daily AI briefing. Models. Tools. Code. Trends.
+
+LoreAI is a bilingual (English/Chinese) AI news platform providing:
+- Daily AI newsletter (Mon-Fri) covering models, apps, developer tools, infrastructure, and open source
+- Weekly deep digest (Saturday) with analysis of the week's top stories
+- In-depth blog posts on trending AI topics
+- SEO reference pages: glossary, FAQ, comparisons, and topic hubs
+
+## Content
+- Newsletter: /newsletter
+- Blog: /blog
+- Glossary: /glossary
+- FAQ: /faq
+- Comparisons: /compare
+- Topic Hubs: /topics
+
+## Chinese versions
+- /zh/newsletter
+- /zh/blog
+
+## Subscribe
+- /subscribe
+
+## Feeds
+- /feed.xml (EN)
+- /zh/feed.xml (ZH)
