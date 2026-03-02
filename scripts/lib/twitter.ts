@@ -68,8 +68,14 @@ function extractTweets(data: unknown): TwitterApiTweet[] {
   if (Array.isArray(data)) return data;
   if (data && typeof data === 'object') {
     const obj = data as Record<string, unknown>;
+    // Direct array keys: data.tweets, data.data, data.results
     for (const key of ['tweets', 'data', 'results']) {
       if (Array.isArray(obj[key])) return obj[key] as TwitterApiTweet[];
+    }
+    // Nested: data.data.tweets (twitterapi.io timeline format)
+    if (obj.data && typeof obj.data === 'object' && !Array.isArray(obj.data)) {
+      const nested = obj.data as Record<string, unknown>;
+      if (Array.isArray(nested.tweets)) return nested.tweets as TwitterApiTweet[];
     }
   }
   return [];
