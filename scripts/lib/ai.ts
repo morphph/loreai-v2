@@ -1,11 +1,22 @@
-import Anthropic from '@anthropic-ai/sdk';
+import { execSync } from 'child_process';
+import { writeFileSync, unlinkSync } from 'fs';
+import { join } from 'path';
+import { tmpdir } from 'os';
+import { randomBytes } from 'crypto';
 import 'dotenv/config';
 
-// --- Claude API ---
+// --- Model mapping (API ID → CLI ID) ---
 
-const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY,
-});
+const MODEL_MAP: Record<string, string> = {
+  'claude-opus-4-20250514': 'claude-opus-4-6',
+  'claude-sonnet-4-20250514': 'claude-sonnet-4-6',
+};
+
+function resolveModel(model: string): string {
+  return MODEL_MAP[model] || model;
+}
+
+// --- Claude CLI ---
 
 export interface AIResponse {
   content: string;
@@ -22,23 +33,35 @@ export async function callClaude(
     temperature?: number;
   } = {}
 ): Promise<AIResponse> {
-  const model = options.model || 'claude-opus-4-20250514';
-  const response = await anthropic.messages.create({
-    model,
-    max_tokens: options.maxTokens || 8192,
-    temperature: options.temperature ?? 0.4,
-    system: systemPrompt,
-    messages: [{ role: 'user', content: userPrompt }],
-  });
+  const model = resolveModel(options.model || 'claude-opus-4-20250514');
 
-  const textBlock = response.content.find((b) => b.type === 'text');
-  return {
-    content: textBlock?.text || '',
-    model: response.model,
-    usage: response.usage
-      ? { input_tokens: response.usage.input_tokens, output_tokens: response.usage.output_tokens }
-      : undefined,
-  };
+  // Write prompt to a temp file
+  const tmpFile = join(tmpdir(), `claude-prompt-${randomBytes(8).toString('hex')}.txt`);
+  const prompt = `${systemPrompt}\n\n---\n\n${userPrompt}`;
+  writeFileSync(tmpFile, prompt, 'utf-8');
+
+  try {
+    const stdout = execSync(
+      `cat "${tmpFile}" | claude --model ${model} --output-format text --max-turns 1 --print`,
+      {
+        timeout: 3 * 60 * 1000, // 3 minutes
+        maxBuffer: 10 * 1024 * 1024, // 10 MB
+        encoding: 'utf-8',
+        stdio: ['pipe', 'pipe', 'pipe'],
+      }
+    );
+
+    // Strip ANSI escape sequences
+    const content = stdout.replace(/\x1b\[[0-9;]*[a-zA-Z]/g, '').trim();
+
+    return {
+      content,
+      model,
+      usage: undefined,
+    };
+  } finally {
+    try { unlinkSync(tmpFile); } catch {}
+  }
 }
 
 export async function callClaudeWithRetry(
