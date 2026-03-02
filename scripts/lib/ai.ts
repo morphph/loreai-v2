@@ -105,54 +105,8 @@ export async function callClaudeWithRetry(
   throw lastError || new Error('All retries exhausted');
 }
 
-// --- Kimi (Moonshot) API ---
-
-export async function callKimi(
-  systemPrompt: string,
-  userPrompt: string,
-  options: {
-    model?: string;
-    maxTokens?: number;
-    temperature?: number;
-  } = {}
-): Promise<AIResponse> {
-  const apiKey = process.env.MOONSHOT_API_KEY;
-  if (!apiKey) throw new Error('MOONSHOT_API_KEY not set');
-
-  const model = options.model || 'moonshot-v1-128k';
-  const response = await fetch('https://api.moonshot.cn/v1/chat/completions', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${apiKey}`,
-    },
-    body: JSON.stringify({
-      model,
-      temperature: options.temperature ?? 0.4,
-      max_tokens: options.maxTokens || 8192,
-      messages: [
-        { role: 'system', content: systemPrompt },
-        { role: 'user', content: userPrompt },
-      ],
-    }),
-  });
-
-  if (!response.ok) {
-    throw new Error(`Kimi API error: ${response.status} ${await response.text()}`);
-  }
-
-  const data = await response.json();
-  return {
-    content: data.choices?.[0]?.message?.content || '',
-    model,
-    usage: data.usage
-      ? { input_tokens: data.usage.prompt_tokens, output_tokens: data.usage.completion_tokens }
-      : undefined,
-  };
-}
-
 // --- ZH Newsletter Fallback Cascade ---
-// Order: Claude Opus → Kimi K2.5 → Claude Sonnet
+// Order: Claude Opus → Claude Sonnet
 
 export async function callZhNewsletterWithFallback(
   systemPrompt: string,
@@ -169,32 +123,13 @@ export async function callZhNewsletterWithFallback(
     console.log('ZH newsletter: Claude Opus succeeded');
     return response;
   } catch (err) {
-    console.warn('ZH newsletter: Claude Opus failed, trying Kimi...', err);
+    console.warn('ZH newsletter: Claude Opus failed, trying Claude Sonnet...', err);
   }
 
-  // 2. Kimi K2.5
-  try {
-    const response = await callKimi(systemPrompt, userPrompt, {
-      model: 'moonshot-v1-128k',
-      temperature: 0.4,
-    });
-    if (validate) {
-      const { valid, errors } = validate(response.content);
-      if (!valid) {
-        console.warn('ZH newsletter: Kimi validation failed:', errors);
-        throw new Error(`Kimi validation failed: ${errors.join(', ')}`);
-      }
-    }
-    console.log('ZH newsletter: Kimi succeeded');
-    return response;
-  } catch (err) {
-    console.warn('ZH newsletter: Kimi failed, trying Claude Sonnet...', err);
-  }
-
-  // 3. Claude Sonnet (last resort)
+  // 2. Claude Sonnet (fallback)
   const response = await callClaude(systemPrompt, userPrompt, {
     model: 'claude-sonnet-4-20250514',
   });
-  console.log('ZH newsletter: Claude Sonnet succeeded (last resort)');
+  console.log('ZH newsletter: Claude Sonnet succeeded (fallback)');
   return response;
 }
