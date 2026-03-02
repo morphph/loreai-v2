@@ -26,7 +26,7 @@ const rssParser = new RssParser();
 // TIER 0: RSS Feeds
 // ============================================================
 
-const RSS_FEEDS = [
+const RSS_FEEDS: Array<{ name: string; url: string; score: number; tier?: number }> = [
   { name: 'TechCrunch AI', url: 'https://techcrunch.com/category/artificial-intelligence/feed/', score: 75 },
   { name: 'The Verge AI', url: 'https://www.theverge.com/rss/ai-artificial-intelligence/index.xml', score: 75 },
   { name: 'Ars Technica AI', url: 'https://feeds.arstechnica.com/arstechnica/technology-lab', score: 72 },
@@ -41,6 +41,10 @@ const RSS_FEEDS = [
   { name: 'Latent Space', url: 'https://www.latent.space/feed', score: 85 },
   { name: 'AI Breakfast', url: 'https://aibreakfast.beehiiv.com/feed', score: 72 },
   { name: 'Interconnects', url: 'https://www.interconnects.ai/feed', score: 80 },
+  // Official blog RSS feeds (Tier 1)
+  { name: 'DeepMind Blog', url: 'https://deepmind.google/blog/rss.xml', score: 90, tier: 1 },
+  { name: 'Google AI Blog', url: 'https://blog.google/technology/ai/rss/', score: 88, tier: 1 },
+  { name: 'HuggingFace Blog', url: 'https://huggingface.co/blog/feed.xml', score: 85, tier: 1 },
 ];
 
 async function collectRssFeeds(): Promise<NewsItem[]> {
@@ -58,7 +62,7 @@ async function collectRssFeeds(): Promise<NewsItem[]> {
           title: entry.title,
           url: entry.link || null,
           source: `rss:${feed.name}`,
-          source_tier: 0,
+          source_tier: feed.tier ?? 0,
           summary: entry.contentSnippet?.slice(0, 500) || null,
           score: feed.score,
           engagement_likes: 0,
@@ -77,23 +81,18 @@ async function collectRssFeeds(): Promise<NewsItem[]> {
 }
 
 // ============================================================
-// TIER 1: Official Blogs (HTML scraping)
+// TIER 1: Official Blogs
 // ============================================================
 
-const OFFICIAL_BLOGS = [
-  { name: 'Anthropic Engineering', url: 'https://www.anthropic.com/engineering', score: 92 },
-  { name: 'Anthropic Research', url: 'https://www.anthropic.com/research', score: 95 },
-  { name: 'Claude Code Changelog', url: 'https://code.claude.com/docs/en/changelog', score: 88 },
-  { name: 'HuggingFace Blog', url: 'https://huggingface.co/blog', score: 85 },
-  { name: 'DeepMind Blog', url: 'https://deepmind.google/blog', score: 90 },
-  { name: 'OpenAI Changelog', url: 'https://platform.openai.com/docs/changelog', score: 88 },
+const ANTHROPIC_BLOGS = [
+  { name: 'Anthropic Engineering', url: 'https://www.anthropic.com/engineering', urlPrefix: '/engineering/', score: 92 },
+  { name: 'Anthropic News', url: 'https://www.anthropic.com/news', urlPrefix: '/news/', score: 90 },
 ];
 
-async function collectOfficialBlogs(): Promise<NewsItem[]> {
-  console.log('\n📰 Tier 1: Official Blogs');
+async function collectAnthropicBlogs(): Promise<NewsItem[]> {
   const items: NewsItem[] = [];
 
-  for (const blog of OFFICIAL_BLOGS) {
+  for (const blog of ANTHROPIC_BLOGS) {
     try {
       const res = await fetch(blog.url, {
         headers: { 'User-Agent': 'LoreAI/2.0 (news aggregator)' },
@@ -104,41 +103,57 @@ async function collectOfficialBlogs(): Promise<NewsItem[]> {
       }
 
       const html = await res.text();
-
-      // Extract article links and titles from HTML
-      // Regex approach: find <a> tags with href and text that look like article titles
-      const linkRegex = /<a[^>]*href="([^"]*)"[^>]*>([^<]{15,})<\/a>/gi;
-      let match;
       const seen = new Set<string>();
 
-      while ((match = linkRegex.exec(html)) !== null) {
-        let [, href, title] = match;
-        title = title.trim().replace(/&amp;/g, '&').replace(/&#39;/g, "'").replace(/&quot;/g, '"');
+      // Extract __next_f payloads (Next.js flight data)
+      const scriptRegex = /self\.__next_f\.push\(\[[\d,]*"(.+?)"\]\)/gs;
+      let scriptMatch;
+      let combined = '';
 
-        // Skip navigation/UI links
-        if (title.length < 15 || title.length > 200) continue;
-        if (/sign in|log in|menu|nav|footer|cookie|privacy/i.test(title)) continue;
-
-        // Resolve relative URLs
-        if (href.startsWith('/')) {
-          const origin = new URL(blog.url).origin;
-          href = `${origin}${href}`;
+      while ((scriptMatch = scriptRegex.exec(html)) !== null) {
+        try {
+          combined += JSON.parse(`"${scriptMatch[1]}"`);
+        } catch {
+          combined += scriptMatch[1];
         }
+      }
 
-        if (seen.has(href)) continue;
-        seen.add(href);
+      // Find slug objects and look forward for title
+      // Sanity CMS format: "slug":{"_type":"slug","current":"article-slug"}
+      const section = blog.urlPrefix.replace(/\//g, '');
+      const slugRegex = /"slug":\{"_type":"slug","current":"([^"]+)"\}/g;
+      let slugMatch;
+
+      while ((slugMatch = slugRegex.exec(combined)) !== null) {
+        const slug = slugMatch[1];
+        if (slug === section || slug === 'not-found' || slug.length < 3) continue;
+
+        // Title comes after slug in the data (within ~1000 chars)
+        const after = combined.slice(slugMatch.index + slugMatch[0].length, slugMatch.index + slugMatch[0].length + 1000);
+        const titleMatch = after.match(/"title":"((?:[^"\\]|\\.)*)"/);
+        if (!titleMatch) continue;
+
+        const url = `https://www.anthropic.com${blog.urlPrefix}${slug}`;
+        if (seen.has(url)) continue;
+        seen.add(url);
+
+        // Look backward for summary
+        const before = combined.slice(Math.max(0, slugMatch.index - 2000), slugMatch.index);
+        const summaryMatch = before.match(/"summary":"((?:[^"\\]|\\.)*)"/);
+
+        const title = titleMatch[1].replace(/\\(.)/g, '$1');
 
         items.push({
           title,
-          url: href,
+          url,
           source: `blog:${blog.name}`,
           source_tier: 1,
-          summary: null,
+          summary: summaryMatch ? summaryMatch[1].replace(/\\(.)/g, '$1').slice(0, 500) : null,
           score: blog.score,
           engagement_likes: 0,
           engagement_retweets: 0,
           engagement_downloads: 0,
-          raw_json: JSON.stringify({ source: blog.name }),
+          raw_json: JSON.stringify({ source: blog.name, slug }),
         });
       }
 
@@ -149,6 +164,80 @@ async function collectOfficialBlogs(): Promise<NewsItem[]> {
   }
 
   return items;
+}
+
+const OPENAI_SITEMAPS = [
+  { name: 'OpenAI Releases', url: 'https://openai.com/sitemap.xml/release/', score: 90 },
+];
+
+async function collectOpenAISitemaps(): Promise<NewsItem[]> {
+  const items: NewsItem[] = [];
+  const fourteenDaysAgo = Date.now() - 14 * 24 * 60 * 60 * 1000;
+
+  for (const source of OPENAI_SITEMAPS) {
+    try {
+      const res = await fetch(source.url, {
+        headers: { 'User-Agent': 'LoreAI/2.0 (news aggregator)' },
+      });
+      if (!res.ok) {
+        console.warn(`  ${source.name}: HTTP ${res.status}`);
+        continue;
+      }
+
+      const xml = await res.text();
+
+      // Parse <url> blocks from sitemap XML
+      const urlBlockRegex = /<url>\s*<loc>([^<]+)<\/loc>\s*<lastmod>([^<]+)<\/lastmod>/g;
+      let urlMatch;
+      let count = 0;
+
+      while ((urlMatch = urlBlockRegex.exec(xml)) !== null) {
+        const [, loc, lastmod] = urlMatch;
+        const modDate = new Date(lastmod).getTime();
+        if (isNaN(modDate) || modDate < fourteenDaysAgo) continue;
+
+        // Only keep /index/{slug}/ URLs (skip listing pages)
+        const slugMatch = loc.match(/\/index\/([^/]+)\/?$/);
+        if (!slugMatch) continue;
+
+        const slug = slugMatch[1];
+        // Derive title from slug: "sora-2" → "Sora 2"
+        const title = slug
+          .split('-')
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+          .join(' ');
+
+        items.push({
+          title,
+          url: loc,
+          source: `blog:${source.name}`,
+          source_tier: 1,
+          summary: null,
+          score: source.score,
+          engagement_likes: 0,
+          engagement_retweets: 0,
+          engagement_downloads: 0,
+          raw_json: JSON.stringify({ source: source.name, slug, lastmod }),
+        });
+        count++;
+      }
+
+      console.log(`  ${source.name}: ${count} recent articles`);
+    } catch (err) {
+      console.warn(`  ${source.name} failed:`, (err as Error).message);
+    }
+  }
+
+  return items;
+}
+
+async function collectOfficialBlogs(): Promise<NewsItem[]> {
+  console.log('\n📰 Tier 1: Official Blogs');
+  const [anthropicItems, openaiItems] = await Promise.all([
+    collectAnthropicBlogs(),
+    collectOpenAISitemaps(),
+  ]);
+  return [...anthropicItems, ...openaiItems];
 }
 
 // ============================================================
