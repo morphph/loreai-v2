@@ -36,13 +36,16 @@ Sat 5am: write-weekly.ts + cluster-strategy
 4-6am, 7-8am, 9-10am SGT: Pipelines active, don't push
 
 ## Env Vars
-ANTHROPIC_API_KEY, TWITTER_API_KEY, TWITTER_API_SECRET, MOONSHOT_API_KEY,
+TWITTER_API_KEY, TWITTER_API_SECRET,
 GITHUB_TOKEN, REDDIT_CLIENT_ID, REDDIT_CLIENT_SECRET, BRAVE_SEARCH_API_KEY
 
 ## Style
 Newsletter: "sharp tech insider briefing a busy founder over coffee"
 Blog: "senior engineer explaining to a smart colleague"
 Chinese: NOT translation. Independent creation. WeChat-group tone.
+
+## Git Workflow
+After implementing changes from an approved plan, always commit and push.
 
 ## Prompts
 skills/ contains battle-tested prompts. Do not rewrite from scratch.
