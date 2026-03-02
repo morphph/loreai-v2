@@ -41,13 +41,18 @@ export async function callClaude(
   writeFileSync(tmpFile, prompt, 'utf-8');
 
   try {
+    // Clean env to avoid nested Claude Code session errors
+    const cleanEnv = { ...process.env };
+    delete cleanEnv.CLAUDECODE;
+
     const stdout = execSync(
-      `cat "${tmpFile}" | claude --model ${model} --output-format text --max-turns 1 --print`,
+      `cat "${tmpFile}" | claude --model ${model} --output-format text --max-turns 2 --print`,
       {
         timeout: 3 * 60 * 1000, // 3 minutes
         maxBuffer: 10 * 1024 * 1024, // 10 MB
         encoding: 'utf-8',
         stdio: ['pipe', 'pipe', 'pipe'],
+        env: cleanEnv,
       }
     );
 

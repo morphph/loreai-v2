@@ -21,10 +21,16 @@ export const TWITTER_ACCOUNTS = [
 ];
 
 export const SEARCH_QUERIES = [
-  'Claude Code', 'AI agent', 'AI agent framework', 'MCP server',
-  'Claude Code skills', 'vibe coding', 'AI devtools', 'LLM tools',
-  'AI engineering', 'open source LLM', 'AI startup funding',
-  'OpenAI Responses API', 'Claude API', 'OpenAI skills',
+  '"Claude Code" -crypto -web3',
+  '"AI agent" (framework OR tool OR SDK) -crypto -web3',
+  '"MCP server" -crypto',
+  '"vibe coding" -crypto',
+  '"AI devtools" OR "AI developer tools"',
+  'LLM (tool OR framework OR library) -crypto -web3',
+  '"open source" (LLM OR model) (release OR launch)',
+  '"AI startup" (funding OR raised OR launch)',
+  '"Claude API" OR "OpenAI API" (update OR release OR new)',
+  '"AI engineering" (practice OR guide)',
 ];
 
 const API_BASE = 'https://api.twitterapi.io/twitter';
@@ -58,6 +64,17 @@ async function twitterFetch(endpoint: string, params: Record<string, string>): P
   return res.json();
 }
 
+function extractTweets(data: unknown): TwitterApiTweet[] {
+  if (Array.isArray(data)) return data;
+  if (data && typeof data === 'object') {
+    const obj = data as Record<string, unknown>;
+    for (const key of ['tweets', 'data', 'results']) {
+      if (Array.isArray(obj[key])) return obj[key] as TwitterApiTweet[];
+    }
+  }
+  return [];
+}
+
 function extractUrl(tweet: TwitterApiTweet): string {
   // Try to get first external URL from tweet
   const urls = tweet.extendedEntities?.urls;
@@ -67,19 +84,31 @@ function extractUrl(tweet: TwitterApiTweet): string {
   return tweet.url || `https://x.com/${username}/status/${tweet.id}`;
 }
 
-function tweetToNewsItem(tweet: TwitterApiTweet, source: string): NewsItem {
+const SPAM_PATTERN = /crypto|blockchain|nft|web3|wagmi|airdrop|presale|whitelist|solana|ethereum|token\s*launch|#ad\b/i;
+
+function tweetToNewsItem(tweet: TwitterApiTweet, source: string): NewsItem | null {
   const text = tweet.text || '';
   const likes = tweet.likeCount || 0;
   const retweets = tweet.retweetCount || 0;
 
+  // Spam filter
+  if (SPAM_PATTERN.test(text)) return null;
+
+  // Min engagement for search results
+  if (source.startsWith('search:') && (likes + retweets) < 5) return null;
+
   // Score based on engagement
-  const engagementScore = Math.min(90, 50 + Math.floor(Math.log2(likes + retweets + 1) * 5));
+  let engagementScore = Math.min(90, 50 + Math.floor(Math.log2(likes + retweets + 1) * 5));
+
+  // Curated account boost: +10 score, tier 1
+  const isCurated = !source.startsWith('search:');
+  if (isCurated) engagementScore = Math.min(100, engagementScore + 10);
 
   return {
     title: text.slice(0, 280).replace(/\n/g, ' ').trim(),
     url: extractUrl(tweet),
     source: `twitter:${source}`,
-    source_tier: 2,
+    source_tier: isCurated ? 1 : 2,
     summary: text.length > 280 ? text.slice(0, 500) : null,
     score: engagementScore,
     engagement_likes: likes,
@@ -96,12 +125,15 @@ export async function fetchTwitterTimelines(): Promise<NewsItem[]> {
     try {
       const data = await twitterFetch('/user/last_tweets', {
         userName: account,
-        count: '5',
-      }) as { tweets?: TwitterApiTweet[] };
+      });
 
-      const tweets = data.tweets || [];
+      const tweets = extractTweets(data);
+      if (tweets.length === 0 && data && typeof data === 'object') {
+        console.warn(`  Twitter @${account}: 0 tweets (response keys: ${Object.keys(data as object).join(', ')})`);
+      }
       for (const tweet of tweets) {
-        items.push(tweetToNewsItem(tweet, `@${account}`));
+        const item = tweetToNewsItem(tweet, `@${account}`);
+        if (item) items.push(item);
       }
       console.log(`  Twitter @${account}: ${tweets.length} tweets`);
     } catch (err) {
@@ -124,11 +156,15 @@ export async function fetchTwitterSearches(): Promise<NewsItem[]> {
         query,
         queryType: 'Latest',
         count: '10',
-      }) as { tweets?: TwitterApiTweet[] };
+      });
 
-      const tweets = data.tweets || [];
+      const tweets = extractTweets(data);
+      if (tweets.length === 0 && data && typeof data === 'object') {
+        console.warn(`  Twitter search "${query}": 0 tweets (response keys: ${Object.keys(data as object).join(', ')})`);
+      }
       for (const tweet of tweets) {
-        items.push(tweetToNewsItem(tweet, `search:${query}`));
+        const item = tweetToNewsItem(tweet, `search:${query}`);
+        if (item) items.push(item);
       }
       console.log(`  Twitter search "${query}": ${tweets.length} tweets`);
     } catch (err) {

@@ -59,6 +59,7 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   const github: NewsItem[] = [];
   const reddit: NewsItem[] = [];
   const huggingface: NewsItem[] = [];
+  const twitter: NewsItem[] = [];
   const others: NewsItem[] = [];
 
   for (const item of items) {
@@ -68,6 +69,8 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
       reddit.push(item);
     } else if (item.source.startsWith('huggingface:')) {
       huggingface.push(item);
+    } else if (item.source.startsWith('twitter:')) {
+      twitter.push(item);
     } else {
       others.push(item);
     }
@@ -76,6 +79,7 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   // Sort each group by score desc, take top N
   github.sort((a, b) => b.score - a.score);
   reddit.sort((a, b) => b.score - a.score);
+  twitter.sort((a, b) => b.score - a.score);
   huggingface.sort((a, b) => {
     // Combined metric: likes + downloads normalized
     const aMetric = a.engagement_likes + a.engagement_downloads / 1000;
@@ -88,11 +92,13 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
     ...github.slice(0, 5),
     ...reddit.slice(0, 3),
     ...huggingface.slice(0, 10),
+    ...twitter.slice(0, 15),
   ];
 
   console.log(`  GitHub: ${github.length} → ${Math.min(github.length, 5)}`);
   console.log(`  Reddit: ${reddit.length} → ${Math.min(reddit.length, 3)}`);
   console.log(`  HuggingFace: ${huggingface.length} → ${Math.min(huggingface.length, 10)}`);
+  console.log(`  Twitter: ${twitter.length} → ${Math.min(twitter.length, 15)}`);
   console.log(`  Others: ${others.length} (pass-through)`);
   console.log(`  Total pre-filtered: ${filtered.length}`);
 
@@ -155,6 +161,8 @@ function ruleBasedFallback(items: NewsItem[]): FilteredItem[] {
     const quota = tierQuotas[tier] || 3;
     tierItems.sort((a, b) => b.score - a.score);
     for (const item of tierItems.slice(0, quota)) {
+      // Skip low-quality twitter search items in fallback mode
+      if (item.source.startsWith('twitter:search:') && item.score < 65) continue;
       selected.push({
         id: item.id || 0,
         title: item.title,
