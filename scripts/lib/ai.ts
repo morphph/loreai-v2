@@ -46,7 +46,7 @@ export async function callClaude(
     delete cleanEnv.CLAUDECODE;
 
     const stdout = execSync(
-      `cat "${tmpFile}" | claude --model ${model} --output-format text --max-turns 2 --print`,
+      `cat "${tmpFile}" | claude --model ${model} --output-format text --max-turns 1 --tools "" --print`,
       {
         timeout: 3 * 60 * 1000, // 3 minutes
         maxBuffer: 10 * 1024 * 1024, // 10 MB
