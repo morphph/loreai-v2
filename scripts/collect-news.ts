@@ -123,10 +123,19 @@ async function collectAnthropicBlogs(): Promise<NewsItem[]> {
       const section = blog.urlPrefix.replace(/\//g, '');
       const slugRegex = /"slug":\{"_type":"slug","current":"([^"]+)"\}/g;
       let slugMatch;
+      const thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
 
       while ((slugMatch = slugRegex.exec(combined)) !== null) {
         const slug = slugMatch[1];
         if (slug === section || slug === 'not-found' || slug.length < 3) continue;
+
+        // Look backward for publishedOn date
+        const before = combined.slice(Math.max(0, slugMatch.index - 2000), slugMatch.index);
+        const pubMatch = before.match(/"publishedOn":"([^"]+)"/);
+        if (pubMatch) {
+          const pubDate = new Date(pubMatch[1]).getTime();
+          if (!isNaN(pubDate) && pubDate < thirtyDaysAgo) continue;
+        }
 
         // Title comes after slug in the data (within ~1000 chars)
         const after = combined.slice(slugMatch.index + slugMatch[0].length, slugMatch.index + slugMatch[0].length + 1000);
@@ -138,7 +147,6 @@ async function collectAnthropicBlogs(): Promise<NewsItem[]> {
         seen.add(url);
 
         // Look backward for summary
-        const before = combined.slice(Math.max(0, slugMatch.index - 2000), slugMatch.index);
         const summaryMatch = before.match(/"summary":"((?:[^"\\]|\\.)*)"/);
 
         const title = titleMatch[1].replace(/\\(.)/g, '$1');
@@ -153,7 +161,7 @@ async function collectAnthropicBlogs(): Promise<NewsItem[]> {
           engagement_likes: 0,
           engagement_retweets: 0,
           engagement_downloads: 0,
-          raw_json: JSON.stringify({ source: blog.name, slug }),
+          raw_json: JSON.stringify({ source: blog.name, slug, publishedOn: pubMatch?.[1] || null }),
         });
       }
 
@@ -414,11 +422,19 @@ async function collectHuggingFace(): Promise<NewsItem[]> {
   console.log('\n🤗 Tier 3c: HuggingFace');
   const items: NewsItem[] = [];
   const seen = new Set<string>();
+  const fourteenDaysAgo = Date.now() - 14 * 24 * 60 * 60 * 1000;
 
-  // Top 30 by likes in last 7 days
+  function hfScore(likes: number, createdAt?: string): number {
+    const base = Math.min(85, 60 + Math.floor(Math.log10(likes + 1) * 8));
+    // Recency bonus: models created in last 14 days get +5
+    if (createdAt && new Date(createdAt).getTime() > fourteenDaysAgo) return Math.min(90, base + 5);
+    return base;
+  }
+
+  // Trending first (recency-weighted — surfaces new releases)
   try {
     const res = await fetch(
-      'https://huggingface.co/api/models?sort=likes7d&direction=-1&limit=30'
+      'https://huggingface.co/api/models?sort=trendingScore&direction=-1&limit=30'
     );
     if (res.ok) {
       const models = await res.json();
@@ -429,7 +445,49 @@ async function collectHuggingFace(): Promise<NewsItem[]> {
 
         const likes = model.likes || 0;
         const downloads = model.downloads || 0;
-        const score = Math.min(85, 60 + Math.floor(Math.log10(likes + 1) * 8));
+
+        items.push({
+          title: `${id}: ${model.pipeline_tag || 'model'}`,
+          url: `https://huggingface.co/${id}`,
+          source: 'huggingface:trending',
+          source_tier: 3,
+          summary: model.description?.slice(0, 500) || null,
+          score: hfScore(likes, model.createdAt),
+          engagement_likes: likes,
+          engagement_retweets: 0,
+          engagement_downloads: downloads,
+          raw_json: JSON.stringify({
+            modelId: id,
+            likes,
+            downloads,
+            trendingScore: model.trendingScore,
+            createdAt: model.createdAt,
+            pipeline_tag: model.pipeline_tag,
+            tags: model.tags?.slice(0, 10),
+          }),
+        });
+      }
+      console.log(`  Trending: ${models.length} models`);
+    }
+  } catch (err) {
+    console.warn('  HuggingFace trending failed:', (err as Error).message);
+  }
+
+  // Top 30 by likes in last 7 days (captures popular models not in trending)
+  try {
+    const res = await fetch(
+      'https://huggingface.co/api/models?sort=likes7d&direction=-1&limit=30'
+    );
+    if (res.ok) {
+      const models = await res.json();
+      const prevCount = items.length;
+      for (const model of models) {
+        const id = model.modelId || model.id;
+        if (seen.has(id)) continue;
+        seen.add(id);
+
+        const likes = model.likes || 0;
+        const downloads = model.downloads || 0;
 
         items.push({
           title: `${id}: ${model.pipeline_tag || 'model'}`,
@@ -437,7 +495,7 @@ async function collectHuggingFace(): Promise<NewsItem[]> {
           source: 'huggingface:likes7d',
           source_tier: 3,
           summary: model.description?.slice(0, 500) || null,
-          score,
+          score: hfScore(likes, model.createdAt),
           engagement_likes: likes,
           engagement_retweets: 0,
           engagement_downloads: downloads,
@@ -445,56 +503,16 @@ async function collectHuggingFace(): Promise<NewsItem[]> {
             modelId: id,
             likes,
             downloads,
+            createdAt: model.createdAt,
             pipeline_tag: model.pipeline_tag,
             tags: model.tags?.slice(0, 10),
           }),
         });
       }
-      console.log(`  Likes7d: ${models.length} models`);
+      console.log(`  Likes7d: ${models.length} models (${items.length - prevCount} new after dedup)`);
     }
   } catch (err) {
     console.warn('  HuggingFace likes7d failed:', (err as Error).message);
-  }
-
-  // Top 30 by downloads in last 7 days
-  try {
-    const res = await fetch(
-      'https://huggingface.co/api/models?sort=downloads7d&direction=-1&limit=30'
-    );
-    if (res.ok) {
-      const models = await res.json();
-      for (const model of models) {
-        const id = model.modelId || model.id;
-        if (seen.has(id)) continue;
-        seen.add(id);
-
-        const likes = model.likes || 0;
-        const downloads = model.downloads || 0;
-        const score = Math.min(85, 60 + Math.floor(Math.log10(downloads + 1) * 5));
-
-        items.push({
-          title: `${id}: ${model.pipeline_tag || 'model'}`,
-          url: `https://huggingface.co/${id}`,
-          source: 'huggingface:downloads7d',
-          source_tier: 3,
-          summary: model.description?.slice(0, 500) || null,
-          score,
-          engagement_likes: likes,
-          engagement_retweets: 0,
-          engagement_downloads: downloads,
-          raw_json: JSON.stringify({
-            modelId: id,
-            likes,
-            downloads,
-            pipeline_tag: model.pipeline_tag,
-            tags: model.tags?.slice(0, 10),
-          }),
-        });
-      }
-      console.log(`  Downloads7d: ${models.length} models (${items.length - (models.length)} new after dedup)`);
-    }
-  } catch (err) {
-    console.warn('  HuggingFace downloads7d failed:', (err as Error).message);
   }
 
   console.log(`  Total HuggingFace: ${items.length} models`);
