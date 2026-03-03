@@ -56,6 +56,7 @@ async function stage1_dbQuery(): Promise<NewsItem[]> {
 function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   console.log('\n🔍 Stage 2: Pre-filter');
 
+  const blogs: NewsItem[] = [];
   const github: NewsItem[] = [];
   const reddit: NewsItem[] = [];
   const huggingface: NewsItem[] = [];
@@ -63,7 +64,9 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   const others: NewsItem[] = [];
 
   for (const item of items) {
-    if (item.source.startsWith('github:trending')) {
+    if (item.source.startsWith('blog:') || (item.source.startsWith('rss:') && item.source_tier === 1)) {
+      blogs.push(item);
+    } else if (item.source.startsWith('github:trending')) {
       github.push(item);
     } else if (item.source.startsWith('reddit:')) {
       reddit.push(item);
@@ -77,6 +80,7 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   }
 
   // Sort each group by score desc, take top N
+  blogs.sort((a, b) => b.score - a.score);
   github.sort((a, b) => b.score - a.score);
   reddit.sort((a, b) => b.score - a.score);
   twitter.sort((a, b) => b.score - a.score);
@@ -89,12 +93,14 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
 
   const filtered = [
     ...others,
+    ...blogs.slice(0, 15),
     ...github.slice(0, 5),
     ...reddit.slice(0, 3),
     ...huggingface.slice(0, 10),
     ...twitter.slice(0, 15),
   ];
 
+  console.log(`  Blogs: ${blogs.length} → ${Math.min(blogs.length, 15)}`);
   console.log(`  GitHub: ${github.length} → ${Math.min(github.length, 5)}`);
   console.log(`  Reddit: ${reddit.length} → ${Math.min(reddit.length, 3)}`);
   console.log(`  HuggingFace: ${huggingface.length} → ${Math.min(huggingface.length, 10)}`);
@@ -146,23 +152,52 @@ function loadPreviousBoldTitles(): string[] {
 function ruleBasedFallback(items: NewsItem[]): FilteredItem[] {
   console.log('  Using rule-based fallback filter');
 
-  // Group by tier, take top items
-  const tierQuotas: Record<number, number> = { 0: 8, 1: 8, 2: 5, 3: 4, 4: 3, 5: 2 };
-  const byTier = new Map<number, NewsItem[]>();
+  // Group by source type (not just tier — curated Twitter and blogs share tier 1)
+  const buckets: Record<string, NewsItem[]> = {
+    blog: [],       // blog:* and tier-1 RSS (official blogs)
+    rss: [],        // tier-0 RSS (media/indie)
+    twitter: [],    // twitter:@* (curated timelines)
+    twitterSearch: [], // twitter:search:*
+    github: [],     // github:trending + github:release
+    huggingface: [], // huggingface:*
+    hackernews: [], // hackernews
+    reddit: [],     // reddit:*
+  };
 
   for (const item of items) {
-    const tier = item.source_tier;
-    if (!byTier.has(tier)) byTier.set(tier, []);
-    byTier.get(tier)!.push(item);
+    const src = item.source;
+    if (src.startsWith('blog:') || (src.startsWith('rss:') && item.source_tier === 1)) {
+      buckets.blog.push(item);
+    } else if (src.startsWith('rss:')) {
+      buckets.rss.push(item);
+    } else if (src.startsWith('twitter:search:')) {
+      buckets.twitterSearch.push(item);
+    } else if (src.startsWith('twitter:')) {
+      buckets.twitter.push(item);
+    } else if (src.startsWith('github:')) {
+      buckets.github.push(item);
+    } else if (src.startsWith('huggingface:')) {
+      buckets.huggingface.push(item);
+    } else if (src === 'hackernews') {
+      buckets.hackernews.push(item);
+    } else if (src.startsWith('reddit:')) {
+      buckets.reddit.push(item);
+    } else {
+      buckets.rss.push(item); // fallback
+    }
   }
 
+  const quotas: Record<string, number> = {
+    blog: 6, rss: 6, twitter: 8, twitterSearch: 3,
+    github: 4, huggingface: 2, hackernews: 3, reddit: 2,
+  };
+
   const selected: FilteredItem[] = [];
-  for (const [tier, tierItems] of byTier) {
-    const quota = tierQuotas[tier] || 3;
-    tierItems.sort((a, b) => b.score - a.score);
-    for (const item of tierItems.slice(0, quota)) {
-      // Skip low-quality twitter search items in fallback mode
-      if (item.source.startsWith('twitter:search:') && item.score < 65) continue;
+  for (const [bucket, bucketItems] of Object.entries(buckets)) {
+    const quota = quotas[bucket] || 3;
+    bucketItems.sort((a, b) => b.score - a.score);
+    for (const item of bucketItems.slice(0, quota)) {
+      if (bucket === 'twitterSearch' && item.score < 65) continue;
       selected.push({
         id: item.id || 0,
         title: item.title,
@@ -677,6 +712,12 @@ async function main() {
     catCounts[f.category] = (catCounts[f.category] || 0) + 1;
   }
   console.log('  Categories:', Object.entries(catCounts).map(([k, v]) => `${k}:${v}`).join(', '));
+  const srcCounts: Record<string, number> = {};
+  for (const f of filtered) {
+    const bucket = f.source.split(':')[0];
+    srcCounts[bucket] = (srcCounts[bucket] || 0) + 1;
+  }
+  console.log('  Sources:', Object.entries(srcCounts).map(([k, v]) => `${k}:${v}`).join(', '));
 
   if (DRY_RUN) {
     console.log('\n📝 Stage 4: EN Newsletter (dry-run — skipped)');
