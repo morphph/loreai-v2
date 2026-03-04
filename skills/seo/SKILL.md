@@ -361,6 +361,183 @@ Key mechanisms:
 
 ---
 
+## Gold-Standard Example: FAQ Entry
+
+```markdown
+---
+title: "What Is the Difference Between Claude Code and Cursor?"
+slug: what-is-the-difference-between-claude-code-and-cursor
+description: "Claude Code is a terminal-based AI agent; Cursor is an AI-enhanced IDE. Here's how they differ."
+category: tools
+related_glossary: [claude-code, cursor]
+related_blog: [anthropic-cowork-claude-desktop-agent]
+lang: en
+---
+
+# What Is the Difference Between Claude Code and Cursor?
+
+**[Claude Code](/glossary/claude-code)** is a terminal-based AI agent that executes multi-step coding tasks autonomously — it reads your codebase, runs commands, and commits changes. **Cursor** is a VS Code fork with built-in AI autocomplete and chat. The core difference: Claude Code operates as an agent with full shell access, while Cursor augments a traditional IDE editing workflow.
+
+## Context
+
+This question comes up because both tools use large language models to help developers write code, but their approaches are fundamentally different. Claude Code takes an agentic approach — you describe a task ("refactor the auth module and update tests"), and it plans and executes the entire workflow. Cursor focuses on inline completions and chat-driven edits within an IDE environment.
+
+The distinction matters because it affects how you work. With Claude Code, you stay in the terminal and delegate multi-file tasks. With Cursor, you keep direct control over each edit but get AI-powered suggestions. Many developers use both: Cursor for active editing, Claude Code for larger refactoring and automation tasks. See our [detailed comparison](/compare/claude-code-vs-cursor) for a full feature breakdown, or read about [Anthropic's latest agent capabilities](/blog/anthropic-cowork-claude-desktop-agent).
+
+## Practical Steps
+
+1. **Try Claude Code first** if your task spans multiple files — refactoring, test generation, or codebase-wide changes
+2. **Use Cursor** for focused editing sessions where you want AI suggestions line-by-line
+3. **Combine both**: edit in Cursor, then hand off larger tasks to Claude Code in your terminal
+4. Review Claude Code's planned actions before approving — it shows you what it intends to change
+
+## Related Questions
+
+- [Is Claude Code free to use?](/faq/is-claude-code-free-to-use)
+- [Can Claude Code run on Windows?](/faq/can-claude-code-run-on-windows)
+- [What models does Cursor use?](/faq/what-models-does-cursor-use)
+
+---
+
+*Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*
+```
+
+---
+
+## Gold-Standard Example: Comparison Entry
+
+```markdown
+---
+title: "Claude Code vs Cursor: Which AI Coding Tool Should You Use?"
+slug: claude-code-vs-cursor
+description: "Comparing Claude Code and Cursor across features, pricing, and workflows."
+item_a: Claude Code
+item_b: Cursor
+category: tools
+related_glossary: [claude-code, cursor]
+related_blog: [anthropic-cowork-claude-desktop-agent]
+lang: en
+---
+
+# Claude Code vs Cursor: Which AI Coding Tool Should You Use?
+
+**[Claude Code](/glossary/claude-code)** and **Cursor** are the two most talked-about AI coding tools in 2026, but they solve different problems. Claude Code is Anthropic's terminal-based AI agent — it reads your entire codebase, plans multi-step tasks, and executes them autonomously. Cursor is a VS Code fork with deep AI integration — autocomplete, inline editing, and chat, all inside a familiar IDE. The key differentiator: Claude Code is an autonomous agent; Cursor is an AI-enhanced editor.
+
+## Feature Comparison
+
+| Feature | Claude Code | Cursor |
+|---------|-------------|--------|
+| **Approach** | Autonomous terminal agent | AI-enhanced IDE |
+| **Interface** | Command line | VS Code fork |
+| **Context window** | Full project via CLAUDE.md | File-level + embeddings |
+| **Multi-file edits** | Native — plans and executes across files | Supported via chat, manual approval per file |
+| **Shell access** | Full shell execution | Limited terminal integration |
+| **Model** | Claude (Anthropic) | Multiple (GPT-4, Claude, custom) |
+| **Pricing** | Usage-based API billing | $20/mo Pro, $40/mo Business |
+| **Platform** | macOS, Linux (terminal) | macOS, Windows, Linux (desktop app) |
+
+## When to Use Claude Code
+
+Choose Claude Code when your task is bigger than a single file. It excels at:
+
+- **Codebase-wide refactoring**: rename a module, update all imports, fix tests — one command
+- **Test generation**: point it at a module and get comprehensive test coverage
+- **Project scaffolding**: describe an architecture and let it build the file structure
+- **Git workflows**: it stages, commits, and pushes with structured messages
+
+Claude Code is ideal for senior developers comfortable in the terminal who want to delegate tedious multi-step work. The [CLAUDE.md and SKILL.md](/glossary/claude-code) system means your AI follows project conventions automatically.
+
+## When to Use Cursor
+
+Choose Cursor when you want AI assistance during active editing:
+
+- **Line-by-line coding**: autocomplete that understands your codebase context
+- **Quick edits**: highlight code, describe the change, get an inline diff
+- **Exploration**: chat about unfamiliar code while reading it in the editor
+- **Team onboarding**: new developers get AI-powered code explanations in-context
+
+Cursor works best for developers who prefer a visual IDE and want AI integrated into their existing editing workflow. Its multi-model support means you can switch between [Claude](/glossary/claude), GPT-4, and other models.
+
+## Verdict
+
+If you work primarily in the terminal and need an autonomous agent for multi-file tasks, **choose Claude Code**. If you want AI-powered autocomplete and inline editing inside a full IDE, **choose Cursor**. Many teams use both — Cursor for daily editing, Claude Code for larger refactoring, test generation, and automation. Read our [analysis of Anthropic's agent roadmap](/blog/anthropic-cowork-claude-desktop-agent) to see where these tools are heading.
+
+---
+
+*Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*
+```
+
+---
+
+## Gold-Standard Example: Topic Hub Entry
+
+```markdown
+---
+title: "Claude Code — Everything You Need to Know"
+slug: claude-code
+description: "Complete guide to Claude Code: features, capabilities, and resources."
+pillar_topic: Claude Code
+category: tools
+related_glossary: [claude-code, anthropic, claude]
+related_blog: [anthropic-cowork-claude-desktop-agent, anthropic-claude-memory-upgrades-importing]
+related_compare: [claude-code-vs-cursor]
+related_faq: [what-is-the-difference-between-claude-code-and-cursor]
+lang: en
+---
+
+# Claude Code — Everything You Need to Know
+
+**[Claude Code](/glossary/claude-code)** is [Anthropic's](/glossary/anthropic) agentic coding tool that runs directly in your terminal. Unlike IDE copilots that suggest the next line, Claude Code operates as a full autonomous agent — it reads your project structure, plans multi-step tasks, executes shell commands, edits files across your codebase, and commits changes. Built on [Claude](/glossary/claude), it uses extended context windows and tool-use capabilities to handle complex engineering workflows. Since its launch, Claude Code has become the primary way developers interact with Claude for software engineering, from solo projects to enterprise codebases.
+
+## Latest Developments
+
+Anthropic has been shipping rapid updates to Claude Code throughout early 2026. The introduction of **agent teams** allows Claude Code to spawn sub-agents for parallel task execution — critical for large monorepo refactoring. **Memory upgrades** now let Claude Code retain context across sessions, reducing repeated setup. The latest [desktop agent capabilities](/blog/anthropic-cowork-claude-desktop-agent) extend Claude Code's reach beyond the terminal to GUI interactions.
+
+For daily coverage of Claude Code updates, see our [latest newsletter](/newsletter/2026-03-04). We covered the [memory importing feature](/blog/anthropic-claude-memory-upgrades-importing) in depth, including how it changes pair-programming workflows.
+
+## Key Features and Capabilities
+
+- **Project context system**: [CLAUDE.md](/glossary/claude-code) files define project-level instructions — coding standards, architecture decisions, and constraints that persist across sessions
+- **Skill files**: Reusable `SKILL.md` instruction files encode how Claude Code approaches specific tasks (writing tests, generating content, reviewing PRs)
+- **Full shell access**: Runs any terminal command — build tools, test runners, linters, deployment scripts — with user approval
+- **Multi-file editing**: Plans and executes changes across your entire codebase in a single session, not just the open file
+- **Git integration**: Stages, commits, creates PRs, and pushes with structured commit messages following your repo's conventions
+- **MCP servers**: Connects to external tools via the Model Context Protocol — databases, APIs, monitoring systems
+
+Claude Code is powered by Anthropic's Claude model with extended thinking and tool-use capabilities. It processes your entire project context through [transformer](/glossary/transformers)-based architecture optimized for code understanding.
+
+## Common Questions
+
+- **[What is the difference between Claude Code and Cursor?](/faq/what-is-the-difference-between-claude-code-and-cursor)**: Claude Code is a terminal agent; Cursor is an AI-enhanced IDE — different approaches to AI-assisted coding
+- **[Is Claude Code free to use?](/faq/is-claude-code-free-to-use)**: Claude Code uses API-based billing — you pay per token, with no fixed monthly subscription
+- **[Can Claude Code run on Windows?](/faq/can-claude-code-run-on-windows)**: Currently supports macOS and Linux natively, with Windows support via WSL
+
+## How Claude Code Compares
+
+- **[Claude Code vs Cursor](/compare/claude-code-vs-cursor)**: Terminal agent vs AI-enhanced IDE — Claude Code for autonomous multi-file tasks, Cursor for inline editing
+- **[Claude Code vs GitHub Copilot](/compare/claude-code-vs-github-copilot)**: Agentic workflows vs autocomplete — fundamentally different interaction models
+
+## All Claude Code Resources
+
+### Blog Posts
+- [Anthropic's Desktop Agent and Cowork Mode](/blog/anthropic-cowork-claude-desktop-agent)
+- [Claude Memory Upgrades: Importing Context Across Sessions](/blog/anthropic-claude-memory-upgrades-importing)
+
+### Glossary
+- [Claude Code](/glossary/claude-code) — Anthropic's terminal-based AI coding agent
+- [Claude](/glossary/claude) — Anthropic's family of large language models
+- [Anthropic](/glossary/anthropic) — AI safety company building Claude
+
+### Newsletters
+- [March 4, 2026 — Daily AI Briefing](/newsletter/2026-03-04)
+
+---
+
+*Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*
+```
+
+---
+
 ## Integration Note
 
 To use this skill in `generate-seo.ts`, load the file and inject into the system prompt:
