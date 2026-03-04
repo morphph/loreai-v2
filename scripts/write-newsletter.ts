@@ -244,6 +244,7 @@ async function stage3_agentFilter(
     source_tier: item.source_tier,
     score: item.score,
     summary: item.summary?.slice(0, 200) || null,
+    detected_at: item.detected_at || null,
     likes: item.engagement_likes,
     retweets: item.engagement_retweets,
     downloads: item.engagement_downloads,
@@ -274,6 +275,7 @@ Ensure at least 2 items per main category when possible.
 - Prioritize: breaking news, major releases, high engagement, practical value
 - Include: diversity of sources and topics
 - Skip: trivial updates, duplicate/similar stories, old news recycled
+- Skip: items that are well-known older releases (>30 days old) even if still trending on HuggingFace — use your knowledge of actual release dates (e.g. DeepSeek-R1 released Jan 2025)
 - Prefer: items with high engagement metrics relative to their source
 
 ## Output Format
@@ -434,7 +436,7 @@ async function stage5_writeZH(filtered: FilteredItem[]): Promise<string> {
     }
   }
 
-  const systemPrompt = `${skill}\n\n## 本期规则\n- 日期：${DATE}\n- 提供条目：${filtered.length}\n- 必须按照结构模板完整输出中文 Newsletter\n- 这不是英文版的翻译。基于同一批新闻源，独立创作中文版本\n- 只输出 Newsletter 正文 Markdown，不要 frontmatter，不要元描述`;
+  const systemPrompt = `${skill}\n\n## 本期规则\n- 日期：${DATE}\n- 提供条目：${filtered.length}\n- 必须按照结构模板完整输出中文 Newsletter\n- 只输出 Newsletter 正文 Markdown，不要 frontmatter，不要元描述`;
 
   const userPrompt = `基于以下 ${filtered.length} 条精选 AI 新闻，创作今日 LoreAI AI 简报中文版（${DATE}）：\n\n${itemsText}`;
 

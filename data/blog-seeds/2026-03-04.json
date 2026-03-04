@@ -1,38 +1,38 @@
 [
   {
-    "topic": "tensorflow/tensorflow: An Open Source Machine Learning Framework for Everyone",
-    "url": "https://github.com/tensorflow/tensorflow",
-    "source": "github:trending:ML recent",
-    "x_engagement_24h": 269170,
+    "topic": "Anthropic launches Cowork, a Claude Desktop agent that works in your files — no coding required",
+    "url": "https://venturebeat.com/technology/anthropic-launches-cowork-a-claude-desktop-agent-that-works-in-your-files-no",
+    "source": "rss:VentureBeat AI",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 41,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic upgrades Claude's memory to attract AI switchers",
+    "url": "https://www.theverge.com/ai-artificial-intelligence/887885/anthropic-claude-memory-upgrades-importing",
+    "source": "rss:The Verge AI",
+    "x_engagement_24h": 0,
     "brave_has_results": true,
     "brave_related_searches": [],
     "brave_discussions": [],
     "mention_count_7d": 4,
-    "composite_score": 105.751,
+    "composite_score": 25,
     "suggested_angle": "news"
   },
   {
-    "topic": "In the next version of Claude Code..  We're introducing two new Skills: /simplify and /batch. I have been using both daily, and am excited to share them with everyone.  Combined, these kills automate much of the work it used to take to (1) shepherd a pull request to production an",
-    "url": "https://x.com/bcherny/status/2027534984534544489",
+    "topic": "SemiAnalysis: 4% of GitHub public commits are authored by Claude Code",
+    "url": "https://x.com/bcherny/status/2027458544493335008",
     "source": "twitter:@bcherny",
-    "x_engagement_24h": 12790,
+    "x_engagement_24h": 3292,
     "brave_has_results": true,
     "brave_related_searches": [],
     "brave_discussions": [],
     "mention_count_7d": 3,
-    "composite_score": 24.837,
-    "suggested_angle": "news"
-  },
-  {
-    "topic": "RT @AnthropicAI: A statement on the comments from Secretary of War Pete Hegseth.   https://t.co/Gg7Zb09IMR",
-    "url": "https://x.com/bcherny/status/2027566467106148378",
-    "source": "twitter:@bcherny",
-    "x_engagement_24h": 49109,
-    "brave_has_results": true,
-    "brave_related_searches": [],
-    "brave_discussions": [],
-    "mention_count_7d": 0,
-    "composite_score": 23.7327,
-    "suggested_angle": "news"
+    "composite_score": 21.9876,
+    "suggested_angle": "analysis"
   }
 ]
