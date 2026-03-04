@@ -60,11 +60,17 @@ interface CheckResult {
 // ---------------------------------------------------------------------------
 
 function countWords(md: string): number {
-  return md
+  const stripped = md
     .replace(/^---[\s\S]*?---/m, '')
-    .replace(/^#+.+$/gm, '')
-    .split(/\s+/)
-    .filter((w) => w.length > 0).length;
+    .replace(/^#+.+$/gm, '');
+
+  // Count CJK characters (each ≈ 1 word)
+  const cjkChars = (stripped.match(/[\u4e00-\u9fff\u3400-\u4dbf]/g) || []).length;
+  // Count non-CJK words (English, numbers, etc.)
+  const nonCjk = stripped.replace(/[\u4e00-\u9fff\u3400-\u4dbf]/g, ' ');
+  const enWords = nonCjk.split(/\s+/).filter((w) => w.length > 0).length;
+
+  return cjkChars + enWords;
 }
 
 function extractExternalLinks(md: string): string[] {

@@ -142,10 +142,10 @@ function contentExistsInDb(type: SEOPageType, slug: string, lang: string): boole
 }
 
 function contentExists(type: SEOPageType, slug: string): boolean {
-  return (
-    contentFileExists(type, slug, 'en') ||
-    contentExistsInDb(type, slug, 'en')
-  );
+  // Both EN and ZH must exist for the content to be considered complete
+  const enExists = contentFileExists(type, slug, 'en') || contentExistsInDb(type, slug, 'en');
+  const zhExists = contentFileExists(type, slug, 'zh') || contentExistsInDb(type, slug, 'zh');
+  return enExists && zhExists;
 }
 
 function loadSkill(): string {
@@ -571,15 +571,27 @@ function buildZhSystemAddendum(job: PageJob): string {
     compare: '对比分析',
     topics: '专题中心',
   };
+  const wordRanges: Record<SEOPageType, string> = {
+    glossary: '200-350',
+    faq: '200-450',
+    compare: '350-700',
+    topics: '450-900',
+  };
   return `
-## 语言要求
+## 中文生成要求
 - lang: zh
 - 用中文撰写，不是翻译——基于同一主题独立创作中文版本
 - 保持相同的 frontmatter 结构（lang 字段改为 zh）
 - slug 保持与英文版相同: ${job.slug}
 - 页面类型: ${typeLabels[job.type]}
+- 正文字数: ${wordRanges[job.type]} 字（中文字符计数，不含 frontmatter）
 - 正文使用中文，但技术术语可保留英文（如 Claude Code, MCP, SKILL.md）
-- 内部链接路径不变`;
+- 内部链接路径不变
+- 必须以以下 CTA 结尾:
+
+---
+
+*觉得有用？[订阅 LoreAI](/subscribe)，每天 5 分钟掌握 AI 动态。*`;
 }
 
 async function generatePage(
@@ -617,10 +629,12 @@ async function generatePage(
         validate: fullValidate,
       });
     } else {
-      // ZH: no fallback — skip on failure
-      response = await callClaude(systemPrompt, userPrompt, {
+      // ZH: retry with validation (2 attempts)
+      response = await callClaudeWithRetry(systemPrompt, userPrompt, {
         maxTokens: 4096,
         temperature: 0.4,
+        maxRetries: 2,
+        validate: fullValidate,
       });
       const result = fullValidate(response.content);
       if (!result.valid) {
@@ -683,32 +697,36 @@ async function stage4_generatePages(jobs: PageJob[]): Promise<GeneratedPage[]> {
       continue;
     }
 
-    // Generate EN
-    console.log('  Generating EN...');
-    const enPage = await generatePage(job, skill, 'en');
-    if (!enPage) {
-      console.warn('  EN generation failed, skipping this page');
-      continue;
+    // Generate EN (skip if already exists on disk)
+    const enFileExists = contentFileExists(job.type, job.slug, 'en');
+    if (enFileExists) {
+      console.log('  EN already exists, skipping');
+    } else {
+      console.log('  Generating EN...');
+      const enPage = await generatePage(job, skill, 'en');
+      if (!enPage) {
+        console.warn('  EN generation failed, skipping this page');
+        continue;
+      }
+      generated.push(enPage);
+      console.log(`  Written: ${enPage.filePath}`);
+
+      const enContentId = upsertContent({
+        type: job.type,
+        slug: job.slug,
+        lang: 'en',
+        title: job.displayTerm,
+        body_markdown: `${enPage.frontmatter}\n\n${enPage.body}`,
+        meta_json: JSON.stringify({
+          category: job.type,
+          cluster_slug: job.clusterSlug,
+          pillar_topic: job.pillarTopic,
+        }),
+      });
+      console.log(`  EN DB record id=${enContentId}`);
     }
-    generated.push(enPage);
-    console.log(`  Written: ${enPage.filePath}`);
 
-    // Store EN in DB
-    const enContentId = upsertContent({
-      type: job.type,
-      slug: job.slug,
-      lang: 'en',
-      title: job.displayTerm,
-      body_markdown: `${enPage.frontmatter}\n\n${enPage.body}`,
-      meta_json: JSON.stringify({
-        category: job.type,
-        cluster_slug: job.clusterSlug,
-        pillar_topic: job.pillarTopic,
-      }),
-    });
-    console.log(`  EN DB record id=${enContentId}`);
-
-    // Generate ZH (no fallback — skip on failure)
+    // Generate ZH (retry with validation)
     console.log('  Generating ZH...');
     const zhPage = await generatePage(job, skill, 'zh');
     if (zhPage) {
