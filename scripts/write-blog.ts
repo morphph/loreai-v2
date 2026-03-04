@@ -24,6 +24,16 @@ import { validateBlogPost } from './lib/validate';
 import { getDb, getRecentNewsItems, upsertContent, upsertKeyword, closeDb } from './lib/db';
 import { gitAddCommitPush } from './lib/git';
 
+/** Strip markdown code fences and leading whitespace that models sometimes wrap output in */
+function stripCodeFences(text: string): string {
+  let s = text.trim();
+  // Remove opening ```markdown or ```yaml or ``` at start
+  s = s.replace(/^```(?:markdown|yaml|md)?\s*\n/, '');
+  // Remove closing ``` at end
+  s = s.replace(/\n```\s*$/, '');
+  return s.trim();
+}
+
 // Parse args
 const dateArg = process.argv.find((a) => a.startsWith('--date='));
 const DATE = dateArg ? dateArg.split('=')[1] : new Date().toISOString().split('T')[0];
@@ -325,29 +335,29 @@ async function generateENBlog(
       maxTokens: 8192,
       temperature: 0.5,
       maxRetries: 3,
-      validate: (content) => {
-        // Check for frontmatter
+      validate: (raw) => {
+        const content = stripCodeFences(raw);
         if (!content.match(/^---\n[\s\S]*?\n---/)) {
           return { valid: false, errors: ['Missing frontmatter block'] };
         }
-        // Validate the body (after frontmatter)
         const body = content.replace(/^---[\s\S]*?---\n*/, '');
         return validateBlogPost(body);
       },
     });
 
+    const cleaned = stripCodeFences(response.content);
     console.log(`    EN blog generated (model: ${response.model})`);
     console.log(`    Tokens: ${response.usage?.input_tokens} in / ${response.usage?.output_tokens} out`);
 
     // Parse frontmatter
-    const fmMatch = response.content.match(/^---\n([\s\S]*?)\n---/);
+    const fmMatch = cleaned.match(/^---\n([\s\S]*?)\n---/);
     if (!fmMatch) {
       console.warn('    Failed to parse frontmatter');
       return null;
     }
 
     const frontmatter = parseFrontmatter(fmMatch[1], 'en');
-    const body = response.content.replace(/^---[\s\S]*?---\n*/, '');
+    const body = cleaned.replace(/^---[\s\S]*?---\n*/, '');
 
     return { frontmatter, markdown: body };
   } catch (err) {
@@ -404,7 +414,8 @@ async function generateZHBlog(
       maxTokens: 8192,
       temperature: 0.5,
       maxRetries: 2,
-      validate: (content) => {
+      validate: (raw) => {
+        const content = stripCodeFences(raw);
         if (!content.match(/^---\n[\s\S]*?\n---/)) {
           return { valid: false, errors: ['Missing frontmatter block'] };
         }
@@ -416,17 +427,18 @@ async function generateZHBlog(
       },
     });
 
+    const cleaned = stripCodeFences(response.content);
     console.log(`    ZH blog generated (model: ${response.model})`);
     console.log(`    Tokens: ${response.usage?.input_tokens} in / ${response.usage?.output_tokens} out`);
 
-    const fmMatch = response.content.match(/^---\n([\s\S]*?)\n---/);
+    const fmMatch = cleaned.match(/^---\n([\s\S]*?)\n---/);
     if (!fmMatch) {
       console.warn('    Failed to parse ZH frontmatter');
       return null;
     }
 
     const frontmatter = parseFrontmatter(fmMatch[1], 'zh');
-    const body = response.content.replace(/^---[\s\S]*?---\n*/, '');
+    const body = cleaned.replace(/^---[\s\S]*?---\n*/, '');
 
     return { frontmatter, markdown: body };
   } catch (err) {

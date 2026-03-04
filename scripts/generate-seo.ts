@@ -50,6 +50,14 @@ import { runGapAnalysis } from './lib/topic-cluster';
 import { batchValidate } from './lib/brave';
 import { gitAddCommitPush } from './lib/git';
 
+/** Strip markdown code fences and leading whitespace that models sometimes wrap output in */
+function stripCodeFences(text: string): string {
+  let s = text.trim();
+  s = s.replace(/^```(?:markdown|yaml|md)?\s*\n/, '');
+  s = s.replace(/\n```\s*$/, '');
+  return s.trim();
+}
+
 // ============================================================
 // CLI Args
 // ============================================================
@@ -590,7 +598,8 @@ async function generatePage(
     userPrompt = `用中文撰写以下内容（不是翻译英文版）：\n\n${baseUser}`;
   }
 
-  const fullValidate = (content: string) => {
+  const fullValidate = (raw: string) => {
+    const content = stripCodeFences(raw);
     if (!content.match(/^---\n[\s\S]*?\n---/)) {
       return { valid: false, errors: ['Missing frontmatter block'] };
     }
@@ -620,11 +629,12 @@ async function generatePage(
       }
     }
 
+    const cleaned = stripCodeFences(response.content);
     console.log(`    ${lang.toUpperCase()} generated (model: ${response.model})`);
     console.log(`    Tokens: ${response.usage?.input_tokens} in / ${response.usage?.output_tokens} out`);
 
-    const frontmatter = extractFrontmatter(response.content);
-    const body = extractBody(response.content);
+    const frontmatter = extractFrontmatter(cleaned);
+    const body = extractBody(cleaned);
 
     if (!frontmatter) {
       console.warn(`    Failed to parse frontmatter for ${lang}`);
@@ -635,7 +645,7 @@ async function generatePage(
     const dir = path.join(process.cwd(), 'content', job.type, lang);
     fs.mkdirSync(dir, { recursive: true });
     const filePath = path.join(dir, `${job.slug}.md`);
-    fs.writeFileSync(filePath, response.content);
+    fs.writeFileSync(filePath, cleaned);
 
     return {
       type: job.type,

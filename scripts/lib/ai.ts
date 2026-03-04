@@ -37,7 +37,8 @@ export async function callClaude(
 
   // Write prompt to a temp file
   const tmpFile = join(tmpdir(), `claude-prompt-${randomBytes(8).toString('hex')}.txt`);
-  const prompt = `${systemPrompt}\n\n---\n\n${userPrompt}`;
+  const noToolsDirective = '\n\nIMPORTANT: Output the content directly. Do NOT use tools, file reads, or any actions. Just generate the requested content immediately.';
+  const prompt = `${systemPrompt}${noToolsDirective}\n\n---\n\n${userPrompt}`;
   writeFileSync(tmpFile, prompt, 'utf-8');
 
   try {
@@ -46,7 +47,7 @@ export async function callClaude(
     delete cleanEnv.CLAUDECODE;
 
     const stdout = execSync(
-      `cat "${tmpFile}" | claude --model ${model} --output-format text --max-turns 1 --tools "" --print`,
+      `cat "${tmpFile}" | claude --model ${model} --output-format text --max-turns 1 --print`,
       {
         timeout: 3 * 60 * 1000, // 3 minutes
         maxBuffer: 10 * 1024 * 1024, // 10 MB

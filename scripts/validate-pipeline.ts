@@ -83,6 +83,11 @@ function readFile(rel: string): string {
   return fs.readFileSync(path.join(ROOT, rel), 'utf-8');
 }
 
+function normalizeDate(d: unknown): string {
+  if (d instanceof Date) return d.toISOString().slice(0, 10);
+  return String(d).slice(0, 10);
+}
+
 function findFilesByFrontmatterDate(dir: string, date: string): { slug: string; content: string }[] {
   const absDir = path.join(ROOT, dir);
   if (!fs.existsSync(absDir)) return [];
@@ -92,7 +97,7 @@ function findFilesByFrontmatterDate(dir: string, date: string): { slug: string; 
     const content = fs.readFileSync(path.join(absDir, file), 'utf-8');
     try {
       const { data } = matter(content);
-      if (data.date && String(data.date).slice(0, 10) === date) {
+      if (data.date && normalizeDate(data.date) === date) {
         results.push({ slug: file.replace(/\.md$/, ''), content });
       }
     } catch { /* skip unparseable */ }
