@@ -57,6 +57,8 @@
 
 {100-200 字。给读者的具体行动建议。试试 X、从 Y 迁移、关注 Z 的进展。按优先级排列，具体、可操作。}
 
+**相关阅读**：[今日简报](/newsletter/YYYY-MM-DD) 有更多背景。另见：[相关文章标题](/blog/related-slug)。
+
 ---
 
 *觉得有用？[订阅 AI 简报](/subscribe)，每天 5 分钟掌握 AI 动态。*
@@ -241,6 +243,8 @@ Skills 天然可组合。一个项目可以同时有 `skills/newsletter-en/SKILL
 3. **用版本控制管理 Skills**。像管理代码一样 — 审查改动、讨论优化、追踪效果。
 4. **先写具体的，再慢慢扩展**。"Python 代码审查"比"代码质量"好用十倍。
 5. **去 GitHub 搜已有的开源 Skills** 作为参考，不要从零开始。
+
+**相关阅读**：[今日简报](/newsletter/2026-02-28) 有更多 Claude Code 动态。另见：[CLAUDE.md 完全指南](/blog/claude-md-guide)。
 
 ---
 

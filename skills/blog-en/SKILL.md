@@ -46,6 +46,8 @@ Every blog post follows this exact structure:
 
 {100-200 words. Concrete action items for the reader. Try X, migrate from Y, watch for Z. Prioritized, specific, practical.}
 
+**Related**: [Today's newsletter](/newsletter/YYYY-MM-DD) covers the broader context. See also: [related post title](/blog/related-slug).
+
 ---
 
 *Found this useful? [Subscribe to AI News](/subscribe) for daily AI briefings.*
@@ -205,6 +207,8 @@ One limitation: Skills don't have access to external data or APIs. They're stati
 3. **Version control your skills**. Treat them like code — review changes, discuss improvements, track what works.
 4. **Start specific, expand later**. A skill for "Python code review" beats a generic "code quality" skill every time.
 5. **Check existing open-source skills** on GitHub for inspiration before writing from scratch.
+
+**Related**: [Today's newsletter](/newsletter/2026-02-28) covers more Claude Code updates. See also: [How CLAUDE.md Works](/blog/claude-md-guide).
 
 ---
 
