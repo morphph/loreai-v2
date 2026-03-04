@@ -330,13 +330,15 @@ lang: en
 
 # Claude Code — AI Glossary
 
-**Claude Code** is Anthropic's agentic coding tool that runs in your terminal. It connects directly to your codebase, understands project context through [CLAUDE.md](/glossary/claude-md) files, and executes multi-step engineering tasks — from writing code to running tests to committing changes. Unlike IDE-integrated copilots, Claude Code operates as an autonomous agent with full shell access.
+**Claude Code** is Anthropic's agentic coding tool that runs in your terminal, solving the problem of fragmented AI-assisted development — where you'd copy-paste between a chat window and your editor. It connects directly to your codebase, understands project context through [CLAUDE.md](/glossary/claude-md) files, and executes multi-step engineering tasks — from writing code to running tests to committing changes. Unlike IDE-integrated copilots, Claude Code operates as an autonomous agent with full shell access.
 
 ## Why Claude Code Matters
 
 Claude Code represents a shift from autocomplete-style AI assistance to full agent-based development. Instead of suggesting the next line, it plans and executes entire workflows: refactoring a module, fixing a failing test suite, or scaffolding a new feature across multiple files.
 
-For teams, the [SKILL.md](/glossary/skill-md) system lets you encode engineering standards into reusable instruction files that travel with your repo. This means consistent AI behavior across team members without repeating prompts. Read more in our [Claude Code skills guide](/blog/claude-code-skills-guide).
+For teams, the [SKILL.md](/glossary/skill-md) system lets you encode engineering standards into reusable instruction files that travel with your repo. This means consistent AI behavior across team members without repeating prompts. Read more in our [Claude Code skills guide](/blog/claude-code-skills-guide). See how it stacks up against IDE-based alternatives in our [Claude Code vs Cursor comparison](/compare/claude-code-vs-cursor).
+
+Our [latest coverage](/newsletter/2026-03-04) tracks the newest Claude Code features as they ship.
 
 ## How Claude Code Works
 
