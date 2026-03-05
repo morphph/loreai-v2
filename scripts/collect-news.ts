@@ -423,6 +423,7 @@ async function collectHuggingFace(): Promise<NewsItem[]> {
   const items: NewsItem[] = [];
   const seen = new Set<string>();
   const fourteenDaysAgo = Date.now() - 14 * 24 * 60 * 60 * 1000;
+  const sixtyDaysAgo = Date.now() - 60 * 24 * 60 * 60 * 1000;
 
   function hfScore(likes: number, createdAt?: string): number {
     const base = Math.min(85, 60 + Math.floor(Math.log10(likes + 1) * 8));
@@ -484,6 +485,10 @@ async function collectHuggingFace(): Promise<NewsItem[]> {
       for (const model of models) {
         const id = model.modelId || model.id;
         if (seen.has(id)) continue;
+
+        // Filter stale models: skip models created more than 60 days ago
+        if (model.createdAt && new Date(model.createdAt).getTime() < sixtyDaysAgo) continue;
+
         seen.add(id);
 
         const likes = model.likes || 0;

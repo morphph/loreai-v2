@@ -137,7 +137,7 @@ function loadPreviousBoldTitles(): string[] {
     .filter((f) => f.endsWith('.md') && !f.startsWith('.'))
     .sort()
     .reverse()
-    .slice(0, 3); // Last 3 newsletters
+    .slice(0, 7); // Last 7 newsletters
 
   const titles: string[] = [];
   for (const file of files) {
@@ -517,17 +517,17 @@ async function stage6_blogSeeds(filtered: FilteredItem[]): Promise<BlogSeed[]> {
 
   // Top 3 by composite score
   candidates.sort((a, b) => b.composite_score - a.composite_score);
-  const top3 = candidates.slice(0, 3);
+  const top5 = candidates.slice(0, 5);
 
   // Save to data/blog-seeds/
   const seedPath = path.join(process.cwd(), 'data', 'blog-seeds', `${DATE}.json`);
-  fs.writeFileSync(seedPath, JSON.stringify(top3, null, 2));
-  console.log(`  Top 3 blog seeds saved to ${seedPath}`);
-  for (const seed of top3) {
+  fs.writeFileSync(seedPath, JSON.stringify(top5, null, 2));
+  console.log(`  Top ${top5.length} blog seeds saved to ${seedPath}`);
+  for (const seed of top5) {
     console.log(`    ${seed.composite_score.toFixed(1)}: ${seed.topic.slice(0, 80)}`);
   }
 
-  return top3;
+  return top5;
 }
 
 // ============================================================

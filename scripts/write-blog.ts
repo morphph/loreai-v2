@@ -162,7 +162,7 @@ function topicToSlug(topic: string): string {
 }
 
 function stage2_pickCandidates(seeds: BlogSeed[]): BlogSeed[] {
-  console.log('\n🎯 Stage 2: Pick Top 2 Candidates');
+  console.log('\n🎯 Stage 2: Pick Top 3 Candidates');
 
   const recentSlugs = getRecentBlogSlugs(7);
   console.log(`  Recent blog slugs (last 7 days): ${recentSlugs.size}`);
@@ -194,7 +194,7 @@ function stage2_pickCandidates(seeds: BlogSeed[]): BlogSeed[] {
     }
 
     candidates.push(seed);
-    if (candidates.length >= 2) break;
+    if (candidates.length >= 3) break;
   }
 
   console.log(`  Selected ${candidates.length} candidates:`);
@@ -413,7 +413,7 @@ async function generateZHBlog(
     const response = await callClaudeWithRetry(systemPrompt, userPrompt, {
       maxTokens: 8192,
       temperature: 0.5,
-      maxRetries: 2,
+      maxRetries: 3,
       validate: (raw) => {
         const content = stripCodeFences(raw);
         if (!content.match(/^---\n[\s\S]*?\n---/)) {
@@ -442,7 +442,27 @@ async function generateZHBlog(
 
     return { frontmatter, markdown: body };
   } catch (err) {
-    console.warn('    ZH blog generation failed (skipping):', (err as Error).message);
+    const errorMsg = (err as Error).message;
+    const errorStack = (err as Error).stack || '';
+    console.warn('    ZH blog generation failed (skipping):', errorMsg);
+    console.warn('    Error details:', errorStack);
+
+    // Log ZH error to file for review report
+    const errDir = path.join(process.cwd(), 'data', 'blog-errors');
+    fs.mkdirSync(errDir, { recursive: true });
+    const errPath = path.join(errDir, `${DATE}.json`);
+    const existing: Array<Record<string, unknown>> = fs.existsSync(errPath)
+      ? JSON.parse(fs.readFileSync(errPath, 'utf-8'))
+      : [];
+    existing.push({
+      lang: 'zh',
+      topic: seed.topic,
+      error: errorMsg,
+      stack: errorStack.slice(0, 500),
+      timestamp: new Date().toISOString(),
+    });
+    fs.writeFileSync(errPath, JSON.stringify(existing, null, 2));
+
     return null;
   }
 }
@@ -578,7 +598,7 @@ function writeBlogFile(lang: string, slug: string, frontmatter: BlogFrontmatter,
   return filePath;
 }
 
-function saveSEOEntities(entities: SEOEntities, slug: string): void {
+function saveSEOEntities(entities: SEOEntities, slug: string, seed?: BlogSeed): void {
   // Save glossary terms to keywords table
   for (const term of entities.glossary_terms) {
     upsertKeyword(term, `blog:${slug}`, term);
@@ -597,6 +617,26 @@ function saveSEOEntities(entities: SEOEntities, slug: string): void {
   // Save comparison pairs
   for (const pair of entities.comparison_pairs) {
     upsertKeyword(pair, `blog-compare:${slug}`);
+  }
+
+  // Save brave_discussions and brave_related_searches from blog seed
+  if (seed) {
+    for (const discussion of seed.brave_discussions) {
+      const kwSlug = discussion
+        .toLowerCase()
+        .replace(/[^a-z0-9\s]/g, '')
+        .replace(/\s+/g, '-')
+        .slice(0, 60);
+      if (kwSlug) upsertKeyword(kwSlug, 'brave-discussion', slug);
+    }
+    for (const related of seed.brave_related_searches) {
+      const kwSlug = related
+        .toLowerCase()
+        .replace(/[^a-z0-9\s]/g, '')
+        .replace(/\s+/g, '-')
+        .slice(0, 60);
+      if (kwSlug) upsertKeyword(kwSlug, 'brave-related', slug);
+    }
   }
 }
 
@@ -688,12 +728,12 @@ async function stage3_processCandidates(candidates: BlogSeed[]): Promise<string[
       });
       console.log(`  ZH DB record id=${zhContentId}`);
     } else {
-      console.log('  ZH blog skipped (generation failed)');
+      console.log('  ZH blog skipped (generation failed — see data/blog-errors/ for details)');
     }
 
     // 3e. Extract SEO entities
     const seoEntities = await extractSEOEntities(seed.topic, enResult.markdown);
-    saveSEOEntities(seoEntities, slug);
+    saveSEOEntities(seoEntities, slug, seed);
     console.log(`  SEO entities saved to DB`);
 
     // Update frontmatter with SEO entities if they provide better data

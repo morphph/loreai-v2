@@ -46,6 +46,9 @@ loreai.db-shm
 # Review reports
 data/review/
 
+# Blog error logs
+data/blog-errors/
+
 # Logs
 logs/*.log
 

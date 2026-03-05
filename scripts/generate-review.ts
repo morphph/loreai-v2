@@ -261,6 +261,71 @@ function collectKeywordsData(date: string) {
 }
 
 // ---------------------------------------------------------------------------
+// Live site benchmark
+// ---------------------------------------------------------------------------
+
+interface BenchmarkData {
+  en: { html: string; storyCount: number; wordCount: number; sectionCount: number } | null;
+  zh: { html: string; storyCount: number; wordCount: number; sectionCount: number } | null;
+}
+
+async function collectLiveSiteBenchmark(date: string): Promise<BenchmarkData> {
+  const result: BenchmarkData = { en: null, zh: null };
+
+  for (const lang of ['en', 'zh'] as const) {
+    const url = lang === 'en'
+      ? `https://loreai.dev/newsletter/${date}`
+      : `https://loreai.dev/zh/newsletter/${date}`;
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 10000);
+      const res = await fetch(url, {
+        signal: controller.signal,
+        headers: { 'User-Agent': 'LoreAI-ReviewBot/1.0' },
+      });
+      clearTimeout(timeout);
+
+      if (!res.ok) {
+        console.log(`  Live site ${lang.toUpperCase()}: HTTP ${res.status}`);
+        continue;
+      }
+
+      const html = await res.text();
+      // Extract main content area
+      const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i) || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+      const content = mainMatch ? mainMatch[1] : html;
+
+      // Count stories (bold items or list items)
+      const storyCount = (content.match(/<strong>/gi) || []).length || (content.match(/<li>/gi) || []).length;
+      // Count words (strip HTML)
+      const text = content.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+      const wordCount = text.split(/\s+/).filter(w => w.length > 0).length;
+      // Count sections (h2/h3)
+      const sectionCount = (content.match(/<h[23][^>]*>/gi) || []).length;
+
+      result[lang] = { html: content, storyCount, wordCount, sectionCount };
+      console.log(`  Live site ${lang.toUpperCase()}: ${storyCount} stories, ${wordCount} words, ${sectionCount} sections`);
+    } catch (err) {
+      console.log(`  Live site ${lang.toUpperCase()}: ${(err as Error).message}`);
+    }
+  }
+
+  return result;
+}
+
+// ---------------------------------------------------------------------------
+// Blog errors
+// ---------------------------------------------------------------------------
+
+function collectBlogErrors(date: string): Array<{ lang: string; topic: string; error: string; timestamp: string }> {
+  const errPath = `data/blog-errors/${date}.json`;
+  if (!fileExists(errPath)) return [];
+  try {
+    return JSON.parse(readFile(errPath));
+  } catch { return []; }
+}
+
+// ---------------------------------------------------------------------------
 // Source label helper
 // ---------------------------------------------------------------------------
 
@@ -338,9 +403,139 @@ function renderNewsletterSection(data: ReturnType<typeof collectNewsletterData>)
     </section>`;
 }
 
-function renderBlogSection(posts: ReturnType<typeof collectBlogData>): string {
+function renderBenchmarkSection(
+  benchmark: BenchmarkData,
+  newsletterData: ReturnType<typeof collectNewsletterData>,
+): string {
+  if (!benchmark.en && !benchmark.zh) {
+    return `
+      <section id="benchmark">
+        <h2>Benchmark Comparison</h2>
+        <p style="color:#a3a3a3">Could not fetch live site newsletters for comparison</p>
+      </section>`;
+  }
+
+  let rows = '';
+  for (const lang of ['en', 'zh'] as const) {
+    const live = benchmark[lang];
+    const pipeline = newsletterData.find((d) => d.lang === lang);
+    if (!live && !pipeline?.exists) continue;
+
+    const pipelineWords = pipeline?.exists ? pipeline.words : 0;
+    const pipelineLinks = pipeline?.exists ? pipeline.links : 0;
+    const liveWords = live?.wordCount || 0;
+    const liveSections = live?.sectionCount || 0;
+    const liveStories = live?.storyCount || 0;
+
+    rows += `
+      <tr>
+        <td style="font-weight:600">${lang.toUpperCase()}</td>
+        <td>${pipelineWords}</td>
+        <td>${liveWords}</td>
+        <td>${pipelineLinks}</td>
+        <td>${liveStories}</td>
+        <td>${liveSections}</td>
+      </tr>`;
+  }
+
+  const comparisonTable = rows ? `
+    <div style="overflow-x:auto;margin-bottom:16px">
+      <table>
+        <thead>
+          <tr>
+            <th>Lang</th>
+            <th>Pipeline Words</th>
+            <th>Live Words</th>
+            <th>Pipeline Links</th>
+            <th>Live Stories</th>
+            <th>Live Sections</th>
+          </tr>
+        </thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>` : '';
+
+  // Side-by-side HTML preview
+  let sideByEn = '';
+  if (benchmark.en) {
+    const pipelineHtml = newsletterData.find((d) => d.lang === 'en')?.exists
+      ? mdToHtml(newsletterData.find((d) => d.lang === 'en')!.content)
+      : '<p style="color:#a3a3a3"><em>Not found</em></p>';
+    sideByEn = `
+      <h3>EN: Pipeline vs Live</h3>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <div style="flex:1;min-width:0">
+          <h4 style="margin:0 0 8px;color:#737373">Pipeline Output</h4>
+          <div class="md-content">${pipelineHtml}</div>
+        </div>
+        <div style="flex:1;min-width:0">
+          <h4 style="margin:0 0 8px;color:#737373">Live Site</h4>
+          <div class="md-content">${benchmark.en.html}</div>
+        </div>
+      </div>`;
+  }
+
+  let sideByZh = '';
+  if (benchmark.zh) {
+    const pipelineHtml = newsletterData.find((d) => d.lang === 'zh')?.exists
+      ? mdToHtml(newsletterData.find((d) => d.lang === 'zh')!.content)
+      : '<p style="color:#a3a3a3"><em>Not found</em></p>';
+    sideByZh = `
+      <h3 style="margin-top:24px">ZH: Pipeline vs Live</h3>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <div style="flex:1;min-width:0">
+          <h4 style="margin:0 0 8px;color:#737373">Pipeline Output</h4>
+          <div class="md-content">${pipelineHtml}</div>
+        </div>
+        <div style="flex:1;min-width:0">
+          <h4 style="margin:0 0 8px;color:#737373">Live Site</h4>
+          <div class="md-content">${benchmark.zh.html}</div>
+        </div>
+      </div>`;
+  }
+
+  return `
+    <section id="benchmark">
+      <h2>Benchmark Comparison</h2>
+      ${comparisonTable}
+      <details>
+        <summary style="cursor:pointer;padding:8px;background:#fafafa;border-radius:4px">
+          <strong>Side-by-side preview</strong>
+        </summary>
+        <div style="padding:12px">
+          ${sideByEn}
+          ${sideByZh}
+        </div>
+      </details>
+    </section>`;
+}
+
+function renderBlogErrorsSection(errors: ReturnType<typeof collectBlogErrors>): string {
+  if (errors.length === 0) return '';
+
+  const rows = errors.map((e) => `
+    <tr>
+      <td>${escapeHtml(e.lang.toUpperCase())}</td>
+      <td>${escapeHtml(e.topic.slice(0, 80))}</td>
+      <td style="color:#ef4444">${escapeHtml(e.error)}</td>
+      <td>${escapeHtml(e.timestamp)}</td>
+    </tr>`).join('');
+
+  return `
+    <div style="background:#fef2f2;padding:12px;border-radius:8px;margin-bottom:12px">
+      <h4 style="margin:0 0 8px;color:#991b1b">Blog Generation Errors (${errors.length})</h4>
+      <table>
+        <thead><tr><th>Lang</th><th>Topic</th><th>Error</th><th>Time</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+}
+
+function renderBlogSection(posts: ReturnType<typeof collectBlogData>, blogErrors?: ReturnType<typeof collectBlogErrors>): string {
+  const errorsHtml = blogErrors && blogErrors.length > 0 ? renderBlogErrorsSection(blogErrors) : '';
+
   if (posts.length === 0) {
-    return `<section id="blogs"><h2>Blogs</h2><p style="color:#a3a3a3">No blog posts found for ${DATE}</p></section>`;
+    return `<section id="blogs"><h2>Blogs</h2>${errorsHtml}<p style="color:#a3a3a3">No blog posts found for ${DATE}</p></section>`;
   }
 
   const postsHtml = posts.map((p) => {
@@ -364,7 +559,7 @@ function renderBlogSection(posts: ReturnType<typeof collectBlogData>): string {
       </details>`;
   }).join('');
 
-  return `<section id="blogs"><h2>Blogs (${posts.length})</h2>${postsHtml}</section>`;
+  return `<section id="blogs"><h2>Blogs (${posts.length})</h2>${errorsHtml}${postsHtml}</section>`;
 }
 
 function renderSeoSection(seo: ReturnType<typeof collectSeoData>): string {
@@ -405,6 +600,47 @@ function renderSeoSection(seo: ReturnType<typeof collectSeoData>): string {
   }).join('');
 
   return `<section id="seo"><h2>SEO Pages (${totalCount})</h2>${typesHtml}</section>`;
+}
+
+function renderSourceDistribution(filteredItems: ReturnType<typeof collectFilteredItems>): string {
+  if (!filteredItems || filteredItems.length === 0) return '';
+
+  const counts: Record<string, number> = {};
+  for (const item of filteredItems) {
+    const prefix = item.source.split(':')[0];
+    counts[prefix] = (counts[prefix] || 0) + 1;
+  }
+
+  const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  const maxCount = sorted[0]?.[1] || 1;
+
+  const bars = sorted.map(([source, count]) => {
+    const pct = Math.round((count / maxCount) * 100);
+    const colors: Record<string, string> = {
+      twitter: '#1da1f2', rss: '#f97316', blog: '#8b5cf6', github: '#333',
+      huggingface: '#fbbf24', hackernews: '#ff6600', reddit: '#ff4500',
+    };
+    const color = colors[source] || '#6b7280';
+    return `
+      <tr>
+        <td style="width:120px;font-weight:600">${escapeHtml(source)}</td>
+        <td>
+          <div style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:20px">
+            <div style="background:${color};height:100%;width:${pct}%;min-width:2px;border-radius:4px;transition:width 0.3s"></div>
+          </div>
+        </td>
+        <td style="width:50px;text-align:right;font-weight:600">${count}</td>
+      </tr>`;
+  }).join('');
+
+  return `
+    <section id="source-distribution">
+      <h2>Source Distribution</h2>
+      <table style="border-collapse:collapse;width:100%">
+        <tbody>${bars}</tbody>
+      </table>
+      <p style="font-size:12px;color:#737373">${filteredItems.length} total items across ${sorted.length} source types</p>
+    </section>`;
 }
 
 function renderDataSection(
@@ -555,6 +791,7 @@ function buildHtml(sections: string[]): string {
   <span class="title">Pipeline Review — ${DATE}</span>
   <a href="#dashboard">Dashboard</a>
   <a href="#newsletters">Newsletters</a>
+  <a href="#benchmark">Benchmark</a>
   <a href="#blogs">Blogs</a>
   <a href="#seo">SEO</a>
   <a href="#data">Data</a>
@@ -571,7 +808,7 @@ ${sections.join('\n')}
 // Main
 // ---------------------------------------------------------------------------
 
-function run(): void {
+async function run(): Promise<void> {
   console.log(`Generating review report for ${DATE}...`);
 
   // Collect all data
@@ -581,8 +818,13 @@ function run(): void {
   const filteredItems = collectFilteredItems(DATE);
   const blogSeeds = collectBlogSeeds(DATE);
   const keywordsData = collectKeywordsData(DATE);
+  const blogErrors = collectBlogErrors(DATE);
 
   closeDb();
+
+  // Fetch live site benchmark (async)
+  console.log('Fetching live site benchmark...');
+  const benchmark = await collectLiveSiteBenchmark(DATE);
 
   // Build dashboard cards
   const cards: DashboardCard[] = [];
@@ -604,14 +846,17 @@ function run(): void {
 
   // Blog card
   if (blogData.length === 0) {
-    cards.push({ label: 'Blog', status: 'missing', detail: 'No posts found', errors: [] });
+    cards.push({ label: 'Blog', status: blogErrors.length > 0 ? 'fail' : 'missing', detail: blogErrors.length > 0 ? `${blogErrors.length} error(s)` : 'No posts found', errors: blogErrors.map(e => `[${e.lang}] ${e.error}`) });
   } else {
-    const totalErrors = blogData.reduce((s, p) => s + p.errors.length, 0);
+    const totalErrors = blogData.reduce((s, p) => s + p.errors.length, 0) + blogErrors.length;
     cards.push({
       label: 'Blog',
       status: totalErrors > 0 ? 'fail' : 'pass',
-      detail: `${blogData.length} post(s)`,
-      errors: blogData.flatMap((p) => p.errors.map((e) => `[${p.slug}] ${e}`)),
+      detail: `${blogData.length} post(s)${blogErrors.length > 0 ? `, ${blogErrors.length} error(s)` : ''}`,
+      errors: [
+        ...blogData.flatMap((p) => p.errors.map((e) => `[${p.slug}] ${e}`)),
+        ...blogErrors.map(e => `[${e.lang}] ${e.error}`),
+      ],
     });
   }
 
@@ -651,8 +896,10 @@ function run(): void {
   // Render sections
   const sections = [
     renderDashboard(cards),
+    renderSourceDistribution(filteredItems),
     renderNewsletterSection(newsletterData),
-    renderBlogSection(blogData),
+    renderBenchmarkSection(benchmark, newsletterData),
+    renderBlogSection(blogData, blogErrors),
     renderSeoSection(seoData),
     renderDataSection(filteredItems, blogSeeds),
     renderKeywordsSection(keywordsData),
@@ -680,4 +927,7 @@ function run(): void {
   }
 }
 
-run();
+run().catch((err) => {
+  console.error('Review report failed:', err);
+  process.exit(1);
+});

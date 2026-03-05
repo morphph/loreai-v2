@@ -57,7 +57,7 @@ export function extractBoldTitles(markdown: string): string[] {
 export function crossDayDedup(
   items: NewsItem[],
   previousBoldTitles: string[],
-  threshold: number = 0.5
+  threshold: number = 0.4
 ): NewsItem[] {
   return items.filter((item) => {
     return !previousBoldTitles.some(
