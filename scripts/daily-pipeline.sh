@@ -1,5 +1,12 @@
 #!/bin/bash
 set -euo pipefail
+
+# Source profile to get full PATH (node, npm, npx, claude)
+# Cron runs with minimal env — this ensures CLI tools are found
+export PATH="/home/ubuntu/.local/bin:/home/ubuntu/.npm-global/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
+[ -f /home/ubuntu/.nvm/nvm.sh ] && source /home/ubuntu/.nvm/nvm.sh
+[ -f /home/ubuntu/.profile ] && source /home/ubuntu/.profile 2>/dev/null || true
+
 cd /home/ubuntu/loreai-v2
 STEP="${1:-all}"
 DATE=$(date -u +%Y-%m-%d)
