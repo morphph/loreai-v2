@@ -3,6 +3,30 @@ import { cors } from 'hono/cors';
 import { serve } from '@hono/node-server';
 import db from './db';
 
+const BUTTONDOWN_API_KEY = process.env.BUTTONDOWN_API_KEY;
+
+/** Sync subscriber to Buttondown in the background (fire-and-forget). */
+function syncToButtondown(email: string, lang: string) {
+  if (!BUTTONDOWN_API_KEY) return;
+  fetch('https://api.buttondown.com/v1/subscribers', {
+    method: 'POST',
+    headers: {
+      Authorization: `Token ${BUTTONDOWN_API_KEY}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      email_address: email,
+      tags: [lang],
+    }),
+  })
+    .then((res) => {
+      if (res.status === 201) console.log(`[buttondown] Synced ${email}`);
+      else if (res.status === 400) console.log(`[buttondown] ${email} already exists`);
+      else res.text().then((t) => console.error(`[buttondown] Sync failed (${res.status}):`, t));
+    })
+    .catch((err) => console.error('[buttondown] Sync error:', err));
+}
+
 const app = new Hono();
 
 app.use('/api/*', cors({
@@ -46,6 +70,7 @@ app.post('/api/subscribe', async (c) => {
   try {
     const lang = body.lang === 'zh' ? 'zh' : 'en';
     db.prepare('INSERT INTO subscribers (email, lang) VALUES (?, ?)').run(email, lang);
+    syncToButtondown(email, lang);
     return c.json({ message: "You're in! Check your inbox." });
   } catch (err: unknown) {
     if (err instanceof Error && err.message.includes('UNIQUE constraint')) {

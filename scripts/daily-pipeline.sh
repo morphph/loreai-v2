@@ -14,7 +14,9 @@ case "$STEP" in
     npx tsx scripts/write-newsletter.ts --date="$DATE"
     npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=newsletter
     git add content/newsletters/ data/filtered-items/ data/blog-seeds/
-    (git commit -m "📰 AI News $DATE" || true) && git push ;;
+    (git commit -m "📰 AI News $DATE" || true) && git push
+    npx tsx scripts/send-newsletter.ts --date="$DATE" --lang=en
+    npx tsx scripts/send-newsletter.ts --date="$DATE" --lang=zh ;;
   blog)
     npx tsx scripts/write-blog.ts --date="$DATE"
     npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=blog
