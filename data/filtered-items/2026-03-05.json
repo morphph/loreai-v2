@@ -108,18 +108,6 @@
     "engagement_downloads": 0
   },
   {
-    "id": 1954,
-    "title": "Designing AI-resistant technical evaluations",
-    "url": "https://www.anthropic.com/engineering/AI-resistant-technical-evaluations",
-    "source": "blog:Anthropic Engineering",
-    "category": "MODEL",
-    "score": 92,
-    "why_it_matters": "Infrastructure configuration can swing agentic coding benchmarks by several percentage points—sometimes more than the leaderboard gap between top models.\\n\\n",
-    "engagement_likes": 0,
-    "engagement_retweets": 0,
-    "engagement_downloads": 0
-  },
-  {
     "id": 1982,
     "title": "Nano Banana 2: Combining Pro capabilities with lightning-fast speed",
     "url": "https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/",
@@ -163,6 +151,18 @@
     "category": "PRODUCT",
     "score": 90,
     "why_it_matters": "Google DeepMind brings National Partnerships for AI initiative to India, scaling AI for science and education",
+    "engagement_likes": 0,
+    "engagement_retweets": 0,
+    "engagement_downloads": 0
+  },
+  {
+    "id": 1986,
+    "title": "Gemini 3 Deep Think: Advancing science, research and engineering",
+    "url": "https://deepmind.google/blog/gemini-3-deep-think-advancing-science-research-and-engineering/",
+    "source": "rss:DeepMind Blog",
+    "category": "PRODUCT",
+    "score": 90,
+    "why_it_matters": "Our most specialized reasoning mode is now updated to solve modern science, research and engineering challenges.",
     "engagement_likes": 0,
     "engagement_retweets": 0,
     "engagement_downloads": 0
@@ -213,30 +213,6 @@
     "why_it_matters": "Tensors and Dynamic neural networks in Python with strong GPU acceleration",
     "engagement_likes": 97868,
     "engagement_retweets": 27029,
-    "engagement_downloads": 0
-  },
-  {
-    "id": 2,
-    "title": "Reward Hacking in Reinforcement Learning",
-    "url": "https://lilianweng.github.io/posts/2024-11-28-reward-hacking/",
-    "source": "rss:Lilian Weng",
-    "category": "MODEL",
-    "score": 88,
-    "why_it_matters": "Reward hacking occurs when a reinforcement learning (RL) agent exploits flaws or ambiguities in the reward function to achieve high rewards, without genuinely learning or completing the intended task. Reward hacking exists because RL environments are often imperfect, and it is fundamentally challenging to accurately specify a reward function.\nWith the rise of language models generalizing to a broad spectrum of tasks and RLHF becomes a de facto method for alignment training, reward hacking in RL ",
-    "engagement_likes": 0,
-    "engagement_retweets": 0,
-    "engagement_downloads": 0
-  },
-  {
-    "id": 3,
-    "title": "Extrinsic Hallucinations in LLMs",
-    "url": "https://lilianweng.github.io/posts/2024-07-07-hallucination/",
-    "source": "rss:Lilian Weng",
-    "category": "MODEL",
-    "score": 88,
-    "why_it_matters": "Hallucination in large language models usually refers to the model generating unfaithful, fabricated, inconsistent, or nonsensical content. As a term, hallucination has been somewhat generalized to cases when the model makes mistakes. Here, I would like to narrow down the problem of hallucination to cases where the model output is fabricated and not grounded by either the provided context or world knowledge.\nThere are two types of hallucination:\nIn-context hallucination: The model output should ",
-    "engagement_likes": 0,
-    "engagement_retweets": 0,
     "engagement_downloads": 0
   },
   {
@@ -295,6 +271,30 @@
     "category": "PRODUCT",
     "score": 85,
     "why_it_matters": "We’re excited to announce our new show In-Context Cooking where guests cook while chatting about cool topics.",
+    "engagement_likes": 0,
+    "engagement_retweets": 0,
+    "engagement_downloads": 0
+  },
+  {
+    "id": 8,
+    "title": "METR’s Joel Becker on exponential Time Horizon Evals, Threat Models, and the Limits of AI Productivity",
+    "url": "https://www.latent.space/p/metr",
+    "source": "rss:Latent Space",
+    "category": "MODEL",
+    "score": 85,
+    "why_it_matters": "AIE Europe CFP and AIE World’s Fair paper submissions for CAIS peer review are due TODAY - do not delay!",
+    "engagement_likes": 0,
+    "engagement_retweets": 0,
+    "engagement_downloads": 0
+  },
+  {
+    "id": 9,
+    "title": "[AINews] Nano Banana 2 aka Gemini 3.1 Flash Image Preview: the new SOTA Imagegen model",
+    "url": "https://www.latent.space/p/ainews-nano-banana-2-aka-gemini-31",
+    "source": "rss:Latent Space",
+    "category": "MODEL",
+    "score": 85,
+    "why_it_matters": "The first Gemini 3.1 model is here....",
     "engagement_likes": 0,
     "engagement_retweets": 0,
     "engagement_downloads": 0

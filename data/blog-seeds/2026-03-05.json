@@ -4,11 +4,23 @@
     "url": "https://github.com/tensorflow/tensorflow",
     "source": "github:trending:ML recent",
     "x_engagement_24h": 269170,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 92.751,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Gemini 3.1 Pro: A smarter model for your most complex tasks",
+    "url": "https://deepmind.google/blog/gemini-3-1-pro-a-smarter-model-for-your-most-complex-tasks/",
+    "source": "rss:DeepMind Blog",
+    "x_engagement_24h": 0,
     "brave_has_results": true,
     "brave_related_searches": [],
     "brave_discussions": [],
-    "mention_count_7d": 4,
-    "composite_score": 105.751,
+    "mention_count_7d": 6,
+    "composite_score": 33,
     "suggested_angle": "news"
   },
   {
@@ -21,18 +33,6 @@
     "brave_discussions": [],
     "mention_count_7d": 4,
     "composite_score": 28.837,
-    "suggested_angle": "news"
-  },
-  {
-    "topic": "RT @AnthropicAI: A statement on the comments from Secretary of War Pete Hegseth.   https://t.co/Gg7Zb09IMR",
-    "url": "https://x.com/bcherny/status/2027566467106148378",
-    "source": "twitter:@bcherny",
-    "x_engagement_24h": 49109,
-    "brave_has_results": true,
-    "brave_related_searches": [],
-    "brave_discussions": [],
-    "mention_count_7d": 0,
-    "composite_score": 23.7327,
     "suggested_angle": "news"
   }
 ]
