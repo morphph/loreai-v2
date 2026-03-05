@@ -1,8 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server';
 
+const VPS_API_URL = process.env.VPS_API_URL;
+
 export async function GET() {
-  // TODO: Replace with actual subscriber count from database
-  // For now, return a placeholder count
+  if (VPS_API_URL) {
+    try {
+      const res = await fetch(`${VPS_API_URL}/api/subscribers/count`, {
+        next: { revalidate: 60 },
+      });
+      if (res.ok) {
+        const data = await res.json();
+        return NextResponse.json({ count: data.count });
+      }
+    } catch {
+      // VPS unreachable, fall through
+    }
+  }
   return NextResponse.json({ count: 0 });
 }
 
@@ -18,7 +31,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
@@ -27,10 +39,21 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Phase 1: Just acknowledge the subscription
-    // TODO: Forward to VPS API for actual DB insert
-    console.log(`[subscribe] New signup: ${email}`);
+    if (VPS_API_URL) {
+      try {
+        const res = await fetch(`${VPS_API_URL}/api/subscribe`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email }),
+        });
+        const data = await res.json();
+        return NextResponse.json(data, { status: res.status });
+      } catch {
+        console.error('[subscribe] VPS unreachable, logging locally');
+      }
+    }
 
+    console.log(`[subscribe] New signup: ${email}`);
     return NextResponse.json(
       { message: "You're in! Check your inbox." },
       { status: 200 }
