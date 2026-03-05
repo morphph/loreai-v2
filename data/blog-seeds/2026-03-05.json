@@ -1,0 +1,38 @@
+[
+  {
+    "topic": "tensorflow/tensorflow: An Open Source Machine Learning Framework for Everyone",
+    "url": "https://github.com/tensorflow/tensorflow",
+    "source": "github:trending:ML recent",
+    "x_engagement_24h": 269170,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 105.751,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "In the next version of Claude Code..  We're introducing two new Skills: /simplify and /batch. I have been using both daily, and am excited to share them with everyone.  Combined, these kills automate much of the work it used to take to (1) shepherd a pull request to production an",
+    "url": "https://x.com/bcherny/status/2027534984534544489",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 12790,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 28.837,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @AnthropicAI: A statement on the comments from Secretary of War Pete Hegseth.   https://t.co/Gg7Zb09IMR",
+    "url": "https://x.com/bcherny/status/2027566467106148378",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 49109,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 23.7327,
+    "suggested_angle": "news"
+  }
+]
