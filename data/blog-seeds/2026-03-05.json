@@ -1,42 +1,30 @@
 [
   {
-    "topic": "Voice mode is rolling out now in Claude Code — live for ~5% of users, ramping over coming weeks",
+    "topic": "Voice mode is rolling out now in Claude Code. Live for ~5% of users today.",
     "url": "https://x.com/trq212/status/2028628570692890800",
     "source": "twitter:@trq212",
     "x_engagement_24h": 13388,
     "brave_has_results": true,
     "brave_related_searches": [],
     "brave_discussions": [],
-    "mention_count_7d": 5,
-    "composite_score": 33.016400000000004,
+    "mention_count_7d": 6,
+    "composite_score": 37.016400000000004,
     "suggested_angle": "news"
   },
   {
-    "topic": "New in Cowork: scheduled tasks — Claude can complete recurring tasks automatically",
-    "url": "https://x.com/claudeai/status/2026720870631354429",
+    "topic": "New in Claude Code: Remote Control. Kick off a task in your terminal and pick it up from your phone.",
+    "url": "https://x.com/claudeai/status/2026418433911603668",
     "source": "twitter:@claudeai",
-    "x_engagement_24h": 23968,
-    "brave_has_results": true,
-    "brave_related_searches": [],
-    "brave_discussions": [],
-    "mention_count_7d": 3,
-    "composite_score": 28.1904,
-    "suggested_angle": "news"
-  },
-  {
-    "topic": "Gemini 3.1 Flash-Lite — Google's most cost-efficient Gemini 3 series model",
-    "url": "https://x.com/GoogleDeepMind/status/2028872381477929185",
-    "source": "twitter:@GoogleDeepMind",
-    "x_engagement_24h": 8478,
-    "brave_has_results": true,
+    "x_engagement_24h": 48872,
+    "brave_has_results": false,
     "brave_related_searches": [],
     "brave_discussions": [],
     "mention_count_7d": 4,
-    "composite_score": 27.5434,
+    "composite_score": 30.6616,
     "suggested_angle": "news"
   },
   {
-    "topic": "We've identified industrial-scale distillation attacks on our models by DeepSeek, Moonshot AI, and MiniMax",
+    "topic": "We've identified industrial-scale distillation attacks on our models by DeepSeek, Moonshot AI, and MiniMax.",
     "url": "https://x.com/AnthropicAI/status/2025997928242811253",
     "source": "twitter:@AnthropicAI",
     "x_engagement_24h": 61614,
@@ -48,15 +36,27 @@
     "suggested_angle": "analysis"
   },
   {
-    "topic": "New in Claude Code: Remote Control — kick off tasks in terminal, pick up from phone",
-    "url": "https://x.com/claudeai/status/2026418433911603668",
+    "topic": "New in Cowork: scheduled tasks. Claude can now complete recurring tasks at specific times automatically.",
+    "url": "https://x.com/claudeai/status/2026720870631354429",
     "source": "twitter:@claudeai",
-    "x_engagement_24h": 48872,
+    "x_engagement_24h": 23968,
     "brave_has_results": false,
     "brave_related_searches": [],
     "brave_discussions": [],
-    "mention_count_7d": 3,
-    "composite_score": 26.6616,
+    "mention_count_7d": 5,
+    "composite_score": 27.1904,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "GPT-5.3 Instant in ChatGPT is now rolling out to everyone. More accurate, less cringe.",
+    "url": "https://x.com/OpenAI/status/2028893701427302559",
+    "source": "twitter:@OpenAI",
+    "x_engagement_24h": 11083,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 20.3249,
     "suggested_angle": "news"
   }
 ]
