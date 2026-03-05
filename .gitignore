@@ -43,6 +43,9 @@ loreai.db
 loreai.db-wal
 loreai.db-shm
 
+# Review reports
+data/review/
+
 # Logs
 logs/*.log
 

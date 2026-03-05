@@ -15,6 +15,7 @@ npx tsx scripts/write-newsletter.ts --date=YYYY-MM-DD  # Newsletter
 npx tsx scripts/write-blog.ts --date=YYYY-MM-DD        # Blog
 npx tsx scripts/generate-seo.ts --date=YYYY-MM-DD      # SEO pages
 npx tsx scripts/write-weekly.ts                        # Weekly digest
+npx tsx scripts/generate-review.ts --date=YYYY-MM-DD  # Review report
 
 ## Content Directories
 content/newsletters/{en,zh}/YYYY-MM-DD.md       # Daily
@@ -46,6 +47,9 @@ Chinese: NOT translation. Independent creation. WeChat-group tone.
 
 ## Git Workflow
 After implementing changes from an approved plan, always commit and push.
+
+## Review
+After running the full daily pipeline locally, always run `generate-review.ts` to produce and open the HTML review report.
 
 ## Prompts
 skills/ contains battle-tested prompts. Do not rewrite from scratch.
