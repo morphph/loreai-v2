@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { getAllNewsletters, getAllBlogPosts, markdownToHtml } from '@/lib/content';
+import { getAllNewsletters, getAllBlogPosts } from '@/lib/content';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import NewsletterCard from '@/components/NewsletterCard';
 
@@ -8,9 +8,6 @@ export default async function ZhHome() {
   const blogPosts = getAllBlogPosts('zh');
 
   const latestNewsletter = newsletters[0] ?? null;
-  const latestHtml = latestNewsletter
-    ? await markdownToHtml(latestNewsletter.content.slice(0, 1000))
-    : '';
   const recentBlogs = blogPosts.slice(0, 3);
 
   return (
@@ -48,21 +45,6 @@ export default async function ZhHome() {
         {latestNewsletter ? (
           <div className="mt-6">
             <NewsletterCard meta={latestNewsletter.meta} lang="zh" />
-            <div className="prose mt-6 text-foreground">
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: latestHtml + (latestNewsletter.content.length > 1000 ? '...' : ''),
-                }}
-              />
-            </div>
-            {latestNewsletter.content.length > 1000 && (
-              <Link
-                href={`/zh/newsletter/${latestNewsletter.meta.date}`}
-                className="mt-4 inline-block text-sm font-medium text-accent hover:text-accent-hover"
-              >
-                阅读完整内容 &rarr;
-              </Link>
-            )}
           </div>
         ) : (
           <div className="mt-6 rounded-xl border border-border bg-surface p-8 text-center">
