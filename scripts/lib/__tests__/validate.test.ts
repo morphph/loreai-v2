@@ -26,6 +26,14 @@ describe('validateNewsletter', () => {
 ## Tools & Infra
 
 **Hugging Face hits 1M models** — open-source milestone.
+
+## 🎓 MODEL LITERACY
+
+Short explainer about a model concept.
+
+## 🎯 PICK OF THE DAY
+
+Top story of the day goes here.
 `;
 
   it('passes for valid markdown', () => {
@@ -136,6 +144,14 @@ describe('validateZhNewsletter', () => {
 ## 行业动态
 
 **微软深度集成Copilot** — Office新功能。
+
+## 🎓 模型小课堂
+
+关于模型概念的简短解释。
+
+## 🎯 今日精选
+
+今天最重要的新闻。
 `;
 
   it('passes for valid ZH newsletter', () => {
@@ -170,8 +186,8 @@ describe('validateGlossary', () => {
     expect(result.errors.some((e) => e.includes('Too short'))).toBe(true);
   });
 
-  it('fails when too long (>500 words)', () => {
-    const md = `# Term\n\n${wordsN(550)}\n\n[Subscribe](/subscribe)`;
+  it('fails when too long (>600 words)', () => {
+    const md = `# Term\n\n${wordsN(650)}\n\n[Subscribe](/subscribe)`;
     const result = validateGlossary(md);
     expect(result.valid).toBe(false);
     expect(result.errors.some((e) => e.includes('Too long'))).toBe(true);

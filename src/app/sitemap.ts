@@ -11,6 +11,12 @@ import {
 
 const SITE_URL = 'https://loreai.dev';
 
+function safeDate(date: string | undefined): Date {
+  if (!date) return new Date();
+  const d = new Date(date);
+  return isNaN(d.getTime()) ? new Date() : d;
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
@@ -83,7 +89,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const enNewsletters: MetadataRoute.Sitemap = getAllNewsletters('en').map(
     (item) => ({
       url: `${SITE_URL}/newsletter/${item.meta.slug}`,
-      lastModified: new Date(item.meta.date),
+      lastModified: safeDate(item.meta.date),
       changeFrequency: 'never' as const,
       priority: 0.8,
     })
@@ -93,7 +99,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const zhNewsletters: MetadataRoute.Sitemap = getAllNewsletters('zh').map(
     (item) => ({
       url: `${SITE_URL}/zh/newsletter/${item.meta.slug}`,
-      lastModified: new Date(item.meta.date),
+      lastModified: safeDate(item.meta.date),
       changeFrequency: 'never' as const,
       priority: 0.7,
     })
@@ -103,7 +109,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const enWeekly: MetadataRoute.Sitemap = getWeeklyNewsletters('en').map(
     (item) => ({
       url: `${SITE_URL}/newsletter/${item.meta.slug}`,
-      lastModified: new Date(item.meta.date),
+      lastModified: safeDate(item.meta.date),
       changeFrequency: 'never' as const,
       priority: 0.8,
     })
@@ -113,7 +119,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const zhWeekly: MetadataRoute.Sitemap = getWeeklyNewsletters('zh').map(
     (item) => ({
       url: `${SITE_URL}/zh/newsletter/${item.meta.slug}`,
-      lastModified: new Date(item.meta.date),
+      lastModified: safeDate(item.meta.date),
       changeFrequency: 'never' as const,
       priority: 0.7,
     })
@@ -122,7 +128,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── EN Blog posts ────────────────────────────────────────────────────
   const enBlog: MetadataRoute.Sitemap = getAllBlogPosts('en').map((item) => ({
     url: `${SITE_URL}/blog/${item.meta.slug}`,
-    lastModified: new Date(item.meta.date),
+    lastModified: safeDate(item.meta.date),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
   }));
@@ -130,7 +136,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── ZH Blog posts ────────────────────────────────────────────────────
   const zhBlog: MetadataRoute.Sitemap = getAllBlogPosts('zh').map((item) => ({
     url: `${SITE_URL}/zh/blog/${item.meta.slug}`,
-    lastModified: new Date(item.meta.date),
+    lastModified: safeDate(item.meta.date),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   }));
@@ -139,7 +145,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const enGlossary: MetadataRoute.Sitemap = getAllGlossary('en').map(
     (item) => ({
       url: `${SITE_URL}/glossary/${item.meta.slug}`,
-      lastModified: new Date(item.meta.date),
+      lastModified: safeDate(item.meta.date),
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     })
@@ -148,7 +154,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const zhGlossary: MetadataRoute.Sitemap = getAllGlossary('zh').map(
     (item) => ({
       url: `${SITE_URL}/zh/glossary/${item.meta.slug}`,
-      lastModified: new Date(item.meta.date),
+      lastModified: safeDate(item.meta.date),
       changeFrequency: 'monthly' as const,
       priority: 0.5,
     })
@@ -157,14 +163,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── FAQ ──────────────────────────────────────────────────────────────
   const enFaq: MetadataRoute.Sitemap = getAllFaq('en').map((item) => ({
     url: `${SITE_URL}/faq/${item.meta.slug}`,
-    lastModified: new Date(item.meta.date),
+    lastModified: safeDate(item.meta.date),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
 
   const zhFaq: MetadataRoute.Sitemap = getAllFaq('zh').map((item) => ({
     url: `${SITE_URL}/zh/faq/${item.meta.slug}`,
-    lastModified: new Date(item.meta.date),
+    lastModified: safeDate(item.meta.date),
     changeFrequency: 'monthly' as const,
     priority: 0.5,
   }));
@@ -172,14 +178,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── Compare ──────────────────────────────────────────────────────────
   const enCompare: MetadataRoute.Sitemap = getAllCompare('en').map((item) => ({
     url: `${SITE_URL}/compare/${item.meta.slug}`,
-    lastModified: new Date(item.meta.date),
+    lastModified: safeDate(item.meta.date),
     changeFrequency: 'monthly' as const,
     priority: 0.6,
   }));
 
   const zhCompare: MetadataRoute.Sitemap = getAllCompare('zh').map((item) => ({
     url: `${SITE_URL}/zh/compare/${item.meta.slug}`,
-    lastModified: new Date(item.meta.date),
+    lastModified: safeDate(item.meta.date),
     changeFrequency: 'monthly' as const,
     priority: 0.5,
   }));
@@ -187,14 +193,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // ── Topics ───────────────────────────────────────────────────────────
   const enTopics: MetadataRoute.Sitemap = getAllTopics('en').map((item) => ({
     url: `${SITE_URL}/topics/${item.meta.slug}`,
-    lastModified: new Date(item.meta.date),
+    lastModified: safeDate(item.meta.date),
     changeFrequency: 'weekly' as const,
     priority: 0.7,
   }));
 
   const zhTopics: MetadataRoute.Sitemap = getAllTopics('zh').map((item) => ({
     url: `${SITE_URL}/zh/topics/${item.meta.slug}`,
-    lastModified: new Date(item.meta.date),
+    lastModified: safeDate(item.meta.date),
     changeFrequency: 'weekly' as const,
     priority: 0.6,
   }));

@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:e2e": "playwright test --config=e2e/playwright.config.ts",
+    "test:e2e:ui": "playwright test --config=e2e/playwright.config.ts --ui"
   },
   "dependencies": {
     "better-sqlite3": "^12.6.2",
@@ -23,6 +25,7 @@
     "tsx": "^4.21.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.58.2",
     "@tailwindcss/postcss": "^4",
     "@types/better-sqlite3": "^7.6.13",
     "@types/node": "^20",
