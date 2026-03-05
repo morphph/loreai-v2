@@ -91,12 +91,13 @@ export default async function ZhBlogPostPage({ params }: PageProps) {
           </Link>
         </nav>
 
-        {/* Mobile TOC */}
-        <TableOfContents htmlContent={htmlContent} label="目录" />
-
         <div className="lg:grid lg:grid-cols-[1fr_220px] lg:gap-10">
           {/* Main content */}
           <article className="min-w-0">
+            {/* Mobile TOC */}
+            <div className="lg:hidden">
+              <TableOfContents htmlContent={htmlContent} label="目录" />
+            </div>
             {/* Header */}
             <header className="mb-8">
               <time

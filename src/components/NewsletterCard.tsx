@@ -3,18 +3,24 @@ import type { ContentMeta } from '@/lib/content';
 
 interface NewsletterCardProps {
   meta: ContentMeta;
+  lang?: 'en' | 'zh';
 }
 
-export default function NewsletterCard({ meta }: NewsletterCardProps) {
-  const formattedDate = new Date(meta.date + 'T00:00:00').toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+export default function NewsletterCard({ meta, lang = 'en' }: NewsletterCardProps) {
+  const formattedDate = new Date(meta.date + 'T00:00:00').toLocaleDateString(
+    lang === 'zh' ? 'zh-CN' : 'en-US',
+    {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }
+  );
+
+  const href = lang === 'zh' ? `/zh/newsletter/${meta.date}` : `/newsletter/${meta.date}`;
 
   return (
     <Link
-      href={`/newsletter/${meta.date}`}
+      href={href}
       className="group block rounded-xl border border-border p-5 transition-colors hover:border-accent/40 hover:bg-surface"
     >
       <time className="text-xs font-medium uppercase tracking-wide text-muted">
