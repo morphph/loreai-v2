@@ -159,7 +159,7 @@ export interface ContentRecord {
 
 export function upsertContent(record: ContentRecord): number {
   const db = getDb();
-  const stmt = db.prepare(`
+  db.prepare(`
     INSERT INTO content (type, slug, lang, title, body_markdown, meta_json)
     VALUES (?, ?, ?, ?, ?, ?)
     ON CONFLICT(type, slug, lang) DO UPDATE SET
@@ -167,22 +167,25 @@ export function upsertContent(record: ContentRecord): number {
       body_markdown = excluded.body_markdown,
       meta_json = excluded.meta_json,
       updated_at = CURRENT_TIMESTAMP
-  `);
-  const result = stmt.run(
+  `).run(
     record.type, record.slug, record.lang,
     record.title, record.body_markdown, record.meta_json
   );
-  return Number(result.lastInsertRowid);
+  const row = db.prepare(
+    'SELECT id FROM content WHERE type = ? AND slug = ? AND lang = ?'
+  ).get(record.type, record.slug, record.lang) as { id: number };
+  return row.id;
 }
 
 export function linkContentSources(contentId: number, newsItemIds: number[]): void {
   const db = getDb();
   const stmt = db.prepare(`
-    INSERT OR IGNORE INTO content_sources (content_id, news_item_id) VALUES (?, ?)
+    INSERT OR IGNORE INTO content_sources (content_id, news_item_id)
+    SELECT ?, ? WHERE EXISTS (SELECT 1 FROM news_items WHERE id = ?)
   `);
   const link = db.transaction(() => {
     for (const nid of newsItemIds) {
-      stmt.run(contentId, nid);
+      stmt.run(contentId, nid, nid);
     }
   });
   link();
