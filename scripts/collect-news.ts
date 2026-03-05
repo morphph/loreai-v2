@@ -58,6 +58,12 @@ async function collectRssFeeds(): Promise<NewsItem[]> {
 
       for (const entry of recentItems) {
         if (!entry.title) continue;
+        // Skip items older than 7 days
+        if (entry.pubDate) {
+          const pubDate = new Date(entry.pubDate);
+          const sevenDaysAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
+          if (!isNaN(pubDate.getTime()) && pubDate < sevenDaysAgo) continue;
+        }
         items.push({
           title: entry.title,
           url: entry.link || null,

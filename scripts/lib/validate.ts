@@ -3,6 +3,8 @@ export interface ValidationResult {
   errors: string[];
 }
 
+const NEWSLETTER_FORBIDDEN = /game-changing|revolutionary|unprecedented|in this newsletter|in today's issue|let's dive in|without further ado|stay tuned|as we can see|it's worth noting|at the end of the day|moving forward|in conclusion|as we all know|it goes without saying/i;
+
 export function validateNewsletter(md: string): ValidationResult {
   const errors: string[] = [];
   if (!md.match(/^# .+/m)) errors.push('Missing H1 title');
@@ -10,6 +12,9 @@ export function validateNewsletter(md: string): ValidationResult {
   if ((md.match(/\*\*.+?\*\*/g) || []).length < 3) errors.push('<3 bold items');
   if (md.match(/in this newsletter|in today's issue/i)) errors.push('Meta-summary detected');
   if (md.match(/^# .*\d{4}-\d{2}-\d{2}/m)) errors.push('Date-based title');
+  if (!md.match(/## 🎓 MODEL LITERACY/)) errors.push('Missing MODEL LITERACY section');
+  if (!md.match(/## 🎯 PICK OF THE DAY/)) errors.push('Missing PICK OF THE DAY section');
+  if (md.match(NEWSLETTER_FORBIDDEN)) errors.push('Forbidden phrase detected');
   return { valid: errors.length === 0, errors };
 }
 
@@ -34,6 +39,8 @@ export function validateBlogPost(md: string): ValidationResult {
   return { valid: errors.length === 0, errors };
 }
 
+const ZH_NEWSLETTER_FORBIDDEN = /划时代的|颠覆性的|里程碑式的|在本期简报中|今天我们来看看|让我们开始吧|话不多说|敬请期待|众所周知|不言而喻|归根结底|总而言之/;
+
 export function validateZhNewsletter(md: string): ValidationResult {
   const errors: string[] = [];
   if (!md.match(/^# .+/m)) errors.push('Missing H1 title');
@@ -41,6 +48,9 @@ export function validateZhNewsletter(md: string): ValidationResult {
   if ((md.match(/\*\*.+?\*\*/g) || []).length < 3) errors.push('<3 bold items');
   if (md.match(/在本期简报中|今天我们来看看/)) errors.push('Meta-summary detected (ZH)');
   if (md.match(/^# .*\d{4}-\d{2}-\d{2}/m)) errors.push('Date-based title');
+  if (!md.match(/## 🎓 模型小课堂/)) errors.push('Missing MODEL LITERACY (ZH)');
+  if (!md.match(/## 🎯 今日精选/)) errors.push('Missing PICK OF THE DAY (ZH)');
+  if (md.match(ZH_NEWSLETTER_FORBIDDEN)) errors.push('Forbidden phrase detected (ZH)');
   return { valid: errors.length === 0, errors };
 }
 

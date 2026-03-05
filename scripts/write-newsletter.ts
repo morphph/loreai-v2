@@ -79,13 +79,69 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
     }
   }
 
-  // Sort each group by score desc, take top N
+  // === TWITTER CLEANUP (RT dedup + AI relevance + engagement sort + per-account cap) ===
+
+  // RT dedup: if "RT @X: text" appears via multiple accounts, keep highest engagement
+  const rtSeen = new Map<string, NewsItem>();
+  for (const item of twitter) {
+    const rtMatch = item.title.match(/^RT @\w+: (.{0,80})/);
+    if (rtMatch) {
+      const key = rtMatch[1].toLowerCase();
+      const existing = rtSeen.get(key);
+      if (!existing || item.engagement_likes > existing.engagement_likes) {
+        rtSeen.set(key, item);
+      }
+    } else {
+      rtSeen.set(item.title.slice(0, 80).toLowerCase(), item);
+    }
+  }
+  const dedupedTwitter = [...rtSeen.values()];
+
+  // AI relevance filter: skip political/non-AI tweets from thought leaders
+  const AI_RELEVANCE = /\b(ai|llm|gpt|claude|gemini|anthropic|openai|model|agent|mcp|transformer|benchmark|training|inference|coding|developer|api|sdk|diffusion|rag|fine.?tun|embedding|neural|deep.?learn|machine.?learn|hugging.?face|token|prompt|reasoning|multimodal|vision|speech|voice|distill|safety|alignment|eval)\b/i;
+  const relevantTwitter = dedupedTwitter.filter(item =>
+    AI_RELEVANCE.test(item.title) || AI_RELEVANCE.test(item.summary || '')
+  );
+
+  // Sort with engagement as secondary tiebreaker
+  relevantTwitter.sort((a, b) => {
+    if (b.score !== a.score) return b.score - a.score;
+    return (b.engagement_likes + b.engagement_retweets) - (a.engagement_likes + a.engagement_retweets);
+  });
+
+  // Per-account cap: max 3 items per account
+  const accountCounts: Record<string, number> = {};
+  const cappedTwitter: NewsItem[] = [];
+  for (const item of relevantTwitter) {
+    const account = item.source;
+    accountCounts[account] = (accountCounts[account] || 0) + 1;
+    if (accountCounts[account] <= 3) cappedTwitter.push(item);
+  }
+
+  // === GITHUB CLEANUP (evergreen repo blocklist) ===
+
+  const GITHUB_BLOCKLIST = new Set([
+    'https://github.com/tensorflow/tensorflow',
+    'https://github.com/pytorch/pytorch',
+    'https://github.com/huggingface/transformers',
+    'https://github.com/f/prompts.chat',
+    'https://github.com/langchain-ai/langchain',
+    'https://github.com/microsoft/autogen',
+    'https://github.com/ggerganov/llama.cpp',
+    'https://github.com/AUTOMATIC1111/stable-diffusion-webui',
+    'https://github.com/openai/openai-python',
+    'https://github.com/hwchase17/langchain',
+  ]);
+  // Only block github:trending, not github:release (releases are actual news)
+  const filteredGithub = github.filter(item =>
+    !item.source.startsWith('github:trending') || !GITHUB_BLOCKLIST.has(item.url)
+  );
+
+  // Sort remaining groups by score desc
   blogs.sort((a, b) => b.score - a.score);
-  github.sort((a, b) => b.score - a.score);
+  filteredGithub.sort((a, b) => b.score - a.score);
   reddit.sort((a, b) => b.score - a.score);
-  twitter.sort((a, b) => b.score - a.score);
   huggingface.sort((a, b) => {
-    // Combined metric: likes + downloads normalized
     const aMetric = a.engagement_likes + a.engagement_downloads / 1000;
     const bMetric = b.engagement_likes + b.engagement_downloads / 1000;
     return bMetric - aMetric;
@@ -94,17 +150,17 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   const filtered = [
     ...others,
     ...blogs.slice(0, 15),
-    ...github.slice(0, 5),
+    ...filteredGithub.slice(0, 5),
     ...reddit.slice(0, 3),
     ...huggingface.slice(0, 10),
-    ...twitter.slice(0, 15),
+    ...cappedTwitter.slice(0, 30),
   ];
 
   console.log(`  Blogs: ${blogs.length} → ${Math.min(blogs.length, 15)}`);
-  console.log(`  GitHub: ${github.length} → ${Math.min(github.length, 5)}`);
+  console.log(`  GitHub: ${github.length} → ${filteredGithub.length} (blocklist) → ${Math.min(filteredGithub.length, 5)}`);
   console.log(`  Reddit: ${reddit.length} → ${Math.min(reddit.length, 3)}`);
   console.log(`  HuggingFace: ${huggingface.length} → ${Math.min(huggingface.length, 10)}`);
-  console.log(`  Twitter: ${twitter.length} → ${Math.min(twitter.length, 15)}`);
+  console.log(`  Twitter: ${twitter.length} → ${dedupedTwitter.length} (dedup) → ${relevantTwitter.length} (relevant) → ${cappedTwitter.length} (capped) → ${Math.min(cappedTwitter.length, 30)}`);
   console.log(`  Others: ${others.length} (pass-through)`);
   console.log(`  Total pre-filtered: ${filtered.length}`);
 
@@ -213,7 +269,7 @@ function ruleBasedFallback(items: NewsItem[]): FilteredItem[] {
     }
   }
 
-  return selected.sort((a, b) => b.score - a.score).slice(0, 30);
+  return selected.sort((a, b) => b.score - a.score).slice(0, 22);
 }
 
 function guessCategory(item: NewsItem): string {
@@ -252,11 +308,11 @@ async function stage3_agentFilter(
 
   const systemPrompt = `You are an expert AI news curator for LoreAI, a daily AI newsletter.
 
-Your task: From the provided news items, select 25-30 of the most important and interesting items for today's newsletter.
+Your task: From the provided news items, select 18-22 of the most important and interesting items for today's newsletter.
 
 ## Source Quotas (STRICT)
 - Reddit: MAX 2 items
-- GitHub Trending: MAX 4 items
+- GitHub Trending: MAX 2. Only genuinely new repos (created in last 30 days) or repos with a specific newsworthy event.
 - HuggingFace: 3-5 items (group same-lab models as 1 item, show likes AND downloads separately)
 - All others: no hard limit
 
@@ -270,6 +326,20 @@ Assign each item ONE category:
 
 ## Category Balance
 Ensure at least 2 items per main category when possible.
+
+## Hard Filters (MUST apply)
+- Skip pure sentiment/celebration posts ("Proud to work at X", "What a day!", personal milestones)
+- Skip bare RT links with no descriptive text
+- Skip political content from thought leaders (not AI industry-related)
+- Skip GitHub repos that are established projects (tensorflow, pytorch, transformers) unless they have a specific new release
+- Skip old blog posts — if the content is from 2024 or earlier, do not include it
+- Prefer ORIGINAL tweets over RTs. If the same news appears as an original + RT, pick the original
+
+## Priority Signals (rank higher)
+- Product launches, model releases, API updates, new features
+- High engagement relative to the account's typical numbers
+- Breaking news (first report of something new)
+- Cross-source confirmation (same story from multiple sources = strong signal)
 
 ## Selection Criteria
 - Prioritize: breaking news, major releases, high engagement, practical value
@@ -293,7 +363,7 @@ Return ONLY a JSON array. No markdown, no explanation. Each item:
   "engagement_downloads": number
 }`;
 
-  const userPrompt = `Select 25-30 items from these ${inputItems.length} news items for today's AI newsletter (${DATE}):\n\n${JSON.stringify(inputItems, null, 0)}`;
+  const userPrompt = `Select 18-22 items from these ${inputItems.length} news items for today's AI newsletter (${DATE}):\n\n${JSON.stringify(inputItems, null, 0)}`;
 
   try {
     const response = await callClaudeWithRetry(systemPrompt, userPrompt, {
@@ -309,7 +379,7 @@ Return ONLY a JSON array. No markdown, no explanation. Each item:
 
           const parsed = JSON.parse(json.trim());
           if (!Array.isArray(parsed)) return { valid: false, errors: ['Not an array'] };
-          if (parsed.length < 15) return { valid: false, errors: [`Only ${parsed.length} items (need 15+)`] };
+          if (parsed.length < 12) return { valid: false, errors: [`Only ${parsed.length} items (need 12+)`] };
           return { valid: true, errors: [] };
         } catch {
           return { valid: false, errors: ['Invalid JSON'] };
@@ -359,7 +429,7 @@ function formatEngagement(item: FilteredItem): string {
     // Twitter style
     parts.push(`(${item.engagement_likes.toLocaleString()} likes | ${item.engagement_retweets} RTs)`);
   } else if (item.engagement_likes > 0) {
-    parts.push(`(${item.engagement_likes.toLocaleString()} engagement)`);
+    parts.push(`(${item.engagement_likes.toLocaleString()} likes)`);
   }
 
   return parts.join(' ');
@@ -388,7 +458,7 @@ async function stage4_writeEN(filtered: FilteredItem[]): Promise<string> {
     }
   }
 
-  const systemPrompt = `${skill}\n\n## Additional Rules for This Run\n- Date: ${DATE}\n- Items provided: ${filtered.length}\n- You MUST produce a complete newsletter following the structure template exactly\n- Include engagement metrics in parentheses where available\n- Every item MUST have a source link as [Read more →](url)\n- Output ONLY the newsletter markdown. No frontmatter, no meta-commentary.`;
+  const systemPrompt = `${skill}\n\n## Additional Rules for This Run\n- Date: ${DATE}\n- Items provided: ${filtered.length}\n- You MUST produce a complete newsletter following the structure template exactly\n- Include engagement metrics in parentheses where available — this is MANDATORY for all items that have engagement data\n- Every item MUST have a source link as [Read more →](url)\n- You MUST include a 🎓 MODEL LITERACY section (one technical concept explained simply, 3-4 sentences)\n- You MUST include a 🎯 PICK OF THE DAY section (deep analysis of the day's top story, 3-5 sentences with opinion)\n- Aim for 15-22 items total. You do NOT need to use every provided item — curate ruthlessly\n- If an item has no summary, write only the title + link. Do NOT fabricate details.\n- Output ONLY the newsletter markdown. No frontmatter, no meta-commentary.`;
 
   const userPrompt = `Write today's LoreAI AI News newsletter (${DATE}) using these ${filtered.length} curated items:\n\n${itemsText}`;
 
@@ -436,7 +506,7 @@ async function stage5_writeZH(filtered: FilteredItem[]): Promise<string> {
     }
   }
 
-  const systemPrompt = `${skill}\n\n## 本期规则\n- 日期：${DATE}\n- 提供条目：${filtered.length}\n- 必须按照结构模板完整输出中文 Newsletter\n- 只输出 Newsletter 正文 Markdown，不要 frontmatter，不要元描述`;
+  const systemPrompt = `${skill}\n\n## 本期规则\n- 日期：${DATE}\n- 提供条目：${filtered.length}\n- 必须按照结构模板完整输出中文 Newsletter\n- 所有有 engagement 数据的条目必须显示 — 这是强制要求\n- 必须包含 🎓 模型小课堂（一个技术概念的通俗解释，3-4 句话）\n- 必须包含 🎯 今日精选（当天最重要新闻的深度分析，3-5 句话，要有观点）\n- 目标 15-22 条，不必用完所有提供的条目 — 精选为王\n- 摘要为空时只写标题+链接，不编造细节\n- 只输出 Newsletter 正文 Markdown，不要 frontmatter，不要元描述`;
 
   const userPrompt = `基于以下 ${filtered.length} 条精选 AI 新闻，创作今日 LoreAI AI 简报中文版（${DATE}）：\n\n${itemsText}`;
 
