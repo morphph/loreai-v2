@@ -85,12 +85,13 @@ export default async function BlogPostPage({ params }: PageProps) {
           </Link>
         </nav>
 
-        {/* Mobile TOC */}
-        <TableOfContents htmlContent={htmlContent} />
-
         <div className="lg:grid lg:grid-cols-[1fr_220px] lg:gap-10">
           {/* Main content */}
           <article className="min-w-0">
+            {/* Mobile TOC */}
+            <div className="lg:hidden">
+              <TableOfContents htmlContent={htmlContent} />
+            </div>
             {/* Header */}
             <header className="mb-8">
               <time

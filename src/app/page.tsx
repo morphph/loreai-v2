@@ -1,13 +1,16 @@
 import Link from 'next/link';
-import { getAllNewsletters, getAllBlogPosts } from '@/lib/content';
+import { getAllNewsletters, getAllBlogPosts, markdownToHtml } from '@/lib/content';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import NewsletterCard from '@/components/NewsletterCard';
 
-export default function Home() {
+export default async function Home() {
   const newsletters = getAllNewsletters('en');
   const blogPosts = getAllBlogPosts('en');
 
   const latestNewsletter = newsletters[0] ?? null;
+  const latestHtml = latestNewsletter
+    ? await markdownToHtml(latestNewsletter.content.slice(0, 1000))
+    : '';
   const recentBlogs = blogPosts.slice(0, 3);
 
   return (
@@ -48,7 +51,7 @@ export default function Home() {
             <div className="prose mt-6 text-foreground">
               <div
                 dangerouslySetInnerHTML={{
-                  __html: latestNewsletter.content.slice(0, 1000) + (latestNewsletter.content.length > 1000 ? '...' : ''),
+                  __html: latestHtml + (latestNewsletter.content.length > 1000 ? '...' : ''),
                 }}
               />
             </div>
