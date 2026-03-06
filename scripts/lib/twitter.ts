@@ -32,6 +32,15 @@ export const SEARCH_QUERIES = [
   '"AI startup" (funding OR raised OR launch)',
   '"Claude API" OR "OpenAI API" (update OR release OR new)',
   '"AI engineering" (practice OR guide)',
+  // Claude Code ecosystem — skills, configs, hooks
+  '"CLAUDE.md" (tip OR trick OR setup OR config)',
+  '"claude code" (hook OR hooks OR keybinding) -crypto',
+  // MCP ecosystem — implementations, servers, tools
+  '"MCP" (implementation OR plugin OR server OR tool) min_faves:10 -crypto',
+  // Broader dev tool discovery
+  '"AI CLI" OR "AI terminal" (tool OR release)',
+  '"coding agent" (tip OR trick OR workflow OR setup)',
+  '(cursor OR windsurf OR copilot) (tip OR update OR release) -crypto',
 ];
 
 const API_BASE = 'https://api.twitterapi.io/twitter';

@@ -157,7 +157,7 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
     ...rss.slice(0, 8),
     ...filteredGithub.slice(0, 5),
     ...reddit.slice(0, 3),
-    ...huggingface.slice(0, 10),
+    ...huggingface.slice(0, 15),
     ...cappedTwitter.slice(0, 30),
   ];
 
@@ -165,7 +165,7 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   console.log(`  RSS (tier 0): ${rss.length} → ${Math.min(rss.length, 8)}`);
   console.log(`  GitHub: ${github.length} → ${filteredGithub.length} (blocklist) → ${Math.min(filteredGithub.length, 5)}`);
   console.log(`  Reddit: ${reddit.length} → ${Math.min(reddit.length, 3)}`);
-  console.log(`  HuggingFace: ${huggingface.length} → ${Math.min(huggingface.length, 10)}`);
+  console.log(`  HuggingFace: ${huggingface.length} → ${Math.min(huggingface.length, 15)}`);
   console.log(`  Twitter: ${twitter.length} → ${dedupedTwitter.length} (dedup) → ${relevantTwitter.length} (relevant) → ${cappedTwitter.length} (capped) → ${Math.min(cappedTwitter.length, 30)}`);
   console.log(`  Others: ${others.length} (pass-through)`);
   console.log(`  Total pre-filtered: ${filtered.length}`);

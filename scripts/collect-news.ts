@@ -6,7 +6,7 @@
  * Tiers:
  *   0: RSS Feeds (~35 items)
  *   1: Official Blogs (~25 items)
- *   2: Twitter/X — 36 accounts + 14 searches (~80 items)
+ *   2: Twitter/X — 36 accounts + 18 searches (~80 items)
  *   3: GitHub Trending (~130 items)
  *   3b: GitHub Releases (~16 items)
  *   3c: HuggingFace (~50 items)
@@ -302,6 +302,8 @@ async function collectGitHubTrending(): Promise<NewsItem[]> {
     { q: `stars:>100 language:python topic:ai created:>${weekAgo}`, label: 'AI Python' },
     { q: `stars:>50 language:typescript topic:llm created:>${weekAgo}`, label: 'LLM TypeScript' },
     { q: `stars:>200 topic:machine-learning pushed:>${twoDaysAgo}`, label: 'ML recent' },
+    { q: `(mcp OR agent OR plugin OR skill) stars:>50 pushed:>${twoDaysAgo}`, label: 'Agent/MCP tools' },
+    { q: `(claude OR cursor OR copilot) stars:>30 created:>${weekAgo}`, label: 'AI IDE tools' },
   ];
 
   for (const { q, label } of adjustedQueries) {
@@ -524,6 +526,59 @@ async function collectHuggingFace(): Promise<NewsItem[]> {
     }
   } catch (err) {
     console.warn('  HuggingFace likes7d failed:', (err as Error).message);
+  }
+
+  // Org-specific queries: catch full model lineups from key labs
+  const TRACKED_HF_ORGS = ['Qwen', 'deepseek-ai', 'google', 'meta-llama', 'mistralai', 'microsoft', 'nvidia'];
+  const thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
+
+  for (const org of TRACKED_HF_ORGS) {
+    try {
+      const res = await fetch(
+        `https://huggingface.co/api/models?author=${encodeURIComponent(org)}&sort=likes7d&direction=-1&limit=10`
+      );
+      if (!res.ok) continue;
+
+      const models = await res.json();
+      let added = 0;
+      for (const model of models) {
+        const id = model.modelId || model.id;
+        if (seen.has(id)) continue;
+
+        // Only include models created in the last 30 days
+        if (!model.createdAt || new Date(model.createdAt).getTime() < thirtyDaysAgo) continue;
+
+        seen.add(id);
+        const likes = model.likes || 0;
+        const downloads = model.downloads || 0;
+
+        items.push({
+          title: `${id}: ${model.pipeline_tag || 'model'}`,
+          url: `https://huggingface.co/${id}`,
+          source: `huggingface:org:${org}`,
+          source_tier: 3,
+          summary: model.description?.slice(0, 500) || null,
+          score: hfScore(likes, model.createdAt),
+          engagement_likes: likes,
+          engagement_retweets: 0,
+          engagement_downloads: downloads,
+          raw_json: JSON.stringify({
+            modelId: id,
+            likes,
+            downloads,
+            createdAt: model.createdAt,
+            pipeline_tag: model.pipeline_tag,
+            tags: model.tags?.slice(0, 10),
+          }),
+        });
+        added++;
+      }
+      if (added > 0) console.log(`  Org ${org}: ${added} new models`);
+    } catch {
+      // Skip silently for org queries
+    }
+
+    await new Promise((r) => setTimeout(r, 200));
   }
 
   console.log(`  Total HuggingFace: ${items.length} models`);
