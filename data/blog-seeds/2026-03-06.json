@@ -1,18 +1,6 @@
 [
   {
-    "topic": "New in Claude Code: Remote Control. Kick off a task in your terminal and pick it up from your phone.",
-    "url": "https://x.com/claudeai/status/2026418433911603668",
-    "source": "twitter:@claudeai",
-    "x_engagement_24h": 48872,
-    "brave_has_results": true,
-    "brave_related_searches": [],
-    "brave_discussions": [],
-    "mention_count_7d": 3,
-    "composite_score": 35.6616,
-    "suggested_angle": "news"
-  },
-  {
-    "topic": "New in Cowork: scheduled tasks. Claude can now complete recurring tasks at specific times automatically.",
+    "topic": "New in Claude Cowork: Scheduled tasks — recurring automations at specific times",
     "url": "https://x.com/claudeai/status/2026720870631354429",
     "source": "twitter:@claudeai",
     "x_engagement_24h": 23968,
@@ -24,39 +12,51 @@
     "suggested_angle": "news"
   },
   {
-    "topic": "Introducing WebSockets in the Responses API. Built for low-latency, long-running agents with heavy tool calls.",
-    "url": "https://x.com/OpenAIDevs/status/2026025368650690932",
-    "source": "twitter:@OpenAIDevs",
-    "x_engagement_24h": 5374,
+    "topic": "New in Claude Code: Remote Control — kick off tasks from terminal, pick up from phone",
+    "url": "https://x.com/claudeai/status/2026418433911603668",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 48872,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 31.6616,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic identifies industrial-scale distillation attacks by DeepSeek, Moonshot AI, and MiniMax",
+    "url": "https://x.com/AnthropicAI/status/2025997928242811253",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 61614,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 31.484199999999998,
+    "suggested_angle": "analysis"
+  },
+  {
+    "topic": "Google TimesFM 2.5: Time-series forecasting foundation model",
+    "url": "https://huggingface.co/google/timesfm-2.5-200m-transformers",
+    "source": "huggingface:org:google",
+    "x_engagement_24h": 25,
     "brave_has_results": true,
     "brave_related_searches": [],
     "brave_discussions": [],
     "mention_count_7d": 3,
-    "composite_score": 22.6122,
+    "composite_score": 21.0075,
     "suggested_angle": "news"
   },
   {
-    "topic": "Gemini 3.1 Flash-Lite: Built for intelligence at scale",
-    "url": "https://deepmind.google/blog/gemini-3-1-flash-lite-built-for-intelligence-at-scale/",
-    "source": "rss:DeepMind Blog",
-    "x_engagement_24h": 8478,
+    "topic": "GPT-5.4 Thinking and GPT-5.4 Pro are rolling out now in ChatGPT",
+    "url": "https://x.com/OpenAI/status/2029620619743219811",
+    "source": "twitter:@OpenAI",
+    "x_engagement_24h": 22577,
     "brave_has_results": true,
     "brave_related_searches": [],
     "brave_discussions": [],
-    "mention_count_7d": 2,
-    "composite_score": 19.5434,
-    "suggested_angle": "news"
-  },
-  {
-    "topic": "Diffusers 0.37.0: Modular Diffusers, New image and video pipelines",
-    "url": "https://github.com/huggingface/diffusers/releases/tag/v0.37.0",
-    "source": "github:release:huggingface/diffusers",
-    "x_engagement_24h": 0,
-    "brave_has_results": true,
-    "brave_related_searches": [],
-    "brave_discussions": [],
-    "mention_count_7d": 2,
-    "composite_score": 17,
+    "mention_count_7d": 1,
+    "composite_score": 19.7731,
     "suggested_angle": "news"
   }
 ]
