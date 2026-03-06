@@ -57,6 +57,7 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   console.log('\n🔍 Stage 2: Pre-filter');
 
   const blogs: NewsItem[] = [];
+  const rss: NewsItem[] = [];
   const github: NewsItem[] = [];
   const reddit: NewsItem[] = [];
   const huggingface: NewsItem[] = [];
@@ -66,6 +67,8 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   for (const item of items) {
     if (item.source.startsWith('blog:') || (item.source.startsWith('rss:') && item.source_tier === 1)) {
       blogs.push(item);
+    } else if (item.source.startsWith('rss:')) {
+      rss.push(item);
     } else if (item.source.startsWith('github:trending')) {
       github.push(item);
     } else if (item.source.startsWith('reddit:')) {
@@ -139,6 +142,7 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
 
   // Sort remaining groups by score desc
   blogs.sort((a, b) => b.score - a.score);
+  rss.sort((a, b) => b.score - a.score);
   filteredGithub.sort((a, b) => b.score - a.score);
   reddit.sort((a, b) => b.score - a.score);
   huggingface.sort((a, b) => {
@@ -150,13 +154,15 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   const filtered = [
     ...others,
     ...blogs.slice(0, 15),
+    ...rss.slice(0, 8),
     ...filteredGithub.slice(0, 5),
     ...reddit.slice(0, 3),
     ...huggingface.slice(0, 10),
     ...cappedTwitter.slice(0, 30),
   ];
 
-  console.log(`  Blogs: ${blogs.length} → ${Math.min(blogs.length, 15)}`);
+  console.log(`  Blogs (tier 1): ${blogs.length} → ${Math.min(blogs.length, 15)}`);
+  console.log(`  RSS (tier 0): ${rss.length} → ${Math.min(rss.length, 8)}`);
   console.log(`  GitHub: ${github.length} → ${filteredGithub.length} (blocklist) → ${Math.min(filteredGithub.length, 5)}`);
   console.log(`  Reddit: ${reddit.length} → ${Math.min(reddit.length, 3)}`);
   console.log(`  HuggingFace: ${huggingface.length} → ${Math.min(huggingface.length, 10)}`);
@@ -179,6 +185,7 @@ interface FilteredItem {
   category: string;
   score: number;
   why_it_matters: string;
+  action: string;
   engagement_likes: number;
   engagement_retweets: number;
   engagement_downloads: number;
@@ -262,6 +269,7 @@ function ruleBasedFallback(items: NewsItem[]): FilteredItem[] {
         category: guessCategory(item),
         score: item.score,
         why_it_matters: item.summary || item.title,
+        action: 'Check it out',
         engagement_likes: item.engagement_likes,
         engagement_retweets: item.engagement_retweets,
         engagement_downloads: item.engagement_downloads,
@@ -274,11 +282,12 @@ function ruleBasedFallback(items: NewsItem[]): FilteredItem[] {
 
 function guessCategory(item: NewsItem): string {
   const text = `${item.title} ${item.summary || ''}`.toLowerCase();
-  if (/model|benchmark|parameter|release|weights/i.test(text)) return 'MODEL';
-  if (/sdk|api|tool|framework|developer|library/i.test(text)) return 'DEV';
-  if (/technique|tip|practice|prompt|coding/i.test(text)) return 'TECHNIQUE';
-  if (/app|product|platform|launch|consumer/i.test(text)) return 'APP';
-  return 'PRODUCT';
+  if (/release|launch|drop|ship|announce|version/i.test(text)) return 'LAUNCH';
+  if (/sdk|api|tool|framework|developer|library|cli|plugin/i.test(text)) return 'TOOL';
+  if (/technique|tip|practice|prompt|coding|how.?to|guide/i.test(text)) return 'TECHNIQUE';
+  if (/paper|benchmark|architecture|eval|research|study/i.test(text)) return 'RESEARCH';
+  if (/open.?source|tutorial|build|project|repo/i.test(text)) return 'BUILD';
+  return 'INSIGHT';
 }
 
 async function stage3_agentFilter(
@@ -299,7 +308,7 @@ async function stage3_agentFilter(
     source: item.source,
     source_tier: item.source_tier,
     score: item.score,
-    summary: item.summary?.slice(0, 200) || null,
+    summary: item.summary?.slice(0, 400) || null,
     detected_at: item.detected_at || null,
     likes: item.engagement_likes,
     retweets: item.engagement_retweets,
@@ -318,14 +327,17 @@ Your task: From the provided news items, select 18-22 of the most important and 
 
 ## Categories
 Assign each item ONE category:
-- MODEL: New model releases, benchmarks, architecture breakthroughs
-- APP: Consumer products, platform updates, enterprise launches
-- DEV: Developer tools, SDKs, APIs, infrastructure, integrations
-- TECHNIQUE: Practical tips, best practices, coding techniques, papers with practical value
-- PRODUCT: Products, research, open-source projects, industry moves
+- LAUNCH: New model releases, product launches, major version drops
+- TOOL: Developer tools, SDKs, APIs, infrastructure, integrations
+- TECHNIQUE: Practical tips, best practices, coding techniques, prompting strategies
+- RESEARCH: Papers, benchmarks, architecture breakthroughs, evals
+- INSIGHT: Industry analysis, opinion pieces, trend signals, business moves
+- BUILD: Open-source projects, tutorials, hands-on guides, things you can use today
 
 ## Category Balance
 Ensure at least 2 items per main category when possible.
+
+Prioritize items that developers can ACT on today over industry news/business deals.
 
 ## Hard Filters (MUST apply)
 - Skip pure sentiment/celebration posts ("Proud to work at X", "What a day!", personal milestones)
@@ -355,9 +367,10 @@ Return ONLY a JSON array. No markdown, no explanation. Each item:
   "title": "original title",
   "url": "url",
   "source": "source string",
-  "category": "MODEL|APP|DEV|TECHNIQUE|PRODUCT",
+  "category": "LAUNCH|TOOL|TECHNIQUE|RESEARCH|INSIGHT|BUILD",
   "score": number (your score 1-100),
   "why_it_matters": "1-2 sentence explanation for the newsletter writer",
+  "action": "1 short phrase: what the reader should do (e.g., 'Try it now', 'Watch the benchmark', 'Update your SDK')",
   "engagement_likes": number,
   "engagement_retweets": number,
   "engagement_downloads": number
@@ -455,11 +468,11 @@ async function stage4_writeEN(filtered: FilteredItem[]): Promise<string> {
     itemsText += `\n## ${category}\n`;
     for (const item of catItems) {
       const engagement = formatEngagement(item);
-      itemsText += `- ${item.title} ${engagement}\n  URL: ${item.url}\n  Source: ${item.source}\n  Why: ${item.why_it_matters}\n\n`;
+      itemsText += `- ${item.title} ${engagement}\n  URL: ${item.url}\n  Source: ${item.source}\n  Why: ${item.why_it_matters}\n  Action: ${item.action || ''}\n\n`;
     }
   }
 
-  const systemPrompt = `${skill}\n\n## Additional Rules for This Run\n- Date: ${DATE}\n- Items provided: ${filtered.length}\n- You MUST produce a complete newsletter following the structure template exactly\n- Include engagement metrics in parentheses where available — this is MANDATORY for all items that have engagement data\n- Every item MUST have a source link as [Read more →](url)\n- You MUST include a 🎓 MODEL LITERACY section (one technical concept explained simply, 3-4 sentences)\n- You MUST include a 🎯 PICK OF THE DAY section (deep analysis of the day's top story, 3-5 sentences with opinion)\n- Aim for 15-22 items total. You do NOT need to use every provided item — curate ruthlessly\n- If an item has no summary, write only the title + link. Do NOT fabricate details.\n- Output ONLY the newsletter markdown. No frontmatter, no meta-commentary.`;
+  const systemPrompt = `${skill}\n\n## This Run\n- Date: ${DATE}\n- Items provided: ${filtered.length}\n- Write naturally, following the template as a guide not a straitjacket\n- Each item should be 2-4 sentences. Give enough context that a reader understands the story without clicking. Include specific technical details (benchmark scores, parameter counts, context windows). The \`why_it_matters\` and \`action\` fields from the filtered data are your best material — use them.\n- Include engagement metrics in parentheses where available\n- Each item needs a source link as [Read more →](url)\n- Include a 🎓 MODEL LITERACY section and a 🎯 PICK OF THE DAY section\n- Aim for 15-22 items total — curate ruthlessly\n- If an item has no summary, write only the title + link. Don't fabricate details.\n- Output ONLY the newsletter markdown. No frontmatter, no meta-commentary.`;
 
   const userPrompt = `Write today's LoreAI AI News newsletter (${DATE}) using these ${filtered.length} curated items:\n\n${itemsText}`;
 
@@ -503,7 +516,7 @@ async function stage5_writeZH(filtered: FilteredItem[]): Promise<string> {
     itemsText += `\n## ${category}\n`;
     for (const item of catItems) {
       const engagement = formatEngagement(item);
-      itemsText += `- ${item.title} ${engagement}\n  URL: ${item.url}\n  Source: ${item.source}\n  Why: ${item.why_it_matters}\n\n`;
+      itemsText += `- ${item.title} ${engagement}\n  URL: ${item.url}\n  Source: ${item.source}\n  Why: ${item.why_it_matters}\n  Action: ${item.action || ''}\n\n`;
     }
   }
 

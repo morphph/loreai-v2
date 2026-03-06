@@ -37,35 +37,42 @@
 
 ---
 
-## 🧠 模型动态
+## 🧠 发布动态
 
-**{产品名} {动词}。** {1-2 句：做了什么 + 关键指标 + 为什么值得关注。} [详情 →](url)
+### {重磅产品名} {动词}。
+{2-4 句：做了什么 + 关键指标 + 为什么值得关注 + 开发者该怎么做。} [详情 →](url)
 
-**{产品名} {动词}。** {同上格式。} [详情 →](url)
+**{产品名} {动词}。** {2-3 句。} [详情 →](url)
 
 ---
 
 ## 🔧 开发者工具
 
-**{功能/产品}**：{1-2 句，讲清楚对开发者的实际价值。} [详情 →](url)
+**{功能/产品}**：{2-3 句，讲清楚对开发者的实际价值。} [详情 →](url)
 
 ---
 
 ## 📝 技术实战
 
-**{标题}**：{1-2 句，先说洞察再说出处。} [详情 →](url)
+**{标题}**：{2-3 句，先说洞察再说出处。} [详情 →](url)
 
 ---
 
-## 🚀 产品动态
+## 🔬 研究前沿
 
-**{公司} + {动作}**：{1-2 句。} [详情 →](url)
+**{论文/发现}**：{2-3 句，附具体结果。} [详情 →](url)
 
 ---
 
-## 🔥 圈内热议
+## 💡 行业洞察
 
-{emoji} **{简短标签}**：{1 句带态度的点评。} [查看 →](url)
+**{趋势/分析}**：{2-3 句，要有观点。} [详情 →](url)
+
+---
+
+## 🏗️ 值得一试
+
+**{项目/教程}**：{2-3 句，说清楚是什么、为什么有用。} [详情 →](url)
 
 ---
 
@@ -93,26 +100,28 @@
 
 ## 单条规则
 
-1. **每条最多 2-3 句**。能 1 句说清的不写 2 句。
+1. **每条 2-3 句**。重磅新闻（得分前 3-5 名）用 ### 子标题，写 3-4 句深度分析。
 2. **先说"跟我有什么关系"** — 不要以"X 公司宣布"开头。先说影响："你的代码助手刚快了 25%。"
 3. **关键名称首次加粗**：**Claude Opus 4.6**、**GPT-5.3 Codex**
 4. **每条附来源链接**，格式：`[详情 →](url)`
 5. **用有力的动词**：来了、上线、开源、碾压、反超
 6. **具体数字**胜过空洞描述："100 万 token 上下文" > "更大的上下文"
-7. **分类 emoji 固定**：🧠 🔧 📝 🚀 🔥 🎓 ⚡ 🎯
+7. **分类 emoji 固定**：🧠 发布动态, 🔧 开发者工具, 📝 技术实战, 🔬 研究前沿, 💡 行业洞察, 🏗️ 值得一试, 🎓 模型小课堂, ⚡ 快讯, 🎯 今日精选
+8. **Engagement 展示**：所有有 engagement 数据的条目都要显示：(X likes)、(X likes | Y RTs)、(X likes | Y downloads)
 
 ## 分类指南
 
-| 分类 | Emoji | 内容 | 最多条数 |
-|------|-------|------|----------|
-| 模型动态 | 🧠 | 新模型发布、跑分、能力更新 | 2-3 |
-| 开发者工具 | 🔧 | SDK、API、平台集成 | 2-3 |
-| 技术实战 | 📝 | 实用技巧、编码技术、评测方法 | 2-4 |
-| 产品动态 | 🚀 | 合作、企业落地、商业化 | 2-3 |
-| 圈内热议 | 🔥 | 社区热点、争议、文化现象 | 2-3 |
-| 模型小课堂 | 🎓 | 一个技术概念的通俗解释 | 1 |
-| 快讯 | ⚡ | 一句话小新闻 | 3-5 |
-| 今日精选 | 🎯 | 当天最重要新闻的深度分析 | 1 |
+| 分类 | Emoji | 内容 |
+|------|-------|------|
+| 发布动态 | 🧠 | 新模型/产品发布、重大版本更新 |
+| 开发者工具 | 🔧 | SDK、API、平台集成、开发工具 |
+| 技术实战 | 📝 | 实用技巧、编码技术、评测方法 |
+| 研究前沿 | 🔬 | 论文、跑分、架构发现 |
+| 行业洞察 | 💡 | 行业分析、观点、商业动向 |
+| 值得一试 | 🏗️ | 开源项目、教程、动手就能用的东西 |
+| 模型小课堂 | 🎓 | 一个技术概念的通俗解释 |
+| 快讯 | ⚡ | 一句话小新闻 |
+| 今日精选 | 🎯 | 当天最重要新闻的深度分析 |
 
 - 某个分类没有值得写的内容就跳过，不要凑数。
 - 分类之间用 `---` 分隔。
@@ -146,8 +155,6 @@
 - 不要写 "在本期简报中我们将..." — 直接开始
 - 不要写 RSS 标题式的摘要
 - 不要在开场和正文中重复同一条信息
-- 不要每条超过 3 句（这是简报，不是博客）
-- 不要写 "让我们开始吧" / "话不多说" / "敬请期待"
 - 不要收录 25 条以上 — 精选 15-22 条
 - 不要忽略叙事 — 如果两家公司 20 分钟内发布竞品模型，这就是头条
 
@@ -176,22 +183,6 @@
 
 **这不是英文 Newsletter 的翻译。** 用地道的中文独立写作，但覆盖相同的新闻条目，保持一致的选题和优先级。
 
-## 安全规则
-
-- 没有 URL 的条目不写
-- 摘要为空只写标题+链接，不编造细节
-- 不编造数字和引用
-
-## Engagement 展示规则
-
-所有有 engagement 数据的条目必须显示：(X likes)、(X likes | Y RTs)、(X likes | Y downloads)
-
-## 禁止用语
-
-以下用语严禁出现在简报中：
-
-"划时代的"、"颠覆性的"、"里程碑式的"、"在本期简报中"、"今天我们来看看"、"让我们开始吧"、"话不多说"、"敬请期待"、"众所周知"、"不言而喻"、"归根结底"、"总而言之"
-
 ---
 
 ## 范例
@@ -209,41 +200,41 @@ AI 军备竞赛白热化 — **Anthropic** 刚发布 Claude Opus 4.6，**OpenAI*
 
 ---
 
-## 🧠 模型动态
+## 🧠 发布动态
 
-**Claude Opus 4.6 来了。** Anthropic 最强模型 — 100 万 token 上下文（beta）、Agent Teams 多智能体协作、代码和法律推理跑分登顶。Claude 和 Claude Code 已可使用。(12,425 likes | 892 RTs) [详情 →](https://www.anthropic.com/news/claude-opus-4-6)
+### Claude Opus 4.6 来了。
+Anthropic 最强模型 — 100 万 token 上下文（beta）、Agent Teams 多智能体协作、代码和法律推理跑分登顶。上下文窗口直接改变了 Agent 工作流的可能性 — 整个代码库塞进去推理不再是梦。Claude 和 Claude Code 已可使用，现在就去试。(12,425 likes | 892 RTs) [详情 →](https://www.anthropic.com/news/claude-opus-4-6)
 
-**GPT-5.3 Codex 紧随其后。** OpenAI 的回应：SWE-Bench Pro 57%、Terminal-Bench 2.0 77%、速度提升 25%。另外还发布了企业级 AI Agent 平台 OpenAI Frontier。(9,871 likes | 654 RTs) [详情 →](https://openai.com/index/introducing-gpt-5-3-codex/)
+### GPT-5.3 Codex 紧随其后。
+OpenAI 的回应：SWE-Bench Pro 57%、Terminal-Bench 2.0 77%、速度提升 25%。代码跑分是标题，但真正的棋是新发布的企业级 AI Agent 平台 OpenAI Frontier — OpenAI 赌的是模型本身不是护城河，编排才是。(9,871 likes | 654 RTs) [详情 →](https://openai.com/index/introducing-gpt-5-3-codex/)
 
 ---
 
 ## 🔧 开发者工具
 
-**Apple Xcode 接入 Claude Agent SDK**：iPhone、Mac、Vision Pro 开发全面支持 Claude Code 能力。苹果生态开发者的 AI 工具箱一下子充实了不少。(5,230 likes | 312 RTs) [详情 →](https://www.anthropic.com/news/apple-xcode-claude-agent-sdk)
+**Apple Xcode 接入 Claude Agent SDK**：iPhone、Mac、Vision Pro 开发全面支持 Claude Code 能力。这不是"Xcode 里加个 AI 补全" — 而是完整的 Agent 循环，Claude 可以浏览项目、跑测试、迭代修复。苹果生态开发者，今天就更新 Xcode。(5,230 likes | 312 RTs) [详情 →](https://www.anthropic.com/news/apple-xcode-claude-agent-sdk)
 
-**Claude 高级工具调用上线**：三项 beta 功能让 Claude 能动态发现、学习和执行工具。Agent 开发的灵活度又上了一个台阶。(3,102 likes) [详情 →](https://www.anthropic.com/engineering/advanced-tool-use)
+**Claude 高级工具调用上线**：三项 beta 功能让 Claude 能动态发现、学习和执行工具。关键突破：Claude 现在可以只看 schema 就学会用工具，不需要 few-shot 示例。自定义工具链的集成时间从小时级降到分钟级。(3,102 likes) [详情 →](https://www.anthropic.com/engineering/advanced-tool-use)
 
 ---
 
 ## 📝 技术实战
 
-**基础设施噪声正在干扰你的跑分结果**：Anthropic 工程团队发现，服务器配置差异能让 Agent 编码得分波动好几个百分点 — 有时比顶级模型之间的差距还大。跑分排行榜要打个问号了。(4,567 likes | 289 RTs) [详情 →](https://www.anthropic.com/engineering/infrastructure-noise)
+**基础设施噪声正在干扰你的跑分结果**：Anthropic 工程团队发现，服务器配置差异能让 Agent 编码得分波动好几个百分点 — 有时比顶级模型之间的差距还大。启示：如果你在根据 2% 的跑分差异选模型，你可能只是在测服务器负载。在自己的环境上跑 eval 再做决定。(4,567 likes | 289 RTs) [详情 →](https://www.anthropic.com/engineering/infrastructure-noise)
 
-**如何设计 AI 做不了的技术面试题**：当 Claude 能轻松通过你的 take-home exam 时怎么办？Anthropic 分享了三轮迭代的经验。(2,845 likes) [详情 →](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations)
-
----
-
-## 🚀 产品动态
-
-**ServiceNow 选择 Claude**：企业软件巨头用 Anthropic 驱动客户应用和内部提效。又一个大单。(1,456 likes) [详情 →](https://www.anthropic.com/news/servicenow-anthropic-claude)
+**如何设计 AI 做不了的技术面试题**：当 Claude 能轻松通过你的 take-home exam 时怎么办？Anthropic 分享了三轮迭代的经验 — 核心洞察是测试模糊场景下的判断力，而不只是技术正确性。2026 年招工程师的都该看看。(2,845 likes) [详情 →](https://www.anthropic.com/engineering/AI-resistant-technical-evaluations)
 
 ---
 
-## 🔥 圈内热议
+## 💡 行业洞察
 
-🦞 **谷歌超级碗广告**：Gemini 在全美收视最高的周末抢了个 C 位。(8,934 likes | 1,203 RTs) [查看 →](https://blog.google/company-news/inside-google/company-announcements/gemini-ad-new-home/)
+**ServiceNow 选择 Claude**：企业软件巨头用 Anthropic 驱动客户应用和内部提效。模式越来越清晰 — 大企业在选一家 frontier 供应商深度绑定，而不是多供应商对冲。(1,456 likes) [详情 →](https://www.anthropic.com/news/servicenow-anthropic-claude)
 
-🖼️ **HuggingFace 社区评测**："不再信任黑箱排行榜" — 去中心化模型评测时代来了。(3,678 likes | 421 RTs) [详情 →](https://huggingface.co/blog/community-evals)
+---
+
+## 🏗️ 值得一试
+
+🖼️ **HuggingFace 社区评测**："不再信任黑箱排行榜" — 去中心化模型评测上线。你可以在任何模型上跑标准化 eval，结果贡献到可审计的公共排行榜。维护开源模型的，去提交你的结果。(3,678 likes | 421 RTs) [详情 →](https://huggingface.co/blog/community-evals)
 
 ---
 

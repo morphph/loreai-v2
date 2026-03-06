@@ -22,6 +22,7 @@ export const TWITTER_ACCOUNTS = [
 
 export const SEARCH_QUERIES = [
   '"Claude Code" -crypto -web3',
+  '"Claude Code" (skills OR tips OR workflow) -crypto',
   '"AI agent" (framework OR tool OR SDK) -crypto -web3',
   '"MCP server" -crypto',
   '"vibe coding" -crypto',
