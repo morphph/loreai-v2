@@ -71,6 +71,9 @@ git config user.email "bot@loreai.dev"
 # Newsletter (5am SGT = 21:00 UTC, Mon-Fri)
 0 21 * * 1-5 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh newsletter >> /home/ubuntu/loreai-v2/logs/newsletter.log 2>&1
 
+# Entity extraction (6:30am SGT = 22:30 UTC, Mon-Fri)
+30 22 * * 1-5 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh extract >> /home/ubuntu/loreai-v2/logs/extract.log 2>&1
+
 # Blog (7am SGT = 23:00 UTC, Mon-Fri)
 0 23 * * 1-5 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh blog >> /home/ubuntu/loreai-v2/logs/blog.log 2>&1
 
@@ -153,6 +156,7 @@ npx tsx scripts/generate-seo.ts --weekly-strategy --dry-run
 Pipeline is active during these times (SGT, Mon-Fri unless noted):
 - **4:00-5:00** — Data collection
 - **5:00-6:00** — Newsletter generation
+- **6:30-7:00** — Entity extraction
 - **7:00-8:00** — Blog generation
 - **9:00-10:00** — SEO page generation
 - **Saturday 5:00-6:00** — Weekly digest

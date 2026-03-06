@@ -26,7 +26,6 @@ import {
 import { callClaudeWithRetry, callZhNewsletterWithFallback, checkClaudeHealth } from './lib/ai';
 import { validateNewsletter, validateZhNewsletter } from './lib/validate';
 import { extractBoldTitles, crossDayDedup } from './lib/dedup';
-import { dailyTopicUpdate } from './lib/topic-cluster';
 import { validateAndExpand } from './lib/brave';
 // Parse args
 const dateArg = process.argv.find((a) => a.startsWith('--date='));
@@ -613,27 +612,7 @@ async function stage6_blogSeeds(filtered: FilteredItem[]): Promise<BlogSeed[]> {
 }
 
 // ============================================================
-// STAGE 7: Topic Cluster Update (delegated to topic-cluster.ts)
-// ============================================================
-
-// Converts FilteredItem[] to NewsItem[] for the topic cluster engine
-function filteredToNewsItems(filtered: FilteredItem[]): NewsItem[] {
-  return filtered.map((f) => ({
-    id: f.id,
-    title: f.title,
-    url: f.url,
-    source: f.source,
-    source_tier: 0,
-    summary: f.why_it_matters,
-    score: f.score,
-    engagement_likes: f.engagement_likes,
-    engagement_retweets: f.engagement_retweets,
-    engagement_downloads: f.engagement_downloads,
-  }));
-}
-
-// ============================================================
-// STAGE 8: Persist & Publish
+// STAGE 7: Persist & Publish
 // ============================================================
 
 function buildFrontmatter(
@@ -675,12 +654,12 @@ function extractDescription(md: string): string {
   return `LoreAI AI News — ${DATE}`;
 }
 
-async function stage8_persist(
+async function stage7_persist(
   enContent: string,
   zhContent: string,
   filtered: FilteredItem[]
 ): Promise<void> {
-  console.log('\n💾 Stage 8: Persist & Publish');
+  console.log('\n💾 Stage 7: Persist & Publish');
 
   const categories = [...new Set(filtered.map((f) => f.category))];
   const topStory =
@@ -801,10 +780,7 @@ async function main() {
     // Stage 6
     await stage6_blogSeeds(filtered);
 
-    // Stage 7
-    await dailyTopicUpdate(filteredToNewsItems(filtered));
-
-    console.log('\n💾 Stage 8: Persist (dry-run — skipped)');
+    console.log('\n💾 Stage 7: Persist (dry-run — skipped)');
     closeDb();
     console.log('\n✅ Newsletter dry-run complete');
     return;
@@ -820,10 +796,7 @@ async function main() {
   await stage6_blogSeeds(filtered);
 
   // Stage 7
-  await dailyTopicUpdate(filteredToNewsItems(filtered));
-
-  // Stage 8
-  await stage8_persist(enContent, zhContent, filtered);
+  await stage7_persist(enContent, zhContent, filtered);
 
   closeDb();
   console.log('\n✅ Newsletter pipeline complete');

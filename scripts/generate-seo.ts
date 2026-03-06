@@ -5,7 +5,7 @@
  * Daily mode (default):
  *   npx tsx scripts/generate-seo.ts --date=YYYY-MM-DD
  *
- *   1. Load topic clusters from DB (active clusters with mention_count >= 3)
+ *   1. Load topic clusters from DB (active clusters with mention_count >= 2)
  *   2. Load keywords table for related keywords per cluster
  *   3. Check which content already exists (glossary/FAQ/compare/topics) via DB or filesystem
  *   4. For clusters missing content, generate pages:
@@ -231,12 +231,12 @@ function stage1_loadClusters(): ClusterRow[] {
     .prepare(
       `SELECT slug, pillar_topic, mention_count, has_topic_hub, brave_related_json
        FROM topic_clusters
-       WHERE mention_count >= 3
+       WHERE mention_count >= 2
        ORDER BY mention_count DESC`
     )
     .all() as ClusterRow[];
 
-  console.log(`  Found ${clusters.length} active clusters (mention_count >= 3)`);
+  console.log(`  Found ${clusters.length} active clusters (mention_count >= 2)`);
   for (const c of clusters.slice(0, 10)) {
     console.log(`    ${c.mention_count}x: ${c.pillar_topic} (${c.slug})`);
   }
@@ -999,7 +999,7 @@ async function main() {
   // Stage 1: Load clusters
   const clusters = stage1_loadClusters();
   if (clusters.length === 0) {
-    console.log('\n⚠️  No active topic clusters (mention_count >= 3). Run the newsletter pipeline first to build clusters.');
+    console.log('\n⚠️  No active topic clusters (mention_count >= 2). Run the newsletter pipeline first to build clusters.');
     closeDb();
     process.exit(0);
   }

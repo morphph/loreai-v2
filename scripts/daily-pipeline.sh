@@ -28,6 +28,8 @@ case "$STEP" in
     (git commit -m "📰 AI News $DATE" || true) && git push
     npx tsx scripts/send-newsletter.ts --date="$DATE" --lang=en
     npx tsx scripts/send-newsletter.ts --date="$DATE" --lang=zh ;;
+  extract)
+    npx tsx scripts/extract-entities.ts --date="$DATE" ;;
   blog)
     npx tsx scripts/write-blog.ts --date="$DATE"
     npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=blog
@@ -47,6 +49,6 @@ case "$STEP" in
     git add data/content-plan/
     (git commit -m "📋 Plan $(date +%Y-W%V)" || true) && git push ;;
   *)
-    echo "Usage: $0 {collect|newsletter|blog|seo|weekly|cluster-strategy}"
+    echo "Usage: $0 {collect|newsletter|extract|blog|seo|weekly|cluster-strategy}"
     exit 1 ;;
 esac
