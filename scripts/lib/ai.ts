@@ -18,6 +18,14 @@ function resolveModel(model: string): string {
 
 // --- Claude CLI ---
 
+// Resolve full path to `claude` binary at startup so cron (minimal PATH) can find it
+let CLAUDE_BIN = 'claude';
+try {
+  CLAUDE_BIN = execSync('which claude', { encoding: 'utf-8' }).trim();
+} catch {
+  // Fallback: local dev where PATH already includes claude
+}
+
 export interface AIResponse {
   content: string;
   model: string;
@@ -47,7 +55,7 @@ export async function callClaude(
     delete cleanEnv.CLAUDECODE;
 
     const stdout = execSync(
-      `cat "${tmpFile}" | claude --model ${model} --output-format text --max-turns 1 --print`,
+      `cat "${tmpFile}" | ${CLAUDE_BIN} --model ${model} --output-format text --max-turns 1 --print`,
       {
         timeout: 3 * 60 * 1000, // 3 minutes
         maxBuffer: 10 * 1024 * 1024, // 10 MB
