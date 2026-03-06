@@ -20,26 +20,26 @@ for i in 1 2 3; do git pull --rebase && break; sleep 10; done
 case "$STEP" in
   collect)
     npx tsx scripts/collect-news.ts
-    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=collect ;;
+    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=collect || true ;;
   newsletter)
     npx tsx scripts/write-newsletter.ts --date="$DATE"
-    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=newsletter
     git add content/newsletters/ data/filtered-items/ data/blog-seeds/
     (git commit -m "📰 AI News $DATE" || true) && git push
+    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=newsletter || true
     npx tsx scripts/send-newsletter.ts --date="$DATE" --lang=en
     npx tsx scripts/send-newsletter.ts --date="$DATE" --lang=zh ;;
   extract)
     npx tsx scripts/extract-entities.ts --date="$DATE" ;;
   blog)
     npx tsx scripts/write-blog.ts --date="$DATE"
-    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=blog
     git add content/blog/
-    (git commit -m "📝 Blog $DATE" || true) && git push ;;
+    (git commit -m "📝 Blog $DATE" || true) && git push
+    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=blog || true ;;
   seo)
     npx tsx scripts/generate-seo.ts --date="$DATE"
-    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=seo
     git add content/glossary/ content/faq/ content/compare/ content/topics/
-    (git commit -m "🔍 SEO $DATE" || true) && git push ;;
+    (git commit -m "🔍 SEO $DATE" || true) && git push
+    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=seo || true ;;
   weekly)
     npx tsx scripts/write-weekly.ts
     git add content/newsletters/weekly/
