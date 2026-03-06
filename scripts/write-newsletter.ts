@@ -23,7 +23,7 @@ import {
   closeDb,
   type NewsItem,
 } from './lib/db';
-import { callClaudeWithRetry, callZhNewsletterWithFallback } from './lib/ai';
+import { callClaudeWithRetry, callZhNewsletterWithFallback, checkClaudeHealth } from './lib/ai';
 import { validateNewsletter, validateZhNewsletter } from './lib/validate';
 import { extractBoldTitles, crossDayDedup } from './lib/dedup';
 import { dailyTopicUpdate } from './lib/topic-cluster';
@@ -403,7 +403,8 @@ Return ONLY a JSON array. No markdown, no explanation. Each item:
 
     return filtered;
   } catch (err) {
-    console.error('  Agent filter failed:', err);
+    console.error('  ⚠️ Agent filter FAILED — falling back to rule-based filtering');
+    console.error('  Error:', err instanceof Error ? err.message : err);
     return ruleBasedFallback(deduped);
   }
 }
@@ -749,6 +750,11 @@ async function stage8_persist(
 
 async function main() {
   if (DRY_RUN) console.log('🧪 DRY RUN — skipping AI calls and git push\n');
+
+  // Pre-flight: verify Claude CLI is working
+  if (!DRY_RUN) {
+    checkClaudeHealth();
+  }
 
   // Stage 1
   const rawItems = await stage1_dbQuery();

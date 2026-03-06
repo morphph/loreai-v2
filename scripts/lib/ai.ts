@@ -54,16 +54,23 @@ export async function callClaude(
     const cleanEnv = { ...process.env };
     delete cleanEnv.CLAUDECODE;
 
-    const stdout = execSync(
-      `cat "${tmpFile}" | ${CLAUDE_BIN} --model ${model} --output-format text --max-turns 1 --print`,
-      {
-        timeout: 3 * 60 * 1000, // 3 minutes
-        maxBuffer: 10 * 1024 * 1024, // 10 MB
-        encoding: 'utf-8',
-        stdio: ['pipe', 'pipe', 'pipe'],
-        env: cleanEnv,
-      }
-    );
+    let stdout: string;
+    try {
+      stdout = execSync(
+        `cat "${tmpFile}" | ${CLAUDE_BIN} --model ${model} --output-format text --max-turns 1 --print`,
+        {
+          timeout: 3 * 60 * 1000, // 3 minutes
+          maxBuffer: 10 * 1024 * 1024, // 10 MB
+          encoding: 'utf-8',
+          stdio: ['pipe', 'pipe', 'pipe'],
+          env: cleanEnv,
+        }
+      );
+    } catch (err: any) {
+      const stderr = err?.stderr?.toString?.()?.trim() || '';
+      const status = err?.status ?? 'unknown';
+      throw new Error(`Claude CLI failed (exit ${status}): ${stderr || err.message}`);
+    }
 
     // Strip ANSI escape sequences
     const content = stdout.replace(/\x1b\[[0-9;]*[a-zA-Z]/g, '').trim();
@@ -75,6 +82,18 @@ export async function callClaude(
     };
   } finally {
     try { unlinkSync(tmpFile); } catch {}
+  }
+}
+
+export function checkClaudeHealth(): void {
+  try {
+    const version = execSync(`${CLAUDE_BIN} --version`, {
+      timeout: 15_000, encoding: 'utf-8', stdio: 'pipe',
+    }).trim();
+    console.log(`  Claude CLI: ${version}`);
+  } catch (err: any) {
+    const stderr = err?.stderr?.toString?.()?.trim() || '';
+    throw new Error(`Claude CLI health check failed: ${stderr || err.message}`);
   }
 }
 
