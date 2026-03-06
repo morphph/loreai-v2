@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Anthropic identifies industrial-scale distillation attacks by DeepSeek, Moonshot AI, and MiniMax",
+    "url": "https://x.com/AnthropicAI/status/2025997928242811253",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 61588,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 35.4764,
+    "suggested_angle": "analysis"
+  },
+  {
+    "topic": "Gemini 3.1 Flash-Lite: Built for intelligence at scale",
+    "url": "https://deepmind.google/blog/gemini-3-1-flash-lite-built-for-intelligence-at-scale/",
+    "source": "rss:DeepMind Blog",
+    "x_engagement_24h": 9658,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 19.897399999999998,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "New in Claude Code: Remote Control — kick off tasks in terminal, continue from phone",
+    "url": "https://x.com/claudeai/status/2026418433911603668",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 48883,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 18.6649,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "GPT-5.4 Thinking and GPT-5.4 Pro rolling out in ChatGPT and API",
+    "url": "https://x.com/OpenAI/status/2029620619743219811",
+    "source": "twitter:@OpenAI",
+    "x_engagement_24h": 13481,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 17.0443,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "OpenAI launches GPT-5.4 with Pro and Thinking versions",
+    "url": "https://techcrunch.com/2026/03/05/openai-launches-gpt-5-4-with-pro-and-thinking-versions/",
+    "source": "rss:TechCrunch AI",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  }
+]
