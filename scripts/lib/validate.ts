@@ -55,6 +55,32 @@ export function validateZhNewsletter(md: string): ValidationResult {
 }
 
 // ============================================================
+// Weekly Newsletter Validators
+// ============================================================
+
+export function validateWeeklyNewsletter(md: string): ValidationResult {
+  const errors: string[] = [];
+  if (!md.match(/^# .+/m)) errors.push('Missing H1 title');
+  if ((md.match(/^## .+/gm) || []).length < 5) errors.push('<5 H2 sections');
+  if ((md.match(/\*\*.+?\*\*/g) || []).length < 3) errors.push('<3 bold items');
+  if (!md.match(/## .*Quick Takes/i)) errors.push('Missing Quick Takes section');
+  if (md.match(/^# .*\d{4}-\d{2}-\d{2}/m)) errors.push('Date-based title');
+  if (md.match(NEWSLETTER_FORBIDDEN)) errors.push('Forbidden phrase detected');
+  return { valid: errors.length === 0, errors };
+}
+
+export function validateWeeklyZhNewsletter(md: string): ValidationResult {
+  const errors: string[] = [];
+  if (!md.match(/^# .+/m)) errors.push('Missing H1 title');
+  if ((md.match(/^## .+/gm) || []).length < 5) errors.push('<5 H2 sections');
+  if ((md.match(/\*\*.+?\*\*/g) || []).length < 3) errors.push('<3 bold items');
+  if (!md.match(/## .*速览/)) errors.push('Missing Quick Takes (速览) section');
+  if (md.match(/^# .*\d{4}-\d{2}-\d{2}/m)) errors.push('Date-based title');
+  if (md.match(ZH_NEWSLETTER_FORBIDDEN)) errors.push('Forbidden phrase detected (ZH)');
+  return { valid: errors.length === 0, errors };
+}
+
+// ============================================================
 // SEO Page Validators
 // ============================================================
 

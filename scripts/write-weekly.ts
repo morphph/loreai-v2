@@ -23,7 +23,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { callClaudeWithRetry, callZhNewsletterWithFallback } from './lib/ai';
-import { validateNewsletter, validateZhNewsletter } from './lib/validate';
+import { validateWeeklyNewsletter, validateWeeklyZhNewsletter } from './lib/validate';
 import { upsertContent, closeDb } from './lib/db';
 import { gitAddCommitPush } from './lib/git';
 
@@ -97,6 +97,7 @@ interface FilteredItem {
   engagement_likes: number;
   engagement_retweets: number;
   engagement_downloads: number;
+  action?: string;
 }
 
 interface WeeklyStory {
@@ -375,13 +376,38 @@ function stage4_selectTop5(stories: WeeklyStory[]): WeeklyStory[] {
 }
 
 // ============================================================
+// Engagement formatting (ported from write-newsletter.ts)
+// ============================================================
+
+function formatEngagement(item: FilteredItem): string {
+  const parts: string[] = [];
+
+  if (item.engagement_likes > 0 && item.engagement_downloads > 0) {
+    const likesStr = item.engagement_likes.toLocaleString();
+    const dlStr =
+      item.engagement_downloads >= 1_000_000
+        ? `${(item.engagement_downloads / 1_000_000).toFixed(2)}M`
+        : item.engagement_downloads >= 1_000
+          ? `${(item.engagement_downloads / 1_000).toFixed(1)}K`
+          : item.engagement_downloads.toString();
+    parts.push(`(${likesStr} likes | ${dlStr} downloads)`);
+  } else if (item.engagement_likes > 0 && item.engagement_retweets > 0) {
+    parts.push(`(${item.engagement_likes.toLocaleString()} likes | ${item.engagement_retweets} RTs)`);
+  } else if (item.engagement_likes > 0) {
+    parts.push(`(${item.engagement_likes.toLocaleString()} likes)`);
+  }
+
+  return parts.join(' ');
+}
+
+// ============================================================
 // STAGE 5: Generate EN Weekly
 // ============================================================
 
 async function stage5_generateEN(top5: WeeklyStory[]): Promise<string> {
   console.log('\n📝 Stage 5: Generate EN Weekly');
 
-  const skillPath = path.join(process.cwd(), 'skills', 'newsletter-en', 'SKILL.md');
+  const skillPath = path.join(process.cwd(), 'skills', 'newsletter-weekly-en', 'SKILL.md');
   const skill = fs.existsSync(skillPath) ? fs.readFileSync(skillPath, 'utf-8') : '';
 
   // Format the top 5 stories for the AI
@@ -395,7 +421,11 @@ async function stage5_generateEN(top5: WeeklyStory[]): Promise<string> {
     if (s.best_item.why_it_matters) {
       storiesText += `Context: ${s.best_item.why_it_matters}\n`;
     }
-    storiesText += `Engagement: likes=${s.total_engagement}, frequency=${s.frequency}\n`;
+    const engagement = formatEngagement(s.best_item);
+    storiesText += `Engagement: ${engagement} (appeared ${s.frequency}x this week)\n`;
+    if (s.best_item.action) {
+      storiesText += `Action: ${s.best_item.action}\n`;
+    }
     // Include related items for context
     if (s.items.length > 1) {
       storiesText += `Related coverage (${s.items.length} items):\n`;
@@ -408,60 +438,8 @@ async function stage5_generateEN(top5: WeeklyStory[]): Promise<string> {
 
   const systemPrompt = `${skill}
 
-## Weekly Digest Format
-
-You are writing the **weekly digest**, NOT a daily newsletter. This is a Saturday retrospective.
-
-Format: "5 Things That Mattered in AI This Week"
-
-Structure:
-\`\`\`
-# 5 Things That Mattered in AI This Week
-
-**Week of ${WEEKDAYS[0]} to ${WEEKDAYS[WEEKDAYS.length - 1]}**
-
-{1-2 sentence intro: What defined AI this week?}
-
----
-
-## 1. {Story Title}
-
-{200-400 words: What happened → Why it matters → What's next}
-
-[Read more →](url)
-
----
-
-## 2. {Story Title}
-...
-
-## 3. {Story Title}
-...
-
-## 4. {Story Title}
-...
-
-## 5. {Story Title}
-...
-
----
-
-## Quick Takes
-
-{3-5 bullet points of other notable stories that didn't make top 5}
-
----
-
-*That's the week in AI. [Subscribe to AI News](/subscribe) to get daily briefings.*
-\`\`\`
-
-Rules:
-- Each story analysis: 200-400 words covering what happened, why it matters, what's next
-- Be opinionated — what's the real significance?
-- Include specific numbers: benchmark scores, pricing, download counts
-- Link to source for each story
-- End with Quick Takes section for overflow stories
-- Output ONLY the newsletter markdown. No frontmatter, no meta-commentary.`;
+Write the weekly AI digest for the week of ${WEEKDAYS[0]} to ${WEEKDAYS[WEEKDAYS.length - 1]}.
+You have 5 stories to cover. Output ONLY the newsletter markdown. No frontmatter, no meta-commentary.`;
 
   const userPrompt = `Write the weekly AI digest for ${WEEK_SLUG} (week of ${WEEKDAYS[0]} to ${WEEKDAYS[WEEKDAYS.length - 1]}) using these top 5 stories:\n\n${storiesText}`;
 
@@ -469,7 +447,7 @@ Rules:
     maxTokens: 8192,
     temperature: 0.5,
     maxRetries: 3,
-    validate: validateNewsletter,
+    validate: validateWeeklyNewsletter,
   });
 
   console.log(`  EN weekly generated (model: ${response.model})`);
@@ -485,7 +463,7 @@ Rules:
 async function stage6_generateZH(top5: WeeklyStory[]): Promise<string> {
   console.log('\n📝 Stage 6: ZH Weekly (fallback cascade)');
 
-  const skillPath = path.join(process.cwd(), 'skills', 'newsletter-zh', 'SKILL.md');
+  const skillPath = path.join(process.cwd(), 'skills', 'newsletter-weekly-zh', 'SKILL.md');
   const skill = fs.existsSync(skillPath) ? fs.readFileSync(skillPath, 'utf-8') : '';
 
   // Format stories
@@ -499,58 +477,22 @@ async function stage6_generateZH(top5: WeeklyStory[]): Promise<string> {
     if (s.best_item.why_it_matters) {
       storiesText += `背景：${s.best_item.why_it_matters}\n`;
     }
-    storiesText += `互动：${s.total_engagement}, 出现频率：${s.frequency}\n\n`;
+    const engagement = formatEngagement(s.best_item);
+    storiesText += `互动：${engagement}（本周出现 ${s.frequency} 次）\n`;
+    if (s.best_item.action) {
+      storiesText += `行动建议：${s.best_item.action}\n`;
+    }
+    storiesText += '\n';
   }
 
   const systemPrompt = `${skill}
 
-## 周刊格式
+基于以下5个本周热门AI故事，创作 ${WEEKDAYS[0]} 至 ${WEEKDAYS[WEEKDAYS.length - 1]} 周刊中文版。
+只输出 Newsletter 正文 Markdown，不要 frontmatter，不要 meta 说明。`;
 
-你正在写**周刊**，不是日报。这是周六的回顾总结。
+  const userPrompt = `以下是本周5大AI热门故事的数据：\n\n${storiesText}`;
 
-格式："本周 AI 五大要事"
-
-结构：
-\`\`\`
-# 本周 AI 五大要事
-
-**${WEEKDAYS[0]} 至 ${WEEKDAYS[WEEKDAYS.length - 1]}**
-
-{1-2句话概括本周AI领域大势}
-
----
-
-## 1. {故事标题}
-
-{200-400字分析：发生了什么 → 为什么重要 → 接下来会怎样}
-
-[详情 →](url)
-
----
-
-...重复5个故事...
-
----
-
-## 速览
-
-{3-5个其他值得关注的动态}
-
----
-
-*本周AI要闻就到这里。[订阅 AI News](/subscribe) 获取每日速递。*
-\`\`\`
-
-规则：
-- 这不是英文版的翻译。基于同一批新闻源，独立创作中文版本
-- 每个故事分析 200-400 字
-- 有态度 — 真正的重要性是什么？
-- 包含具体数字
-- 只输出 Newsletter 正文 Markdown，不要 frontmatter`;
-
-  const userPrompt = `基于以下5个本周热门AI故事，创作 ${WEEK_SLUG} 周刊中文版：\n\n${storiesText}`;
-
-  const response = await callZhNewsletterWithFallback(systemPrompt, userPrompt, validateZhNewsletter);
+  const response = await callZhNewsletterWithFallback(systemPrompt, userPrompt, validateWeeklyZhNewsletter);
 
   console.log(`  ZH weekly generated (model: ${response.model})`);
 
@@ -691,9 +633,11 @@ async function main() {
     return;
   }
 
-  // Stage 5 & 6 (EN first, then ZH)
-  const enContent = await stage5_generateEN(top5);
-  const zhContent = await stage6_generateZH(top5);
+  // Stage 5 & 6 (EN + ZH in parallel)
+  const [enContent, zhContent] = await Promise.all([
+    stage5_generateEN(top5),
+    stage6_generateZH(top5),
+  ]);
 
   // Stage 7
   await stage7_persist(enContent, zhContent, top5);

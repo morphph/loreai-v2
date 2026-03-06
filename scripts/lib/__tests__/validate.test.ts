@@ -3,6 +3,8 @@ import {
   validateNewsletter,
   validateBlogPost,
   validateZhNewsletter,
+  validateWeeklyNewsletter,
+  validateWeeklyZhNewsletter,
   validateGlossary,
   validateFaq,
   validateCompare,
@@ -282,5 +284,151 @@ describe('validateTopicHub', () => {
     const result = validateTopicHub(md);
     expect(result.valid).toBe(false);
     expect(result.errors.some((e) => e.includes('Too long'))).toBe(true);
+  });
+});
+
+// ── Weekly Newsletter Validation ─────────────────────────────────────────
+
+describe('validateWeeklyNewsletter', () => {
+  const validWeekly = `
+# The Week AI Agents Went Mainstream
+
+**Week of 2026-03-02 to 2026-03-06**
+
+Big week for agents.
+
+---
+
+## 1. Story One
+
+**Claude** ships agents. Details here.
+
+## 2. Story Two
+
+**OpenAI** responds with Codex.
+
+## 3. Story Three
+
+**Google** launches Gemini update.
+
+## 4. Story Four
+
+**Meta** open-sources Llama 4.
+
+## 5. Story Five
+
+**Anthropic** pricing changes.
+
+## Quick Takes
+
+- **Item A**: Short note.
+- **Item B**: Another note.
+`;
+
+  it('passes for valid weekly newsletter', () => {
+    const result = validateWeeklyNewsletter(validWeekly);
+    expect(result.valid).toBe(true);
+    expect(result.errors).toHaveLength(0);
+  });
+
+  it('fails when missing H1', () => {
+    const md = `## 1. S1\n\n**A** x\n**B** x\n**C** x\n\n## 2. S2\n\n## 3. S3\n\n## 4. S4\n\n## 5. S5\n\n## Quick Takes`;
+    const result = validateWeeklyNewsletter(md);
+    expect(result.valid).toBe(false);
+    expect(result.errors).toContain('Missing H1 title');
+  });
+
+  it('fails with fewer than 5 H2 sections', () => {
+    const md = `# Title\n\n## 1. Story\n\n**A** x\n**B** x\n**C** x\n\n## 2. Story\n\n## Quick Takes`;
+    const result = validateWeeklyNewsletter(md);
+    expect(result.valid).toBe(false);
+    expect(result.errors).toContain('<5 H2 sections');
+  });
+
+  it('fails when missing Quick Takes section', () => {
+    const md = `# Title\n\n**A** x\n**B** x\n**C** x\n\n## 1. S\n\n## 2. S\n\n## 3. S\n\n## 4. S\n\n## 5. S`;
+    const result = validateWeeklyNewsletter(md);
+    expect(result.valid).toBe(false);
+    expect(result.errors).toContain('Missing Quick Takes section');
+  });
+
+  it('does NOT require MODEL LITERACY or PICK OF THE DAY', () => {
+    const result = validateWeeklyNewsletter(validWeekly);
+    expect(result.errors).not.toContain('Missing MODEL LITERACY section');
+    expect(result.errors).not.toContain('Missing PICK OF THE DAY section');
+  });
+
+  it('detects date-based title', () => {
+    const md = `# 2026-03-07 Weekly\n\n**A** x\n**B** x\n**C** x\n\n## 1. S\n\n## 2. S\n\n## 3. S\n\n## 4. S\n\n## 5. S\n\n## Quick Takes`;
+    const result = validateWeeklyNewsletter(md);
+    expect(result.errors).toContain('Date-based title');
+  });
+
+  it('detects forbidden phrases', () => {
+    const md = `# Title\n\n**A** x\n**B** x\n**C** x\n\n## 1. S\n\n## 2. S\n\n## 3. S\n\n## 4. S\n\n## 5. S\n\n## Quick Takes\n\nThis is game-changing.`;
+    const result = validateWeeklyNewsletter(md);
+    expect(result.errors).toContain('Forbidden phrase detected');
+  });
+});
+
+describe('validateWeeklyZhNewsletter', () => {
+  const validWeeklyZh = `
+# 本周 AI 五大要事：Anthropic 和 OpenAI 正面交锋
+
+**2026-03-02 至 2026-03-06**
+
+大事不少。
+
+---
+
+## 1. 故事一
+
+**Claude** 发布新版本。详情很多。
+
+## 2. 故事二
+
+**OpenAI** 跟进发布 Codex。
+
+## 3. 故事三
+
+**Google** 更新 Gemini。
+
+## 4. 故事四
+
+**Meta** 开源 Llama 4。
+
+## 5. 故事五
+
+**Anthropic** 调整定价。
+
+## 速览
+
+- **项目 A**：简要说明。
+- **项目 B**：另一条。
+`;
+
+  it('passes for valid ZH weekly newsletter', () => {
+    const result = validateWeeklyZhNewsletter(validWeeklyZh);
+    expect(result.valid).toBe(true);
+    expect(result.errors).toHaveLength(0);
+  });
+
+  it('fails when missing 速览 section', () => {
+    const md = `# 标题\n\n**A** x\n**B** x\n**C** x\n\n## 1. S\n\n## 2. S\n\n## 3. S\n\n## 4. S\n\n## 5. S`;
+    const result = validateWeeklyZhNewsletter(md);
+    expect(result.valid).toBe(false);
+    expect(result.errors).toContain('Missing Quick Takes (速览) section');
+  });
+
+  it('does NOT require 模型小课堂 or 今日精选', () => {
+    const result = validateWeeklyZhNewsletter(validWeeklyZh);
+    expect(result.errors).not.toContain('Missing MODEL LITERACY (ZH)');
+    expect(result.errors).not.toContain('Missing PICK OF THE DAY (ZH)');
+  });
+
+  it('detects ZH forbidden phrases', () => {
+    const md = `# 标题\n\n**A** x\n**B** x\n**C** x\n\n## 1. S\n\n## 2. S\n\n## 3. S\n\n## 4. S\n\n## 5. S\n\n## 速览\n\n这是划时代的突破。`;
+    const result = validateWeeklyZhNewsletter(md);
+    expect(result.errors).toContain('Forbidden phrase detected (ZH)');
   });
 });
