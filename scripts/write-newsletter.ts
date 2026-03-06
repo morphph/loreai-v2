@@ -28,8 +28,6 @@ import { validateNewsletter, validateZhNewsletter } from './lib/validate';
 import { extractBoldTitles, crossDayDedup } from './lib/dedup';
 import { dailyTopicUpdate } from './lib/topic-cluster';
 import { validateAndExpand } from './lib/brave';
-import { gitAddCommitPush } from './lib/git';
-
 // Parse args
 const dateArg = process.argv.find((a) => a.startsWith('--date='));
 const DATE = dateArg ? dateArg.split('=')[1] : new Date().toISOString().split('T')[0];
@@ -741,20 +739,6 @@ async function stage8_persist(
 
   console.log(`  DB records: EN (id=${enContentId}), ZH (id=${zhContentId})`);
 
-  // Git push
-  try {
-    const committed = await gitAddCommitPush(
-      [
-        'content/newsletters/',
-        'data/filtered-items/',
-        'data/blog-seeds/',
-      ],
-      `📰 AI News ${DATE}`
-    );
-    console.log(committed ? '  Git: committed and pushed' : '  Git: nothing to commit');
-  } catch (err) {
-    console.warn('  Git push failed (non-fatal):', (err as Error).message);
-  }
 }
 
 // ============================================================

@@ -1,6 +1,10 @@
 #!/bin/bash
 set -euo pipefail
 
+# Prevent concurrent pipeline steps (cron overlap protection)
+exec 200>/tmp/loreai-pipeline.lock
+flock -n 200 || { echo "Another pipeline step is running"; exit 1; }
+
 # Source nvm FIRST so its bin dir (containing node, npm, npx, claude) is in PATH
 [ -f /home/ubuntu/.nvm/nvm.sh ] && source /home/ubuntu/.nvm/nvm.sh
 [ -f /home/ubuntu/.profile ] && source /home/ubuntu/.profile 2>/dev/null || true
@@ -9,7 +13,7 @@ export PATH="/home/ubuntu/.local/bin:/home/ubuntu/.npm-global/bin:/usr/local/bin
 
 cd /home/ubuntu/loreai-v2
 STEP="${1:-all}"
-DATE=$(date -u +%Y-%m-%d)
+DATE=$(TZ=Asia/Singapore date +%Y-%m-%d)
 mkdir -p logs
 for i in 1 2 3; do git pull --rebase && break; sleep 10; done
 
