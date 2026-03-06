@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Claude Code Remote Control: kick off tasks in terminal, control from phone",
+    "url": "https://x.com/claudeai/status/2026418433911603668",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 48883,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 43.6649,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Voice mode rolling out in Claude Code",
+    "url": "https://x.com/trq212/status/2028628570692890800",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 18521,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 38.5563,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code Security: scan codebases for vulnerabilities (research preview)",
+    "url": "https://x.com/claudeai/status/2024907535145468326",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 55851,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 36.7553,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic detects industrial-scale distillation attacks by DeepSeek, Moonshot AI, and MiniMax",
+    "url": "https://x.com/AnthropicAI/status/2025997928242811253",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 61588,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 35.4764,
+    "suggested_angle": "analysis"
+  },
+  {
+    "topic": "Dario Amodei statement on Anthropic's discussions with the Department of War",
+    "url": "https://x.com/AnthropicAI/status/2027150818575528261",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 65771,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 32.731300000000005,
+    "suggested_angle": "news"
+  }
+]
