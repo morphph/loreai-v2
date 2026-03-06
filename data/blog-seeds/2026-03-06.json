@@ -1,14 +1,14 @@
 [
   {
-    "topic": "New in Claude Code: Remote Control — kick off tasks in terminal, pick up from your phone",
-    "url": "https://x.com/claudeai/status/2026418433911603668",
-    "source": "twitter:@claudeai",
-    "x_engagement_24h": 48872,
+    "topic": "Claude is a space to think — Introducing Claude Sonnet 4.6",
+    "url": "https://www.anthropic.com/news/claude-is-a-space-to-think",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
     "brave_has_results": true,
     "brave_related_searches": [],
     "brave_discussions": [],
-    "mention_count_7d": 2,
-    "composite_score": 31.6616,
+    "mention_count_7d": 6,
+    "composite_score": 33,
     "suggested_angle": "news"
   },
   {
@@ -31,32 +31,32 @@
     "brave_has_results": true,
     "brave_related_searches": [],
     "brave_discussions": [],
-    "mention_count_7d": 2,
-    "composite_score": 24.1904,
+    "mention_count_7d": 3,
+    "composite_score": 28.1904,
     "suggested_angle": "news"
   },
   {
-    "topic": "Claude is a space to think — Sonnet 4.6 delivers frontier performance",
-    "url": "https://www.anthropic.com/news/claude-is-a-space-to-think",
-    "source": "blog:Anthropic News",
-    "x_engagement_24h": 0,
-    "brave_has_results": true,
+    "topic": "New in Claude Code: Remote Control — kick off tasks from terminal, pick up from your phone",
+    "url": "https://x.com/claudeai/status/2026418433911603668",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 48872,
+    "brave_has_results": false,
     "brave_related_searches": [],
     "brave_discussions": [],
     "mention_count_7d": 3,
-    "composite_score": 21,
+    "composite_score": 26.6616,
     "suggested_angle": "news"
   },
   {
-    "topic": "Gemini 3.1 Flash-Lite: Built for intelligence at scale",
-    "url": "https://deepmind.google/blog/gemini-3-1-flash-lite-built-for-intelligence-at-scale/",
-    "source": "rss:DeepMind Blog",
-    "x_engagement_24h": 8478,
+    "topic": "GPT-5.4 Thinking and GPT-5.4 Pro are rolling out now in ChatGPT",
+    "url": "https://x.com/OpenAI/status/2029620619743219811",
+    "source": "twitter:@OpenAI",
+    "x_engagement_24h": 22577,
     "brave_has_results": true,
     "brave_related_searches": [],
     "brave_discussions": [],
-    "mention_count_7d": 2,
-    "composite_score": 19.5434,
+    "mention_count_7d": 1,
+    "composite_score": 19.7731,
     "suggested_angle": "news"
   }
 ]
