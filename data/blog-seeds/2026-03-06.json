@@ -1,6 +1,18 @@
 [
   {
-    "topic": "New in Claude Cowork: Scheduled tasks — recurring automations at specific times",
+    "topic": "New in Claude Code: Remote Control — kick off a task in your terminal and pick it up from your phone",
+    "url": "https://x.com/claudeai/status/2026418433911603668",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 48872,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 35.6616,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "New in Cowork: scheduled tasks — Claude can now complete recurring tasks at specific times automatically",
     "url": "https://x.com/claudeai/status/2026720870631354429",
     "source": "twitter:@claudeai",
     "x_engagement_24h": 23968,
@@ -12,51 +24,39 @@
     "suggested_angle": "news"
   },
   {
-    "topic": "New in Claude Code: Remote Control — kick off tasks from terminal, pick up from phone",
-    "url": "https://x.com/claudeai/status/2026418433911603668",
-    "source": "twitter:@claudeai",
-    "x_engagement_24h": 48872,
+    "topic": "Simon Willison publishes Agentic Engineering Patterns guide — coding practices for Claude Code and Codex",
+    "url": "https://x.com/simonw/status/2025990408514523517",
+    "source": "twitter:@simonw",
+    "x_engagement_24h": 3042,
     "brave_has_results": true,
     "brave_related_searches": [],
     "brave_discussions": [],
-    "mention_count_7d": 2,
-    "composite_score": 31.6616,
-    "suggested_angle": "news"
+    "mention_count_7d": 5,
+    "composite_score": 29.912599999999998,
+    "suggested_angle": "tutorial"
   },
   {
-    "topic": "Anthropic identifies industrial-scale distillation attacks by DeepSeek, Moonshot AI, and MiniMax",
-    "url": "https://x.com/AnthropicAI/status/2025997928242811253",
-    "source": "twitter:@AnthropicAI",
-    "x_engagement_24h": 61614,
-    "brave_has_results": true,
-    "brave_related_searches": [],
-    "brave_discussions": [],
-    "mention_count_7d": 1,
-    "composite_score": 31.484199999999998,
-    "suggested_angle": "analysis"
-  },
-  {
-    "topic": "Google TimesFM 2.5: Time-series forecasting foundation model",
-    "url": "https://huggingface.co/google/timesfm-2.5-200m-transformers",
-    "source": "huggingface:org:google",
-    "x_engagement_24h": 25,
+    "topic": "GPT-5.4 is launching, available now in the API and Codex — much better at knowledge work and web search, native computer use capabilities, 1M token context",
+    "url": "https://x.com/sama/status/2029622732594499630",
+    "source": "twitter:@sama",
+    "x_engagement_24h": 12029,
     "brave_has_results": true,
     "brave_related_searches": [],
     "brave_discussions": [],
     "mention_count_7d": 3,
-    "composite_score": 21.0075,
+    "composite_score": 24.6087,
     "suggested_angle": "news"
   },
   {
-    "topic": "GPT-5.4 Thinking and GPT-5.4 Pro are rolling out now in ChatGPT",
-    "url": "https://x.com/OpenAI/status/2029620619743219811",
-    "source": "twitter:@OpenAI",
-    "x_engagement_24h": 22577,
+    "topic": "nanochat now trains GPT-2 capability model in just 2 hours on a single 8xH100 node",
+    "url": "https://x.com/karpathy/status/2029701092347630069",
+    "source": "twitter:@karpathy",
+    "x_engagement_24h": 2353,
     "brave_has_results": true,
     "brave_related_searches": [],
     "brave_discussions": [],
-    "mention_count_7d": 1,
-    "composite_score": 19.7731,
+    "mention_count_7d": 3,
+    "composite_score": 21.7059,
     "suggested_angle": "news"
   }
 ]
