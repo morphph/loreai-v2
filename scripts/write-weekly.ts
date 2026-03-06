@@ -25,7 +25,7 @@ import path from 'path';
 import { callClaudeWithRetry, callZhNewsletterWithFallback } from './lib/ai';
 import { validateWeeklyNewsletter, validateWeeklyZhNewsletter } from './lib/validate';
 import { upsertContent, closeDb } from './lib/db';
-import { gitAddCommitPush } from './lib/git';
+
 
 // --- Args ---
 const DRY_RUN = process.argv.includes('--dry-run');
@@ -585,16 +585,6 @@ async function stage7_persist(enContent: string, zhContent: string, top5: Weekly
 
   console.log('  DB records upserted');
 
-  // Git push
-  try {
-    const committed = await gitAddCommitPush(
-      ['content/newsletters/weekly/'],
-      `📊 Weekly ${WEEK_SLUG}`
-    );
-    console.log(committed ? '  Git: committed and pushed' : '  Git: nothing to commit');
-  } catch (err) {
-    console.warn('  Git push failed (non-fatal):', (err as Error).message);
-  }
 }
 
 // ============================================================

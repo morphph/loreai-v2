@@ -48,7 +48,7 @@ import {
 } from './lib/db';
 import { runGapAnalysis } from './lib/topic-cluster';
 import { batchValidate } from './lib/brave';
-import { gitAddCommitPush } from './lib/git';
+
 
 /** Strip markdown code fences and leading whitespace that models sometimes wrap output in */
 function stripCodeFences(text: string): string {
@@ -809,15 +809,6 @@ async function stage6_gitPush(generated: GeneratedPage[]): Promise<void> {
     dirs.add(`content/${page.type}/`);
   }
 
-  try {
-    const committed = await gitAddCommitPush(
-      Array.from(dirs),
-      `🔎 SEO content ${DATE}`
-    );
-    console.log(committed ? '  Git: committed and pushed' : '  Git: nothing to commit');
-  } catch (err) {
-    console.warn('  Git push failed (non-fatal):', (err as Error).message);
-  }
 }
 
 // ============================================================

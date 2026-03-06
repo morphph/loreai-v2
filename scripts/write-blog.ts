@@ -22,7 +22,7 @@ import path from 'path';
 import { callClaudeWithRetry } from './lib/ai';
 import { validateBlogPost } from './lib/validate';
 import { getDb, getRecentNewsItems, upsertContent, upsertKeyword, closeDb } from './lib/db';
-import { gitAddCommitPush } from './lib/git';
+
 
 /** Strip markdown code fences and leading whitespace that models sometimes wrap output in */
 function stripCodeFences(text: string): string {
@@ -771,15 +771,6 @@ async function stage4_gitPush(writtenFiles: string[]): Promise<void> {
     return;
   }
 
-  try {
-    const committed = await gitAddCommitPush(
-      ['content/blog/'],
-      `📝 Blog ${DATE}`
-    );
-    console.log(committed ? '  Git: committed and pushed' : '  Git: nothing to commit');
-  } catch (err) {
-    console.warn('  Git push failed (non-fatal):', (err as Error).message);
-  }
 }
 
 // ============================================================
