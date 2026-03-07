@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Claude Code Security: scan codebases for vulnerabilities with AI-suggested patches",
+    "url": "https://x.com/claudeai/status/2024907535145468326",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 55851,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 41.7553,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Dario Amodei statement on Anthropic's discussions with the Department of War",
+    "url": "https://x.com/AnthropicAI/status/2027150818575528261",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 65771,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 32.731300000000005,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code Remote Control: kick off terminal tasks, control from your phone",
+    "url": "https://x.com/claudeai/status/2026418433911603668",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 48883,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 30.6649,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic identifies industrial-scale distillation attacks by DeepSeek, Moonshot AI, and MiniMax",
+    "url": "https://x.com/AnthropicAI/status/2025997928242811253",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 61588,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 30.476399999999998,
+    "suggested_angle": "analysis"
+  },
+  {
+    "topic": "Claude Code introducing /simplify and /batch skills",
+    "url": "https://x.com/bcherny/status/2027534984534544489",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 13612,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 29.0836,
+    "suggested_angle": "news"
+  }
+]
