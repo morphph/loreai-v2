@@ -90,6 +90,14 @@ app.get('/api/health', (c) => {
   return c.json({ status: 'ok' });
 });
 
+// Serve pipeline review reports
+app.get('/review/:date', async (c) => {
+  const file = `${process.cwd()}/data/review/${c.req.param('date')}.html`;
+  const fs = await import('fs');
+  if (!fs.existsSync(file)) return c.text('Not found', 404);
+  return c.html(fs.readFileSync(file, 'utf-8'));
+});
+
 const port = Number(process.env.PORT) || 3001;
 console.log(`LoreAI API server listening on port ${port}`);
 
