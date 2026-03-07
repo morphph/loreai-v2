@@ -50,11 +50,20 @@ import { runGapAnalysis } from './lib/topic-cluster';
 import { batchValidate } from './lib/brave';
 
 
-/** Strip markdown code fences and leading whitespace that models sometimes wrap output in */
+/** Strip markdown code fences, preamble text, and leading whitespace that models sometimes wrap output in */
 function stripCodeFences(text: string): string {
   let s = text.trim();
   s = s.replace(/^```(?:markdown|yaml|md)?\s*\n/, '');
   s = s.replace(/\n```\s*$/, '');
+  s = s.trim();
+
+  // If frontmatter doesn't start at the beginning, the model added preamble text.
+  // Extract from the first --- block onwards.
+  if (!s.startsWith('---') && s.includes('\n---\n')) {
+    const idx = s.indexOf('\n---\n');
+    s = s.slice(idx + 1);
+  }
+
   return s.trim();
 }
 

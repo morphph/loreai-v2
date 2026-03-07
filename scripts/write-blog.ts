@@ -24,13 +24,22 @@ import { validateBlogPost } from './lib/validate';
 import { getDb, getRecentNewsItems, upsertContent, upsertKeyword, closeDb } from './lib/db';
 
 
-/** Strip markdown code fences and leading whitespace that models sometimes wrap output in */
+/** Strip markdown code fences, preamble text, and leading whitespace that models sometimes wrap output in */
 function stripCodeFences(text: string): string {
   let s = text.trim();
   // Remove opening ```markdown or ```yaml or ``` at start
   s = s.replace(/^```(?:markdown|yaml|md)?\s*\n/, '');
   // Remove closing ``` at end
   s = s.replace(/\n```\s*$/, '');
+  s = s.trim();
+
+  // If frontmatter doesn't start at the beginning, the model added preamble text.
+  // Extract from the first --- block onwards.
+  if (!s.startsWith('---') && s.includes('\n---\n')) {
+    const idx = s.indexOf('\n---\n');
+    s = s.slice(idx + 1);
+  }
+
   return s.trim();
 }
 
