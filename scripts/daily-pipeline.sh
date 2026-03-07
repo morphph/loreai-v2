@@ -20,12 +20,12 @@ for i in 1 2 3; do git pull --rebase && break; sleep 10; done
 case "$STEP" in
   collect)
     npx tsx scripts/collect-news.ts
-    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=collect || true ;;
+    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=collect ;;
   newsletter)
     npx tsx scripts/write-newsletter.ts --date="$DATE"
     git add content/newsletters/ data/filtered-items/ data/blog-seeds/
     (git commit -m "📰 AI News $DATE" || true) && git push
-    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=newsletter || true
+    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=newsletter
     npx tsx scripts/send-newsletter.ts --date="$DATE" --lang=en
     npx tsx scripts/send-newsletter.ts --date="$DATE" --lang=zh ;;
   extract)
@@ -34,12 +34,12 @@ case "$STEP" in
     npx tsx scripts/write-blog.ts --date="$DATE"
     git add content/blog/
     (git commit -m "📝 Blog $DATE" || true) && git push
-    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=blog || true ;;
+    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=blog ;;
   seo)
     npx tsx scripts/generate-seo.ts --date="$DATE"
     git add content/glossary/ content/faq/ content/compare/ content/topics/
     (git commit -m "🔍 SEO $DATE" || true) && git push
-    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=seo || true ;;
+    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=seo ;;
   weekly)
     npx tsx scripts/write-weekly.ts
     git add content/newsletters/weekly/

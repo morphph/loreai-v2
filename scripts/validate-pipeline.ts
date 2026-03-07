@@ -52,7 +52,8 @@ interface CheckResult {
   name: string;
   pass: boolean;
   summary: string;
-  errors: string[];
+  errors: string[];   // fatal — blocks pipeline
+  warnings: string[]; // non-fatal — logged but exit 0
 }
 
 // ---------------------------------------------------------------------------
@@ -151,6 +152,7 @@ function checkCollect(): CheckResult {
     pass: errors.length === 0,
     summary: `${count} items, ${tiers} tiers`,
     errors,
+    warnings: [],
   };
 }
 
@@ -163,6 +165,7 @@ function checkNewsletter(): CheckResult[] {
 
   for (const lang of ['en', 'zh'] as const) {
     const errors: string[] = [];
+    const warnings: string[] = [];
     const filePath = `content/newsletters/${lang}/${DATE}.md`;
 
     if (!fileExists(filePath)) {
@@ -171,6 +174,7 @@ function checkNewsletter(): CheckResult[] {
         pass: false,
         summary: 'file missing',
         errors: [`${filePath} does not exist`],
+        warnings: [],
       });
       continue;
     }
@@ -200,7 +204,7 @@ function checkNewsletter(): CheckResult[] {
       errors.push(`Only ${uniqueLinks.length} unique external links (need >= 10)`);
     }
     if (links.length !== uniqueLinks.length) {
-      errors.push(`${links.length - uniqueLinks.length} duplicate link(s)`);
+      warnings.push(`${links.length - uniqueLinks.length} duplicate link(s)`);
     }
 
     const words = countWords(content);
@@ -210,6 +214,7 @@ function checkNewsletter(): CheckResult[] {
       pass: errors.length === 0,
       summary: `${words} words, ${uniqueLinks.length} links`,
       errors,
+      warnings,
     });
   }
 
@@ -219,8 +224,7 @@ function checkNewsletter(): CheckResult[] {
     try {
       const items = JSON.parse(readFile(filteredPath));
       if (Array.isArray(items) && items.length < 15) {
-        results[0].errors.push(`filtered-items: only ${items.length} items (need >= 15)`);
-        results[0].pass = results[0].errors.length === 0;
+        results[0].warnings.push(`filtered-items: only ${items.length} items (need >= 15)`);
       }
     } catch {
       results[0].errors.push('filtered-items: invalid JSON');
@@ -236,16 +240,14 @@ function checkNewsletter(): CheckResult[] {
     try {
       const seeds = JSON.parse(readFile(seedsPath));
       if (Array.isArray(seeds) && seeds.length < 1) {
-        results[0].errors.push('blog-seeds: empty array');
-        results[0].pass = false;
+        results[0].warnings.push('blog-seeds: empty array');
       }
     } catch {
       results[0].errors.push('blog-seeds: invalid JSON');
       results[0].pass = false;
     }
   } else {
-    results[0].errors.push(`${seedsPath} does not exist`);
-    results[0].pass = false;
+    results[0].warnings.push(`${seedsPath} does not exist`);
   }
 
   return results;
@@ -257,6 +259,7 @@ function checkNewsletter(): CheckResult[] {
 
 function checkBlog(): CheckResult {
   const errors: string[] = [];
+  const warnings: string[] = [];
 
   const enPosts = findFilesByFrontmatterDate('content/blog/en', DATE);
 
@@ -277,31 +280,32 @@ function checkBlog(): CheckResult {
       pass: false,
       summary: `0 posts${ctx}`,
       errors,
+      warnings,
     };
   }
 
   for (const post of enPosts) {
     const prefix = `[${post.slug}]`;
 
-    // ZH counterpart
+    // ZH counterpart — warning, not fatal
     const zhPath = `content/blog/zh/${post.slug}.md`;
     if (!fileExists(zhPath)) {
-      errors.push(`${prefix} missing ZH version`);
+      warnings.push(`${prefix} missing ZH version`);
     }
 
-    // Word count
+    // Word count — warning
     const words = countWords(post.content);
-    if (words < 800) errors.push(`${prefix} too short: ${words} words (min 800)`);
-    if (words > 1500) errors.push(`${prefix} too long: ${words} words (max 1500)`);
+    if (words < 800) warnings.push(`${prefix} too short: ${words} words (min 800)`);
+    if (words > 1500) warnings.push(`${prefix} too long: ${words} words (max 1500)`);
 
-    // Internal links
+    // Internal links — warning
     const glossaryLinks = (post.content.match(/\[.*?\]\(\/glossary\/[^)]+\)/g) || []).length;
-    if (glossaryLinks < 2) errors.push(`${prefix} only ${glossaryLinks} /glossary/ links (need >= 2)`);
+    if (glossaryLinks < 2) warnings.push(`${prefix} only ${glossaryLinks} /glossary/ links (need >= 2)`);
 
     const internalLinks = (post.content.match(/\[.*?\]\(\/(blog|newsletter)\/[^)]+\)/g) || []).length;
-    if (internalLinks < 1) errors.push(`${prefix} no /blog/ or /newsletter/ internal links`);
+    if (internalLinks < 1) warnings.push(`${prefix} no /blog/ or /newsletter/ internal links`);
 
-    // Frontmatter
+    // Frontmatter — error (structural)
     try {
       const { data } = matter(post.content);
       for (const field of ['title', 'date', 'slug', 'description', 'category', 'keywords']) {
@@ -323,6 +327,7 @@ function checkBlog(): CheckResult {
     pass: errors.length === 0,
     summary: `${enPosts.length} post(s)`,
     errors,
+    warnings,
   };
 }
 
@@ -345,6 +350,7 @@ const SEO_TYPES: SeoType[] = [
 
 function checkSeo(): CheckResult {
   const errors: string[] = [];
+  const warnings: string[] = [];
   const counts: Record<string, number> = {};
 
   for (const seoType of SEO_TYPES) {
@@ -355,13 +361,13 @@ function checkSeo(): CheckResult {
     for (const file of enFiles) {
       const prefix = `[${seoType.label}/${file.slug}]`;
 
-      // ZH counterpart
+      // ZH counterpart — warning
       const zhPath = `${seoType.dir}/zh/${file.slug}.md`;
       if (!fileExists(zhPath)) {
-        errors.push(`${prefix} missing ZH version`);
+        warnings.push(`${prefix} missing ZH version`);
       }
 
-      // Validator
+      // Validator — error (structural)
       const validation = seoType.validator(file.content);
       if (!validation.valid) {
         errors.push(...validation.errors.map((e) => `${prefix} validate: ${e}`));
@@ -379,6 +385,7 @@ function checkSeo(): CheckResult {
     pass: errors.length === 0,
     summary,
     errors,
+    warnings,
   };
 }
 
@@ -410,17 +417,32 @@ function run(): void {
   console.log('='.repeat(48));
 
   for (const r of allResults) {
-    const tag = r.pass ? '[PASS]' : '[FAIL]';
+    const hasWarnings = r.warnings.length > 0;
+    const tag = !r.pass ? '[FAIL]' : hasWarnings ? '[WARN]' : '[PASS]';
     const name = r.name.padEnd(16);
     console.log(`${tag} ${name} ${r.summary}`);
   }
 
   const failures = allResults.filter((r) => !r.pass);
+  const warned = allResults.filter((r) => r.pass && r.warnings.length > 0);
+
+  if (warned.length > 0) {
+    console.log('\nWarnings (non-fatal):');
+    for (const w of warned) {
+      for (const msg of w.warnings) {
+        console.log(`  - ${w.name}: ${msg}`);
+      }
+    }
+  }
+
   if (failures.length > 0) {
-    console.log('\nFailed checks:');
+    console.log('\nErrors (fatal):');
     for (const f of failures) {
       for (const e of f.errors) {
         console.log(`  - ${f.name}: ${e}`);
+      }
+      for (const w of f.warnings) {
+        console.log(`  - ${f.name}: [warn] ${w}`);
       }
     }
     process.exit(1);
