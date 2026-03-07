@@ -72,7 +72,8 @@ function stripCodeFences(text: string): string {
 // ============================================================
 
 const dateArg = process.argv.find((a) => a.startsWith('--date='));
-const DATE = dateArg ? dateArg.split('=')[1] : new Date().toISOString().split('T')[0];
+import { todaySGT } from './lib/date.js';
+const DATE = dateArg ? dateArg.split('=')[1] : todaySGT();
 const DRY_RUN = process.argv.includes('--dry-run');
 const WEEKLY_STRATEGY = process.argv.includes('--weekly-strategy');
 const MAX_PAGES_PER_RUN = 5;

@@ -21,6 +21,7 @@
 import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
+import { todaySGT } from './lib/date.js';
 
 import { callClaudeWithRetry, callZhNewsletterWithFallback } from './lib/ai';
 import { validateWeeklyNewsletter, validateWeeklyZhNewsletter } from './lib/validate';
@@ -49,7 +50,7 @@ function getThisSaturday(referenceDate: string): Date {
 
 const referenceDate = dateArg
   ? dateArg.split('=')[1]
-  : new Date().toISOString().split('T')[0];
+  : todaySGT();
 const saturday = getThisSaturday(referenceDate);
 const WEEK_END = saturday.toISOString().split('T')[0];
 

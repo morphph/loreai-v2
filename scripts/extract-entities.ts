@@ -8,7 +8,8 @@ import 'dotenv/config';
 // Parse args
 const args = process.argv.slice(2);
 const DRY_RUN = args.includes('--dry-run');
-const DATE = args.find((a) => a.startsWith('--date='))?.split('=')[1] || new Date().toISOString().slice(0, 10);
+import { todaySGT } from './lib/date.js';
+const DATE = args.find((a) => a.startsWith('--date='))?.split('=')[1] || todaySGT();
 
 interface ExtractedEntity {
   entity: string;

@@ -17,6 +17,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import { getDb, closeDb } from './lib/db.js';
+import { todaySGT } from './lib/date.js';
 import {
   validateNewsletter,
   validateZhNewsletter,
@@ -38,7 +39,7 @@ function getArg(name: string): string | undefined {
 }
 const hasFlag = (name: string) => args.includes(`--${name}`);
 
-const DATE = getArg('date') || new Date().toISOString().slice(0, 10);
+const DATE = getArg('date') || todaySGT();
 const NO_OPEN = hasFlag('no-open');
 const ROOT = process.cwd();
 
@@ -109,7 +110,7 @@ function findFilesModifiedToday(dir: string, date: string): { slug: string; cont
   const results: { slug: string; content: string }[] = [];
   for (const file of files) {
     const stat = fs.statSync(path.join(absDir, file));
-    if (stat.mtime.toISOString().slice(0, 10) === date) {
+    if (new Date(stat.mtime.getTime() + 8 * 3600_000).toISOString().slice(0, 10) === date) {
       const content = fs.readFileSync(path.join(absDir, file), 'utf-8');
       results.push({ slug: file.replace(/\.md$/, ''), content });
     }
@@ -241,7 +242,7 @@ function collectKeywordsData(date: string) {
   const db = getDb();
   const keywords = db.prepare(`
     SELECT keyword, source, cluster_slug, search_result_count, content_exists, content_type
-    FROM keywords WHERE date(discovered_at) = ?
+    FROM keywords WHERE date(discovered_at, '+8 hours') = ?
     ORDER BY keyword
   `).all(date) as Array<{
     keyword: string; source: string; cluster_slug: string | null;

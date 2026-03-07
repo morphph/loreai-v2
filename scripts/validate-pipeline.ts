@@ -13,6 +13,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { getDb, closeDb } from './lib/db.js';
+import { todaySGT } from './lib/date.js';
 import {
   validateNewsletter,
   validateZhNewsletter,
@@ -33,7 +34,7 @@ function getArg(name: string): string | undefined {
   return flag ? flag.split('=')[1] : undefined;
 }
 
-const DATE = getArg('date') || new Date().toISOString().slice(0, 10);
+const DATE = getArg('date') || todaySGT();
 const STEP = getArg('step') || 'all';
 const VALID_STEPS = ['all', 'collect', 'newsletter', 'blog', 'seo'];
 
@@ -119,7 +120,7 @@ function findFilesModifiedToday(dir: string, date: string): { slug: string; cont
   const results: { slug: string; content: string }[] = [];
   for (const file of files) {
     const stat = fs.statSync(path.join(absDir, file));
-    const mdate = stat.mtime.toISOString().slice(0, 10);
+    const mdate = new Date(stat.mtime.getTime() + 8 * 3600_000).toISOString().slice(0, 10);
     if (mdate === date) {
       const content = fs.readFileSync(path.join(absDir, file), 'utf-8');
       results.push({ slug: file.replace(/\.md$/, ''), content });
