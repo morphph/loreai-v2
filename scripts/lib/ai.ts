@@ -59,7 +59,7 @@ export async function callClaude(
       stdout = execSync(
         `cat "${tmpFile}" | ${CLAUDE_BIN} --model ${model} --output-format text --max-turns 1 --print`,
         {
-          timeout: 3 * 60 * 1000, // 3 minutes
+          timeout: 5 * 60 * 1000, // 5 minutes
           maxBuffer: 10 * 1024 * 1024, // 10 MB
           encoding: 'utf-8',
           stdio: ['pipe', 'pipe', 'pipe'],
@@ -122,6 +122,11 @@ export async function callClaudeWithRetry(
           console.warn(`Attempt ${attempt + 1}/${maxRetries} validation failed:`, errors);
           lastResponse = response;
           lastError = new Error(`Validation failed: ${errors.join(', ')}`);
+          if (attempt < maxRetries - 1) {
+            const delaySec = 30 * Math.pow(2, attempt);
+            console.warn(`  Waiting ${delaySec}s before retry...`);
+            await new Promise(resolve => setTimeout(resolve, delaySec * 1000));
+          }
           continue;
         }
       }
@@ -130,6 +135,11 @@ export async function callClaudeWithRetry(
     } catch (err) {
       lastError = err instanceof Error ? err : new Error(String(err));
       console.warn(`Attempt ${attempt + 1}/${maxRetries} failed:`, lastError.message);
+      if (attempt < maxRetries - 1) {
+        const delaySec = 30 * Math.pow(2, attempt);
+        console.warn(`  Waiting ${delaySec}s before retry...`);
+        await new Promise(resolve => setTimeout(resolve, delaySec * 1000));
+      }
     }
   }
 
@@ -158,6 +168,10 @@ export async function callZhNewsletterWithFallback(
   } catch (err) {
     console.warn('ZH newsletter: Claude Opus failed, trying Claude Sonnet...', err);
   }
+
+  // Wait before fallback to avoid rate limiting
+  console.warn('ZH newsletter: Waiting 30s before trying Sonnet...');
+  await new Promise(resolve => setTimeout(resolve, 30_000));
 
   // 2. Claude Sonnet (fallback)
   const response = await callClaude(systemPrompt, userPrompt, {

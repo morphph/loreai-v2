@@ -34,6 +34,7 @@ import fs from 'fs';
 import path from 'path';
 
 import { callClaude, callClaudeWithRetry } from './lib/ai';
+import { sanitizeOutput } from './lib/sanitize.js';
 import {
   validateGlossary,
   validateFaq,
@@ -49,23 +50,6 @@ import {
 import { runGapAnalysis } from './lib/topic-cluster';
 import { batchValidate } from './lib/brave';
 
-
-/** Strip markdown code fences, preamble text, and leading whitespace that models sometimes wrap output in */
-function stripCodeFences(text: string): string {
-  let s = text.trim();
-  s = s.replace(/^```(?:markdown|yaml|md)?\s*\n/, '');
-  s = s.replace(/\n```\s*$/, '');
-  s = s.trim();
-
-  // If frontmatter doesn't start at the beginning, the model added preamble text.
-  // Extract from the first --- block onwards.
-  if (!s.startsWith('---') && s.includes('\n---\n')) {
-    const idx = s.indexOf('\n---\n');
-    s = s.slice(idx + 1);
-  }
-
-  return s.trim();
-}
 
 // ============================================================
 // CLI Args
@@ -621,7 +605,7 @@ async function generatePage(
   }
 
   const fullValidate = (raw: string) => {
-    const content = stripCodeFences(raw);
+    const content = sanitizeOutput(raw);
     if (!content.match(/^---\n[\s\S]*?\n---/)) {
       return { valid: false, errors: ['Missing frontmatter block'] };
     }
@@ -653,7 +637,7 @@ async function generatePage(
       }
     }
 
-    const cleaned = stripCodeFences(response.content);
+    const cleaned = sanitizeOutput(response.content);
     console.log(`    ${lang.toUpperCase()} generated (model: ${response.model})`);
     console.log(`    Tokens: ${response.usage?.input_tokens} in / ${response.usage?.output_tokens} out`);
 

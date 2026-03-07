@@ -24,6 +24,7 @@ import {
   type NewsItem,
 } from './lib/db';
 import { callClaudeWithRetry, callZhNewsletterWithFallback, checkClaudeHealth } from './lib/ai';
+import { sanitizeOutput } from './lib/sanitize.js';
 import { validateNewsletter, validateZhNewsletter } from './lib/validate';
 import { extractBoldTitles, crossDayDedup } from './lib/dedup';
 import { validateAndExpand } from './lib/brave';
@@ -484,12 +485,13 @@ async function stage4_writeEN(filtered: FilteredItem[]): Promise<string> {
   console.log(`  EN newsletter generated (model: ${response.model})`);
   console.log(`  Tokens: ${response.usage?.input_tokens} in / ${response.usage?.output_tokens} out`);
 
-  const validation = validateNewsletter(response.content);
+  const content = sanitizeOutput(response.content);
+  const validation = validateNewsletter(content);
   if (!validation.valid) {
     console.warn('  ⚠️ Validation warnings (accepted anyway):', validation.errors);
   }
 
-  return response.content;
+  return content;
 }
 
 // ============================================================
@@ -526,12 +528,13 @@ async function stage5_writeZH(filtered: FilteredItem[]): Promise<string> {
 
   console.log(`  ZH newsletter generated (model: ${response.model})`);
 
-  const validation = validateZhNewsletter(response.content);
+  const content = sanitizeOutput(response.content);
+  const validation = validateZhNewsletter(content);
   if (!validation.valid) {
     console.warn('  ⚠️ Validation warnings:', validation.errors);
   }
 
-  return response.content;
+  return content;
 }
 
 // ============================================================

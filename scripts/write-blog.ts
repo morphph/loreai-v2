@@ -20,28 +20,9 @@ import fs from 'fs';
 import path from 'path';
 
 import { callClaudeWithRetry } from './lib/ai';
+import { sanitizeOutput } from './lib/sanitize.js';
 import { validateBlogPost } from './lib/validate';
 import { getDb, getRecentNewsItems, upsertContent, upsertKeyword, closeDb } from './lib/db';
-
-
-/** Strip markdown code fences, preamble text, and leading whitespace that models sometimes wrap output in */
-function stripCodeFences(text: string): string {
-  let s = text.trim();
-  // Remove opening ```markdown or ```yaml or ``` at start
-  s = s.replace(/^```(?:markdown|yaml|md)?\s*\n/, '');
-  // Remove closing ``` at end
-  s = s.replace(/\n```\s*$/, '');
-  s = s.trim();
-
-  // If frontmatter doesn't start at the beginning, the model added preamble text.
-  // Extract from the first --- block onwards.
-  if (!s.startsWith('---') && s.includes('\n---\n')) {
-    const idx = s.indexOf('\n---\n');
-    s = s.slice(idx + 1);
-  }
-
-  return s.trim();
-}
 
 // Parse args
 const dateArg = process.argv.find((a) => a.startsWith('--date='));
@@ -346,7 +327,7 @@ async function generateENBlog(
       temperature: 0.5,
       maxRetries: 3,
       validate: (raw) => {
-        const content = stripCodeFences(raw);
+        const content = sanitizeOutput(raw);
         if (!content.match(/^---\n[\s\S]*?\n---/)) {
           return { valid: false, errors: ['Missing frontmatter block'] };
         }
@@ -355,7 +336,7 @@ async function generateENBlog(
       },
     });
 
-    const cleaned = stripCodeFences(response.content);
+    const cleaned = sanitizeOutput(response.content);
     console.log(`    EN blog generated (model: ${response.model})`);
     console.log(`    Tokens: ${response.usage?.input_tokens} in / ${response.usage?.output_tokens} out`);
 
@@ -425,7 +406,7 @@ async function generateZHBlog(
       temperature: 0.5,
       maxRetries: 3,
       validate: (raw) => {
-        const content = stripCodeFences(raw);
+        const content = sanitizeOutput(raw);
         if (!content.match(/^---\n[\s\S]*?\n---/)) {
           return { valid: false, errors: ['Missing frontmatter block'] };
         }
@@ -437,7 +418,7 @@ async function generateZHBlog(
       },
     });
 
-    const cleaned = stripCodeFences(response.content);
+    const cleaned = sanitizeOutput(response.content);
     console.log(`    ZH blog generated (model: ${response.model})`);
     console.log(`    Tokens: ${response.usage?.input_tokens} in / ${response.usage?.output_tokens} out`);
 
