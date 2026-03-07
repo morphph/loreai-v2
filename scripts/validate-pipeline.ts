@@ -136,9 +136,11 @@ function checkCollect(): CheckResult {
   const errors: string[] = [];
   const db = getDb();
 
+  // detected_at is stored in UTC; DATE is SGT (UTC+8).
+  // Convert to SGT before comparing so 20:00 UTC items match the next SGT day.
   const row = db.prepare(`
     SELECT COUNT(*) as cnt, COUNT(DISTINCT source_tier) as tiers
-    FROM news_items WHERE date(detected_at) = ?
+    FROM news_items WHERE date(detected_at, '+8 hours') = ?
   `).get(DATE) as { cnt: number; tiers: number };
 
   const count = row.cnt;
