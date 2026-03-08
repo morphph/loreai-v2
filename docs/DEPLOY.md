@@ -65,26 +65,26 @@ git config user.email "bot@loreai.dev"
 
 ### Crontab
 ```cron
-# Data collection (4am SGT = 20:00 UTC, every day)
-0 20 * * * /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh collect >> /home/ubuntu/loreai-v2/logs/collect.log 2>&1
+# Data collection (2am SGT = 18:00 UTC prev day, Mon-Fri)
+0 18 * * 0-4 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh collect >> /home/ubuntu/loreai-v2/logs/collect.log 2>&1
 
-# Newsletter (5am SGT = 21:00 UTC, every day)
-0 21 * * * /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh newsletter >> /home/ubuntu/loreai-v2/logs/newsletter.log 2>&1
+# Newsletter (4am SGT = 20:00 UTC prev day, Mon-Fri)
+0 20 * * 0-4 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh newsletter >> /home/ubuntu/loreai-v2/logs/newsletter.log 2>&1
 
-# Entity extraction (6:30am SGT = 22:30 UTC, every day)
-30 22 * * * /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh extract >> /home/ubuntu/loreai-v2/logs/extract.log 2>&1
+# Entity extraction (6am SGT = 22:00 UTC prev day, Mon-Fri)
+0 22 * * 0-4 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh extract >> /home/ubuntu/loreai-v2/logs/extract.log 2>&1
 
-# Blog (7am SGT = 23:00 UTC, every day)
-0 23 * * * /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh blog >> /home/ubuntu/loreai-v2/logs/blog.log 2>&1
+# Blog (8am SGT = 00:00 UTC, Tue-Sat)
+0 0 * * 1-5 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh blog >> /home/ubuntu/loreai-v2/logs/blog.log 2>&1
 
-# SEO pages (9am SGT = 01:00 UTC next day, every day)
-0  1 * * * /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh seo >> /home/ubuntu/loreai-v2/logs/seo.log 2>&1
+# SEO pages (10am SGT = 02:00 UTC, Tue-Sat)
+0 2 * * 1-5 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh seo >> /home/ubuntu/loreai-v2/logs/seo.log 2>&1
 
-# Weekly digest (disabled until March 14)
-# 0 21 * * 6 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh weekly >> /home/ubuntu/loreai-v2/logs/weekly.log 2>&1
+# Weekly digest (Saturday 2am SGT = 18:00 UTC Friday)
+0 18 * * 5 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh weekly >> /home/ubuntu/loreai-v2/logs/weekly.log 2>&1
 
-# Weekly strategy (Saturday 11pm SGT = 15:00 UTC)
-0 23 * * 6 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh cluster-strategy >> /home/ubuntu/loreai-v2/logs/strategy.log 2>&1
+# Weekly SEO strategy (Saturday 4am SGT = 20:00 UTC Friday)
+0 20 * * 5 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh cluster-strategy >> /home/ubuntu/loreai-v2/logs/strategy.log 2>&1
 ```
 
 ### Log Rotation
@@ -153,12 +153,13 @@ npx tsx scripts/generate-seo.ts --weekly-strategy --dry-run
 
 ## Danger Windows
 
-Pipeline is active during these times (SGT, every day):
-- **4:00-5:00** — Data collection
-- **5:00-6:00** — Newsletter generation
-- **6:30-7:00** — Entity extraction
-- **7:00-8:00** — Blog generation
-- **9:00-10:00** — SEO page generation
-- **Saturday 11:00pm** — Weekly strategy
+Pipeline is active during these times (SGT, Mon-Fri unless noted):
+- **2:00-3:00** — Data collection
+- **4:00-5:30** — Newsletter generation + send
+- **6:00-7:00** — Entity extraction
+- **8:00-9:00** — Blog generation
+- **10:00-11:00** — SEO page generation
+- **Saturday 2:00am** — Weekly digest
+- **Saturday 4:00am** — Weekly strategy
 
 Do NOT push to the repo during these windows.

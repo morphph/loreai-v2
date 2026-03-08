@@ -44,8 +44,8 @@ content/compare/{en,zh}/slug.md
 content/topics/{en,zh}/slug.md
 
 ## Cron Windows (SGT, Mon-Fri unless noted)
-4am collect → 5am newsletter → 7am blog → 9am SEO | Sat 5am weekly
-⚠️ Don't push during 4-10am SGT on weekdays
+2am collect → 4am newsletter → 6am extract → 8am blog → 10am SEO | Sat 2am weekly
+⚠️ Don't push during 2am-12pm SGT on weekdays
 
 ## Style
 Newsletter: "sharp tech insider briefing a busy founder over coffee"
