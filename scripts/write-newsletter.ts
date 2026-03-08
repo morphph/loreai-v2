@@ -485,7 +485,7 @@ async function stage4_writeEN(filtered: FilteredItem[]): Promise<string> {
     }
   }
 
-  const systemPrompt = `${skill}\n\n## This Run\n- Date: ${DATE}\n- Items provided: ${filtered.length}\n- Write naturally, following the template as a guide not a straitjacket\n- Each item should be 2-4 sentences. Give enough context that a reader understands the story without clicking. Include specific technical details (benchmark scores, parameter counts, context windows). The \`why_it_matters\` and \`action\` fields from the filtered data are your best material — use them.\n- Include engagement metrics in parentheses where available\n- Each item needs a source link as [Read more →](url)\n- Include a 🎓 MODEL LITERACY section and a 🎯 PICK OF THE DAY section\n- Aim for 15-22 items total — curate ruthlessly\n- If an item has no summary, write only the title + link. Don't fabricate details.\n- Output ONLY the newsletter markdown. No frontmatter, no meta-commentary.`;
+  const systemPrompt = `${skill}\n\n## This Run\n- Date: ${DATE}\n- Items provided: ${filtered.length}\n- IMPORTANT: You MUST start with a # headline (a compelling hook, NOT just the date), followed by **${DATE}** on the next line, a 1-2 sentence intro paragraph, and a "Today:" preview line — exactly as shown in the Structure Template. These are required for the frontend to display correctly. Do NOT skip them.\n- Write naturally, following the template as a guide not a straitjacket\n- Each item should be 2-4 sentences. Give enough context that a reader understands the story without clicking. Include specific technical details (benchmark scores, parameter counts, context windows). The \`why_it_matters\` and \`action\` fields from the filtered data are your best material — use them.\n- Include engagement metrics in parentheses where available\n- Each item needs a source link as [Read more →](url)\n- Include a 🎓 MODEL LITERACY section and a 🎯 PICK OF THE DAY section\n- Aim for 15-22 items total — curate ruthlessly\n- If an item has no summary, write only the title + link. Don't fabricate details.\n- Output ONLY the newsletter markdown. No frontmatter, no meta-commentary.`;
 
   const userPrompt = `Write today's LoreAI AI News newsletter (${DATE}) using these ${filtered.length} curated items:\n\n${itemsText}`;
 
@@ -534,7 +534,7 @@ async function stage5_writeZH(filtered: FilteredItem[]): Promise<string> {
     }
   }
 
-  const systemPrompt = `${skill}\n\n## 本期规则\n- 日期：${DATE}\n- 提供条目：${filtered.length}\n- 必须按照结构模板完整输出中文 Newsletter\n- 所有有 engagement 数据的条目必须显示 — 这是强制要求\n- 必须包含 🎓 模型小课堂（一个技术概念的通俗解释，3-4 句话）\n- 必须包含 🎯 今日精选（当天最重要新闻的深度分析，3-5 句话，要有观点）\n- 目标 15-22 条，不必用完所有提供的条目 — 精选为王\n- 摘要为空时只写标题+链接，不编造细节\n- 只输出 Newsletter 正文 Markdown，不要 frontmatter，不要元描述`;
+  const systemPrompt = `${skill}\n\n## 本期规则\n- 日期：${DATE}\n- 提供条目：${filtered.length}\n- 重要：必须以 # 标题开头（要有吸引力的 hook，不能只写日期），然后是 **${DATE}**，1-2 句开场白，以及"今日看点："预览行 — 严格按照结构模板。这些字段是前端显示所必需的，不能省略。\n- 必须按照结构模板完整输出中文 Newsletter\n- 所有有 engagement 数据的条目必须显示 — 这是强制要求\n- 必须包含 🎓 模型小课堂（一个技术概念的通俗解释，3-4 句话）\n- 必须包含 🎯 今日精选（当天最重要新闻的深度分析，3-5 句话，要有观点）\n- 目标 15-22 条，不必用完所有提供的条目 — 精选为王\n- 摘要为空时只写标题+链接，不编造细节\n- 只输出 Newsletter 正文 Markdown，不要 frontmatter，不要元描述`;
 
   const userPrompt = `基于以下 ${filtered.length} 条精选 AI 新闻，创作今日 LoreAI AI 简报中文版（${DATE}）：\n\n${itemsText}`;
 
@@ -653,22 +653,41 @@ top_story: "${topStory.replace(/"/g, '\\"')}"
 ---`;
 }
 
+function ensureHeadline(md: string, topStory: string, lang: string): string {
+  // Strip all leading --- dividers (Claude sometimes outputs one or more)
+  const trimmed = md.replace(/^(?:---\s*\n?)+/, '').trim();
+  if (trimmed.startsWith('# ')) return trimmed;
+
+  // Claude skipped the headline — construct one from the top story
+  const headline = topStory.slice(0, 80);
+  const dateStr = `**${DATE}**`;
+  const intro = lang === 'zh'
+    ? `今日 AI 圈最值得关注的动态。`
+    : `Here's what matters in AI right now.`;
+  const todayLabel = lang === 'zh' ? '今日看点' : 'Today';
+  const subHeaders = (trimmed.match(/^### (.+)/gm) || []).slice(0, 3).map(h => h.replace('### ', ''));
+  const todayLine = subHeaders.length > 0
+    ? `${todayLabel}: ${subHeaders.join(', ')}.`
+    : '';
+
+  return `# ${headline}\n\n${dateStr}\n\n${intro}\n\n${todayLine}\n\n${trimmed}`;
+}
+
 function extractTitle(md: string): string {
   const match = md.match(/^# (.+)/m);
   return match ? match[1] : `AI News ${DATE}`;
 }
 
 function extractDescription(md: string): string {
-  // Look for "Today:" line
-  const todayMatch = md.match(/Today:?\s*(.+)/i);
+  // Look for "Today:" / "今日看点:" line (colon is required to avoid matching "today." in prose)
+  const todayMatch = md.match(/(?:Today|今日看点):\s*(.+)/i);
   if (todayMatch) return todayMatch[1].slice(0, 160);
 
-  // Fall back to first paragraph after H1
-  const lines = md.split('\n');
-  for (const line of lines) {
-    if (line.startsWith('#')) continue;
-    if (line.trim().length > 20) return line.trim().slice(0, 160);
-  }
+  // Fallback: use first ### sub-header as description (it's usually the top story headline)
+  const subHeaderMatch = md.match(/^### (.+)/m);
+  if (subHeaderMatch) return subHeaderMatch[1].slice(0, 160);
+
+  // Final fallback
   return `LoreAI AI News — ${DATE}`;
 }
 
@@ -683,17 +702,21 @@ async function stage7_persist(
   const topStory =
     filtered.sort((a, b) => b.score - a.score)[0]?.title.slice(0, 80) || 'AI News';
 
+  // Ensure headline exists (Claude sometimes skips it despite prompt instructions)
+  const enFixed = ensureHeadline(enContent, topStory, 'en');
+  const zhFixed = ensureHeadline(zhContent, topStory, 'zh');
+
   // Build EN file
-  const enTitle = extractTitle(enContent);
-  const enDesc = extractDescription(enContent);
+  const enTitle = extractTitle(enFixed);
+  const enDesc = extractDescription(enFixed);
   const enFrontmatter = buildFrontmatter(enTitle, 'en', enDesc, filtered.length, categories, topStory);
-  const enFull = `${enFrontmatter}\n\n${enContent}`;
+  const enFull = `${enFrontmatter}\n\n${enFixed}`;
 
   // Build ZH file
-  const zhTitle = extractTitle(zhContent);
-  const zhDesc = extractDescription(zhContent);
+  const zhTitle = extractTitle(zhFixed);
+  const zhDesc = extractDescription(zhFixed);
   const zhFrontmatter = buildFrontmatter(zhTitle, 'zh', zhDesc, filtered.length, categories, topStory);
-  const zhFull = `${zhFrontmatter}\n\n${zhContent}`;
+  const zhFull = `${zhFrontmatter}\n\n${zhFixed}`;
 
   // Write files
   const enPath = path.join(process.cwd(), 'content', 'newsletters', 'en', `${DATE}.md`);
