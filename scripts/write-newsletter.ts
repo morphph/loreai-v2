@@ -294,13 +294,11 @@ async function stage3_agentFilter(
   previousBoldTitles: string[]
 ): Promise<FilteredItem[]> {
   console.log('\n🤖 Stage 3: Agent Filter');
+  console.log(`  Items entering agent filter: ${items.length}`);
+  console.log(`  Previous titles for dedup: ${previousBoldTitles.length}`);
 
-  // Cross-day dedup
-  const deduped = crossDayDedup(items, previousBoldTitles);
-  console.log(`  After cross-day dedup: ${deduped.length} (removed ${items.length - deduped.length})`);
-
-  // Prepare compact JSON for Claude
-  const inputItems = deduped.map((item) => ({
+  // Prepare compact JSON for Claude (no Jaccard pre-filter — Claude handles dedup semantically)
+  const inputItems = items.map((item) => ({
     id: item.id,
     title: item.title.slice(0, 200),
     url: item.url,
@@ -313,6 +311,17 @@ async function stage3_agentFilter(
     retweets: item.engagement_retweets,
     downloads: item.engagement_downloads,
   }));
+
+  // Build the "Previously Covered" section from bold titles
+  const previousStoriesSection = previousBoldTitles.length > 0
+    ? `\n## Previously Covered Stories (STRICT: DO NOT REPEAT)
+These stories appeared in recent newsletters. Do NOT select any item that covers the same underlying event or topic, even if from a different source or with different wording.
+The ONLY exception: include a previously covered story if there is a genuinely MAJOR new development (e.g., new benchmark results, official response, policy reversal, legal action). If you do include such a follow-up, you MUST note it in why_it_matters starting with "Follow-up: [what's new]".
+
+Recent titles:
+${previousBoldTitles.map(t => `- ${t}`).join('\n')}
+`
+    : '';
 
   const systemPrompt = `You are an expert AI news curator for LoreAI, a daily AI newsletter.
 
@@ -345,12 +354,16 @@ Prioritize items that developers can ACT on today over industry news/business de
 - Skip GitHub repos that are established projects (tensorflow, pytorch, transformers) unless they have a specific new release
 - Skip old blog posts — if the content is from 2024 or earlier, do not include it
 - Prefer ORIGINAL tweets over RTs. If the same news appears as an original + RT, pick the original
+- Skip any story that is substantially the same as a Previously Covered Story listed below, even if from a different source or with slightly different wording
+
+## Deduplication (CRITICAL)
+- If the same underlying event appears from multiple sources in the input, pick the SINGLE best source (most detail, highest engagement). Multiple sources reporting the same thing is confirmation of importance, not a reason to include it multiple times.
+- If multiple items are about the same topic (e.g., 3 tweets about "Anthropic distillation attack"), select only ONE — the most informative version.
 
 ## Priority Signals (rank higher)
 - Product launches, model releases, API updates, new features
 - High engagement relative to the account's typical numbers
 - Breaking news (first report of something new)
-- Cross-source confirmation (same story from multiple sources = strong signal)
 
 ## Selection Criteria
 - Prioritize: breaking news, major releases, high engagement, practical value
@@ -358,7 +371,7 @@ Prioritize items that developers can ACT on today over industry news/business de
 - Skip: trivial updates, duplicate/similar stories, old news recycled
 - Skip: items that are well-known older releases (>30 days old) even if still trending on HuggingFace — use your knowledge of actual release dates (e.g. DeepSeek-R1 released Jan 2025)
 - Prefer: items with high engagement metrics relative to their source
-
+${previousStoriesSection}
 ## Output Format
 Return ONLY a JSON array. No markdown, no explanation. Each item:
 {
