@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "OpenAI shares updated Model Spec",
+    "url": "https://openai.com/index/sharing-the-latest-model-spec/",
+    "source": "blog:OpenAI Releases",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "OpenAI publishes Chain-of-Thought Controllability evaluation",
+    "url": "https://x.com/OpenAI/status/2029650046002811280",
+    "source": "twitter:@OpenAI",
+    "x_engagement_24h": 2863,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.8589,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Connectors now free — 150+ integrations",
+    "url": "https://x.com/claudeai/status/2027082240833052741",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 9541,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 19.862299999999998,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Codex Security — OpenAI's application security agent",
+    "url": "https://x.com/OpenAIDevs/status/2029983809652035758",
+    "source": "twitter:@OpenAIDevs",
+    "x_engagement_24h": 3143,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.9429,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Introducing the Claude Marketplace",
+    "url": "https://x.com/claudeai/status/2029966517497122886",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 10458,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 15.1374,
+    "suggested_angle": "news"
+  }
+]
