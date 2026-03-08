@@ -20,6 +20,7 @@ import {
   getRecentNewsItems,
   upsertContent,
   linkContentSources,
+  markItemsAsSelected,
   closeDb,
   type NewsItem,
 } from './lib/db';
@@ -726,11 +727,13 @@ async function stage7_persist(
     meta_json: JSON.stringify({ categories, items_count: filtered.length }),
   });
 
-  // Link content to news items
+  // Link content to news items & mark as selected (prevents re-selection in future runs)
   const itemIds = filtered.map((f) => f.id).filter((id) => id > 0);
   if (itemIds.length > 0) {
     linkContentSources(enContentId, itemIds);
     linkContentSources(zhContentId, itemIds);
+    markItemsAsSelected(itemIds);
+    console.log(`  Marked ${itemIds.length} items as selected (excluded from future newsletters)`);
   }
 
   console.log(`  DB records: EN (id=${enContentId}), ZH (id=${zhContentId})`);

@@ -29,6 +29,7 @@ function initSchema(db: Database.Database): void {
       engagement_retweets INTEGER DEFAULT 0,
       engagement_downloads INTEGER DEFAULT 0,
       detected_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      selected_for_newsletter_at DATETIME DEFAULT NULL,
       raw_json TEXT
     );
 
@@ -82,6 +83,12 @@ function initSchema(db: Database.Database): void {
       confirmed BOOLEAN DEFAULT 0
     );
   `);
+
+  // Migration: add selected_for_newsletter_at if missing (for existing DBs)
+  const cols = db.prepare("PRAGMA table_info(news_items)").all() as { name: string }[];
+  if (!cols.some(c => c.name === 'selected_for_newsletter_at')) {
+    db.exec("ALTER TABLE news_items ADD COLUMN selected_for_newsletter_at DATETIME DEFAULT NULL");
+  }
 }
 
 // --- News Items ---
@@ -139,8 +146,23 @@ export function getRecentNewsItems(hours: number = 72): NewsItem[] {
   return db.prepare(`
     SELECT * FROM news_items
     WHERE detected_at > datetime('now', '-${hours} hours')
+      AND selected_for_newsletter_at IS NULL
     ORDER BY score DESC
   `).all() as NewsItem[];
+}
+
+export function markItemsAsSelected(itemIds: number[]): void {
+  if (itemIds.length === 0) return;
+  const db = getDb();
+  const stmt = db.prepare(`
+    UPDATE news_items SET selected_for_newsletter_at = CURRENT_TIMESTAMP WHERE id = ?
+  `);
+  const mark = db.transaction(() => {
+    for (const id of itemIds) {
+      stmt.run(id);
+    }
+  });
+  mark();
 }
 
 // --- Content ---
