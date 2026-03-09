@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "WebFetch(domain:www.anthropic.com)",
+      "WebFetch(domain:blog.google)",
+      "WebFetch(domain:openai.com)",
+      "WebFetch(domain:deepmind.google)",
+      "WebFetch(domain:developers.googleblog.com)",
+      "WebFetch(domain:platform.openai.com)",
+      "WebFetch(domain:docs.anthropic.com)"
+    ]
+  }
+}
