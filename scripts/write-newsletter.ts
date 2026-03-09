@@ -672,149 +672,35 @@ async function stage6_blogSeeds(filtered: FilteredItem[]): Promise<BlogSeed[]> {
 }
 
 // ============================================================
-// Email Content Generation
+// Email Content Generation (Claude + skill)
 // ============================================================
 
 /**
- * Transform full newsletter markdown into an email-optimized version.
- * - Top 3 stories: Keep full write-ups (### headers become numbered items)
- * - Quick hits: Remaining items condensed to bold title + 1 sentence + link
- * - MODEL LITERACY: Keep as-is
- * - PICK OF THE DAY: Keep as-is
- *
- * This is a pure markdown transformation — no AI call needed.
+ * Rewrite full newsletter markdown into an email-optimized version using Claude.
+ * Uses skills/email-{lang}/SKILL.md for formatting guidance.
  */
-export function generateEmailContent(markdown: string): string {
-  // Strip frontmatter if present
-  const stripped = markdown.replace(/^---[\s\S]*?---\s*/, '');
+async function generateEmailContent(newsletterMd: string, lang: string): Promise<string> {
+  const stripped = newsletterMd.replace(/^---[\s\S]*?---\s*/, '');
 
-  // Split into lines for processing
-  const lines = stripped.split('\n');
+  const skillPath = path.join(process.cwd(), 'skills', `email-${lang}`, 'SKILL.md');
+  const skill = fs.readFileSync(skillPath, 'utf-8');
 
-  const output: string[] = [];
-  let currentSection = ''; // Track which ## section we're in
-  let h3Count = 0; // Count ### items within regular sections (not special sections)
-  let inSpecialSection = false; // MODEL LITERACY, PICK OF THE DAY, QUICK LINKS
-  let currentH3Title = '';
-  let currentH3Body: string[] = [];
-  let currentH3Url = '';
-  let processingH3 = false;
+  const systemPrompt = `${skill}\n\n## This Run\n- Date: ${DATE}\n- Lang: ${lang}`;
+  const userPrompt = `Rewrite this newsletter for email:\n\n${stripped}`;
 
-  function isSpecialSection(sectionName: string): boolean {
-    return /MODEL LITERACY|PICK OF THE DAY|QUICK|模型小课堂|今日精选/i.test(sectionName);
-  }
+  const response = await callClaudeWithRetry(systemPrompt, userPrompt, {
+    maxTokens: 6144,
+    temperature: 0.4,
+    maxRetries: 2,
+    validate: (content) => {
+      if (!content.includes('# ')) return { valid: false, errors: ['Missing headline'] };
+      if (content.length < 500) return { valid: false, errors: ['Too short'] };
+      return { valid: true, errors: [] };
+    },
+  });
 
-  function flushH3(): void {
-    if (!processingH3 || !currentH3Title) return;
-
-    h3Count++;
-
-    if (inSpecialSection || h3Count <= 3) {
-      // Keep full write-up for top 3 and special sections
-      output.push(`### ${currentH3Title}`);
-      output.push(...currentH3Body);
-    } else {
-      // Quick hit: bold title + first sentence + link
-      const bodyText = currentH3Body
-        .filter(l => l.trim() && !l.startsWith('#'))
-        .join(' ')
-        .trim();
-
-      // Extract first sentence
-      const sentenceMatch = bodyText.match(/^(.*?[.!?。！？])\s/);
-      const firstSentence = sentenceMatch ? sentenceMatch[1] : bodyText.slice(0, 120);
-
-      // Extract link if available
-      const linkMatch = bodyText.match(/\[(?:Read more →|Link|阅读更多 →)\]\(([^)]+)\)/);
-      const link = linkMatch ? linkMatch[1] : currentH3Url;
-
-      // Clean the sentence of markdown link artifacts
-      const cleanSentence = firstSentence
-        .replace(/\[(?:Read more →|Link|阅读更多 →)\]\([^)]+\)/g, '')
-        .trim();
-
-      if (link) {
-        output.push(`- **${currentH3Title}** ${cleanSentence} [→](${link})`);
-      } else {
-        output.push(`- **${currentH3Title}** ${cleanSentence}`);
-      }
-    }
-
-    processingH3 = false;
-    currentH3Title = '';
-    currentH3Body = [];
-    currentH3Url = '';
-  }
-
-  // Track whether we've started the "quick hits" section
-  let quickHitsHeaderAdded = false;
-
-  for (const line of lines) {
-    // H1 — keep as-is (hero)
-    if (line.startsWith('# ') && !line.startsWith('## ') && !line.startsWith('### ')) {
-      flushH3();
-      output.push(line);
-      continue;
-    }
-
-    // H2 — section headers
-    if (line.startsWith('## ')) {
-      flushH3();
-
-      // Before starting a new section, check if we need to add Quick Hits header
-      if (!quickHitsHeaderAdded && h3Count >= 3 && !inSpecialSection && currentSection && !isSpecialSection(currentSection)) {
-        // We'll add it when we encounter the 4th H3 item
-      }
-
-      currentSection = line.replace(/^## /, '');
-      inSpecialSection = isSpecialSection(currentSection);
-
-      if (inSpecialSection) {
-        output.push('');
-        output.push(line);
-      } else {
-        output.push('');
-        output.push(line);
-      }
-      continue;
-    }
-
-    // H3 — items within sections
-    if (line.startsWith('### ')) {
-      flushH3();
-
-      // If this is the 4th non-special H3, insert Quick Hits header
-      if (!inSpecialSection && h3Count >= 3 && !quickHitsHeaderAdded) {
-        output.push('');
-        output.push('## ⚡ QUICK HITS');
-        output.push('');
-        quickHitsHeaderAdded = true;
-      }
-
-      processingH3 = true;
-      currentH3Title = line.replace(/^### /, '');
-      currentH3Body = [];
-      continue;
-    }
-
-    // Collecting body for current H3
-    if (processingH3) {
-      // Extract URL for quick-hit formatting
-      const linkMatch = line.match(/\[(?:Read more →|Link|阅读更多 →)\]\(([^)]+)\)/);
-      if (linkMatch) currentH3Url = linkMatch[1];
-      currentH3Body.push(line);
-      continue;
-    }
-
-    // Non-H3 content in sections (bold items like **Title**: description)
-    // These are already compact, keep them as-is
-    output.push(line);
-  }
-
-  // Flush last H3
-  flushH3();
-
-  return output.join('\n');
+  console.log(`  Email ${lang.toUpperCase()} rewritten (model: ${response.model})`);
+  return sanitizeOutput(response.content);
 }
 
 // ============================================================
@@ -841,67 +727,14 @@ top_story: "${topStory.replace(/"/g, '\\"')}"
 ---`;
 }
 
-function ensureHeadline(md: string, topStory: string, lang: string): string {
-  // Strip all leading --- dividers (Claude sometimes outputs one or more)
+function ensureHeadline(md: string, topStory: string, _lang: string): string {
+  // Minimal safety net — just ensure a # headline exists. Don't rewrite content.
   const trimmed = md.replace(/^(?:---\s*\n?)+/, '').trim();
   if (trimmed.startsWith('# ')) return trimmed;
 
-  // Claude skipped the headline — construct a compelling one from top stories
-  // Grab ALL H3s, then deduplicate by extracting the main subject
-  const allH3s = (trimmed.match(/^### (.+)/gm) || []).map(h =>
-    h.replace('### ', '').replace(/\.\s*$/, '')
-  );
-
-  // Deduplicate: skip H3s whose main subject (first 2-3 words) overlaps with an earlier one
-  const seen = new Set<string>();
-  const uniqueHeaders: string[] = [];
-  for (const h of allH3s) {
-    // Extract main subject: first notable noun phrase (skip verbs like "is", "goes", "drops")
-    const subject = h.replace(/\b(is|are|goes|drops|lands|ships|hits|gets|just|now|here)\b/gi, '')
-      .trim().split(/\s+/).slice(0, 3).join(' ').toLowerCase();
-    if (subject && !seen.has(subject)) {
-      seen.add(subject);
-      uniqueHeaders.push(h);
-    }
-    if (uniqueHeaders.length >= 3) break;
-  }
-
-  // Shorten H3 titles for headline use — extract just the key noun phrase (product/company + verb)
-  function shortenTitle(h: string): string {
-    // Remove engagement metrics in parentheses
-    const clean = h.replace(/\s*\([^)]*\)\s*/g, '').trim();
-    // Take up to first period or comma, cap at 40 chars
-    const short = clean.split(/[.,!?。，！？]/)[0].trim();
-    return short.length > 40 ? short.slice(0, 37) + '...' : short;
-  }
-
-  // Build headline: just the top story, 1 sentence (also used as email subject)
-  const shortHeaders = uniqueHeaders.map(shortenTitle);
-  const headline = shortHeaders.length > 0 ? shortHeaders[0] : topStory.slice(0, 60);
-
-  // Format date nicely instead of raw ISO
-  const formattedDate = lang === 'zh'
-    ? new Intl.DateTimeFormat('zh-CN', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' }).format(new Date(DATE + 'T00:00:00'))
-    : new Intl.DateTimeFormat('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(DATE + 'T00:00:00'));
-  const dateStr = `**${formattedDate}**`;
-
-  // Short scene-setting intro — don't repeat headline content
-  const intro = lang === 'zh'
-    ? `今日 AI 圈 ${uniqueHeaders.length} 条值得关注的动态。`
-    : `${uniqueHeaders.length} stories worth your attention today.`;
-
-  const todayLabel = lang === 'zh' ? '今日看点' : 'Today';
-  // Clean any trailing punctuation before joining
-  const todayHeaders = shortHeaders.slice(0, 3).map(h =>
-    h.replace(/[.,。，！!?\s]+$/, '').trim()
-  );
-  const todayLine = todayHeaders.length > 0
-    ? lang === 'zh'
-      ? `${todayLabel}：${todayHeaders.join('、')}。`
-      : `${todayLabel}: ${todayHeaders.join(', ')}.`
-    : '';
-
-  return `# ${headline}\n\n${dateStr}\n\n${intro}\n\n${todayLine}\n\n${trimmed}`;
+  // Claude skipped the headline — use top story as simple fallback
+  const headline = topStory.slice(0, 80);
+  return `# ${headline}\n\n${trimmed}`;
 }
 
 function extractTitle(md: string): string {
@@ -974,11 +807,18 @@ async function stage7_persist(
   fs.mkdirSync(emailEnDir, { recursive: true });
   fs.mkdirSync(emailZhDir, { recursive: true });
 
-  const enEmailContent = generateEmailContent(enFixed);
-  const zhEmailContent = generateEmailContent(zhFixed);
+  console.log('\n📧 Generating email versions...');
+  const [enEmailContent, zhEmailContent] = await Promise.all([
+    generateEmailContent(enFixed, 'en'),
+    generateEmailContent(zhFixed, 'zh'),
+  ]);
 
-  const enEmailHtml = await markdownToEmailHtml(enEmailContent, { title: enTitle, date: DATE, lang: 'en' });
-  const zhEmailHtml = await markdownToEmailHtml(zhEmailContent, { title: zhTitle, date: DATE, lang: 'zh' });
+  // Extract email-specific titles (may differ from website titles)
+  const enEmailTitle = extractTitle(enEmailContent) || enTitle;
+  const zhEmailTitle = extractTitle(zhEmailContent) || zhTitle;
+
+  const enEmailHtml = await markdownToEmailHtml(enEmailContent, { title: enEmailTitle, date: DATE, lang: 'en' });
+  const zhEmailHtml = await markdownToEmailHtml(zhEmailContent, { title: zhEmailTitle, date: DATE, lang: 'zh' });
 
   const enEmailPath = path.join(emailEnDir, `${DATE}.html`);
   const zhEmailPath = path.join(emailZhDir, `${DATE}.html`);
