@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "GPT-5.4 Pro vs Claude Opus vs Gemini DeepThink: side-by-side original analysis test",
+    "url": "https://x.com/emollick/status/2029689565846364444",
+    "source": "twitter:@emollick",
+    "x_engagement_24h": 844,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.2532,
+    "suggested_angle": "comparison"
+  },
+  {
+    "topic": "How we built a restaurant voice agent using gpt-realtime-1.5",
+    "url": "https://x.com/OpenAIDevs/status/2027132023442489661",
+    "source": "twitter:@OpenAIDevs",
+    "x_engagement_24h": 703,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.210900000000002,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Claude Code Tip: Prompt Stashing with Ctrl+S",
+    "url": "https://x.com/adocomplete/status/2029988814924722559",
+    "source": "twitter:@adocomplete",
+    "x_engagement_24h": 302,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.090600000000002,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Gemini 3.1 Flash Image drops before Gemini 3.1 Flash",
+    "url": "https://x.com/simonw/status/2027142536872198359",
+    "source": "twitter:@simonw",
+    "x_engagement_24h": 204,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.0612,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "VS Code Agent Kanban: Task Management for the AI-Assisted Developer",
+    "url": "https://www.appsoftware.com/blog/introducing-vs-code-agent-kanban-task-management-for-the-ai-assisted-developer",
+    "source": "hackernews",
+    "x_engagement_24h": 104,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 20.0312,
+    "suggested_angle": "comparison"
+  }
+]
