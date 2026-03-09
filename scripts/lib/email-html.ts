@@ -99,9 +99,9 @@ function styleBodyHtml(html: string): string {
 
     if (!isQuickLinks && !isSpecialCard) {
       // Replace H3 headers with numbered bold items
-      processedContent = processedContent.replace(/<h3[^>]*>([\s\S]*?)<\/h3>/gi, () => {
+      processedContent = processedContent.replace(/<h3[^>]*>([\s\S]*?)<\/h3>/gi, (_match, title) => {
         itemCounter++;
-        return `<p style="margin:20px 0 6px; font-size:16px; color:#111; line-height:1.5;"><span style="display:inline-block; width:24px; height:24px; background-color:#3b82f6; color:#fff; border-radius:50%; text-align:center; line-height:24px; font-size:12px; font-weight:700; margin-right:8px; vertical-align:middle;">${itemCounter}</span><strong style="color:#111; font-weight:700; font-size:17px;">$1</strong></p>`;
+        return `<p style="margin:20px 0 6px; font-size:16px; color:#111; line-height:1.5;"><span style="display:inline-block; width:24px; height:24px; background-color:#3b82f6; color:#fff; border-radius:50%; text-align:center; line-height:24px; font-size:12px; font-weight:700; margin-right:8px; vertical-align:middle;">${itemCounter}</span><strong style="color:#111; font-weight:700; font-size:17px;">${title}</strong></p>`;
       });
     } else if (isSpecialCard) {
       // For special cards, keep H3 as styled subheadings
