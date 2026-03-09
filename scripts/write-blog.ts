@@ -64,6 +64,7 @@ interface BlogFrontmatter {
   video_ready: boolean;
   video_hook: string;
   video_status: string;
+  video_url?: string;
 }
 
 interface SEOEntities {

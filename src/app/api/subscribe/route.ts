@@ -22,7 +22,7 @@ export async function GET() {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { email } = body;
+    const { email, lang, source } = body;
 
     if (!email || typeof email !== 'string') {
       return NextResponse.json(
@@ -44,7 +44,7 @@ export async function POST(request: NextRequest) {
         const res = await fetch(`${VPS_API_URL}/api/subscribe`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email }),
+          body: JSON.stringify({ email, lang, source }),
         });
         const data = await res.json();
         return NextResponse.json(data, { status: res.status });

@@ -128,7 +128,7 @@ export default function RootLayout({
         <Script
           defer
           data-domain="loreai.dev"
-          src="https://plausible.io/js/script.js"
+          src="https://plausible.io/js/script.tagged-events.js"
           strategy="afterInteractive"
         />
 

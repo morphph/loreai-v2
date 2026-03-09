@@ -19,4 +19,10 @@ db.exec(`
   )
 `);
 
+// Migration: add source column if missing
+const cols = db.prepare('PRAGMA table_info(subscribers)').all() as { name: string }[];
+if (!cols.some(c => c.name === 'source')) {
+  db.exec('ALTER TABLE subscribers ADD COLUMN source TEXT DEFAULT NULL');
+}
+
 export default db;

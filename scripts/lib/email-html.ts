@@ -35,6 +35,7 @@ function styleBodyHtml(html: string): string {
     'QUICK': { bg: '#f3f4f6', fg: '#374151' },
     'MODEL': { bg: '#e0e7ff', fg: '#3730a3' },
     'PICK': { bg: '#fef9c3', fg: '#a16207' },
+    '精读': { bg: '#fae8ff', fg: '#9333ea' },
   };
 
   function getLabelColor(title: string): { bg: string; fg: string } {
@@ -150,6 +151,10 @@ function wrapInTemplate(bodyHtml: string, opts: { title: string; date: string; l
   const footerText = isZh ? '每个工作日早晨，最精炼的 AI 简报。' : 'The sharpest AI briefing, every weekday morning.';
   const unsubText = isZh ? '退订' : 'Unsubscribe';
   const archiveText = isZh ? '历史存档' : 'Archive';
+  const shareText = isZh ? '推荐给朋友' : 'Share with a friend';
+  const shareUrl = isZh
+    ? `mailto:?subject=${encodeURIComponent('推荐：LoreAI AI 简报')}&body=${encodeURIComponent('每天 5 分钟掌握 AI 动态：https://loreai.dev/zh/subscribe?ref=newsletter-share')}`
+    : `mailto:?subject=${encodeURIComponent('Check out LoreAI')}&body=${encodeURIComponent('Daily AI briefing, 5 minutes: https://loreai.dev/subscribe?ref=newsletter-share')}`;
 
   return `<!DOCTYPE html>
 <html lang="${opts.lang}">
@@ -207,6 +212,8 @@ function wrapInTemplate(bodyHtml: string, opts: { title: string; date: string; l
     <a href="${viewOnline}" style="color:#3b82f6; text-decoration:none; font-weight:500;">${viewOnlineText}</a>
     &nbsp;&middot;&nbsp;
     <a href="${archiveUrl}" style="color:#3b82f6; text-decoration:none; font-weight:500;">${archiveText}</a>
+    &nbsp;&middot;&nbsp;
+    <a href="${shareUrl}" style="color:#3b82f6; text-decoration:none; font-weight:500;">${shareText}</a>
     &nbsp;&middot;&nbsp;
     <a href="{{ unsubscribe_url }}" style="color:#9ca3af; text-decoration:none;">${unsubText}</a>
   </p>

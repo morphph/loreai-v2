@@ -402,6 +402,63 @@ function formatEngagement(item: FilteredItem): string {
 }
 
 // ============================================================
+// Helper: Find video-published blog posts from this week
+// ============================================================
+
+interface VideoPost {
+  title: string;
+  slug: string;
+  video_hook: string;
+  video_url?: string;
+  lang: string;
+}
+
+function getWeeklyVideoPosts(): { en: VideoPost[]; zh: VideoPost[] } {
+  const result: { en: VideoPost[]; zh: VideoPost[] } = { en: [], zh: [] };
+
+  for (const lang of ['en', 'zh'] as const) {
+    const dir = path.join(process.cwd(), 'content', 'blog', lang);
+    if (!fs.existsSync(dir)) continue;
+
+    const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
+    for (const file of files) {
+      const raw = fs.readFileSync(path.join(dir, file), 'utf-8');
+      const dateMatch = raw.match(/^date:\s*(\d{4}-\d{2}-\d{2})/m);
+      if (!dateMatch) continue;
+
+      const postDate = dateMatch[1];
+      // Check if the post date falls within this week (Mon-Sat)
+      if (postDate < WEEKDAYS[0] || postDate > WEEK_END) continue;
+
+      const statusMatch = raw.match(/^video_status:\s*(\S+)/m);
+      if (!statusMatch || statusMatch[1] !== 'published') continue;
+
+      const titleMatch = raw.match(/^title:\s*"?([^"\n]*)"?/m);
+      const slugMatch = raw.match(/^slug:\s*(\S+)/m);
+      const hookMatch = raw.match(/^video_hook:\s*"?([^"\n]*)"?/m);
+      const urlMatch = raw.match(/^video_url:\s*"?([^"\n]*)"?/m);
+
+      result[lang].push({
+        title: titleMatch?.[1] || file.replace('.md', ''),
+        slug: slugMatch?.[1] || file.replace('.md', ''),
+        video_hook: hookMatch?.[1] || '',
+        video_url: urlMatch?.[1] || undefined,
+        lang,
+      });
+    }
+  }
+
+  return result;
+}
+
+// Module-level: video posts for this week (lazy-loaded)
+let _videoPosts: { en: VideoPost[]; zh: VideoPost[] } | null = null;
+function videoPosts(): { en: VideoPost[]; zh: VideoPost[] } {
+  if (!_videoPosts) _videoPosts = getWeeklyVideoPosts();
+  return _videoPosts;
+}
+
+// ============================================================
 // STAGE 5: Generate EN Weekly
 // ============================================================
 
@@ -437,12 +494,21 @@ async function stage5_generateEN(top5: WeeklyStory[]): Promise<string> {
     storiesText += '\n';
   }
 
+  // Check for video-published posts this week
+  let videoSection = '';
+  if (videoPosts().en.length > 0) {
+    videoSection = '\n\n## Deep Reads This Week\n\nIf any of these video blog posts exist, include a "Deep Reads" section after the 5 stories with a brief mention and link for each:\n';
+    for (const vp of videoPosts().en) {
+      videoSection += `- "${vp.title}" — ${vp.video_hook} → /blog/${vp.slug}\n`;
+    }
+  }
+
   const systemPrompt = `${skill}
 
 Write the weekly AI digest for the week of ${WEEKDAYS[0]} to ${WEEKDAYS[WEEKDAYS.length - 1]}.
 You have 5 stories to cover. Output ONLY the newsletter markdown. No frontmatter, no meta-commentary.`;
 
-  const userPrompt = `Write the weekly AI digest for ${WEEK_SLUG} (week of ${WEEKDAYS[0]} to ${WEEKDAYS[WEEKDAYS.length - 1]}) using these top 5 stories:\n\n${storiesText}`;
+  const userPrompt = `Write the weekly AI digest for ${WEEK_SLUG} (week of ${WEEKDAYS[0]} to ${WEEKDAYS[WEEKDAYS.length - 1]}) using these top 5 stories:\n\n${storiesText}${videoSection}`;
 
   const response = await callClaudeWithRetry(systemPrompt, userPrompt, {
     maxTokens: 8192,
@@ -491,7 +557,16 @@ async function stage6_generateZH(top5: WeeklyStory[]): Promise<string> {
 基于以下5个本周热门AI故事，创作 ${WEEKDAYS[0]} 至 ${WEEKDAYS[WEEKDAYS.length - 1]} 周刊中文版。
 只输出 Newsletter 正文 Markdown，不要 frontmatter，不要 meta 说明。`;
 
-  const userPrompt = `以下是本周5大AI热门故事的数据：\n\n${storiesText}`;
+  // Check for video-published posts this week (ZH)
+  let zhVideoSection = '';
+  if (videoPosts().zh.length > 0) {
+    zhVideoSection = '\n\n## 本周精读\n\n如果有以下视频博客文章，请在5个故事之后加一个「本周精读」板块，简要介绍并附链接：\n';
+    for (const vp of videoPosts().zh) {
+      zhVideoSection += `- 「${vp.title}」— ${vp.video_hook} → /zh/blog/${vp.slug}\n`;
+    }
+  }
+
+  const userPrompt = `以下是本周5大AI热门故事的数据：\n\n${storiesText}${zhVideoSection}`;
 
   const response = await callZhNewsletterWithFallback(systemPrompt, userPrompt, validateWeeklyZhNewsletter);
 

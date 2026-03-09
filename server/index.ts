@@ -69,7 +69,8 @@ app.post('/api/subscribe', async (c) => {
 
   try {
     const lang = body.lang === 'zh' ? 'zh' : 'en';
-    db.prepare('INSERT INTO subscribers (email, lang) VALUES (?, ?)').run(email, lang);
+    const source = typeof body.source === 'string' ? body.source.slice(0, 50) : null;
+    db.prepare('INSERT INTO subscribers (email, lang, source) VALUES (?, ?, ?)').run(email, lang, source);
     syncToButtondown(email, lang);
     return c.json({ message: "You're in! Check your inbox." });
   } catch (err: unknown) {

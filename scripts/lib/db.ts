@@ -89,6 +89,12 @@ function initSchema(db: Database.Database): void {
   if (!cols.some(c => c.name === 'selected_for_newsletter_at')) {
     db.exec("ALTER TABLE news_items ADD COLUMN selected_for_newsletter_at DATETIME DEFAULT NULL");
   }
+
+  // Migration: add source column to subscribers if missing
+  const subCols = db.prepare("PRAGMA table_info(subscribers)").all() as { name: string }[];
+  if (!subCols.some(c => c.name === 'source')) {
+    db.exec("ALTER TABLE subscribers ADD COLUMN source TEXT DEFAULT NULL");
+  }
 }
 
 // --- News Items ---
