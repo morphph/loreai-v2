@@ -21,7 +21,7 @@ async function mdToHtml(md: string): Promise<string> {
 /** Apply inline styles and transform HTML into card-based layout */
 function styleBodyHtml(html: string): string {
   // Card wrapper styles
-  const cardStyle = 'border: 1px solid #e5e7eb; border-radius: 8px; padding: 24px; margin-bottom: 16px;';
+  const cardStyle = 'border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; margin-bottom: 12px;';
   const sectionLabelBase = 'display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px; padding: 2px 8px; border-radius: 4px;';
 
   // Section label colors mapped by section name keywords
@@ -67,7 +67,7 @@ function styleBodyHtml(html: string): string {
 
   // Step 2: Transform H1 into hero content (will be wrapped by template)
   styled = styled.replace(/<h1([^>]*)>([\s\S]*?)<\/h1>/gi,
-    '<h1$1 style="margin:0 0 8px; font-size:28px; font-weight:700; color:#111; line-height:1.3; letter-spacing:-0.3px;">$2</h1>');
+    '<h1$1 style="margin:0 0 6px; font-size:22px; font-weight:700; color:#111; line-height:1.35; letter-spacing:-0.2px;">$2</h1>');
 
   // Step 3: Wrap H2 sections in cards
   // Split by H2 to create card sections
@@ -176,22 +176,22 @@ function wrapInTemplate(bodyHtml: string, opts: { title: string; date: string; l
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:620px;">
 
 <!-- Hero / Header Card -->
-<tr><td style="background-color:#ffffff; border-radius:12px 12px 0 0; padding:32px 32px 24px; border-bottom:3px solid #3b82f6;">
+<tr><td style="background-color:#ffffff; border-radius:12px 12px 0 0; padding:24px 20px 18px; border-bottom:3px solid #3b82f6;">
   <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
   <tr>
     <td>
-      <a href="${siteUrl}" style="text-decoration:none; font-size:24px; font-weight:800; color:#111; letter-spacing:-0.5px;">LoreAI</a>
-      <span style="font-size:12px; color:#6b7280; margin-left:8px; font-weight:500; text-transform:uppercase; letter-spacing:0.5px;">${isZh ? 'AI 日报' : 'DAILY AI BRIEFING'}</span>
+      <a href="${siteUrl}" style="text-decoration:none; font-size:22px; font-weight:800; color:#111; letter-spacing:-0.5px;">LoreAI</a>
+      <span style="font-size:11px; color:#6b7280; margin-left:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.5px;">${isZh ? 'AI 日报' : 'DAILY AI BRIEFING'}</span>
     </td>
     <td align="right">
-      <span style="font-size:13px; color:#9ca3af;">${opts.date}</span>
+      <span style="font-size:12px; color:#9ca3af;">${opts.date}</span>
     </td>
   </tr>
   </table>
 </td></tr>
 
 <!-- Body -->
-<tr><td style="background-color:#ffffff; padding:28px 32px 32px; border-radius:0 0 12px 12px;">
+<tr><td style="background-color:#ffffff; padding:20px 20px 24px; border-radius:0 0 12px 12px;">
   ${bodyHtml}
 </td></tr>
 
@@ -199,7 +199,7 @@ function wrapInTemplate(bodyHtml: string, opts: { title: string; date: string; l
 <tr><td style="height:16px;"></td></tr>
 
 <!-- Footer Card -->
-<tr><td style="background-color:#ffffff; border-radius:12px; padding:24px 32px; text-align:center;">
+<tr><td style="background-color:#ffffff; border-radius:12px; padding:20px 20px; text-align:center;">
   <p style="margin:0 0 12px; font-size:14px; color:#6b7280; line-height:1.5;">
     ${footerText}
   </p>

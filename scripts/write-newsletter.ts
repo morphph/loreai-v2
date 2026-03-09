@@ -866,14 +866,25 @@ function ensureHeadline(md: string, topStory: string, lang: string): string {
     if (uniqueHeaders.length >= 3) break;
   }
 
-  // Build headline from top 2 diverse story themes
+  // Shorten H3 titles for headline use — extract just the key noun phrase (product/company + verb)
+  function shortenTitle(h: string): string {
+    // Remove engagement metrics in parentheses
+    const clean = h.replace(/\s*\([^)]*\)\s*/g, '').trim();
+    // Take up to first period or comma, cap at 40 chars
+    const short = clean.split(/[.,!?。，！？]/)[0].trim();
+    return short.length > 40 ? short.slice(0, 37) + '...' : short;
+  }
+
+  // Build headline: short + punchy, max ~70 chars
+  const shortHeaders = uniqueHeaders.map(shortenTitle);
   let headline: string;
-  if (uniqueHeaders.length >= 2) {
-    headline = `${uniqueHeaders[0]} While ${uniqueHeaders[1]}`;
-  } else if (uniqueHeaders.length === 1) {
-    headline = uniqueHeaders[0];
+  if (shortHeaders.length >= 2) {
+    const combined = `${shortHeaders[0]} | ${shortHeaders[1]}`;
+    headline = combined.length > 70 ? shortHeaders[0] : combined;
+  } else if (shortHeaders.length === 1) {
+    headline = shortHeaders[0];
   } else {
-    headline = topStory.slice(0, 80);
+    headline = topStory.slice(0, 60);
   }
 
   // Format date nicely instead of raw ISO
@@ -882,18 +893,13 @@ function ensureHeadline(md: string, topStory: string, lang: string): string {
     : new Intl.DateTimeFormat('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(DATE + 'T00:00:00'));
   const dateStr = `**${formattedDate}**`;
 
-  // Generate a scene-setting intro from diverse headers
-  const introHeaders = uniqueHeaders.slice(0, 2);
+  // Short scene-setting intro — don't repeat headline content
   const intro = lang === 'zh'
-    ? introHeaders.length >= 2
-      ? `今天 AI 圈动作不断 — ${introHeaders[0]}，${introHeaders[1]} 紧随其后。`
-      : `今日 AI 圈最值得关注的动态。`
-    : introHeaders.length >= 2
-      ? `Big moves today — ${introHeaders[0].toLowerCase()} and ${introHeaders[1].toLowerCase()} are leading the headlines.`
-      : `Here's what's moving the needle in AI today.`;
+    ? `今日 AI 圈 ${uniqueHeaders.length} 条值得关注的动态。`
+    : `${uniqueHeaders.length} stories worth your attention today.`;
 
   const todayLabel = lang === 'zh' ? '今日看点' : 'Today';
-  const todayHeaders = uniqueHeaders.slice(0, 3).map(h => h.replace(/\.\s*$/, ''));
+  const todayHeaders = shortHeaders.slice(0, 3);
   const todayLine = todayHeaders.length > 0
     ? `${todayLabel}: ${todayHeaders.join(', ')}.`
     : '';
