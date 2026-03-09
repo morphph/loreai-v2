@@ -875,17 +875,9 @@ function ensureHeadline(md: string, topStory: string, lang: string): string {
     return short.length > 40 ? short.slice(0, 37) + '...' : short;
   }
 
-  // Build headline: short + punchy, max ~70 chars
+  // Build headline: just the top story, 1 sentence (also used as email subject)
   const shortHeaders = uniqueHeaders.map(shortenTitle);
-  let headline: string;
-  if (shortHeaders.length >= 2) {
-    const combined = `${shortHeaders[0]} | ${shortHeaders[1]}`;
-    headline = combined.length > 70 ? shortHeaders[0] : combined;
-  } else if (shortHeaders.length === 1) {
-    headline = shortHeaders[0];
-  } else {
-    headline = topStory.slice(0, 60);
-  }
+  const headline = shortHeaders.length > 0 ? shortHeaders[0] : topStory.slice(0, 60);
 
   // Format date nicely instead of raw ISO
   const formattedDate = lang === 'zh'
@@ -899,9 +891,14 @@ function ensureHeadline(md: string, topStory: string, lang: string): string {
     : `${uniqueHeaders.length} stories worth your attention today.`;
 
   const todayLabel = lang === 'zh' ? '今日看点' : 'Today';
-  const todayHeaders = shortHeaders.slice(0, 3);
+  // Clean any trailing punctuation before joining
+  const todayHeaders = shortHeaders.slice(0, 3).map(h =>
+    h.replace(/[.,。，！!?\s]+$/, '').trim()
+  );
   const todayLine = todayHeaders.length > 0
-    ? `${todayLabel}: ${todayHeaders.join(', ')}.`
+    ? lang === 'zh'
+      ? `${todayLabel}：${todayHeaders.join('、')}。`
+      : `${todayLabel}: ${todayHeaders.join(', ')}.`
     : '';
 
   return `# ${headline}\n\n${dateStr}\n\n${intro}\n\n${todayLine}\n\n${trimmed}`;
