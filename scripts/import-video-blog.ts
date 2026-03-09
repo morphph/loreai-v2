@@ -2,11 +2,18 @@
 /**
  * scripts/import-video-blog.ts — Import blog2video artifacts as blog posts
  *
- * Reads video_plan.json + script files from a blog2video output directory,
+ * Reads meta.json (or video_plan.json) + script files from blog2video output,
  * generates ZH blog (spoken→written) and EN blog, then persists to content/ + DB.
  *
  * Usage:
+ *   # Single directory
  *   npx tsx scripts/import-video-blog.ts --dir=/path/to/output/slug [--video-url=URL] [--dry-run]
+ *
+ *   # Batch mode: scan queue for unimported dirs
+ *   npx tsx scripts/import-video-blog.ts --batch [--queue-dir=/path] [--dry-run]
+ *
+ *   # Auto mode (for cron): batch + suppress interactive output
+ *   npx tsx scripts/import-video-blog.ts --batch --auto [--queue-dir=/path]
  */
 import 'dotenv/config';
 import fs from 'fs';
@@ -17,7 +24,7 @@ import { sanitizeOutput } from './lib/sanitize.js';
 import { validateBlogPost } from './lib/validate';
 import { upsertContent, upsertKeyword, closeDb } from './lib/db';
 import { todaySGT } from './lib/date.js';
-import { gitAddCommitPush } from './lib/git';
+import { gitAdd, gitCommit, gitPush, gitPull, gitAddCommitPush } from './lib/git';
 
 // --- CLI args ---
 const args = process.argv.slice(2);
@@ -29,21 +36,15 @@ function getArg(name: string): string | undefined {
 const DIR = getArg('dir');
 const VIDEO_URL = getArg('video-url');
 const DRY_RUN = args.includes('--dry-run');
+const BATCH = args.includes('--batch');
+const AUTO = args.includes('--auto');
 const DATE = getArg('date') || todaySGT();
+const QUEUE_DIR = getArg('queue-dir') || '/home/ubuntu/blog2video/queue';
 
-if (!DIR) {
-  console.error('Usage: npx tsx scripts/import-video-blog.ts --dir=/path/to/output/slug [--video-url=URL] [--dry-run]');
+if (!DIR && !BATCH) {
+  console.error('Usage:\n  --dir=/path/to/slug   Import single directory\n  --batch               Scan queue for unimported dirs\n  --auto                Cron mode (batch + quiet)\n  --queue-dir=/path     Override queue directory (default: /home/ubuntu/blog2video/queue)\n  --dry-run             Preview only');
   process.exit(1);
 }
-
-const ABS_DIR = path.isAbsolute(DIR) ? DIR : path.resolve(process.cwd(), DIR);
-
-console.log(`\n🎬 Video Blog Import — ${path.basename(ABS_DIR)}`);
-console.log(`  Directory: ${ABS_DIR}`);
-console.log(`  Date: ${DATE}`);
-if (VIDEO_URL) console.log(`  Video URL: ${VIDEO_URL}`);
-if (DRY_RUN) console.log('  🧪 DRY RUN\n');
-console.log('='.repeat(50));
 
 // ============================================================
 // Types
@@ -78,35 +79,130 @@ interface BlogFrontmatter {
 }
 
 // ============================================================
-// STAGE 1: Parse Artifacts
+// Batch: find unimported directories
 // ============================================================
 
-function stage1_parseArtifacts(): { plan: VideoPlan; scripts: string; sourceBlog: string | null } {
-  console.log('\n📂 Stage 1: Parse Artifacts');
-
-  // Read video_plan.json
-  const planPath = path.join(ABS_DIR, 'video_plan.json');
-  if (!fs.existsSync(planPath)) {
-    console.error(`  ❌ Missing video_plan.json at ${planPath}`);
-    process.exit(1);
+function getExistingBlogSlugs(): Set<string> {
+  const slugs = new Set<string>();
+  for (const lang of ['en', 'zh']) {
+    const dir = path.join(process.cwd(), 'content', 'blog', lang);
+    if (!fs.existsSync(dir)) continue;
+    for (const f of fs.readdirSync(dir)) {
+      if (f.endsWith('.md')) slugs.add(f.replace('.md', ''));
+    }
   }
-  const plan: VideoPlan = JSON.parse(fs.readFileSync(planPath, 'utf-8'));
-  console.log(`  ✓ video_plan.json — topic: ${plan.topic}`);
-  console.log(`    key_concepts: ${plan.key_concepts?.join(', ') || 'none'}`);
+  return slugs;
+}
+
+function findUnimportedDirs(queueDir: string): string[] {
+  if (!fs.existsSync(queueDir)) {
+    console.error(`  ❌ Queue directory not found: ${queueDir}`);
+    return [];
+  }
+
+  const existingSlugs = getExistingBlogSlugs();
+  const dirs: string[] = [];
+
+  for (const entry of fs.readdirSync(queueDir)) {
+    const fullPath = path.join(queueDir, entry);
+    if (!fs.statSync(fullPath).isDirectory()) continue;
+
+    // Check if this dir has the required artifacts
+    const hasMeta = fs.existsSync(path.join(fullPath, 'meta.json')) ||
+                    fs.existsSync(path.join(fullPath, 'video_plan.json'));
+    const hasScript = fs.readdirSync(fullPath).some((f) => /^video_\d+_script\.md$/.test(f));
+
+    if (!hasMeta || !hasScript) {
+      console.log(`  ○ ${entry} — missing artifacts (meta/scripts), skipping`);
+      continue;
+    }
+
+    // Resolve slug from meta.json or dir name
+    const slug = resolveSlugFromDir(fullPath, entry);
+
+    if (existingSlugs.has(slug)) {
+      console.log(`  ○ ${entry} — already imported as "${slug}"`);
+      continue;
+    }
+
+    dirs.push(fullPath);
+  }
+
+  return dirs;
+}
+
+function resolveSlugFromDir(dirPath: string, dirName: string): string {
+  // Try meta.json first
+  const metaPath = path.join(dirPath, 'meta.json');
+  if (fs.existsSync(metaPath)) {
+    try {
+      const meta = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
+      if (meta.slug) return meta.slug;
+      if (meta.source_blog_slug) return meta.source_blog_slug;
+    } catch { /* fallthrough */ }
+  }
+  // Try video_plan.json
+  const planPath = path.join(dirPath, 'video_plan.json');
+  if (fs.existsSync(planPath)) {
+    try {
+      const plan = JSON.parse(fs.readFileSync(planPath, 'utf-8'));
+      if (plan.slug) return plan.slug;
+      if (plan.source_blog_slug) return plan.source_blog_slug;
+    } catch { /* fallthrough */ }
+  }
+  return dirName;
+}
+
+// ============================================================
+// Parse artifacts from a single directory
+// ============================================================
+
+function parseArtifacts(absDir: string): { plan: VideoPlan; scripts: string; sourceBlog: string | null } | null {
+  console.log(`\n📂 Parse Artifacts: ${path.basename(absDir)}`);
+
+  // Read meta.json or video_plan.json
+  let plan: VideoPlan;
+  const metaPath = path.join(absDir, 'meta.json');
+  const planPath = path.join(absDir, 'video_plan.json');
+
+  if (fs.existsSync(metaPath)) {
+    const raw = JSON.parse(fs.readFileSync(metaPath, 'utf-8'));
+    // Normalize meta.json fields to VideoPlan shape
+    plan = {
+      topic: raw.topic || raw.title || path.basename(absDir),
+      slug: raw.slug || raw.source_blog_slug,
+      key_concepts: raw.key_concepts || raw.keywords || [],
+      must_include_details: raw.must_include_details || [],
+      target_audience: raw.target_audience,
+      source_blog_slug: raw.source_blog_slug,
+      ...raw,
+    };
+    console.log(`  ✓ meta.json — topic: ${plan.topic}`);
+  } else if (fs.existsSync(planPath)) {
+    plan = JSON.parse(fs.readFileSync(planPath, 'utf-8'));
+    console.log(`  ✓ video_plan.json — topic: ${plan.topic}`);
+  } else {
+    console.error(`  ❌ No meta.json or video_plan.json in ${absDir}`);
+    return null;
+  }
+
+  if (plan.key_concepts?.length) {
+    console.log(`    key_concepts: ${plan.key_concepts.join(', ')}`);
+  }
 
   // Read video scripts (video_1_script.md, video_2_script.md, etc.)
-  const scriptFiles = fs.readdirSync(ABS_DIR)
+  const scriptFiles = fs.readdirSync(absDir)
     .filter((f) => /^video_\d+_script\.md$/.test(f))
     .sort();
 
   if (scriptFiles.length === 0) {
-    console.error('  ❌ No video script files found (expected video_N_script.md)');
-    process.exit(1);
+    console.error(`  ❌ No video script files found in ${absDir}`);
+    return null;
   }
 
   const scripts = scriptFiles
     .map((f) => {
-      const content = fs.readFileSync(path.join(ABS_DIR, f), 'utf-8');
+      const content = fs.readFileSync(path.join(absDir, f), 'utf-8');
       console.log(`  ✓ ${f} — ${content.length} chars`);
       return content;
     })
@@ -115,7 +211,7 @@ function stage1_parseArtifacts(): { plan: VideoPlan; scripts: string; sourceBlog
   console.log(`  Total script length: ${scripts.length} chars from ${scriptFiles.length} files`);
 
   // Read source_blog.md (optional)
-  const sourceBlogPath = path.join(ABS_DIR, 'source_blog.md');
+  const sourceBlogPath = path.join(absDir, 'source_blog.md');
   let sourceBlog: string | null = null;
   if (fs.existsSync(sourceBlogPath)) {
     sourceBlog = fs.readFileSync(sourceBlogPath, 'utf-8');
@@ -128,15 +224,16 @@ function stage1_parseArtifacts(): { plan: VideoPlan; scripts: string; sourceBlog
 }
 
 // ============================================================
-// STAGE 2: Generate ZH Blog (spoken → written)
+// Generate ZH Blog (spoken → written)
 // ============================================================
 
-async function stage2_generateZH(
+async function generateZH(
   plan: VideoPlan,
   scripts: string,
-  slug: string
+  slug: string,
+  videoUrl?: string
 ): Promise<{ frontmatter: BlogFrontmatter; markdown: string } | null> {
-  console.log('\n📝 Stage 2: Generate ZH Blog (spoken → written)');
+  console.log('\n📝 Generate ZH Blog (spoken → written)');
 
   const skillPath = path.join(process.cwd(), 'skills', 'video-to-blog-zh', 'SKILL.md');
   const skill = fs.readFileSync(skillPath, 'utf-8');
@@ -148,11 +245,11 @@ async function stage2_generateZH(
 - Slug: ${slug}
 - 输出完整 Markdown 文件，包含 --- frontmatter 块 ---
 - frontmatter 必须包含所有字段：title, date, slug, description, keywords, category, related_newsletter, related_glossary, related_compare, lang (zh), video_ready (true), video_hook, video_status (published), source_type (video)
-${VIDEO_URL ? `- video_url: ${VIDEO_URL}` : ''}
+${videoUrl ? `- video_url: ${videoUrl}` : ''}
 - frontmatter 之后输出博客正文，严格按照结构模板
 - 正文 800-1500 CJK 字（不含 frontmatter）`;
 
-  let context = `## video_plan.json 元数据\n\n`;
+  let context = `## 元数据\n\n`;
   context += `**主题**: ${plan.topic}\n`;
   if (plan.key_concepts?.length) context += `**核心概念**: ${plan.key_concepts.join(', ')}\n`;
   if (plan.must_include_details?.length) context += `**必须包含**: ${plan.must_include_details.join(', ')}\n`;
@@ -189,7 +286,7 @@ ${VIDEO_URL ? `- video_url: ${VIDEO_URL}` : ''}
       return null;
     }
 
-    const frontmatter = parseFrontmatter(fmMatch[1], 'zh', slug);
+    const frontmatter = parseFrontmatter(fmMatch[1], 'zh', slug, videoUrl);
     const body = cleaned.replace(/^---[\s\S]*?---\n*/, '');
 
     return { frontmatter, markdown: body };
@@ -200,27 +297,26 @@ ${VIDEO_URL ? `- video_url: ${VIDEO_URL}` : ''}
 }
 
 // ============================================================
-// STAGE 3: Generate EN Blog
+// Generate EN Blog
 // ============================================================
 
-async function stage3_generateEN(
+async function generateEN(
   plan: VideoPlan,
   sourceBlog: string | null,
   zhMarkdown: string | null,
-  slug: string
+  slug: string,
+  videoUrl?: string
 ): Promise<{ frontmatter: BlogFrontmatter; markdown: string } | null> {
-  console.log('\n📝 Stage 3: Generate EN Blog');
+  console.log('\n📝 Generate EN Blog');
 
   const skillPath = path.join(process.cwd(), 'skills', 'blog-en', 'SKILL.md');
   const skill = fs.readFileSync(skillPath, 'utf-8');
 
   let context: string;
   if (sourceBlog) {
-    // Use the original source blog as reference
     context = `## Source Blog\n\n${sourceBlog.slice(0, 6000)}`;
     console.log('  Using source_blog.md as reference');
   } else if (zhMarkdown) {
-    // Generate from ZH
     context = `## Chinese Blog (translate to EN, do NOT literally translate — rewrite independently)\n\n${zhMarkdown}`;
     console.log('  Generating EN from ZH blog content');
   } else {
@@ -228,7 +324,7 @@ async function stage3_generateEN(
     return null;
   }
 
-  context += `\n\n## Metadata from video_plan.json\n`;
+  context += `\n\n## Metadata\n`;
   context += `Topic: ${plan.topic}\n`;
   if (plan.key_concepts?.length) context += `Key concepts: ${plan.key_concepts.join(', ')}\n`;
 
@@ -240,7 +336,7 @@ async function stage3_generateEN(
 - Generate a complete blog post with YAML frontmatter
 - Output the FULL markdown file including the --- frontmatter block ---
 - The frontmatter MUST include all required fields: title, date, slug, description, keywords, category, related_newsletter, related_glossary, related_compare, lang (en), video_ready (true), video_hook, video_status (published), source_type (video)
-${VIDEO_URL ? `- video_url: ${VIDEO_URL}` : ''}
+${videoUrl ? `- video_url: ${videoUrl}` : ''}
 - 800-1500 words for the body`;
 
   const userPrompt = `Write a blog post for LoreAI based on this material:\n\n${context}`;
@@ -270,7 +366,7 @@ ${VIDEO_URL ? `- video_url: ${VIDEO_URL}` : ''}
       return null;
     }
 
-    const frontmatter = parseFrontmatter(fmMatch[1], 'en', slug);
+    const frontmatter = parseFrontmatter(fmMatch[1], 'en', slug, videoUrl);
     const body = cleaned.replace(/^---[\s\S]*?---\n*/, '');
 
     return { frontmatter, markdown: body };
@@ -281,17 +377,13 @@ ${VIDEO_URL ? `- video_url: ${VIDEO_URL}` : ''}
 }
 
 // ============================================================
-// STAGE 4: Extract SEO entities
+// Extract SEO entities
 // ============================================================
 
-async function stage4_extractSEO(plan: VideoPlan, slug: string): Promise<void> {
-  console.log('\n🔍 Stage 4: Extract SEO Entities');
+function extractSEO(plan: VideoPlan, slug: string): void {
+  if (!plan.key_concepts?.length) return;
 
-  if (!plan.key_concepts?.length) {
-    console.log('  No key_concepts in plan, skipping');
-    return;
-  }
-
+  console.log('\n🔍 Extract SEO Entities');
   for (const concept of plan.key_concepts) {
     const kwSlug = concept
       .toLowerCase()
@@ -306,16 +398,14 @@ async function stage4_extractSEO(plan: VideoPlan, slug: string): Promise<void> {
 }
 
 // ============================================================
-// STAGE 5: Write files + DB + git
+// Write files + DB (no git — caller handles git)
 // ============================================================
 
-async function stage5_persist(
+function writeAndPersist(
   zhResult: { frontmatter: BlogFrontmatter; markdown: string } | null,
   enResult: { frontmatter: BlogFrontmatter; markdown: string } | null,
   slug: string
-): Promise<void> {
-  console.log('\n💾 Stage 5: Persist & Publish');
-
+): string[] {
   const writtenFiles: string[] = [];
 
   if (zhResult) {
@@ -340,7 +430,6 @@ async function stage5_persist(
         source_type: 'video',
       }),
     });
-    console.log('  ZH DB record upserted');
   }
 
   if (enResult) {
@@ -365,20 +454,57 @@ async function stage5_persist(
         source_type: 'video',
       }),
     });
-    console.log('  EN DB record upserted');
   }
 
-  if (writtenFiles.length > 0 && !DRY_RUN) {
-    await gitAddCommitPush(writtenFiles, `Add video-sourced blog: ${slug}`);
-    console.log('  Git committed and pushed');
+  return writtenFiles;
+}
+
+// ============================================================
+// Process a single directory (all stages)
+// ============================================================
+
+async function processOneDir(
+  absDir: string,
+  videoUrl?: string
+): Promise<{ slug: string; files: string[] } | null> {
+  const artifacts = parseArtifacts(absDir);
+  if (!artifacts) return null;
+
+  const { plan, scripts, sourceBlog } = artifacts;
+  const slug = plan.slug || plan.source_blog_slug || path.basename(absDir);
+  console.log(`  Resolved slug: ${slug}`);
+
+  if (DRY_RUN) {
+    console.log(`  [DRY RUN] Would generate ZH blog from ${scripts.length} chars of scripts`);
+    console.log(`  [DRY RUN] Would generate EN blog from ${sourceBlog ? 'source_blog.md' : 'ZH output'}`);
+    console.log(`  [DRY RUN] Would write to content/blog/{en,zh}/${slug}.md`);
+    return { slug, files: [] };
   }
+
+  // Generate ZH blog
+  const zhResult = await generateZH(plan, scripts, slug, videoUrl);
+  if (!zhResult) {
+    console.error(`  ❌ ZH blog generation failed for ${slug}`);
+    return null;
+  }
+
+  // Generate EN blog
+  const enResult = await generateEN(plan, sourceBlog, zhResult.markdown, slug, videoUrl);
+
+  // Extract SEO
+  extractSEO(plan, slug);
+
+  // Write files + DB
+  const files = writeAndPersist(zhResult, enResult, slug);
+
+  return { slug, files };
 }
 
 // ============================================================
 // Helpers
 // ============================================================
 
-function parseFrontmatter(fmText: string, lang: string, slug: string): BlogFrontmatter {
+function parseFrontmatter(fmText: string, lang: string, slug: string, videoUrl?: string): BlogFrontmatter {
   const get = (key: string): string => {
     const match = fmText.match(new RegExp(`^${key}:\\s*"?([^"\\n]*)"?`, 'm'));
     return match ? match[1].trim() : '';
@@ -410,7 +536,8 @@ function parseFrontmatter(fmText: string, lang: string, slug: string): BlogFront
     source_type: 'video',
   };
 
-  if (VIDEO_URL) fm.video_url = VIDEO_URL;
+  // video_url priority: CLI flag > parsed from AI output
+  if (videoUrl) fm.video_url = videoUrl;
   const parsedVideoUrl = get('video_url');
   if (parsedVideoUrl && !fm.video_url) fm.video_url = parsedVideoUrl;
 
@@ -451,41 +578,111 @@ source_type: ${fm.source_type}`;
 // ============================================================
 
 async function main() {
-  // Stage 1: Parse artifacts
-  const { plan, scripts, sourceBlog } = stage1_parseArtifacts();
+  if (BATCH) {
+    // --- Batch mode ---
+    console.log(`\n🎬 Video Blog Import — BATCH MODE`);
+    console.log(`  Queue: ${QUEUE_DIR}`);
+    console.log(`  Date: ${DATE}`);
+    if (DRY_RUN) console.log('  🧪 DRY RUN');
+    if (AUTO) console.log('  🤖 AUTO (cron)');
+    console.log('='.repeat(50));
 
-  const slug = plan.slug || plan.source_blog_slug || path.basename(ABS_DIR);
-  console.log(`\n  Resolved slug: ${slug}`);
+    // Pull latest before batch to avoid conflicts
+    if (!DRY_RUN) {
+      console.log('\n  Pulling latest...');
+      await gitPull();
+    }
 
-  if (DRY_RUN) {
-    console.log('\n📝 Stage 2-5: DRY RUN — skipping AI calls and persistence');
-    console.log(`  Would generate ZH blog from ${scripts.length} chars of scripts`);
-    console.log(`  Would generate EN blog from ${sourceBlog ? 'source_blog.md' : 'ZH output'}`);
-    console.log(`  Would write to content/blog/{en,zh}/${slug}.md`);
+    const dirs = findUnimportedDirs(QUEUE_DIR);
+    if (dirs.length === 0) {
+      console.log('\n  No new video outputs to import.');
+      closeDb();
+      return;
+    }
+
+    console.log(`\n  Found ${dirs.length} unimported dirs:`);
+    for (const d of dirs) {
+      console.log(`    + ${path.basename(d)}`);
+    }
+
+    // Process each directory
+    const allFiles: string[] = [];
+    const importedSlugs: string[] = [];
+    const failedDirs: string[] = [];
+
+    for (let i = 0; i < dirs.length; i++) {
+      const dirPath = dirs[i];
+      console.log(`\n${'─'.repeat(50)}`);
+      console.log(`  [${i + 1}/${dirs.length}] ${path.basename(dirPath)}`);
+
+      try {
+        const result = await processOneDir(dirPath);
+        if (result) {
+          importedSlugs.push(result.slug);
+          allFiles.push(...result.files);
+        } else {
+          failedDirs.push(path.basename(dirPath));
+        }
+      } catch (err) {
+        console.error(`  ❌ Error processing ${path.basename(dirPath)}:`, (err as Error).message);
+        failedDirs.push(path.basename(dirPath));
+      }
+    }
+
+    // Single git commit + push for all
+    if (allFiles.length > 0 && !DRY_RUN) {
+      console.log(`\n${'─'.repeat(50)}`);
+      console.log(`\n🚀 Git commit + push (${allFiles.length} files)`);
+      const message = importedSlugs.length === 1
+        ? `Add video-sourced blog: ${importedSlugs[0]}`
+        : `Add ${importedSlugs.length} video-sourced blogs: ${importedSlugs.join(', ')}`;
+      gitAdd(allFiles);
+      const committed = gitCommit(message);
+      if (committed) {
+        await gitPush();
+        console.log('  Committed and pushed');
+      }
+    }
+
     closeDb();
-    console.log('\n✅ Video blog import dry-run complete');
-    return;
-  }
 
-  // Stage 2: Generate ZH blog
-  const zhResult = await stage2_generateZH(plan, scripts, slug);
-  if (!zhResult) {
-    console.error('❌ ZH blog generation failed');
+    // Summary
+    console.log(`\n${'═'.repeat(50)}`);
+    console.log(`✅ Batch import complete`);
+    console.log(`  Imported: ${importedSlugs.length} (${importedSlugs.join(', ') || 'none'})`);
+    if (failedDirs.length > 0) {
+      console.log(`  Failed: ${failedDirs.length} (${failedDirs.join(', ')})`);
+    }
+    if (DRY_RUN) console.log('  (dry run — nothing written)');
+
+  } else {
+    // --- Single directory mode ---
+    const absDir = path.isAbsolute(DIR!) ? DIR! : path.resolve(process.cwd(), DIR!);
+
+    console.log(`\n🎬 Video Blog Import — ${path.basename(absDir)}`);
+    console.log(`  Directory: ${absDir}`);
+    console.log(`  Date: ${DATE}`);
+    if (VIDEO_URL) console.log(`  Video URL: ${VIDEO_URL}`);
+    if (DRY_RUN) console.log('  🧪 DRY RUN');
+    console.log('='.repeat(50));
+
+    const result = await processOneDir(absDir, VIDEO_URL);
+
+    if (!result) {
+      closeDb();
+      console.error('\n❌ Import failed');
+      process.exit(1);
+    }
+
+    // Git commit + push for single dir
+    if (result.files.length > 0 && !DRY_RUN) {
+      await gitAddCommitPush(result.files, `Add video-sourced blog: ${result.slug}`);
+      console.log('  Git committed and pushed');
+    }
+
     closeDb();
-    process.exit(1);
+    console.log(`\n✅ Video blog import complete — ${result.slug}`);
   }
-
-  // Stage 3: Generate EN blog
-  const enResult = await stage3_generateEN(plan, sourceBlog, zhResult.markdown, slug);
-
-  // Stage 4: Extract SEO entities
-  await stage4_extractSEO(plan, slug);
-
-  // Stage 5: Persist
-  await stage5_persist(zhResult, enResult, slug);
-
-  closeDb();
-  console.log(`\n✅ Video blog import complete — ${slug}`);
 }
 
 main().catch((err) => {

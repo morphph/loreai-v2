@@ -134,6 +134,9 @@ Add these entries (all times UTC, pipeline runs Mon-Fri + Saturday weekly):
 
 # Weekly SEO strategy (Saturday 11pm SGT = 15:00 UTC Saturday)
 0 23 * * 6 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh cluster-strategy >> /home/ubuntu/loreai-v2/logs/strategy.log 2>&1
+
+# Video blog import (11:50pm SGT = 15:50 UTC, Mon-Fri)
+50 15 * * 1-5 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh video-import >> /home/ubuntu/loreai-v2/logs/video-import.log 2>&1
 ```
 
 ## 11. Log Rotation
@@ -174,6 +177,6 @@ After setup, confirm these all work:
 - [ ] `cd /home/ubuntu/loreai-v2 && git pull` → works
 - [ ] `npx tsx scripts/collect-news.ts` → runs without error, populates DB
 - [ ] `cat .env` → all required keys filled in
-- [ ] `crontab -l` → shows 6 cron entries
+- [ ] `crontab -l` → shows 7 cron entries
 - [ ] `ls logs/` → directory exists
 - [ ] `git push` → can push to origin

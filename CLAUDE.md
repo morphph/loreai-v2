@@ -17,6 +17,8 @@ npx tsx scripts/write-blog.ts --date=YYYY-MM-DD        # Blog posts
 npx tsx scripts/generate-seo.ts --date=YYYY-MM-DD      # SEO pages (glossary/faq/compare/topics)
 npx tsx scripts/write-weekly.ts                        # Weekly digest (Saturday)
 npx tsx scripts/generate-review.ts --date=YYYY-MM-DD   # HTML review report
+npx tsx scripts/import-video-blog.ts --batch [--dry-run]            # Video blog import (batch)
+npx tsx scripts/import-video-blog.ts --dir=/path [--video-url=URL]  # Video blog import (single)
 npx tsx scripts/validate-pipeline.ts --date=YYYY-MM-DD --step=all  # Validation gate
 
 ## Backpressure (Quality Gates)
@@ -44,7 +46,7 @@ content/compare/{en,zh}/slug.md
 content/topics/{en,zh}/slug.md
 
 ## Cron Windows (SGT, Mon-Fri unless noted)
-2am collect → 4am newsletter → 6am extract → 8am blog → 10am SEO | Sat 2am weekly
+2am collect → 4am newsletter → 6am extract → 8am blog → 10am SEO → 11:50pm video-import | Sat 2am weekly
 ⚠️ Don't push during 2am-12pm SGT on weekdays
 ⚠️ During cron window (2am-12pm SGT), always `git pull` before starting any work to avoid conflicts with pipeline commits
 
