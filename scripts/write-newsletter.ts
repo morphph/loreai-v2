@@ -29,6 +29,7 @@ import { sanitizeOutput } from './lib/sanitize.js';
 import { validateNewsletter, validateZhNewsletter } from './lib/validate';
 import { extractBoldTitles, crossDayDedup } from './lib/dedup';
 import { validateAndExpand } from './lib/brave';
+import { markdownToEmailHtml } from './lib/email-html';
 // Parse args
 const dateArg = process.argv.find((a) => a.startsWith('--date='));
 import { todaySGT } from './lib/date.js';
@@ -671,6 +672,152 @@ async function stage6_blogSeeds(filtered: FilteredItem[]): Promise<BlogSeed[]> {
 }
 
 // ============================================================
+// Email Content Generation
+// ============================================================
+
+/**
+ * Transform full newsletter markdown into an email-optimized version.
+ * - Top 3 stories: Keep full write-ups (### headers become numbered items)
+ * - Quick hits: Remaining items condensed to bold title + 1 sentence + link
+ * - MODEL LITERACY: Keep as-is
+ * - PICK OF THE DAY: Keep as-is
+ *
+ * This is a pure markdown transformation — no AI call needed.
+ */
+export function generateEmailContent(markdown: string): string {
+  // Strip frontmatter if present
+  const stripped = markdown.replace(/^---[\s\S]*?---\s*/, '');
+
+  // Split into lines for processing
+  const lines = stripped.split('\n');
+
+  const output: string[] = [];
+  let currentSection = ''; // Track which ## section we're in
+  let h3Count = 0; // Count ### items within regular sections (not special sections)
+  let inSpecialSection = false; // MODEL LITERACY, PICK OF THE DAY, QUICK LINKS
+  let currentH3Title = '';
+  let currentH3Body: string[] = [];
+  let currentH3Url = '';
+  let processingH3 = false;
+
+  function isSpecialSection(sectionName: string): boolean {
+    return /MODEL LITERACY|PICK OF THE DAY|QUICK|模型小课堂|今日精选/i.test(sectionName);
+  }
+
+  function flushH3(): void {
+    if (!processingH3 || !currentH3Title) return;
+
+    h3Count++;
+
+    if (inSpecialSection || h3Count <= 3) {
+      // Keep full write-up for top 3 and special sections
+      output.push(`### ${currentH3Title}`);
+      output.push(...currentH3Body);
+    } else {
+      // Quick hit: bold title + first sentence + link
+      const bodyText = currentH3Body
+        .filter(l => l.trim() && !l.startsWith('#'))
+        .join(' ')
+        .trim();
+
+      // Extract first sentence
+      const sentenceMatch = bodyText.match(/^(.*?[.!?。！？])\s/);
+      const firstSentence = sentenceMatch ? sentenceMatch[1] : bodyText.slice(0, 120);
+
+      // Extract link if available
+      const linkMatch = bodyText.match(/\[(?:Read more →|Link|阅读更多 →)\]\(([^)]+)\)/);
+      const link = linkMatch ? linkMatch[1] : currentH3Url;
+
+      // Clean the sentence of markdown link artifacts
+      const cleanSentence = firstSentence
+        .replace(/\[(?:Read more →|Link|阅读更多 →)\]\([^)]+\)/g, '')
+        .trim();
+
+      if (link) {
+        output.push(`- **${currentH3Title}** ${cleanSentence} [→](${link})`);
+      } else {
+        output.push(`- **${currentH3Title}** ${cleanSentence}`);
+      }
+    }
+
+    processingH3 = false;
+    currentH3Title = '';
+    currentH3Body = [];
+    currentH3Url = '';
+  }
+
+  // Track whether we've started the "quick hits" section
+  let quickHitsHeaderAdded = false;
+
+  for (const line of lines) {
+    // H1 — keep as-is (hero)
+    if (line.startsWith('# ') && !line.startsWith('## ') && !line.startsWith('### ')) {
+      flushH3();
+      output.push(line);
+      continue;
+    }
+
+    // H2 — section headers
+    if (line.startsWith('## ')) {
+      flushH3();
+
+      // Before starting a new section, check if we need to add Quick Hits header
+      if (!quickHitsHeaderAdded && h3Count >= 3 && !inSpecialSection && currentSection && !isSpecialSection(currentSection)) {
+        // We'll add it when we encounter the 4th H3 item
+      }
+
+      currentSection = line.replace(/^## /, '');
+      inSpecialSection = isSpecialSection(currentSection);
+
+      if (inSpecialSection) {
+        output.push('');
+        output.push(line);
+      } else {
+        output.push('');
+        output.push(line);
+      }
+      continue;
+    }
+
+    // H3 — items within sections
+    if (line.startsWith('### ')) {
+      flushH3();
+
+      // If this is the 4th non-special H3, insert Quick Hits header
+      if (!inSpecialSection && h3Count >= 3 && !quickHitsHeaderAdded) {
+        output.push('');
+        output.push('## ⚡ QUICK HITS');
+        output.push('');
+        quickHitsHeaderAdded = true;
+      }
+
+      processingH3 = true;
+      currentH3Title = line.replace(/^### /, '');
+      currentH3Body = [];
+      continue;
+    }
+
+    // Collecting body for current H3
+    if (processingH3) {
+      // Extract URL for quick-hit formatting
+      const linkMatch = line.match(/\[(?:Read more →|Link|阅读更多 →)\]\(([^)]+)\)/);
+      if (linkMatch) currentH3Url = linkMatch[1];
+      currentH3Body.push(line);
+      continue;
+    }
+
+    // Non-H3 content in sections (bold items like **Title**: description)
+    // These are already compact, keep them as-is
+    output.push(line);
+  }
+
+  // Flush last H3
+  flushH3();
+
+  return output.join('\n');
+}
+
+// ============================================================
 // STAGE 7: Persist & Publish
 // ============================================================
 
@@ -802,6 +949,25 @@ async function stage7_persist(
   fs.writeFileSync(zhPath, zhFull);
   console.log(`  Written: ${enPath}`);
   console.log(`  Written: ${zhPath}`);
+
+  // Generate and save email HTML versions
+  const emailEnDir = path.join(process.cwd(), 'content', 'newsletters', 'email', 'en');
+  const emailZhDir = path.join(process.cwd(), 'content', 'newsletters', 'email', 'zh');
+  fs.mkdirSync(emailEnDir, { recursive: true });
+  fs.mkdirSync(emailZhDir, { recursive: true });
+
+  const enEmailContent = generateEmailContent(enFixed);
+  const zhEmailContent = generateEmailContent(zhFixed);
+
+  const enEmailHtml = await markdownToEmailHtml(enEmailContent, { title: enTitle, date: DATE, lang: 'en' });
+  const zhEmailHtml = await markdownToEmailHtml(zhEmailContent, { title: zhTitle, date: DATE, lang: 'zh' });
+
+  const enEmailPath = path.join(emailEnDir, `${DATE}.html`);
+  const zhEmailPath = path.join(emailZhDir, `${DATE}.html`);
+  fs.writeFileSync(enEmailPath, enEmailHtml);
+  fs.writeFileSync(zhEmailPath, zhEmailHtml);
+  console.log(`  Email HTML: ${enEmailPath}`);
+  console.log(`  Email HTML: ${zhEmailPath}`);
 
   // Save filtered items
   const filteredPath = path.join(process.cwd(), 'data', 'filtered-items', `${DATE}.json`);
