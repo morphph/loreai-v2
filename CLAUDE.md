@@ -46,6 +46,7 @@ content/topics/{en,zh}/slug.md
 ## Cron Windows (SGT, Mon-Fri unless noted)
 2am collect → 4am newsletter → 6am extract → 8am blog → 10am SEO | Sat 2am weekly
 ⚠️ Don't push during 2am-12pm SGT on weekdays
+⚠️ During cron window (2am-12pm SGT), always `git pull` before starting any work to avoid conflicts with pipeline commits
 
 ## Style
 Newsletter: "sharp tech insider briefing a busy founder over coffee"
