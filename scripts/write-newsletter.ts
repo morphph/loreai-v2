@@ -847,16 +847,31 @@ function ensureHeadline(md: string, topStory: string, lang: string): string {
   if (trimmed.startsWith('# ')) return trimmed;
 
   // Claude skipped the headline — construct a compelling one from top stories
-  const subHeaders = (trimmed.match(/^### (.+)/gm) || []).slice(0, 3).map(h =>
-    h.replace('### ', '').replace(/\.\s*$/, '')  // Strip trailing periods
+  // Grab ALL H3s, then deduplicate by extracting the main subject
+  const allH3s = (trimmed.match(/^### (.+)/gm) || []).map(h =>
+    h.replace('### ', '').replace(/\.\s*$/, '')
   );
 
-  // Build headline from top 2-3 story themes
+  // Deduplicate: skip H3s whose main subject (first 2-3 words) overlaps with an earlier one
+  const seen = new Set<string>();
+  const uniqueHeaders: string[] = [];
+  for (const h of allH3s) {
+    // Extract main subject: first notable noun phrase (skip verbs like "is", "goes", "drops")
+    const subject = h.replace(/\b(is|are|goes|drops|lands|ships|hits|gets|just|now|here)\b/gi, '')
+      .trim().split(/\s+/).slice(0, 3).join(' ').toLowerCase();
+    if (subject && !seen.has(subject)) {
+      seen.add(subject);
+      uniqueHeaders.push(h);
+    }
+    if (uniqueHeaders.length >= 3) break;
+  }
+
+  // Build headline from top 2 diverse story themes
   let headline: string;
-  if (subHeaders.length >= 2) {
-    headline = `${subHeaders[0]} While ${subHeaders[1]}`;
-  } else if (subHeaders.length === 1) {
-    headline = subHeaders[0];
+  if (uniqueHeaders.length >= 2) {
+    headline = `${uniqueHeaders[0]} While ${uniqueHeaders[1]}`;
+  } else if (uniqueHeaders.length === 1) {
+    headline = uniqueHeaders[0];
   } else {
     headline = topStory.slice(0, 80);
   }
@@ -867,20 +882,20 @@ function ensureHeadline(md: string, topStory: string, lang: string): string {
     : new Intl.DateTimeFormat('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(DATE + 'T00:00:00'));
   const dateStr = `**${formattedDate}**`;
 
-  // Generate a scene-setting intro, not a generic one
+  // Generate a scene-setting intro from diverse headers
+  const introHeaders = uniqueHeaders.slice(0, 2);
   const intro = lang === 'zh'
-    ? subHeaders.length >= 2
-      ? `今天 AI 圈动作不断 — ${subHeaders[0]}，${subHeaders[1]} 紧随其后。`
+    ? introHeaders.length >= 2
+      ? `今天 AI 圈动作不断 — ${introHeaders[0]}，${introHeaders[1]} 紧随其后。`
       : `今日 AI 圈最值得关注的动态。`
-    : subHeaders.length >= 2
-      ? `Big moves today — ${subHeaders[0].toLowerCase()} and ${subHeaders[1].toLowerCase()} are leading the headlines.`
+    : introHeaders.length >= 2
+      ? `Big moves today — ${introHeaders[0].toLowerCase()} and ${introHeaders[1].toLowerCase()} are leading the headlines.`
       : `Here's what's moving the needle in AI today.`;
 
   const todayLabel = lang === 'zh' ? '今日看点' : 'Today';
-  // Strip trailing periods from sub-headers before joining to prevent `.,` and `..`
-  const cleanHeaders = subHeaders.map(h => h.replace(/\.\s*$/, ''));
-  const todayLine = cleanHeaders.length > 0
-    ? `${todayLabel}: ${cleanHeaders.join(', ')}.`
+  const todayHeaders = uniqueHeaders.slice(0, 3).map(h => h.replace(/\.\s*$/, ''));
+  const todayLine = todayHeaders.length > 0
+    ? `${todayLabel}: ${todayHeaders.join(', ')}.`
     : '';
 
   return `# ${headline}\n\n${dateStr}\n\n${intro}\n\n${todayLine}\n\n${trimmed}`;
