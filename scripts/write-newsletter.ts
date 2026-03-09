@@ -101,7 +101,7 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   const dedupedTwitter = [...rtSeen.values()];
 
   // AI relevance filter: skip political/non-AI tweets from thought leaders
-  const AI_RELEVANCE = /\b(ai|llm|gpt|claude|gemini|anthropic|openai|model|agent|mcp|transformer|benchmark|training|inference|coding|developer|api|sdk|diffusion|rag|fine.?tun|embedding|neural|deep.?learn|machine.?learn|hugging.?face|token|prompt|reasoning|multimodal|vision|speech|voice|distill|safety|alignment|eval)\b/i;
+  const AI_RELEVANCE = /\b(ai|llm|gpt|claude|gemini|anthropic|openai|model|agent|mcp|transformer|benchmark|training|inference|coding|developer|api|sdk|diffusion|rag|fine.?tun|embedding|neural|deep.?learn|machine.?learn|hugging.?face|token|prompt|reasoning|multimodal|vision|speech|voice|distill|safety|alignment|eval|engineering|blog|changelog|release.?note|update|feature)\b/i;
   const relevantTwitter = dedupedTwitter.filter(item =>
     AI_RELEVANCE.test(item.title) || AI_RELEVANCE.test(item.summary || '')
   );
@@ -151,26 +151,63 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
     return bMetric - aMetric;
   });
 
+  // === PRIORITY SOURCE EXTRACTION ===
+  // Must-include sources from major AI labs — bypass hard caps
+  const PRIORITY_BLOGS = /anthropic\.com\/(engineering|news)|openai\.com|blog\.google|deepmind\.google/i;
+  const PRIORITY_TWITTER = /twitter:@(AnthropicAI|claudeai|bcherny|trq212|OpenAI|OpenAIDevs|GoogleAI|GoogleDeepMind)$/i;
+
+  const isPriority = (item: NewsItem): boolean =>
+    PRIORITY_BLOGS.test(item.url || '') || PRIORITY_TWITTER.test(item.source);
+
+  // Extract priority items from all pools before applying caps
+  const priorityItems: NewsItem[] = [];
+  const markPriority = (pool: NewsItem[]): NewsItem[] => {
+    const normal: NewsItem[] = [];
+    for (const item of pool) {
+      if (isPriority(item)) {
+        (item as NewsItem & { priority?: boolean }).priority = true;
+        priorityItems.push(item);
+      } else {
+        normal.push(item);
+      }
+    }
+    return normal;
+  };
+
+  const normalBlogs = markPriority(blogs);
+  const normalRss = markPriority(rss);
+  const normalTwitter = markPriority(cappedTwitter);
+
   const filtered = [
+    ...priorityItems,  // Priority items always included
     ...others,
-    ...blogs.slice(0, 15),
-    ...rss.slice(0, 8),
+    ...normalBlogs.slice(0, 15),
+    ...normalRss.slice(0, 8),
     ...filteredGithub.slice(0, 5),
     ...reddit.slice(0, 3),
     ...huggingface.slice(0, 15),
-    ...cappedTwitter.slice(0, 30),
+    ...normalTwitter.slice(0, 30),
   ];
 
-  console.log(`  Blogs (tier 1): ${blogs.length} → ${Math.min(blogs.length, 15)}`);
-  console.log(`  RSS (tier 0): ${rss.length} → ${Math.min(rss.length, 8)}`);
+  // Deduplicate (priority items may overlap with normal pools)
+  const seenIds = new Set<number>();
+  const deduped = filtered.filter(item => {
+    if (seenIds.has(item.id)) return false;
+    seenIds.add(item.id);
+    return true;
+  });
+
+  console.log(`  Priority items (bypass caps): ${priorityItems.length}`);
+  console.log(`  Blogs (tier 1): ${blogs.length} → ${Math.min(normalBlogs.length, 15)}`);
+  console.log(`  RSS (tier 0): ${rss.length} → ${Math.min(normalRss.length, 8)}`);
   console.log(`  GitHub: ${github.length} → ${filteredGithub.length} (blocklist) → ${Math.min(filteredGithub.length, 5)}`);
   console.log(`  Reddit: ${reddit.length} → ${Math.min(reddit.length, 3)}`);
   console.log(`  HuggingFace: ${huggingface.length} → ${Math.min(huggingface.length, 15)}`);
-  console.log(`  Twitter: ${twitter.length} → ${dedupedTwitter.length} (dedup) → ${relevantTwitter.length} (relevant) → ${cappedTwitter.length} (capped) → ${Math.min(cappedTwitter.length, 30)}`);
+  console.log(`  Twitter: ${twitter.length} → ${dedupedTwitter.length} (dedup) → ${relevantTwitter.length} (relevant) → ${cappedTwitter.length} (capped) → ${Math.min(normalTwitter.length, 30)}`);
   console.log(`  Others: ${others.length} (pass-through)`);
-  console.log(`  Total pre-filtered: ${filtered.length}`);
+  console.log(`  Total pre-filtered: ${deduped.length}`);
 
-  return filtered;
+  return deduped;
 }
 
 // ============================================================
@@ -311,6 +348,7 @@ async function stage3_agentFilter(
     likes: item.engagement_likes,
     retweets: item.engagement_retweets,
     downloads: item.engagement_downloads,
+    priority: (item as NewsItem & { priority?: boolean }).priority || false,
   }));
 
   // Build the "Previously Covered" section from bold titles
@@ -326,7 +364,10 @@ ${previousBoldTitles.map(t => `- ${t}`).join('\n')}
 
   const systemPrompt = `You are an expert AI news curator for LoreAI, a daily AI newsletter.
 
-Your task: From the provided news items, select 18-22 of the most important and interesting items for today's newsletter.
+Your task: From the provided news items, select 18-25 of the most important and interesting items for today's newsletter.
+
+## Priority Items (MUST INCLUDE)
+Items marked with "priority": true are from official AI lab sources (Anthropic, OpenAI, Google/DeepMind). Include ALL priority items unless they are exact duplicates of stories covered in the last 7 days. Priority items count toward the total but the total can flex to 25 to accommodate them.
 
 ## Source Quotas (STRICT)
 - Reddit: MAX 2 items
@@ -389,7 +430,7 @@ Return ONLY a JSON array. No markdown, no explanation. Each item:
   "engagement_downloads": number
 }`;
 
-  const userPrompt = `Select 18-22 items from these ${inputItems.length} news items for today's AI newsletter (${DATE}):\n\n${JSON.stringify(inputItems, null, 0)}`;
+  const userPrompt = `Select 18-25 items from these ${inputItems.length} news items for today's AI newsletter (${DATE}):\n\n${JSON.stringify(inputItems, null, 0)}`;
 
   try {
     const response = await callClaudeWithRetry(systemPrompt, userPrompt, {
@@ -431,7 +472,7 @@ Return ONLY a JSON array. No markdown, no explanation. Each item:
   } catch (err) {
     console.error('  ⚠️ Agent filter FAILED — falling back to rule-based filtering');
     console.error('  Error:', err instanceof Error ? err.message : err);
-    return ruleBasedFallback(deduped);
+    return ruleBasedFallback(items);
   }
 }
 
@@ -658,16 +699,41 @@ function ensureHeadline(md: string, topStory: string, lang: string): string {
   const trimmed = md.replace(/^(?:---\s*\n?)+/, '').trim();
   if (trimmed.startsWith('# ')) return trimmed;
 
-  // Claude skipped the headline — construct one from the top story
-  const headline = topStory.slice(0, 80);
-  const dateStr = `**${DATE}**`;
+  // Claude skipped the headline — construct a compelling one from top stories
+  const subHeaders = (trimmed.match(/^### (.+)/gm) || []).slice(0, 3).map(h =>
+    h.replace('### ', '').replace(/\.\s*$/, '')  // Strip trailing periods
+  );
+
+  // Build headline from top 2-3 story themes
+  let headline: string;
+  if (subHeaders.length >= 2) {
+    headline = `${subHeaders[0]} While ${subHeaders[1]}`;
+  } else if (subHeaders.length === 1) {
+    headline = subHeaders[0];
+  } else {
+    headline = topStory.slice(0, 80);
+  }
+
+  // Format date nicely instead of raw ISO
+  const formattedDate = lang === 'zh'
+    ? new Intl.DateTimeFormat('zh-CN', { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' }).format(new Date(DATE + 'T00:00:00'))
+    : new Intl.DateTimeFormat('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }).format(new Date(DATE + 'T00:00:00'));
+  const dateStr = `**${formattedDate}**`;
+
+  // Generate a scene-setting intro, not a generic one
   const intro = lang === 'zh'
-    ? `今日 AI 圈最值得关注的动态。`
-    : `Here's what matters in AI right now.`;
+    ? subHeaders.length >= 2
+      ? `今天 AI 圈动作不断 — ${subHeaders[0]}，${subHeaders[1]} 紧随其后。`
+      : `今日 AI 圈最值得关注的动态。`
+    : subHeaders.length >= 2
+      ? `Big moves today — ${subHeaders[0].toLowerCase()} and ${subHeaders[1].toLowerCase()} are leading the headlines.`
+      : `Here's what's moving the needle in AI today.`;
+
   const todayLabel = lang === 'zh' ? '今日看点' : 'Today';
-  const subHeaders = (trimmed.match(/^### (.+)/gm) || []).slice(0, 3).map(h => h.replace('### ', ''));
-  const todayLine = subHeaders.length > 0
-    ? `${todayLabel}: ${subHeaders.join(', ')}.`
+  // Strip trailing periods from sub-headers before joining to prevent `.,` and `..`
+  const cleanHeaders = subHeaders.map(h => h.replace(/\.\s*$/, ''));
+  const todayLine = cleanHeaders.length > 0
+    ? `${todayLabel}: ${cleanHeaders.join(', ')}.`
     : '';
 
   return `# ${headline}\n\n${dateStr}\n\n${intro}\n\n${todayLine}\n\n${trimmed}`;
@@ -679,16 +745,27 @@ function extractTitle(md: string): string {
 }
 
 function extractDescription(md: string): string {
+  let desc: string;
+
   // Look for "Today:" / "今日看点:" line (colon is required to avoid matching "today." in prose)
   const todayMatch = md.match(/(?:Today|今日看点):\s*(.+)/i);
-  if (todayMatch) return todayMatch[1].slice(0, 160);
+  if (todayMatch) {
+    desc = todayMatch[1].slice(0, 160);
+  } else {
+    // Fallback: use first ### sub-header as description (it's usually the top story headline)
+    const subHeaderMatch = md.match(/^### (.+)/m);
+    if (subHeaderMatch) {
+      desc = subHeaderMatch[1].slice(0, 160);
+    } else {
+      return `LoreAI AI News — ${DATE}`;
+    }
+  }
 
-  // Fallback: use first ### sub-header as description (it's usually the top story headline)
-  const subHeaderMatch = md.match(/^### (.+)/m);
-  if (subHeaderMatch) return subHeaderMatch[1].slice(0, 160);
-
-  // Final fallback
-  return `LoreAI AI News — ${DATE}`;
+  // Clean punctuation bugs from joining H3 titles
+  return desc
+    .replace(/\.,/g, ',')
+    .replace(/\.\./g, '.')
+    .replace(/,\s*$/, '');
 }
 
 async function stage7_persist(

@@ -21,6 +21,18 @@ Don't:
 - Passive voice for key claims
 - Wall-of-text paragraphs
 
+## Headline Generation (CRITICAL)
+
+CRITICAL: Your FIRST line of output MUST be `# ` followed by a compelling, unique headline. This is non-negotiable — the frontend breaks without it.
+
+**Rules:**
+- Reference 2-3 stories and include a verb/hook
+- ✅ "OpenAI Ships Aardvark While Claude Goes Enterprise"
+- ✅ "The White House Just Picked a Side in the AI Ethics War"
+- ❌ "Introducing Aardvark" (never just a product name)
+- ❌ "Claude Sonnet 4.6" (never a bare model name)
+- ❌ "AI Newsletter — March 9, 2026" (never a date label)
+
 ## Structure Template
 
 ```markdown

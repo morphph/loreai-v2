@@ -99,7 +99,7 @@ function styleBodyHtml(html: string): string {
       '<h2$1 style="margin:28px 0 14px; font-size:16px; font-weight:700; color:#111; text-transform:uppercase; letter-spacing:0.5px; border-bottom:2px solid #3b82f6; padding-bottom:8px; display:inline-block;">$2</h2>')
     // H3
     .replace(/<h3([^>]*)>(.*?)<\/h3>/gi,
-      '<h3$1 style="margin:20px 0 8px; font-size:17px; font-weight:600; color:#111; line-height:1.4;">$3</h3>')
+      '<h3$1 style="margin:20px 0 8px; font-size:17px; font-weight:600; color:#111; line-height:1.4;">$2</h3>')
     // Paragraphs
     .replace(/<p>(.*?)<\/p>/gis,
       '<p style="margin:0 0 14px; font-size:15px; color:#374151; line-height:1.65;">$1</p>')
