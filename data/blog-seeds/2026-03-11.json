@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "New in Claude Code: Code Review. A team of agents runs a deep review on every PR.  We built it for ourselves first. Code output per Anthropic engineer is up 200% this year and reviews were the bottleneck  Personally, I’ve been using it for a few weeks and have found it catches ma",
+    "url": "https://x.com/bcherny/status/2031089411820228645",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 5702,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 42.7106,
+    "suggested_angle": "analysis"
+  },
+  {
+    "topic": "Today we're launching local scheduled tasks in Claude Code desktop.   Create a schedule for tasks that you want to run regularly. They'll run as long as your computer is awake. https://t.co/15AYd0NHqR",
+    "url": "https://x.com/trq212/status/2030019397335843288",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 14569,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 29.3707,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @_catwu: Here's a roundup of how Claude Code has changed engineering at inside Ramp, Rakuten, Brex, Wiz, Shopify, and Spotify 🧵",
+    "url": "https://x.com/trq212/status/2028609893889167361",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 1661,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.4983,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "RT @lydiahallie: Want to host Claude meetups in your city? We'll cover the funding, send swag, and give you monthly API credits for your de…",
+    "url": "https://x.com/bcherny/status/2030109253588111507",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 12134,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 23.6402,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "The Codex app is now on Windows.  Get the full Codex app experience on Windows with a native agent sandbox and support for Windows developer environments in PowerShell.  https://t.co/Vw0pezFctG https://t.co/gclqeLnFjr",
+    "url": "https://x.com/OpenAIDevs/status/2029252453246595301",
+    "source": "twitter:@OpenAIDevs",
+    "x_engagement_24h": 5110,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 22.533,
+    "suggested_angle": "news"
+  }
+]
