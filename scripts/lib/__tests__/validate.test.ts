@@ -9,6 +9,7 @@ import {
   validateFaq,
   validateCompare,
   validateTopicHub,
+  validateNewsletterQuality,
 } from '../validate';
 
 // ── Newsletter Validation ──────────────────────────────────────────────
@@ -430,5 +431,242 @@ describe('validateWeeklyZhNewsletter', () => {
     const md = `# 标题\n\n**A** x\n**B** x\n**C** x\n\n## 1. S\n\n## 2. S\n\n## 3. S\n\n## 4. S\n\n## 5. S\n\n## 速览\n\n这是划时代的突破。`;
     const result = validateWeeklyZhNewsletter(md);
     expect(result.errors).toContain('Forbidden phrase detected (ZH)');
+  });
+});
+
+// ── Newsletter Quality Validation ──────────────────────────────────────
+
+describe('validateNewsletterQuality', () => {
+  const validEN = `# OpenAI Splits Reasoning Into Two Tiers With O3 and O4 Mini
+
+## Model Releases
+
+**OpenAI launches GPT-5 with improved reasoning** — faster, cheaper, 2x context.
+
+**Anthropic ships Claude 4.5 Sonnet update** — coding benchmarks significantly improved.
+
+**Google rolls out Gemini 2.5 Pro preview** — multimodal gains across the board.
+
+**Meta releases Llama 4 open weights** — competitive with proprietary models.
+
+## Tools & Infra
+
+**LangChain adds native MCP support** — simplifies tool integration.
+
+## 🎓 MODEL LITERACY
+
+Short explainer about a model concept.
+
+## 🎯 PICK OF THE DAY
+
+Top story of the day goes here.
+`;
+
+  it('passes for valid EN newsletter with no stale items', () => {
+    const result = validateNewsletterQuality({
+      md: validEN,
+      lang: 'en',
+    });
+    expect(result.valid).toBe(true);
+  });
+
+  it('fails when >3 stale items (>72h old)', () => {
+    const fourDaysAgo = new Date(Date.now() - 96 * 60 * 60 * 1000).toISOString();
+    const staleItems = Array.from({ length: 5 }, (_, i) => ({
+      id: i,
+      title: `Stale item ${i}`,
+      url: `https://example.com/${i}`,
+      source: 'rss:test',
+      detected_at: fourDaysAgo,
+      engagement_likes: 100,
+      engagement_retweets: 10,
+      engagement_downloads: 0,
+    }));
+
+    const result = validateNewsletterQuality({
+      md: validEN,
+      lang: 'en',
+      filteredItems: staleItems,
+    });
+    expect(result.valid).toBe(false);
+    expect(result.errors.some((e) => e.includes('stale items'))).toBe(true);
+  });
+
+  it('passes when ≤3 stale items', () => {
+    const fourDaysAgo = new Date(Date.now() - 96 * 60 * 60 * 1000).toISOString();
+    const items = [
+      { id: 1, title: 'Stale one', url: 'https://a.com/1', source: 'rss:a', detected_at: fourDaysAgo, engagement_likes: 0, engagement_retweets: 0, engagement_downloads: 0 },
+      { id: 2, title: 'Fresh one', url: 'https://a.com/2', source: 'rss:a', detected_at: new Date().toISOString(), engagement_likes: 0, engagement_retweets: 0, engagement_downloads: 0 },
+    ];
+
+    const result = validateNewsletterQuality({
+      md: validEN,
+      lang: 'en',
+      filteredItems: items,
+    });
+    expect(result.errors.some((e) => e.includes('stale items'))).toBe(false);
+  });
+
+  it('fails when cross-day overlap >20%', () => {
+    const mdWithRepeats = `# Big News Day in AI Today
+
+## Releases
+
+**OpenAI launches GPT-5** — faster.
+
+**Anthropic ships Claude 4.5** — better.
+
+**Google rolls out Gemini Pro** — improved.
+
+**Meta releases Llama model** — open.
+
+**Microsoft updates Copilot** — new features.
+
+## More
+
+**Extra item here for length** — details.
+
+## 🎓 MODEL LITERACY
+
+Concept.
+
+## 🎯 PICK OF THE DAY
+
+Top.
+`;
+
+    const previousBoldTitles = [
+      'OpenAI launches GPT-5',
+      'Anthropic ships Claude 4.5',
+      'Google rolls out Gemini Pro',
+    ];
+
+    const result = validateNewsletterQuality({
+      md: mdWithRepeats,
+      lang: 'en',
+      previousBoldTitles,
+    });
+    expect(result.valid).toBe(false);
+    expect(result.errors.some((e) => e.includes('Cross-day overlap'))).toBe(true);
+  });
+
+  it('passes when cross-day overlap ≤20%', () => {
+    const previousBoldTitles = ['Some unrelated previous story about quantum computing'];
+
+    const result = validateNewsletterQuality({
+      md: validEN,
+      lang: 'en',
+      previousBoldTitles,
+    });
+    expect(result.errors.some((e) => e.includes('Cross-day overlap'))).toBe(false);
+  });
+
+  it('fails when too many short bold titles (EN)', () => {
+    const md = `# Big News Day for AI World Today
+
+## Section
+
+**GPT** — wow.
+
+**Claude** — nice.
+
+**Gemini** — cool.
+
+**Fourth Bold Item More Words** — details.
+
+## More
+
+Content.
+
+## 🎓 MODEL LITERACY
+
+Concept.
+
+## 🎯 PICK OF THE DAY
+
+Top.
+`;
+
+    const result = validateNewsletterQuality({ md, lang: 'en' });
+    expect(result.valid).toBe(false);
+    expect(result.errors.some((e) => e.includes('bold titles have ≤3 words'))).toBe(true);
+  });
+
+  it('detects ZH punctuation mixing', () => {
+    const md = `# AI快报：今日要闻
+
+## 模型发布
+
+**OpenAI发布新版本** — 更快更便宜。
+
+这是一个测试,我们来看看效果.
+
+又一行混用标点,中文和英文混在一起.
+
+第三行也有问题,标点不对.
+
+## 🎓 模型小课堂
+
+解释概念。
+
+## 🎯 今日精选
+
+今日精选内容。
+`;
+
+    const result = validateNewsletterQuality({ md, lang: 'zh' });
+    expect(result.valid).toBe(false);
+    expect(result.errors.some((e) => e.includes('ZH punctuation mixing'))).toBe(true);
+  });
+
+  it('passes ZH without punctuation mixing', () => {
+    const md = `# AI快报：今日要闻
+
+## 模型发布
+
+**OpenAI发布新版本** — 更快、更便宜。
+
+这是一个测试，我们来看看效果。
+
+## 🎓 模型小课堂
+
+解释概念。
+
+## 🎯 今日精选
+
+今日精选内容。
+`;
+
+    const result = validateNewsletterQuality({ md, lang: 'zh' });
+    expect(result.errors.some((e) => e.includes('ZH punctuation mixing'))).toBe(false);
+  });
+
+  it('fails when EN H1 title is too short', () => {
+    const md = `# AI News
+
+## S1
+
+**Long enough bold title here** — details.
+
+**Another bold title with words** — more.
+
+**Third bold title with content** — stuff.
+
+## S2
+
+Content.
+
+## 🎓 MODEL LITERACY
+
+Concept.
+
+## 🎯 PICK OF THE DAY
+
+Top.
+`;
+
+    const result = validateNewsletterQuality({ md, lang: 'en' });
+    expect(result.valid).toBe(false);
+    expect(result.errors.some((e) => e.includes('H1 title too short'))).toBe(true);
   });
 });

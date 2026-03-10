@@ -26,8 +26,8 @@ import {
 } from './lib/db';
 import { callClaudeWithRetry, callZhNewsletterWithFallback, checkClaudeHealth } from './lib/ai';
 import { sanitizeOutput } from './lib/sanitize.js';
-import { validateNewsletter, validateZhNewsletter } from './lib/validate';
-import { extractBoldTitles, crossDayDedup } from './lib/dedup';
+import { validateNewsletter, validateZhNewsletter, validateNewsletterQuality } from './lib/validate';
+import { extractBoldTitles } from './lib/dedup';
 import { validateAndExpand } from './lib/brave';
 import { markdownToEmailHtml } from './lib/email-html';
 // Parse args
@@ -35,6 +35,7 @@ const dateArg = process.argv.find((a) => a.startsWith('--date='));
 import { todaySGT } from './lib/date.js';
 const DATE = dateArg ? dateArg.split('=')[1] : todaySGT();
 const DRY_RUN = process.argv.includes('--dry-run');
+const DIFF_MODE = process.argv.includes('--diff');
 
 console.log(`📰 Newsletter Pipeline — ${DATE}`);
 console.log('='.repeat(50));
@@ -907,18 +908,16 @@ async function main() {
   const preFiltered = stage2_preFilter(rawItems);
 
   // Stage 3
+  // Cross-day dedup is handled by DB (selected_for_newsletter_at IS NULL in getRecentNewsItems)
+  // Bold titles still used for Claude's "Previously Covered" prompt context
   const previousBoldTitles = loadPreviousBoldTitles();
   let filtered: FilteredItem[];
 
-  // Cross-day dedup BEFORE AI — algorithmic gate removes stale stories
-  const dedupedItems = crossDayDedup(preFiltered, previousBoldTitles) as NewsItem[];
-  console.log(`  Cross-day dedup: ${preFiltered.length} → ${dedupedItems.length} (removed ${preFiltered.length - dedupedItems.length} stale items)`);
-
   if (DRY_RUN) {
     console.log('\n🤖 Stage 3: Agent Filter (dry-run — using rule-based)');
-    filtered = ruleBasedFallback(dedupedItems);
+    filtered = ruleBasedFallback(preFiltered);
   } else {
-    filtered = await stage3_agentFilter(dedupedItems, previousBoldTitles);
+    filtered = await stage3_agentFilter(preFiltered, previousBoldTitles);
   }
 
   if (filtered.length === 0) {
@@ -957,6 +956,81 @@ async function main() {
     stage4_writeEN(filtered),
     stage5_writeZH(filtered),
   ]);
+
+  // Quality validation gate (runs before persist — catches content issues)
+  console.log('\n🔍 Quality Validation');
+  const enQuality = validateNewsletterQuality({
+    md: enContent,
+    lang: 'en',
+    filteredItems: filtered.map((f) => ({ ...f, detected_at: undefined })),
+    previousBoldTitles,
+  });
+  const zhQuality = validateNewsletterQuality({
+    md: zhContent,
+    lang: 'zh',
+    filteredItems: filtered.map((f) => ({ ...f, detected_at: undefined })),
+    previousBoldTitles,
+  });
+
+  if (!enQuality.valid) {
+    console.warn('  ⚠️ EN quality issues:', enQuality.errors);
+  } else {
+    console.log('  ✅ EN quality checks passed');
+  }
+  if (!zhQuality.valid) {
+    console.warn('  ⚠️ ZH quality issues:', zhQuality.errors);
+  } else {
+    console.log('  ✅ ZH quality checks passed');
+  }
+
+  // Diff mode: show what changed vs existing newsletters, but don't persist
+  if (DIFF_MODE) {
+    console.log('\n📊 Diff Mode — comparing with existing newsletters');
+    const enExistingPath = path.join(process.cwd(), 'content', 'newsletters', 'en', `${DATE}.md`);
+    const zhExistingPath = path.join(process.cwd(), 'content', 'newsletters', 'zh', `${DATE}.md`);
+
+    for (const [label, existing, newContent] of [
+      ['EN', enExistingPath, enContent],
+      ['ZH', zhExistingPath, zhContent],
+    ] as const) {
+      if (fs.existsSync(existing)) {
+        const oldMd = fs.readFileSync(existing, 'utf-8');
+        // Strip frontmatter for comparison
+        const oldBody = oldMd.replace(/^---[\s\S]*?---\s*/, '').trim();
+        const newBody = newContent.trim();
+
+        if (oldBody === newBody) {
+          console.log(`  ${label}: No changes`);
+        } else {
+          // Write temp files for diff
+          const tmpOld = path.join(process.cwd(), `tmp-diff-old-${label.toLowerCase()}.md`);
+          const tmpNew = path.join(process.cwd(), `tmp-diff-new-${label.toLowerCase()}.md`);
+          fs.writeFileSync(tmpOld, oldBody);
+          fs.writeFileSync(tmpNew, newBody);
+
+          const { execSync } = await import('child_process');
+          try {
+            const diff = execSync(`diff -u "${tmpOld}" "${tmpNew}" || true`, { encoding: 'utf-8' });
+            console.log(`\n  === ${label} DIFF ===`);
+            console.log(diff.slice(0, 3000));
+            if (diff.length > 3000) console.log(`  ... (${diff.length - 3000} more chars)`);
+          } catch {
+            console.log(`  ${label}: Could not generate diff`);
+          }
+
+          // Clean up temp files
+          try { fs.unlinkSync(tmpOld); } catch { /* ignore */ }
+          try { fs.unlinkSync(tmpNew); } catch { /* ignore */ }
+        }
+      } else {
+        console.log(`  ${label}: No existing newsletter to compare (new)`);
+      }
+    }
+
+    closeDb();
+    console.log('\n✅ Diff mode complete — no files written');
+    return;
+  }
 
   // Stage 6
   await stage6_blogSeeds(filtered);

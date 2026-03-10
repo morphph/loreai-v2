@@ -13,6 +13,7 @@ npm run lint         # ESLint
 ## Commands — Pipelines
 npx tsx scripts/collect-news.ts                        # Data collection
 npx tsx scripts/write-newsletter.ts --date=YYYY-MM-DD  # Newsletter EN+ZH
+npx tsx scripts/write-newsletter.ts --date=YYYY-MM-DD --diff  # Generate + diff vs existing (no persist)
 npx tsx scripts/write-blog.ts --date=YYYY-MM-DD        # Blog posts
 npx tsx scripts/generate-seo.ts --date=YYYY-MM-DD      # SEO pages (glossary/faq/compare/topics)
 npx tsx scripts/write-weekly.ts                        # Weekly digest (Saturday)
@@ -57,6 +58,10 @@ Chinese: NOT translation. Independent creation. WeChat-group tone.
 
 ## Prompts
 skills/ contains battle-tested prompts. NEVER rewrite from scratch. Iterate only.
+
+## Newsletter Quality Guardrails
+See `.claude/known-issues.md` for the full list of known newsletter bugs.
+Key rules: no stale news (>48h), no cross-day repeats, no attribution guessing, no short titles, no ZH punctuation mixing.
 
 ## Known Gotchas (观察性积累，持续更新)
 - Claude 生成的 markdown 有时包裹 ```markdown 代码块 → validate.ts 已处理

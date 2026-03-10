@@ -17,7 +17,6 @@
 import 'dotenv/config';
 import RssParser from 'rss-parser';
 import { insertNewsItems, type NewsItem, closeDb } from './lib/db';
-import { deduplicateItems } from './lib/dedup';
 import { fetchTwitterTimelines, fetchTwitterSearches } from './lib/twitter';
 
 const rssParser = new RssParser();
@@ -784,11 +783,17 @@ async function main() {
   console.log('\n' + '='.repeat(50));
   console.log(`📊 Raw items collected: ${allItems.length}`);
 
-  // Deduplicate
-  const deduped = deduplicateItems(allItems);
-  console.log(`📊 After dedup: ${deduped.length}`);
+  // URL-based dedup within this batch (DB also enforces URL uniqueness)
+  const seenUrls = new Set<string>();
+  const deduped = allItems.filter((item) => {
+    if (!item.url) return true; // keep items without URL
+    if (seenUrls.has(item.url)) return false;
+    seenUrls.add(item.url);
+    return true;
+  });
+  console.log(`📊 After URL dedup: ${deduped.length} (removed ${allItems.length - deduped.length} exact duplicates)`);
 
-  // Insert into DB
+  // Insert into DB (DB URL UNIQUE constraint handles cross-run dedup)
   const inserted = insertNewsItems(deduped);
   console.log(`📊 New items inserted: ${inserted}`);
   console.log(`📊 Skipped (already in DB): ${deduped.length - inserted}`);
