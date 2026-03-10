@@ -1,6 +1,10 @@
-# Newsletter Pipeline — Known Issues & Guardrails
+# Pipeline Known Issues & Guardrails
 
-These are real bugs that have occurred in production. When writing newsletters, Claude MUST avoid all of them.
+Real bugs that have occurred in production. Claude MUST avoid all of them when generating content.
+
+---
+
+## Newsletter Pipeline
 
 ## 1. Stale News (旧闻泄露)
 - The 72h collection window means 3-day-old news can sneak in
@@ -48,3 +52,33 @@ These are real bugs that have occurred in production. When writing newsletters, 
 - Do NOT fabricate details, benchmark numbers, or feature descriptions
 - **Bad:** Making up "50% faster inference" when the source doesn't say that
 - **Good:** Linking directly and letting the reader click through
+
+---
+
+## Blog Pipeline
+
+_(No issues documented yet — will be added as they're discovered)_
+
+---
+
+## SEO Pipeline (Glossary / FAQ / Compare / Topics)
+
+_(No issues documented yet — will be added as they're discovered)_
+
+---
+
+## Weekly Digest Pipeline
+
+_(No issues documented yet — will be added as they're discovered)_
+
+---
+
+## Video Import Pipeline
+
+_(No issues documented yet — will be added as they're discovered)_
+
+---
+
+## Collection Pipeline (collect-news.ts)
+
+_(No issues documented yet — will be added as they're discovered)_
