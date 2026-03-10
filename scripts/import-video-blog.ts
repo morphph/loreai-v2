@@ -76,6 +76,7 @@ interface BlogFrontmatter {
   video_status: string;
   video_url?: string;
   source_type: string;
+  flow_source?: string;
 }
 
 // ============================================================
@@ -231,7 +232,8 @@ async function generateZH(
   plan: VideoPlan,
   scripts: string,
   slug: string,
-  videoUrl?: string
+  videoUrl?: string,
+  flowSource?: string
 ): Promise<{ frontmatter: BlogFrontmatter; markdown: string } | null> {
   console.log('\n📝 Generate ZH Blog (spoken → written)');
 
@@ -286,7 +288,7 @@ ${videoUrl ? `- video_url: ${videoUrl}` : ''}
       return null;
     }
 
-    const frontmatter = parseFrontmatter(fmMatch[1], 'zh', slug, videoUrl);
+    const frontmatter = parseFrontmatter(fmMatch[1], 'zh', slug, videoUrl, flowSource);
     const body = cleaned.replace(/^---[\s\S]*?---\n*/, '');
 
     return { frontmatter, markdown: body };
@@ -305,7 +307,8 @@ async function generateEN(
   sourceBlog: string | null,
   zhMarkdown: string | null,
   slug: string,
-  videoUrl?: string
+  videoUrl?: string,
+  flowSource?: string
 ): Promise<{ frontmatter: BlogFrontmatter; markdown: string } | null> {
   console.log('\n📝 Generate EN Blog');
 
@@ -366,7 +369,7 @@ ${videoUrl ? `- video_url: ${videoUrl}` : ''}
       return null;
     }
 
-    const frontmatter = parseFrontmatter(fmMatch[1], 'en', slug, videoUrl);
+    const frontmatter = parseFrontmatter(fmMatch[1], 'en', slug, videoUrl, flowSource);
     const body = cleaned.replace(/^---[\s\S]*?---\n*/, '');
 
     return { frontmatter, markdown: body };
@@ -428,6 +431,7 @@ function writeAndPersist(
         keywords: zhResult.frontmatter.keywords,
         video_status: 'published',
         source_type: 'video',
+        ...(zhResult.frontmatter.flow_source && { flow_source: zhResult.frontmatter.flow_source }),
       }),
     });
   }
@@ -452,6 +456,7 @@ function writeAndPersist(
         keywords: enResult.frontmatter.keywords,
         video_status: 'published',
         source_type: 'video',
+        ...(enResult.frontmatter.flow_source && { flow_source: enResult.frontmatter.flow_source }),
       }),
     });
   }
@@ -481,15 +486,18 @@ async function processOneDir(
     return { slug, files: [] };
   }
 
+  // Read flow_source from meta.json (e.g. "loreai-picker")
+  const flowSource = (plan as Record<string, unknown>).flow_source as string | undefined;
+
   // Generate ZH blog
-  const zhResult = await generateZH(plan, scripts, slug, videoUrl);
+  const zhResult = await generateZH(plan, scripts, slug, videoUrl, flowSource);
   if (!zhResult) {
     console.error(`  ❌ ZH blog generation failed for ${slug}`);
     return null;
   }
 
   // Generate EN blog
-  const enResult = await generateEN(plan, sourceBlog, zhResult.markdown, slug, videoUrl);
+  const enResult = await generateEN(plan, sourceBlog, zhResult.markdown, slug, videoUrl, flowSource);
 
   // Extract SEO
   extractSEO(plan, slug);
@@ -504,7 +512,7 @@ async function processOneDir(
 // Helpers
 // ============================================================
 
-function parseFrontmatter(fmText: string, lang: string, slug: string, videoUrl?: string): BlogFrontmatter {
+function parseFrontmatter(fmText: string, lang: string, slug: string, videoUrl?: string, flowSource?: string): BlogFrontmatter {
   const get = (key: string): string => {
     const match = fmText.match(new RegExp(`^${key}:\\s*"?([^"\\n]*)"?`, 'm'));
     return match ? match[1].trim() : '';
@@ -541,6 +549,11 @@ function parseFrontmatter(fmText: string, lang: string, slug: string, videoUrl?:
   const parsedVideoUrl = get('video_url');
   if (parsedVideoUrl && !fm.video_url) fm.video_url = parsedVideoUrl;
 
+  // flow_source: passed from meta.json > parsed from AI output
+  if (flowSource) fm.flow_source = flowSource;
+  const parsedFlowSource = get('flow_source');
+  if (parsedFlowSource && !fm.flow_source) fm.flow_source = parsedFlowSource;
+
   return fm;
 }
 
@@ -567,6 +580,10 @@ source_type: ${fm.source_type}`;
 
   if (fm.video_url) {
     yaml += `\nvideo_url: "${fm.video_url}"`;
+  }
+
+  if (fm.flow_source) {
+    yaml += `\nflow_source: ${fm.flow_source}`;
   }
 
   yaml += '\n---';

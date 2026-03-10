@@ -33,6 +33,7 @@ interface Candidate {
   video_hook: string;
   word_count: number;
   score: number;
+  flow_source: string;
   score_breakdown: {
     recency: number;
     word_count: number;
@@ -103,6 +104,7 @@ function scanPosts(): Candidate[] {
       video_hook: data.video_hook || '',
       word_count: wordCount,
       score: 0,
+      flow_source: 'loreai-picker',
       score_breakdown: {
         recency: recencyScore,
         word_count: wordCountScore,
