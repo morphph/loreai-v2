@@ -15,6 +15,19 @@ export function validateNewsletter(md: string): ValidationResult {
   if (!md.match(/## 🎓 MODEL LITERACY/)) errors.push('Missing MODEL LITERACY section');
   if (!md.match(/## 🎯 PICK OF THE DAY/)) errors.push('Missing PICK OF THE DAY section');
   if (md.match(NEWSLETTER_FORBIDDEN)) errors.push('Forbidden phrase detected');
+
+  // Title quality: reject "Introducing X" and bare product-name titles
+  const titleMatch = md.match(/^# (.+)/m);
+  if (titleMatch) {
+    const title = titleMatch[1].trim();
+    if (/^introducing\s/i.test(title)) errors.push('Title starts with "Introducing" — use an editorial hook instead');
+    // Reject very short titles (≤4 words) that are likely just a product name
+    const words = title.split(/\s+/);
+    if (words.length <= 4) {
+      errors.push('Title too short — needs an editorial hook, not just a product name');
+    }
+  }
+
   return { valid: errors.length === 0, errors };
 }
 
@@ -51,6 +64,16 @@ export function validateZhNewsletter(md: string): ValidationResult {
   if (!md.match(/## 🎓 模型小课堂/)) errors.push('Missing MODEL LITERACY (ZH)');
   if (!md.match(/## 🎯 今日精选/)) errors.push('Missing PICK OF THE DAY (ZH)');
   if (md.match(ZH_NEWSLETTER_FORBIDDEN)) errors.push('Forbidden phrase detected (ZH)');
+
+  // ZH title must contain CJK characters — reject English-only titles
+  const titleMatch = md.match(/^# (.+)/m);
+  if (titleMatch) {
+    const title = titleMatch[1].trim();
+    if (!/[\u4e00-\u9fff\u3400-\u4dbf]/.test(title)) {
+      errors.push('ZH title has no Chinese characters — must be in Chinese');
+    }
+  }
+
   return { valid: errors.length === 0, errors };
 }
 

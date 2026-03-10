@@ -102,6 +102,20 @@ function extractUrl(tweet: TwitterApiTweet): string {
 
 const SPAM_PATTERN = /crypto|blockchain|nft|web3|wagmi|airdrop|presale|whitelist|solana|ethereum|token\s*launch|#ad\b/i;
 
+// Tier 1: No minimum engagement (official labs + key staff)
+const NO_MIN_ACCOUNTS = new Set([
+  'AnthropicAI', 'claudeai', 'OpenAI', 'OpenAIDevs', 'GoogleAI', 'GoogleDeepMind',
+  'AIatMeta', 'MistralAI', 'huggingface', 'ChatGPTapp',
+  'bcherny', 'ErikSchluntz', 'trq212', 'alexalbert__', 'mikeyk', 'sama', 'karpathy',
+]);
+
+// Tier 2: Min 200 likes+RTs (thought leaders / broader coverage)
+const MIN_200_ACCOUNTS = new Set([
+  'swyx', 'lilianweng', 'simonw', 'emollick', 'drjimfan', 'latentspacepod',
+  'aiDotEngineer', 'hardmaru', '_akhaliq', 'reach_vb', 'AiBreakfast',
+  'ylecun', 'ID_AA_Carmack', 'bindureddy', 'chipro', 'adocomplete', 'felixrieseberg',
+]);
+
 function tweetToNewsItem(tweet: TwitterApiTweet, source: string): NewsItem | null {
   const text = tweet.text || '';
   const likes = tweet.likeCount || 0;
@@ -110,8 +124,16 @@ function tweetToNewsItem(tweet: TwitterApiTweet, source: string): NewsItem | nul
   // Spam filter
   if (SPAM_PATTERN.test(text)) return null;
 
-  // Min engagement for search results
+  // Min engagement for search results (Tier 3)
   if (source.startsWith('search:') && (likes + retweets) < 5) return null;
+
+  // Tiered engagement filter for curated accounts
+  if (source.startsWith('@')) {
+    const account = source.slice(1); // remove @
+    if (MIN_200_ACCOUNTS.has(account) && (likes + retweets) < 200) return null;
+    // NO_MIN_ACCOUNTS: no filter needed (pass through)
+    // Unlisted accounts: no filter (shouldn't happen, but safe default)
+  }
 
   // Score based on engagement
   let engagementScore = Math.min(90, 50 + Math.floor(Math.log2(likes + retweets + 1) * 5));

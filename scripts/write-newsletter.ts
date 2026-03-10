@@ -146,7 +146,9 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   rss.sort((a, b) => b.score - a.score);
   filteredGithub.sort((a, b) => b.score - a.score);
   reddit.sort((a, b) => b.score - a.score);
-  huggingface.sort((a, b) => {
+  // Filter HF items: min 100 likes (defense-in-depth against low-engagement noise)
+  const filteredHuggingface = huggingface.filter(item => item.engagement_likes >= 100);
+  filteredHuggingface.sort((a, b) => {
     const aMetric = a.engagement_likes + a.engagement_downloads / 1000;
     const bMetric = b.engagement_likes + b.engagement_downloads / 1000;
     return bMetric - aMetric;
@@ -155,7 +157,7 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   // === PRIORITY SOURCE EXTRACTION ===
   // Must-include sources from major AI labs — bypass hard caps
   const PRIORITY_BLOGS = /anthropic\.com\/(engineering|news)|openai\.com|blog\.google|deepmind\.google/i;
-  const PRIORITY_TWITTER = /twitter:@(AnthropicAI|claudeai|bcherny|trq212|OpenAI|OpenAIDevs|GoogleAI|GoogleDeepMind)$/i;
+  const PRIORITY_TWITTER = /twitter:@(AnthropicAI|claudeai|bcherny|trq212|OpenAI|OpenAIDevs|GoogleAI|GoogleDeepMind|AIatMeta|MistralAI|huggingface|ChatGPTapp)$/i;
 
   const isPriority = (item: NewsItem): boolean =>
     PRIORITY_BLOGS.test(item.url || '') || PRIORITY_TWITTER.test(item.source);
@@ -186,7 +188,7 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
     ...normalRss.slice(0, 8),
     ...filteredGithub.slice(0, 5),
     ...reddit.slice(0, 3),
-    ...huggingface.slice(0, 15),
+    ...filteredHuggingface.slice(0, 15),
     ...normalTwitter.slice(0, 30),
   ];
 
@@ -203,7 +205,7 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   console.log(`  RSS (tier 0): ${rss.length} → ${Math.min(normalRss.length, 8)}`);
   console.log(`  GitHub: ${github.length} → ${filteredGithub.length} (blocklist) → ${Math.min(filteredGithub.length, 5)}`);
   console.log(`  Reddit: ${reddit.length} → ${Math.min(reddit.length, 3)}`);
-  console.log(`  HuggingFace: ${huggingface.length} → ${Math.min(huggingface.length, 15)}`);
+  console.log(`  HuggingFace: ${huggingface.length} → ${filteredHuggingface.length} (≥100 likes) → ${Math.min(filteredHuggingface.length, 15)}`);
   console.log(`  Twitter: ${twitter.length} → ${dedupedTwitter.length} (dedup) → ${relevantTwitter.length} (relevant) → ${cappedTwitter.length} (capped) → ${Math.min(normalTwitter.length, 30)}`);
   console.log(`  Others: ${others.length} (pass-through)`);
   console.log(`  Total pre-filtered: ${deduped.length}`);
@@ -527,7 +529,7 @@ async function stage4_writeEN(filtered: FilteredItem[]): Promise<string> {
     }
   }
 
-  const systemPrompt = `${skill}\n\n## This Run\n- Date: ${DATE}\n- Items provided: ${filtered.length}\n- IMPORTANT: You MUST start with a # headline (a compelling hook, NOT just the date), followed by **${DATE}** on the next line, a 1-2 sentence intro paragraph, and a "Today:" preview line — exactly as shown in the Structure Template. These are required for the frontend to display correctly. Do NOT skip them.\n- Write naturally, following the template as a guide not a straitjacket\n- Each item should be 2-4 sentences. Give enough context that a reader understands the story without clicking. Include specific technical details (benchmark scores, parameter counts, context windows). The \`why_it_matters\` and \`action\` fields from the filtered data are your best material — use them.\n- Include engagement metrics in parentheses where available\n- Each item needs a source link as [Read more →](url)\n- Include a 🎓 MODEL LITERACY section and a 🎯 PICK OF THE DAY section\n- Aim for 15-22 items total — curate ruthlessly\n- If an item has no summary, write only the title + link. Don't fabricate details.\n- CRITICAL — Attribution accuracy: Do NOT infer or guess which product/company an item is about. Use ONLY the product/company names explicitly stated in the item title or summary. Many AI tools share similar features (Shell mode, Plan mode, MCP, etc.) — if the source doesn't name the product, describe the features without attributing them to a specific product. Never write "X ships Y" unless "X" is explicitly mentioned in the source data.\n- Output ONLY the newsletter markdown. No frontmatter, no meta-commentary.`;
+  const systemPrompt = `${skill}\n\n## This Run\n- Date: ${DATE}\n- Items provided: ${filtered.length}\n- IMPORTANT: You MUST start with a # headline (a compelling hook, NOT just the date), followed by **${DATE}** on the next line, a 1-2 sentence intro paragraph, and a "Today:" preview line — exactly as shown in the Structure Template. These are required for the frontend to display correctly. Do NOT skip them.\n- The headline must be an editorial hook with insight or opinion — NOT just "Introducing [product name]". Bad: "Introducing O3 And O4 Mini". Good: "OpenAI Splits Reasoning Into Two Tiers With O3 and O4 Mini". The title MUST have at least 6 words and contain a verb.\n- Write naturally, following the template as a guide not a straitjacket\n- Each item should be 2-4 sentences. Give enough context that a reader understands the story without clicking. Include specific technical details (benchmark scores, parameter counts, context windows). The \`why_it_matters\` and \`action\` fields from the filtered data are your best material — use them.\n- Include engagement metrics in parentheses where available\n- Each item needs a source link as [Read more →](url)\n- Include a 🎓 MODEL LITERACY section and a 🎯 PICK OF THE DAY section\n- Aim for 15-22 items total — curate ruthlessly\n- If an item has no summary, write only the title + link. Don't fabricate details.\n- CRITICAL — Attribution accuracy: Do NOT infer or guess which product/company an item is about. Use ONLY the product/company names explicitly stated in the item title or summary. Many AI tools share similar features (Shell mode, Plan mode, MCP, etc.) — if the source doesn't name the product, describe the features without attributing them to a specific product. Never write "X ships Y" unless "X" is explicitly mentioned in the source data.\n- Output ONLY the newsletter markdown. No frontmatter, no meta-commentary.`;
 
   const userPrompt = `Write today's LoreAI AI News newsletter (${DATE}) using these ${filtered.length} curated items:\n\n${itemsText}`;
 
@@ -576,7 +578,7 @@ async function stage5_writeZH(filtered: FilteredItem[]): Promise<string> {
     }
   }
 
-  const systemPrompt = `${skill}\n\n## 本期规则\n- 日期：${DATE}\n- 提供条目：${filtered.length}\n- 重要：必须以 # 标题开头（要有吸引力的 hook，不能只写日期），然后是 **${DATE}**，1-2 句开场白，以及"今日看点："预览行 — 严格按照结构模板。这些字段是前端显示所必需的，不能省略。\n- 必须按照结构模板完整输出中文 Newsletter\n- 所有有 engagement 数据的条目必须显示 — 这是强制要求\n- 必须包含 🎓 模型小课堂（一个技术概念的通俗解释，3-4 句话）\n- 必须包含 🎯 今日精选（当天最重要新闻的深度分析，3-5 句话，要有观点）\n- 目标 15-22 条，不必用完所有提供的条目 — 精选为王\n- 摘要为空时只写标题+链接，不编造细节\n- 关键 — 归属准确性：不要推断或猜测某条新闻是关于哪个产品/公司的。只使用标题或摘要中明确提到的产品/公司名。很多 AI 工具有相似功能（Shell mode、Plan mode、MCP 等）— 如果来源没有点名产品，就描述功能本身，不要张冠李戴。绝不要写"X 发布了 Y"除非来源数据中明确提到了"X"。\n- 只输出 Newsletter 正文 Markdown，不要 frontmatter，不要元描述`;
+  const systemPrompt = `${skill}\n\n## 本期规则\n- 日期：${DATE}\n- 提供条目：${filtered.length}\n- 重要：必须以 # 标题开头（要有吸引力的 hook，不能只写日期），然后是 **${DATE}**，1-2 句开场白，以及"今日看点："预览行 — 严格按照结构模板。这些字段是前端显示所必需的，不能省略。\n- 标题必须是中文，不能用英文。Bad: "Introducing Claude Sonnet 4.6". Good: "Claude Sonnet 4.6 来了，Anthropic 向速度妥协"。标题中必须包含中文字符。\n- 必须按照结构模板完整输出中文 Newsletter\n- 所有有 engagement 数据的条目必须显示 — 这是强制要求\n- 必须包含 🎓 模型小课堂（一个技术概念的通俗解释，3-4 句话）\n- 必须包含 🎯 今日精选（当天最重要新闻的深度分析，3-5 句话，要有观点）\n- 目标 15-22 条，不必用完所有提供的条目 — 精选为王\n- 摘要为空时只写标题+链接，不编造细节\n- 关键 — 归属准确性：不要推断或猜测某条新闻是关于哪个产品/公司的。只使用标题或摘要中明确提到的产品/公司名。很多 AI 工具有相似功能（Shell mode、Plan mode、MCP 等）— 如果来源没有点名产品，就描述功能本身，不要张冠李戴。绝不要写"X 发布了 Y"除非来源数据中明确提到了"X"。\n- 只输出 Newsletter 正文 Markdown，不要 frontmatter，不要元描述`;
 
   const userPrompt = `基于以下 ${filtered.length} 条精选 AI 新闻，创作今日 LoreAI AI 简报中文版（${DATE}）：\n\n${itemsText}`;
 
@@ -727,13 +729,31 @@ top_story: "${topStory.replace(/"/g, '\\"')}"
 ---`;
 }
 
-function ensureHeadline(md: string, topStory: string, _lang: string): string {
+function ensureHeadline(md: string, topStory: string, lang: string): string {
   // Minimal safety net — just ensure a # headline exists. Don't rewrite content.
   const trimmed = md.replace(/^(?:---\s*\n?)+/, '').trim();
-  if (trimmed.startsWith('# ')) return trimmed;
+  if (trimmed.startsWith('# ')) {
+    // Validate existing headline quality
+    const titleMatch = trimmed.match(/^# (.+)/);
+    if (titleMatch) {
+      const title = titleMatch[1].trim();
+      const needsRewrite =
+        /^introducing\s/i.test(title) ||
+        (lang === 'zh' && !/[\u4e00-\u9fff\u3400-\u4dbf]/.test(title));
+      if (needsRewrite) {
+        const fallback = lang === 'zh'
+          ? `${topStory.slice(0, 60)}，意味着什么`
+          : `${topStory.slice(0, 60)} — What It Means`;
+        return trimmed.replace(/^# .+/, `# ${fallback}`);
+      }
+    }
+    return trimmed;
+  }
 
-  // Claude skipped the headline — use top story as simple fallback
-  const headline = topStory.slice(0, 80);
+  // Claude skipped the headline — use top story with editorial wrapper
+  const headline = lang === 'zh'
+    ? `${topStory.slice(0, 60)}，意味着什么`
+    : `${topStory.slice(0, 60)} — What It Means`;
   return `# ${headline}\n\n${trimmed}`;
 }
 
@@ -890,13 +910,15 @@ async function main() {
   const previousBoldTitles = loadPreviousBoldTitles();
   let filtered: FilteredItem[];
 
+  // Cross-day dedup BEFORE AI — algorithmic gate removes stale stories
+  const dedupedItems = crossDayDedup(preFiltered, previousBoldTitles) as NewsItem[];
+  console.log(`  Cross-day dedup: ${preFiltered.length} → ${dedupedItems.length} (removed ${preFiltered.length - dedupedItems.length} stale items)`);
+
   if (DRY_RUN) {
     console.log('\n🤖 Stage 3: Agent Filter (dry-run — using rule-based)');
-    filtered = ruleBasedFallback(
-      crossDayDedup(preFiltered, previousBoldTitles) as NewsItem[]
-    );
+    filtered = ruleBasedFallback(dedupedItems);
   } else {
-    filtered = await stage3_agentFilter(preFiltered, previousBoldTitles);
+    filtered = await stage3_agentFilter(dedupedItems, previousBoldTitles);
   }
 
   if (filtered.length === 0) {

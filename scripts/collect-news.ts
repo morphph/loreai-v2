@@ -548,8 +548,11 @@ async function collectHuggingFace(): Promise<NewsItem[]> {
         // Only include models created in the last 30 days
         if (!model.createdAt || new Date(model.createdAt).getTime() < thirtyDaysAgo) continue;
 
-        seen.add(id);
         const likes = model.likes || 0;
+        // Min 100 likes — skip low-engagement models from org-specific queries
+        if (likes < 100) continue;
+
+        seen.add(id);
         const downloads = model.downloads || 0;
 
         items.push({
