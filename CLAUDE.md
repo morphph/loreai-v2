@@ -29,6 +29,19 @@ Before ANY commit, ALL of these must pass:
 3. validate-pipeline.ts   — Content validation (for pipeline changes)
 Do NOT skip failing tests. Do NOT comment out lint rules.
 
+## Pipeline Stage Gates (自修正标准)
+每个管线阶段的 pass/fail 标准和重试策略（详见 docs/PIPELINE-STAGE-GATES.md）：
+
+| Stage | Pass 标准 | 重试 |
+|-------|----------|------|
+| collect | ≥20 items, ≥3 tiers | 不重试 |
+| newsletter | 结构完整 + frontmatter + ≥10 外链 + 无 forbidden phrases | 最多重试 2 次 |
+| blog | ≥1 EN post, 500-2000 词, frontmatter 齐全 | 最多重试 2 次 |
+| seo | 类型专属标准 (glossary/faq/compare/topics) | 最多重试 1 次 |
+
+校验命令：`npx tsx scripts/validate-pipeline.ts --date={DATE} --step={step}`
+失败时：先读 validation 错误 → 诊断根因 → 修复 → 重跑该阶段（不需要重跑上游）
+
 ## Workflow Rules
 1. New feature → brainstorm first (/brainstorm), get human approval
 2. Approved design → write implementation plan (/plan)
