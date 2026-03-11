@@ -530,7 +530,7 @@ async function stage4_writeEN(filtered: FilteredItem[]): Promise<string> {
     }
   }
 
-  const systemPrompt = `${skill}\n\n## This Run\n- Date: ${DATE}\n- Items provided: ${filtered.length}\n- Output ONLY the newsletter markdown. No frontmatter, no meta-commentary.\n- CRITICAL — Attribution accuracy: Do NOT infer or guess which product/company an item is about. Use ONLY the product/company names explicitly stated in the item title or summary. If the source doesn't name the product, describe the features without attributing them to a specific product.`;
+  const systemPrompt = `${skill}\n\n## This Run\n- Date: ${DATE}\n- Items provided: ${filtered.length}\n- IMPORTANT STRUCTURE: You MUST start with a # headline, then **${DATE}**, then a 1-2 sentence intro paragraph, then a "Today: X, Y, and Z." preview line, then --- before sections. These are required for the frontend — do NOT skip any of them.\n- Output ONLY the newsletter markdown. No frontmatter, no meta-commentary.\n- CRITICAL — Attribution accuracy: Do NOT infer or guess which product/company an item is about. Use ONLY the product/company names explicitly stated in the item title or summary. If the source doesn't name the product, describe the features without attributing them to a specific product.`;
 
   const userPrompt = `Write today's LoreAI AI News newsletter (${DATE}) using these ${filtered.length} curated items:\n\n${itemsText}`;
 
@@ -579,7 +579,7 @@ async function stage5_writeZH(filtered: FilteredItem[]): Promise<string> {
     }
   }
 
-  const systemPrompt = `${skill}\n\n## 本期规则\n- 日期：${DATE}\n- 提供条目：${filtered.length}\n- 预览行必须用"今天聊："（不是"今日看点"）\n- 只输出 Newsletter 正文 Markdown，不要 frontmatter，不要元描述\n- 关键 — 归属准确性：不要推断或猜测某条新闻是关于哪个产品/公司的。只使用标题或摘要中明确提到的产品/公司名。如果来源没有点名产品，就描述功能本身，不要张冠李戴。`;
+  const systemPrompt = `${skill}\n\n## 本期规则\n- 日期：${DATE}\n- 提供条目：${filtered.length}\n- 重要结构：必须以 # 中文标题开头，然后 **${DATE}**，然后 1-2 句开场白，然后"今天聊：X、Y、Z。"预览行，然后 --- 分隔再开始正文。这些是前端显示必需的，不能省略任何一项。\n- 只输出 Newsletter 正文 Markdown，不要 frontmatter，不要元描述\n- 关键 — 归属准确性：不要推断或猜测某条新闻是关于哪个产品/公司的。只使用标题或摘要中明确提到的产品/公司名。如果来源没有点名产品，就描述功能本身，不要张冠李戴。`;
 
   const userPrompt = `基于以下 ${filtered.length} 条精选 AI 新闻，创作今日 LoreAI AI 简报中文版（${DATE}）：\n\n${itemsText}`;
 
