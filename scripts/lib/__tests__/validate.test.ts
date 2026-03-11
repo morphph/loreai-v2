@@ -455,6 +455,14 @@ describe('validateWeeklyZhNewsletter', () => {
 describe('validateNewsletterQuality', () => {
   const validEN = `# OpenAI Splits Reasoning Into Two Tiers With O3 and O4 Mini
 
+**March 11, 2026**
+
+The reasoning race just split into two lanes.
+
+Today: O3 and O4 Mini, GPT-5 reasoning, and Gemini 2.5 Pro.
+
+---
+
 ## Model Releases
 
 **OpenAI launches GPT-5 with improved reasoning** — faster, cheaper, 2x context.
@@ -689,8 +697,8 @@ Top.
 
 // ── Preview Line & Title Validation ─────────────────────────────────────
 
-describe('Newsletter preview line validation', () => {
-  it('EN: fails when missing "Today:" preview line', () => {
+describe('Newsletter preview line validation (quality check, not retry)', () => {
+  it('EN: warns when missing "Today:" preview line', () => {
     const md = `# Big News Day for AI Developers Everywhere
 
 ## S1
@@ -709,12 +717,16 @@ Concept.
 
 Top.
 `;
-    const result = validateNewsletter(md);
-    expect(result.valid).toBe(false);
-    expect(result.errors).toContain('Missing "Today:" preview line');
+    // Retry validator should NOT fail on missing preview line
+    const retryResult = validateNewsletter(md);
+    expect(retryResult.errors).not.toContain('Missing "Today:" preview line');
+
+    // Quality check SHOULD warn
+    const qualityResult = validateNewsletterQuality({ md, lang: 'en' });
+    expect(qualityResult.errors).toContain('Missing "Today:" preview line');
   });
 
-  it('ZH: fails when missing "今天聊:" preview line', () => {
+  it('ZH: warns when missing "今天聊:" preview line', () => {
     const md = `# Claude 上线代码审查，开发者效率飙升
 
 ## 模型发布
@@ -737,12 +749,16 @@ Top.
 
 今日精选内容。
 `;
-    const result = validateZhNewsletter(md);
-    expect(result.valid).toBe(false);
-    expect(result.errors).toContain('Missing preview line (今天聊:)');
+    // Retry validator should NOT fail
+    const retryResult = validateZhNewsletter(md);
+    expect(retryResult.errors).not.toContain('Missing preview line (今天聊:)');
+
+    // Quality check SHOULD warn
+    const qualityResult = validateNewsletterQuality({ md, lang: 'zh' });
+    expect(qualityResult.errors).toContain('Missing preview line (今天聊:)');
   });
 
-  it('ZH: passes with "今天聊:" preview line', () => {
+  it('ZH: no warning with "今天聊:" preview line', () => {
     const md = `# Claude 上线代码审查，开发者效率飙升
 
 **2026 年 3 月 11 日**
@@ -771,11 +787,11 @@ Top.
 
 今日精选内容。
 `;
-    const result = validateZhNewsletter(md);
+    const result = validateNewsletterQuality({ md, lang: 'zh' });
     expect(result.errors).not.toContain('Missing preview line (今天聊:)');
   });
 
-  it('ZH: passes with "今日看点:" for backward compatibility', () => {
+  it('ZH: no warning with "今日看点:" for backward compatibility', () => {
     const md = `# Claude 上线代码审查，开发者效率飙升
 
 **2026 年 3 月 11 日**
@@ -804,7 +820,7 @@ Top.
 
 今日精选内容。
 `;
-    const result = validateZhNewsletter(md);
+    const result = validateNewsletterQuality({ md, lang: 'zh' });
     expect(result.errors).not.toContain('Missing preview line (今天聊:)');
   });
 
