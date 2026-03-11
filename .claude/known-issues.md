@@ -59,7 +59,13 @@ Real bugs that have occurred in production. Claude MUST avoid all of them when g
 - Fix: skill now has explicit anti-patterns + output checklist; inline prompt aligned with skill
 - Script fallback: uses first ### heading (always Chinese in ZH body) instead of English topStory
 
-## 10. Inconsistent Preview Line (今天聊 vs 今日看点)
+## 10. Agent Filter JSON Parsing Failure (Agent 过滤器 JSON 解析失败)
+- Claude wraps JSON output in ` ```json ` code blocks despite "no markdown" instruction
+- Old regex approach (`/```(?:json)?\s*([\s\S]*?)```/`) was fragile and failed with 4+ backticks
+- Fix: use `extractJsonArray()` — find first `[` and last `]` to extract the JSON array directly
+- This is robust to any wrapper (```json, prose, etc.)
+
+## 11. Inconsistent Preview Line (今天聊 vs 今日看点)
 - Skill says "今天聊：" but inline prompt said "今日看点：" — now unified to "今天聊："
 - extractDescription matches both for backward compatibility
 - Validation checks for presence of preview line in both EN and ZH

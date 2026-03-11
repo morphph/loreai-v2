@@ -215,6 +215,20 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
 }
 
 // ============================================================
+// JSON extraction helper — handles ```json blocks, 4+ backticks, prose wrappers
+// ============================================================
+
+function extractJsonArray(content: string): string {
+  // Find the first [ and last ] — the JSON array boundaries
+  const start = content.indexOf('[');
+  const end = content.lastIndexOf(']');
+  if (start !== -1 && end > start) {
+    return content.slice(start, end + 1);
+  }
+  return content.trim();
+}
+
+// ============================================================
 // STAGE 3: Agent Filter (Claude Opus)
 // ============================================================
 
@@ -443,26 +457,20 @@ Return ONLY a JSON array. No markdown, no explanation. Each item:
       maxRetries: 2,
       validate: (content) => {
         try {
-          // Extract JSON from potential markdown code blocks
-          let json = content;
-          const jsonMatch = content.match(/```(?:json)?\s*([\s\S]*?)```/);
-          if (jsonMatch) json = jsonMatch[1];
-
-          const parsed = JSON.parse(json.trim());
+          const json = extractJsonArray(content);
+          const parsed = JSON.parse(json);
           if (!Array.isArray(parsed)) return { valid: false, errors: ['Not an array'] };
           if (parsed.length < 12) return { valid: false, errors: [`Only ${parsed.length} items (need 12+)`] };
           return { valid: true, errors: [] };
-        } catch {
-          return { valid: false, errors: ['Invalid JSON'] };
+        } catch (e) {
+          const msg = e instanceof Error ? e.message : 'Unknown';
+          return { valid: false, errors: [`Invalid JSON: ${msg}`] };
         }
       },
     });
 
-    let json = response.content;
-    const jsonMatch = json.match(/```(?:json)?\s*([\s\S]*?)```/);
-    if (jsonMatch) json = jsonMatch[1];
-
-    const filtered: FilteredItem[] = JSON.parse(json.trim());
+    const json = extractJsonArray(response.content);
+    const filtered: FilteredItem[] = JSON.parse(json);
     console.log(`  Agent selected ${filtered.length} items (model: ${response.model})`);
     console.log(`  Tokens: ${response.usage?.input_tokens} in / ${response.usage?.output_tokens} out`);
 
