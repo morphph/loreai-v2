@@ -85,6 +85,57 @@ export async function callClaude(
   }
 }
 
+export async function callClaudeAgent(
+  systemPrompt: string,
+  userPrompt: string,
+  options: {
+    model?: string;
+    timeoutMs?: number;
+  } = {}
+): Promise<AIResponse> {
+  const model = resolveModel(options.model || 'claude-opus-4-20250514');
+  const timeoutMs = options.timeoutMs || 180_000; // 3 minutes default
+
+  // Write prompt to a temp file (no noToolsDirective — agent needs tools)
+  const tmpFile = join(tmpdir(), `claude-agent-${randomBytes(8).toString('hex')}.txt`);
+  const prompt = `${systemPrompt}\n\n---\n\n${userPrompt}`;
+  writeFileSync(tmpFile, prompt, 'utf-8');
+
+  try {
+    const cleanEnv = { ...process.env };
+    delete cleanEnv.CLAUDECODE;
+
+    let stdout: string;
+    try {
+      stdout = execSync(
+        `cat "${tmpFile}" | ${CLAUDE_BIN} --model ${model} --output-format text --print --allowedTools "Read,Bash(npx tsx scripts/helpers/*)" --dangerously-skip-permissions`,
+        {
+          timeout: timeoutMs,
+          maxBuffer: 10 * 1024 * 1024,
+          encoding: 'utf-8',
+          stdio: ['pipe', 'pipe', 'pipe'],
+          env: cleanEnv,
+        }
+      );
+    } catch (err: any) {
+      const stderr = err?.stderr?.toString?.()?.trim() || '';
+      const status = err?.status ?? 'unknown';
+      throw new Error(`Claude Agent CLI failed (exit ${status}): ${stderr || err.message}`);
+    }
+
+    // Strip ANSI escape sequences
+    const content = stdout.replace(/\x1b\[[0-9;]*[a-zA-Z]/g, '').trim();
+
+    return {
+      content,
+      model,
+      usage: undefined,
+    };
+  } finally {
+    try { unlinkSync(tmpFile); } catch {}
+  }
+}
+
 export function checkClaudeHealth(): void {
   try {
     const version = execSync(`${CLAUDE_BIN} --version`, {

@@ -3,12 +3,13 @@
  * scripts/write-newsletter.ts — Newsletter writing pipeline
  * Runs at 5am SGT (21:00 UTC) daily Mon-Fri
  *
- * 8 Stages:
+ * 9 Stages:
  *   1. DB Query (72h window)
  *   2. Pre-filter (hard caps by source)
- *   3. Agent Filter (Claude Opus, cross-day dedup, source quotas)
- *   4. EN Newsletter (Claude Opus + validation + retry)
- *   5. ZH Newsletter (3-level fallback cascade)
+ *   3. Agent Filter (3-tier: agent w/ tools → single-shot → rule-based)
+ *   3b. Outline Generator (structured JSON outline for writers)
+ *   4. EN Newsletter (Claude Opus + outline + validation + retry)
+ *   5. ZH Newsletter (3-level fallback cascade + outline)
  *   6. Blog Seed Extraction (3-signal scoring)
  *   7. Topic Cluster Update (no AI)
  *   8. Persist & Publish
@@ -24,7 +25,8 @@ import {
   closeDb,
   type NewsItem,
 } from './lib/db';
-import { callClaudeWithRetry, callZhNewsletterWithFallback, checkClaudeHealth } from './lib/ai';
+import { callClaudeWithRetry, callClaudeAgent, callZhNewsletterWithFallback, checkClaudeHealth } from './lib/ai';
+import { validateOutline, extractJsonObject, type NewsletterOutline } from './lib/outline';
 import { sanitizeOutput } from './lib/sanitize.js';
 import { validateNewsletter, validateZhNewsletter, validateNewsletterQuality } from './lib/validate';
 import { extractBoldTitles } from './lib/dedup';
@@ -345,16 +347,10 @@ function guessCategory(item: NewsItem): string {
   return 'INSIGHT';
 }
 
-async function stage3_agentFilter(
-  items: NewsItem[],
-  previousBoldTitles: string[]
-): Promise<FilteredItem[]> {
-  console.log('\n🤖 Stage 3: Agent Filter');
-  console.log(`  Items entering agent filter: ${items.length}`);
-  console.log(`  Previous titles for dedup: ${previousBoldTitles.length}`);
+// --- Filter input formatting (shared by agent + single-shot) ---
 
-  // Prepare compact JSON for Claude (no Jaccard pre-filter — Claude handles dedup semantically)
-  const inputItems = items.map((item) => ({
+function formatFilterInput(items: NewsItem[]) {
+  return items.map((item) => ({
     id: item.id,
     title: item.title.slice(0, 200),
     url: item.url,
@@ -368,23 +364,32 @@ async function stage3_agentFilter(
     downloads: item.engagement_downloads,
     priority: (item as NewsItem & { priority?: boolean }).priority || false,
   }));
+}
 
-  // Build the "Previously Covered" section from bold titles
-  const previousStoriesSection = previousBoldTitles.length > 0
-    ? `\n## Previously Covered Stories (STRICT: DO NOT REPEAT)
-These stories appeared in recent newsletters. Do NOT select any item that covers the same underlying event or topic, even if from a different source or with different wording.
-The ONLY exception: include a previously covered story if there is a genuinely MAJOR new development (e.g., new benchmark results, official response, policy reversal, legal action). If you do include such a follow-up, you MUST note it in why_it_matters starting with "Follow-up: [what's new]".
+function validateFilterOutput(content: string): { valid: boolean; errors: string[] } {
+  try {
+    const json = extractJsonArray(content);
+    const parsed = JSON.parse(json);
+    if (!Array.isArray(parsed)) return { valid: false, errors: ['Not an array'] };
+    if (parsed.length < 12) return { valid: false, errors: [`Only ${parsed.length} items (need 12+)`] };
+    return { valid: true, errors: [] };
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : 'Unknown';
+    return { valid: false, errors: [`Invalid JSON: ${msg}`] };
+  }
+}
 
-Recent titles:
-${previousBoldTitles.map(t => `- ${t}`).join('\n')}
-`
-    : '';
+function logFilterResult(filtered: FilteredItem[], label: string, model: string): void {
+  console.log(`  ${label} selected ${filtered.length} items (model: ${model})`);
+  const redditCount = filtered.filter((i) => i.source.includes('reddit')).length;
+  const githubCount = filtered.filter((i) => i.source.includes('github:trending')).length;
+  const hfCount = filtered.filter((i) => i.source.includes('huggingface')).length;
+  console.log(`  Quotas — Reddit: ${redditCount}/2, GitHub: ${githubCount}/4, HF: ${hfCount}/3-5`);
+}
 
-  const systemPrompt = `You are an expert AI news curator for LoreAI, a daily AI newsletter.
+// --- SHARED filter selection rules (used by both agent + single-shot prompts) ---
 
-Your task: From the provided news items, select 18-25 of the most important and interesting items for today's newsletter.
-
-## Priority Items (MUST INCLUDE)
+const FILTER_SELECTION_RULES = `## Priority Items (MUST INCLUDE)
 Items marked with "priority": true are from official AI lab sources (Anthropic, OpenAI, Google/DeepMind). Include ALL priority items unless they are exact duplicates of stories covered in the last 7 days. Priority items count toward the total but the total can flex to 25 to accommodate them.
 
 ## Source Quotas (STRICT)
@@ -404,7 +409,6 @@ Assign each item ONE category:
 
 ## Category Balance
 Ensure at least 2 items per main category when possible.
-
 Prioritize items that developers can ACT on today over industry news/business deals.
 
 ## Hard Filters (MUST apply)
@@ -414,10 +418,9 @@ Prioritize items that developers can ACT on today over industry news/business de
 - Skip GitHub repos that are established projects (tensorflow, pytorch, transformers) unless they have a specific new release
 - Skip old blog posts — if the content is from 2024 or earlier, do not include it
 - Prefer ORIGINAL tweets over RTs. If the same news appears as an original + RT, pick the original
-- Skip any story that is substantially the same as a Previously Covered Story listed below, even if from a different source or with slightly different wording
 
 ## Deduplication (CRITICAL)
-- If the same underlying event appears from multiple sources in the input, pick the SINGLE best source (most detail, highest engagement). Multiple sources reporting the same thing is confirmation of importance, not a reason to include it multiple times.
+- If the same underlying event appears from multiple sources in the input, pick the SINGLE best source (most detail, highest engagement).
 - If multiple items are about the same topic (e.g., 3 tweets about "Anthropic distillation attack"), select only ONE — the most informative version.
 
 ## Priority Signals (rank higher)
@@ -431,7 +434,7 @@ Prioritize items that developers can ACT on today over industry news/business de
 - Skip: trivial updates, duplicate/similar stories, old news recycled
 - Skip: items that are well-known older releases (>30 days old) even if still trending on HuggingFace — use your knowledge of actual release dates (e.g. DeepSeek-R1 released Jan 2025)
 - Prefer: items with high engagement metrics relative to their source
-${previousStoriesSection}
+
 ## Output Format
 Return ONLY a JSON array. No markdown, no explanation. Each item:
 {
@@ -448,43 +451,186 @@ Return ONLY a JSON array. No markdown, no explanation. Each item:
   "engagement_downloads": number
 }`;
 
+// --- Tier 1: Agent Filter with tools (can read history files) ---
+
+async function agentFilterWithTools(items: NewsItem[]): Promise<FilteredItem[]> {
+  console.log('  Tier 1: Agent filter (with tools)');
+  const inputItems = formatFilterInput(items);
+
+  const systemPrompt = `You are LoreAI's AI news curation expert. You have tools to read files and run commands.
+
+## Core Task
+Select 18-25 items from the candidates for today's newsletter.
+
+## Important: 72h Window and Overlap
+Our candidate pool comes from the past 72 hours of news. Consecutive newsletters have ~48h overlap in candidates — this is by design.
+The same story appearing in consecutive newsletters is completely acceptable.
+Your tool access is for: understanding recent coverage to ensure today's newsletter READS FRESH, not for strict dedup.
+
+## Workflow
+
+### Phase A: Understand Recent Coverage
+1. Read content/newsletters/en/ — the most recent 3-4 newsletter files
+2. Note: which stories were **headlines/featured** (### sub-headers or PICK OF THE DAY)
+3. Which were regular items (**bold** titles)
+
+### Phase B: Smart Selection
+4. Select 18-25 items, applying these strategies:
+   - **Headlines don't repeat**: Yesterday's headline/PICK OF THE DAY shouldn't be headline again today. It can remain as a regular item.
+   - **Same event with new developments → prefer the update**: If candidates include an updated version (more details, new benchmarks, official response), pick the newer version.
+   - **Reasonable overlap is fine**: An important story appearing 2-3 consecutive days is normal.
+   - **Avoid "carbon copy" feel**: If today's selection is >70% the same as yesterday, proactively find fresh content from the candidate pool.
+5. For uncertain items (stale or new info?), run the helper:
+   npx tsx scripts/helpers/check-coverage.ts --topic="..." --days=5
+
+### Phase C: Output
+6. Output the JSON array as your final message.
+
+## Available File Paths
+- Historical newsletters: content/newsletters/en/YYYY-MM-DD.md
+- Historical filtered data: data/filtered-items/YYYY-MM-DD.json
+- Coverage check: npx tsx scripts/helpers/check-coverage.ts --topic="QUERY" --days=5
+
+${FILTER_SELECTION_RULES}
+
+## Freshness Strategy (NOT strict dedup)
+- ✅ Yesterday reported GPT-5 launch, today's candidates have the same item → keep it, but don't headline it again
+- ✅ Yesterday reported GPT-5, today has independent reviews → prefer the new reviews
+- ✅ An important tool appears 3 days in a row → it's genuinely important, keep it
+- ❌ Yesterday's PICK OF THE DAY is today's PICK OF THE DAY again → avoid
+- ❌ Today and yesterday are nearly identical, only 1-2 items different → dig for fresh content
+
+Your final message must contain ONLY the JSON array. No explanation, no markdown wrapping.`;
+
   const userPrompt = `Select 18-25 items from these ${inputItems.length} news items for today's AI newsletter (${DATE}):\n\n${JSON.stringify(inputItems, null, 0)}`;
+
+  const response = await callClaudeAgent(systemPrompt, userPrompt, { timeoutMs: 180_000 });
+
+  const json = extractJsonArray(response.content);
+  const parsed = JSON.parse(json);
+  if (!Array.isArray(parsed) || parsed.length < 12) {
+    throw new Error(`Agent filter returned ${Array.isArray(parsed) ? parsed.length : 0} items (need 12+)`);
+  }
+
+  const filtered: FilteredItem[] = parsed;
+  logFilterResult(filtered, 'Agent (tools)', response.model);
+  return filtered;
+}
+
+// --- Tier 2: Single-shot filter (current implementation, no tools) ---
+
+async function singleShotFilter(items: NewsItem[], previousBoldTitles: string[]): Promise<FilteredItem[]> {
+  console.log('  Tier 2: Single-shot filter');
+  const inputItems = formatFilterInput(items);
+
+  const previousStoriesSection = previousBoldTitles.length > 0
+    ? `\n## Previously Covered Stories (STRICT: DO NOT REPEAT)
+These stories appeared in recent newsletters. Do NOT select any item that covers the same underlying event or topic, even if from a different source or with different wording.
+The ONLY exception: include a previously covered story if there is a genuinely MAJOR new development (e.g., new benchmark results, official response, policy reversal, legal action). If you do include such a follow-up, you MUST note it in why_it_matters starting with "Follow-up: [what's new]".
+
+Recent titles:
+${previousBoldTitles.map(t => `- ${t}`).join('\n')}
+`
+    : '';
+
+  const systemPrompt = `You are an expert AI news curator for LoreAI, a daily AI newsletter.
+
+Your task: From the provided news items, select 18-25 of the most important and interesting items for today's newsletter.
+
+${FILTER_SELECTION_RULES}
+
+- Skip any story that is substantially the same as a Previously Covered Story listed below, even if from a different source or with slightly different wording
+${previousStoriesSection}`;
+
+  const userPrompt = `Select 18-25 items from these ${inputItems.length} news items for today's AI newsletter (${DATE}):\n\n${JSON.stringify(inputItems, null, 0)}`;
+
+  const response = await callClaudeWithRetry(systemPrompt, userPrompt, {
+    maxTokens: 8192,
+    temperature: 0.3,
+    maxRetries: 2,
+    validate: validateFilterOutput,
+  });
+
+  const json = extractJsonArray(response.content);
+  const filtered: FilteredItem[] = JSON.parse(json);
+  logFilterResult(filtered, 'Single-shot', response.model);
+  return filtered;
+}
+
+// --- Stage 3: 3-tier Agent Filter ---
+
+async function stage3_agentFilter(
+  items: NewsItem[],
+  previousBoldTitles: string[]
+): Promise<FilteredItem[]> {
+  console.log('\n🤖 Stage 3: Agent Filter (3-tier)');
+  console.log(`  Items entering agent filter: ${items.length}`);
+  console.log(`  Previous titles for dedup: ${previousBoldTitles.length}`);
+
+  // Tier 1: Agent mode (with tools)
+  try {
+    return await agentFilterWithTools(items);
+  } catch (err) {
+    console.warn('  ⚠️ Agent filter (tools) failed:', err instanceof Error ? err.message : err);
+  }
+
+  // Tier 2: Single-shot mode (current implementation)
+  try {
+    return await singleShotFilter(items, previousBoldTitles);
+  } catch (err) {
+    console.warn('  ⚠️ Single-shot filter failed:', err instanceof Error ? err.message : err);
+  }
+
+  // Tier 3: Rule-based fallback
+  return ruleBasedFallback(items);
+}
+
+// ============================================================
+// STAGE 3b: Outline Generator
+// ============================================================
+
+async function stage3b_generateOutline(filtered: FilteredItem[]): Promise<NewsletterOutline | null> {
+  console.log('\n📋 Stage 3b: Outline Generator');
+
+  const skillPath = path.join(process.cwd(), 'skills', 'newsletter-outline', 'SKILL.md');
+  const skill = fs.readFileSync(skillPath, 'utf-8');
+
+  // Format items for the outliner
+  let itemsText = '';
+  for (const item of filtered) {
+    const engagement = formatEngagement(item);
+    itemsText += `- [id=${item.id}] ${item.title} ${engagement}\n  URL: ${item.url}\n  Source: ${item.source}\n  Category: ${item.category}\n  Score: ${item.score}\n  Why: ${item.why_it_matters}\n\n`;
+  }
+
+  const systemPrompt = `${skill}\n\n## This Run\n- Date: ${DATE}\n- Items provided: ${filtered.length}`;
+  const userPrompt = `Generate the structural outline for today's LoreAI newsletter (${DATE}) using these ${filtered.length} curated items:\n\n${itemsText}`;
 
   try {
     const response = await callClaudeWithRetry(systemPrompt, userPrompt, {
-      maxTokens: 8192,
+      maxTokens: 4096,
       temperature: 0.3,
       maxRetries: 2,
-      validate: (content) => {
-        try {
-          const json = extractJsonArray(content);
-          const parsed = JSON.parse(json);
-          if (!Array.isArray(parsed)) return { valid: false, errors: ['Not an array'] };
-          if (parsed.length < 12) return { valid: false, errors: [`Only ${parsed.length} items (need 12+)`] };
-          return { valid: true, errors: [] };
-        } catch (e) {
-          const msg = e instanceof Error ? e.message : 'Unknown';
-          return { valid: false, errors: [`Invalid JSON: ${msg}`] };
-        }
-      },
+      validate: validateOutline,
     });
 
-    const json = extractJsonArray(response.content);
-    const filtered: FilteredItem[] = JSON.parse(json);
-    console.log(`  Agent selected ${filtered.length} items (model: ${response.model})`);
-    console.log(`  Tokens: ${response.usage?.input_tokens} in / ${response.usage?.output_tokens} out`);
+    const json = extractJsonObject(response.content);
+    const outline: NewsletterOutline = JSON.parse(json);
+    console.log(`  Outline generated (model: ${response.model})`);
+    console.log(`  Sections: ${outline.sections.map(s => `${s.name}(${s.items.length})`).join(', ')}`);
+    console.log(`  Quick links: ${outline.quick_links.length}, Heroes: ${outline.sections.reduce((n, s) => n + s.items.filter(i => i.prominence === 'hero').length, 0)}`);
+    console.log(`  POTD: item #${outline.pick_of_the_day.item_id}`);
 
-    // Verify quotas
-    const redditCount = filtered.filter((i) => i.source.includes('reddit')).length;
-    const githubCount = filtered.filter((i) => i.source.includes('github:trending')).length;
-    const hfCount = filtered.filter((i) => i.source.includes('huggingface')).length;
-    console.log(`  Quotas — Reddit: ${redditCount}/2, GitHub: ${githubCount}/4, HF: ${hfCount}/3-5`);
+    // Save for audit
+    const outlinePath = path.join(process.cwd(), 'data', 'outlines', `${DATE}.json`);
+    fs.mkdirSync(path.dirname(outlinePath), { recursive: true });
+    fs.writeFileSync(outlinePath, JSON.stringify(outline, null, 2));
+    console.log(`  Saved: ${outlinePath}`);
 
-    return filtered;
+    return outline;
   } catch (err) {
-    console.error('  ⚠️ Agent filter FAILED — falling back to rule-based filtering');
-    console.error('  Error:', err instanceof Error ? err.message : err);
-    return ruleBasedFallback(items);
+    console.warn('  ⚠️ Outline generation failed — writers will use free-form mode');
+    console.warn('  Error:', err instanceof Error ? err.message : err);
+    return null;
   }
 }
 
@@ -515,7 +661,7 @@ function formatEngagement(item: FilteredItem): string {
   return parts.join(' ');
 }
 
-async function stage4_writeEN(filtered: FilteredItem[]): Promise<string> {
+async function stage4_writeEN(filtered: FilteredItem[], outline: NewsletterOutline | null): Promise<string> {
   console.log('\n📝 Stage 4: EN Newsletter');
 
   const skillPath = path.join(process.cwd(), 'skills', 'newsletter-en', 'SKILL.md');
@@ -538,7 +684,12 @@ async function stage4_writeEN(filtered: FilteredItem[]): Promise<string> {
     }
   }
 
-  const systemPrompt = `${skill}\n\n## This Run\n- Date: ${DATE}\n- Items provided: ${filtered.length}\n- IMPORTANT STRUCTURE: You MUST start with a # headline, then **${DATE}**, then a 1-2 sentence intro paragraph, then a "Today: X, Y, and Z." preview line, then --- before sections. These are required for the frontend — do NOT skip any of them.\n- Output ONLY the newsletter markdown. No frontmatter, no meta-commentary.\n- CRITICAL — Attribution accuracy: Do NOT infer or guess which product/company an item is about. Use ONLY the product/company names explicitly stated in the item title or summary. If the source doesn't name the product, describe the features without attributing them to a specific product.`;
+  // Build outline section if available
+  const outlineSection = outline
+    ? `\n\n## Structural Plan (FOLLOW THIS)\nYou MUST follow this outline. Do not reorganize or reassign items.\n- Use the headline_hook as the basis for your H1: "${outline.headline_hook}"\n- Preview line topics: ${outline.preview_topics.join(', ')}\n- PICK OF THE DAY: item #${outline.pick_of_the_day.item_id} — thesis: "${outline.pick_of_the_day.thesis}"\n- MODEL LITERACY: "${outline.model_literacy.concept}" — ${outline.model_literacy.relevance}\n- Section order and item assignment:\n${outline.sections.map(s => `  ${s.name}: ${s.items.map(i => `[${i.id}] ${i.prominence === 'hero' ? '###' : '**'} "${i.title}"`).join(', ')}`).join('\n')}\n- Quick links: ${outline.quick_links.map(i => `[${i.id}] "${i.title}"`).join(', ')}\n\nYour task is WRITING, not EDITING. Do not reorganize or reassign items. Follow the section order and prominence levels exactly.\n`
+    : '';
+
+  const systemPrompt = `${skill}${outlineSection}\n\n## This Run\n- Date: ${DATE}\n- Items provided: ${filtered.length}\n- Outline: ${outline ? 'YES — follow it strictly' : 'NO — use your editorial judgment'}\n- IMPORTANT STRUCTURE: You MUST start with a # headline, then **${DATE}**, then a 1-2 sentence intro paragraph, then a "Today: X, Y, and Z." preview line, then --- before sections. These are required for the frontend — do NOT skip any of them.\n- Output ONLY the newsletter markdown. No frontmatter, no meta-commentary.\n- CRITICAL — Attribution accuracy: Do NOT infer or guess which product/company an item is about. Use ONLY the product/company names explicitly stated in the item title or summary. If the source doesn't name the product, describe the features without attributing them to a specific product.`;
 
   const userPrompt = `Write today's LoreAI AI News newsletter (${DATE}) using these ${filtered.length} curated items:\n\n${itemsText}`;
 
@@ -565,7 +716,7 @@ async function stage4_writeEN(filtered: FilteredItem[]): Promise<string> {
 // STAGE 5: ZH Newsletter (3-level fallback)
 // ============================================================
 
-async function stage5_writeZH(filtered: FilteredItem[]): Promise<string> {
+async function stage5_writeZH(filtered: FilteredItem[], outline: NewsletterOutline | null): Promise<string> {
   console.log('\n📝 Stage 5: ZH Newsletter (fallback cascade)');
 
   const skillPath = path.join(process.cwd(), 'skills', 'newsletter-zh', 'SKILL.md');
@@ -587,7 +738,12 @@ async function stage5_writeZH(filtered: FilteredItem[]): Promise<string> {
     }
   }
 
-  const systemPrompt = `${skill}\n\n## 本期规则\n- 日期：${DATE}\n- 提供条目：${filtered.length}\n- 重要结构：必须以 # 中文标题开头，然后 **${DATE}**，然后 1-2 句开场白，然后"今天聊：X、Y、Z。"预览行，然后 --- 分隔再开始正文。这些是前端显示必需的，不能省略任何一项。\n- 只输出 Newsletter 正文 Markdown，不要 frontmatter，不要元描述\n- 关键 — 归属准确性：不要推断或猜测某条新闻是关于哪个产品/公司的。只使用标题或摘要中明确提到的产品/公司名。如果来源没有点名产品，就描述功能本身，不要张冠李戴。`;
+  // Build outline section if available (ZH adapts titles/angles but follows structure)
+  const outlineSection = outline
+    ? `\n\n## 结构大纲（严格遵循）\n你必须遵循以下大纲，不要重新组织或重新分配条目。\n- 标题 hook 基础："${outline.headline_hook}"（翻译并适配中文表达）\n- 预览主题：${outline.preview_topics.join('、')}\n- 今日精选：条目 #${outline.pick_of_the_day.item_id} — 论点："${outline.pick_of_the_day.thesis}"\n- 模型小课堂："${outline.model_literacy.concept}" — ${outline.model_literacy.relevance}\n- 版块顺序和条目分配：\n${outline.sections.map(s => `  ${s.name}: ${s.items.map(i => `[${i.id}] ${i.prominence === 'hero' ? '###' : '**'} "${i.title}"`).join(', ')}`).join('\n')}\n- 快讯：${outline.quick_links.map(i => `[${i.id}] "${i.title}"`).join(', ')}\n\n你的任务是写作，不是编辑。不要重新组织或重新分配条目。按大纲的版块顺序和重要度等级来写。\n`
+    : '';
+
+  const systemPrompt = `${skill}${outlineSection}\n\n## 本期规则\n- 日期：${DATE}\n- 提供条目：${filtered.length}\n- 大纲：${outline ? '有 — 严格遵循' : '无 — 自行组织'}\n- 重要结构：必须以 # 中文标题开头，然后 **${DATE}**，然后 1-2 句开场白，然后"今天聊：X、Y、Z。"预览行，然后 --- 分隔再开始正文。这些是前端显示必需的，不能省略任何一项。\n- 只输出 Newsletter 正文 Markdown，不要 frontmatter，不要元描述\n- 关键 — 归属准确性：不要推断或猜测某条新闻是关于哪个产品/公司的。只使用标题或摘要中明确提到的产品/公司名。如果来源没有点名产品，就描述功能本身，不要张冠李戴。`;
 
   const userPrompt = `基于以下 ${filtered.length} 条精选 AI 新闻，创作今日 LoreAI AI 简报中文版（${DATE}）：\n\n${itemsText}`;
 
@@ -981,10 +1137,13 @@ async function main() {
     return;
   }
 
-  // Stage 4 & 5 (EN and ZH can run in parallel)
+  // Stage 3b: Generate outline (serial — informs writers)
+  const outline = await stage3b_generateOutline(filtered);
+
+  // Stage 4 & 5 (EN and ZH can run in parallel, both receive outline)
   const [enContent, zhContent] = await Promise.all([
-    stage4_writeEN(filtered),
-    stage5_writeZH(filtered),
+    stage4_writeEN(filtered, outline),
+    stage5_writeZH(filtered, outline),
   ]);
 
   // Quality validation gate (runs before persist — catches content issues)

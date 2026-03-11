@@ -35,6 +35,8 @@ Do NOT skip failing tests. Do NOT comment out lint rules.
 | Stage | Pass 标准 | 重试 |
 |-------|----------|------|
 | collect | ≥20 items, ≥3 tiers | 不重试 |
+| agent-filter | 3-tier: agent(工具) → single-shot → rule-based | 自动降级 |
+| outline | JSON 大纲: ≥6词标题+动词, 3 preview, 15-25 items, ≥2 heroes | 最多 2 次, 失败→无大纲模式 |
 | newsletter | 结构完整 + frontmatter + ≥10 外链 + 无 forbidden phrases | 最多重试 2 次 |
 | blog | ≥1 EN post, 500-2000 词, frontmatter 齐全 | 最多重试 2 次 |
 | seo | 类型专属标准 (glossary/faq/compare/topics) | 最多重试 1 次 |
