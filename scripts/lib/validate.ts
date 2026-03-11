@@ -31,7 +31,7 @@ export function validateNewsletter(md: string): ValidationResult {
   return { valid: errors.length === 0, errors };
 }
 
-export function validateBlogPost(md: string): ValidationResult {
+export function validateBlogPost(md: string, options?: { maxWords?: number }): ValidationResult {
   const errors: string[] = [];
   if (!md.match(/^# .+/m)) errors.push('Missing H1 title');
   if ((md.match(/^## .+/gm) || []).length < 2) errors.push('<2 H2 sections');
@@ -46,8 +46,9 @@ export function validateBlogPost(md: string): ValidationResult {
     .split(/\s+/)
     .filter((w) => w.length > 0).length;
 
+  const maxWords = options?.maxWords ?? 2000;
   if (wordCount < 500) errors.push(`Too short: ${wordCount} words (min 500)`);
-  if (wordCount > 2000) errors.push(`Too long: ${wordCount} words (max 2000)`);
+  if (wordCount > maxWords) errors.push(`Too long: ${wordCount} words (max ${maxWords})`);
 
   return { valid: errors.length === 0, errors };
 }
