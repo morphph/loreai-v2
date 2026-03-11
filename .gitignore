@@ -49,6 +49,9 @@ data/review/
 # Blog error logs
 data/blog-errors/
 
+# Topic blog workspace
+output/blog-workspace/
+
 # Logs
 logs/*.log
 

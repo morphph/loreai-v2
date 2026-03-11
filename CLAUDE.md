@@ -21,6 +21,9 @@ npx tsx scripts/generate-review.ts --date=YYYY-MM-DD   # HTML review report
 npx tsx scripts/import-video-blog.ts --batch [--dry-run]            # Video blog import (batch)
 npx tsx scripts/import-video-blog.ts --dir=/path [--video-url=URL]  # Video blog import (single)
 npx tsx scripts/validate-pipeline.ts --date=YYYY-MM-DD --step=all  # Validation gate
+npx tsx scripts/write-topic-blog.ts --topic="Topic"          # Manual deep-dive blog (Gemini + Narrative)
+npx tsx scripts/write-topic-blog.ts --topic="Topic" --skip-research  # Skip Gemini
+npx tsx scripts/write-topic-blog.ts --topic="Topic" --dry-run        # Preview
 
 ## Backpressure (Quality Gates)
 Before ANY commit, ALL of these must pass:
