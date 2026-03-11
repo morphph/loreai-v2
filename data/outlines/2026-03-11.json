@@ -1,0 +1,228 @@
+{
+  "date": "2026-03-11",
+  "headline_hook": "OpenAI Goes to War, Qwen3.5 Drops a 4B Benchmark Bomb, and LeCun Bets a Billion on World Models",
+  "preview_topics": [
+    "OpenAI's classified-network deployment",
+    "Qwen3.5's small-model siege on GPT-4o",
+    "the Figma MCP design-to-code loop"
+  ],
+  "pick_of_the_day": {
+    "item_id": 4756,
+    "thesis": "LeCun's $1B raise isn't just a funding round — it's the loudest signal yet that even insiders believe the pure language-model scaling paradigm has a ceiling, and the race to world models is now a funded thesis, not a contrarian blog post."
+  },
+  "model_literacy": {
+    "concept": "Parameter Efficiency and Knowledge Distillation",
+    "relevance": "Qwen3.5-4B beating GPT-4o on classic benchmarks shows that smaller models trained with better data curation and distillation techniques can match or exceed last year's frontier — the cost curve for 'good enough' AI is collapsing faster than most product roadmaps assume."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 4904,
+          "title": "Qwen3.5 Lands With a 27B Multimodal Flagship and 835K Day-One Downloads",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The open-weight multimodal race just got a serious new contender — and it's trending harder on HuggingFace than anything this quarter",
+          "key_fact": "638 likes and 835K downloads on HuggingFace within days of release"
+        },
+        {
+          "id": 3975,
+          "title": "GPT 5.4 Extra High Tops LiveBench by a Wide Margin",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Independent verification confirms the benchmark lead isn't just hype — GPT 5.4 is the real deal on LiveBench",
+          "key_fact": "Independently verified as not benchmark-maxxed"
+        },
+        {
+          "id": 4465,
+          "title": "Claude Hits #1 in the App Store",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Anthropic's consumer breakout is official — #1 in the App Store signals a new phase beyond enterprise and developer",
+          "key_fact": "#1 overall in the App Store"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 4724,
+          "title": "OpenAI Will Deploy Models on the Pentagon's Classified Network",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Sam Altman draws explicit red lines on mass surveillance and autonomous weapons — but the door to military AI is now wide open",
+          "key_fact": "Agreement to deploy on DoW classified networks with stated safety red lines"
+        },
+        {
+          "id": 3422,
+          "title": "OpenAI and Google Employees Back Anthropic's Pentagon Lawsuit",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Nearly 40 employees including Jeff Dean filed an amicus brief — rare cross-company solidarity that reframes the AI governance debate",
+          "key_fact": "~40 employees from OpenAI and Google, including Jeff Dean, filed the brief"
+        },
+        {
+          "id": 4756,
+          "title": "LeCun's AMI Raises $1B to Bet Against the LLM Paradigm",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "A billion-dollar wager that world models grounded in physical reality — not more text — are the path to human-level AI",
+          "key_fact": "$1.03 billion raised"
+        },
+        {
+          "id": 4202,
+          "title": "Meta Acquires Moltbook, a Social Network for AI Agents",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Agent-to-agent communication just became a real product category inside Meta Superintelligence Labs",
+          "key_fact": "Team folded into Meta Superintelligence Labs"
+        },
+        {
+          "id": 4458,
+          "title": "Anthropic Crosses 1 Million Daily Signups",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Consumer momentum is accelerating alongside the developer platform — Anthropic is playing both games now",
+          "key_fact": "1M+ daily signups"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 4836,
+          "title": "Figma MCP Server Closes the Design-to-Code Loop",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Full roundtrip is here: pull design context into code, push rendered UI back as editable Figma frames — the handoff gap just collapsed",
+          "key_fact": "Bidirectional: design → code AND code → editable Figma frames"
+        },
+        {
+          "id": 4860,
+          "title": "Kali Linux Ships a Fully Local AI Pentesting Stack via MCP",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Ollama + MCP gives LLMs access to security tools with zero cloud dependency — the most practical MCP use case outside coding so far",
+          "key_fact": "Fully local via Ollama, no cloud APIs needed"
+        },
+        {
+          "id": 4826,
+          "title": "Claude Opus 4.6 Now Generates Designs Directly Inside Figma",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "divRIOTS flips the html-to-design direction — prompt-to-design generation natively in Figma",
+          "key_fact": "Ships as a Figma plugin powered by Claude Opus 4.6"
+        },
+        {
+          "id": 4044,
+          "title": "HuggingFace Ships Community Evals and Dataset Chat Agents",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The Hub is becoming a full data development environment — community benchmarks, chat-with-data, and spreadsheet-style Data Studio",
+          "key_fact": "Community-contributed evals, dataset chat, and Data Studio section selector"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 3862,
+          "title": "Qwen3.5-4B Outscores GPT-4o on Classic Benchmarks",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A 4-billion parameter model beating last year's frontier — the small-model efficiency curve keeps steepening and it matters for every deployment decision",
+          "key_fact": "4B params outperforming GPT-4o on established benchmarks"
+        },
+        {
+          "id": 4753,
+          "title": "LeCun Argues Human-Level AI Requires Mastering the Physical World",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "WIRED profiles the thesis behind the $1B bet — language models are a dead end for AGI, world models are the path",
+          "key_fact": "Companion piece to the AMI $1B raise, now with detailed technical argument"
+        },
+        {
+          "id": 4924,
+          "title": "Open Weights Isn't Open Training — and It Matters",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Releasing weights without training code, data, and methodology undermines the reproducibility that open science promises",
+          "key_fact": "Argues current 'open' releases fail the reproducibility standard"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 4134,
+          "title": "The Unbounded Agent Skills Problem: How to Give One Agent Unlimited Tools",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The key architecture question for production agents — and the reply thread is a goldmine of real patterns from builders",
+          "key_fact": "87 likes; thread surfaced tool-routing, lazy-loading, and registry patterns"
+        },
+        {
+          "id": 3877,
+          "title": "ChatGPT vs Claude in Excel: A 1,000-Year Stress Test",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Mollick tested both on 100+ tabs of historical macro data — both worked, but with telling differences in approach",
+          "key_fact": "ChatGPT stayed in-app; Claude favored external analysis on the same dataset"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 4136,
+          "title": "SOTA Video Generation Running Locally on a MacBook via MLX",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "LTX 2.3 on a custom MLX runtime with ComfyUI adapter incoming — local video gen just crossed the usability threshold",
+          "key_fact": "Built with GPT 5.4, open-source release with ComfyUI adapter planned"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 4593,
+      "title": "One-Liner UV Scripts for HuggingFace Dataset Format Conversion",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "COCO ↔ YOLO ↔ Hub in a single command",
+      "key_fact": "Converts between all major object detection formats"
+    },
+    {
+      "id": 4592,
+      "title": "Dataset → GPU Embeddings → Interactive Visualization in One Command",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Quick dataset exploration via HF Inference embeddings",
+      "key_fact": "Single-command pipeline from dataset to cluster visualization"
+    },
+    {
+      "id": 4918,
+      "title": "Building a Programming Language Entirely With Claude Code",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A concrete case study of agentic coding at its most ambitious",
+      "key_fact": "Full language implementation via Claude Code"
+    },
+    {
+      "id": 4201,
+      "title": "Grammarly Used Real Authors' Names as AI Personas Without Consent",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Cautionary tale for any AI feature that references real people",
+      "key_fact": "Opt-out only, names used without permission"
+    }
+  ],
+  "total_items": 22
+}
