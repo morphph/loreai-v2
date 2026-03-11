@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "We just added /btw to Claude Code! Use it to have side chain conversations while Claude is working.",
+    "url": "https://x.com/trq212/status/2031506296697131352",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 24237,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 24.271099999999997,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code and claude.ai experiencing elevated login errors and slower performance",
+    "url": "https://x.com/trq212/status/2031772228099203487",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 1541,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.4623,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude for Excel and Claude for PowerPoint now sync together seamlessly",
+    "url": "https://x.com/claudeai/status/2031790754637717772",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 441,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.1323,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "HuggingFace Text Embeddings Inference v1.9 adds NVIDIA Blackwell support",
+    "url": "https://x.com/huggingface/status/2031404809706942812",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 28,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.0084,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Gemini Embedding 2 — Google's first fully multimodal embedding model",
+    "url": "https://x.com/GoogleDeepMind/status/2031484894300266939",
+    "source": "twitter:@GoogleDeepMind",
+    "x_engagement_24h": 2614,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 16.7842,
+    "suggested_angle": "news"
+  }
+]
