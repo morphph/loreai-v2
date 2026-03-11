@@ -53,6 +53,17 @@ Real bugs that have occurred in production. Claude MUST avoid all of them when g
 - **Bad:** Making up "50% faster inference" when the source doesn't say that
 - **Good:** Linking directly and letting the reader click through
 
+## 9. ZH Title Written in English (中文标题写成英文)
+- Claude sometimes copies English news item titles as ZH headlines
+- Root cause: input items are English, and skill/inline prompt had contradictory instructions
+- Fix: skill now has explicit anti-patterns + output checklist; inline prompt aligned with skill
+- Script fallback: uses first ### heading (always Chinese in ZH body) instead of English topStory
+
+## 10. Inconsistent Preview Line (今天聊 vs 今日看点)
+- Skill says "今天聊：" but inline prompt said "今日看点：" — now unified to "今天聊："
+- extractDescription matches both for backward compatibility
+- Validation checks for presence of preview line in both EN and ZH
+
 ---
 
 ## Blog Pipeline

@@ -18,6 +18,14 @@ describe('validateNewsletter', () => {
   const validNewsletter = `
 # AI Moves Fast: Today's Briefing
 
+**March 11, 2026**
+
+Welcome back. Big day in AI.
+
+Today: GPT-5, Claude 4.5, and Gemini 2.5.
+
+---
+
 ## Model Releases
 
 **OpenAI launches GPT-5** — faster, cheaper.
@@ -135,6 +143,14 @@ describe('validateBlogPost', () => {
 describe('validateZhNewsletter', () => {
   const validZh = `
 # AI快报：今日要闻
+
+**2026 年 3 月 11 日**
+
+AI 行业今天动作频频。
+
+今天聊：GPT-5、Claude 4.5、Gemini 2.5。
+
+---
 
 ## 模型发布
 
@@ -668,5 +684,183 @@ Top.
     const result = validateNewsletterQuality({ md, lang: 'en' });
     expect(result.valid).toBe(false);
     expect(result.errors.some((e) => e.includes('H1 title too short'))).toBe(true);
+  });
+});
+
+// ── Preview Line & Title Validation ─────────────────────────────────────
+
+describe('Newsletter preview line validation', () => {
+  it('EN: fails when missing "Today:" preview line', () => {
+    const md = `# Big News Day for AI Developers Everywhere
+
+## S1
+
+**A** x\n**B** x\n**C** x
+
+## S2
+
+Content.
+
+## 🎓 MODEL LITERACY
+
+Concept.
+
+## 🎯 PICK OF THE DAY
+
+Top.
+`;
+    const result = validateNewsletter(md);
+    expect(result.valid).toBe(false);
+    expect(result.errors).toContain('Missing "Today:" preview line');
+  });
+
+  it('ZH: fails when missing "今天聊:" preview line', () => {
+    const md = `# Claude 上线代码审查，开发者效率飙升
+
+## 模型发布
+
+**Claude** 发布新功能。
+
+**OpenAI** 跟进。
+
+**Google** 更新。
+
+## 行业动态
+
+**微软** 深度集成。
+
+## 🎓 模型小课堂
+
+解释概念。
+
+## 🎯 今日精选
+
+今日精选内容。
+`;
+    const result = validateZhNewsletter(md);
+    expect(result.valid).toBe(false);
+    expect(result.errors).toContain('Missing preview line (今天聊:)');
+  });
+
+  it('ZH: passes with "今天聊:" preview line', () => {
+    const md = `# Claude 上线代码审查，开发者效率飙升
+
+**2026 年 3 月 11 日**
+
+今天聊：Claude 代码审查、OpenAI 新模型、Google 更新。
+
+---
+
+## 模型发布
+
+**Claude** 发布新功能。
+
+**OpenAI** 跟进。
+
+**Google** 更新。
+
+## 行业动态
+
+**微软** 深度集成。
+
+## 🎓 模型小课堂
+
+解释概念。
+
+## 🎯 今日精选
+
+今日精选内容。
+`;
+    const result = validateZhNewsletter(md);
+    expect(result.errors).not.toContain('Missing preview line (今天聊:)');
+  });
+
+  it('ZH: passes with "今日看点:" for backward compatibility', () => {
+    const md = `# Claude 上线代码审查，开发者效率飙升
+
+**2026 年 3 月 11 日**
+
+今日看点：Claude 代码审查、OpenAI 新模型。
+
+---
+
+## 模型发布
+
+**Claude** 发布新功能。
+
+**OpenAI** 跟进。
+
+**Google** 更新。
+
+## 行业动态
+
+**微软** 深度集成。
+
+## 🎓 模型小课堂
+
+解释概念。
+
+## 🎯 今日精选
+
+今日精选内容。
+`;
+    const result = validateZhNewsletter(md);
+    expect(result.errors).not.toContain('Missing preview line (今天聊:)');
+  });
+
+  it('ZH: fails when title has no CJK characters', () => {
+    const md = `# Introducing Code Review for Claude Code
+
+今天聊：代码审查、新模型。
+
+## 模型发布
+
+**Claude** 发布新功能。
+
+**OpenAI** 跟进。
+
+**Google** 更新。
+
+## 行业动态
+
+**微软** 深度集成。
+
+## 🎓 模型小课堂
+
+解释概念。
+
+## 🎯 今日精选
+
+今日精选内容。
+`;
+    const result = validateZhNewsletter(md);
+    expect(result.valid).toBe(false);
+    expect(result.errors).toContain('ZH title has no Chinese characters — must be in Chinese');
+  });
+
+  it('EN: fails when title starts with "Introducing"', () => {
+    const md = `# Introducing Code Review
+
+Today: Code review, new models, and more.
+
+## S1
+
+**A** x\n**B** x\n**C** x
+
+## S2
+
+Content.
+
+## 🎓 MODEL LITERACY
+
+Concept.
+
+## 🎯 PICK OF THE DAY
+
+Top.
+`;
+    const result = validateNewsletter(md);
+    expect(result.valid).toBe(false);
+    expect(result.errors).toContain('Title starts with "Introducing" — use an editorial hook instead');
   });
 });

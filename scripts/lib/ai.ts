@@ -177,6 +177,10 @@ export async function callZhNewsletterWithFallback(
   const response = await callClaude(systemPrompt, userPrompt, {
     model: 'claude-sonnet-4-20250514',
   });
+  if (validate) {
+    const { valid, errors } = validate(response.content);
+    if (!valid) console.warn('ZH newsletter: Sonnet output warnings:', errors);
+  }
   console.log('ZH newsletter: Claude Sonnet succeeded (fallback)');
   return response;
 }

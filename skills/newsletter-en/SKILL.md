@@ -32,6 +32,8 @@ CRITICAL: Your FIRST line of output MUST be `# ` followed by a compelling, uniqu
 - ❌ "Introducing Aardvark" (never just a product name)
 - ❌ "Claude Sonnet 4.6" (never a bare model name)
 - ❌ "AI Newsletter — March 9, 2026" (never a date label)
+- ❌ "Introducing Code Review, a new feature for Claude Code" — never copy the source's product announcement text
+- RULE: Transform product announcements into editorial headlines. "Introducing X" → "X Changes How Y Works"
 
 ## Structure Template
 
@@ -163,6 +165,18 @@ The title should be a headline, not a label:
 Keep it short and consistent:
 - "Until next time ✌️"
 - No lengthy disclaimers or subscription CTAs
+
+---
+
+## Output Checklist (missing any item = rejected)
+
+1. Line 1: `# ` + compelling headline (6+ words, verb required, NOT "Introducing X")
+2. `**{Date}**`
+3. 1-2 sentence intro paragraph (set the scene, name the biggest story)
+4. `Today: X, Y, and Z.` preview line (required for frontend display)
+5. `---` separator before first section
+6. Include 🎓 MODEL LITERACY and 🎯 PICK OF THE DAY
+7. End with `Until next time ✌️`
 
 ---
 

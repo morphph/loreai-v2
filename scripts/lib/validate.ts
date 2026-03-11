@@ -15,6 +15,7 @@ export function validateNewsletter(md: string): ValidationResult {
   if (!md.match(/## 🎓 MODEL LITERACY/)) errors.push('Missing MODEL LITERACY section');
   if (!md.match(/## 🎯 PICK OF THE DAY/)) errors.push('Missing PICK OF THE DAY section');
   if (md.match(NEWSLETTER_FORBIDDEN)) errors.push('Forbidden phrase detected');
+  if (!md.match(/Today:\s/i)) errors.push('Missing "Today:" preview line');
 
   // Title quality: reject "Introducing X" and bare product-name titles
   const titleMatch = md.match(/^# (.+)/m);
@@ -64,6 +65,7 @@ export function validateZhNewsletter(md: string): ValidationResult {
   if (!md.match(/## 🎓 模型小课堂/)) errors.push('Missing MODEL LITERACY (ZH)');
   if (!md.match(/## 🎯 今日精选/)) errors.push('Missing PICK OF THE DAY (ZH)');
   if (md.match(ZH_NEWSLETTER_FORBIDDEN)) errors.push('Forbidden phrase detected (ZH)');
+  if (!md.match(/(?:今天聊|今日看点)[：:]/)) errors.push('Missing preview line (今天聊:)');
 
   // ZH title must contain CJK characters — reject English-only titles
   const titleMatch = md.match(/^# (.+)/m);
