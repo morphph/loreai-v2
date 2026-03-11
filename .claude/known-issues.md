@@ -70,6 +70,13 @@ Real bugs that have occurred in production. Claude MUST avoid all of them when g
 - extractDescription matches both for backward compatibility
 - Validation checks for presence of preview line in both EN and ZH
 
+## 12. Rerun Consumes Items (重跑消耗条目池)
+- `markItemsAsSelected()` 在 pipeline 结束时把选中的条目标记为"已使用"，后续查询会排除它们
+- 如果重跑当天的 newsletter，上一次选中的高质量条目已经被标记，不会再出现在候选池里
+- 每多跑一次就消耗一批好新闻，导致后续输出质量递减
+- **重跑前应先清除当天的 selected 标记**：`UPDATE news_items SET selected_for_newsletter_at = NULL WHERE selected_for_newsletter_at >= '{DATE} 00:00:00'`
+- 或者在 `write-newsletter.ts` 加 `--rerun` flag 自动清除当天标记再跑
+
 ---
 
 ## Blog Pipeline
