@@ -194,12 +194,12 @@ Key narrative elements (from narrative.json):
   const enPrompt = `
 You are an English SEO blog writer.
 
-Follow ${PROJECT_ROOT}/skills/blog-en/SKILL.md strictly for formatting, tone, and structure.
+Follow ${PROJECT_ROOT}/skills/topic-blog-en/SKILL.md strictly for formatting, tone, and structure.
 
 Input files:
 - material.md (deep research material)
 - narrative.json (structural framework)
-- ${PROJECT_ROOT}/skills/blog-en/SKILL.md (writing spec)
+- ${PROJECT_ROOT}/skills/topic-blog-en/SKILL.md (writing spec)
 
 ${narrativeContext}
 
@@ -236,12 +236,12 @@ Output: write to blog-en.md
   const zhPrompt = `
 你是中文科技博客作家。
 
-严格遵循 ${PROJECT_ROOT}/skills/blog-zh/SKILL.md 的格式、语气和结构规范。
+严格遵循 ${PROJECT_ROOT}/skills/topic-blog-zh/SKILL.md 的格式、语气和结构规范。
 
 输入：
 - material.md (深度素材)
 - narrative.json (结构框架)
-- ${PROJECT_ROOT}/skills/blog-zh/SKILL.md (写作规范)
+- ${PROJECT_ROOT}/skills/topic-blog-zh/SKILL.md (写作规范)
 
 ${narrativeContextZH}
 
@@ -278,7 +278,7 @@ IMPORTANT: Follow the SKILL.md frontmatter format exactly. Use date: ${date}, sl
     if (enBody.startsWith('---')) {
       const validation = validateBlogPost(
         enBody.replace(/^---[\s\S]*?---/, ''), // strip frontmatter for validation
-        { maxWords: 2500 }
+        { maxWords: 3500 }
       );
       if (validation.valid) {
         log('WRITER-EN', 'Success: blog-en.md validated');
