@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Claude can now build interactive charts and diagrams, directly in the chat.  Available today in beta on all plans, including free.  Try it out: https://t.co/tHPAZRgQkn https://t.co/WXRrD4VkAt",
+    "url": "https://x.com/claudeai/status/2032124273587077133",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 13350,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 37.004999999999995,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "📣 Technical lessons from building computer access for agents  Making long-running workflows practical required tightening the execution loop, providing rich context via file systems, and enabling network access with security guardrails.",
+    "url": "https://x.com/OpenAIDevs/status/2031798071345234193",
+    "source": "twitter:@OpenAIDevs",
+    "x_engagement_24h": 653,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.1959,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Shipping today: Small but meaningful updates to Claude in Excel & PowerPoint!  PowerPoint & Excel can share context and gain support for Skills.",
+    "url": "https://x.com/felixrieseberg/status/2031823821561610532",
+    "source": "twitter:@felixrieseberg",
+    "x_engagement_24h": 481,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.1443,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Your videos can go further now.  We're introducing new Video API capabilities, powered by Sora 2: • Custom characters and objects • 16:9 and 9:16 exports • Clips up to 20 seconds • Video continuation",
+    "url": "https://x.com/OpenAIDevs/status/2032142448970121468",
+    "source": "twitter:@OpenAIDevs",
+    "x_engagement_24h": 337,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.101100000000002,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "We're announcing Canopy Height Maps v2 (CHMv2), an open source model for high-resolution global forest canopy mapping, developed in partnership with @WorldResources.",
+    "url": "https://x.com/AIatMeta/status/2032135993436909874",
+    "source": "twitter:@AIatMeta",
+    "x_engagement_24h": 163,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.0489,
+    "suggested_angle": "news"
+  }
+]
