@@ -87,3 +87,4 @@ Key rules: no stale news (>48h), no cross-day repeats, no attribution guessing, 
 - SEO 生成时 Claude 偶尔开启 tools → generate-seo.ts 已 disable tools
 - Blog seed 日期解析在本地和 VPS 时区不同时会偏移
 - 不要在 pipeline 脚本里直接 import Next.js 模块（server-only）
+- Gemini Deep Research 需要 `google-genai>=1.55.0`（Interactions API），低版本无此 API

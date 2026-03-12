@@ -16,6 +16,19 @@ import sys
 from datetime import datetime
 from pathlib import Path
 from google import genai
+from packaging.version import Version
+
+# SDK version check — Interactions API requires >= 1.55.0
+_min_version = "1.55.0"
+_sdk_version = getattr(genai, "__version__", "0.0.0")
+if Version(_sdk_version) < Version(_min_version):
+    print(
+        f"google-genai {_sdk_version} is too old. "
+        f"Interactions API requires >= {_min_version}.\n"
+        f"Upgrade: pip3 install --upgrade 'google-genai>={_min_version}'",
+        file=sys.stderr,
+    )
+    sys.exit(1)
 
 # Load API key
 api_key = os.environ.get('GEMINI_API_KEY')
