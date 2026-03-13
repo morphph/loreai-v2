@@ -31,7 +31,7 @@ export async function GET() {
     ...weeklyNewsletters.map((item) => ({
       title: item.meta.title,
       description: item.meta.description || '',
-      url: `${SITE_URL}/newsletter/weekly/${item.meta.slug}`,
+      url: `${SITE_URL}/newsletter/${item.meta.slug}`,
       date: item.meta.date,
       category: 'Weekly Digest',
     })),

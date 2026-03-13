@@ -41,7 +41,7 @@ export const metadata: Metadata = {
   },
   alternates: {
     types: {
-      'application/rss+xml': '/rss.xml',
+      'application/rss+xml': '/feed.xml',
     },
   },
 };
@@ -141,10 +141,7 @@ export default function RootLayout({
           <div className="mx-auto max-w-3xl px-6 py-10">
             <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
               <div className="flex items-center gap-5 text-sm text-muted">
-                <Link href="/about" className="transition-colors hover:text-foreground">
-                  About
-                </Link>
-                <Link href="/rss.xml" className="transition-colors hover:text-foreground">
+                <Link href="/feed.xml" className="transition-colors hover:text-foreground">
                   RSS
                 </Link>
                 <a

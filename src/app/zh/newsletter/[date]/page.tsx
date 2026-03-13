@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllNewsletters, getNewsletter, getWeeklyNewsletters, getWeeklyNewsletter, markdownToHtml } from '@/lib/content';
+import { newsletterMetadata } from '@/lib/metadata';
+import { articleJsonLd, jsonLdScript } from '@/lib/seo';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 interface PageProps {
@@ -23,11 +25,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!newsletter) {
     return { title: '日报未找到 | LoreAI' };
   }
-  const isWeekly = newsletter.meta.type === 'weekly';
-  return {
-    title: `${newsletter.meta.title} | LoreAI ${isWeekly ? '周刊' : '日报'}`,
-    description: newsletter.meta.description || `${date} AI 日报`,
-  };
+  return newsletterMetadata(
+    newsletter.meta.title,
+    (newsletter.meta.description as string) || `${date} AI 日报`,
+    date,
+    'zh'
+  );
 }
 
 export default async function ZhNewsletterPage({ params }: PageProps) {
@@ -47,7 +50,21 @@ export default async function ZhNewsletterPage({ params }: PageProps) {
   const olderNewsletter =
     currentIndex < allNewsletters.length - 1 ? allNewsletters[currentIndex + 1] : null;
 
+  const pageUrl = `https://loreai.dev/zh/newsletter/${date}`;
+  const jsonLd = articleJsonLd(
+    newsletter.meta.title,
+    newsletter.meta.date,
+    (newsletter.meta.description as string) || '',
+    pageUrl,
+    'NewsArticle'
+  );
+
   return (
+    <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }}
+    />
     <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
       {/* Back to archive */}
       <nav className="mb-8 flex items-center justify-between">
@@ -139,5 +156,6 @@ export default async function ZhNewsletterPage({ params }: PageProps) {
 
       <NewsletterSignup />
     </main>
+    </>
   );
 }

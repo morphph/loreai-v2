@@ -72,6 +72,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // ZH static index pages
     {
+      url: `${SITE_URL}/zh`,
+      lastModified: now,
+      changeFrequency: 'daily',
+      priority: 0.9,
+    },
+    {
       url: `${SITE_URL}/zh/newsletter`,
       lastModified: now,
       changeFrequency: 'daily',
@@ -82,6 +88,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: 'weekly',
       priority: 0.7,
+    },
+    {
+      url: `${SITE_URL}/zh/glossary`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.6,
+    },
+    {
+      url: `${SITE_URL}/zh/faq`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.6,
+    },
+    {
+      url: `${SITE_URL}/zh/compare`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.6,
+    },
+    {
+      url: `${SITE_URL}/zh/topics`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.6,
+    },
+    {
+      url: `${SITE_URL}/zh/subscribe`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.5,
     },
   ];
 

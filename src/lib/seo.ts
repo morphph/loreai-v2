@@ -14,15 +14,7 @@ export function websiteJsonLd() {
       '@type': 'Organization',
       name: SITE_NAME,
       url: SITE_URL,
-      logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_URL}/logo.png`,
-      },
-    },
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${SITE_URL}/search?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
+      // TODO: add public/logo.png and uncomment: logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png` }
     },
   };
 }
@@ -32,11 +24,12 @@ export function articleJsonLd(
   title: string,
   date: string,
   description: string,
-  url: string
+  url: string,
+  type: 'Article' | 'NewsArticle' = 'NewsArticle'
 ) {
   return {
     '@context': 'https://schema.org',
-    '@type': 'NewsArticle',
+    '@type': type,
     headline: title,
     description,
     url,
@@ -51,10 +44,7 @@ export function articleJsonLd(
       '@type': 'Organization',
       name: SITE_NAME,
       url: SITE_URL,
-      logo: {
-        '@type': 'ImageObject',
-        url: `${SITE_URL}/logo.png`,
-      },
+      // TODO: add public/logo.png and uncomment: logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png` }
     },
     mainEntityOfPage: {
       '@type': 'WebPage',

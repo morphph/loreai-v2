@@ -16,10 +16,20 @@ describe('websiteJsonLd', () => {
     expect(ld.name).toBe('LoreAI');
     expect(ld.url).toBe('https://loreai.dev');
   });
+
+  it('does not include SearchAction (no /search route)', () => {
+    const ld = websiteJsonLd();
+    expect(ld).not.toHaveProperty('potentialAction');
+  });
+
+  it('does not include logo (no logo.png in public)', () => {
+    const ld = websiteJsonLd();
+    expect(ld.publisher).not.toHaveProperty('logo');
+  });
 });
 
 describe('articleJsonLd', () => {
-  it('includes all required fields', () => {
+  it('defaults to NewsArticle type', () => {
     const ld = articleJsonLd(
       'Test Article',
       '2026-01-15',
@@ -32,6 +42,27 @@ describe('articleJsonLd', () => {
     expect(ld.datePublished).toBe('2026-01-15');
     expect(ld.description).toBe('A test description');
     expect(ld.url).toBe('https://loreai.dev/blog/test');
+  });
+
+  it('uses Article type when specified', () => {
+    const ld = articleJsonLd(
+      'Blog Post',
+      '2026-02-01',
+      'A blog post',
+      'https://loreai.dev/blog/post',
+      'Article'
+    );
+    expect(ld['@type']).toBe('Article');
+  });
+
+  it('does not include logo in publisher', () => {
+    const ld = articleJsonLd(
+      'Test',
+      '2026-01-15',
+      'desc',
+      'https://loreai.dev/blog/test'
+    );
+    expect(ld.publisher).not.toHaveProperty('logo');
   });
 });
 

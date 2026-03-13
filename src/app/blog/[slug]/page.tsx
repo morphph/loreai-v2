@@ -62,7 +62,8 @@ export default async function BlogPostPage({ params }: PageProps) {
     post.meta.title,
     post.meta.date,
     (post.meta.description as string) || '',
-    pageUrl
+    pageUrl,
+    'Article'
   );
 
   const videoUrl = post.meta.video_url as string | undefined;
