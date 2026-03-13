@@ -4,6 +4,7 @@ import Script from 'next/script';
 import Link from 'next/link';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import FloatingBanner from '@/components/FloatingBanner';
+import MermaidRenderer from '@/components/MermaidRenderer';
 import './globals.css';
 
 const geistSans = Geist({
@@ -169,6 +170,8 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        {/* Mermaid diagram renderer */}
+        <MermaidRenderer />
         {/* Floating signup banner */}
         <FloatingBanner />
       </body>

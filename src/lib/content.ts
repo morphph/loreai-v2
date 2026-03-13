@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
+import remarkGfm from 'remark-gfm';
 import html from 'remark-html';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
@@ -128,6 +129,6 @@ export function getWeeklyNewsletter(slug: string, lang: string = 'en'): ContentI
 }
 
 export async function markdownToHtml(md: string): Promise<string> {
-  const result = await remark().use(html, { sanitize: false }).process(md);
+  const result = await remark().use(remarkGfm).use(html, { sanitize: false }).process(md);
   return result.toString();
 }

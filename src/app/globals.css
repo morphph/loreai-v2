@@ -112,6 +112,48 @@ body {
   margin-bottom: 1rem;
 }
 
+/* Table styles */
+.prose .table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  font-size: 0.875em;
+}
+
+.prose th {
+  font-weight: 600;
+  background: var(--surface);
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.prose td {
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--border);
+}
+
+.prose tr:nth-child(even) {
+  background: var(--surface);
+}
+
+/* Mermaid diagram styles */
+.prose .mermaid {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.prose pre:has(code.language-mermaid) {
+  background: none;
+  padding: 0;
+  border: none;
+}
+
 /* Focus styles */
 input:focus-visible,
 button:focus-visible {
