@@ -7,7 +7,8 @@ keywords: ["Claude Code voice mode", "voice coding", "Claude Code features", "ha
 category: DEV
 related_newsletter: 2026-03-07
 related_glossary: [claude-code, cli]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: en
 video_ready: true
 video_hook: "You can now talk to Claude Code instead of typing — and it actually works"
