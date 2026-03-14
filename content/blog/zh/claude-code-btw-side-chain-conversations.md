@@ -7,7 +7,8 @@ keywords: ["Claude Code /btw", "side chain conversation", "Claude Code 新功能
 category: DEV
 related_newsletter: 2026-03-12
 related_glossary: [claude-code]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: zh
 video_ready: true
 video_hook: "Claude Code 终于解决了 AI 干活时你只能干等的问题"

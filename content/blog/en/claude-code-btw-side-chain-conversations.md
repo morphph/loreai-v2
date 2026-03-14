@@ -7,7 +7,8 @@ keywords: ["Claude Code /btw", "side chain conversations", "Claude Code commands
 category: DEV
 related_newsletter: 2026-03-12
 related_glossary: [claude-code, agentic-coding]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: en
 video_ready: true
 video_hook: "You no longer have to wait for Claude Code to finish before asking it something else"
