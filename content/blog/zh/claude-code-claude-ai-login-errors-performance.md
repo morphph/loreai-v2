@@ -7,7 +7,8 @@ keywords: ["Claude Code 故障", "claude.ai 登录错误", "Claude Code 性能",
 category: DEV
 related_newsletter: 2026-03-12
 related_glossary: [claude-code, anthropic]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: zh
 video_ready: true
 video_hook: "Claude Code 挂了？别慌，先看这篇"

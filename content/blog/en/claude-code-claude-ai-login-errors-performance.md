@@ -7,7 +7,8 @@ keywords: ["Claude Code outage", "claude.ai login errors", "Claude performance i
 category: APP
 related_newsletter: 2026-03-12
 related_glossary: [claude-code]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: en
 video_ready: true
 video_hook: "Claude is down — again. Here's what's really going on behind the outages"
