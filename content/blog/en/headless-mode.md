@@ -7,7 +7,8 @@ keywords: ["Claude Code headless mode", "Agent SDK CLI", "claude -p", "programma
 category: DEV
 related_newsletter: 2026-03-11
 related_glossary: [claude-code, agent-sdk]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: en
 video_ready: true
 video_hook: "Claude Code isn't just interactive — run it headless for CI/CD, batch ops, and automated workflows"

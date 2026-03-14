@@ -8,6 +8,7 @@ category: DEV
 related_newsletter: 2026-03-11
 related_glossary: [claude-code, ai-agent]
 related_compare: []
+related_topics: [claude-code]
 lang: zh
 video_ready: true
 video_hook: "一个参数，把聊天工具变成自动化引擎"
