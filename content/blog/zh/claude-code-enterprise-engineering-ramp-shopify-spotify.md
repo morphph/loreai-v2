@@ -7,7 +7,8 @@ keywords: ["Claude Code 企业落地", "Claude Code 工程实践", "AI 编程助
 category: DEV
 related_newsletter: 2026-03-11
 related_glossary: [claude-code, ai-coding-assistant]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: zh
 video_ready: true
 video_hook: "6 家顶级公司用 Claude Code 改造工程流程，效果如何？"
