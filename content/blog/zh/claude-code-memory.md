@@ -8,6 +8,7 @@ category: DEV
 related_newsletter: 2026-03-10
 related_glossary: [claude-code, ai-coding-assistant]
 related_compare: []
+related_topics: [claude-code]
 lang: zh
 video_ready: true
 video_hook: "每次新会话都要重复交代项目规范？CLAUDE.md 让你只说一次。"
