@@ -7,7 +7,8 @@ keywords: ["Claude Code Remote", "Claude Code 远程控制", "Claude Code 手机
 category: DEV
 related_newsletter: 2026-03-07
 related_glossary: [claude-code, mcp]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: zh
 video_ready: true
 video_hook: "终端里跑着 Claude Code，你在地铁上用手机批准 PR"

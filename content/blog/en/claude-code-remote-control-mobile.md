@@ -7,7 +7,8 @@ keywords: ["Claude Code Remote", "Claude Code mobile", "remote development", "Cl
 category: DEV
 related_newsletter: 2026-03-07
 related_glossary: [claude-code, mcp-server]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: en
 video_ready: true
 video_hook: "Start a coding task in your terminal, then control it from your phone"
