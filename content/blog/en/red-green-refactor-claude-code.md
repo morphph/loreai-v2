@@ -7,7 +7,8 @@ keywords: ["Red Green Refactor", "TDD AI coding", "Claude Code TDD", "test-drive
 category: TECHNIQUE
 related_newsletter: 2026-03-10
 related_glossary: [claude-code, tdd]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: en
 video_ready: true
 video_hook: "A 20-year-old practice is the secret to getting reliable code from AI agents"
