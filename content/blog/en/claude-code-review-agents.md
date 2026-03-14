@@ -7,7 +7,8 @@ keywords: ["Claude Code review", "AI code review", "Claude Code PR review", "mul
 category: DEV
 related_newsletter: 2026-03-11
 related_glossary: [claude-code, multi-agent-systems]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: en
 video_ready: true
 video_hook: "Anthropic's engineers hit 200% more code output — then reviews became the bottleneck"

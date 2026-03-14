@@ -7,7 +7,8 @@ keywords: ["Claude Code review", "AI 代码审查", "Claude Code agents", "PR re
 category: DEV
 related_newsletter: 2026-03-11
 related_glossary: [claude-code, code-review]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: zh
 video_ready: true
 video_hook: "Anthropic 工程师产出涨了 200%，瓶颈不是写代码，是 Review"
