@@ -7,7 +7,8 @@ keywords: ["Superpowers AI coding", "Claude Code skills", "AI agent workflow", "
 category: DEV
 related_newsletter: 2026-03-10
 related_glossary: [claude-code, prompt-engineering]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: en
 video_ready: true
 video_hook: "67K stars for a repo with almost no code — just markdown files that make AI agents stop and think"
