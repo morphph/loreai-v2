@@ -378,6 +378,40 @@ function checkSeo(): CheckResult {
     }
   }
 
+  // --- SEO Health Checks (warnings only) ---
+  const db = getDb();
+
+  // Check 1: orphaned keywords (cluster_slug = NULL)
+  const orphanRow = db.prepare(`
+    SELECT COUNT(*) as cnt FROM keywords
+    WHERE cluster_slug IS NULL
+      AND (source LIKE 'blog-faq:%' OR source LIKE 'blog-compare:%')
+  `).get() as { cnt: number };
+  if (orphanRow.cnt > 0) {
+    warnings.push(`⚠️ SEO HEALTH: ${orphanRow.cnt} FAQ/Compare keywords have cluster_slug = NULL — they are invisible to generate-seo.ts`);
+  }
+
+  // Check 2: starvation detection — many pending keywords but 0 pages generated in 7 days
+  for (const ktype of ['faq', 'compare'] as const) {
+    const sourcePattern = ktype === 'faq' ? 'blog-faq:%' : 'blog-compare:%';
+    const pendingRow = db.prepare(`
+      SELECT COUNT(*) as cnt FROM keywords
+      WHERE source LIKE ? AND content_exists = 0
+    `).get(sourcePattern) as { cnt: number };
+
+    if (pendingRow.cnt > 20) {
+      const recentRow = db.prepare(`
+        SELECT COUNT(*) as cnt FROM content
+        WHERE type = ? AND lang = 'en'
+          AND created_at > datetime('now', '-7 days')
+      `).get(ktype) as { cnt: number };
+
+      if (recentRow.cnt === 0) {
+        warnings.push(`⚠️ SEO HEALTH: ${pendingRow.cnt} ${ktype} keywords pending but 0 ${ktype} pages generated in 7 days — check generate-seo.ts priority logic`);
+      }
+    }
+  }
+
   const summaryParts = Object.entries(counts)
     .filter(([, n]) => n > 0)
     .map(([label, n]) => `${n} ${label}`);

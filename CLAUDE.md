@@ -88,5 +88,6 @@ Key rules: no stale news (>48h), no cross-day repeats, no attribution guessing, 
 - Blog seed 日期解析在本地和 VPS 时区不同时会偏移
 - 不要在 pipeline 脚本里直接 import Next.js 模块（server-only）
 - Gemini Deep Research 需要 `google-genai>=1.55.0`（Interactions API），低版本无此 API
-- `upsertKeyword()` 的第3个参数 `clusterSlug` 不能省略（FAQ/Compare keywords 需要 cluster_slug 才能被 generate-seo.ts 发现）
+- `upsertKeyword()` 必须传三个参数（keyword, source, clusterSlug）— 漏传 clusterSlug 会导致 SEO pipeline 看不到关键词，详见 `.claude/known-issues.md` SEO #1
 - FAQ slug 是从 question 文本生成的 kebab-case（原始 question 文本会丢失），所以 displayTerm 可能不可读 — generate-seo.ts 已处理
+- 改 `generate-seo.ts` 优先级/cap 逻辑后必须 `--dry-run` 确认 4 种页面类型都出现（glossary, faq, compare, topics）
