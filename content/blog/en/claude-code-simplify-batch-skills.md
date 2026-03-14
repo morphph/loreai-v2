@@ -7,7 +7,8 @@ keywords: ["Claude Code skills", "/simplify", "/batch", "Claude Code workflows"]
 category: DEV
 related_newsletter: 2026-03-08
 related_glossary: [claude-code, skill-md]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: en
 video_ready: true
 video_hook: "Two new Claude Code skills that eliminate the tedious parts of shipping code"

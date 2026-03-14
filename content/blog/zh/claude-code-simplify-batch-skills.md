@@ -7,7 +7,8 @@ keywords: ["Claude Code skills", "/simplify", "/batch", "Claude Code 新功能",
 category: DEV
 related_newsletter: 2026-03-08
 related_glossary: [claude-code, skill-md]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: zh
 video_ready: true
 video_hook: "Claude Code 两个新 Skill，让 PR 从提交到合并快一倍"
