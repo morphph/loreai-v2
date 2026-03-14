@@ -7,7 +7,8 @@ keywords: ["Claude Code prompt stashing", "Ctrl+S Claude Code", "Claude Code pro
 category: DEV
 related_newsletter: 2026-03-10
 related_glossary: [claude-code]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: en
 video_ready: true
 video_hook: "Stop waiting for Claude Code to finish — queue your next prompt with Ctrl+S"

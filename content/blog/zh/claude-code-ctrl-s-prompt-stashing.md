@@ -7,7 +7,8 @@ keywords: ["Claude Code 技巧", "Ctrl+S prompt stashing", "Claude Code 工作�
 category: DEV
 related_newsletter: 2026-03-10
 related_glossary: [claude-code, prompt-engineering]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: zh
 video_ready: true
 video_hook: "Claude Code 里按 Ctrl+S 会发生什么？大多数人不知道这个功能"
