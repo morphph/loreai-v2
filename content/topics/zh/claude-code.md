@@ -25,8 +25,8 @@ related_blog:
   - red-green-refactor-claude-code
   - obsidian-claude-code-life
   - superpowers
-related_compare: []
-related_faq: []
+related_compare: [claude-code-vs-cursor]
+related_faq: [how-much-does-claude-code-cost, how-to-install-claude-code]
 lang: zh
 ---
 
@@ -117,11 +117,13 @@ Claude Code 不只是个人玩具。[Ramp、Shopify、Spotify 等公司](/zh/blo
 
 ### 对比
 
-即将推出：Claude Code vs Cursor、Claude Code vs Codex、Claude Code vs GitHub Copilot。
+- [Claude Code vs Cursor：该选哪个 AI 编程工具？](/zh/compare/claude-code-vs-cursor)
+- [如何在 VS Code 中使用 Claude Code](/zh/compare/how-to-use-claude-code-with-vs-code)
 
 ### 常见问题
 
-即将推出。
+- [Claude Code 多少钱？](/zh/faq/how-much-does-claude-code-cost)
+- [如何安装 Claude Code](/faq/how-to-install-claude-code)
 
 ---
 

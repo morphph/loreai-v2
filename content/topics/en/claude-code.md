@@ -25,8 +25,8 @@ related_blog:
   - red-green-refactor-claude-code
   - obsidian-claude-code-life
   - superpowers
-related_compare: []
-related_faq: []
+related_compare: [claude-code-vs-cursor]
+related_faq: [how-much-does-claude-code-cost, how-to-install-claude-code]
 lang: en
 ---
 
@@ -115,11 +115,13 @@ Claude Code isn't just for solo developers. [Ramp, Shopify, Spotify, and other e
 
 ### Comparisons
 
-Coming soon: Claude Code vs Cursor, Claude Code vs Codex, Claude Code vs GitHub Copilot.
+- [Claude Code vs Cursor: Which AI Coding Tool Should You Use?](/compare/claude-code-vs-cursor)
+- [How to Use Claude Code with VS Code](/compare/how-to-use-claude-code-with-vs-code)
 
 ### FAQ
 
-Coming soon.
+- [How Much Does Claude Code Cost?](/faq/how-much-does-claude-code-cost)
+- [How to Install Claude Code](/faq/how-to-install-claude-code)
 
 ---
 
