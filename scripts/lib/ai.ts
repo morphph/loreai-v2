@@ -1,7 +1,7 @@
 import { execSync } from 'child_process';
-import { writeFileSync, unlinkSync } from 'fs';
+import { writeFileSync, unlinkSync, existsSync } from 'fs';
 import { join } from 'path';
-import { tmpdir } from 'os';
+import { tmpdir, homedir } from 'os';
 import { randomBytes } from 'crypto';
 import 'dotenv/config';
 
@@ -19,11 +19,20 @@ function resolveModel(model: string): string {
 // --- Claude CLI ---
 
 // Resolve full path to `claude` binary at startup so cron (minimal PATH) can find it
+
 let CLAUDE_BIN = 'claude';
 try {
   CLAUDE_BIN = execSync('which claude', { encoding: 'utf-8' }).trim();
 } catch {
-  // Fallback: local dev where PATH already includes claude
+  // Cron PATH doesn't include npm-global — check common locations
+  const candidates = [
+    join(homedir(), '.npm-global', 'bin', 'claude'),
+    '/usr/local/bin/claude',
+    join(homedir(), '.local', 'bin', 'claude'),
+  ];
+  for (const p of candidates) {
+    if (existsSync(p)) { CLAUDE_BIN = p; break; }
+  }
 }
 
 export interface AIResponse {
