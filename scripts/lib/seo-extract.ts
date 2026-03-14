@@ -62,6 +62,7 @@ Return ONLY a JSON object with these fields:
 
 Format comparison pairs as lowercase hyphenated slugs: "claude-code-vs-cursor"
 Format glossary terms as lowercase hyphenated slugs: "claude-code", "skill-md"
+Format FAQ questions as natural language questions: "How does Claude Code compare to Cursor?", "Is Claude Code free to use?"
 
 Output ONLY the JSON object. No markdown, no explanation.`;
 
@@ -113,14 +114,9 @@ export function saveSEOEntities(entities: SEOEntities, slug: string, topic?: str
     upsertKeyword(term, `blog:${slug}`, term);
   }
 
-  // Save FAQ questions as keywords (with cluster_slug so generate-seo.ts can find them)
+  // Save FAQ questions as natural language text (generate-seo.ts slugifies downstream)
   for (const question of entities.faq_questions) {
-    const faqSlug = question
-      .toLowerCase()
-      .replace(/[^a-z0-9\s]/g, '')
-      .replace(/\s+/g, '-')
-      .slice(0, 60);
-    upsertKeyword(faqSlug, `blog-faq:${slug}`, clusterSlug);
+    upsertKeyword(question, `blog-faq:${slug}`, clusterSlug);
   }
 
   // Save comparison pairs (with cluster_slug)
