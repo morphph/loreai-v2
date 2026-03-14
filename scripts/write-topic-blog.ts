@@ -387,6 +387,19 @@ IMPORTANT: Follow the SKILL.md frontmatter format exactly. Use date: ${date}, sl
     log('PERSIST', `ZH blog: content/blog/zh/${finalSlug}.md + DB`);
   }
 
+  // ── Step 4b: SEO Entity Extraction ─────────────────────────────────
+
+  log('STEP', '4b - SEO Entity Extraction');
+  try {
+    const { extractSEOEntities, saveSEOEntities } = await import('./lib/seo-extract');
+    const enBody = readFileSync(enDest, 'utf-8').replace(/^---[\s\S]*?---\s*/, '');
+    const seoEntities = await extractSEOEntities(topic, enBody);
+    saveSEOEntities(seoEntities, finalSlug, topic);
+    log('SEO', `Extracted: ${seoEntities.glossary_terms.length} glossary, ${seoEntities.faq_questions.length} FAQ, ${seoEntities.comparison_pairs.length} compare`);
+  } catch (err) {
+    log('SEO', `Entity extraction failed (non-fatal): ${(err as Error).message}`);
+  }
+
   closeDb();
 
   // ── Step 5: Git push ───────────────────────────────────────────────

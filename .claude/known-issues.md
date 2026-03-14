@@ -87,7 +87,22 @@ _(No issues documented yet — will be added as they're discovered)_
 
 ## SEO Pipeline (Glossary / FAQ / Compare / Topics)
 
-_(No issues documented yet — will be added as they're discovered)_
+## 1. FAQ/Compare Keywords Missing cluster_slug (FAQ/Compare 关键词缺少 cluster_slug)
+- `saveSEOEntities()` in write-blog.ts was calling `upsertKeyword()` for FAQ and Compare keywords without a `clusterSlug` argument
+- This left `cluster_slug = NULL` in the keywords table, making them invisible to `generate-seo.ts` (which queries by cluster_slug)
+- Result: 0 FAQ and 0 Compare pages generated despite 100+ keywords in DB
+- **Fix:** `saveSEOEntities()` now calls `findBestClusterSlug()` to resolve a cluster, falling back to the blog slug
+- **Backfill:** Run `npx tsx scripts/backfill-keyword-clusters.ts` to fix existing orphaned keywords
+
+## 2. Glossary Starves FAQ/Compare (Priority Sort 导致 Glossary 独占所有 slots)
+- `generate-seo.ts` sorted by type priority (glossary=0, topics=1, compare=2, faq=3) then sliced to MAX_PAGES_PER_RUN
+- With enough glossary gaps, FAQ and Compare never got any slots
+- **Fix:** Replaced priority sort+slice with round-robin across all 4 types. Increased MAX_PAGES_PER_RUN from 5 to 8.
+
+## 3. Topic-Blog Pipeline Missing SEO Entity Extraction
+- `write-topic-blog.ts` saved keywords from narrative.json (general SEO keywords) but never extracted FAQ questions or comparison pairs
+- This meant 25+ topic blog posts contributed zero FAQ/Compare keywords to the SEO pipeline
+- **Fix:** Added SEO entity extraction step (Step 4b) after persist, using shared `extractSEOEntities()` + `saveSEOEntities()` from `scripts/lib/seo-extract.ts`
 
 ---
 

@@ -60,7 +60,7 @@ import { todaySGT } from './lib/date.js';
 const DATE = dateArg ? dateArg.split('=')[1] : todaySGT();
 const DRY_RUN = process.argv.includes('--dry-run');
 const WEEKLY_STRATEGY = process.argv.includes('--weekly-strategy');
-const MAX_PAGES_PER_RUN = 5;
+const MAX_PAGES_PER_RUN = 8;
 
 console.log(`\n🔎 SEO Pipeline — ${DATE}`);
 console.log('='.repeat(50));
@@ -396,12 +396,20 @@ function stage3_identifyGaps(
   }
   console.log(`    Glossary: ${byType.glossary}, FAQ: ${byType.faq}, Compare: ${byType.compare}, Topics: ${byType.topics}`);
 
-  // Prioritize: glossary first, then topics, then compare, then FAQ
-  const priority: Record<SEOPageType, number> = { glossary: 0, topics: 1, compare: 2, faq: 3 };
-  deduped.sort((a, b) => priority[a.type] - priority[b.type]);
-
-  // Limit to MAX_PAGES_PER_RUN
-  const limited = deduped.slice(0, MAX_PAGES_PER_RUN);
+  // Round-robin across types to prevent any single type from starving others
+  const queues: Record<SEOPageType, PageJob[]> = { glossary: [], faq: [], compare: [], topics: [] };
+  for (const job of deduped) queues[job.type].push(job);
+  const typeOrder: SEOPageType[] = ['glossary', 'faq', 'compare', 'topics'];
+  const limited: PageJob[] = [];
+  let emptyRounds = 0;
+  while (limited.length < MAX_PAGES_PER_RUN && emptyRounds < typeOrder.length) {
+    emptyRounds = 0;
+    for (const type of typeOrder) {
+      if (limited.length >= MAX_PAGES_PER_RUN) break;
+      const next = queues[type].shift();
+      if (next) { limited.push(next); } else { emptyRounds++; }
+    }
+  }
   if (deduped.length > MAX_PAGES_PER_RUN) {
     console.log(`  Limiting to ${MAX_PAGES_PER_RUN} pages per run (${deduped.length - MAX_PAGES_PER_RUN} deferred)`);
   }

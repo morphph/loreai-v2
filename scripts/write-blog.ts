@@ -23,6 +23,7 @@ import { callClaudeWithRetry } from './lib/ai';
 import { sanitizeOutput } from './lib/sanitize.js';
 import { validateBlogPost } from './lib/validate';
 import { getDb, getRecentNewsItems, upsertContent, upsertKeyword, closeDb } from './lib/db';
+import { extractSEOEntities as _extractSEOEntities, saveSEOEntities as _saveSEOEntities, SEOEntities } from './lib/seo-extract';
 
 // Parse args
 const dateArg = process.argv.find((a) => a.startsWith('--date='));
@@ -67,11 +68,7 @@ interface BlogFrontmatter {
   video_url?: string;
 }
 
-interface SEOEntities {
-  glossary_terms: string[];
-  faq_questions: string[];
-  comparison_pairs: string[];
-}
+// SEOEntities imported from ./lib/seo-extract
 
 // ============================================================
 // STAGE 1: Load Blog Seeds
@@ -463,61 +460,9 @@ async function generateZHBlog(
 // STAGE 3e: Extract SEO Entities
 // ============================================================
 
-async function extractSEOEntities(
-  topic: string,
-  blogContent: string
-): Promise<SEOEntities> {
-  console.log('  Extracting SEO entities...');
-
-  const systemPrompt = `You are an SEO analyst. Extract entities from the blog post for an AI news website.
-
-Return ONLY a JSON object with these fields:
-- glossary_terms: string[] — technical terms that deserve their own glossary page (3-5 terms)
-- faq_questions: string[] — questions readers might ask about this topic (2-4 questions)
-- comparison_pairs: string[] — "X vs Y" comparison slugs relevant to this topic (1-3 pairs)
-
-Format comparison pairs as lowercase hyphenated slugs: "claude-code-vs-cursor"
-Format glossary terms as lowercase hyphenated slugs: "claude-code", "skill-md"
-
-Output ONLY the JSON object. No markdown, no explanation.`;
-
-  const userPrompt = `Topic: ${topic}\n\nBlog content:\n${blogContent.slice(0, 2000)}`;
-
-  try {
-    const response = await callClaudeWithRetry(systemPrompt, userPrompt, {
-      maxTokens: 1024,
-      temperature: 0.2,
-      maxRetries: 2,
-      validate: (content) => {
-        try {
-          let json = content;
-          const jsonMatch = content.match(/```(?:json)?\s*([\s\S]*?)```/);
-          if (jsonMatch) json = jsonMatch[1];
-          const parsed = JSON.parse(json.trim());
-          if (!parsed.glossary_terms || !parsed.faq_questions) {
-            return { valid: false, errors: ['Missing required fields'] };
-          }
-          return { valid: true, errors: [] };
-        } catch {
-          return { valid: false, errors: ['Invalid JSON'] };
-        }
-      },
-    });
-
-    let json = response.content;
-    const jsonMatch = json.match(/```(?:json)?\s*([\s\S]*?)```/);
-    if (jsonMatch) json = jsonMatch[1];
-
-    const entities: SEOEntities = JSON.parse(json.trim());
-    console.log(`    Glossary: ${entities.glossary_terms.join(', ')}`);
-    console.log(`    FAQ: ${entities.faq_questions.length} questions`);
-    console.log(`    Comparisons: ${entities.comparison_pairs.join(', ')}`);
-
-    return entities;
-  } catch (err) {
-    console.warn('    SEO extraction failed:', (err as Error).message);
-    return { glossary_terms: [], faq_questions: [], comparison_pairs: [] };
-  }
+// extractSEOEntities — delegated to shared module
+async function extractSEOEntities(topic: string, blogContent: string): Promise<SEOEntities> {
+  return _extractSEOEntities(topic, blogContent);
 }
 
 // ============================================================
@@ -590,26 +535,9 @@ function writeBlogFile(lang: string, slug: string, frontmatter: BlogFrontmatter,
   return filePath;
 }
 
+// saveSEOEntities — delegated to shared module, with blog-seed extras
 function saveSEOEntities(entities: SEOEntities, slug: string, seed?: BlogSeed): void {
-  // Save glossary terms to keywords table
-  for (const term of entities.glossary_terms) {
-    upsertKeyword(term, `blog:${slug}`, term);
-  }
-
-  // Save FAQ questions as keywords
-  for (const question of entities.faq_questions) {
-    const faqSlug = question
-      .toLowerCase()
-      .replace(/[^a-z0-9\s]/g, '')
-      .replace(/\s+/g, '-')
-      .slice(0, 60);
-    upsertKeyword(faqSlug, `blog-faq:${slug}`);
-  }
-
-  // Save comparison pairs
-  for (const pair of entities.comparison_pairs) {
-    upsertKeyword(pair, `blog-compare:${slug}`);
-  }
+  _saveSEOEntities(entities, slug, seed?.topic);
 
   // Save brave_discussions and brave_related_searches from blog seed
   if (seed) {
