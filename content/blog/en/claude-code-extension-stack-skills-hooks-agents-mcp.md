@@ -7,7 +7,8 @@ keywords: ["Claude Code extensions", "MCP Model Context Protocol", "AI coding as
 category: DEV
 related_newsletter: 2026-03-13
 related_glossary: [claude-code, mcp-server]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: en
 video_ready: true
 video_hook: "Claude Code has 4 extension layers — most developers only know one"

@@ -7,7 +7,8 @@ keywords: ["Claude Code 扩展", "MCP 模型上下文协议", "Claude Code hooks
 category: DEV
 related_newsletter: 2026-03-13
 related_glossary: [claude-code, mcp-server]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: zh
 video_ready: true
 video_hook: "Claude Code 有四层扩展机制 — 大多数开发者只用了一层"
