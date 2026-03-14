@@ -7,7 +7,8 @@ keywords: ["Claude Code 多智能体", "AI 编程助手", "智能体团队协作
 category: DEV
 related_newsletter: 2026-03-11
 related_glossary: [claude-code, agentic-coding]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: zh
 video_ready: true
 video_hook: "一个 AI 自己拉了五个 AI 同事，还用 git worktree 防止互相踩脚"
