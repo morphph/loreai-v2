@@ -7,7 +7,8 @@ keywords: ["Obsidian Claude Code", "Claude Code context", "second brain AI", "Ob
 category: TECHNIQUE
 related_newsletter: 2026-03-10
 related_glossary: [claude-code, context-window]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: en
 video_ready: true
 video_hook: "The real power of Claude Code isn't code generation — it's reading your files"
