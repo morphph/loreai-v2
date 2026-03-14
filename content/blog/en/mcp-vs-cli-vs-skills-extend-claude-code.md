@@ -8,6 +8,7 @@ category: DEV
 related_newsletter: 2026-03-12
 related_glossary: [claude-code, mcp]
 related_compare: []
+related_topics: [claude-code]
 lang: en
 video_ready: true
 video_hook: "80% of MCP servers should be a 10-line markdown file"

@@ -7,7 +7,8 @@ keywords: ["Claude Code 扩展", "MCP 模型上下文协议", "Claude Code Skill
 category: DEV
 related_newsletter: 2026-03-12
 related_glossary: [mcp, claude-code]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: zh
 video_ready: true
 video_hook: "为什么你不需要写 MCP 服务器？因为一个 Markdown 文件就够了"
