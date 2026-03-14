@@ -6,8 +6,9 @@ description: "Anthropic 官方揭示 AI Agent 连续工作失败的根因是 Con
 keywords: ["AI Agent", "长时间运行", "Context Window", "双Agent架构", "Anthropic", "Claude Agent SDK"]
 category: DEV
 related_newsletter: 2026-03-10
-related_glossary: [context-window, ai-agent]
+related_glossary: [claude-code, context-window, ai-agent]
 related_compare: []
+related_topics: [claude-code]
 lang: zh
 video_ready: true
 video_hook: "最强模型连续跑也会翻车，问题不在智力而在记忆"

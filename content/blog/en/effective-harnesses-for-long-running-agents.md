@@ -6,8 +6,9 @@ description: "How Anthropic solved the long-running agent problem with initializ
 keywords: ["long-running agents", "Claude Agent SDK", "agent harness", "multi-session agents", "AI coding agents"]
 category: DEV
 related_newsletter: 2026-03-10
-related_glossary: [claude-agent-sdk, context-window]
-related_compare: [claude-code-vs-cursor]
+related_glossary: [claude-code, claude-agent-sdk, context-window]
+related_compare: []
+related_topics: [claude-code]
 lang: en
 video_ready: true
 video_hook: "Your AI agent forgets everything between sessions — here's how to fix that"
