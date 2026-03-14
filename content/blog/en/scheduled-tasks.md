@@ -7,7 +7,8 @@ keywords: ["Claude Code scheduled tasks", "/loop command", "Claude Code cron", "
 category: DEV
 related_newsletter: 2026-03-10
 related_glossary: [claude-code, mcp-server]
-related_compare: [claude-code-vs-cursor]
+related_compare: []
+related_topics: [claude-code]
 lang: en
 video_ready: true
 video_hook: "Stop babysitting your builds — let Claude Code watch them for you"

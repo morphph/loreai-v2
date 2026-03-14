@@ -8,6 +8,7 @@ category: DEV
 related_newsletter: 2026-03-10
 related_glossary: [claude-code, cron]
 related_compare: []
+related_topics: [claude-code]
 lang: zh
 video_ready: true
 video_hook: "代码提交了还在盯着 CI/CD 傻等？一条命令解放你。"
