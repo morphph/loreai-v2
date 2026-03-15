@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Claude doubles usage outside peak hours for two weeks",
+    "url": "https://x.com/claudeai/status/2032911276226257206",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 46445,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 33.9335,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "1 million context window now GA for Claude Opus 4.6 and Sonnet 4.6",
+    "url": "https://x.com/claudeai/status/2032509548297343196",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 26769,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 33.030699999999996,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic invests $100 million into the Claude Partner Network",
+    "url": "https://www.anthropic.com/news/claude-partner-network",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "You can now launch Claude Code sessions on your laptop from your phone",
+    "url": "https://x.com/bcherny/status/2032578639276159438",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 4845,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 26.4535,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "GLM-OCR: High-performance image-to-text model",
+    "url": "https://huggingface.co/zai-org/GLM-OCR",
+    "source": "huggingface:trending",
+    "x_engagement_24h": 1248,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.3744,
+    "suggested_angle": "news"
+  }
+]
