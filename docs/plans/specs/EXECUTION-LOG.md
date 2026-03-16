@@ -71,3 +71,68 @@
 - The `date` field fallback uses `new Date().toISOString().slice(0, 10)` in case compare frontmatter lacks a date
 
 ---
+
+## SPEC-02 — Homepage Flagship Discovery
+**Date:** 2026-03-16 16:50 SGT
+**Status:** COMPLETED
+**Duration:** ~5 minutes
+
+### Files Changed
+- `src/app/page.tsx`: Added imports for `getAllCompare`, `getAllFaq`, `getAllTopics`; added "Explore Topics" section (~96 lines JSX) between Deep Dives and Bottom CTA
+
+### Files Created
+- None
+
+### Validation Results
+- npm run build: PASS
+- npm test: PASS (180/180)
+- Internal links verified: `/topics/claude-code`, `/compare/*`, `/faq/*` all resolve to existing pages
+
+### Decisions & Deviations
+- Filtered compare/FAQ pages by slug containing "claude-code" (simple string match) — matches 2 compare pages and 3 FAQ pages
+- Used same card styling pattern as Deep Dives section (rounded-xl border, hover states, line-clamp-2)
+- Added sub-headings ("Flagship Topic", "Comparisons", "Frequently Asked") for clarity within the section
+
+### Blockers / Issues
+- None
+
+### Key Observations
+- The section is fully data-driven — as more Claude Code compare/FAQ pages are added, they'll automatically appear (up to 3 each)
+- The `getAllTopics` call fetches all topics but we only use the Claude Code one; future flagship topics can be added easily
+
+---
+
+## SPEC-03 — Cluster Definition System + Status Tooling
+**Date:** 2026-03-16 17:00 SGT
+**Status:** COMPLETED
+**Duration:** ~10 minutes
+
+### Files Changed
+- None
+
+### Files Created
+- `data/flagship-clusters/claude-code.json`: Claude Code cluster target definition (7 compare, 12 FAQ, 8 glossary, 1 cornerstone, 19 tracked blogs)
+- `scripts/cluster-status.ts`: Gap reporting tool with --cluster, --all, --update modes
+
+### Validation Results
+- npm run build: PASS
+- npm test: PASS (180/180)
+- cluster-status.ts --cluster=claude-code: PASS — output matches filesystem inventory
+- cluster-status.ts --update: PASS — "all status fields already correct"
+- cluster-status.ts --all: PASS — discovers and reports all cluster files
+
+### Decisions & Deviations
+- Tracked 19 blogs (not 15) — the topic hub has 19 related blog posts, spec said "15+" so this is correct
+- Glossary shows 7/8 (88%) not 5/7 (71%) as in spec example — spec example was illustrative, actual counts from filesystem are accurate (agent-teams and multi-agent-systems both exist)
+- Overall is 10/28 nodes (36%) — cornerstone + compare + FAQ + glossary targets, excluding tracked blogs from the denominator (blogs are tracked, not generated)
+- Compare slugs use `claude-code-vs-github-copilot` (not `vs-copilot`) for SEO keyword alignment
+
+### Blockers / Issues
+- None
+
+### Key Observations
+- The `how-to-use-claude-code-with-vs-code` compare page exists on disk but is NOT in the cluster target list (it's a how-to, not a vs comparison) — this is correct per the master outline
+- Status tool uses `__dirname` for path resolution, works with `npx tsx` invocation
+- JSON schema includes empty `candidates` array ready for SPEC-09 auto-discovery
+
+---
