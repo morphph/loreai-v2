@@ -136,3 +136,43 @@
 - JSON schema includes empty `candidates` array ready for SPEC-09 auto-discovery
 
 ---
+
+## SPEC-04 — Cluster-Driven Generation Mode
+**Date:** 2026-03-16 17:10 SGT
+**Status:** COMPLETED
+**Duration:** ~15 minutes
+
+### Files Changed
+- `scripts/generate-seo.ts`: Added `--cluster=` and `--type=` CLI flags, `ClusterDefinition` type, `runClusterMode()`, `buildCornerstonePrompt()`, `generateCornerstonePage()`, `updateClusterStatus()` (~400 lines additive)
+- `scripts/daily-pipeline.sh`: Added `cluster` step with git add/commit/push
+- `data/flagship-clusters/claude-code.json`: Status updated for claude-md glossary (missing → exists) after test generation
+
+### Files Created
+- `content/glossary/en/claude-md.md`: Test-generated glossary page (EN) — CLAUDE.md glossary entry
+- `content/glossary/zh/claude-md.md`: Test-generated glossary page (ZH) — CLAUDE.md 术语表条目
+
+### Validation Results
+- npm run build: PASS
+- npm test: PASS (180/180)
+- `--cluster=claude-code --dry-run`: PASS — lists 18 gaps (1 cornerstone, 6 compare, 10 FAQ, 1 glossary)
+- `--cluster=claude-code --type=faq --dry-run`: PASS — lists only 10 FAQ gaps
+- `--cluster=claude-code --type=glossary` (real generation): PASS — generated claude-md EN+ZH
+- Existing daily mode `--date=2026-03-16 --dry-run`: PASS — unchanged behavior
+- cluster-status.ts confirms glossary now 8/8 (100%)
+- `daily-pipeline.sh` has `cluster` step in usage line
+
+### Decisions & Deviations
+- Cornerstone generation uses a separate `generateCornerstonePage()` function instead of going through `stage4_generatePages()` — because cornerstone uses the blog-en skill (not SEO skill) and writes to `content/blog/`, which is incompatible with the existing `SEOPageType` union type
+- Non-cornerstone cluster jobs (compare/faq/glossary) reuse existing `stage4_generatePages()`, `stage5_updateKeywords()`, `stage6_gitPush()` directly — zero modification to existing functions
+- `updateClusterStatus()` re-reads the cluster JSON after generation and updates all status fields based on filesystem checks — avoids stale state
+
+### Blockers / Issues
+- None
+
+### Key Observations
+- The `GeneratedPage` type uses `SEOPageType` which doesn't include `'blog'` — cornerstone pages are tracked separately to avoid type gymnastics
+- `stage6_gitPush()` is effectively a no-op (collects dir names but doesn't act) — cornerstone git tracking handled by the pipeline script instead
+- Cluster mode and daily mode share no state and can run independently
+- Test generation produced high-quality content with proper frontmatter, internal links, and CTA footers
+
+---
