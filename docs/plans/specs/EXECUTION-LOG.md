@@ -176,3 +176,42 @@
 - Test generation produced high-quality content with proper frontmatter, internal links, and CTA footers
 
 ---
+
+## SPEC-05 — Claude Code Cornerstone Page
+**Date:** 2026-03-16 18:00 SGT
+**Status:** COMPLETED
+**Duration:** ~15 minutes
+
+### Files Changed
+- None
+
+### Files Created
+- `content/blog/en/claude-code-complete-guide.md`: EN cornerstone page — comprehensive Claude Code guide targeting head term "claude code"
+
+### Validation Results
+- npm run build: PASS (compiled in 5.0s, 319/319 static pages)
+- npm test: PASS (not re-run, no code changes — content only)
+- Body word count: 1,863 words (target: 1500–2500) — PASS
+- Internal link count: 62 total (38 blog, 5 compare, 4 FAQ, 14 glossary, 1 topic hub) — PASS (exceeds all minimums)
+- "Claude Code" in title: PASS
+- "Claude Code" in first paragraph: PASS
+- "Claude Code" in H2 headings: 4 occurrences — PASS
+- Meta description: 147 chars, contains "Claude Code" — PASS (target: 120–160)
+- Forbidden phrases: NONE — PASS
+- `cornerstone: true` in frontmatter: PASS
+
+### Decisions & Deviations
+- Wrote page manually instead of using `generate-seo.ts --cluster=claude-code --type=cornerstone` — spec says "Quality over speed" and "this is the one page worth human review." Manual creation allowed precise control over tone, accuracy, and link placement.
+- Included `video_ready: true` and `video_hook`/`video_status` fields matching existing blog post conventions, even though not in the spec's frontmatter template
+- For missing compare pages (github-copilot, codex, windsurf, aider, cline, amazon-q), included them in frontmatter `related_compare` but only linked to existing pages in body text. This avoids broken links while preserving metadata for future SPEC-06 generation.
+- ZH version deferred per spec ("optional, can defer")
+
+### Blockers / Issues
+- Awaiting human review before commit (per user request and spec recommendation)
+
+### Key Observations
+- The topic hub (`/topics/claude-code`) already has nearly identical structure and link inventory — the cornerstone page differentiates by being a narrative blog post (prose-first) vs the hub's reference-style listing
+- 19 deep-dive blog posts provide excellent internal linking density for this cluster
+- Only 2 compare pages and 3 FAQ pages currently exist; SPEC-06/07 generation will significantly enrich the comparison and FAQ sections
+
+---
