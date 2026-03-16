@@ -59,6 +59,7 @@ import {
 } from './lib/db';
 import { runGapAnalysis } from './lib/topic-cluster';
 import { batchValidate } from './lib/brave';
+import { resolveSource, buildGroundingInstruction } from './lib/source-fetch';
 
 
 // ============================================================
@@ -470,6 +471,11 @@ function buildFaqPrompt(job: PageJob, skill: string): { system: string; user: st
   const related = getRelatedSlugs(job.clusterSlug);
   const question = (job.context.question as string) || job.displayTerm;
 
+  // Source grounding (populated by cluster mode source resolution)
+  const sourceBlock = job.context._sourceGrounding
+    ? (job.context._sourceGrounding as string)
+    : '';
+
   const system = `${skill}
 
 ## Generation Task
@@ -489,9 +495,12 @@ Generate an FAQ page answering the question: "${question}"
 - FAQ: ${related.faq.map(s => `/faq/${s}`).join(', ') || 'none yet'}
 
 ## Parent Topic
-This question relates to the topic cluster: "${job.pillarTopic}"`;
+This question relates to the topic cluster: "${job.pillarTopic}"${sourceBlock}`;
 
-  const user = `Write an FAQ page answering "${question}" for LoreAI, an AI news platform. Use only facts you are confident about — do not fabricate details.`;
+  const groundedInstruction = sourceBlock
+    ? 'Ground your answer in the source material provided above.'
+    : 'Use only facts you are confident about — do not fabricate details.';
+  const user = `Write an FAQ page answering "${question}" for LoreAI, an AI news platform. ${groundedInstruction}`;
 
   return { system, user };
 }
@@ -500,6 +509,11 @@ function buildComparePrompt(job: PageJob, skill: string): { system: string; user
   const related = getRelatedSlugs(job.clusterSlug);
   const itemA = (job.context.item_a as string) || 'Item A';
   const itemB = (job.context.item_b as string) || 'Item B';
+
+  // Source grounding (populated by cluster mode source resolution)
+  const sourceBlock = job.context._sourceGrounding
+    ? (job.context._sourceGrounding as string)
+    : '';
 
   const system = `${skill}
 
@@ -520,9 +534,12 @@ Generate a COMPARISON page: "${itemA} vs ${itemB}"
 ## Available Internal Links
 - Glossary: ${related.glossary.map(s => `/glossary/${s}`).join(', ') || 'none yet'}
 - Blog: ${related.blog.map(s => `/blog/${s}`).join(', ') || 'none yet'}
-- Compare: ${related.compare.map(s => `/compare/${s}`).join(', ') || 'none yet'}`;
+- Compare: ${related.compare.map(s => `/compare/${s}`).join(', ') || 'none yet'}${sourceBlock}`;
 
-  const user = `Write a comparison page for "${itemA} vs ${itemB}" for LoreAI, an AI news platform. Be fair to both products. Use only facts you are confident about — do not fabricate benchmarks, pricing, or capabilities. If you are unsure about specific details, say so.`;
+  const groundedInstruction = sourceBlock
+    ? 'Ground all feature claims, pricing, and capabilities in the source material provided above.'
+    : 'Use only facts you are confident about — do not fabricate benchmarks, pricing, or capabilities. If you are unsure about specific details, say so.';
+  const user = `Write a comparison page for "${itemA} vs ${itemB}" for LoreAI, an AI news platform. Be fair to both products. ${groundedInstruction}`;
 
   return { system, user };
 }
@@ -998,6 +1015,12 @@ interface ClusterDefinition {
   topic_slug: string;
   pillar_topic: string;
   version: string;
+  source_urls?: {
+    primary?: string;
+    pricing?: string;
+    setup?: string;
+  };
+  official_domains?: string[];
   cornerstone: {
     slug: string;
     target_keywords: string[];
@@ -1007,6 +1030,7 @@ interface ClusterDefinition {
     slug: string;
     item_a: string;
     item_b: string;
+    item_b_url?: string;
     priority: number;
     status: 'exists' | 'missing' | 'draft';
   }>;
@@ -1033,7 +1057,7 @@ function loadBlogSkill(): string {
   return fs.readFileSync(skillPath, 'utf-8');
 }
 
-function buildCornerstonePrompt(cluster: ClusterDefinition): { system: string; user: string } {
+function buildCornerstonePrompt(cluster: ClusterDefinition, sourceGrounding?: string): { system: string; user: string } {
   const blogSkill = loadBlogSkill();
 
   // Build list of cluster nodes for internal linking
@@ -1050,6 +1074,8 @@ function buildCornerstonePrompt(cluster: ClusterDefinition): { system: string; u
   for (const b of cluster.tracked_blogs) {
     clusterNodes.push(`- [${b.title}](/blog/${b.slug})`);
   }
+
+  const sourceBlock = sourceGrounding || '';
 
   const system = `${blogSkill}
 
@@ -1075,18 +1101,22 @@ This is NOT a regular blog post. This is a **cornerstone page** — the definiti
 ### Cluster Content — MUST Link To
 ${clusterNodes.join('\n')}
 
-Include these internal links naturally throughout the article. The Resources section should list all of them.`;
+Include these internal links naturally throughout the article. The Resources section should list all of them.${sourceBlock}`;
 
-  const user = `Write the definitive cornerstone page for "${cluster.pillar_topic}" for LoreAI. This page should be the ultimate guide that someone would bookmark. Slug: "${cluster.cornerstone.slug}". Use only facts you are confident about.`;
+  const groundedInstruction = sourceBlock
+    ? 'Ground all facts in the source material provided above.'
+    : 'Use only facts you are confident about.';
+  const user = `Write the definitive cornerstone page for "${cluster.pillar_topic}" for LoreAI. This page should be the ultimate guide that someone would bookmark. Slug: "${cluster.cornerstone.slug}". ${groundedInstruction}`;
 
   return { system, user };
 }
 
 async function generateCornerstonePage(
   cluster: ClusterDefinition,
-  lang: 'en' | 'zh'
+  lang: 'en' | 'zh',
+  sourceGrounding?: string
 ): Promise<{ slug: string; lang: string; filePath: string } | null> {
-  const { system: enSystem, user: enUser } = buildCornerstonePrompt(cluster);
+  const { system: enSystem, user: enUser } = buildCornerstonePrompt(cluster, sourceGrounding);
 
   let systemPrompt: string;
   let userPrompt: string;
@@ -1213,18 +1243,69 @@ async function runClusterMode(clusterSlug: string, typeFilter?: string): Promise
     }
   }
 
+  // 2a. Resolve source material for grounded generation
+  const officialDomains = cluster.official_domains ?? [];
+  let primarySource = '';
+  let cornerstoneSourceGrounding = '';
+
+  const needsSourceFetch = (!typeFilter || ['compare', 'faq', 'cornerstone'].includes(typeFilter));
+  if (needsSourceFetch && cluster.source_urls) {
+    console.log('\n  📚 Resolving source material...');
+    primarySource = await resolveSource(
+      cluster.source_urls.primary,
+      `${cluster.pillar_topic} official documentation`,
+      officialDomains
+    );
+    if (primarySource) {
+      console.log(`    Primary source: ${primarySource.length} chars`);
+    }
+
+    // Cornerstone needs primary + pricing
+    if (!typeFilter || typeFilter === 'cornerstone') {
+      const pricingSource = await resolveSource(
+        cluster.source_urls.pricing,
+        `${cluster.pillar_topic} pricing costs`,
+        officialDomains
+      );
+      const csSourceParts: { label: string; content: string }[] = [
+        { label: cluster.pillar_topic, content: primarySource },
+      ];
+      if (pricingSource) {
+        csSourceParts.push({ label: `${cluster.pillar_topic} Pricing`, content: pricingSource });
+      }
+      cornerstoneSourceGrounding = buildGroundingInstruction(csSourceParts);
+    }
+  }
+
   // Compare pages
   for (const c of cluster.target_compare) {
     if (c.status !== 'missing') continue;
     if (typeFilter && typeFilter !== 'compare') continue;
     if (contentFileExists('compare', c.slug, 'en')) continue;
+
+    // Resolve competitor source
+    let competitorSource = '';
+    if (c.item_b_url || officialDomains.length > 0) {
+      console.log(`    Resolving source for ${c.item_b}...`);
+      competitorSource = await resolveSource(
+        c.item_b_url,
+        `${c.item_b} official features documentation`,
+        officialDomains
+      );
+    }
+
+    const sourceGrounding = buildGroundingInstruction([
+      { label: c.item_a, content: primarySource },
+      { label: c.item_b, content: competitorSource },
+    ]);
+
     seoJobs.push({
       type: 'compare',
       slug: c.slug,
       displayTerm: `${c.item_a} vs ${c.item_b}`,
       clusterSlug: cluster.topic_slug,
       pillarTopic: cluster.pillar_topic,
-      context: { item_a: c.item_a, item_b: c.item_b },
+      context: { item_a: c.item_a, item_b: c.item_b, _sourceGrounding: sourceGrounding },
     });
   }
 
@@ -1233,13 +1314,18 @@ async function runClusterMode(clusterSlug: string, typeFilter?: string): Promise
     if (f.status !== 'missing') continue;
     if (typeFilter && typeFilter !== 'faq') continue;
     if (contentFileExists('faq', f.slug, 'en')) continue;
+
+    const faqSourceGrounding = primarySource
+      ? buildGroundingInstruction([{ label: cluster.pillar_topic, content: primarySource }])
+      : '';
+
     seoJobs.push({
       type: 'faq',
       slug: f.slug,
       displayTerm: f.question,
       clusterSlug: cluster.topic_slug,
       pillarTopic: cluster.pillar_topic,
-      context: { question: f.question },
+      context: { question: f.question, _sourceGrounding: faqSourceGrounding },
     });
   }
 
@@ -1284,10 +1370,18 @@ async function runClusterMode(clusterSlug: string, typeFilter?: string): Promise
     if (needsCornerstone) {
       console.log(`  [cornerstone] content/blog/en/${cluster.cornerstone.slug}.md`);
       console.log(`  [cornerstone] content/blog/zh/${cluster.cornerstone.slug}.md`);
+      if (cornerstoneSourceGrounding) {
+        console.log(`    Source: primary (${primarySource.length} chars) + pricing`);
+      }
     }
     for (const job of limited) {
       console.log(`  [${job.type}] content/${job.type}/en/${job.slug}.md`);
       console.log(`  [${job.type}] content/${job.type}/zh/${job.slug}.md`);
+      if (job.context._sourceGrounding) {
+        const grounding = job.context._sourceGrounding as string;
+        const hasSource = !grounding.includes('No Source Material Available');
+        console.log(`    Source: ${hasSource ? 'grounded' : 'ungrounded (no sources fetched)'}`);
+      }
     }
     return;
   }
@@ -1299,7 +1393,7 @@ async function runClusterMode(clusterSlug: string, typeFilter?: string): Promise
   if (needsCornerstone) {
     console.log(`\n--- Cornerstone: ${cluster.cornerstone.slug} ---`);
     console.log('  Generating EN cornerstone...');
-    const enPage = await generateCornerstonePage(cluster, 'en');
+    const enPage = await generateCornerstonePage(cluster, 'en', cornerstoneSourceGrounding || undefined);
     if (enPage) {
       console.log(`  Written: ${enPage.filePath}`);
       upsertContent({
@@ -1318,7 +1412,7 @@ async function runClusterMode(clusterSlug: string, typeFilter?: string): Promise
       cornerstoneCount++;
 
       console.log('  Generating ZH cornerstone...');
-      const zhPage = await generateCornerstonePage(cluster, 'zh');
+      const zhPage = await generateCornerstonePage(cluster, 'zh', cornerstoneSourceGrounding || undefined);
       if (zhPage) {
         console.log(`  Written: ${zhPage.filePath}`);
         upsertContent({

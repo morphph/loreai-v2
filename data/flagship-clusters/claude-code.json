@@ -1,7 +1,27 @@
 {
   "topic_slug": "claude-code",
   "pillar_topic": "Claude Code",
-  "version": "1.0",
+  "version": "1.1",
+  "source_urls": {
+    "primary": "https://docs.anthropic.com/en/docs/claude-code/overview",
+    "pricing": "https://docs.anthropic.com/en/docs/claude-code/costs",
+    "setup": "https://docs.anthropic.com/en/docs/claude-code/setup"
+  },
+  "official_domains": [
+    "docs.anthropic.com",
+    "anthropic.com",
+    "cursor.com",
+    "docs.github.com",
+    "github.com/features/copilot",
+    "openai.com",
+    "platform.openai.com",
+    "windsurf.ai",
+    "codeium.com",
+    "aider.chat",
+    "github.com/paul-gauthier/aider",
+    "github.com/cline/cline",
+    "aws.amazon.com"
+  ],
   "cornerstone": {
     "slug": "claude-code-complete-guide",
     "target_keywords": [
@@ -10,13 +30,14 @@
       "what is claude code",
       "claude code tutorial"
     ],
-    "status": "missing"
+    "status": "exists"
   },
   "target_compare": [
     {
       "slug": "claude-code-vs-cursor",
       "item_a": "Claude Code",
       "item_b": "Cursor",
+      "item_b_url": "https://www.cursor.com/features",
       "priority": 1,
       "status": "exists"
     },
@@ -24,43 +45,49 @@
       "slug": "claude-code-vs-github-copilot",
       "item_a": "Claude Code",
       "item_b": "GitHub Copilot",
+      "item_b_url": "https://docs.github.com/en/copilot/about-github-copilot/what-is-github-copilot",
       "priority": 1,
-      "status": "missing"
+      "status": "exists"
     },
     {
       "slug": "claude-code-vs-codex",
       "item_a": "Claude Code",
       "item_b": "Codex",
+      "item_b_url": "https://openai.com/index/introducing-codex/",
       "priority": 1,
-      "status": "missing"
+      "status": "exists"
     },
     {
       "slug": "claude-code-vs-windsurf",
       "item_a": "Claude Code",
       "item_b": "Windsurf",
+      "item_b_url": "https://windsurf.com/editor",
       "priority": 2,
-      "status": "missing"
+      "status": "exists"
     },
     {
       "slug": "claude-code-vs-aider",
       "item_a": "Claude Code",
       "item_b": "Aider",
+      "item_b_url": "https://aider.chat/",
       "priority": 2,
-      "status": "missing"
+      "status": "exists"
     },
     {
       "slug": "claude-code-vs-cline",
       "item_a": "Claude Code",
       "item_b": "Cline",
+      "item_b_url": "https://github.com/cline/cline",
       "priority": 2,
-      "status": "missing"
+      "status": "exists"
     },
     {
       "slug": "claude-code-vs-amazon-q",
       "item_a": "Claude Code",
       "item_b": "Amazon Q Developer",
+      "item_b_url": "https://aws.amazon.com/q/developer/",
       "priority": 3,
-      "status": "missing"
+      "status": "exists"
     }
   ],
   "target_faq": [
