@@ -24,10 +24,20 @@
  *   3. Generate content plan JSON
  *   4. Log summary
  *
+ * Cluster mode:
+ *   npx tsx scripts/generate-seo.ts --cluster=claude-code
+ *   npx tsx scripts/generate-seo.ts --cluster=claude-code --type=faq
+ *   npx tsx scripts/generate-seo.ts --cluster=claude-code --dry-run
+ *
+ *   Reads a flagship cluster definition JSON and generates missing pages
+ *   directly, bypassing the newsletter → blog → keyword extraction chain.
+ *
  * Flags:
  *   --dry-run       Log what would be generated, no AI calls or file writes
  *   --date=YYYY-MM-DD   Override date (default: today)
  *   --weekly-strategy   Run weekly strategy mode instead of daily generation
+ *   --cluster=SLUG      Run cluster-driven generation mode
+ *   --type=TYPE         Filter cluster mode to specific type (faq|compare|glossary|cornerstone)
  */
 import 'dotenv/config';
 import fs from 'fs';
@@ -60,6 +70,10 @@ import { todaySGT } from './lib/date.js';
 const DATE = dateArg ? dateArg.split('=')[1] : todaySGT();
 const DRY_RUN = process.argv.includes('--dry-run');
 const WEEKLY_STRATEGY = process.argv.includes('--weekly-strategy');
+const clusterArg = process.argv.find((a) => a.startsWith('--cluster='));
+const typeArg = process.argv.find((a) => a.startsWith('--type='));
+const CLUSTER_SLUG = clusterArg ? clusterArg.split('=')[1] : null;
+const TYPE_FILTER = typeArg ? typeArg.split('=')[1] : null;
 const MAX_PAGES_PER_RUN = 8;
 
 console.log(`\n🔎 SEO Pipeline — ${DATE}`);
@@ -977,10 +991,397 @@ function generateContentPlan(
 }
 
 // ============================================================
+// Cluster Mode
+// ============================================================
+
+interface ClusterDefinition {
+  topic_slug: string;
+  pillar_topic: string;
+  version: string;
+  cornerstone: {
+    slug: string;
+    target_keywords: string[];
+    status: 'exists' | 'missing' | 'draft';
+  };
+  target_compare: Array<{
+    slug: string;
+    item_a: string;
+    item_b: string;
+    priority: number;
+    status: 'exists' | 'missing' | 'draft';
+  }>;
+  target_faq: Array<{
+    slug: string;
+    question: string;
+    priority: number;
+    status: 'exists' | 'missing' | 'draft';
+  }>;
+  target_glossary: Array<{
+    slug: string;
+    display_term: string;
+    status: 'exists' | 'missing';
+  }>;
+  tracked_blogs: Array<{
+    slug: string;
+    title: string;
+  }>;
+  candidates?: unknown[];
+}
+
+function loadBlogSkill(): string {
+  const skillPath = path.join(process.cwd(), 'skills', 'blog-en', 'SKILL.md');
+  return fs.readFileSync(skillPath, 'utf-8');
+}
+
+function buildCornerstonePrompt(cluster: ClusterDefinition): { system: string; user: string } {
+  const blogSkill = loadBlogSkill();
+
+  // Build list of cluster nodes for internal linking
+  const clusterNodes: string[] = [];
+  for (const c of cluster.target_compare) {
+    clusterNodes.push(`- [${c.item_a} vs ${c.item_b}](/compare/${c.slug})`);
+  }
+  for (const f of cluster.target_faq) {
+    clusterNodes.push(`- [${f.question}](/faq/${f.slug})`);
+  }
+  for (const g of cluster.target_glossary) {
+    clusterNodes.push(`- [${g.display_term}](/glossary/${g.slug})`);
+  }
+  for (const b of cluster.tracked_blogs) {
+    clusterNodes.push(`- [${b.title}](/blog/${b.slug})`);
+  }
+
+  const system = `${blogSkill}
+
+## OVERRIDE: Cornerstone Page Mode
+
+This is NOT a regular blog post. This is a **cornerstone page** — the definitive "everything you need to know" article for ${cluster.pillar_topic}. It should be the single best page on the internet for someone wanting to understand ${cluster.pillar_topic}.
+
+### Cornerstone Requirements
+- **Word count**: 1500-2500 words (significantly longer than a regular blog post)
+- **Tone**: Authoritative guide, not a news article
+- **Frontmatter**: Include \`cornerstone: true\` flag and \`category: DEV\`
+- **Date**: Use today's date (${DATE})
+- **Target keywords**: ${cluster.cornerstone.target_keywords.join(', ')}
+
+### Required Structure
+1. **What is ${cluster.pillar_topic}?** — Comprehensive overview (200-300 words)
+2. **Getting Started** — Installation, setup, first steps (200-300 words)
+3. **Key Features** — Core capabilities with examples (300-400 words)
+4. **Common Workflows** — Practical usage patterns (200-300 words)
+5. **Best Practices** — Tips from real usage (200-300 words)
+6. **Resources** — Links to all cluster content (100-200 words)
+
+### Cluster Content — MUST Link To
+${clusterNodes.join('\n')}
+
+Include these internal links naturally throughout the article. The Resources section should list all of them.`;
+
+  const user = `Write the definitive cornerstone page for "${cluster.pillar_topic}" for LoreAI. This page should be the ultimate guide that someone would bookmark. Slug: "${cluster.cornerstone.slug}". Use only facts you are confident about.`;
+
+  return { system, user };
+}
+
+async function generateCornerstonePage(
+  cluster: ClusterDefinition,
+  lang: 'en' | 'zh'
+): Promise<{ slug: string; lang: string; filePath: string } | null> {
+  const { system: enSystem, user: enUser } = buildCornerstonePrompt(cluster);
+
+  let systemPrompt: string;
+  let userPrompt: string;
+
+  if (lang === 'en') {
+    systemPrompt = enSystem;
+    userPrompt = enUser;
+  } else {
+    systemPrompt = enSystem + `
+
+## 中文生成要求
+- lang: zh
+- 用中文撰写，不是翻译——基于同一主题独立创作中文版本
+- 保持相同的 frontmatter 结构（lang 字段改为 zh）
+- slug 保持与英文版相同: ${cluster.cornerstone.slug}
+- 正文字数: 1500-2500 字（中文字符计数，不含 frontmatter）
+- 正文使用中文，但技术术语可保留英文（如 Claude Code, MCP, SKILL.md）
+- 内部链接路径不变
+- 必须以以下 CTA 结尾:
+
+---
+
+*觉得有用？[订阅 LoreAI](/subscribe)，每天 5 分钟掌握 AI 动态。*`;
+    userPrompt = `用中文撰写关于"${cluster.pillar_topic}"的权威基石页面（不是翻译英文版）。Slug: "${cluster.cornerstone.slug}"。只使用你确信的事实。`;
+  }
+
+  const fullValidate = (raw: string) => {
+    const content = sanitizeOutput(raw);
+    if (!content.match(/^---\n[\s\S]*?\n---/)) {
+      return { valid: false, errors: ['Missing frontmatter block'] };
+    }
+    const body = extractBody(content);
+    const wordCount = lang === 'en'
+      ? body.split(/\s+/).length
+      : body.replace(/[\s\n]/g, '').length;
+    if (wordCount < 800) {
+      return { valid: false, errors: [`Content too short: ${wordCount} words/chars (min 800)`] };
+    }
+    return { valid: true, errors: [] };
+  };
+
+  try {
+    const response = await callClaudeWithRetry(systemPrompt, userPrompt, {
+      maxTokens: 8192,
+      temperature: 0.4,
+      maxRetries: 2,
+      validate: fullValidate,
+    });
+
+    const cleaned = sanitizeOutput(response.content);
+    console.log(`    ${lang.toUpperCase()} cornerstone generated (model: ${response.model})`);
+    console.log(`    Tokens: ${response.usage?.input_tokens} in / ${response.usage?.output_tokens} out`);
+
+    const frontmatter = extractFrontmatter(cleaned);
+    if (!frontmatter) {
+      console.warn(`    Failed to parse frontmatter for ${lang} cornerstone`);
+      return null;
+    }
+
+    // Write file to content/blog/{lang}/
+    const dir = path.join(process.cwd(), 'content', 'blog', lang);
+    fs.mkdirSync(dir, { recursive: true });
+    const filePath = path.join(dir, `${cluster.cornerstone.slug}.md`);
+    fs.writeFileSync(filePath, cleaned);
+
+    return { slug: cluster.cornerstone.slug, lang, filePath };
+  } catch (err) {
+    console.warn(`    ${lang.toUpperCase()} cornerstone generation failed: ${(err as Error).message}`);
+    return null;
+  }
+}
+
+function updateClusterStatus(clusterSlug: string): void {
+  const clusterPath = path.join(process.cwd(), 'data', 'flagship-clusters', `${clusterSlug}.json`);
+  const cluster: ClusterDefinition = JSON.parse(fs.readFileSync(clusterPath, 'utf-8'));
+
+  // Update cornerstone status
+  const csExists = fs.existsSync(path.join(process.cwd(), 'content', 'blog', 'en', `${cluster.cornerstone.slug}.md`));
+  cluster.cornerstone.status = csExists ? 'exists' : 'missing';
+
+  // Update compare status
+  for (const c of cluster.target_compare) {
+    c.status = contentFileExists('compare', c.slug, 'en') ? 'exists' : 'missing';
+  }
+
+  // Update FAQ status
+  for (const f of cluster.target_faq) {
+    f.status = contentFileExists('faq', f.slug, 'en') ? 'exists' : 'missing';
+  }
+
+  // Update glossary status
+  for (const g of cluster.target_glossary) {
+    g.status = contentFileExists('glossary', g.slug, 'en') ? 'exists' : 'missing';
+  }
+
+  fs.writeFileSync(clusterPath, JSON.stringify(cluster, null, 2) + '\n');
+  console.log(`  Updated cluster status: ${clusterPath}`);
+}
+
+async function runClusterMode(clusterSlug: string, typeFilter?: string): Promise<void> {
+  console.log(`\n🎯 Cluster Mode — ${clusterSlug}`);
+  console.log('='.repeat(50));
+
+  // 1. Read cluster definition
+  const clusterPath = path.join(process.cwd(), 'data', 'flagship-clusters', `${clusterSlug}.json`);
+  if (!fs.existsSync(clusterPath)) {
+    console.error(`❌ Cluster file not found: ${clusterPath}`);
+    process.exit(1);
+  }
+  const cluster: ClusterDefinition = JSON.parse(fs.readFileSync(clusterPath, 'utf-8'));
+  console.log(`  Loaded cluster: ${cluster.pillar_topic}`);
+
+  // 2. Build jobs from missing targets
+  const seoJobs: PageJob[] = [];
+  let needsCornerstone = false;
+
+  // Cornerstone check
+  if (cluster.cornerstone.status === 'missing' && (!typeFilter || typeFilter === 'cornerstone')) {
+    const csExists = fs.existsSync(path.join(process.cwd(), 'content', 'blog', 'en', `${cluster.cornerstone.slug}.md`));
+    if (!csExists) {
+      needsCornerstone = true;
+    } else {
+      console.log('  Cornerstone already exists on disk, skipping');
+    }
+  }
+
+  // Compare pages
+  for (const c of cluster.target_compare) {
+    if (c.status !== 'missing') continue;
+    if (typeFilter && typeFilter !== 'compare') continue;
+    if (contentFileExists('compare', c.slug, 'en')) continue;
+    seoJobs.push({
+      type: 'compare',
+      slug: c.slug,
+      displayTerm: `${c.item_a} vs ${c.item_b}`,
+      clusterSlug: cluster.topic_slug,
+      pillarTopic: cluster.pillar_topic,
+      context: { item_a: c.item_a, item_b: c.item_b },
+    });
+  }
+
+  // FAQ pages
+  for (const f of cluster.target_faq) {
+    if (f.status !== 'missing') continue;
+    if (typeFilter && typeFilter !== 'faq') continue;
+    if (contentFileExists('faq', f.slug, 'en')) continue;
+    seoJobs.push({
+      type: 'faq',
+      slug: f.slug,
+      displayTerm: f.question,
+      clusterSlug: cluster.topic_slug,
+      pillarTopic: cluster.pillar_topic,
+      context: { question: f.question },
+    });
+  }
+
+  // Glossary
+  for (const g of cluster.target_glossary) {
+    if (g.status !== 'missing') continue;
+    if (typeFilter && typeFilter !== 'glossary') continue;
+    if (contentFileExists('glossary', g.slug, 'en')) continue;
+    seoJobs.push({
+      type: 'glossary',
+      slug: g.slug,
+      displayTerm: g.display_term,
+      clusterSlug: cluster.topic_slug,
+      pillarTopic: cluster.pillar_topic,
+      context: {},
+    });
+  }
+
+  const totalGaps = seoJobs.length + (needsCornerstone ? 1 : 0);
+  console.log(`  Content gaps: ${totalGaps} pages`);
+  if (needsCornerstone) console.log(`    [cornerstone] ${cluster.cornerstone.slug}`);
+  for (const job of seoJobs) {
+    console.log(`    [${job.type}] ${job.slug} — "${job.displayTerm}"`);
+  }
+
+  if (totalGaps === 0) {
+    console.log('\n✅ No content gaps — cluster is complete.');
+    return;
+  }
+
+  // 3. Respect MAX_PAGES_PER_RUN
+  const cornerstoneSlots = needsCornerstone ? 1 : 0;
+  const limited = seoJobs.slice(0, MAX_PAGES_PER_RUN - cornerstoneSlots);
+
+  if (totalGaps > MAX_PAGES_PER_RUN) {
+    console.log(`  Limiting to ${MAX_PAGES_PER_RUN} pages per run (${totalGaps - MAX_PAGES_PER_RUN} deferred)`);
+  }
+
+  // 4. Dry-run output
+  if (DRY_RUN) {
+    console.log('\n🧪 DRY RUN — would generate:');
+    if (needsCornerstone) {
+      console.log(`  [cornerstone] content/blog/en/${cluster.cornerstone.slug}.md`);
+      console.log(`  [cornerstone] content/blog/zh/${cluster.cornerstone.slug}.md`);
+    }
+    for (const job of limited) {
+      console.log(`  [${job.type}] content/${job.type}/en/${job.slug}.md`);
+      console.log(`  [${job.type}] content/${job.type}/zh/${job.slug}.md`);
+    }
+    return;
+  }
+
+  // 5. Generate pages
+  let cornerstoneCount = 0;
+
+  // Generate cornerstone first (if needed)
+  if (needsCornerstone) {
+    console.log(`\n--- Cornerstone: ${cluster.cornerstone.slug} ---`);
+    console.log('  Generating EN cornerstone...');
+    const enPage = await generateCornerstonePage(cluster, 'en');
+    if (enPage) {
+      console.log(`  Written: ${enPage.filePath}`);
+      upsertContent({
+        type: 'blog',
+        slug: cluster.cornerstone.slug,
+        lang: 'en',
+        title: `${cluster.pillar_topic} — Complete Guide`,
+        body_markdown: fs.readFileSync(enPage.filePath, 'utf-8'),
+        meta_json: JSON.stringify({
+          category: 'blog',
+          cluster_slug: cluster.topic_slug,
+          pillar_topic: cluster.pillar_topic,
+          cornerstone: true,
+        }),
+      });
+      cornerstoneCount++;
+
+      console.log('  Generating ZH cornerstone...');
+      const zhPage = await generateCornerstonePage(cluster, 'zh');
+      if (zhPage) {
+        console.log(`  Written: ${zhPage.filePath}`);
+        upsertContent({
+          type: 'blog',
+          slug: cluster.cornerstone.slug,
+          lang: 'zh',
+          title: `${cluster.pillar_topic} — 完全指南`,
+          body_markdown: fs.readFileSync(zhPage.filePath, 'utf-8'),
+          meta_json: JSON.stringify({
+            category: 'blog',
+            cluster_slug: cluster.topic_slug,
+            pillar_topic: cluster.pillar_topic,
+            cornerstone: true,
+          }),
+        });
+        cornerstoneCount++;
+      }
+    } else {
+      console.warn('  EN cornerstone generation failed, skipping');
+    }
+
+    // Upsert cornerstone keywords
+    for (const kw of cluster.cornerstone.target_keywords) {
+      upsertKeyword(kw, 'cluster-target', cluster.topic_slug);
+    }
+  }
+
+  // Generate SEO pages (reuse existing pipeline)
+  let seoGenerated: GeneratedPage[] = [];
+  if (limited.length > 0) {
+    seoGenerated = await stage4_generatePages(limited);
+    stage5_updateKeywords(limited, seoGenerated);
+    await stage6_gitPush(seoGenerated);
+
+    // Upsert keywords with cluster-target source
+    for (const job of limited) {
+      upsertKeyword(job.displayTerm, 'cluster-target', cluster.topic_slug);
+      if (job.type === 'faq' && job.context.question) {
+        upsertKeyword(job.context.question as string, 'cluster-target', cluster.topic_slug);
+      }
+    }
+  }
+
+  // 6. Update cluster definition status
+  updateClusterStatus(clusterSlug);
+
+  const enCount = seoGenerated.filter((p) => p.lang === 'en').length + (cornerstoneCount > 0 ? 1 : 0);
+  const zhCount = seoGenerated.filter((p) => p.lang === 'zh').length + (cornerstoneCount > 1 ? 1 : 0);
+  console.log(`\n✅ Cluster "${clusterSlug}" — ${enCount} EN + ${zhCount} ZH pages generated`);
+}
+
+// ============================================================
 // MAIN
 // ============================================================
 
 async function main() {
+  if (CLUSTER_SLUG) {
+    await runClusterMode(CLUSTER_SLUG, TYPE_FILTER || undefined);
+    closeDb();
+    console.log('\n✅ Cluster mode complete');
+    return;
+  }
+
   if (WEEKLY_STRATEGY) {
     await runWeeklyStrategy();
     closeDb();
