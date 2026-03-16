@@ -154,12 +154,20 @@ lang: {en|zh}
 *Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*
 ```
 
+### FAQ Slug Convention
+
+- **Max 40 characters** — shorter slugs get higher CTR in search results
+- Keyword-rich, lowercase, hyphenated
+- Drop filler words: "what-is-rag" not "what-is-retrieval-augmented-generation-rag-and-how-does-it-work"
+- Good: `what-is-rag`, `claude-code-free`, `cursor-vs-copilot-models`
+- Bad: `what-is-the-difference-between-claude-code-and-cursor` (52 chars)
+
 ### FAQ Frontmatter
 
 ```yaml
 ---
 title: "{Question}?"
-slug: {question-slug}
+slug: {question-slug}  # max 40 chars!
 description: "{Direct 1-sentence answer in under 160 chars}."
 category: {tools|models|concepts|techniques|frameworks}
 related_glossary: [{glossary-slug}]

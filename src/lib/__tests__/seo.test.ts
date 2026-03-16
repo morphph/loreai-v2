@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   websiteJsonLd,
   articleJsonLd,
+  comparisonJsonLd,
   faqPageJsonLd,
   definedTermJsonLd,
   breadcrumbJsonLd,
@@ -63,6 +64,27 @@ describe('articleJsonLd', () => {
       'https://loreai.dev/blog/test'
     );
     expect(ld.publisher).not.toHaveProperty('logo');
+  });
+});
+
+describe('comparisonJsonLd', () => {
+  it('returns Article schema with about array', () => {
+    const ld = comparisonJsonLd(
+      'GPT-4 vs Claude: Which Is Better?',
+      'Comparing GPT-4 and Claude across features.',
+      'https://loreai.dev/compare/gpt-4-vs-claude',
+      '2026-03-01',
+      'GPT-4',
+      'Claude'
+    );
+    expect(ld['@context']).toBe('https://schema.org');
+    expect(ld['@type']).toBe('Article');
+    expect(ld.headline).toBe('GPT-4 vs Claude: Which Is Better?');
+    expect(ld.datePublished).toBe('2026-03-01');
+    expect(ld.url).toBe('https://loreai.dev/compare/gpt-4-vs-claude');
+    expect(ld.about).toHaveLength(2);
+    expect(ld.about[0]).toEqual({ '@type': 'Thing', name: 'GPT-4' });
+    expect(ld.about[1]).toEqual({ '@type': 'Thing', name: 'Claude' });
   });
 });
 

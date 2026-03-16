@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllCompare, getCompare, markdownToHtml } from '@/lib/content';
 import { compareMetadata } from '@/lib/metadata';
-import { breadcrumbJsonLd, jsonLdScript } from '@/lib/seo';
+import { breadcrumbJsonLd, comparisonJsonLd, jsonLdScript } from '@/lib/seo';
 import RelatedContent from '@/components/RelatedContent';
 import ShareButtons from '@/components/ShareButtons';
 import NewsletterSignup from '@/components/NewsletterSignup';
@@ -65,11 +65,24 @@ export default async function ZhCompareDetailPage({ params }: PageProps) {
     { name: `${itemA} vs ${itemB}`, url: pageUrl },
   ]);
 
+  const article = comparisonJsonLd(
+    item.meta.title,
+    (item.meta.description as string) || `${itemA} vs ${itemB} 对比`,
+    pageUrl,
+    (item.meta.date as string) || new Date().toISOString().slice(0, 10),
+    itemA,
+    itemB
+  );
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdScript(breadcrumb) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(article) }}
       />
 
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">

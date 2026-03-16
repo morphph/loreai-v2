@@ -98,6 +98,44 @@ export function breadcrumbJsonLd(items: { name: string; url: string }[]) {
   };
 }
 
+// ── Article schema for comparison pages ─────────────────────────────────
+export function comparisonJsonLd(
+  title: string,
+  description: string,
+  url: string,
+  date: string,
+  itemA: string,
+  itemB: string
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    url,
+    datePublished: date,
+    dateModified: date,
+    author: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url,
+    },
+    about: [
+      { '@type': 'Thing', name: itemA },
+      { '@type': 'Thing', name: itemB },
+    ],
+  };
+}
+
 // ── Helper to render JSON-LD as a script tag string ────────────────────
 export function jsonLdScript(data: Record<string, unknown>): string {
   return JSON.stringify(data);
