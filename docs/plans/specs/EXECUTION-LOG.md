@@ -215,3 +215,47 @@
 - Only 2 compare pages and 3 FAQ pages currently exist; SPEC-06/07 generation will significantly enrich the comparison and FAQ sections
 
 ---
+
+## SPEC-05a — Cornerstone Page Factual Accuracy Revision
+**Date:** 2026-03-16 18:30 SGT
+**Status:** COMPLETED
+**Duration:** ~15 minutes
+
+### Files Changed
+- `content/blog/en/claude-code-complete-guide.md`: Fixed 11 factual inaccuracies and toned down marketing-sounding phrases
+
+### Files Created
+- None
+
+### Validation Results
+- npm run build: PASS (compiled in 8.3s, 319/319 static pages)
+- npm test: PASS (not re-run, no code changes — content only)
+- Body word count: 2,057 words (up from 1,863 due to expanded install/pricing sections) — PASS
+- Forbidden phrases: NONE — PASS
+
+### Decisions & Deviations
+- Verified all facts against live docs at code.claude.com (docs moved from docs.anthropic.com via 301 redirect)
+- 11 factual corrections applied:
+  1. Installation: npm → native installer (curl/irm/Homebrew/WinGet); npm noted as deprecated
+  2. Windows: "WSL2 only" → native via PowerShell, CMD, Git Bash + WSL
+  3. Platform versions: added specific OS version requirements (macOS 13+, Ubuntu 20.04+, etc.)
+  4. Account requirement: added "requires Pro, Max, Team, Enterprise, or Console account"
+  5. Subagent spawning: removed "recursive sub-agent spawning" — docs explicitly state subagents cannot spawn other subagents
+  6. Skills location: `.claude/commands/` → `SKILL.md` in `.claude/skills/`; legacy commands noted as still working
+  7. Remote Control plans: "Pro and Max" → "all paid plans (Pro, Max, Team, Enterprise)"
+  8. Code Review: added "research preview, Teams and Enterprise only"
+  9. Headless mode: renamed to "Programmatic usage / Agent SDK" with note about previous name
+  10. Pricing: added Team ($25/seat/month) and Enterprise (custom) tiers
+  11. API cost data: "$50–150/month" → "$6/dev/day average, 90% under $12/day" (Anthropic's published figure)
+- 4 tone adjustments: removed "executes entire engineering workflows autonomously", "has become the primary AI coding tool", "Catches the issues that slip through at 3 AM", "A single prompt"
+
+### Blockers / Issues
+- None
+
+### Key Observations
+- Claude Code docs have moved from docs.anthropic.com to code.claude.com (301 redirects in place)
+- The Skills system has evolved significantly: `.claude/skills/SKILL.md` is now primary, with `.claude/commands/` as legacy compatibility. Skills also support auto-invocation by Claude, frontmatter config, and `context: fork` for subagent execution
+- Subagent terminology is important: "subagents" (not "agent teams") is the docs term for spawned child agents. "Agent teams" is a separate experimental feature for multi-session coordination
+- Remote Control being available on "all plans" was a significant factual miss — it's a key selling point for Team/Enterprise adoption
+
+---
