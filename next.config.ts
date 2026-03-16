@@ -57,14 +57,11 @@ const nextConfig: NextConfig = {
       '/compare/langchain-vs-llamaindex',
       '/compare/pinecone-vs-chromadb',
       '/compare/rag-vs-fine-tuning',
-      // Deleted v1 seed FAQ pages
+      // Deleted v1 seed FAQ pages (paths planned for SPEC-07 removed)
       '/faq/best-open-source-llm-2026',
-      '/faq/claude-code-skills-setup',
-      '/faq/claude-code-vs-cursor',
       '/faq/how-to-fine-tune-llm',
       '/faq/how-to-use-rag',
       '/faq/what-is-ai-agent',
-      '/faq/what-is-claude-code',
       '/faq/what-is-mcp-server',
       '/faq/what-is-prompt-engineering',
       '/faq/what-is-vector-database',
