@@ -10,21 +10,6 @@ npm run build        # Production build (SSG)
 npm test             # Vitest (must pass before commit)
 npm run lint         # ESLint
 
-## Commands — Pipelines
-npx tsx scripts/collect-news.ts                        # Data collection
-npx tsx scripts/write-newsletter.ts --date=YYYY-MM-DD  # Newsletter EN+ZH
-npx tsx scripts/write-newsletter.ts --date=YYYY-MM-DD --diff  # Generate + diff vs existing (no persist)
-npx tsx scripts/write-blog.ts --date=YYYY-MM-DD        # Blog posts
-npx tsx scripts/generate-seo.ts --date=YYYY-MM-DD      # SEO pages (glossary/faq/compare/topics)
-npx tsx scripts/write-weekly.ts                        # Weekly digest (Saturday)
-npx tsx scripts/generate-review.ts --date=YYYY-MM-DD   # HTML review report
-npx tsx scripts/import-video-blog.ts --batch [--dry-run]            # Video blog import (batch)
-npx tsx scripts/import-video-blog.ts --dir=/path [--video-url=URL]  # Video blog import (single)
-npx tsx scripts/validate-pipeline.ts --date=YYYY-MM-DD --step=all  # Validation gate
-npx tsx scripts/write-topic-blog.ts --topic="Topic"          # Manual deep-dive blog (Gemini + Narrative)
-npx tsx scripts/write-topic-blog.ts --topic="Topic" --skip-research  # Skip Gemini
-npx tsx scripts/write-topic-blog.ts --topic="Topic" --dry-run        # Preview
-
 ## Backpressure (Quality Gates)
 Before ANY commit, ALL of these must pass:
 1. npm run build          — SSG build succeeds
@@ -32,42 +17,11 @@ Before ANY commit, ALL of these must pass:
 3. validate-pipeline.ts   — Content validation (for pipeline changes)
 Do NOT skip failing tests. Do NOT comment out lint rules.
 
-## Pipeline Stage Gates (自修正标准)
-每个管线阶段的 pass/fail 标准和重试策略（详见 docs/PIPELINE-STAGE-GATES.md）：
-
-| Stage | Pass 标准 | 重试 |
-|-------|----------|------|
-| collect | ≥20 items, ≥3 tiers | 不重试 |
-| agent-filter | 3-tier: agent(工具) → single-shot → rule-based | 自动降级 |
-| outline | JSON 大纲: ≥6词标题+动词, 3 preview, 15-25 items, ≥2 heroes | 最多 2 次, 失败→无大纲模式 |
-| newsletter | 结构完整 + frontmatter + ≥10 外链 + 无 forbidden phrases | 最多重试 2 次 |
-| blog | ≥1 EN post, 500-2000 词, frontmatter 齐全 | 最多重试 2 次 |
-| seo | 类型专属标准 (glossary/faq/compare/topics) | 最多重试 1 次 |
-
-校验命令：`npx tsx scripts/validate-pipeline.ts --date={DATE} --step={step}`
-失败时：先读 validation 错误 → 诊断根因 → 修复 → 重跑该阶段（不需要重跑上游）
-
-## Workflow Rules
-1. New feature → brainstorm first (/brainstorm), get human approval
-2. Approved design → write implementation plan (/plan)
-3. Implementation → one task at a time, TDD, commit per task (/build)
-4. Bug fix → systematic debug (/debug), not random trial-and-error
-5. Pipeline changes → run validate-pipeline.ts before commit
-6. After daily pipeline run → always run generate-review.ts
-
-## Content Directories
-content/newsletters/{en,zh}/YYYY-MM-DD.md
-content/newsletters/weekly/{en,zh}/YYYY-WXX.md
-content/blog/{en,zh}/slug.md
-content/glossary/{en,zh}/term.md
-content/faq/{en,zh}/slug.md
-content/compare/{en,zh}/slug.md
-content/topics/{en,zh}/slug.md
-
-## Cron Windows (SGT, Mon-Fri unless noted)
-2am collect → 4am newsletter → 6am extract → 8am blog → 10am SEO → 11:50pm video-import | Sat 2am weekly
-⚠️ Don't push during 2am-12pm SGT on weekdays
-⚠️ During cron window (2am-12pm SGT), always `git pull` before starting any work to avoid conflicts with pipeline commits
+## Workflow
+- New feature → discuss design first, get human approval before coding
+- Bug fix → systematic debug, not random trial-and-error
+- Pipeline changes → run validate-pipeline.ts before commit
+- After daily pipeline run → always run generate-review.ts
 
 ## Style
 Newsletter: "sharp tech insider briefing a busy founder over coffee"
@@ -81,13 +35,8 @@ skills/ contains battle-tested prompts. NEVER rewrite from scratch. Iterate only
 See `.claude/known-issues.md` for the full list of known newsletter bugs.
 Key rules: no stale news (>48h), no cross-day repeats, no attribution guessing, no short titles, no ZH punctuation mixing.
 
-## Known Gotchas (观察性积累，持续更新)
-- Claude 生成的 markdown 有时包裹 ```markdown 代码块 → validate.ts 已处理
+## Known Gotchas
 - ZH content 必须用 CJK word count，不能用英文空格分词
-- SEO 生成时 Claude 偶尔开启 tools → generate-seo.ts 已 disable tools
-- Blog seed 日期解析在本地和 VPS 时区不同时会偏移
 - 不要在 pipeline 脚本里直接 import Next.js 模块（server-only）
-- Gemini Deep Research 需要 `google-genai>=1.55.0`（Interactions API），低版本无此 API
-- `upsertKeyword()` 必须传三个参数（keyword, source, clusterSlug）— 漏传 clusterSlug 会导致 SEO pipeline 看不到关键词，详见 `.claude/known-issues.md` SEO #1
-- FAQ slug 是从 question 文本生成的 kebab-case（原始 question 文本会丢失），所以 displayTerm 可能不可读 — generate-seo.ts 已处理
-- 改 `generate-seo.ts` 优先级/cap 逻辑后必须 `--dry-run` 确认 4 种页面类型都出现（glossary, faq, compare, topics）
+- Gemini Deep Research 需要 `google-genai>=1.55.0`（Interactions API）
+- `upsertKeyword()` 必须传三个参数（keyword, source, clusterSlug）— 漏传 clusterSlug 会导致 SEO pipeline 看不到关键词
