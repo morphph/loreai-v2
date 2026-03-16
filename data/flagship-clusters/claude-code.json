@@ -1,0 +1,173 @@
+{
+  "topic_slug": "claude-code",
+  "pillar_topic": "Claude Code",
+  "version": "1.0",
+
+  "cornerstone": {
+    "slug": "claude-code-complete-guide",
+    "target_keywords": ["claude code", "claude code guide", "what is claude code", "claude code tutorial"],
+    "status": "missing"
+  },
+
+  "target_compare": [
+    {
+      "slug": "claude-code-vs-cursor",
+      "item_a": "Claude Code",
+      "item_b": "Cursor",
+      "priority": 1,
+      "status": "exists"
+    },
+    {
+      "slug": "claude-code-vs-github-copilot",
+      "item_a": "Claude Code",
+      "item_b": "GitHub Copilot",
+      "priority": 1,
+      "status": "missing"
+    },
+    {
+      "slug": "claude-code-vs-codex",
+      "item_a": "Claude Code",
+      "item_b": "Codex",
+      "priority": 1,
+      "status": "missing"
+    },
+    {
+      "slug": "claude-code-vs-windsurf",
+      "item_a": "Claude Code",
+      "item_b": "Windsurf",
+      "priority": 2,
+      "status": "missing"
+    },
+    {
+      "slug": "claude-code-vs-aider",
+      "item_a": "Claude Code",
+      "item_b": "Aider",
+      "priority": 2,
+      "status": "missing"
+    },
+    {
+      "slug": "claude-code-vs-cline",
+      "item_a": "Claude Code",
+      "item_b": "Cline",
+      "priority": 2,
+      "status": "missing"
+    },
+    {
+      "slug": "claude-code-vs-amazon-q",
+      "item_a": "Claude Code",
+      "item_b": "Amazon Q Developer",
+      "priority": 3,
+      "status": "missing"
+    }
+  ],
+
+  "target_faq": [
+    {
+      "slug": "how-much-does-claude-code-cost",
+      "question": "How much does Claude Code cost?",
+      "priority": 1,
+      "status": "exists"
+    },
+    {
+      "slug": "how-to-install-claude-code",
+      "question": "How to install Claude Code?",
+      "priority": 1,
+      "status": "exists"
+    },
+    {
+      "slug": "what-is-claude-code",
+      "question": "What is Claude Code?",
+      "priority": 1,
+      "status": "missing"
+    },
+    {
+      "slug": "is-claude-code-free",
+      "question": "Is Claude Code free?",
+      "priority": 1,
+      "status": "missing"
+    },
+    {
+      "slug": "can-claude-code-run-on-windows",
+      "question": "Can Claude Code run on Windows?",
+      "priority": 1,
+      "status": "missing"
+    },
+    {
+      "slug": "how-to-use-claude-code-with-git",
+      "question": "How to use Claude Code with Git?",
+      "priority": 2,
+      "status": "missing"
+    },
+    {
+      "slug": "what-is-claude-md",
+      "question": "What is CLAUDE.md?",
+      "priority": 2,
+      "status": "missing"
+    },
+    {
+      "slug": "how-to-use-mcp-with-claude-code",
+      "question": "How to use MCP with Claude Code?",
+      "priority": 2,
+      "status": "missing"
+    },
+    {
+      "slug": "claude-code-pricing-api-vs-max-vs-pro",
+      "question": "Claude Code pricing: API vs Max vs Pro — what's the difference?",
+      "priority": 2,
+      "status": "missing"
+    },
+    {
+      "slug": "how-to-use-claude-code-in-ci-cd",
+      "question": "How to use Claude Code in CI/CD?",
+      "priority": 3,
+      "status": "missing"
+    },
+    {
+      "slug": "what-are-claude-code-skills",
+      "question": "What are Claude Code skills?",
+      "priority": 3,
+      "status": "missing"
+    },
+    {
+      "slug": "how-to-use-claude-code-agent-teams",
+      "question": "How to use Claude Code agent teams?",
+      "priority": 3,
+      "status": "missing"
+    }
+  ],
+
+  "target_glossary": [
+    { "slug": "claude-code", "display_term": "Claude Code", "status": "exists" },
+    { "slug": "anthropic", "display_term": "Anthropic", "status": "exists" },
+    { "slug": "claude", "display_term": "Claude", "status": "exists" },
+    { "slug": "agentic-coding", "display_term": "Agentic Coding", "status": "exists" },
+    { "slug": "model-context-protocol", "display_term": "Model Context Protocol (MCP)", "status": "exists" },
+    { "slug": "multi-agent-systems", "display_term": "Multi-Agent Systems", "status": "exists" },
+    { "slug": "agent-teams", "display_term": "Agent Teams", "status": "exists" },
+    { "slug": "claude-md", "display_term": "CLAUDE.md", "status": "missing" }
+  ],
+
+  "tracked_blogs": [
+    { "slug": "claude-code-agent-teams", "title": "Claude Code Agent Teams: Multi-Agent AI Coding with Parallel Sub-Agents" },
+    { "slug": "claude-code-btw-side-chain-conversations", "title": "Claude Code /btw: Side Chain Conversations While Your Agent Works" },
+    { "slug": "claude-code-claude-ai-login-errors-performance", "title": "Claude Code and Claude.ai Hit With Login Errors and Performance Issues" },
+    { "slug": "claude-code-ctrl-s-prompt-stashing", "title": "Claude Code Ctrl+S Prompt Stashing: Queue Prompts While Claude Works" },
+    { "slug": "claude-code-enterprise-engineering-ramp-shopify-spotify", "title": "How Claude Code Is Reshaping Engineering at Ramp, Shopify, Spotify, and More" },
+    { "slug": "claude-code-extension-stack-skills-hooks-agents-mcp", "title": "Claude Code's Extension Stack: How Skills, Hooks, Agents, and MCP Turn a CLI Into a Programmable AI Platform" },
+    { "slug": "claude-code-memory", "title": "Claude Code Memory System: How CLAUDE.md and Auto Memory Work" },
+    { "slug": "claude-code-remote-control-mobile", "title": "Claude Code Remote Control: Kick Off Tasks in Terminal, Control from Phone" },
+    { "slug": "claude-code-review-agents", "title": "Claude Code Review: How Anthropic Solved Its Own AI Code Review Bottleneck" },
+    { "slug": "claude-code-security-vulnerability-scanning", "title": "Claude Code Security: Scanning Codebases for Vulnerabilities" },
+    { "slug": "claude-code-simplify-batch-skills", "title": "Claude Code's New /simplify and /batch Skills: Automating PR Cleanup and Multi-Task Workflows" },
+    { "slug": "claude-code-voice-mode", "title": "Claude Code Voice Mode: Hands-Free AI Coding Arrives" },
+    { "slug": "headless-mode", "title": "Claude Code Headless Mode: Run AI Coding Agents Programmatically" },
+    { "slug": "mcp-vs-cli-vs-skills-extend-claude-code", "title": "MCP vs CLI vs Skills: How to Extend Claude Code Without Over-Engineering" },
+    { "slug": "effective-harnesses-for-long-running-agents", "title": "Effective Harnesses for Long-Running Agents: How to Keep AI Coding Across Sessions" },
+    { "slug": "scheduled-tasks", "title": "Claude Code Scheduled Tasks: Automate Recurring Prompts with /loop and Cron" },
+    { "slug": "red-green-refactor-claude-code", "title": "Red Green Refactor: Why TDD Is the Best Way to Control AI Coding Agents" },
+    { "slug": "obsidian-claude-code-life", "title": "Obsidian + Claude Code: Building a Second Brain That Actually Works" },
+    { "slug": "superpowers", "title": "Superpowers: Teaching AI Coding Agents to Think Before They Type" }
+  ],
+
+  "candidates": []
+}
