@@ -107,7 +107,7 @@ export function prioritizeResults(
 /**
  * Search Brave for a query and return results.
  */
-async function braveSearch(query: string): Promise<Array<{ url: string; title: string }>> {
+export async function braveSearch(query: string): Promise<Array<{ url: string; title: string }>> {
   const apiKey = process.env.BRAVE_SEARCH_API_KEY;
   if (!apiKey) {
     console.warn('    [source] BRAVE_SEARCH_API_KEY not set, skipping search');

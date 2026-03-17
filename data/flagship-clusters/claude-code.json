@@ -284,5 +284,363 @@
       "title": "Superpowers: Teaching AI Coding Agents to Think Before They Type"
     }
   ],
-  "candidates": []
+  "candidates": [
+    {
+      "slug": "claude-code-vs-github-actions",
+      "type": "compare",
+      "display_term": "Claude Code vs GitHub Actions",
+      "question": null,
+      "item_b": "GitHub Actions",
+      "item_b_url": null,
+      "score": 35,
+      "signals": {
+        "brave_result_count": 0,
+        "related_search_hit": false,
+        "competitor_coverage": 1,
+        "cluster_relevance": true,
+        "intent_clarity": true,
+        "freshness_bonus": false
+      },
+      "source": "competitor-audit",
+      "source_url": "https://code.claude.com/docs/en/overview",
+      "discovered_at": "2026-03-17",
+      "status": "low-signal"
+    },
+    {
+      "slug": "claude-code-vs-gitlab-cicd",
+      "type": "compare",
+      "display_term": "Claude Code vs GitLab CI/CD",
+      "question": null,
+      "item_b": "GitLab CI/CD",
+      "item_b_url": null,
+      "score": 35,
+      "signals": {
+        "brave_result_count": 0,
+        "related_search_hit": false,
+        "competitor_coverage": 1,
+        "cluster_relevance": true,
+        "intent_clarity": true,
+        "freshness_bonus": false
+      },
+      "source": "competitor-audit",
+      "source_url": "https://code.claude.com/docs/en/overview",
+      "discovered_at": "2026-03-17",
+      "status": "low-signal"
+    },
+    {
+      "slug": "what-is-claude-code-and-what-can-it-do",
+      "type": "faq",
+      "display_term": "What is Claude Code and what can it do?",
+      "question": "What is Claude Code and what can it do?",
+      "item_b": null,
+      "item_b_url": null,
+      "score": 35,
+      "signals": {
+        "brave_result_count": 0,
+        "related_search_hit": false,
+        "competitor_coverage": 1,
+        "cluster_relevance": true,
+        "intent_clarity": true,
+        "freshness_bonus": false
+      },
+      "source": "competitor-audit",
+      "source_url": "https://code.claude.com/docs/en/overview",
+      "discovered_at": "2026-03-17",
+      "status": "low-signal"
+    },
+    {
+      "slug": "how-do-you-install-claude-code",
+      "type": "faq",
+      "display_term": "How do you install Claude Code?",
+      "question": "How do you install Claude Code?",
+      "item_b": null,
+      "item_b_url": null,
+      "score": 35,
+      "signals": {
+        "brave_result_count": 0,
+        "related_search_hit": false,
+        "competitor_coverage": 1,
+        "cluster_relevance": true,
+        "intent_clarity": true,
+        "freshness_bonus": false
+      },
+      "source": "competitor-audit",
+      "source_url": "https://code.claude.com/docs/en/overview",
+      "discovered_at": "2026-03-17",
+      "status": "low-signal"
+    },
+    {
+      "slug": "how-does-claude-code-handle-git-workflow",
+      "type": "faq",
+      "display_term": "How does Claude Code handle git workflows and pull requests?",
+      "question": "How does Claude Code handle git workflows and pull requests?",
+      "item_b": null,
+      "item_b_url": null,
+      "score": 35,
+      "signals": {
+        "brave_result_count": 0,
+        "related_search_hit": false,
+        "competitor_coverage": 1,
+        "cluster_relevance": true,
+        "intent_clarity": true,
+        "freshness_bonus": false
+      },
+      "source": "competitor-audit",
+      "source_url": "https://code.claude.com/docs/en/overview",
+      "discovered_at": "2026-03-17",
+      "status": "low-signal"
+    },
+    {
+      "slug": "what-is-mcp-and-how-does-claude-code-use",
+      "type": "faq",
+      "display_term": "What is MCP and how does Claude Code use it?",
+      "question": "What is MCP and how does Claude Code use it?",
+      "item_b": null,
+      "item_b_url": null,
+      "score": 35,
+      "signals": {
+        "brave_result_count": 0,
+        "related_search_hit": false,
+        "competitor_coverage": 1,
+        "cluster_relevance": true,
+        "intent_clarity": true,
+        "freshness_bonus": false
+      },
+      "source": "competitor-audit",
+      "source_url": "https://code.claude.com/docs/en/overview",
+      "discovered_at": "2026-03-17",
+      "status": "low-signal"
+    },
+    {
+      "slug": "how-do-you-customize-claude-code-with-in",
+      "type": "faq",
+      "display_term": "How do you customize Claude Code with instructions and hooks?",
+      "question": "How do you customize Claude Code with instructions and hooks?",
+      "item_b": null,
+      "item_b_url": null,
+      "score": 35,
+      "signals": {
+        "brave_result_count": 0,
+        "related_search_hit": false,
+        "competitor_coverage": 1,
+        "cluster_relevance": true,
+        "intent_clarity": true,
+        "freshness_bonus": false
+      },
+      "source": "competitor-audit",
+      "source_url": "https://code.claude.com/docs/en/overview",
+      "discovered_at": "2026-03-17",
+      "status": "low-signal"
+    },
+    {
+      "slug": "can-claude-code-run-multiple-agents-simu",
+      "type": "faq",
+      "display_term": "Can Claude Code run multiple agents simultaneously?",
+      "question": "Can Claude Code run multiple agents simultaneously?",
+      "item_b": null,
+      "item_b_url": null,
+      "score": 35,
+      "signals": {
+        "brave_result_count": 0,
+        "related_search_hit": false,
+        "competitor_coverage": 1,
+        "cluster_relevance": true,
+        "intent_clarity": true,
+        "freshness_bonus": false
+      },
+      "source": "competitor-audit",
+      "source_url": "https://code.claude.com/docs/en/overview",
+      "discovered_at": "2026-03-17",
+      "status": "low-signal"
+    },
+    {
+      "slug": "how-do-you-use-claude-code-in-cicd-pipel",
+      "type": "faq",
+      "display_term": "How do you use Claude Code in CI/CD pipelines?",
+      "question": "How do you use Claude Code in CI/CD pipelines?",
+      "item_b": null,
+      "item_b_url": null,
+      "score": 35,
+      "signals": {
+        "brave_result_count": 0,
+        "related_search_hit": false,
+        "competitor_coverage": 1,
+        "cluster_relevance": true,
+        "intent_clarity": true,
+        "freshness_bonus": false
+      },
+      "source": "competitor-audit",
+      "source_url": "https://code.claude.com/docs/en/overview",
+      "discovered_at": "2026-03-17",
+      "status": "low-signal"
+    },
+    {
+      "slug": "claude-code-vs-o3",
+      "type": "compare",
+      "display_term": "Claude Code vs o3",
+      "question": null,
+      "item_b": "o3",
+      "item_b_url": null,
+      "score": 35,
+      "signals": {
+        "brave_result_count": 0,
+        "related_search_hit": false,
+        "competitor_coverage": 1,
+        "cluster_relevance": true,
+        "intent_clarity": true,
+        "freshness_bonus": false
+      },
+      "source": "competitor-audit",
+      "source_url": "https://natesnewsletter.substack.com/p/the-claude-code-complete-guide-learn",
+      "discovered_at": "2026-03-17",
+      "status": "low-signal"
+    },
+    {
+      "slug": "claude-code-vs-cluely",
+      "type": "compare",
+      "display_term": "Claude Code vs Cluely",
+      "question": null,
+      "item_b": "Cluely",
+      "item_b_url": null,
+      "score": 35,
+      "signals": {
+        "brave_result_count": 0,
+        "related_search_hit": false,
+        "competitor_coverage": 1,
+        "cluster_relevance": true,
+        "intent_clarity": true,
+        "freshness_bonus": false
+      },
+      "source": "competitor-audit",
+      "source_url": "https://natesnewsletter.substack.com/p/the-claude-code-complete-guide-learn",
+      "discovered_at": "2026-03-17",
+      "status": "low-signal"
+    },
+    {
+      "slug": "is-claude-code-only-for-software-enginee",
+      "type": "faq",
+      "display_term": "Is Claude Code only for software engineers or can non-technical people use it?",
+      "question": "Is Claude Code only for software engineers or can non-technical people use it?",
+      "item_b": null,
+      "item_b_url": null,
+      "score": 35,
+      "signals": {
+        "brave_result_count": 0,
+        "related_search_hit": false,
+        "competitor_coverage": 1,
+        "cluster_relevance": true,
+        "intent_clarity": true,
+        "freshness_bonus": false
+      },
+      "source": "competitor-audit",
+      "source_url": "https://natesnewsletter.substack.com/p/the-claude-code-complete-guide-learn",
+      "discovered_at": "2026-03-17",
+      "status": "low-signal"
+    },
+    {
+      "slug": "how-is-claude-code-different-from-cursor",
+      "type": "faq",
+      "display_term": "How is Claude Code different from Cursor and GitHub Copilot?",
+      "question": "How is Claude Code different from Cursor and GitHub Copilot?",
+      "item_b": null,
+      "item_b_url": null,
+      "score": 35,
+      "signals": {
+        "brave_result_count": 0,
+        "related_search_hit": false,
+        "competitor_coverage": 1,
+        "cluster_relevance": true,
+        "intent_clarity": true,
+        "freshness_bonus": false
+      },
+      "source": "competitor-audit",
+      "source_url": "https://natesnewsletter.substack.com/p/the-claude-code-complete-guide-learn",
+      "discovered_at": "2026-03-17",
+      "status": "low-signal"
+    },
+    {
+      "slug": "how-much-does-claude-code-cost-and-is-th",
+      "type": "faq",
+      "display_term": "How much does Claude Code cost and is the Max tier worth it?",
+      "question": "How much does Claude Code cost and is the Max tier worth it?",
+      "item_b": null,
+      "item_b_url": null,
+      "score": 35,
+      "signals": {
+        "brave_result_count": 0,
+        "related_search_hit": false,
+        "competitor_coverage": 1,
+        "cluster_relevance": true,
+        "intent_clarity": true,
+        "freshness_bonus": false
+      },
+      "source": "competitor-audit",
+      "source_url": "https://natesnewsletter.substack.com/p/the-claude-code-complete-guide-learn",
+      "discovered_at": "2026-03-17",
+      "status": "low-signal"
+    },
+    {
+      "slug": "how-do-you-set-up-claude-code-for-the-fi",
+      "type": "faq",
+      "display_term": "How do you set up Claude Code for the first time?",
+      "question": "How do you set up Claude Code for the first time?",
+      "item_b": null,
+      "item_b_url": null,
+      "score": 35,
+      "signals": {
+        "brave_result_count": 0,
+        "related_search_hit": false,
+        "competitor_coverage": 1,
+        "cluster_relevance": true,
+        "intent_clarity": true,
+        "freshness_bonus": false
+      },
+      "source": "competitor-audit",
+      "source_url": "https://natesnewsletter.substack.com/p/the-claude-code-complete-guide-learn",
+      "discovered_at": "2026-03-17",
+      "status": "low-signal"
+    },
+    {
+      "slug": "why-does-claude-code-work-in-the-termina",
+      "type": "faq",
+      "display_term": "Why does Claude Code work in the terminal instead of an IDE?",
+      "question": "Why does Claude Code work in the terminal instead of an IDE?",
+      "item_b": null,
+      "item_b_url": null,
+      "score": 35,
+      "signals": {
+        "brave_result_count": 0,
+        "related_search_hit": false,
+        "competitor_coverage": 1,
+        "cluster_relevance": true,
+        "intent_clarity": true,
+        "freshness_bonus": false
+      },
+      "source": "competitor-audit",
+      "source_url": "https://natesnewsletter.substack.com/p/the-claude-code-complete-guide-learn",
+      "discovered_at": "2026-03-17",
+      "status": "low-signal"
+    },
+    {
+      "slug": "can-claude-code-be-used-for-non-coding-t",
+      "type": "faq",
+      "display_term": "Can Claude Code be used for non-coding tasks as general knowledge work?",
+      "question": "Can Claude Code be used for non-coding tasks as general knowledge work?",
+      "item_b": null,
+      "item_b_url": null,
+      "score": 35,
+      "signals": {
+        "brave_result_count": 0,
+        "related_search_hit": false,
+        "competitor_coverage": 1,
+        "cluster_relevance": true,
+        "intent_clarity": true,
+        "freshness_bonus": false
+      },
+      "source": "competitor-audit",
+      "source_url": "https://natesnewsletter.substack.com/p/the-claude-code-complete-guide-learn",
+      "discovered_at": "2026-03-17",
+      "status": "low-signal"
+    }
+  ]
 }

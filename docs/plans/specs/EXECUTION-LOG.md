@@ -408,3 +408,41 @@
 - Compare pages had zero cross-links to each other (except vs-cursor). FAQ pages from SPEC-07 had good internal cross-linking. The difference: SPEC-07 explicitly included cross-linking in generation prompts; SPEC-06 did not.
 
 ---
+
+## SPEC-09a — External Discovery Engine
+**Date:** 2026-03-17 14:15 SGT
+**Status:** COMPLETED
+**Duration:** ~15 minutes
+
+### Files Changed
+- `scripts/lib/source-fetch.ts`: Exported `braveSearch` function (added `export` keyword)
+- `data/flagship-clusters/claude-code.json`: 17 candidates appended to `candidates` array
+
+### Files Created
+- `scripts/planner.ts`: CLI for cluster discovery (`--cluster`, `--all`, `--dry-run`)
+- `scripts/lib/discover.ts`: Discovery engine — query building, Brave signal extraction, LLM competitor audit, scoring, deduplication
+- `skills/planner/competitor-audit.md`: LLM prompt for competitor content gap analysis
+
+### Validation Results
+- npm run build: PASS
+- npm test: PASS (180/180)
+- `--dry-run` on claude-code: PASS — 16 candidates shown, no disk writes
+- Real run on claude-code: PASS — 17 candidates written to `candidates` array
+- Idempotency test: PASS — re-run found only new candidates (LLM variation), no duplicates of existing 17
+- `target_*` arrays: UNCHANGED (7 compare, 12 FAQ, 8 glossary)
+
+### Decisions & Deviations
+- Created `braveSearchWithSignals()` in discover.ts as a separate function that returns full Brave response (related_searches, discussions, result_count) — the exported `braveSearch` from source-fetch.ts only returns `{url, title}[]` which is insufficient for discovery signal extraction. This avoids changing the existing function signature.
+- Brave Stage 1 found 0 candidates from related searches for the Claude Code cluster — Brave API returned no related_searches containing "Claude Code" for these queries. All 17 candidates came from Stage 2 (competitor content audit). This is expected for well-established topics where Brave may not return topic-specific related searches.
+- All 17 candidates scored 35 (low-signal) — correct per scoring model: competitor_coverage(1)=10 + cluster_relevance=15 + intent_clarity=10 = 35.
+
+### Blockers / Issues
+- None
+
+### Key Observations
+- The LLM competitor audit is the most productive discovery channel for established topics. Brave related searches may be more productive for emerging topics with active search discussions.
+- LLM responses vary between runs (non-deterministic), so re-running discovery finds different candidates. Dedup prevents slug collisions but the candidates array grows. This is acceptable — human review (SPEC-09b) handles curation.
+- Medium.com returns HTTP 403 to the bot user-agent, so competitor pages from Medium are skipped. This is a known limitation of the fetch pipeline.
+- The `code.claude.com` domain was not in `official_domains` (which has `docs.anthropic.com`), so it was treated as a competitor page. This is actually fine since we want to discover gap topics even from official-adjacent sources.
+
+---
