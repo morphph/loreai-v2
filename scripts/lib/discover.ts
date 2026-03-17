@@ -5,7 +5,7 @@
  * Brave Search demand signals and competitor content structure.
  * Candidates are scored and deduplicated before being returned.
  */
-import { readFileSync, existsSync } from 'fs';
+import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import 'dotenv/config';
 
@@ -63,6 +63,25 @@ interface BraveFullResult {
   result_count: number;
 }
 
+export interface FreshnessSignal {
+  event_type: 'pricing-change' | 'new-feature' | 'version-release' | 'deprecation' | 'platform-change';
+  description: string;
+  source_url: string | null;
+  detected_at: string;
+}
+
+export interface RefreshFlag {
+  slug: string;
+  page_type: string;
+  severity: 'high' | 'medium' | 'low';
+  affected_sections: string[];
+  reason: string;
+  signal_event: string;
+  signal_description: string;
+  flagged_at: string;
+  status: 'pending' | 'refreshed' | 'cleared';
+}
+
 // Minimal cluster type for discovery (avoids importing from generate-seo.ts)
 export interface ClusterForDiscovery {
   topic_slug: string;
@@ -89,6 +108,7 @@ export interface ClusterForDiscovery {
     status?: string;
   }>;
   candidates?: Array<ScoredCandidate>;
+  refresh_needed?: RefreshFlag[];
 }
 
 // ============================================================
@@ -357,9 +377,11 @@ function parseJsonResponse(raw: string): Record<string, unknown> | null {
 export async function extractNewsSignals(
   items: DiscoveryNewsItem[],
   pillarTopic: string,
+  topicSlug?: string,
 ): Promise<RawCandidate[]> {
   const skill = loadPlannerSkill('news-signal-extract');
   const candidates: RawCandidate[] = [];
+  const collectedFreshnessEvents: FreshnessSignal[] = [];
 
   // Batch items (5 per call)
   for (let i = 0; i < items.length; i += 5) {
@@ -402,10 +424,18 @@ export async function extractNewsSignals(
         });
       }
 
-      // Freshness events: log for SPEC-09d, don't create candidates
-      const events = (parsed.freshness_events as Array<{ event_type: string; description: string }>) || [];
+      // Freshness events: cache for SPEC-09d refresh detection
+      const events = (parsed.freshness_events as Array<{ event_type: string; description: string; source_item_url?: string }>) || [];
       if (events.length > 0) {
         console.log(`    [discover] Freshness events detected: ${events.map(e => `${e.event_type}: ${e.description}`).join('; ')}`);
+        for (const e of events) {
+          collectedFreshnessEvents.push({
+            event_type: e.event_type as FreshnessSignal['event_type'],
+            description: e.description,
+            source_url: e.source_item_url || null,
+            detected_at: new Date().toISOString().slice(0, 10),
+          });
+        }
       }
     } catch (err) {
       console.warn(`    [discover] LLM call failed for news batch ${i / 5 + 1}: ${(err as Error).message}`);
@@ -415,6 +445,11 @@ export async function extractNewsSignals(
     if (i + 5 < items.length) {
       await delay(500);
     }
+  }
+
+  // Cache freshness events for SPEC-09d refresh detection
+  if (collectedFreshnessEvents.length > 0 && topicSlug) {
+    cacheFreshnessEvents(topicSlug, collectedFreshnessEvents);
   }
 
   return candidates;
@@ -728,7 +763,7 @@ export async function discoverForCluster(cluster: ClusterForDiscovery, gscCsvPat
   const newsItems = getRecentNewsItemsForDiscovery(pillar_topic);
   if (newsItems.length > 0) {
     console.log(`    [discover] Analyzing ${newsItems.length} news items...`);
-    const newsCandidates = await extractNewsSignals(newsItems, pillar_topic);
+    const newsCandidates = await extractNewsSignals(newsItems, pillar_topic, topic_slug);
     for (const nc of newsCandidates) {
       const slug = candidateSlug(nc.type, nc, pillar_topic);
       if (existingSlugs.has(slug) || dismissedSlugs.has(slug)) continue;
@@ -903,6 +938,298 @@ export function writeDiscoveriesToKeywordTable(
     if (c.type === 'compare' && c.item_b) {
       upsertKeyword(`${cluster.pillar_topic} vs ${c.item_b}`, source, cluster.topic_slug);
     }
+  }
+}
+
+// ============================================================
+// Refresh Detection Engine (SPEC-09d)
+// ============================================================
+
+function cacheFreshnessEvents(topicSlug: string, events: FreshnessSignal[]): void {
+  const cachePath = join(process.cwd(), 'data', 'flagship-clusters', '.freshness-cache.json');
+  let cache: Record<string, FreshnessSignal[]> = {};
+  if (existsSync(cachePath)) {
+    try {
+      cache = JSON.parse(readFileSync(cachePath, 'utf-8'));
+    } catch { /* start fresh */ }
+  }
+  cache[topicSlug] = events;
+  writeFileSync(cachePath, JSON.stringify(cache, null, 2) + '\n', 'utf-8');
+  console.log(`    [discover] Cached ${events.length} freshness events for ${topicSlug}`);
+}
+
+export async function collectFreshnessSignals(
+  cluster: ClusterForDiscovery
+): Promise<FreshnessSignal[]> {
+  const signals: FreshnessSignal[] = [];
+
+  // Source 1: Cached freshness events from SPEC-09c discovery
+  const cachePath = join(
+    process.cwd(), 'data', 'flagship-clusters', '.freshness-cache.json'
+  );
+  if (existsSync(cachePath)) {
+    try {
+      const cached = JSON.parse(readFileSync(cachePath, 'utf-8'));
+      const clusterEvents = cached[cluster.topic_slug] || [];
+      signals.push(...clusterEvents);
+    } catch { /* ignore malformed cache */ }
+  }
+
+  // Source 2: If no cached events, do a quick news scan
+  if (signals.length === 0) {
+    const newsItems = getRecentNewsItemsForDiscovery(cluster.pillar_topic, 7);
+    if (newsItems.length > 0) {
+      console.log(`    [refresh] No cache found — scanning ${newsItems.length} recent news items...`);
+      signals.push(...await extractFreshnessOnly(newsItems, cluster.pillar_topic));
+    }
+  }
+
+  return signals;
+}
+
+async function extractFreshnessOnly(
+  items: DiscoveryNewsItem[],
+  pillarTopic: string
+): Promise<FreshnessSignal[]> {
+  const skill = loadPlannerSkill('news-signal-extract');
+  const signals: FreshnessSignal[] = [];
+
+  // Batch items (5 per call)
+  for (let i = 0; i < items.length; i += 5) {
+    const batch = items.slice(i, i + 5);
+    const itemsText = batch.map((item, idx) =>
+      `[${idx + 1}] "${item.title}"\n${item.summary || '(no summary)'}\nSource: ${item.url || '(no url)'}\nDate: ${item.detected_at}`
+    ).join('\n\n');
+
+    try {
+      const response = await callClaude(skill, `Pillar topic: "${pillarTopic}"\n\nNews items:\n${itemsText}`, {
+        maxTokens: 1024,
+        temperature: 0.2,
+      });
+
+      const parsed = parseJsonResponse(response.content);
+      if (!parsed) continue;
+
+      const events = (parsed.freshness_events as Array<{ event_type: string; description: string; source_item_url?: string }>) || [];
+      for (const e of events) {
+        signals.push({
+          event_type: e.event_type as FreshnessSignal['event_type'],
+          description: e.description,
+          source_url: e.source_item_url || null,
+          detected_at: new Date().toISOString().slice(0, 10),
+        });
+      }
+    } catch (err) {
+      console.warn(`    [refresh] LLM call failed for batch ${i / 5 + 1}: ${(err as Error).message}`);
+    }
+
+    if (i + 5 < items.length) await delay(500);
+  }
+
+  return signals;
+}
+
+export function mapSignalToPages(
+  signal: FreshnessSignal,
+  cluster: ClusterForDiscovery
+): string[] {
+  const affectedSlugs: string[] = [];
+
+  switch (signal.event_type) {
+    case 'pricing-change':
+      affectedSlugs.push(cluster.cornerstone.slug);
+      for (const f of cluster.target_faq) {
+        if (f.slug.includes('pricing') || f.slug.includes('cost') || f.slug.includes('free')) {
+          affectedSlugs.push(f.slug);
+        }
+      }
+      for (const c of cluster.target_compare) {
+        affectedSlugs.push(c.slug);
+      }
+      break;
+
+    case 'new-feature':
+    case 'version-release':
+      affectedSlugs.push(cluster.cornerstone.slug);
+      for (const c of cluster.target_compare) {
+        affectedSlugs.push(c.slug);
+      }
+      break;
+
+    case 'deprecation':
+      affectedSlugs.push(cluster.cornerstone.slug);
+      for (const f of cluster.target_faq) {
+        if (f.slug.includes('install') || f.slug.includes('setup') || f.slug.includes('how-to')) {
+          affectedSlugs.push(f.slug);
+        }
+      }
+      break;
+
+    case 'platform-change':
+      affectedSlugs.push(cluster.cornerstone.slug);
+      for (const f of cluster.target_faq) {
+        if (f.slug.includes('windows') || f.slug.includes('install') || f.slug.includes('setup')) {
+          affectedSlugs.push(f.slug);
+        }
+      }
+      for (const c of cluster.target_compare) {
+        affectedSlugs.push(c.slug);
+      }
+      break;
+  }
+
+  return Array.from(new Set(affectedSlugs));
+}
+
+function getPageType(slug: string, cluster: ClusterForDiscovery): string {
+  if (cluster.cornerstone.slug === slug) return 'blog';
+  if (cluster.target_compare.some(c => c.slug === slug)) return 'compare';
+  if (cluster.target_faq.some(f => f.slug === slug)) return 'faq';
+  if (cluster.target_glossary.some(g => g.slug === slug)) return 'glossary';
+  return 'blog';
+}
+
+export function readPageContent(
+  slug: string,
+  type: string,
+  lang: string = 'en'
+): string | null {
+  const typeDir = type === 'blog' ? 'blog' : type;
+  const filePath = join(process.cwd(), 'content', typeDir, lang, `${slug}.md`);
+
+  if (!existsSync(filePath)) {
+    return null;
+  }
+
+  return readFileSync(filePath, 'utf-8');
+}
+
+export async function checkPageStaleness(
+  pageContent: string,
+  pageSlug: string,
+  pageType: string,
+  signal: FreshnessSignal,
+  pillarTopic: string
+): Promise<RefreshFlag | null> {
+  try {
+    const skill = loadPlannerSkill('refresh-detect');
+    const truncatedPage = truncateSource(pageContent, 8000);
+
+    const response = await callClaude(skill, `
+Pillar topic: "${pillarTopic}"
+Page slug: ${pageSlug}
+Page type: ${pageType}
+
+Freshness signal:
+- Event: ${signal.event_type}
+- Description: ${signal.description}
+- Source: ${signal.source_url || 'unknown'}
+- Detected: ${signal.detected_at}
+
+Current page content:
+${truncatedPage}
+    `, {
+      maxTokens: 512,
+      temperature: 0.1,
+    });
+
+    const parsed = parseJsonResponse(response.content);
+    if (!parsed) return null;
+
+    if (!parsed.is_stale) return null;
+
+    return {
+      slug: pageSlug,
+      page_type: pageType,
+      severity: parsed.severity as RefreshFlag['severity'],
+      affected_sections: (parsed.affected_sections as string[]) || [],
+      reason: (parsed.reason as string) || '',
+      signal_event: signal.event_type,
+      signal_description: signal.description,
+      flagged_at: new Date().toISOString().slice(0, 10),
+      status: 'pending' as const,
+    };
+  } catch (err) {
+    console.warn(`    [refresh] LLM check failed for ${pageSlug}: ${(err as Error).message}`);
+    return null;
+  }
+}
+
+export async function checkClusterRefresh(cluster: ClusterForDiscovery): Promise<RefreshFlag[]> {
+  console.log(`\n[refresh] Refresh check for "${cluster.pillar_topic}"`);
+
+  // 1. Collect freshness signals
+  const signals = await collectFreshnessSignals(cluster);
+  if (signals.length === 0) {
+    console.log('  No freshness signals found — skipping refresh check');
+    return [];
+  }
+  console.log(`  Found ${signals.length} freshness signal(s)`);
+
+  // 2. Map signals to affected pages
+  const pageChecks = new Map<string, { type: string; signals: FreshnessSignal[] }>();
+
+  for (const signal of signals) {
+    const affected = mapSignalToPages(signal, cluster);
+    for (const slug of affected) {
+      if (!pageChecks.has(slug)) {
+        const pageType = getPageType(slug, cluster);
+        pageChecks.set(slug, { type: pageType, signals: [] });
+      }
+      pageChecks.get(slug)!.signals.push(signal);
+    }
+  }
+
+  console.log(`  ${pageChecks.size} page(s) to check`);
+
+  // 3. LLM staleness check for each affected page
+  const flags: RefreshFlag[] = [];
+  const existingSlugs = new Set((cluster.refresh_needed || []).filter(r => r.status === 'pending').map(r => `${r.slug}:${r.signal_event}:${r.signal_description}`));
+
+  for (const [slug, { type, signals: pageSignals }] of Array.from(pageChecks.entries())) {
+    const content = readPageContent(slug, type);
+    if (!content) {
+      console.log(`    [skip] ${slug} — file not found`);
+      continue;
+    }
+
+    for (const signal of pageSignals) {
+      // Deduplication: skip if already flagged with same signal
+      const dedupeKey = `${slug}:${signal.event_type}:${signal.description}`;
+      if (existingSlugs.has(dedupeKey)) {
+        console.log(`    [skip] ${slug} — already flagged for "${signal.event_type}"`);
+        continue;
+      }
+
+      console.log(`    [check] ${slug} <- ${signal.event_type}: ${signal.description.slice(0, 60)}...`);
+
+      const flag = await checkPageStaleness(content, slug, type, signal, cluster.pillar_topic);
+      if (flag) {
+        flags.push(flag);
+        existingSlugs.add(dedupeKey);
+        console.log(`    [STALE] ${slug} — ${flag.severity}: ${flag.reason.slice(0, 80)}...`);
+      }
+
+      await delay(500);
+    }
+  }
+
+  return flags;
+}
+
+export function clearRefresh(cluster: ClusterForDiscovery, slug: string): void {
+  if (!cluster.refresh_needed || cluster.refresh_needed.length === 0) {
+    throw new Error('No refresh flags to clear');
+  }
+
+  if (slug === 'all') {
+    for (const r of cluster.refresh_needed) {
+      r.status = 'cleared';
+    }
+  } else {
+    const flag = cluster.refresh_needed.find(r => r.slug === slug);
+    if (!flag) throw new Error(`No refresh flag for "${slug}"`);
+    flag.status = 'cleared';
   }
 }
 

@@ -22,8 +22,11 @@ import {
   discoverForCluster,
   inferGlossaryCandidates,
   writeDiscoveriesToKeywordTable,
+  checkClusterRefresh,
+  clearRefresh,
   type ClusterForDiscovery,
   type ScoredCandidate,
+  type RefreshFlag,
 } from './lib/discover';
 
 const CLUSTERS_DIR = path.join(process.cwd(), 'data', 'flagship-clusters');
@@ -41,6 +44,8 @@ interface PlannerArgs {
   dismiss?: string;
   status: boolean;
   gscCsv?: string;
+  refreshCheck: boolean;
+  clearRefreshSlug?: string;
 }
 
 function parseArgs(): PlannerArgs {
@@ -53,6 +58,8 @@ function parseArgs(): PlannerArgs {
   let dismiss: string | undefined;
   let status = false;
   let gscCsv: string | undefined;
+  let refreshCheck = false;
+  let clearRefreshSlug: string | undefined;
 
   for (const arg of args) {
     if (arg.startsWith('--cluster=')) {
@@ -71,10 +78,14 @@ function parseArgs(): PlannerArgs {
       status = true;
     } else if (arg.startsWith('--gsc-csv=')) {
       gscCsv = arg.split('=')[1];
+    } else if (arg === '--refresh-check') {
+      refreshCheck = true;
+    } else if (arg.startsWith('--clear-refresh=')) {
+      clearRefreshSlug = arg.split('=')[1];
     }
   }
 
-  return { cluster, all, dryRun, promote, promoteAbove, dismiss, status, gscCsv };
+  return { cluster, all, dryRun, promote, promoteAbove, dismiss, status, gscCsv, refreshCheck, clearRefreshSlug };
 }
 
 // ============================================================
@@ -285,14 +296,43 @@ function showStatus(cluster: ClusterForDiscovery): void {
 }
 
 // ============================================================
+// Refresh flag display
+// ============================================================
+
+function displayRefreshFlags(flags: RefreshFlag[]): void {
+  if (flags.length === 0) {
+    console.log('\n  No stale pages detected.');
+    return;
+  }
+
+  console.log(`\n  Found ${flags.length} stale page(s):\n`);
+  console.log('  ' + '-'.repeat(90));
+
+  for (const f of flags) {
+    const severityIcon = f.severity === 'high' ? '[HIGH]' : f.severity === 'medium' ? '[MED]' : '[LOW]';
+    console.log(`  ${severityIcon} ${f.slug} (${f.page_type})`);
+    console.log(`    Signal: ${f.signal_event} — ${f.signal_description}`);
+    console.log(`    Sections: ${f.affected_sections.join(', ') || '(none specified)'}`);
+    console.log(`    Reason: ${f.reason}`);
+    console.log('');
+  }
+
+  console.log('  ' + '-'.repeat(90));
+  const high = flags.filter(f => f.severity === 'high').length;
+  const med = flags.filter(f => f.severity === 'medium').length;
+  const low = flags.filter(f => f.severity === 'low').length;
+  console.log(`  Summary: ${high} high, ${med} medium, ${low} low severity`);
+}
+
+// ============================================================
 // Main
 // ============================================================
 
 async function main() {
-  const { cluster, all, dryRun, promote, promoteAbove, dismiss, status, gscCsv } = parseArgs();
+  const { cluster, all, dryRun, promote, promoteAbove, dismiss, status, gscCsv, refreshCheck, clearRefreshSlug } = parseArgs();
 
-  // --status, --promote, --dismiss, --promote-above require --cluster
-  const isManagementOp = status || promote || dismiss || promoteAbove !== undefined;
+  // --status, --promote, --dismiss, --promote-above, --refresh-check, --clear-refresh require --cluster
+  const isManagementOp = status || promote || dismiss || promoteAbove !== undefined || refreshCheck || clearRefreshSlug;
 
   if (!cluster && !all) {
     console.error('Usage: npx tsx scripts/planner.ts --cluster=<slug> [--dry-run]');
@@ -301,6 +341,8 @@ async function main() {
     console.error('       npx tsx scripts/planner.ts --cluster=<slug> --promote=<slug>');
     console.error('       npx tsx scripts/planner.ts --cluster=<slug> --promote-above=<score>');
     console.error('       npx tsx scripts/planner.ts --cluster=<slug> --dismiss=<slug>');
+    console.error('       npx tsx scripts/planner.ts --cluster=<slug> --refresh-check [--dry-run]');
+    console.error('       npx tsx scripts/planner.ts --cluster=<slug> --clear-refresh=<slug|all>');
     process.exit(1);
   }
 
@@ -360,6 +402,28 @@ async function main() {
       dismissCandidate(clusterData, dismiss);
       console.log(`[planner] Dismissed "${dismiss}"`);
       writeCluster(cluster, clusterData);
+      return;
+    }
+
+    if (refreshCheck) {
+      const flags = await checkClusterRefresh(clusterData);
+      displayRefreshFlags(flags);
+
+      if (!dryRun && flags.length > 0) {
+        if (!clusterData.refresh_needed) clusterData.refresh_needed = [];
+        clusterData.refresh_needed.push(...flags);
+        writeCluster(cluster, clusterData);
+        console.log(`[planner] Wrote ${flags.length} refresh flag(s) to cluster JSON`);
+      } else if (dryRun && flags.length > 0) {
+        console.log('\n  [dry-run] No changes written to disk.');
+      }
+      return;
+    }
+
+    if (clearRefreshSlug) {
+      clearRefresh(clusterData, clearRefreshSlug);
+      writeCluster(cluster, clusterData);
+      console.log(`[planner] Cleared refresh flag(s): ${clearRefreshSlug}`);
       return;
     }
 

@@ -46,6 +46,9 @@ loreai.db-shm
 # GSC exports (real data, not for git)
 data/gsc-exports/*.csv
 
+# Freshness signal cache (transient, rebuilt on discovery)
+data/flagship-clusters/.freshness-cache.json
+
 # Review reports
 data/review/
 
