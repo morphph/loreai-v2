@@ -68,7 +68,16 @@ case "$STEP" in
     (git commit -m "📊 GSC export $(date +%Y-%m-%d)" || true) && git push ;;
   video-import)
     npx tsx scripts/import-video-blog.ts --batch --auto ;;
+  health)
+    CLUSTER="${2:-}"
+    if [ -n "$CLUSTER" ]; then
+      npx tsx scripts/cluster-health.ts --cluster="$CLUSTER" --format=md --output=data/reports/
+    else
+      npx tsx scripts/cluster-health.ts --all --format=md --output=data/reports/
+    fi
+    git add data/reports/
+    (git commit -m "📊 Health report $(date +%Y-%m-%d)" || true) && git push ;;
   *)
-    echo "Usage: $0 {collect|newsletter|extract|blog|seo|weekly|cluster-strategy|cluster|discover|gsc-export|video-import}"
+    echo "Usage: $0 {collect|newsletter|extract|blog|seo|weekly|cluster-strategy|cluster|discover|gsc-export|video-import|health}"
     exit 1 ;;
 esac

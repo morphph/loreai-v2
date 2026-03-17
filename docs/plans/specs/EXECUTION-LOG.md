@@ -715,3 +715,43 @@
 - Total content created: 1 cornerstone (EN+ZH), 6 compare (EN+ZH), 8 FAQ (EN+ZH), 3 glossary (EN+ZH) = 18 unique pages × 2 languages = 36 content files + cluster definition.
 
 ---
+
+## SPEC-14 — Cluster Health Dashboard
+**Date:** 2026-03-17 20:00 SGT
+**Status:** COMPLETED
+**Duration:** ~20 minutes
+
+### Files Changed
+- `scripts/daily-pipeline.sh`: Added `health` step with markdown report output + git commit/push
+
+### Files Created
+- `scripts/lib/link-check.ts`: Internal link extraction (`extractInternalLinks`), validation (`checkLinkExists`), and full cluster link audit (`checkClusterLinkHealth`)
+- `scripts/cluster-health.ts`: Main CLI — 6-section health dashboard (completeness, link health, refresh status, discovery pipeline, GSC performance, schema coverage) with terminal/JSON/markdown output formats
+- `data/reports/.gitkeep`: Landing directory for markdown health reports
+
+### Validation Results
+- npm run build: PASS
+- npm test: PASS (180/180)
+- `--cluster=claude-code` terminal output: PASS — 29/29 nodes, 0 broken links, 0 orphans, 17 candidates, no GSC data, full schema coverage
+- `--cluster=claude-code --format=json`: PASS — valid JSON with all 6 sections
+- `--cluster=claude-code --format=md --output=data/reports/`: PASS — markdown file written
+- `--all`: PASS — both claude-code and codex clusters reported (codex shows 6 orphan glossary pages not linked from hub, 0/6 compare→hub and 0/8 FAQ→hub links)
+- Execution time: < 1 second for single cluster, < 2 seconds for all clusters
+
+### Decisions & Deviations
+- Non-content internal links (e.g. `/subscribe`) are treated as valid (not broken) — `checkLinkExists` returns `true` for paths that don't map to content directories (compare, faq, glossary, blog, topics). Single-segment paths also pass.
+- Removed hardcoded "promoted" count calculation from completeness — was using magic number 7 (original compare count for claude-code). Now reports 0 promoted; can be enhanced later with per-cluster metadata.
+- Added defensive null checks for `cornerstone`, `target_compare`, `target_faq`, `target_glossary`, `tracked_blogs` fields — prevents crashes on clusters with different schemas (e.g. `.freshness-cache.json` was caught by `--all` before filtering dotfiles).
+- Filtered dotfiles (`.freshness-cache.json`) from `--all` cluster discovery to prevent crashes on non-cluster JSON files.
+- Schema coverage section checks file existence rather than parsing rendered HTML for JSON-LD — actual JSON-LD is added by Next.js components at render time, so file existence is the correct proxy.
+
+### Blockers / Issues
+- None
+
+### Key Observations
+- The codex cluster health report immediately surfaced actionable issues: 6 orphan glossary pages (competitor tools not linked from hub), 0% compare→hub linking, 0% FAQ→hub linking. These are real internal linking gaps to address.
+- Link density metrics are valuable: claude-code cluster has 90 outbound links from cornerstone, 14 compare↔compare cross-links, 36 FAQ↔FAQ cross-links — indicating healthy interlinking. Codex has 0 compare cross-links, suggesting the compare pages were generated independently without cross-referencing each other.
+- The dashboard runs fast (< 1s per cluster) because it only reads JSON + markdown files — no LLM calls, no API calls, no build required.
+- GSC section gracefully degrades when no CSV exists — shows "No GSC data available" without error.
+
+---
