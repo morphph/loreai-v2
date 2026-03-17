@@ -299,3 +299,55 @@
 - ZH generation occasionally exceeds word count limits when source material is included (3 of 6 ZH pages needed retry) — the extra context seems to encourage verbosity. Not a blocker, the retry mechanism handles it.
 
 ---
+
+## SPEC-07 — Claude Code FAQ Wave (Agent Team)
+**Date:** 2026-03-17 08:40 SGT
+**Status:** COMPLETED
+**Duration:** ~15 minutes
+
+### Files Created
+- `content/faq/en/what-is-claude-code.md`: EN FAQ — What is Claude Code?
+- `content/faq/en/is-claude-code-free.md`: EN FAQ — Is Claude Code free?
+- `content/faq/en/claude-code-windows.md`: EN FAQ — Can Claude Code run on Windows?
+- `content/faq/en/claude-code-with-git.md`: EN FAQ — How to use Claude Code with Git?
+- `content/faq/en/what-is-claude-md.md`: EN FAQ — What is a CLAUDE.md file?
+- `content/faq/en/claude-code-mcp-setup.md`: EN FAQ — How to use MCP with Claude Code?
+- `content/faq/en/claude-code-pricing.md`: EN FAQ — Claude Code pricing: API vs Max vs Pro
+- `content/faq/en/claude-code-ci-cd.md`: EN FAQ — How to use Claude Code in CI/CD?
+- `content/faq/en/claude-code-skills.md`: EN FAQ — What are Claude Code skills?
+- `content/faq/en/claude-code-agent-teams.md`: EN FAQ — How to use Claude Code agent teams?
+- `content/faq/zh/what-is-claude-code.md`: ZH FAQ — Claude Code 是什么？
+- `content/faq/zh/is-claude-code-free.md`: ZH FAQ — Claude Code 免费吗？
+- `content/faq/zh/claude-code-windows.md`: ZH FAQ — Claude Code 能在 Windows 上用吗？
+- `content/faq/zh/claude-code-with-git.md`: ZH FAQ — Claude Code 怎么配合 Git 使用？
+- `content/faq/zh/what-is-claude-md.md`: ZH FAQ — CLAUDE.md 是什么？
+- `content/faq/zh/claude-code-mcp-setup.md`: ZH FAQ — Claude Code 怎么配置 MCP？
+- `content/faq/zh/claude-code-pricing.md`: ZH FAQ — Claude Code 定价方式
+- `content/faq/zh/claude-code-ci-cd.md`: ZH FAQ — Claude Code 怎么接入 CI/CD？
+- `content/faq/zh/claude-code-skills.md`: ZH FAQ — Claude Code Skills 是什么？
+- `content/faq/zh/claude-code-agent-teams.md`: ZH FAQ — Claude Code Agent Teams 怎么用？
+
+### Validation Results
+- npm run build: PASS
+- npm test: PASS (180/180)
+- Slug length check: PASS — all 10 slugs ≤23 chars (max: claude-code-agent-teams at 23)
+- First paragraph extraction: PASS — all 10 EN pages have clean plain-text first paragraphs (no markdown formatting)
+- Description length: PASS — all 10 descriptions in 120-160 char range
+- Internal links: PASS — all pages link to topic hub, cornerstone, ≥1 glossary, ≥1 blog, ≥2 other FAQs
+- ZH files: PASS — all 10 ZH files exist with lang: zh frontmatter
+
+### Decisions & Deviations
+- Spec used short slugs (e.g., `claude-code-windows`) that differ from the cluster JSON slugs (e.g., `can-claude-code-run-on-windows`). Followed the spec slugs as instructed — cluster JSON will need updating separately.
+- Sub-agents initially wrote Related Questions linking only to existing old FAQ pages. Lead agent updated cross-links after sub-agent completion to ensure new FAQ pages link to each other (≥2 cross-links per page).
+- Used 3 sub-agents for EN, then 3 sub-agents for ZH (6 total agent spawns, 2 waves) rather than trying to do EN+ZH in a single agent wave — cleaner separation of concerns.
+
+### Blockers / Issues
+- None
+
+### Key Observations
+- Agent team execution worked smoothly for content generation — each sub-agent (3-4 pages) completed in ~75-80 seconds. Total wall-clock time including validation was ~15 minutes.
+- Plain-text first paragraph constraint was respected by all 3 sub-agents — clear instructions in the prompt prevented the markdown-in-first-paragraph issue seen in older FAQ pages.
+- ZH content was written independently (not translated), matching the project's established style for Chinese content.
+- The cluster JSON (`data/flagship-clusters/claude-code.json`) still has the old longer slugs for FAQ entries — this should be updated in a future spec or cleanup pass.
+
+---
