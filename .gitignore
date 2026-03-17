@@ -43,6 +43,9 @@ loreai.db
 loreai.db-wal
 loreai.db-shm
 
+# GSC service account key (credentials — never commit)
+config/gsc-service-account.json
+
 # GSC exports (real data, not for git)
 data/gsc-exports/*.csv
 

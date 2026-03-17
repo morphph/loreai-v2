@@ -62,9 +62,13 @@ case "$STEP" in
     fi
     git add data/flagship-clusters/
     (git commit -m "🔍 Planner discovery $(date +%Y-%m-%d)" || true) && git push ;;
+  gsc-export)
+    npx tsx scripts/gsc-export.ts
+    git add data/gsc-exports/
+    (git commit -m "📊 GSC export $(date +%Y-%m-%d)" || true) && git push ;;
   video-import)
     npx tsx scripts/import-video-blog.ts --batch --auto ;;
   *)
-    echo "Usage: $0 {collect|newsletter|extract|blog|seo|weekly|cluster-strategy|cluster|discover|video-import}"
+    echo "Usage: $0 {collect|newsletter|extract|blog|seo|weekly|cluster-strategy|cluster|discover|gsc-export|video-import}"
     exit 1 ;;
 esac

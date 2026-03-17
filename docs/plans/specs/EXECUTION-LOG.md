@@ -565,3 +565,39 @@
 - Local testing is straightforward: create a synthetic `.freshness-cache.json` with test signals, run `--refresh-check --dry-run`, verify output, clean up.
 
 ---
+
+## SPEC-10 — GSC Signal Pipeline
+**Date:** 2026-03-17 17:25 SGT
+**Status:** COMPLETED
+**Duration:** ~15 minutes
+
+### Files Changed
+- `.gitignore`: Added `config/gsc-service-account.json` to prevent credential commits
+- `scripts/daily-pipeline.sh`: Added `gsc-export` step with git commit/push
+
+### Files Created
+- `config/.gitkeep`: Placeholder for config directory (service account key goes here)
+- `scripts/gsc-export.ts`: GSC API export script — JWT auth (Node.js built-in crypto, no deps), search analytics query, CSV write, symlink management
+- `docs/plans/specs/GSC-SETUP.md`: Step-by-step setup guide (Cloud project, API enablement, service account, GSC user, cron)
+
+### Validation Results
+- npm run build: PASS
+- npm test: PASS (180/180)
+- Missing credentials test: PASS — exits with code 0 and clear setup instructions
+- `--dry-run` mode: PASS — shows what would be exported without API call
+- CSV format: Matches `importGSCCandidates()` expectations (Query, Page, Clicks, Impressions, CTR, Position)
+
+### Decisions & Deviations
+- Used Node.js built-in `crypto.sign()` for RS256 JWT signing instead of adding any npm dependency. The spec suggested `jsonwebtoken` or `googleapis` — built-in crypto is simpler and respects the "no new npm dependencies" constraint.
+- Added 3-day offset to date range (`end = today - 3 days`) because GSC data lags ~3 days before stabilizing. The spec mentioned this in the cron schedule rationale but not in the code skeleton.
+- Script exits with code 0 (not 1) when credentials are missing, so pipeline steps that depend on it don't fail the entire pipeline. This is intentional — the manual CSV fallback path remains viable.
+
+### Blockers / Issues
+- None — full end-to-end testing requires GSC API credentials (documented in GSC-SETUP.md)
+
+### Key Observations
+- The entire JWT + OAuth2 token exchange is ~30 lines using Node.js built-in crypto — no external JWT library needed for service account auth.
+- The CSV format uses simple comma-split (matching `importGSCCandidates()` parser), with comma-escaping for queries/pages that contain commas.
+- The `latest.csv` symlink pattern means the planner always reads current data without needing to know the export date.
+
+---
