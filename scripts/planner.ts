@@ -40,6 +40,7 @@ interface PlannerArgs {
   promoteAbove?: number;
   dismiss?: string;
   status: boolean;
+  gscCsv?: string;
 }
 
 function parseArgs(): PlannerArgs {
@@ -51,6 +52,7 @@ function parseArgs(): PlannerArgs {
   let promoteAbove: number | undefined;
   let dismiss: string | undefined;
   let status = false;
+  let gscCsv: string | undefined;
 
   for (const arg of args) {
     if (arg.startsWith('--cluster=')) {
@@ -67,10 +69,12 @@ function parseArgs(): PlannerArgs {
       dismiss = arg.split('=')[1];
     } else if (arg === '--status') {
       status = true;
+    } else if (arg.startsWith('--gsc-csv=')) {
+      gscCsv = arg.split('=')[1];
     }
   }
 
-  return { cluster, all, dryRun, promote, promoteAbove, dismiss, status };
+  return { cluster, all, dryRun, promote, promoteAbove, dismiss, status, gscCsv };
 }
 
 // ============================================================
@@ -285,7 +289,7 @@ function showStatus(cluster: ClusterForDiscovery): void {
 // ============================================================
 
 async function main() {
-  const { cluster, all, dryRun, promote, promoteAbove, dismiss, status } = parseArgs();
+  const { cluster, all, dryRun, promote, promoteAbove, dismiss, status, gscCsv } = parseArgs();
 
   // --status, --promote, --dismiss, --promote-above require --cluster
   const isManagementOp = status || promote || dismiss || promoteAbove !== undefined;
@@ -381,7 +385,7 @@ async function main() {
     const clusterData = loadCluster(slug);
     if (!clusterData) continue;
 
-    const candidates = await discoverForCluster(clusterData);
+    const candidates = await discoverForCluster(clusterData, gscCsv);
     displayCandidates(candidates);
 
     if (!dryRun && candidates.length > 0) {

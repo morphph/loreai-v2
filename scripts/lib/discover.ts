@@ -5,13 +5,13 @@
  * Brave Search demand signals and competitor content structure.
  * Candidates are scored and deduplicated before being returned.
  */
-import { readFileSync } from 'fs';
+import { readFileSync, existsSync } from 'fs';
 import { join } from 'path';
 import 'dotenv/config';
 
 import { braveSearch, fetchWithCache, truncateSource } from './source-fetch';
 import { callClaude } from './ai';
-import { upsertKeyword } from './db';
+import { getDb, upsertKeyword } from './db';
 
 // ============================================================
 // Types
@@ -29,6 +29,7 @@ export interface RawCandidate {
   extracted_name: string | null;
   source: string;
   source_url: string | null;
+  gsc_impressions?: number;
 }
 
 export interface CandidateSignals {
@@ -305,6 +306,196 @@ ${truncated}`;
 }
 
 // ============================================================
+// News Item Signal Extraction (Channel 3)
+// ============================================================
+
+interface DiscoveryNewsItem {
+  id: number;
+  title: string;
+  url: string | null;
+  summary: string | null;
+  detected_at: string;
+}
+
+export function getRecentNewsItemsForDiscovery(
+  clusterTopic: string,
+  daysBack: number = 14
+): DiscoveryNewsItem[] {
+  try {
+    const db = getDb();
+    const cutoff = new Date(Date.now() - daysBack * 86400000).toISOString();
+    const pattern = `%${clusterTopic}%`;
+
+    const items = db.prepare(`
+      SELECT id, title, url, summary, detected_at
+      FROM news_items
+      WHERE (title LIKE ? OR summary LIKE ?)
+        AND detected_at > ?
+      ORDER BY detected_at DESC
+      LIMIT 50
+    `).all(pattern, pattern, cutoff) as DiscoveryNewsItem[];
+
+    return items;
+  } catch (err) {
+    console.warn(`    [discover] Failed to query news items: ${(err as Error).message}`);
+    return [];
+  }
+}
+
+function parseJsonResponse(raw: string): Record<string, unknown> | null {
+  try {
+    const cleaned = raw
+      .replace(/```json\n?/g, '')
+      .replace(/```\n?/g, '')
+      .trim();
+    return JSON.parse(cleaned);
+  } catch {
+    return null;
+  }
+}
+
+export async function extractNewsSignals(
+  items: DiscoveryNewsItem[],
+  pillarTopic: string,
+): Promise<RawCandidate[]> {
+  const skill = loadPlannerSkill('news-signal-extract');
+  const candidates: RawCandidate[] = [];
+
+  // Batch items (5 per call)
+  for (let i = 0; i < items.length; i += 5) {
+    const batch = items.slice(i, i + 5);
+    const itemsText = batch.map((item, idx) =>
+      `[${idx + 1}] "${item.title}"\n${item.summary || '(no summary)'}\nSource: ${item.url || '(no url)'}\nDate: ${item.detected_at}`
+    ).join('\n\n');
+
+    try {
+      const response = await callClaude(skill, `Pillar topic: "${pillarTopic}"\n\nNews items:\n${itemsText}`, {
+        maxTokens: 1024,
+        temperature: 0.2,
+      });
+
+      const parsed = parseJsonResponse(response.content);
+      if (!parsed) {
+        console.warn(`    [discover] Failed to parse LLM response for news batch ${i / 5 + 1}`);
+        continue;
+      }
+
+      // Process entity pairs → compare candidates
+      for (const pair of (parsed.entity_pairs as Array<{ entity: string; source_item_url?: string }>) || []) {
+        candidates.push({
+          type: 'compare',
+          raw_text: `${pillarTopic} vs ${pair.entity}`,
+          extracted_name: pair.entity,
+          source: 'news-entity',
+          source_url: pair.source_item_url || null,
+        });
+      }
+
+      // Process questions → FAQ candidates
+      for (const q of (parsed.questions as Array<{ question: string; source_item_url?: string }>) || []) {
+        candidates.push({
+          type: 'faq',
+          raw_text: q.question,
+          extracted_name: null,
+          source: 'news-question',
+          source_url: q.source_item_url || null,
+        });
+      }
+
+      // Freshness events: log for SPEC-09d, don't create candidates
+      const events = (parsed.freshness_events as Array<{ event_type: string; description: string }>) || [];
+      if (events.length > 0) {
+        console.log(`    [discover] Freshness events detected: ${events.map(e => `${e.event_type}: ${e.description}`).join('; ')}`);
+      }
+    } catch (err) {
+      console.warn(`    [discover] LLM call failed for news batch ${i / 5 + 1}: ${(err as Error).message}`);
+    }
+
+    // Rate limit between batches
+    if (i + 5 < items.length) {
+      await delay(500);
+    }
+  }
+
+  return candidates;
+}
+
+// ============================================================
+// GSC Unmatched Query Import (Channel 4)
+// ============================================================
+
+export function importGSCCandidates(
+  csvPath: string,
+  pillarTopic: string,
+): RawCandidate[] {
+  if (!existsSync(csvPath)) {
+    console.log(`    [discover] GSC CSV not found at ${csvPath}, skipping`);
+    return [];
+  }
+
+  const raw = readFileSync(csvPath, 'utf-8');
+  const lines = raw.trim().split('\n');
+  if (lines.length < 2) {
+    console.log(`    [discover] GSC CSV is empty`);
+    return [];
+  }
+
+  const header = lines[0].split(',');
+  const queryIdx = header.findIndex(h => h.trim().toLowerCase() === 'query');
+  const pageIdx = header.findIndex(h => h.trim().toLowerCase() === 'page');
+  const impressionIdx = header.findIndex(h => h.trim().toLowerCase() === 'impressions');
+
+  if (queryIdx === -1 || impressionIdx === -1) {
+    console.warn(`    [discover] GSC CSV missing required columns (Query, Impressions)`);
+    return [];
+  }
+
+  const candidates: RawCandidate[] = [];
+  const topicLower = pillarTopic.toLowerCase();
+
+  for (const line of lines.slice(1)) {
+    const cols = line.split(',');
+    const query = cols[queryIdx]?.trim().toLowerCase();
+    if (!query) continue;
+
+    const page = pageIdx >= 0 ? cols[pageIdx]?.trim() : '';
+    const impressions = parseInt(cols[impressionIdx]?.trim() || '0', 10);
+
+    // Skip if: has a landing page, low impressions, not relevant to topic
+    if (page && page.length > 5) continue;
+    if (impressions < 10) continue;
+    if (!query.includes(topicLower)) continue;
+
+    // Classify by query pattern
+    let type: 'compare' | 'faq';
+    let extractedName: string | null = null;
+
+    if (query.includes(' vs ') || query.includes(' versus ')) {
+      type = 'compare';
+      const match = query.match(/vs\.?\s+(.+)/);
+      extractedName = match ? match[1].trim() : null;
+    } else {
+      type = 'faq';
+    }
+
+    candidates.push({
+      type,
+      raw_text: query,
+      extracted_name: extractedName,
+      source: 'gsc-unmatched',
+      source_url: null,
+      gsc_impressions: impressions,
+    });
+  }
+
+  // Sort by impressions descending
+  candidates.sort((a, b) => (b.gsc_impressions || 0) - (a.gsc_impressions || 0));
+
+  console.log(`    [discover] GSC: ${candidates.length} unmatched queries (${lines.length - 1} total rows)`);
+  return candidates;
+}
+
+// ============================================================
 // Scoring
 // ============================================================
 
@@ -346,7 +537,15 @@ export function scoreCandidate(
   // freshness_bonus: appeared in recent Brave results
   const freshnessScore = signals.hasFreshResults ? 10 : 0;
 
-  const totalScore = braveScore + relatedScore + competitorScore + relevanceScore + intentScore + freshnessScore;
+  // GSC impression bonus: real search demand signal
+  let gscBonus = 0;
+  if (raw.source === 'gsc-unmatched' && raw.gsc_impressions) {
+    if (raw.gsc_impressions >= 200) gscBonus = 35;
+    else if (raw.gsc_impressions >= 50) gscBonus = 25;
+    else gscBonus = 15;
+  }
+
+  const totalScore = braveScore + relatedScore + competitorScore + relevanceScore + intentScore + freshnessScore + gscBonus;
 
   return {
     score: Math.min(totalScore, 100),
@@ -411,7 +610,7 @@ export function buildDismissedSet(cluster: ClusterForDiscovery): Set<string> {
 // Orchestrator
 // ============================================================
 
-export async function discoverForCluster(cluster: ClusterForDiscovery): Promise<ScoredCandidate[]> {
+export async function discoverForCluster(cluster: ClusterForDiscovery, gscCsvPath?: string): Promise<ScoredCandidate[]> {
   const { pillar_topic, topic_slug, official_domains = [] } = cluster;
   console.log(`\n[discover] Starting discovery for "${pillar_topic}" (${topic_slug})`);
 
@@ -524,8 +723,51 @@ export async function discoverForCluster(cluster: ClusterForDiscovery): Promise<
 
   console.log(`    [discover] After Stage 2: ${candidateMap.size} total unique candidates`);
 
-  // ---- Stage 3: Scoring & Filtering ----
-  console.log(`  [discover] Stage 3: Scoring...`);
+  // ---- Stage 3: News Item Analysis ----
+  console.log(`  [discover] Stage 3: News item analysis...`);
+  const newsItems = getRecentNewsItemsForDiscovery(pillar_topic);
+  if (newsItems.length > 0) {
+    console.log(`    [discover] Analyzing ${newsItems.length} news items...`);
+    const newsCandidates = await extractNewsSignals(newsItems, pillar_topic);
+    for (const nc of newsCandidates) {
+      const slug = candidateSlug(nc.type, nc, pillar_topic);
+      if (existingSlugs.has(slug) || dismissedSlugs.has(slug)) continue;
+      if (!candidateMap.has(slug)) {
+        candidateMap.set(slug, {
+          raw: nc,
+          braveResultCount: 0,
+          relatedSearchHit: false,
+          competitorCount: 0,
+          hasFreshResults: false,
+        });
+      }
+    }
+    console.log(`    [discover] After Stage 3: ${candidateMap.size} total unique candidates`);
+  } else {
+    console.log(`    [discover] No relevant news items found`);
+  }
+
+  // ---- Stage 4: GSC Import ----
+  console.log(`  [discover] Stage 4: GSC import...`);
+  const csvPath = gscCsvPath || join(process.cwd(), 'data', 'gsc-exports', 'latest.csv');
+  const gscCandidates = importGSCCandidates(csvPath, pillar_topic);
+  for (const gc of gscCandidates) {
+    const slug = candidateSlug(gc.type, gc, pillar_topic);
+    if (existingSlugs.has(slug) || dismissedSlugs.has(slug)) continue;
+    if (!candidateMap.has(slug)) {
+      candidateMap.set(slug, {
+        raw: gc,
+        braveResultCount: 0,
+        relatedSearchHit: false,
+        competitorCount: 0,
+        hasFreshResults: false,
+      });
+    }
+  }
+  console.log(`    [discover] After Stage 4: ${candidateMap.size} total unique candidates`);
+
+  // ---- Stage 5: Scoring & Filtering ----
+  console.log(`  [discover] Stage 5: Scoring...`);
   const scored: ScoredCandidate[] = [];
 
   for (const [slug, entry] of Array.from(candidateMap.entries())) {
@@ -563,7 +805,7 @@ export async function discoverForCluster(cluster: ClusterForDiscovery): Promise<
   // Sort by score descending
   scored.sort((a, b) => b.score - a.score);
 
-  console.log(`  [discover] Stage 3: ${scored.length} candidates above threshold (dropped ${candidateMap.size - scored.length} below 30)`);
+  console.log(`  [discover] Stage 5: ${scored.length} candidates above threshold (dropped ${candidateMap.size - scored.length} below 30)`);
 
   // Log summary by tier
   const high = scored.filter(c => c.score >= 70).length;
@@ -571,8 +813,8 @@ export async function discoverForCluster(cluster: ClusterForDiscovery): Promise<
   const low = scored.filter(c => c.score < 40).length;
   console.log(`    High priority (70+): ${high}, Moderate (40-69): ${moderate}, Low signal (30-39): ${low}`);
 
-  // ---- Stage 4: Glossary Inference ----
-  console.log(`  [discover] Stage 4: Glossary inference...`);
+  // ---- Stage 6: Glossary Inference ----
+  console.log(`  [discover] Stage 6: Glossary inference...`);
   const glossaryCandidates = inferGlossaryCandidates(cluster);
   if (glossaryCandidates.length > 0) {
     scored.push(...glossaryCandidates);

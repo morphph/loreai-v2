@@ -486,3 +486,43 @@
 - The promotion → generation pipeline is fully connected: promote → target_compare gains entry → generate-seo.ts --cluster --dry-run shows it as a gap → full generation would produce the page. No code changes needed in generate-seo.ts.
 
 ---
+
+## SPEC-09c — Internal Signal Discovery (News Items + GSC)
+**Date:** 2026-03-17 16:45 SGT
+**Status:** COMPLETED
+**Duration:** ~10 minutes
+
+### Files Changed
+- `scripts/lib/discover.ts`: Added `gsc_impressions` to `RawCandidate`; added `getRecentNewsItemsForDiscovery()`, `extractNewsSignals()`, `importGSCCandidates()`, `parseJsonResponse()`; added GSC scoring boost in `scoreCandidate()`; updated `discoverForCluster()` with Stages 3-4 (news + GSC) and renumbered existing stages; added `gscCsvPath` parameter; imported `existsSync` and `getDb`
+- `scripts/planner.ts`: Added `gscCsv` to `PlannerArgs`; added `--gsc-csv=` flag parsing; passed `gscCsv` to `discoverForCluster()`
+- `.gitignore`: Added `data/gsc-exports/*.csv` pattern
+
+### Files Created
+- `skills/planner/news-signal-extract.md`: LLM prompt for entity pair, question, and freshness event extraction from news items
+- `data/gsc-exports/.gitkeep`: Directory placeholder
+- `data/gsc-exports/README.md`: Documents expected CSV format, file conventions, and usage
+
+### Validation Results
+- npm run build: PASS
+- npm test: PASS (180/180)
+- GSC import test (test CSV): PASS — 6 unmatched queries from 8 rows; correctly filtered (landing page, <10 impressions, off-topic); "vs" queries classified as compare with extracted names; sorted by impressions descending
+- GSC scoring boost: PASS — 120 impressions → +25 bonus (50-200 tier); candidate scored 50 (relevance 15 + intent 10 + gsc 25)
+- News item query (local DB): PASS — returned 50 items for "claude code" topic
+- Missing GSC CSV: PASS — silently skipped with log message
+
+### Decisions & Deviations
+- Named discovery function `getRecentNewsItemsForDiscovery()` (not `getRecentNewsItems()`) to avoid collision with existing `getRecentNewsItems()` in db.ts which serves a different purpose (newsletter selection by hours, filtered by selected_for_newsletter_at)
+- Used actual schema columns: `url` (not `source_url`), `detected_at` (not `published_at`) — spec placeholder names adjusted
+- Table is `news_items` (not `seed_news` as spec placeholder suggested)
+- Added `.gitignore` pattern for GSC CSV files since they contain real search data
+
+### Blockers / Issues
+- None
+
+### Key Observations
+- The local DB has real news items (50 matching "claude code" in last 14 days) even though CLAUDE.md says "local DB is empty/stale" — the DB initialization creates the table and some data persists from development runs
+- db.ts already exports `NewsItem` type and `getRecentNewsItems()` but with different semantics (newsletter selection vs discovery) — keeping them separate avoids coupling
+- GSC scoring boost is significant: a query with 200+ impressions gets +35, which combined with intent_clarity (+10) and cluster_relevance (+15) reaches 60 — easily crossing the 40-point "pending" threshold without any Brave signals
+- The 6-stage pipeline (Brave → Competitor → News → GSC → Scoring → Glossary) runs sequentially, which is correct since later stages may benefit from earlier stage deduplication
+
+---

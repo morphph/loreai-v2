@@ -43,6 +43,9 @@ loreai.db
 loreai.db-wal
 loreai.db-shm
 
+# GSC exports (real data, not for git)
+data/gsc-exports/*.csv
+
 # Review reports
 data/review/
 
