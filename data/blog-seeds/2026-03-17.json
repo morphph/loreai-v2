@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Opus 4.6 1M is now the default Opus model for Claude Code users on Max, Team, and Enterprise plans.",
+    "url": "https://x.com/bcherny/status/2032514807388123255",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 4778,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 22.4334,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "We absolutely need a new UX for coding agent GUIs",
+    "url": "https://x.com/danshipper/status/2033213845192294793",
+    "source": "twitter:@danshipper",
+    "x_engagement_24h": 145,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.0435,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Speed at the cost of quality: Study of use of Cursor AI in open source projects",
+    "url": "https://arxiv.org/abs/2511.04427",
+    "source": "hackernews",
+    "x_engagement_24h": 27,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.0081,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "We doubled Claude usage on weekends, and outside 5–11am PT on weekdays for the next 2 weeks.",
+    "url": "https://x.com/bcherny/status/2032922838751928407",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 6963,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 19.0889,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "WAXAL — Open-source multilingual speech dataset for 19 African languages",
+    "url": "https://x.com/huggingface/status/2032740650915926466",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 940,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.282,
+    "suggested_angle": "news"
+  }
+]
