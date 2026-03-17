@@ -60,6 +60,7 @@ import {
 import { runGapAnalysis } from './lib/topic-cluster';
 import { batchValidate } from './lib/brave';
 import { resolveSource, buildGroundingInstruction } from './lib/source-fetch';
+import { RefreshFlag, readPageContent } from './lib/discover';
 
 
 // ============================================================
@@ -75,6 +76,9 @@ const clusterArg = process.argv.find((a) => a.startsWith('--cluster='));
 const typeArg = process.argv.find((a) => a.startsWith('--type='));
 const CLUSTER_SLUG = clusterArg ? clusterArg.split('=')[1] : null;
 const TYPE_FILTER = typeArg ? typeArg.split('=')[1] : null;
+const REFRESH_MODE = process.argv.includes('--refresh');
+const slugArg = process.argv.find((a) => a.startsWith('--slug='));
+const SLUG_FILTER = slugArg ? slugArg.split('=')[1] : null;
 const MAX_PAGES_PER_RUN = 8;
 
 console.log(`\n🔎 SEO Pipeline — ${DATE}`);
@@ -1050,6 +1054,7 @@ interface ClusterDefinition {
     title: string;
   }>;
   candidates?: unknown[];
+  refresh_needed?: RefreshFlag[];
 }
 
 function loadBlogSkill(): string {
@@ -1465,10 +1470,330 @@ async function runClusterMode(clusterSlug: string, typeFilter?: string): Promise
 }
 
 // ============================================================
+// REFRESH MODE (SPEC-11)
+// ============================================================
+
+function buildClusterLinksString(cluster: ClusterDefinition): string {
+  const links: string[] = [];
+  links.push(`- Topic hub: /topics/${cluster.topic_slug}`);
+  links.push(`- Cornerstone: /blog/${cluster.cornerstone.slug}`);
+  for (const c of cluster.target_compare) {
+    if (c.status === 'exists') links.push(`- /compare/${c.slug}`);
+  }
+  for (const f of cluster.target_faq) {
+    if (f.status === 'exists') links.push(`- /faq/${f.slug}`);
+  }
+  for (const g of cluster.target_glossary) {
+    if (g.status === 'exists') links.push(`- /glossary/${g.slug}`);
+  }
+  for (const b of cluster.tracked_blogs) {
+    links.push(`- /blog/${b.slug}`);
+  }
+  return links.join('\n');
+}
+
+async function resolveRefreshSources(
+  flag: RefreshFlag,
+  cluster: ClusterDefinition
+): Promise<string> {
+  const officialDomains = cluster.official_domains || [];
+
+  if (flag.page_type === 'compare') {
+    const target = cluster.target_compare.find(c => c.slug === flag.slug);
+    const primarySource = await resolveSource(
+      cluster.source_urls?.primary,
+      `${cluster.pillar_topic} official documentation`,
+      officialDomains
+    );
+    const competitorSource = target?.item_b_url
+      ? await resolveSource(target.item_b_url, `${target.item_b} features`, officialDomains)
+      : '';
+    return buildGroundingInstruction([
+      { label: cluster.pillar_topic, content: primarySource },
+      { label: target?.item_b || 'Competitor', content: competitorSource },
+    ]);
+  }
+
+  if (flag.page_type === 'glossary') {
+    return '';
+  }
+
+  // Cornerstone, FAQ: primary docs only
+  const primarySource = await resolveSource(
+    cluster.source_urls?.primary,
+    `${cluster.pillar_topic} official documentation`,
+    officialDomains
+  );
+  return buildGroundingInstruction([
+    { label: cluster.pillar_topic, content: primarySource },
+  ]);
+}
+
+function buildRefreshPrompt(
+  flag: RefreshFlag,
+  skill: string,
+  existingContent: string,
+  freshSources: string,
+  clusterLinks: string
+): { system: string; user: string } {
+  const system = `${skill}
+
+## REFRESH MODE — Updating Existing Page
+
+You are REFRESHING an existing page, not creating from scratch.
+
+### What's stale
+${flag.reason}
+
+### Affected sections
+${flag.affected_sections.join(', ')}
+
+### Fresh source material
+${freshSources}
+
+### Existing page content (for reference)
+${existingContent}
+
+### Cluster internal links (must be preserved)
+${clusterLinks}
+
+### CRITICAL REFRESH RULES
+1. PRESERVE the page slug, title structure, and frontmatter schema exactly
+2. PRESERVE all existing internal links that are still valid
+3. UPDATE the affected sections with facts from the fresh source material
+4. PRESERVE sections that are NOT affected — don't rewrite what isn't broken
+5. Keep the same tone, length, and structure as the original
+6. Update the date in frontmatter to today's date
+7. If a fact from the old page contradicts the fresh source material, use the fresh source
+8. If a detail is not in the fresh source material, keep the old version unless it's flagged as stale`;
+
+  const user = `Refresh this ${flag.page_type} page. The stale sections are: ${flag.affected_sections.join(', ')}.
+Reason for refresh: ${flag.reason}
+Ground all updates in the fresh source material provided above.`;
+
+  return { system, user };
+}
+
+function getRefreshFilePath(slug: string, pageType: string, lang: string): string {
+  const typeDir = pageType === 'blog' ? 'blog' : pageType;
+  return path.join(process.cwd(), 'content', typeDir, lang, `${slug}.md`);
+}
+
+function getRefreshValidator(pageType: string): (md: string) => { valid: boolean; errors: string[] } {
+  switch (pageType) {
+    case 'compare': return validateCompare;
+    case 'faq': return validateFaq;
+    case 'glossary': return validateGlossary;
+    default: {
+      // Blog/cornerstone: basic frontmatter + length check
+      return (body: string) => {
+        const wordCount = body.split(/\s+/).length;
+        if (wordCount < 200) return { valid: false, errors: [`Content too short: ${wordCount} words`] };
+        return { valid: true, errors: [] };
+      };
+    }
+  }
+}
+
+function buildRefreshZhAddendum(flag: RefreshFlag, newEnContent: string): string {
+  const pageType = flag.page_type;
+  if (pageType === 'blog') {
+    return `
+
+## 中文生成要求
+- lang: zh
+- 用中文撰写，不是翻译——基于刚刚更新的英文版内容独立创作中文版本
+- 保持相同的 frontmatter 结构（lang 字段改为 zh）
+- slug 保持不变: ${flag.slug}
+- 正文字数: 1500-2500 字（中文字符计数，不含 frontmatter）
+- 正文使用中文，但技术术语可保留英文
+- 内部链接路径不变
+
+## 刚更新的英文版内容（参考）
+${newEnContent}`;
+  }
+
+  const typeLabels: Record<string, string> = {
+    glossary: '术语表',
+    faq: '常见问题',
+    compare: '对比分析',
+  };
+  const wordRanges: Record<string, string> = {
+    glossary: '200-350',
+    faq: '200-450',
+    compare: '350-700',
+  };
+
+  return `
+
+## 中文生成要求
+- lang: zh
+- 用中文撰写，不是翻译——基于刚刚更新的英文版内容独立创作中文版本
+- 保持相同的 frontmatter 结构（lang 字段改为 zh）
+- slug 保持不变: ${flag.slug}
+- 页面类型: ${typeLabels[pageType] || pageType}
+- 正文字数: ${wordRanges[pageType] || '300-600'} 字（中文字符计数，不含 frontmatter）
+- 正文使用中文，但技术术语可保留英文
+- 内部链接路径不变
+- 必须以以下 CTA 结尾:
+
+---
+
+*觉得有用？[订阅 LoreAI](/subscribe)，每天 5 分钟掌握 AI 动态。*
+
+## 刚更新的英文版内容（参考）
+${newEnContent}`;
+}
+
+async function runRefreshMode(clusterSlug: string): Promise<void> {
+  console.log(`\n🔄 Refresh Mode — ${clusterSlug}`);
+  console.log('='.repeat(50));
+
+  // 1. Read cluster JSON
+  const clusterPath = path.join(process.cwd(), 'data', 'flagship-clusters', `${clusterSlug}.json`);
+  if (!fs.existsSync(clusterPath)) {
+    console.error(`❌ Cluster file not found: ${clusterPath}`);
+    process.exit(1);
+  }
+  const cluster: ClusterDefinition = JSON.parse(fs.readFileSync(clusterPath, 'utf-8'));
+  console.log(`  Loaded cluster: ${cluster.pillar_topic}`);
+
+  // 2. Filter refresh_needed where status === 'pending'
+  const allFlags = cluster.refresh_needed || [];
+  let pendingFlags = allFlags.filter(r => r.status === 'pending');
+
+  // 3. Apply --slug filter
+  if (SLUG_FILTER) {
+    pendingFlags = pendingFlags.filter(r => r.slug === SLUG_FILTER);
+  }
+
+  if (pendingFlags.length === 0) {
+    console.log('\n✅ No pending refresh flags.');
+    return;
+  }
+
+  console.log(`  Pending refresh flags: ${pendingFlags.length}`);
+  for (const f of pendingFlags) {
+    console.log(`    [${f.severity}] ${f.slug} (${f.page_type}) — ${f.reason.slice(0, 80)}`);
+  }
+
+  // 4. Dry-run: just list
+  if (DRY_RUN) {
+    console.log('\n🧪 DRY RUN — would refresh:');
+    for (const f of pendingFlags) {
+      const enPath = getRefreshFilePath(f.slug, f.page_type, 'en');
+      const zhPath = getRefreshFilePath(f.slug, f.page_type, 'zh');
+      const enExists = fs.existsSync(enPath);
+      console.log(`  [${f.severity}] ${f.slug} (${f.page_type})`);
+      console.log(`    Reason: ${f.reason}`);
+      console.log(`    Affected: ${f.affected_sections.join(', ')}`);
+      console.log(`    EN file: ${enPath} (${enExists ? 'exists' : 'MISSING'})`);
+      console.log(`    ZH file: ${zhPath}`);
+    }
+    return;
+  }
+
+  // 5. Refresh each flagged page
+  const clusterLinks = buildClusterLinksString(cluster);
+  let refreshedCount = 0;
+
+  for (const flag of pendingFlags) {
+    console.log(`\n--- Refreshing: ${flag.slug} (${flag.page_type}) ---`);
+
+    // a. Read existing EN content
+    const existingEN = readPageContent(flag.slug, flag.page_type, 'en');
+    if (!existingEN) {
+      console.warn(`  Skip: EN file not found for ${flag.slug}`);
+      continue;
+    }
+
+    // b. Resolve sources
+    console.log('  Resolving fresh source material...');
+    const freshSources = await resolveRefreshSources(flag, cluster);
+
+    // c. Build prompt and generate EN
+    const skill = flag.page_type === 'blog' ? loadBlogSkill() : loadSkill();
+    const { system, user } = buildRefreshPrompt(flag, skill, existingEN, freshSources, clusterLinks);
+    const validate = getRefreshValidator(flag.page_type);
+
+    const fullValidate = (raw: string) => {
+      const content = sanitizeOutput(raw);
+      if (!content.match(/^---\n[\s\S]*?\n---/)) {
+        return { valid: false, errors: ['Missing frontmatter block'] };
+      }
+      const body = extractBody(content);
+      return validate(body);
+    };
+
+    console.log('  Generating refreshed EN content...');
+    try {
+      const enResponse = await callClaudeWithRetry(system, user, {
+        maxTokens: flag.page_type === 'blog' ? 8192 : 4096,
+        temperature: 0.4,
+        maxRetries: 2,
+        validate: fullValidate,
+      });
+
+      const cleanedEN = sanitizeOutput(enResponse.content);
+      console.log(`    EN refreshed (model: ${enResponse.model})`);
+      console.log(`    Tokens: ${enResponse.usage?.input_tokens} in / ${enResponse.usage?.output_tokens} out`);
+
+      // Write EN
+      const enPath = getRefreshFilePath(flag.slug, flag.page_type, 'en');
+      fs.mkdirSync(path.dirname(enPath), { recursive: true });
+      fs.writeFileSync(enPath, cleanedEN);
+      console.log(`    Written: ${enPath}`);
+
+      // d. Generate ZH using NEW EN content
+      console.log('  Generating refreshed ZH content...');
+      const zhSystemPrompt = system + buildRefreshZhAddendum(flag, cleanedEN);
+      const zhUserPrompt = `用中文刷新此 ${flag.page_type} 页面。需要更新的部分: ${flag.affected_sections.join(', ')}。
+更新原因: ${flag.reason}
+基于最新英文版内容和新鲜源材料进行更新。`;
+
+      const zhResponse = await callClaudeWithRetry(zhSystemPrompt, zhUserPrompt, {
+        maxTokens: flag.page_type === 'blog' ? 8192 : 4096,
+        temperature: 0.4,
+        maxRetries: 2,
+        validate: fullValidate,
+      });
+
+      const cleanedZH = sanitizeOutput(zhResponse.content);
+      console.log(`    ZH refreshed (model: ${zhResponse.model})`);
+
+      // Write ZH
+      const zhPath = getRefreshFilePath(flag.slug, flag.page_type, 'zh');
+      fs.mkdirSync(path.dirname(zhPath), { recursive: true });
+      fs.writeFileSync(zhPath, cleanedZH);
+      console.log(`    Written: ${zhPath}`);
+
+      // e. Update flag status
+      flag.status = 'refreshed';
+      refreshedCount++;
+    } catch (err) {
+      console.error(`  ❌ Refresh failed for ${flag.slug}: ${(err as Error).message}`);
+    }
+  }
+
+  // 6. Write updated cluster JSON
+  fs.writeFileSync(clusterPath, JSON.stringify(cluster, null, 2) + '\n');
+  console.log(`\n  Updated cluster JSON: ${clusterPath}`);
+
+  console.log(`\n✅ Refresh complete — ${refreshedCount} page(s) refreshed`);
+}
+
+// ============================================================
 // MAIN
 // ============================================================
 
 async function main() {
+  if (REFRESH_MODE && CLUSTER_SLUG) {
+    await runRefreshMode(CLUSTER_SLUG);
+    closeDb();
+    console.log('\n✅ Refresh mode complete');
+    return;
+  }
+
   if (CLUSTER_SLUG) {
     await runClusterMode(CLUSTER_SLUG, TYPE_FILTER || undefined);
     closeDb();

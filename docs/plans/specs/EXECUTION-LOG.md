@@ -601,3 +601,39 @@
 - The `latest.csv` symlink pattern means the planner always reads current data without needing to know the export date.
 
 ---
+
+## SPEC-11 — Content Refresh Execution
+**Date:** 2026-03-17 17:50 SGT
+**Status:** COMPLETED
+**Duration:** ~25 minutes
+
+### Files Changed
+- `scripts/generate-seo.ts`: Added `--refresh`, `--slug=` CLI flags, `buildClusterLinksString()`, `resolveRefreshSources()`, `buildRefreshPrompt()`, `buildRefreshZhAddendum()`, `runRefreshMode()`, updated `ClusterDefinition` with `refresh_needed`, imported `RefreshFlag` and `readPageContent` from discover.ts
+
+### Files Created
+- None
+
+### Validation Results
+- npm run build: PASS
+- npm test: PASS (180/180)
+- `--refresh --dry-run` on claude-code: PASS — listed 1 pending flag with page type, severity, reason, file paths
+- Real refresh on `claude-code-vs-cursor` with `--slug=`: PASS — EN + ZH regenerated, flag status updated to "refreshed"
+- Normal `--cluster` mode (no --refresh): PASS — unchanged behavior, found 0 content gaps
+- Refreshed page validation: PASS — frontmatter preserved, same slug, valid internal links, proper structure
+
+### Decisions & Deviations
+- Used a synthetic `refresh_needed` entry for testing (Cursor pricing change) since no real flags existed from SPEC-09d. Test entry was removed after validation.
+- `buildRefreshZhAddendum()` created as a separate function instead of reusing `buildZhSystemAddendum()` because: (1) refresh ZH includes the NEW EN content as reference, (2) blog/cornerstone type is not in the SEO `PageJob` type system. The function handles both blog and SEO page types with appropriate word count ranges.
+- `getRefreshFilePath()` and `getRefreshValidator()` helper functions added to map page_type → file path and validator, since refresh uses `RefreshFlag.page_type` (string) rather than `SEOPageType` enum.
+- Blog (cornerstone) validator uses a simple word-count check (min 200 words) rather than importing a dedicated cornerstone validator, since the generation already does full validation via `callClaudeWithRetry`.
+
+### Blockers / Issues
+- None
+
+### Key Observations
+- Source resolution cache is effective — fetched sources from the previous dry-run were still in memory for the real run.
+- The refresh prompt correctly preserves page structure while updating stale sections — the regenerated page maintained the same frontmatter schema, internal link structure, and comparison table format.
+- ZH generation from NEW EN content (rather than old ZH) produces higher quality results — the ZH version is consistent with the freshly updated EN facts.
+- The `readPageContent()` function from discover.ts is reused cleanly — no need to duplicate file path logic.
+
+---
