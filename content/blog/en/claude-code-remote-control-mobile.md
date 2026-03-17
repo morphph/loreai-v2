@@ -49,7 +49,7 @@ A few important constraints to understand:
 
 - **The agent still runs locally.** Remote Control doesn't move your code to the cloud. Your project files stay on the host machine; only the conversation state synchronizes.
 - **Approval workflows are preserved.** If you have Claude Code configured to require approval for file writes or bash commands, those gates still apply — they just surface on your remote device.
-- **HTTP hooks integration.** The recently launched [HTTP hooks system](/glossary/mcp-server) works alongside Remote, meaning you can have external services react to agent actions while you monitor from mobile.
+- **HTTP hooks integration.** The recently launched [HTTP hooks system](/glossary/model-context-protocol) works alongside Remote, meaning you can have external services react to agent actions while you monitor from mobile.
 
 One limitation: network reliability matters. If the host machine loses connectivity, the agent pauses until the connection re-establishes. For long-running tasks on remote servers, stable network access is essential.
 

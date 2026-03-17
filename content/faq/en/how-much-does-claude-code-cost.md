@@ -30,10 +30,13 @@ The choice between API and subscription depends on volume: occasional users save
 4. **Use model selection strategically**: route simpler tasks (file search, small edits) to Sonnet or Haiku, and reserve Opus for complex multi-file refactoring — this reduces costs significantly on API billing
 5. **Leverage [agent teams](/blog/claude-code-agent-teams)** for parallelized tasks — they can be more token-efficient than sequential single-agent sessions for large codebases
 
+For the full picture, see the [complete guide to Claude Code](/blog/claude-code-complete-guide) and the [Claude Code topic hub](/topics/claude-code).
+
 ## Related Questions
 
-- [What is the difference between Claude Code and Cursor?](/faq/what-is-the-difference-between-claude-code-and-cursor)
-- [Is Claude Code free to use?](/faq/is-claude-code-free-to-use)
+- [Is Claude Code Free?](/faq/is-claude-code-free)
+- [Claude Code Pricing: API vs Max vs Pro](/faq/claude-code-pricing)
+- [What is Claude Code?](/faq/what-is-claude-code)
 
 ---
 

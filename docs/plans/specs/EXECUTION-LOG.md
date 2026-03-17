@@ -351,3 +351,60 @@
 - The cluster JSON (`data/flagship-clusters/claude-code.json`) still has the old longer slugs for FAQ entries — this should be updated in a future spec or cleanup pass.
 
 ---
+
+## SPEC-08 — Glossary Completion + Cluster Linking Pass
+**Date:** 2026-03-17 09:10 SGT
+**Status:** COMPLETED
+**Duration:** ~15 minutes
+
+### Files Changed
+- `data/flagship-clusters/claude-code.json`: Fixed 7 FAQ slugs to match actual files, updated all statuses to "exists"
+- `content/topics/en/claude-code.md`: Full rewrite — added cornerstone link, all 7 compare pages, all 12 FAQ pages, 2 missing glossary terms (agent-teams, claude-md)
+- `content/blog/en/claude-code-complete-guide.md`: Fixed frontmatter (amazon-q slug, all 12 FAQ slugs), expanded Compare/FAQ sections in body with all pages
+- `content/compare/en/claude-code-vs-cursor.md`: Added topic hub, cornerstone, cross-links to github-copilot + codex
+- `content/compare/en/claude-code-vs-github-copilot.md`: Added topic hub, cornerstone, cross-link to codex
+- `content/compare/en/claude-code-vs-codex.md`: Added topic hub, cornerstone, cross-link to github-copilot
+- `content/compare/en/claude-code-vs-windsurf.md`: Added topic hub, cornerstone, cross-link to cline
+- `content/compare/en/claude-code-vs-aider.md`: Added topic hub, cornerstone, cross-link to cline
+- `content/compare/en/claude-code-vs-cline.md`: Added topic hub, cornerstone, cross-link to aider
+- `content/compare/en/claude-code-vs-amazon-q.md`: Added topic hub, cornerstone, cross-link to github-copilot
+- `content/faq/en/how-much-does-claude-code-cost.md`: Added topic hub + cornerstone links, fixed broken FAQ links
+- `content/faq/en/how-to-install-claude-code.md`: Added topic hub + cornerstone links, added more related FAQs
+- `content/faq/en/claude-code-windows.md`: Added topic hub link
+- `content/faq/en/claude-code-mcp-setup.md`: Added cornerstone link
+- `content/blog/en/claude-code-simplify-batch-skills.md`: Fixed broken `/blog/claude-code-skills-guide` and `/glossary/skill-md` links
+- `content/blog/en/claude-code-security-vulnerability-scanning.md`: Fixed broken blog link and removed broken `/glossary/llm` link
+- `content/blog/en/claude-code-btw-side-chain-conversations.md`: Fixed broken blog link
+- `content/blog/en/claude-code-memory.md`: Fixed broken blog link
+- `content/blog/en/claude-code-voice-mode.md`: Fixed broken `/glossary/cli` and `/glossary/skill-md` links
+- `content/blog/en/claude-code-extension-stack-skills-hooks-agents-mcp.md`: Fixed `/glossary/mcp-server` → `/glossary/model-context-protocol`, `/glossary/claude-api` → `/glossary/claude`
+- `content/blog/en/claude-code-remote-control-mobile.md`: Fixed `/glossary/mcp-server` → `/glossary/model-context-protocol`
+- `content/blog/en/claude-code-enterprise-engineering-ramp-shopify-spotify.md`: Fixed `/glossary/skill-md` → `/glossary/claude-md`
+- `content/blog/en/claude-code-remote-sessions-phone.md`: Fixed broken blog link
+- `content/faq/en/is-claude-code-remote-control-available-on-all-anthropic-pla.md`: Fixed broken FAQ link → compare page
+
+### Files Created
+- `data/flagship-clusters/claude-code-retrospective.md`: Phase 1 retrospective with learnings and recommendations
+
+### Validation Results
+- npm run build: PASS
+- npm test: PASS (180/180)
+- Cluster status: 28/28 nodes (100%)
+- Broken link check: PASS — zero broken internal links across cluster
+
+### Decisions & Deviations
+- Glossary gap fill (SPEC-08 §A) was not needed — all 8 glossary targets already existed before this spec
+- Fixed broken links in blog posts beyond strict cluster scope (e.g., `claude-code-remote-sessions-phone.md`) since they matched the broken link check glob
+- Replaced `/glossary/skill-md` with `/glossary/claude-md` (closest existing term) rather than creating a new glossary entry — SKILL.md is a feature of CLAUDE.md, not a separate concept
+- Replaced `/glossary/cli`, `/glossary/llm` with plain text (too generic for dedicated glossary entries)
+- ZH content updates (topic hub, glossary) deferred as noted in spec constraints
+
+### Blockers / Issues
+- None
+
+### Key Observations
+- The biggest issue was slug mismatch: SPEC-07 generated FAQ pages with short slugs but the cluster JSON expected long slugs. Cluster status showed 42% FAQ completion when all pages existed. Future specs should enforce slug consistency at generation time.
+- 7 broken links to `/blog/claude-code-skills-guide` existed across multiple blog posts — a page that was never created. Early blog generation likely hallucinated this slug. Running broken link checks after each content generation spec would catch this immediately.
+- Compare pages had zero cross-links to each other (except vs-cursor). FAQ pages from SPEC-07 had good internal cross-linking. The difference: SPEC-07 explicitly included cross-linking in generation prompts; SPEC-06 did not.
+
+---

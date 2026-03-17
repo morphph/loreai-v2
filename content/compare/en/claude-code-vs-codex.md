@@ -58,7 +58,7 @@ Both tools have converged on a remarkably similar feature set: agentic execution
 
 **Choose Claude Code** if you want terminal-first composability, Unix-style piping into CI workflows, and the ability to use third-party models. Its hooks system and [agent teams architecture](/blog/claude-code-agent-teams) give power users granular control over agent behavior.
 
-**Choose Codex** if your organization already uses ChatGPT plans and wants built-in integrations with GitHub, Slack, and Linear, plus enterprise governance features. See our [Claude Code vs Cursor comparison](/compare/claude-code-vs-cursor) for how Claude Code stacks up against IDE-based alternatives.
+**Choose Codex** if your organization already uses ChatGPT plans and wants built-in integrations with GitHub, Slack, and Linear, plus enterprise governance features. See our [Claude Code vs Cursor comparison](/compare/claude-code-vs-cursor) for how Claude Code stacks up against IDE-based alternatives, and [Claude Code vs GitHub Copilot](/compare/claude-code-vs-github-copilot) for another angle. For the full picture, read the [complete guide to Claude Code](/blog/claude-code-complete-guide) and browse the [Claude Code topic hub](/topics/claude-code).
 
 ---
 

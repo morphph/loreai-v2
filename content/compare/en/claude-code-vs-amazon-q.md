@@ -53,7 +53,7 @@ These tools target different developer profiles. If you want a powerful autonomo
 
 If your stack runs on AWS and you need an assistant that bridges code generation with cloud operations — cost analysis, incident triage, architectural guidance, plus specialized migration tooling — **choose Amazon Q Developer**. The AWS Console integration and built-in security scanning address concerns that Claude Code doesn't target.
 
-Many AWS-heavy teams will benefit from both: Amazon Q Developer for cloud operations and security scanning, Claude Code for deep codebase work and autonomous multi-step engineering tasks. See our [Claude Code vs Cursor comparison](/compare/claude-code-vs-cursor) for how Claude Code stacks up against IDE-focused alternatives.
+Many AWS-heavy teams will benefit from both: Amazon Q Developer for cloud operations and security scanning, Claude Code for deep codebase work and autonomous multi-step engineering tasks. See our [Claude Code vs Cursor comparison](/compare/claude-code-vs-cursor) for how Claude Code stacks up against IDE-focused alternatives, and [Claude Code vs GitHub Copilot](/compare/claude-code-vs-github-copilot) for another enterprise AI coding tool comparison. For the full picture, see the [complete guide to Claude Code](/blog/claude-code-complete-guide) and the [Claude Code topic hub](/topics/claude-code).
 
 ---
 

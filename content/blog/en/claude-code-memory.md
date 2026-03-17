@@ -98,7 +98,7 @@ One gotcha: contradictory rules cause unpredictable behavior. If your project CL
 
 5. **Separate project from personal**. Build commands and architecture docs go in `./CLAUDE.md`. Your personal code style preferences and tool shortcuts go in `~/.claude/CLAUDE.md`.
 
-**Related**: [Today's newsletter](/newsletter/2026-03-10) covers the broader AI development landscape. See also: [Claude Code Skills System](/blog/claude-code-skills-guide) for domain-specific instruction patterns built on top of CLAUDE.md.
+**Related**: [Today's newsletter](/newsletter/2026-03-10) covers the broader AI development landscape. See also: [Claude Code Skills System](/blog/claude-code-extension-stack-skills-hooks-agents-mcp) for domain-specific instruction patterns built on top of CLAUDE.md.
 
 ---
 

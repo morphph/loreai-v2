@@ -29,7 +29,7 @@ A common misconception is that MCP replaces other Claude Code extension mechanis
 5. Verify the connection by asking Claude Code to list its available tools — the MCP server's tools should appear
 6. Use the tools naturally in conversation; Claude Code will invoke MCP tools when they are relevant to your request
 
-For the full picture on extending Claude Code, visit the [extension stack deep dive](/blog/claude-code-extension-stack-skills-hooks-agents-mcp) and the [Claude Code topic hub](/topics/claude-code).
+For the full picture on extending Claude Code, visit the [extension stack deep dive](/blog/claude-code-extension-stack-skills-hooks-agents-mcp), the [complete guide to Claude Code](/blog/claude-code-complete-guide), and the [Claude Code topic hub](/topics/claude-code).
 
 ## Related Questions
 

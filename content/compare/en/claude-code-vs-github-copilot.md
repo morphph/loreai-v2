@@ -54,7 +54,7 @@ Copilot fits naturally into teams already invested in the GitHub ecosystem. Its 
 
 ## Verdict
 
-These tools solve different problems and combine well. **Choose Claude Code** if you need an autonomous agent that can plan, execute, and verify multi-file changes — refactoring modules, generating test suites, or automating CI workflows. **Choose GitHub Copilot** if you want a lightweight assistant that speeds up your typing, answers questions inline, and integrates tightly with GitHub's PR and review workflows. Many teams run both: Copilot for real-time suggestions during active editing, Claude Code for the larger tasks you'd otherwise spend hours on manually. For a similar comparison with another IDE-based tool, see our [Claude Code vs Cursor](/compare/claude-code-vs-cursor) breakdown.
+These tools solve different problems and combine well. **Choose Claude Code** if you need an autonomous agent that can plan, execute, and verify multi-file changes — refactoring modules, generating test suites, or automating CI workflows. **Choose GitHub Copilot** if you want a lightweight assistant that speeds up your typing, answers questions inline, and integrates tightly with GitHub's PR and review workflows. Many teams run both: Copilot for real-time suggestions during active editing, Claude Code for the larger tasks you'd otherwise spend hours on manually. For a similar comparison with another IDE-based tool, see our [Claude Code vs Cursor](/compare/claude-code-vs-cursor) breakdown. Also compare [Claude Code vs Codex](/compare/claude-code-vs-codex) for another terminal-native agent. For the full picture, see the [complete guide to Claude Code](/blog/claude-code-complete-guide) and the [Claude Code topic hub](/topics/claude-code).
 
 ---
 

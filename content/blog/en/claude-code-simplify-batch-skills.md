@@ -17,7 +17,7 @@ video_status: none
 
 # Claude Code's New /simplify and /batch Skills: Automating PR Cleanup and Multi-Task Workflows
 
-**Claude Code** is adding two built-in skills that target the most time-consuming parts of shipping code: getting a pull request production-ready and running tasks in parallel. The `/simplify` and `/batch` commands, [announced by Anthropic engineer Boris Cherny](https://x.com/bcherny/status/2027534984534544489), automate work that developers currently do manually — reviewing changed code for reuse opportunities, cleaning up quality issues, and orchestrating multiple operations simultaneously. For teams already using Claude Code's [skills system](/glossary/skill-md), these two additions signal Anthropic's push toward opinionated, workflow-level automation rather than just code generation.
+**Claude Code** is adding two built-in skills that target the most time-consuming parts of shipping code: getting a pull request production-ready and running tasks in parallel. The `/simplify` and `/batch` commands, [announced by Anthropic engineer Boris Cherny](https://x.com/bcherny/status/2027534984534544489), automate work that developers currently do manually — reviewing changed code for reuse opportunities, cleaning up quality issues, and orchestrating multiple operations simultaneously. For teams already using Claude Code's [skills system](/glossary/claude-md), these two additions signal Anthropic's push toward opinionated, workflow-level automation rather than just code generation.
 
 ## What Happened
 
@@ -41,7 +41,7 @@ The competitive angle matters too. [Cursor](/glossary/cursor) and GitHub Copilot
 
 ## Technical Deep-Dive
 
-Both skills build on Claude Code's existing [SKILL.md](/glossary/skill-md) architecture. Skills are structured markdown files that define behavior patterns, and Claude Code's built-in skills follow the same convention as user-created ones.
+Both skills build on Claude Code's existing [SKILL.md](/glossary/claude-md) architecture. Skills are structured markdown files that define behavior patterns, and Claude Code's built-in skills follow the same convention as user-created ones.
 
 ### /simplify
 
@@ -85,7 +85,7 @@ Both skills inherit the constraints of Claude Code's skill system. They operate 
 4. **Combine with custom skills** for maximum leverage. Your team's `/code-review` skill plus `/batch` means automated review across every changed file in a single command.
 5. **Watch for the HTTP hooks integration**. Pairing `/batch` with hooks could enable powerful CI-adjacent workflows directly from your terminal.
 
-**Related**: [Today's newsletter](/newsletter/2026-03-08) covers the broader context of Claude Code's latest updates. See also: [Claude Code Skills System Guide](/blog/claude-code-skills-guide).
+**Related**: [Today's newsletter](/newsletter/2026-03-08) covers the broader context of Claude Code's latest updates. See also: [Claude Code Skills System Guide](/blog/claude-code-extension-stack-skills-hooks-agents-mcp).
 
 ---
 

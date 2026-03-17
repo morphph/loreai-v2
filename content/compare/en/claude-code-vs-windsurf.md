@@ -60,7 +60,7 @@ Windsurf is built around the concept of "flow state" — minimizing context swit
 
 These tools target different workflows. **Choose Claude Code** if you want a true autonomous agent: you describe tasks, it executes them across your entire codebase, commits the results, and integrates into CI/CD pipelines. It's the stronger choice for multi-file operations, automation, and teams that want to encode standards via CLAUDE.md and skills. **Choose Windsurf** if you want an AI-native IDE where code generation, previews, and contextual suggestions are woven into every keystroke — particularly for frontend work where live previews and click-to-edit matter.
 
-For a different angle on terminal agent vs IDE, see our [Claude Code vs Cursor comparison](/compare/claude-code-vs-cursor). For deeper coverage of Claude Code's extension architecture, read [how skills, hooks, agents, and MCP work together](/blog/claude-code-extension-stack-skills-hooks-agents-mcp).
+For a different angle on terminal agent vs IDE, see our [Claude Code vs Cursor comparison](/compare/claude-code-vs-cursor) and [Claude Code vs Cline](/compare/claude-code-vs-cline). For deeper coverage of Claude Code's extension architecture, read [how skills, hooks, agents, and MCP work together](/blog/claude-code-extension-stack-skills-hooks-agents-mcp). For the full picture, see the [complete guide to Claude Code](/blog/claude-code-complete-guide) and the [Claude Code topic hub](/topics/claude-code).
 
 ---
 

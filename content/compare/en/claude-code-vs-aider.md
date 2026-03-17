@@ -52,7 +52,7 @@ If you want a full-stack autonomous agent with multi-surface access, CI/CD integ
 
 If you value model flexibility, open-source transparency, and a lightweight terminal tool that pairs with any LLM provider, **choose Aider**. It's particularly strong when you want to experiment with different models or run local LLMs without API costs.
 
-Both tools share the terminal-first philosophy that sets them apart from IDE copilots. For a broader look at how Claude Code compares to IDE-integrated alternatives, see our [Claude Code vs Cursor comparison](/compare/claude-code-vs-cursor).
+Both tools share the terminal-first philosophy that sets them apart from IDE copilots. For a broader look at how Claude Code compares to IDE-integrated alternatives, see our [Claude Code vs Cursor comparison](/compare/claude-code-vs-cursor) and [Claude Code vs Cline](/compare/claude-code-vs-cline). For the full picture, see the [complete guide to Claude Code](/blog/claude-code-complete-guide) and the [Claude Code topic hub](/topics/claude-code).
 
 ---
 

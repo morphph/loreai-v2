@@ -73,7 +73,7 @@ One consideration: side chain conversations share the same context window. Compl
 4. **Combine with the new `/simplify` and `/batch` skills** to create efficient workflows: batch your changes, simplify the output, and ask clarifying questions via `/btw` — all without breaking flow.
 5. **Update Claude Code** to the latest version to access `/btw`. Check your version with `claude --version` and update if needed.
 
-**Related**: [Today's newsletter](/newsletter/2026-03-12) covers the broader context of this week's Claude Code updates. See also: [Claude Code Skills System](/blog/claude-code-skills-guide).
+**Related**: [Today's newsletter](/newsletter/2026-03-12) covers the broader context of this week's Claude Code updates. See also: [Claude Code Skills System](/blog/claude-code-extension-stack-skills-hooks-agents-mcp).
 
 ---
 

@@ -107,61 +107,61 @@
       "slug": "what-is-claude-code",
       "question": "What is Claude Code?",
       "priority": 1,
-      "status": "missing"
+      "status": "exists"
     },
     {
       "slug": "is-claude-code-free",
       "question": "Is Claude Code free?",
       "priority": 1,
-      "status": "missing"
+      "status": "exists"
     },
     {
-      "slug": "can-claude-code-run-on-windows",
+      "slug": "claude-code-windows",
       "question": "Can Claude Code run on Windows?",
       "priority": 1,
-      "status": "missing"
+      "status": "exists"
     },
     {
-      "slug": "how-to-use-claude-code-with-git",
+      "slug": "claude-code-with-git",
       "question": "How to use Claude Code with Git?",
       "priority": 2,
-      "status": "missing"
+      "status": "exists"
     },
     {
       "slug": "what-is-claude-md",
       "question": "What is CLAUDE.md?",
       "priority": 2,
-      "status": "missing"
+      "status": "exists"
     },
     {
-      "slug": "how-to-use-mcp-with-claude-code",
+      "slug": "claude-code-mcp-setup",
       "question": "How to use MCP with Claude Code?",
       "priority": 2,
-      "status": "missing"
+      "status": "exists"
     },
     {
-      "slug": "claude-code-pricing-api-vs-max-vs-pro",
+      "slug": "claude-code-pricing",
       "question": "Claude Code pricing: API vs Max vs Pro — what's the difference?",
       "priority": 2,
-      "status": "missing"
+      "status": "exists"
     },
     {
-      "slug": "how-to-use-claude-code-in-ci-cd",
+      "slug": "claude-code-ci-cd",
       "question": "How to use Claude Code in CI/CD?",
       "priority": 3,
-      "status": "missing"
+      "status": "exists"
     },
     {
-      "slug": "what-are-claude-code-skills",
+      "slug": "claude-code-skills",
       "question": "What are Claude Code skills?",
       "priority": 3,
-      "status": "missing"
+      "status": "exists"
     },
     {
-      "slug": "how-to-use-claude-code-agent-teams",
+      "slug": "claude-code-agent-teams",
       "question": "How to use Claude Code agent teams?",
       "priority": 3,
-      "status": "missing"
+      "status": "exists"
     }
   ],
   "target_glossary": [

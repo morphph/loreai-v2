@@ -29,6 +29,8 @@ For developers who prefer not to install WSL2, another option is running Claude 
 5. Install Claude Code: `npm install -g @anthropic-ai/claude-code`.
 6. Navigate to your project directory and run `claude` to start.
 
+Browse all resources on the [Claude Code topic hub](/topics/claude-code).
+
 ## Related Questions
 
 - [How to install Claude Code?](/faq/how-to-install-claude-code)

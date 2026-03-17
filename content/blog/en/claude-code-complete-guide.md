@@ -8,8 +8,8 @@ category: tools
 cornerstone: true
 related_topics: [claude-code]
 related_glossary: [claude-code, anthropic, claude, model-context-protocol, agentic-coding, multi-agent-systems]
-related_compare: [claude-code-vs-cursor, claude-code-vs-github-copilot, claude-code-vs-codex, claude-code-vs-windsurf, claude-code-vs-aider, claude-code-vs-cline, claude-code-vs-amazon-q-developer]
-related_faq: [how-much-does-claude-code-cost, how-to-install-claude-code, what-is-claude-code, is-claude-code-free]
+related_compare: [claude-code-vs-cursor, claude-code-vs-github-copilot, claude-code-vs-codex, claude-code-vs-windsurf, claude-code-vs-aider, claude-code-vs-cline, claude-code-vs-amazon-q]
+related_faq: [how-much-does-claude-code-cost, how-to-install-claude-code, what-is-claude-code, is-claude-code-free, claude-code-windows, claude-code-with-git, what-is-claude-md, claude-code-mcp-setup, claude-code-pricing, claude-code-ci-cd, claude-code-skills, claude-code-agent-teams]
 lang: en
 video_ready: true
 video_hook: "One page, everything you need to know about Claude Code"
@@ -96,7 +96,7 @@ The AI coding tool landscape in 2026 has distinct categories. Claude Code occupi
 
 **Claude Code vs Windsurf**: Windsurf (formerly Codeium) offers an IDE with AI flows. Like Cursor, it's GUI-native rather than terminal-native.
 
-For detailed comparisons, see our [Claude Code vs Cursor analysis](/compare/claude-code-vs-cursor) and the [VS Code integration guide](/compare/how-to-use-claude-code-with-vs-code).
+For detailed comparisons, see our [Claude Code vs Cursor analysis](/compare/claude-code-vs-cursor), [Claude Code vs GitHub Copilot](/compare/claude-code-vs-github-copilot), [Claude Code vs Codex](/compare/claude-code-vs-codex), [Claude Code vs Windsurf](/compare/claude-code-vs-windsurf), [Claude Code vs Aider](/compare/claude-code-vs-aider), [Claude Code vs Cline](/compare/claude-code-vs-cline), [Claude Code vs Amazon Q Developer](/compare/claude-code-vs-amazon-q), and the [VS Code integration guide](/compare/how-to-use-claude-code-with-vs-code).
 
 ## Best Practices
 
@@ -155,12 +155,28 @@ Start with Pro to evaluate, upgrade to Max if you hit rate limits. On API billin
 ### Comparisons
 
 - [Claude Code vs Cursor](/compare/claude-code-vs-cursor)
+- [Claude Code vs GitHub Copilot](/compare/claude-code-vs-github-copilot)
+- [Claude Code vs Codex](/compare/claude-code-vs-codex)
+- [Claude Code vs Windsurf](/compare/claude-code-vs-windsurf)
+- [Claude Code vs Aider](/compare/claude-code-vs-aider)
+- [Claude Code vs Cline](/compare/claude-code-vs-cline)
+- [Claude Code vs Amazon Q Developer](/compare/claude-code-vs-amazon-q)
 - [How to Use Claude Code with VS Code](/compare/how-to-use-claude-code-with-vs-code)
 
 ### FAQ
 
+- [What is Claude Code?](/faq/what-is-claude-code)
 - [How Much Does Claude Code Cost?](/faq/how-much-does-claude-code-cost)
 - [How to Install Claude Code](/faq/how-to-install-claude-code)
+- [Is Claude Code Free?](/faq/is-claude-code-free)
+- [Can Claude Code Run on Windows?](/faq/claude-code-windows)
+- [How to Use Claude Code with Git?](/faq/claude-code-with-git)
+- [What is a CLAUDE.md File?](/faq/what-is-claude-md)
+- [How to Use MCP with Claude Code?](/faq/claude-code-mcp-setup)
+- [Claude Code Pricing: API vs Max vs Pro](/faq/claude-code-pricing)
+- [How to Use Claude Code in CI/CD?](/faq/claude-code-ci-cd)
+- [What Are Claude Code Skills?](/faq/claude-code-skills)
+- [How to Use Claude Code Agent Teams?](/faq/claude-code-agent-teams)
 
 ### Glossary
 

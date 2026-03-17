@@ -51,7 +51,7 @@ What separates enterprise Claude Code usage from individual adoption is the conf
 
 **CLAUDE.md project files.** Each repository gets a `CLAUDE.md` that defines build commands, environment constraints, coding standards, and workflow rules. This ensures every engineer on the team gets consistent Claude Code behavior without sharing prompt templates in Slack. The file lives in version control and goes through code review like any other code.
 
-**Skills system.** The `skills/` directory pattern lets teams encode domain-specific knowledge — API design guidelines, test patterns, documentation standards — into reusable [SKILL.md](/glossary/skill-md) files. A fintech team at Ramp or Brex can have a `skills/compliance-review/SKILL.md` that enforces regulatory requirements every time Claude touches payment-related code.
+**Skills system.** The `skills/` directory pattern lets teams encode domain-specific knowledge — API design guidelines, test patterns, documentation standards — into reusable [SKILL.md](/glossary/claude-md) files. A fintech team at Ramp or Brex can have a `skills/compliance-review/SKILL.md` that enforces regulatory requirements every time Claude touches payment-related code.
 
 **Hooks and automation.** The recently launched HTTP hooks system lets teams build custom guardrails: blocking commits that don't pass linting, triggering security scans on generated code, or routing certain types of changes to specific reviewers. This is the infrastructure layer that makes "Claude Code in production" actually safe.
 
