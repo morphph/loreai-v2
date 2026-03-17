@@ -446,3 +446,43 @@
 - The `code.claude.com` domain was not in `official_domains` (which has `docs.anthropic.com`), so it was treated as a competitor page. This is actually fine since we want to discover gap topics even from official-adjacent sources.
 
 ---
+
+## SPEC-09b — Candidate Management & Promotion
+**Date:** 2026-03-17 16:35 SGT
+**Status:** COMPLETED
+**Duration:** ~15 minutes
+
+### Files Changed
+- `scripts/planner.ts`: Added `--promote`, `--promote-above`, `--dismiss`, `--status` CLI flags and handlers; glossary inference after promotion; keyword table writes after discovery
+- `scripts/lib/discover.ts`: Added `inferGlossaryCandidates()`, `writeDiscoveriesToKeywordTable()` functions; exported `slugify()`; updated `ScoredCandidate` type to include `'glossary'` type and `'approved'`/`'dismissed'` status; added Stage 4 glossary inference in `discoverForCluster()`; extended `ClusterForDiscovery` target array types with optional `priority`/`status`/`item_b` fields
+- `scripts/daily-pipeline.sh`: Added `discover` step with optional cluster argument
+
+### Files Created
+- None
+
+### Validation Results
+- npm run build: PASS
+- npm test: PASS (180/180)
+- `--status`: PASS — shows 4 compare (low-signal), 13 FAQ (low-signal), grouped by type with score/icon/slug/source
+- `--promote=claude-code-vs-o3`: PASS — candidate moved to `target_compare` with `status: "missing"`, `priority: 3`; triggered 8 glossary inferences
+- `generate-seo.ts --cluster=claude-code --dry-run` after promotion: PASS — shows `claude-code-vs-o3` as gap with source grounding
+- `--dismiss=claude-code-vs-cluely`: PASS — candidate status set to "dismissed", shows ❌ in status
+- `--promote-above=50`: PASS — batch promoted 8 glossary candidates (all score=50)
+- `--promote-above=70`: PASS — correctly reports "No pending candidates with score >= 70"
+- Keyword table: wired in discovery flow (verified code path); local DB empty as expected (no Brave API key for local discovery run)
+
+### Decisions & Deviations
+- Extended `ClusterForDiscovery` type with richer field definitions (`item_b`, `priority`, `status`) instead of creating a separate type — keeps a single type for cluster operations across discover.ts and planner.ts
+- Made `ScoredCandidate.signals` accept `CandidateSignals | Record<string, unknown>` — glossary candidates use simple `{ source: 'compare-target-inference' }` signals per spec
+- Added `'glossary'` to `ScoredCandidate.type` and `'approved' | 'dismissed'` to status — was `'compare' | 'faq'` and `'pending' | 'low-signal'` only
+- Reverted test changes to cluster JSON after validation (git checkout) to keep the committed state clean
+
+### Blockers / Issues
+- None
+
+### Key Observations
+- Glossary inference is highly productive: promoting a single compare candidate triggered inference of 8 glossary candidates (one per existing compare target item_b that wasn't already a glossary entry)
+- All existing candidates scored 35 (low-signal) — batch promotion with high thresholds (70+) returns nothing. The scoring model works correctly but real-world discovery via Brave API may produce higher-scoring candidates.
+- The promotion → generation pipeline is fully connected: promote → target_compare gains entry → generate-seo.ts --cluster --dry-run shows it as a gap → full generation would produce the page. No code changes needed in generate-seo.ts.
+
+---

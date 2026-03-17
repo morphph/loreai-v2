@@ -4,16 +4,27 @@
  *
  * Discovers candidate cluster nodes via Brave Search and competitor content audit.
  * Candidates are scored and written to cluster JSON for human review.
+ * Supports promotion, dismissal, and status display.
  *
  * Usage:
  *   npx tsx scripts/planner.ts --cluster=claude-code          # discover for one cluster
  *   npx tsx scripts/planner.ts --all                          # discover for all clusters
  *   npx tsx scripts/planner.ts --cluster=claude-code --dry-run # show candidates, don't write
+ *   npx tsx scripts/planner.ts --cluster=claude-code --status  # show candidate status
+ *   npx tsx scripts/planner.ts --cluster=claude-code --promote=<slug>
+ *   npx tsx scripts/planner.ts --cluster=claude-code --promote-above=70
+ *   npx tsx scripts/planner.ts --cluster=claude-code --dismiss=<slug>
  */
 import 'dotenv/config';
 import * as fs from 'fs';
 import * as path from 'path';
-import { discoverForCluster, type ClusterForDiscovery, type ScoredCandidate } from './lib/discover';
+import {
+  discoverForCluster,
+  inferGlossaryCandidates,
+  writeDiscoveriesToKeywordTable,
+  type ClusterForDiscovery,
+  type ScoredCandidate,
+} from './lib/discover';
 
 const CLUSTERS_DIR = path.join(process.cwd(), 'data', 'flagship-clusters');
 
@@ -21,11 +32,25 @@ const CLUSTERS_DIR = path.join(process.cwd(), 'data', 'flagship-clusters');
 // CLI argument parsing
 // ============================================================
 
-function parseArgs(): { cluster?: string; all: boolean; dryRun: boolean } {
+interface PlannerArgs {
+  cluster?: string;
+  all: boolean;
+  dryRun: boolean;
+  promote?: string;
+  promoteAbove?: number;
+  dismiss?: string;
+  status: boolean;
+}
+
+function parseArgs(): PlannerArgs {
   const args = process.argv.slice(2);
   let cluster: string | undefined;
   let all = false;
   let dryRun = false;
+  let promote: string | undefined;
+  let promoteAbove: number | undefined;
+  let dismiss: string | undefined;
+  let status = false;
 
   for (const arg of args) {
     if (arg.startsWith('--cluster=')) {
@@ -34,10 +59,18 @@ function parseArgs(): { cluster?: string; all: boolean; dryRun: boolean } {
       all = true;
     } else if (arg === '--dry-run') {
       dryRun = true;
+    } else if (arg.startsWith('--promote-above=')) {
+      promoteAbove = parseInt(arg.split('=')[1], 10);
+    } else if (arg.startsWith('--promote=')) {
+      promote = arg.split('=')[1];
+    } else if (arg.startsWith('--dismiss=')) {
+      dismiss = arg.split('=')[1];
+    } else if (arg === '--status') {
+      status = true;
     }
   }
 
-  return { cluster, all, dryRun };
+  return { cluster, all, dryRun, promote, promoteAbove, dismiss, status };
 }
 
 // ============================================================
@@ -72,29 +105,31 @@ function listClusterSlugs(): string[] {
 }
 
 // ============================================================
-// Write candidates to cluster JSON
+// Write cluster JSON atomically
 // ============================================================
+
+function writeCluster(slug: string, cluster: ClusterForDiscovery): void {
+  const filePath = path.join(CLUSTERS_DIR, `${slug}.json`);
+  fs.writeFileSync(filePath, JSON.stringify(cluster, null, 2) + '\n', 'utf-8');
+}
 
 function writeCandidates(slug: string, candidates: ScoredCandidate[]): void {
   const filePath = path.join(CLUSTERS_DIR, `${slug}.json`);
   const raw = fs.readFileSync(filePath, 'utf-8');
   const cluster = JSON.parse(raw);
 
-  // Ensure candidates array exists
   if (!cluster.candidates) {
     cluster.candidates = [];
   }
 
-  // Append new candidates
   cluster.candidates.push(...candidates);
 
-  // Write atomically: full file rewrite
   fs.writeFileSync(filePath, JSON.stringify(cluster, null, 2) + '\n', 'utf-8');
   console.log(`[planner] Wrote ${candidates.length} candidates to ${filePath}`);
 }
 
 // ============================================================
-// Display candidates
+// Display candidates (discovery output)
 // ============================================================
 
 function displayCandidates(candidates: ScoredCandidate[]): void {
@@ -118,10 +153,131 @@ function displayCandidates(candidates: ScoredCandidate[]): void {
 
   console.log('  ' + '-'.repeat(90));
 
-  // Summary by type
   const compareCount = candidates.filter(c => c.type === 'compare').length;
   const faqCount = candidates.filter(c => c.type === 'faq').length;
-  console.log(`\n  Summary: ${compareCount} compare, ${faqCount} FAQ`);
+  const glossaryCount = candidates.filter(c => c.type === 'glossary').length;
+  console.log(`\n  Summary: ${compareCount} compare, ${faqCount} FAQ, ${glossaryCount} glossary`);
+}
+
+// ============================================================
+// Promotion
+// ============================================================
+
+function promoteCandidate(cluster: ClusterForDiscovery, candidateSlug: string): void {
+  const candidate = cluster.candidates?.find(c => c.slug === candidateSlug);
+  if (!candidate) throw new Error(`Candidate "${candidateSlug}" not found`);
+  if (candidate.status === 'approved') throw new Error(`Already promoted`);
+  if (candidate.status === 'dismissed') throw new Error(`Already dismissed — remove dismiss first`);
+
+  switch (candidate.type) {
+    case 'compare':
+      cluster.target_compare.push({
+        slug: candidate.slug,
+        item_a: cluster.pillar_topic,
+        item_b: candidate.item_b || candidate.display_term.replace(`${cluster.pillar_topic} vs `, ''),
+        item_b_url: candidate.item_b_url || undefined,
+        priority: 3,
+        status: 'missing',
+      });
+      break;
+
+    case 'faq':
+      cluster.target_faq.push({
+        slug: candidate.slug,
+        question: candidate.question || candidate.display_term,
+        priority: 3,
+        status: 'missing',
+      });
+      break;
+
+    case 'glossary':
+      cluster.target_glossary.push({
+        slug: candidate.slug,
+        display_term: candidate.display_term,
+        status: 'missing',
+      });
+      break;
+  }
+
+  candidate.status = 'approved';
+}
+
+function promoteBatch(cluster: ClusterForDiscovery, minScore: number): string[] {
+  const promoted: string[] = [];
+  for (const c of cluster.candidates || []) {
+    if (c.status === 'pending' && c.score >= minScore) {
+      promoteCandidate(cluster, c.slug);
+      promoted.push(c.slug);
+    }
+  }
+  return promoted;
+}
+
+// ============================================================
+// Dismissal
+// ============================================================
+
+function dismissCandidate(cluster: ClusterForDiscovery, candidateSlug: string): void {
+  const candidate = cluster.candidates?.find(c => c.slug === candidateSlug);
+  if (!candidate) throw new Error(`Candidate "${candidateSlug}" not found`);
+  candidate.status = 'dismissed';
+}
+
+// ============================================================
+// Status display
+// ============================================================
+
+function showStatus(cluster: ClusterForDiscovery): void {
+  const candidates = cluster.candidates || [];
+  if (candidates.length === 0) {
+    console.log('  No candidates found.');
+    return;
+  }
+
+  const statusIcon = (s: string) => {
+    switch (s) {
+      case 'approved': return '✅';
+      case 'pending': return '⏳';
+      case 'low-signal': return '🔅';
+      case 'dismissed': return '❌';
+      default: return '?';
+    }
+  };
+
+  console.log(`\n📊 Cluster: ${cluster.topic_slug} — Candidate Status\n`);
+
+  const types = ['compare', 'faq', 'glossary'] as const;
+  for (const type of types) {
+    const ofType = candidates.filter(c => c.type === type);
+    if (ofType.length === 0) continue;
+
+    // Sort by score descending
+    ofType.sort((a, b) => b.score - a.score);
+
+    const pending = ofType.filter(c => c.status === 'pending').length;
+    const approved = ofType.filter(c => c.status === 'approved').length;
+    const dismissed = ofType.filter(c => c.status === 'dismissed').length;
+    const lowSignal = ofType.filter(c => c.status === 'low-signal').length;
+
+    const parts: string[] = [];
+    if (pending > 0) parts.push(`${pending} pending`);
+    if (approved > 0) parts.push(`${approved} approved`);
+    if (dismissed > 0) parts.push(`${dismissed} dismissed`);
+    if (lowSignal > 0) parts.push(`${lowSignal} low-signal`);
+
+    const label = type.charAt(0).toUpperCase() + type.slice(1);
+    console.log(`${label} (${parts.join(', ')}):`);
+
+    for (const c of ofType) {
+      const icon = statusIcon(c.status);
+      const scoreStr = String(c.score).padStart(3);
+      const slugStr = c.slug.padEnd(40);
+      const term = `"${c.display_term}"`;
+      const src = c.status === 'dismissed' ? '[dismissed]' : `[${c.source}]`;
+      console.log(`  ${scoreStr}  ${icon} ${slugStr} — ${term} ${src}`);
+    }
+    console.log('');
+  }
 }
 
 // ============================================================
@@ -129,15 +285,84 @@ function displayCandidates(candidates: ScoredCandidate[]): void {
 // ============================================================
 
 async function main() {
-  const { cluster, all, dryRun } = parseArgs();
+  const { cluster, all, dryRun, promote, promoteAbove, dismiss, status } = parseArgs();
+
+  // --status, --promote, --dismiss, --promote-above require --cluster
+  const isManagementOp = status || promote || dismiss || promoteAbove !== undefined;
 
   if (!cluster && !all) {
     console.error('Usage: npx tsx scripts/planner.ts --cluster=<slug> [--dry-run]');
     console.error('       npx tsx scripts/planner.ts --all [--dry-run]');
+    console.error('       npx tsx scripts/planner.ts --cluster=<slug> --status');
+    console.error('       npx tsx scripts/planner.ts --cluster=<slug> --promote=<slug>');
+    console.error('       npx tsx scripts/planner.ts --cluster=<slug> --promote-above=<score>');
+    console.error('       npx tsx scripts/planner.ts --cluster=<slug> --dismiss=<slug>');
     process.exit(1);
   }
 
-  // Check Brave API key
+  if (isManagementOp && !cluster) {
+    console.error('[planner] --status, --promote, --dismiss, --promote-above require --cluster=<slug>');
+    process.exit(1);
+  }
+
+  // Handle management operations (no Brave API key needed)
+  if (isManagementOp && cluster) {
+    const clusterData = loadCluster(cluster);
+    if (!clusterData) process.exit(1);
+
+    if (status) {
+      showStatus(clusterData);
+      return;
+    }
+
+    if (promote) {
+      promoteCandidate(clusterData, promote);
+      console.log(`[planner] Promoted "${promote}" to target array`);
+
+      // After promotion, run glossary inference (new compare targets may produce glossary candidates)
+      const glossaryCandidates = inferGlossaryCandidates(clusterData);
+      if (glossaryCandidates.length > 0) {
+        if (!clusterData.candidates) clusterData.candidates = [];
+        clusterData.candidates.push(...glossaryCandidates);
+        console.log(`[planner] Inferred ${glossaryCandidates.length} new glossary candidate(s)`);
+      }
+
+      writeCluster(cluster, clusterData);
+      return;
+    }
+
+    if (promoteAbove !== undefined) {
+      const promoted = promoteBatch(clusterData, promoteAbove);
+      if (promoted.length === 0) {
+        console.log(`[planner] No pending candidates with score >= ${promoteAbove}`);
+        return;
+      }
+      console.log(`[planner] Batch promoted ${promoted.length} candidate(s):`);
+      for (const s of promoted) console.log(`  - ${s}`);
+
+      // After batch promotion, run glossary inference
+      const glossaryCandidates = inferGlossaryCandidates(clusterData);
+      if (glossaryCandidates.length > 0) {
+        if (!clusterData.candidates) clusterData.candidates = [];
+        clusterData.candidates.push(...glossaryCandidates);
+        console.log(`[planner] Inferred ${glossaryCandidates.length} new glossary candidate(s)`);
+      }
+
+      writeCluster(cluster, clusterData);
+      return;
+    }
+
+    if (dismiss) {
+      dismissCandidate(clusterData, dismiss);
+      console.log(`[planner] Dismissed "${dismiss}"`);
+      writeCluster(cluster, clusterData);
+      return;
+    }
+
+    return;
+  }
+
+  // Discovery mode — requires Brave API key
   if (!process.env.BRAVE_SEARCH_API_KEY) {
     console.warn('[planner] BRAVE_SEARCH_API_KEY not set. Cannot run discovery.');
     process.exit(1);
@@ -161,6 +386,9 @@ async function main() {
 
     if (!dryRun && candidates.length > 0) {
       writeCandidates(slug, candidates);
+      // Write keywords to DB after discovery
+      writeDiscoveriesToKeywordTable(clusterData, candidates);
+      console.log(`[planner] Wrote ${candidates.length} keyword(s) to DB`);
     } else if (dryRun) {
       console.log('\n  [dry-run] No changes written to disk.');
     }

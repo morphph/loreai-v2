@@ -53,9 +53,18 @@ case "$STEP" in
     npx tsx scripts/generate-seo.ts --cluster="$CLUSTER"
     git add content/
     (git commit -m "🎯 Cluster $CLUSTER $(date +%Y-%m-%d)" || true) && git push ;;
+  discover)
+    CLUSTER="${2:-}"
+    if [ -n "$CLUSTER" ]; then
+      npx tsx scripts/planner.ts --cluster="$CLUSTER"
+    else
+      npx tsx scripts/planner.ts --all
+    fi
+    git add data/flagship-clusters/
+    (git commit -m "🔍 Planner discovery $(date +%Y-%m-%d)" || true) && git push ;;
   video-import)
     npx tsx scripts/import-video-blog.ts --batch --auto ;;
   *)
-    echo "Usage: $0 {collect|newsletter|extract|blog|seo|weekly|cluster-strategy|cluster|video-import}"
+    echo "Usage: $0 {collect|newsletter|extract|blog|seo|weekly|cluster-strategy|cluster|discover|video-import}"
     exit 1 ;;
 esac

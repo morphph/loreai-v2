@@ -11,6 +11,7 @@ import 'dotenv/config';
 
 import { braveSearch, fetchWithCache, truncateSource } from './source-fetch';
 import { callClaude } from './ai';
+import { upsertKeyword } from './db';
 
 // ============================================================
 // Types
@@ -41,17 +42,17 @@ export interface CandidateSignals {
 
 export interface ScoredCandidate {
   slug: string;
-  type: 'compare' | 'faq';
+  type: 'compare' | 'faq' | 'glossary';
   display_term: string;
   question: string | null;
   item_b: string | null;
   item_b_url: string | null;
   score: number;
-  signals: CandidateSignals;
+  signals: CandidateSignals | Record<string, unknown>;
   source: string;
   source_url: string | null;
   discovered_at: string;
-  status: 'pending' | 'low-signal';
+  status: 'pending' | 'low-signal' | 'approved' | 'dismissed';
 }
 
 interface BraveFullResult {
@@ -67,10 +68,26 @@ export interface ClusterForDiscovery {
   pillar_topic: string;
   official_domains?: string[];
   cornerstone: { slug: string };
-  target_compare: Array<{ slug: string }>;
-  target_faq: Array<{ slug: string }>;
-  target_glossary: Array<{ slug: string }>;
-  candidates?: Array<{ slug: string; status: string }>;
+  target_compare: Array<{
+    slug: string;
+    item_a?: string;
+    item_b?: string;
+    item_b_url?: string;
+    priority?: number;
+    status?: string;
+  }>;
+  target_faq: Array<{
+    slug: string;
+    question?: string;
+    priority?: number;
+    status?: string;
+  }>;
+  target_glossary: Array<{
+    slug: string;
+    display_term?: string;
+    status?: string;
+  }>;
+  candidates?: Array<ScoredCandidate>;
 }
 
 // ============================================================
@@ -348,7 +365,7 @@ export function scoreCandidate(
 // Slug generation
 // ============================================================
 
-function slugify(text: string): string {
+export function slugify(text: string): string {
   return text
     .toLowerCase()
     .replace(/[^a-z0-9\s-]/g, '')
@@ -554,7 +571,97 @@ export async function discoverForCluster(cluster: ClusterForDiscovery): Promise<
   const low = scored.filter(c => c.score < 40).length;
   console.log(`    High priority (70+): ${high}, Moderate (40-69): ${moderate}, Low signal (30-39): ${low}`);
 
+  // ---- Stage 4: Glossary Inference ----
+  console.log(`  [discover] Stage 4: Glossary inference...`);
+  const glossaryCandidates = inferGlossaryCandidates(cluster);
+  if (glossaryCandidates.length > 0) {
+    scored.push(...glossaryCandidates);
+    console.log(`    [discover] Inferred ${glossaryCandidates.length} glossary candidates from compare targets`);
+  } else {
+    console.log(`    [discover] No new glossary candidates to infer`);
+  }
+
   return scored;
+}
+
+// ============================================================
+// Glossary Inference
+// ============================================================
+
+export function inferGlossaryCandidates(cluster: ClusterForDiscovery): ScoredCandidate[] {
+  const existingSlugs = buildExistingSlugSet(cluster);
+  const candidates: ScoredCandidate[] = [];
+  const today = new Date().toISOString().slice(0, 10);
+
+  // Every compare target item_b could be a glossary entry
+  for (const c of cluster.target_compare) {
+    if (!c.item_b) continue;
+    const slug = slugify(c.item_b);
+    if (slug && !existingSlugs.has(slug)) {
+      candidates.push({
+        slug,
+        type: 'glossary',
+        display_term: c.item_b,
+        question: null,
+        item_b: null,
+        item_b_url: null,
+        score: 50,
+        signals: { source: 'compare-target-inference' },
+        source: 'compare-target-inference',
+        source_url: null,
+        discovered_at: today,
+        status: 'pending',
+      });
+      existingSlugs.add(slug);
+    }
+  }
+
+  // Also check newly promoted compare candidates
+  for (const c of cluster.candidates || []) {
+    if (c.type === 'compare' && c.status === 'approved' && c.item_b) {
+      const slug = slugify(c.item_b);
+      if (slug && !existingSlugs.has(slug)) {
+        candidates.push({
+          slug,
+          type: 'glossary',
+          display_term: c.item_b,
+          question: null,
+          item_b: null,
+          item_b_url: null,
+          score: 50,
+          signals: { source: 'compare-target-inference' },
+          source: 'compare-target-inference',
+          source_url: null,
+          discovered_at: today,
+          status: 'pending',
+        });
+        existingSlugs.add(slug);
+      }
+    }
+  }
+
+  return candidates;
+}
+
+// ============================================================
+// Keyword Table Integration
+// ============================================================
+
+export function writeDiscoveriesToKeywordTable(
+  cluster: ClusterForDiscovery,
+  candidates: ScoredCandidate[]
+): void {
+  for (const c of candidates) {
+    const source = `planner-${c.source}`;
+    upsertKeyword(c.display_term, source, cluster.topic_slug);
+
+    if (c.type === 'faq' && c.question) {
+      upsertKeyword(c.question, source, cluster.topic_slug);
+    }
+    if (c.type === 'compare' && c.item_b) {
+      upsertKeyword(`${cluster.pillar_topic} vs ${c.item_b}`, source, cluster.topic_slug);
+    }
+  }
 }
 
 // ============================================================
