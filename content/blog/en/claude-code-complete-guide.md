@@ -92,7 +92,7 @@ The AI coding tool landscape in 2026 has distinct categories. Claude Code occupi
 
 **Claude Code vs GitHub Copilot**: Copilot focuses on inline suggestions and chat within VS Code or JetBrains. Its Copilot Workspace feature proposes multi-file plans but doesn't execute them autonomously. Claude Code's agent loop — plan, execute, validate, iterate — goes further for complex tasks.
 
-**Claude Code vs OpenAI Codex**: Codex (the CLI agent, not the legacy model) takes a similar terminal-native approach. Both are agentic, both work from the command line. Key differences are model quality, extension architecture, and multi-agent capabilities.
+**[Claude Code vs OpenAI Codex](/compare/claude-code-vs-codex)**: Codex is OpenAI's coding agent available as a cloud-based platform and CLI. Both are agentic, both handle multi-step tasks autonomously. Key differences: Codex runs in sandboxed cloud containers (built-in isolation), while Claude Code runs locally with full shell access (maximum flexibility). See our [complete Codex guide](/blog/codex-complete-guide) for a deep dive on OpenAI's agent.
 
 **Claude Code vs Windsurf**: Windsurf (formerly Codeium) offers an IDE with AI flows. Like Cursor, it's GUI-native rather than terminal-native.
 

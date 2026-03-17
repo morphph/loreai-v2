@@ -119,6 +119,10 @@ Claude Code isn't just for solo developers. [Ramp, Shopify, Spotify, and other e
 - [Agent Teams](/glossary/agent-teams) — coordinated sub-agents working in parallel
 - [CLAUDE.md](/glossary/claude-md) — project-level configuration for Claude Code
 
+### Related Topics
+
+- [Codex — Everything You Need to Know](/topics/codex) — OpenAI's competing coding agent. See how it compares in our [Claude Code vs Codex](/compare/claude-code-vs-codex) and [Codex vs Claude Code](/compare/codex-vs-claude-code) analyses.
+
 ### Comparisons
 
 - [Claude Code vs Cursor](/compare/claude-code-vs-cursor)

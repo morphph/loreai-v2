@@ -4,10 +4,10 @@ slug: codex
 description: "OpenAI Codex 完整指南：从代码生成模型到云端编程智能体的演进。"
 pillar_topic: Codex
 category: models
-related_glossary: [chatgpt, agentic-coding]
-related_blog: [openai-computer-access-agents-lessons]
-related_compare: []
-related_faq: []
+related_glossary: [codex, codex-cli, openai, agentic-coding, chatgpt]
+related_blog: [codex-complete-guide, openai-computer-access-agents-lessons]
+related_compare: [codex-vs-claude-code, codex-vs-cursor, codex-vs-github-copilot, codex-vs-windsurf, codex-vs-devin, codex-vs-aider]
+related_faq: [what-is-codex, codex-pricing, is-codex-free, codex-vs-chatgpt, codex-setup, codex-api-access, codex-supported-languages, codex-enterprise]
 lang: zh
 ---
 
@@ -53,14 +53,34 @@ Codex 不是逐行生成代码，而是理解高层次目标后自主拆解任�
 
 ## Codex 与其他工具对比
 
-目前 AI 编程智能体赛道竞争激烈。Codex 的云端架构与 [Claude Code](/glossary/agentic-coding) 的本地终端方案形成鲜明对比——前者强调零配置和隔离安全，后者强调对本地环境的深度控制。Google 的 Jules 同样采用云端方案，但集成在 Gemini 生态中。选择哪个工具，取决于团队的工作流偏好和已有的平台生态。
+- [Codex vs Claude Code](/compare/codex-vs-claude-code) — 云端沙箱 vs 终端优先，隔离性与灵活性的取舍
+- [Codex vs Cursor](/compare/codex-vs-cursor) — 独立 Agent vs AI IDE
+- [Codex vs GitHub Copilot](/compare/codex-vs-github-copilot) — 自主任务 vs 行内补全
+- [Codex vs Windsurf](/compare/codex-vs-windsurf) — 云端 Agent vs AI 原生编辑器
+- [Codex vs Devin](/compare/codex-vs-devin) — 两款云端自主编程 Agent 对比
+- [Codex vs Aider](/compare/codex-vs-aider) — 云端平台 vs 开源终端工具
+
+## 常见问题
+
+- [什么是 Codex？](/faq/what-is-codex)
+- [Codex 怎么收费？](/faq/codex-pricing)
+- [Codex 免费吗？](/faq/is-codex-free)
+- [Codex 和 ChatGPT 有什么区别？](/faq/codex-vs-chatgpt)
+- [怎么设置 Codex？](/faq/codex-setup)
+- [怎么使用 Codex API？](/faq/codex-api-access)
+- [Codex 支持哪些编程语言？](/faq/codex-supported-languages)
+- [Codex 支持企业团队吗？](/faq/codex-enterprise)
 
 ## 所有 Codex 资源
 
 ### 博客文章
+- [Codex 完整指南](/blog/codex-complete-guide) — OpenAI 编程 Agent 全面解析
 - [OpenAI 智能体战略深度解析](/blog/openai-computer-access-agents-lessons)
 
 ### 术语表
+- [Codex](/glossary/codex) — OpenAI 的 AI 编程 Agent
+- [Codex CLI](/glossary/codex-cli) — Codex 的开源终端客户端
+- [OpenAI](/glossary/openai) — Codex 背后的公司
 - [Agentic Coding](/glossary/agentic-coding) — AI 驱动的自主编程范式
 - [ChatGPT](/glossary/chatgpt) — OpenAI 的对话式 AI 产品，Codex 的宿主平台
 

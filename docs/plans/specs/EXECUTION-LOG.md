@@ -637,3 +637,81 @@
 - The `readPageContent()` function from discover.ts is reused cleanly — no need to duplicate file path logic.
 
 ---
+
+## SPEC-12 — Codex Flagship Cluster
+**Date:** 2026-03-17 18:00 SGT
+**Status:** COMPLETED
+**Duration:** ~45 minutes
+
+### Files Changed
+- `content/blog/en/claude-code-complete-guide.md`: Enhanced Codex cross-link in comparisons section with link to Codex complete guide
+- `content/topics/en/claude-code.md`: Added "Related Topics" section with Codex cross-reference
+- `content/topics/en/codex.md`: Updated frontmatter with all cluster links, added full comparison/FAQ/resource sections
+- `content/topics/zh/codex.md`: Updated frontmatter with all cluster links, added full comparison/FAQ/resource sections
+
+### Files Created
+- `data/flagship-clusters/codex.json`: Codex cluster definition — 6 compare, 8 FAQ, 3+6 glossary targets, 22 discovered candidates
+- `content/blog/en/codex-complete-guide.md`: Cornerstone page (EN)
+- `content/blog/zh/codex-complete-guide.md`: Cornerstone page (ZH)
+- `content/compare/en/codex-vs-claude-code.md`: Compare page (EN)
+- `content/compare/en/codex-vs-cursor.md`: Compare page (EN)
+- `content/compare/en/codex-vs-github-copilot.md`: Compare page (EN)
+- `content/compare/en/codex-vs-windsurf.md`: Compare page (EN)
+- `content/compare/en/codex-vs-devin.md`: Compare page (EN)
+- `content/compare/en/codex-vs-aider.md`: Compare page (EN)
+- `content/compare/zh/codex-vs-claude-code.md`: Compare page (ZH, manually created after pipeline word count failure)
+- `content/compare/zh/codex-vs-cursor.md`: Compare page (ZH)
+- `content/compare/zh/codex-vs-github-copilot.md`: Compare page (ZH)
+- `content/compare/zh/codex-vs-windsurf.md`: Compare page (ZH)
+- `content/compare/zh/codex-vs-devin.md`: Compare page (ZH)
+- `content/compare/zh/codex-vs-aider.md`: Compare page (ZH)
+- `content/faq/en/what-is-codex.md`: FAQ page (EN)
+- `content/faq/en/codex-pricing.md`: FAQ page (EN)
+- `content/faq/en/is-codex-free.md`: FAQ page (EN)
+- `content/faq/en/codex-vs-chatgpt.md`: FAQ page (EN)
+- `content/faq/en/codex-setup.md`: FAQ page (EN)
+- `content/faq/en/codex-api-access.md`: FAQ page (EN)
+- `content/faq/en/codex-supported-languages.md`: FAQ page (EN)
+- `content/faq/en/codex-enterprise.md`: FAQ page (EN)
+- `content/faq/zh/what-is-codex.md`: FAQ page (ZH, manually created after pipeline word count failure)
+- `content/faq/zh/codex-pricing.md`: FAQ page (ZH)
+- `content/faq/zh/is-codex-free.md`: FAQ page (ZH)
+- `content/faq/zh/codex-vs-chatgpt.md`: FAQ page (ZH, manually created after pipeline word count failure)
+- `content/faq/zh/codex-setup.md`: FAQ page (ZH)
+- `content/faq/zh/codex-api-access.md`: FAQ page (ZH)
+- `content/faq/zh/codex-supported-languages.md`: FAQ page (ZH)
+- `content/faq/zh/codex-enterprise.md`: FAQ page (ZH, manually created after pipeline word count failure)
+- `content/glossary/en/codex-cli.md`: Glossary entry (EN)
+- `content/glossary/en/devin.md`: Glossary entry (EN)
+- `content/glossary/en/aider.md`: Glossary entry (EN)
+- `content/glossary/zh/codex-cli.md`: Glossary entry (ZH)
+- `content/glossary/zh/devin.md`: Glossary entry (ZH)
+- `content/glossary/zh/aider.md`: Glossary entry (ZH)
+
+### Validation Results
+- npm run build: PASS
+- npm test: PASS (180/180)
+- cluster-status --cluster=codex: PASS — 24/24 nodes (100%)
+- cluster-status --cluster=claude-code: PASS — 28/28 nodes (100%)
+- cluster-status --all: FAIL — pre-existing TypeError on a different cluster missing `cornerstone.slug` (not related to this spec)
+
+### Decisions & Deviations
+- 4 ZH pages failed pipeline word count validation (codex-vs-claude-code compare at 1300/800 words, what-is-codex FAQ at 602/500, codex-vs-chatgpt FAQ at 604/500, codex-enterprise FAQ at 624/500). Created these manually with tighter content to stay within limits.
+- Topic hubs already existed (from earlier pre-cluster content generation). Updated them in-place with full cluster links rather than recreating.
+- Glossary entries for `codex` and `openai` already existed. Planner discovery found 6 glossary candidates from compare-target-inference (claude-code, cursor, github-copilot, windsurf, devin, aider) — promoted all 6, but only 3 new ones needed generation (codex-cli, devin, aider) since the others already existed.
+- Planner Brave Stage 1 found 0 related search candidates (same pattern as Claude Code cluster in SPEC-09a). All 16 non-glossary candidates came from Stage 2 competitor content audit. All scored 35 (low-signal), below the 50 promotion threshold.
+- `--promote-above=50` used per spec (spec said >=50, user instruction said >=50). This promoted only the 6 glossary candidates at exactly score 50.
+- Spec mentioned `gseo.ts` for FAQ generation but this script doesn't exist. Used `generate-seo.ts --type=faq` which is the actual implementation.
+- OpenAI's official Codex page (openai.com/index/introducing-codex/ and openai.com/codex/) returned HTTP 403 on WebFetch. Source material was fetched from the GitHub repo page and developers.openai.com/codex instead.
+
+### Blockers / Issues
+- None
+
+### Key Observations
+- The reusable cluster pipeline validated well — definition → discovery → generation → status check worked end-to-end with no pipeline code changes needed.
+- ZH word count failures are a recurring pattern. The pipeline's CJK word counter is stricter than expected for pages with many English technical terms mixed into Chinese text. The 4 manual fixes took ~5 minutes.
+- Planner discovery is heavily reliant on competitor content audit (Stage 2) for niche topics. Brave related searches returned nothing useful for Codex queries, same as the Claude Code cluster.
+- Cross-cluster linking was straightforward — the Claude Code cornerstone already referenced Codex, so only minor enhancements were needed.
+- Total content created: 1 cornerstone (EN+ZH), 6 compare (EN+ZH), 8 FAQ (EN+ZH), 3 glossary (EN+ZH) = 18 unique pages × 2 languages = 36 content files + cluster definition.
+
+---
