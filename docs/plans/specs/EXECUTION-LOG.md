@@ -526,3 +526,42 @@
 - The 6-stage pipeline (Brave → Competitor → News → GSC → Scoring → Glossary) runs sequentially, which is correct since later stages may benefit from earlier stage deduplication
 
 ---
+
+## SPEC-09d — Refresh Detection Engine
+**Date:** 2026-03-17 17:00 SGT
+**Status:** COMPLETED
+**Duration:** ~20 minutes
+
+### Files Changed
+- `scripts/lib/discover.ts`: Added `FreshnessSignal`, `RefreshFlag` types; added `refresh_needed` to `ClusterForDiscovery`; added `collectFreshnessSignals()`, `mapSignalToPages()`, `checkPageStaleness()`, `checkClusterRefresh()`, `readPageContent()`, `clearRefresh()`, `cacheFreshnessEvents()`, `extractFreshnessOnly()`, `getPageType()` (~290 lines); modified `extractNewsSignals()` to cache freshness events to `.freshness-cache.json`
+- `scripts/planner.ts`: Added `--refresh-check` and `--clear-refresh=` CLI flags; added `displayRefreshFlags()` function; integrated refresh check and clear into management operations (~60 lines)
+- `.gitignore`: Added `data/flagship-clusters/.freshness-cache.json`
+
+### Files Created
+- `skills/planner/refresh-detect.md`: LLM prompt for page staleness detection (JSON output: is_stale, severity, affected_sections, reason)
+
+### Validation Results
+- npm run build: PASS
+- npm test: PASS (180/180)
+- `--refresh-check --dry-run` (no signals): PASS — exits cleanly with "No freshness signals found"
+- `--refresh-check --dry-run` (synthetic pricing signal): PASS — 11 pages checked, 6 flagged stale (4 high, 1 medium, 1 low)
+- `--refresh-check` (real write): PASS — 5 flags written to cluster JSON `refresh_needed` array
+- `--clear-refresh=all`: PASS — all 5 flags set to "cleared"
+- `--status`: PASS — existing discovery/promotion/status flows unaffected
+
+### Decisions & Deviations
+- Spec's `extractFreshnessOnly()` was referenced as a function called from `collectFreshnessSignals()` fallback path — implemented as a standalone async function that reuses the `news-signal-extract` prompt but only keeps `freshness_events` from the response
+- Used `Array.from(new Set(...))` instead of spread `[...new Set()]` and `Array.from(pageChecks.entries())` instead of direct Map iteration — avoids TypeScript `--downlevelIteration` requirement, consistent with existing code patterns in `discoverForCluster()`
+- Deduplication key uses `slug:event_type:description` composite — prevents duplicate flags when running refresh check twice with the same cached signals
+- `extractNewsSignals()` gained an optional `topicSlug` parameter (backward-compatible) — used only when called from `discoverForCluster()` to cache freshness events per-cluster
+
+### Blockers / Issues
+- None
+
+### Key Observations
+- The LLM staleness detection is remarkably precise: for a synthetic "Max tier $200→$100" pricing change, it correctly identified 4 FAQ/cornerstone pages as HIGH severity (citing specific dollar amounts in the content), 1 compare page as MEDIUM (incomplete pricing info), and 1 as LOW (vague pricing description). 5 compare pages were correctly identified as not stale (pricing not explicitly mentioned).
+- Signal-to-page mapping works well as a pre-filter: a pricing signal maps to 11 pages (cornerstone + 3 pricing FAQ + 7 compare), while a deprecation signal would only map to 2-3 pages. This minimizes LLM calls.
+- The freshness cache (`data/flagship-clusters/.freshness-cache.json`) bridges SPEC-09c discovery and SPEC-09d refresh detection — discovery extracts events, refresh check consumes them. Without the cache, the fallback news scan would require additional LLM calls.
+- Local testing is straightforward: create a synthetic `.freshness-cache.json` with test signals, run `--refresh-check --dry-run`, verify output, clean up.
+
+---
