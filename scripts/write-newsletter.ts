@@ -32,6 +32,7 @@ import { validateNewsletter, validateZhNewsletter, validateNewsletterQuality } f
 import { extractBoldTitles } from './lib/dedup';
 import { validateAndExpand } from './lib/brave';
 import { markdownToEmailHtml } from './lib/email-html';
+import { getClusterChanges } from './lib/cluster-changes';
 // Parse args
 const dateArg = process.argv.find((a) => a.startsWith('--date='));
 import { todaySGT } from './lib/date.js';
@@ -821,6 +822,28 @@ async function stage6_blogSeeds(filtered: FilteredItem[]): Promise<BlogSeed[]> {
 
     // Rate limit Brave calls
     await new Promise((r) => setTimeout(r, 500));
+  }
+
+  // Append cluster-derived seeds — no scoring needed, just fill the pool
+  const clusterChanges = getClusterChanges(DATE, DATE);
+  for (const cluster of clusterChanges) {
+    for (const change of cluster.changes) {
+      // Only compare and cornerstone pages make good blog seeds
+      if (change.type !== 'compare' && change.type !== 'cornerstone') continue;
+
+      candidates.push({
+        topic: `Deep dive: ${change.title}`,
+        url: `https://loreai.dev${change.url_path}`,
+        source: `cluster:${cluster.cluster_slug}`,
+        x_engagement_24h: 0,
+        brave_has_results: true,
+        brave_related_searches: [],
+        brave_discussions: [],
+        mention_count_7d: 0,
+        composite_score: 0,
+        suggested_angle: change.type === 'compare' ? 'comparison' : 'analysis',
+      });
+    }
   }
 
   // Top 3 by composite score
