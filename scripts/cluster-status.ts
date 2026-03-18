@@ -230,7 +230,7 @@ function parseArgs(): { clusters: string[]; update: boolean } {
       // Discover all cluster files
       if (existsSync(CLUSTERS_DIR)) {
         clusters = readdirSync(CLUSTERS_DIR)
-          .filter((f) => f.endsWith(".json"))
+          .filter((f) => f.endsWith(".json") && !f.startsWith("."))
           .map((f) => f.replace(".json", ""));
       }
     } else if (arg.startsWith("--cluster=")) {
