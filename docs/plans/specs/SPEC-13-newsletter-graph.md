@@ -15,7 +15,7 @@ Today the cluster system (`generate-seo.ts --cluster`, `planner.ts --discover`, 
 This spec adds three integration points — all additive, all conditional (no-op when no cluster changes exist):
 
 1. **Weekly digest "Topic Updates" section** — shows newly created and refreshed pages grouped by cluster, injected into the writer prompt alongside existing story data. Follows the exact pattern already used for the "Deep Reads" video section in `write-weekly.ts`.
-2. **Blog seed injection** — cluster events (new compare pages, refreshed cornerstone) feed scored seeds into the `data/blog-seeds/` pool via `write-newsletter.ts` Stage 6.
+2. **Blog seed injection** — cluster events (new compare pages, refreshed cornerstone) are appended unconditionally to the blog seed pool in `write-newsletter.ts` Stage 6. No scoring needed — the pool is under-filled and dedup is already handled downstream.
 3. **Cluster change detection library** — shared function in `scripts/lib/cluster-changes.ts` that both integration points consume.
 
 ### Prerequisites
@@ -29,8 +29,8 @@ This spec adds three integration points — all additive, all conditional (no-op
 - Additive only — no breaking changes to existing newsletter/weekly/blog flow
 - If no cluster changes happened, all new code paths are no-ops
 - No new npm dependencies
-- No new LLM calls — change detection is pure filesystem/JSON scanning
-- Blog seed injection adds to the existing seed pool, does not replace it
+- No new LLM calls — change detection is pure filesystem/JSON scanning, seed injection is unconditional append
+- Blog seed injection appends to the existing seed pool, does not replace or re-rank it
 - The "Topic Updates" section is part of the writer prompt, not a hard-coded template — the LLM decides final presentation (same pattern as `videoSection` in `write-weekly.ts`)
 
 ---
@@ -187,14 +187,16 @@ const [enContent, zhContent] = await Promise.all([
 
 ### C. Blog Seed Injection: `write-newsletter.ts` Stage 6
 
-In `stage6_blogSeeds()` (lines 780–838), after the existing scoring loop that produces `candidates`, inject cluster-derived seeds before the final sort and slice:
+**Design rationale:** We don't produce enough daily blogs to be selective — the pipeline picks top 3 seeds but often has fewer good candidates. Cluster events (new compare pages, refreshed cornerstones) are inherently high-relevance content that already passed human curation (target lists are hand-approved). No scoring tricks or LLM gatekeeping needed — just append them to the seed pool unconditionally. The only gate is dedup, which `write-blog.ts` Stage 2 already handles via slug overlap.
+
+In `stage6_blogSeeds()` (lines 780–838), after the existing scoring loop that produces `candidates` and before the final sort and slice, append cluster-derived seeds:
 
 ```typescript
 import { getClusterChanges } from './lib/cluster-changes';
 
 // Inside stage6_blogSeeds(), after the main for-loop at ~line 824:
 
-// Inject cluster-derived seeds
+// Append cluster-derived seeds — no scoring needed, just fill the pool
 const clusterChanges = getClusterChanges(DATE, DATE);
 for (const cluster of clusterChanges) {
   for (const change of cluster.changes) {
@@ -206,11 +208,11 @@ for (const cluster of clusterChanges) {
       url: `https://loreai.dev${change.url_path}`,
       source: `cluster:${cluster.cluster_slug}`,
       x_engagement_24h: 0,
-      brave_has_results: true,  // cluster pages target validated demand
+      brave_has_results: true,
       brave_related_searches: [],
       brave_discussions: [],
       mention_count_7d: 0,
-      composite_score: 25,      // moderate — survives but doesn't dominate
+      composite_score: 0,        // score doesn't matter — pool isn't full
       suggested_angle: change.type === 'compare' ? 'comparison' : 'analysis',
     });
   }
@@ -219,15 +221,15 @@ for (const cluster of clusterChanges) {
 // Existing code continues: candidates.sort(...), candidates.slice(0, 5), write to file
 ```
 
-The `composite_score` of 25 means cluster seeds rank below high-engagement news seeds (~30+) but above low-signal items. If a cluster page topic also appears organically in the news (e.g., Codex launch), the organic seed scores higher and the cluster seed is naturally deduplicated by the existing slug-overlap check in `write-blog.ts` Stage 2 (`getRecentBlogSlugs` + `topicToSlug` overlap detection).
+The `composite_score` is set to 0 because the score is irrelevant — the daily pool rarely exceeds 5 high-quality seeds, so cluster seeds get included by virtue of the pool being under-filled. If a news seed covers the same topic (e.g., Codex launch generates both a news seed and a cluster seed), the news seed scores higher and `write-blog.ts` Stage 2 deduplicates via slug overlap. If the pool ever becomes consistently full (>5 strong seeds daily), revisit scoring — but that's a good problem to have.
 
 ### D. Deduplication
 
-Cluster seeds use `source: "cluster:{slug}"` which is distinct from existing sources (`twitter:`, `blog:`, etc.). No special dedup logic needed because:
+No special dedup logic needed. Three existing mechanisms handle it:
 
-1. In `write-newsletter.ts` Stage 6: cluster seeds enter the same candidate pool and compete on `composite_score` like any other seed
-2. In `write-blog.ts` Stage 2: the `topicToSlug()` overlap check against `getRecentBlogSlugs(7)` prevents writing a blog post that overlaps with a recently published blog slug
-3. In `write-weekly.ts`: the LLM naturally deduplicates — if a story in the Top 5 covers the same topic as a cluster update, the LLM merges the mention
+1. **`write-blog.ts` Stage 2** — `getRecentBlogSlugs(7)` + `topicToSlug()` overlap check prevents writing a blog post whose slug overlaps with anything published in the last 7 days
+2. **Source tagging** — Cluster seeds use `source: "cluster:{slug}"` for traceability in review reports, but this doesn't affect selection
+3. **Weekly digest** — The LLM naturally deduplicates; if a Top 5 story covers the same topic as a cluster update, it merges the mention
 
 ---
 
@@ -274,8 +276,8 @@ Cluster seeds use `source: "cluster:{slug}"` which is distinct from existing sou
 - [ ] When no cluster changes: prompts are identical to before (backward compatible)
 
 ### Blog seed injection
-- [ ] `stage6_blogSeeds()` includes cluster-derived seeds when cluster pages created today
-- [ ] Cluster seeds have `source: "cluster:{slug}"` and `composite_score: 25`
+- [ ] `stage6_blogSeeds()` appends cluster-derived seeds when cluster pages created today
+- [ ] Cluster seeds have `source: "cluster:{slug}"` for traceability
 - [ ] Only `compare` and `cornerstone` types generate seeds (not FAQ/glossary)
 - [ ] When no cluster changes today: Stage 6 output is identical to before
 
@@ -350,6 +352,6 @@ Single agent. Library first, then integrate.
 - **Automated blog writing from cluster seeds** — This spec only injects seeds into the pool. `write-blog.ts` picks the highest-scored seeds regardless of source. A future spec could add a dedicated `--cluster-blog` mode that generates deeper analysis posts from cluster compare pages.
 - **Reverse link: blog → cluster** — When a new blog post covers a cluster topic, automatically adding it to `tracked_blogs` in the cluster JSON. Useful but orthogonal — defer to a future spec.
 - **Email template changes** — The existing `email-html.ts` card-based renderer handles any Markdown section the LLM outputs. No template modifications needed.
-- **GSC-informed seed scoring** — Boosting cluster seed `composite_score` based on GSC impression/CTR data. Belongs in SPEC-10 (GSC pipeline) integration.
+- **Cluster seed scoring / prioritization** — Currently the blog seed pool is under-filled, so cluster seeds are appended unconditionally. If daily blog output ever consistently exceeds 3 posts and the pool becomes competitive, revisit with demand-side scoring (Brave signals, GSC data, news overlap). Not needed now.
 - **Candidate promotion notifications** — When a candidate is promoted to a target via `planner.ts --promote`, notifying via newsletter. This is a planner UX concern (SPEC-09b), not a newsletter concern.
 - **Social/email distribution of cluster content** — Sending dedicated emails for new cluster pages. The weekly digest is the right distribution channel; dedicated sends would be spam.
