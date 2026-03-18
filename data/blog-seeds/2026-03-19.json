@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Anthropic donates to the Linux Foundation for open source security in the AI era",
+    "url": "https://x.com/AnthropicAI/status/2033939283313402138",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 843,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 41.2529,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Google invests in AI-powered open source security tools and code security",
+    "url": "https://blog.google/innovation-and-ai/technology/safety-security/ai-powered-open-source-security/",
+    "source": "rss:Google AI Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 37,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Google Colab ships open-source MCP server — run cloud GPUs from any local AI agent",
+    "url": "https://x.com/_philschmid/status/2034197315661988010",
+    "source": "twitter:@_philschmid",
+    "x_engagement_24h": 282,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 36.0846,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Leanstral: Mistral's open-source agent for formal proof engineering",
+    "url": "https://mistral.ai/news/leanstral",
+    "source": "hackernews",
+    "x_engagement_24h": 858,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.257400000000004,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Google engineers launch Sashiko for agentic AI code review of the Linux kernel",
+    "url": "https://www.phoronix.com/news/Sashiko-Linux-AI-Code-Review",
+    "source": "hackernews",
+    "x_engagement_24h": 50,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.015,
+    "suggested_angle": "news"
+  }
+]
