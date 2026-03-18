@@ -755,3 +755,36 @@
 - GSC section gracefully degrades when no CSV exists — shows "No GSC data available" without error.
 
 ---
+
+## SPEC-13 — Newsletter ↔ Cluster Graph
+**Date:** 2026-03-18 23:10 SGT
+**Status:** COMPLETED
+**Duration:** ~15 minutes
+
+### Files Created
+- `scripts/lib/cluster-changes.ts`: Cluster change detection library — scans flagship cluster JSONs for new/refreshed pages via filesystem mtime and frontmatter date. Pure filesystem, zero LLM calls. (~160 lines)
+- `scripts/lib/__tests__/cluster-changes.test.ts`: 6 unit tests covering no-changes, created pages (mtime), refreshed pages (refresh_needed), tracked blogs (frontmatter date), empty cluster dir, missing content files
+
+### Files Modified
+- `scripts/write-weekly.ts`: Added Stage 4b (`stage4b_clusterChanges()`) that detects weekly cluster changes and injects "Topic Updates" / "本周专题更新" sections into EN/ZH writer prompts. Follows existing `videoSection` pattern exactly. Added `clusterChanges` parameter to `stage5_generateEN()` and `stage6_generateZH()`.
+- `scripts/write-newsletter.ts`: In `stage6_blogSeeds()`, appends cluster-derived blog seeds (compare + cornerstone types only) to the candidate pool after the Brave scoring loop. Seeds use `source: "cluster:{slug}"` for traceability, `composite_score: 0` (pool is under-filled, score irrelevant).
+
+### Validation Results
+- npm test: 185/186 PASS (1 pre-existing build test failure — YAML parse error in ZH compare page, unrelated)
+- cluster-changes.test.ts: 6/6 PASS
+- `npx tsx scripts/write-weekly.ts --dry-run`: PASS — Stage 4b correctly detected 2 cluster changes (Claude Code cornerstone, Codex cornerstone)
+- `npx tsx scripts/write-newsletter.ts --dry-run --date=2026-03-18`: PASS (exits early due to empty local DB, but import/parse works)
+
+### Decisions & Deviations
+- `refresh_needed` field doesn't exist yet in cluster JSONs (SPEC-09d prerequisite not yet implemented). Code handles this gracefully — the field is optional, and detection is skipped when absent. Will activate automatically when SPEC-09d adds the field.
+- `ClusterDefinition` type from SPEC-14 not yet available. Used a local `ClusterJson` interface in `cluster-changes.ts` instead. Can be unified later when SPEC-14 lands.
+- No scoring for cluster blog seeds — spec-aligned decision. The pool is under-filled (<5 strong seeds daily), so cluster seeds get included by pool-filling. Dedup handled by existing `write-blog.ts` Stage 2 slug overlap check.
+
+### Blockers / Issues
+- None
+
+### Key Observations
+- The dry-run immediately detected 2 cornerstone pages (Claude Code, Codex) as "created" this week, confirming the mtime-based detection works against real cluster data.
+- All three integration points (detection library, weekly prompt injection, daily seed injection) are additive no-ops when no cluster changes exist — zero risk of regression for existing newsletter flow.
+
+---
