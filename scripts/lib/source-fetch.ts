@@ -5,6 +5,7 @@
  * and domain prioritization for cluster-mode SEO generation.
  */
 import 'dotenv/config';
+import { exaSearch } from './exa';
 
 // In-memory cache — prevents duplicate fetches within a single run
 const sourceCache = new Map<string, string>();
@@ -157,8 +158,25 @@ export async function resolveSource(
     if (content) return truncateSource(content);
   }
 
-  // 2. Brave Search fallback
-  console.log(`    [source] searching: "${searchQuery}"`);
+  // 2. Exa search with domain filtering (primary fallback)
+  const exaKey = process.env.EXA_API_KEY;
+  if (exaKey) {
+    console.log(`    [source] exa search: "${searchQuery}"`);
+    const exaResults = await exaSearch(searchQuery, {
+      numResults: 3,
+      includeDomains: officialDomains,
+      contents: { text: { maxCharacters: 16000 } },
+    });
+
+    for (const r of exaResults.results) {
+      if (r.text && r.text.length > 200) {
+        return truncateSource(`Source: ${r.url}\n${r.text}`);
+      }
+    }
+  }
+
+  // 3. Brave Search fallback
+  console.log(`    [source] brave fallback: "${searchQuery}"`);
   const results = await braveSearch(searchQuery);
   if (results.length === 0) {
     console.warn(`    [source] no search results for "${searchQuery}"`);

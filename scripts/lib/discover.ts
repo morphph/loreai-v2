@@ -12,6 +12,8 @@ import 'dotenv/config';
 import { braveSearch, fetchWithCache, truncateSource } from './source-fetch';
 import { callClaude } from './ai';
 import { getDb, upsertKeyword } from './db';
+import { serperSearch } from './serper';
+import { exaSearch, exaFindSimilar } from './exa';
 
 // ============================================================
 // Types
@@ -39,6 +41,8 @@ export interface CandidateSignals {
   cluster_relevance: boolean;
   intent_clarity: boolean;
   freshness_bonus: boolean;
+  paa_hit?: boolean;
+  exa_similar_hit?: boolean;
 }
 
 export interface ScoredCandidate {
@@ -234,12 +238,38 @@ export async function auditCompetitorContent(
   officialDomains: string[],
   ownDomain: string
 ): Promise<RawCandidate[]> {
-  console.log(`  [discover] Auditing competitor content for "${pillarTopic}"...`);
+  const candidates: RawCandidate[] = [];
+  const excludeDomains = [ownDomain, ...officialDomains];
 
-  // 1. Search for competing guide pages
+  // Primary path: Exa search with built-in content extraction
+  const exaKey = process.env.EXA_API_KEY;
+  if (exaKey) {
+    console.log(`  [discover] Exa competitor audit for "${pillarTopic}"...`);
+
+    const results = await exaSearch(`${pillarTopic} complete guide`, {
+      numResults: 5,
+      excludeDomains,
+      contents: { highlights: { maxCharacters: 1000 } },
+    });
+
+    for (const r of results.results.slice(0, 3)) {
+      const highlightText = (r.highlights || []).join('\n');
+      if (highlightText.length < 100) continue;
+
+      const extracted = await extractWithLLM(highlightText, pillarTopic, r.url);
+      candidates.push(...extracted);
+      await delay(1000);
+    }
+
+    console.log(`    [discover] Exa competitor audit found ${candidates.length} raw candidates`);
+    return candidates;
+  }
+
+  // Fallback: existing Brave + fetchWithCache path
+  console.log(`  [discover] Brave fallback competitor audit for "${pillarTopic}"...`);
+
   const results = await braveSearch(`${pillarTopic} complete guide`);
 
-  // 2. Filter out own domain and official product domains
   const competitors = results.filter(r =>
     !r.url.includes(ownDomain) &&
     !officialDomains.some(d => r.url.includes(d))
@@ -250,23 +280,175 @@ export async function auditCompetitorContent(
     return [];
   }
 
-  // 3. Fetch top 2-3 competitor pages
-  const candidates: RawCandidate[] = [];
   for (const r of competitors.slice(0, 3)) {
     const content = await fetchWithCache(r.url);
     if (!content || content.length < 200) continue;
 
-    // 4. Send to LLM for structured extraction
     const extracted = await extractWithLLM(content, pillarTopic, r.url);
     candidates.push(...extracted);
 
-    // Rate limit
     await delay(1000);
   }
 
   console.log(`    [discover] Competitor audit found ${candidates.length} raw candidates`);
   return candidates;
 }
+
+// ============================================================
+// Stage 1: SERP Demand Signals (Serper.dev — replaces Brave Stage 1)
+// ============================================================
+
+function buildSerpQueries(pillarTopic: string): Array<{ query: string; focus: 'compare' | 'faq' }> {
+  return [
+    { query: `${pillarTopic} vs`, focus: 'compare' },
+    { query: `${pillarTopic} alternatives`, focus: 'compare' },
+    { query: `best ${pillarTopic} competitors`, focus: 'compare' },
+    { query: `${pillarTopic} how to`, focus: 'faq' },
+    { query: `is ${pillarTopic}`, focus: 'faq' },
+    { query: `${pillarTopic} pricing cost`, focus: 'faq' },
+    { query: `${pillarTopic} setup install`, focus: 'faq' },
+  ];
+}
+
+async function extractSerpSignals(
+  pillarTopic: string
+): Promise<{ candidates: RawCandidate[]; competitorUrls: string[] }> {
+  const candidates: RawCandidate[] = [];
+  const competitorUrls: string[] = [];
+
+  for (const q of buildSerpQueries(pillarTopic)) {
+    const result = await serperSearch(q.query);
+
+    // 1. People Also Ask → direct FAQ candidates
+    for (const paa of result.peopleAlsoAsk) {
+      const classified = classifyBraveResult(paa.question, pillarTopic);
+      // PAA questions are ALWAYS FAQ candidates even if classifyBraveResult returns null
+      candidates.push({
+        type: classified?.type ?? 'faq',
+        raw_text: paa.question,
+        extracted_name: classified?.extracted_name ?? null,
+        source: 'serp-paa',
+        source_url: paa.link || null,
+      });
+    }
+
+    // 2. Related Searches → compare or FAQ candidates
+    for (const rs of result.relatedSearches) {
+      const classified = classifyBraveResult(rs.query, pillarTopic);
+      if (!classified) {
+        // Relaxed filter: if from a compare-focused query and has compare patterns
+        if (q.focus === 'compare' && COMPARE_PATTERNS.test(rs.query)) {
+          candidates.push({
+            type: 'compare',
+            raw_text: rs.query,
+            extracted_name: cleanExtractedName(rs.query.replace(/.*\bvs\.?\s+/i, '')),
+            source: 'serp-related',
+            source_url: null,
+          });
+        }
+        continue;
+      }
+      candidates.push({
+        type: classified.type,
+        raw_text: rs.query,
+        extracted_name: classified.extracted_name,
+        source: 'serp-related',
+        source_url: null,
+      });
+    }
+
+    // 3. Organic results → collect competitor URLs for Stage 2
+    for (const org of result.organic) {
+      competitorUrls.push(org.link);
+    }
+
+    await delay(1000);
+  }
+
+  return { candidates, competitorUrls };
+}
+
+// ============================================================
+// Stage 1.5: Exa Semantic Gap Discovery
+// ============================================================
+
+async function discoverSemanticGaps(
+  cluster: ClusterForDiscovery,
+  existingSlugs: Set<string>,
+  dismissedSlugs: Set<string>,
+): Promise<RawCandidate[]> {
+  const candidates: RawCandidate[] = [];
+  const ownDomain = 'loreai.dev';
+  const excludeDomains = [ownDomain, ...(cluster.official_domains || [])];
+
+  // 1. Find pages similar to our cornerstone
+  const cornerstoneUrl = `https://${ownDomain}/blog/${cluster.cornerstone.slug}`;
+  const similar = await exaFindSimilar(cornerstoneUrl, {
+    numResults: 10,
+    excludeDomains,
+    contents: { highlights: { maxCharacters: 500 } },
+  });
+
+  for (const result of similar.results) {
+    const titleClassified = classifyBraveResult(result.title, cluster.pillar_topic);
+    if (titleClassified) {
+      candidates.push({
+        type: titleClassified.type,
+        raw_text: result.title,
+        extracted_name: titleClassified.extracted_name,
+        source: 'exa-similar-cornerstone',
+        source_url: result.url,
+      });
+    }
+
+    for (const highlight of result.highlights || []) {
+      const classified = classifyBraveResult(highlight, cluster.pillar_topic);
+      if (classified && classified.type === 'compare' && classified.extracted_name) {
+        candidates.push({
+          type: 'compare',
+          raw_text: `${cluster.pillar_topic} vs ${classified.extracted_name}`,
+          extracted_name: classified.extracted_name,
+          source: 'exa-similar-cornerstone',
+          source_url: result.url,
+        });
+      }
+    }
+  }
+
+  // 2. Find pages similar to our top compare page (if one exists)
+  const topCompare = cluster.target_compare[0];
+  if (topCompare) {
+    const compareUrl = `https://${ownDomain}/compare/${topCompare.slug}`;
+    const compareSimilar = await exaFindSimilar(compareUrl, {
+      numResults: 10,
+      excludeDomains,
+      contents: { highlights: { maxCharacters: 500 } },
+    });
+
+    for (const result of compareSimilar.results) {
+      const titleMatch = result.title.match(/\bvs\.?\s+(.+)/i)
+        || result.title.match(/(.+?)\s+vs\.?\s/i);
+      if (titleMatch) {
+        const name = cleanExtractedName(titleMatch[1]);
+        if (name) {
+          candidates.push({
+            type: 'compare',
+            raw_text: `${cluster.pillar_topic} vs ${name}`,
+            extracted_name: name,
+            source: 'exa-similar-compare',
+            source_url: result.url,
+          });
+        }
+      }
+    }
+  }
+
+  return candidates;
+}
+
+// ============================================================
+// Competitor content audit (LLM-assisted)
+// ============================================================
 
 async function extractWithLLM(
   pageContent: string,
@@ -542,9 +724,11 @@ export function scoreCandidate(
     competitorCount: number;
     topicSlug: string;
     hasFreshResults: boolean;
+    paaHit?: boolean;
+    exaSimilarHit?: boolean;
   }
 ): { score: number; signals: CandidateSignals } {
-  // brave_result_count: 0 results → 0, 1-2 → 8, 3-4 → 14, 5+ → 20
+  // brave_result_count / serp_organic_count: 0 results → 0, 1-2 → 8, 3-4 → 14, 5+ → 20
   let braveScore = 0;
   if (signals.braveResultCount >= 5) braveScore = 20;
   else if (signals.braveResultCount >= 3) braveScore = 14;
@@ -569,7 +753,7 @@ export function scoreCandidate(
     /\b(pricing|cost|free|price)\b/i.test(raw.raw_text);
   const intentScore = hasIntentClarity ? 10 : 0;
 
-  // freshness_bonus: appeared in recent Brave results
+  // freshness_bonus: appeared in recent results
   const freshnessScore = signals.hasFreshResults ? 10 : 0;
 
   // GSC impression bonus: real search demand signal
@@ -580,7 +764,13 @@ export function scoreCandidate(
     else gscBonus = 15;
   }
 
-  const totalScore = braveScore + relatedScore + competitorScore + relevanceScore + intentScore + freshnessScore + gscBonus;
+  // paa_hit: candidate from Google People Also Ask (+20)
+  const paaScore = signals.paaHit ? 20 : 0;
+
+  // exa_similar_hit: found via Exa findSimilar (+15)
+  const exaSimilarScore = signals.exaSimilarHit ? 15 : 0;
+
+  const totalScore = braveScore + relatedScore + competitorScore + relevanceScore + intentScore + freshnessScore + gscBonus + paaScore + exaSimilarScore;
 
   return {
     score: Math.min(totalScore, 100),
@@ -591,6 +781,8 @@ export function scoreCandidate(
       cluster_relevance: relevanceScore > 0,
       intent_clarity: hasIntentClarity,
       freshness_bonus: signals.hasFreshResults,
+      paa_hit: signals.paaHit || false,
+      exa_similar_hit: signals.exaSimilarHit || false,
     },
   };
 }
@@ -659,76 +851,104 @@ export async function discoverForCluster(cluster: ClusterForDiscovery, gscCsvPat
     relatedSearchHit: boolean;
     competitorCount: number;
     hasFreshResults: boolean;
+    paaHit: boolean;
+    exaSimilarHit: boolean;
   }>();
 
-  // ---- Stage 1: Brave Search Signals ----
-  console.log(`  [discover] Stage 1: Brave Search queries...`);
-  const queries = buildDiscoveryQueries(pillar_topic);
+  // ---- Stage 1: SERP Demand Signals (Serper.dev) ----
+  const hasSerper = !!process.env.SERPER_API_KEY;
+  if (hasSerper) {
+    console.log(`  [discover] Stage 1: Serper.dev SERP queries...`);
+    const { candidates: serpCandidates, competitorUrls } = await extractSerpSignals(pillar_topic);
 
-  for (const q of queries) {
-    console.log(`    [discover] Query: "${q.query}"`);
-    const result = await braveSearchWithSignals(q.query);
-
-    // Process related searches
-    for (const rs of result.related_searches) {
-      const classified = classifyBraveResult(rs, pillar_topic);
-      if (!classified) continue;
-
-      const raw: RawCandidate = {
-        type: classified.type,
-        raw_text: rs,
-        extracted_name: classified.extracted_name,
-        source: `brave-${q.signal}`,
-        source_url: null,
-      };
-
-      const slug = candidateSlug(classified.type, raw, pillar_topic);
+    for (const sc of serpCandidates) {
+      const slug = candidateSlug(sc.type, sc, pillar_topic);
       if (existingSlugs.has(slug) || dismissedSlugs.has(slug)) continue;
 
+      const isPaa = sc.source === 'serp-paa';
       const existing = candidateMap.get(slug);
       if (existing) {
-        existing.relatedSearchHit = true;
-        existing.braveResultCount = Math.max(existing.braveResultCount, result.result_count);
+        existing.relatedSearchHit = existing.relatedSearchHit || sc.source === 'serp-related';
+        if (isPaa) existing.paaHit = true;
       } else {
         candidateMap.set(slug, {
-          raw,
-          braveResultCount: result.result_count,
-          relatedSearchHit: true,
+          raw: sc,
+          braveResultCount: 0,
+          relatedSearchHit: sc.source === 'serp-related',
           competitorCount: 0,
           hasFreshResults: false,
+          paaHit: isPaa,
+          exaSimilarHit: false,
         });
       }
     }
+    console.log(`    [discover] Stage 1 found ${candidateMap.size} candidates from SERP`);
+  } else {
+    console.log(`  [discover] Stage 1: SERPER_API_KEY not set — skipping SERP queries`);
+    // Fallback to old Brave queries if no Serper key
+    const queries = buildDiscoveryQueries(pillar_topic);
+    for (const q of queries) {
+      const result = await braveSearchWithSignals(q.query);
+      for (const rs of result.related_searches) {
+        const classified = classifyBraveResult(rs, pillar_topic);
+        if (!classified) continue;
+        const raw: RawCandidate = {
+          type: classified.type,
+          raw_text: rs,
+          extracted_name: classified.extracted_name,
+          source: `brave-${q.signal}`,
+          source_url: null,
+        };
+        const slug = candidateSlug(classified.type, raw, pillar_topic);
+        if (existingSlugs.has(slug) || dismissedSlugs.has(slug)) continue;
+        const existing = candidateMap.get(slug);
+        if (existing) {
+          existing.relatedSearchHit = true;
+          existing.braveResultCount = Math.max(existing.braveResultCount, result.result_count);
+        } else {
+          candidateMap.set(slug, {
+            raw,
+            braveResultCount: result.result_count,
+            relatedSearchHit: true,
+            competitorCount: 0,
+            hasFreshResults: false,
+            paaHit: false,
+            exaSimilarHit: false,
+          });
+        }
+      }
+      await delay(1000);
+    }
+    console.log(`    [discover] Stage 1 found ${candidateMap.size} candidates from Brave (fallback)`);
+  }
 
-    // Process discussion titles as FAQ candidates
-    for (const disc of result.discussions) {
-      const raw: RawCandidate = {
-        type: 'faq',
-        raw_text: disc,
-        extracted_name: null,
-        source: `brave-${q.signal}-discussion`,
-        source_url: null,
-      };
-
-      const slug = candidateSlug('faq', raw, pillar_topic);
+  // ---- Stage 1.5: Exa Semantic Gap Discovery ----
+  const hasExa = !!process.env.EXA_API_KEY;
+  if (hasExa) {
+    console.log(`  [discover] Stage 1.5: Exa semantic gap discovery...`);
+    const exaCandidates = await discoverSemanticGaps(cluster, existingSlugs, dismissedSlugs);
+    for (const ec of exaCandidates) {
+      const slug = candidateSlug(ec.type, ec, pillar_topic);
       if (existingSlugs.has(slug) || dismissedSlugs.has(slug)) continue;
-
-      if (!candidateMap.has(slug)) {
+      const existing = candidateMap.get(slug);
+      if (existing) {
+        existing.exaSimilarHit = true;
+      } else {
         candidateMap.set(slug, {
-          raw,
-          braveResultCount: result.result_count,
+          raw: ec,
+          braveResultCount: 0,
           relatedSearchHit: false,
           competitorCount: 0,
           hasFreshResults: false,
+          paaHit: false,
+          exaSimilarHit: true,
         });
       }
     }
-
-    // Rate limit between Brave queries
-    await delay(1000);
+    console.log(`    [discover] After Stage 1.5: ${candidateMap.size} total unique candidates`);
+  } else {
+    console.log(`  [discover] Stage 1.5: EXA_API_KEY not set — skipping semantic gap discovery`);
   }
-
-  console.log(`    [discover] Stage 1 found ${candidateMap.size} raw candidates from Brave`);
 
   // ---- Stage 2: Competitor Content Audit ----
   console.log(`  [discover] Stage 2: Competitor content audit...`);
@@ -752,6 +972,8 @@ export async function discoverForCluster(cluster: ClusterForDiscovery, gscCsvPat
         relatedSearchHit: false,
         competitorCount: 1,
         hasFreshResults: false,
+        paaHit: false,
+        exaSimilarHit: false,
       });
     }
   }
@@ -774,6 +996,8 @@ export async function discoverForCluster(cluster: ClusterForDiscovery, gscCsvPat
           relatedSearchHit: false,
           competitorCount: 0,
           hasFreshResults: false,
+          paaHit: false,
+          exaSimilarHit: false,
         });
       }
     }
@@ -796,6 +1020,8 @@ export async function discoverForCluster(cluster: ClusterForDiscovery, gscCsvPat
         relatedSearchHit: false,
         competitorCount: 0,
         hasFreshResults: false,
+        paaHit: false,
+        exaSimilarHit: false,
       });
     }
   }
@@ -812,6 +1038,8 @@ export async function discoverForCluster(cluster: ClusterForDiscovery, gscCsvPat
       competitorCount: entry.competitorCount,
       topicSlug: topic_slug,
       hasFreshResults: entry.hasFreshResults,
+      paaHit: entry.paaHit,
+      exaSimilarHit: entry.exaSimilarHit,
     });
 
     if (score < 30) continue;
