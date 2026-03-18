@@ -788,3 +788,38 @@
 - All three integration points (detection library, weekly prompt injection, daily seed injection) are additive no-ops when no cluster changes exist — zero risk of regression for existing newsletter flow.
 
 ---
+
+## SPEC-15 — Discovery Engine Upgrade: Serper.dev + Exa Search
+
+**Commit:** `aba004b` — `feat: upgrade discovery to Serper.dev + Exa Search (SPEC-15)`
+**Date:** 2026-03-18 13:30 SGT
+**Status:** COMPLETED
+**Duration:** ~20 minutes
+
+### Files Created
+- `scripts/lib/serper.ts`: Serper.dev Google Search API client — `serperSearch()` function. POST-based API returning `peopleAlsoAsk`, `relatedSearches`, and `organic` results as structured JSON. Graceful degradation when API key missing. (~45 lines)
+- `scripts/lib/exa.ts`: Exa Search API client — `exaSearch()` and `exaFindSimilar()` functions. Supports `includeDomains`/`excludeDomains`, `contents.text`/`contents.highlights` extraction. Shared `exaRequest()` helper. (~75 lines)
+
+### Files Modified
+- `scripts/lib/discover.ts`: Replaced Stage 1 (Brave → Serper.dev SERP queries with PAA + related searches); added Stage 1.5 (Exa `findSimilar` semantic gap discovery on cornerstone + top compare page); upgraded Stage 2 competitor audit to use Exa with `highlights` extraction as primary path, Brave as fallback; added `paa_hit` (+20) and `exa_similar_hit` (+15) to `CandidateSignals` and `scoreCandidate()`; Brave Stage 1 kept as fallback when `SERPER_API_KEY` not set.
+- `scripts/lib/source-fetch.ts`: Added Exa as primary source resolver in `resolveSource()` — tries `exaSearch` with `includeDomains` for official docs before falling back to Brave + `fetchWithCache()`.
+
+### Validation Results
+- `npx tsc --noEmit`: PASS — zero TypeScript errors
+- `npm test`: 185/186 PASS (1 pre-existing build test failure — YAML parse error in ZH compare page, unrelated to SPEC-15)
+- Pre-existing build failure confirmed by git stash test (same error without SPEC-15 changes)
+
+### Decisions & Deviations
+- Kept Brave Stage 1 as full fallback path when `SERPER_API_KEY` not set (spec said "skip with warning" but full fallback is safer for zero-downtime migration)
+- Did not run live API tests (no `SERPER_API_KEY` / `EXA_API_KEY` in local .env) — dry-run validates graceful degradation path
+- `braveSearchWithSignals()` kept as-is (not marked deprecated) since it's still used in the Brave fallback path
+
+### Blockers / Issues
+- None
+
+### Key Observations
+- Three new env vars: `SERPER_API_KEY`, `EXA_API_KEY`, `BRAVE_SEARCH_API_KEY` (existing). Any combination works — pipeline degrades gracefully with missing keys.
+- Exa `findSimilar` (Stage 1.5) is the most novel capability: discovers "unknown unknowns" by finding pages semantically similar to our cornerstone/compare pages, without constructing search queries.
+- Scoring cap remains 100. New max theoretical raw score is 135 (before cap).
+
+---
