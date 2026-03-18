@@ -1042,7 +1042,7 @@ export async function discoverForCluster(cluster: ClusterForDiscovery, gscCsvPat
       exaSimilarHit: entry.exaSimilarHit,
     });
 
-    if (score < 30) continue;
+    if (score < 25) continue; // hard floor: drop pure noise
 
     const today = new Date().toISOString().slice(0, 10);
     const displayTerm = entry.raw.type === 'compare' && entry.raw.extracted_name
@@ -1061,20 +1061,26 @@ export async function discoverForCluster(cluster: ClusterForDiscovery, gscCsvPat
       source: entry.raw.source,
       source_url: entry.raw.source_url,
       discovered_at: today,
-      status: score >= 40 ? 'pending' : 'low-signal',
+      status: 'pending', // placeholder, assigned by relative ranking below
     });
   }
 
   // Sort by score descending
   scored.sort((a, b) => b.score - a.score);
 
-  console.log(`  [discover] Stage 5: ${scored.length} candidates above threshold (dropped ${candidateMap.size - scored.length} below 30)`);
+  // Relative ranking: top 60% → pending, rest → low-signal, cap 30 pending per cluster
+  const maxPending = Math.min(Math.ceil(scored.length * 0.6), 30);
+  for (let i = 0; i < scored.length; i++) {
+    scored[i].status = i < maxPending ? 'pending' : 'low-signal';
+  }
+
+  const dropped = candidateMap.size - scored.length;
+  console.log(`  [discover] Stage 5: ${scored.length} candidates above floor (dropped ${dropped} below 25)`);
 
   // Log summary by tier
-  const high = scored.filter(c => c.score >= 70).length;
-  const moderate = scored.filter(c => c.score >= 40 && c.score < 70).length;
-  const low = scored.filter(c => c.score < 40).length;
-  console.log(`    High priority (70+): ${high}, Moderate (40-69): ${moderate}, Low signal (30-39): ${low}`);
+  const pending = scored.filter(c => c.status === 'pending').length;
+  const lowSignal = scored.filter(c => c.status === 'low-signal').length;
+  console.log(`    Pending (top 60%): ${pending}, Low signal: ${lowSignal}`);
 
   // ---- Stage 6: Glossary Inference ----
   console.log(`  [discover] Stage 6: Glossary inference...`);
