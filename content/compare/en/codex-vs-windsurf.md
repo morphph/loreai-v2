@@ -55,6 +55,8 @@ If you want the tightest possible AI integration inside your editor — where au
 
 For teams that do both — daily editing and large-scale automation — using Windsurf for hands-on development and Codex for background task execution is a viable combination.
 
+For a deeper look at Codex's capabilities, see our [complete guide](/blog/codex-complete-guide) and the [Codex topic hub](/topics/codex). Also see how Codex compares to [Cursor](/compare/codex-vs-cursor), [Claude Code](/compare/codex-vs-claude-code), and [Aider](/compare/codex-vs-aider).
+
 ---
 
 *Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*

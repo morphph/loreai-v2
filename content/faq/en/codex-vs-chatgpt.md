@@ -34,6 +34,8 @@ ChatGPT responds in seconds. Codex tasks take 1 to 30 minutes depending on compl
 - [Is Codex free?](/faq/is-codex-free)
 - [How much does Codex cost?](/faq/codex-pricing)
 
+For a complete overview, see the [Codex topic hub](/topics/codex).
+
 ---
 
 *Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*

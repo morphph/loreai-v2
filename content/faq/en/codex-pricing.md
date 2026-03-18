@@ -39,6 +39,8 @@ For a full breakdown of capabilities across plans, see our [complete Codex guide
 
 - [What is Codex?](/faq/what-is-codex)
 
+For a complete overview, see the [Codex topic hub](/topics/codex).
+
 ---
 
 *Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*

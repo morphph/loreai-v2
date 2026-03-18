@@ -48,6 +48,8 @@ There's also **Codex CLI**, a separate open-source tool that runs in your termin
 - [Is Codex free?](/faq/is-codex-free)
 - [Codex pricing](/faq/codex-pricing)
 
+For a complete overview, see the [Codex topic hub](/topics/codex).
+
 ---
 
 *Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*

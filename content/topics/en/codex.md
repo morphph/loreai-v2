@@ -4,7 +4,7 @@ slug: codex
 description: "Complete guide to OpenAI Codex: the AI code generation model behind GitHub Copilot and agentic coding tools."
 pillar_topic: Codex
 category: models
-related_glossary: [codex, codex-cli, openai, agentic-coding, chatgpt]
+related_glossary: [codex, codex-cli, openai, agentic-coding, chatgpt, claude-code, cursor, github-copilot, windsurf, devin, aider]
 related_blog: [codex-complete-guide, openai-computer-access-agents-lessons]
 related_compare: [codex-vs-claude-code, codex-vs-cursor, codex-vs-github-copilot, codex-vs-windsurf, codex-vs-devin, codex-vs-aider]
 related_faq: [what-is-codex, codex-pricing, is-codex-free, codex-vs-chatgpt, codex-setup, codex-api-access, codex-supported-languages, codex-enterprise]
@@ -73,6 +73,12 @@ The platform integrates directly into [ChatGPT](/glossary/chatgpt) and is availa
 - [OpenAI](/glossary/openai) — The company behind Codex
 - [Agentic Coding](/glossary/agentic-coding) — The paradigm of autonomous AI agents handling end-to-end software engineering tasks
 - [ChatGPT](/glossary/chatgpt) — OpenAI's conversational AI product, now the interface for Codex
+- [Claude Code](/glossary/claude-code) — Anthropic's terminal-based AI coding agent
+- [Cursor](/glossary/cursor) — AI-powered IDE built on VS Code
+- [GitHub Copilot](/glossary/github-copilot) — GitHub's AI coding assistant
+- [Windsurf](/glossary/windsurf) — AI-native code editor by Codeium
+- [Devin](/glossary/devin) — Cognition's autonomous AI software engineer
+- [Aider](/glossary/aider) — Open-source terminal AI coding assistant
 
 ---
 

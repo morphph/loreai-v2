@@ -32,6 +32,8 @@ The `codex-mini-latest` model is a regularly updated snapshot, so the underlying
 - [How much does Codex cost?](/faq/codex-pricing)
 - [How to set up Codex?](/faq/codex-setup)
 
+For a complete overview, see the [Codex topic hub](/topics/codex).
+
 ---
 
 *Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*

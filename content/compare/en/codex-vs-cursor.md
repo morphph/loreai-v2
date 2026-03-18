@@ -62,6 +62,8 @@ If you want an all-in-one AI IDE where every keystroke is AI-assisted — from T
 
 Many teams will use both: Cursor as their daily IDE for writing and reviewing code, and Codex for background automation, long-running tasks, and integration-driven workflows.
 
+For a deeper look at Codex's capabilities, see our [complete guide](/blog/codex-complete-guide) and the [Codex topic hub](/topics/codex). Also see how Codex compares to [Claude Code](/compare/codex-vs-claude-code), [Windsurf](/compare/codex-vs-windsurf), and [GitHub Copilot](/compare/codex-vs-github-copilot).
+
 ---
 
 *Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*

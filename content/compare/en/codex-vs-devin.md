@@ -45,6 +45,8 @@ Devin shines on large-scale, repetitive engineering work. Nubank's case study de
 
 These tools optimize for different workflows. **Choose Codex** if you want a flexible coding agent embedded in your existing development surfaces — terminal, IDE, or web — with deep configuration via AGENTS.md and Skills. It's the better fit for teams that want developer-controlled agentic assistance across varied tasks. **Choose Devin** if you want an autonomous teammate that integrates into your ticket and PM workflow, especially for large-scale migrations and backlog clearing where fine-tuning and learning compound over time. Teams with massive refactoring projects and the budget for enterprise AI tooling will get the most value from Devin's delegation model; teams wanting day-to-day agentic coding assistance across multiple interfaces will prefer Codex's flexibility.
 
+For a deeper look at Codex's capabilities, see our [complete guide](/blog/codex-complete-guide) and the [Codex topic hub](/topics/codex). Also see how Codex compares to [Claude Code](/compare/codex-vs-claude-code), [GitHub Copilot](/compare/codex-vs-github-copilot), and [Cursor](/compare/codex-vs-cursor).
+
 ---
 
 *Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*

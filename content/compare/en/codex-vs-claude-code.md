@@ -47,6 +47,8 @@ The **[agent teams](/glossary/agent-teams)** system is a standout: a lead agent 
 
 If your team is already on ChatGPT and you want an agent that's included in your existing plan with built-in sandboxing and Linear/Slack integrations, **choose Codex**. If you need a composable, multi-surface agent with deep CLI integration, agent team orchestration, and the ability to build custom agents via an SDK, **choose Claude Code**. Both tools support project-level instruction files (`AGENTS.md` vs `CLAUDE.md`), custom skills, sub-agents, and MCP — the core agentic capabilities are converging. Your decision likely comes down to which model you prefer (GPT vs Claude), which ecosystem you're invested in, and whether you value sandboxed safety (Codex) or full shell flexibility (Claude Code).
 
+For a deeper look at Codex's capabilities, see our [complete guide](/blog/codex-complete-guide) and the [Codex topic hub](/topics/codex). Also see how Codex compares to [Cursor](/compare/codex-vs-cursor), [GitHub Copilot](/compare/codex-vs-github-copilot), and [Devin](/compare/codex-vs-devin).
+
 ---
 
 *Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*

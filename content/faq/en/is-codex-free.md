@@ -34,6 +34,8 @@ For a deeper look at Codex's capabilities and how it fits into modern developmen
 - [What is Codex?](/faq/what-is-codex)
 - [How much does Codex cost?](/faq/codex-pricing)
 
+For a complete overview, see the [Codex topic hub](/topics/codex).
+
 ---
 
 *Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*

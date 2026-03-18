@@ -49,6 +49,8 @@ If you want **real-time AI assistance inside your editor** with tight GitHub int
 
 For many teams, the answer is both: Copilot for the constant stream of inline suggestions during active editing, Codex for the heavier autonomous tasks you'd rather delegate entirely.
 
+For a deeper look at Codex's capabilities, see our [complete guide](/blog/codex-complete-guide) and the [Codex topic hub](/topics/codex). Also see how Codex compares to [Claude Code](/compare/codex-vs-claude-code), [Cursor](/compare/codex-vs-cursor), and [Devin](/compare/codex-vs-devin).
+
 ---
 
 *Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*

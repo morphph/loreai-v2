@@ -34,6 +34,8 @@ Enterprise teams can also standardize agent behavior across their organization u
 - [How much does Codex cost?](/faq/codex-pricing)
 - [How do I set up Codex?](/faq/codex-setup)
 
+For a complete overview, see the [Codex topic hub](/topics/codex).
+
 ---
 
 *Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*

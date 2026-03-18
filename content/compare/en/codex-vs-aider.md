@@ -58,6 +58,8 @@ If you're in an organization that needs enterprise controls, team governance, an
 
 For solo developers comfortable picking their own LLM provider, Aider's flexibility and zero lock-in make it the stronger default choice.
 
+For a deeper look at Codex's capabilities, see our [complete guide](/blog/codex-complete-guide) and the [Codex topic hub](/topics/codex). Also see how Codex compares to [Claude Code](/compare/codex-vs-claude-code), [Cursor](/compare/codex-vs-cursor), and [Windsurf](/compare/codex-vs-windsurf).
+
 ---
 
 *Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*

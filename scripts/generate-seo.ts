@@ -497,9 +497,14 @@ Generate an FAQ page answering the question: "${question}"
 - Glossary: ${related.glossary.map(s => `/glossary/${s}`).join(', ') || 'none yet'}
 - Blog: ${related.blog.map(s => `/blog/${s}`).join(', ') || 'none yet'}
 - FAQ: ${related.faq.map(s => `/faq/${s}`).join(', ') || 'none yet'}
+- Topic hub: /topics/${job.clusterSlug}
 
 ## Parent Topic
-This question relates to the topic cluster: "${job.pillarTopic}"${sourceBlock}`;
+This question relates to the topic cluster: "${job.pillarTopic}"
+
+## Interlinking Rules
+- The page MUST link back to the topic hub: [${job.pillarTopic} topic hub](/topics/${job.clusterSlug})
+- Include 2-3 related FAQ or compare links in a "Related Questions" section at the end${sourceBlock}`;
 
   const groundedInstruction = sourceBlock
     ? 'Ground your answer in the source material provided above.'
@@ -538,7 +543,12 @@ Generate a COMPARISON page: "${itemA} vs ${itemB}"
 ## Available Internal Links
 - Glossary: ${related.glossary.map(s => `/glossary/${s}`).join(', ') || 'none yet'}
 - Blog: ${related.blog.map(s => `/blog/${s}`).join(', ') || 'none yet'}
-- Compare: ${related.compare.map(s => `/compare/${s}`).join(', ') || 'none yet'}${sourceBlock}`;
+- Compare: ${related.compare.map(s => `/compare/${s}`).join(', ') || 'none yet'}
+- Topic hub: /topics/${job.clusterSlug}
+
+## Interlinking Rules
+- The Verdict section MUST end with a line linking to the topic hub and 2-3 sibling compare pages, e.g.: "For more on ${job.pillarTopic}, see the [${job.pillarTopic} topic hub](/topics/${job.clusterSlug}). Also see [X vs Y](/compare/...) and [X vs Z](/compare/...)."
+- Use the Compare links listed above as sibling cross-links (pick 2-3 that are most relevant)${sourceBlock}`;
 
   const groundedInstruction = sourceBlock
     ? 'Ground all feature claims, pricing, and capabilities in the source material provided above.'
@@ -572,6 +582,11 @@ Generate a TOPIC HUB page for "${job.displayTerm}"
 - Blog: ${related.blog.map(s => `/blog/${s}`).join(', ') || 'none yet'}
 - Compare: ${related.compare.map(s => `/compare/${s}`).join(', ') || 'none yet'}
 - FAQ: ${related.faq.map(s => `/faq/${s}`).join(', ') || 'none yet'}
+
+## Interlinking Rules
+- The "All Resources" section MUST link to ALL available glossary, compare, FAQ, and blog pages listed above — no orphan pages
+- The "Comparisons" section MUST list ALL available compare pages
+- The "Frequently Asked Questions" section MUST list ALL available FAQ pages
 
 ## Additional Context
 - Mention count: ${job.context.mention_count || 'unknown'}

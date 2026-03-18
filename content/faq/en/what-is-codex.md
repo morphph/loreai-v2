@@ -37,6 +37,8 @@ OpenAI also ships **Codex CLI**, a separate open-source terminal agent for local
 - [Codex vs Cursor](/compare/codex-vs-cursor)
 - [Codex vs GitHub Copilot](/compare/codex-vs-github-copilot)
 
+For a complete overview, see the [Codex topic hub](/topics/codex).
+
 ---
 
 *Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*
