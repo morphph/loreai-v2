@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Dispatch can now launch Claude Code sessions",
+    "url": "https://x.com/felixrieseberg/status/2034381385134399913",
+    "source": "twitter:@felixrieseberg",
+    "x_engagement_24h": 2356,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.7068,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Intercom built an internal Claude Code plugin system with 13 plugins, 100+ skills, and hooks",
+    "url": "https://x.com/bcherny/status/2034127260479803602",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 1924,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.577199999999998,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "If you like Claude Code or Codex, you should seriously consider running Agents locally",
+    "url": "https://x.com/huggingface/status/2034375208421736613",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 1277,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.3831,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "11k people are using the ElevenLabs MCP server in Claude",
+    "url": "https://x.com/ElevenLabsDevs/status/2034599900416242014",
+    "source": "twitter:search:\"MCP\" (implementation OR plugin OR server OR tool) min_faves:10 -crypto",
+    "x_engagement_24h": 326,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.0978,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @MistralDevs: 🔥 Meet Mistral Small 4: One model to do it all. ⚡ 128 experts, 119B total parameters, 256k context window ⚡ Configurable R…",
+    "url": "https://x.com/huggingface/status/2034375382556705197",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 2900,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.869999999999997,
+    "suggested_angle": "comparison"
+  }
+]
