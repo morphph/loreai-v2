@@ -62,10 +62,10 @@ import {
   generateCornerstonePage,
 } from './lib/seo/generation';
 import {
+  loadClusters,
   loadKeywords,
+  identifyGaps,
   generateContentPlan,
-  loadAllClusters,
-  planAllContent,
 } from './lib/seo/planning';
 import {
   updateKeywords,
@@ -649,70 +649,27 @@ async function main() {
     return;
   }
 
-  // Daily mode — unified pipeline (auto + flagship clusters)
-  // Stage 1: Load all clusters (DB auto-discovered + JSON flagship)
-  const allClusters = loadAllClusters();
-  if (allClusters.length === 0) {
-    console.log('\n⚠️  No active topic clusters. Run the newsletter pipeline first to build clusters.');
+  // Daily mode
+  // Stage 1: Load clusters
+  const clusters = loadClusters();
+  if (clusters.length === 0) {
+    console.log('\n⚠️  No active topic clusters (mention_count >= 2). Run the newsletter pipeline first to build clusters.');
     closeDb();
     process.exit(0);
   }
 
-  // Stage 2: Load keywords for all clusters
-  const keywordMap = loadKeywords(allClusters);
+  // Stage 2: Load keywords
+  const keywordMap = loadKeywords(clusters);
 
-  // Stage 3: Plan content (unified — flagship targets + DB keyword gaps, strategic ordering)
-  const jobs = planAllContent(allClusters, keywordMap, MAX_PAGES_PER_RUN);
+  // Stage 3: Identify content gaps
+  const jobs = identifyGaps(clusters, keywordMap, MAX_PAGES_PER_RUN);
   if (jobs.length === 0) {
     console.log('\n✅ No content gaps — all SEO pages are up to date.');
     closeDb();
     process.exit(0);
   }
 
-  // Stage 3b: Enrich flagship cluster jobs with source grounding from cluster definitions
-  for (const job of jobs) {
-    const cluster = allClusters.find(c => c.slug === job.clusterSlug);
-    if (cluster?.tier === 'flagship' && cluster.definition) {
-      const def = cluster.definition;
-      const officialDomains = def.official_domains ?? [];
-
-      if (job.type === 'compare' && !job.context._sourceGrounding) {
-        const target = def.target_compare.find(c => c.slug === job.slug);
-        if (target || def.source_urls) {
-          const primarySource = await resolveSource(
-            def.source_urls?.primary,
-            `${def.pillar_topic} official documentation`,
-            officialDomains
-          );
-          let competitorSource = '';
-          if (target?.item_b_url) {
-            competitorSource = await resolveSource(
-              target.item_b_url,
-              `${target.item_b} official features documentation`,
-              officialDomains
-            );
-          }
-          job.context._sourceGrounding = buildGroundingInstruction([
-            { label: target?.item_a || def.pillar_topic, content: primarySource },
-            { label: target?.item_b || 'Competitor', content: competitorSource },
-          ]);
-        }
-      } else if (job.type === 'faq' && !job.context._sourceGrounding && def.source_urls) {
-        const primarySource = await resolveSource(
-          def.source_urls.primary,
-          `${def.pillar_topic} official documentation`,
-          officialDomains
-        );
-        if (primarySource) {
-          job.context._sourceGrounding = buildGroundingInstruction([
-            { label: def.pillar_topic, content: primarySource },
-          ]);
-        }
-      }
-    }
-  }
-
-  // Stage 4: Generate pages (source grounding auto-resolved for non-flagship jobs)
+  // Stage 4: Generate pages
   const generated = await generatePages(jobs, DRY_RUN);
 
   // Stage 5: Update keywords & DB
