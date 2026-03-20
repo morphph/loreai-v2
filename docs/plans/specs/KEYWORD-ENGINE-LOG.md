@@ -35,3 +35,23 @@
 - **Insights for next step:** `_searchWeb()` internal helper returns PAA + related + organic in one call — B1 can optimize by calling `searchFull()` once and splitting results instead of separate `searchPAA()` + `searchRelated()` calls. `setSerperConfig()` exported for test injection and runtime config override.
 
 ---
+
+## A3 — Exa API Client
+- **Date:** 2026-03-20
+- **Status:** COMPLETED
+- **Files created/modified:**
+  - scripts/lib/exa.ts (new — 3 public functions: `semanticSearch`, `getContents`, `analyzeCompetitors` + `ExaAPIError` + `countWords` + config)
+  - scripts/lib/__tests__/exa.test.ts (new — 27 unit tests)
+  - scripts/lib/__tests__/exa.integration.test.ts (new — 7 integration tests, skipped without API key)
+  - .env.example (modified — added EXA_API_KEY)
+- **Tests:** 27 passed (unit), 7 skipped (integration — no EXA_API_KEY in local env)
+- **Build:** pass
+- **Integration test result:** Not run locally (no EXA_API_KEY); integration tests ready for manual run
+- **Decisions & deviations:**
+  - `countWords()` exported (not just internal) — useful for B4 content generation to compute word counts elsewhere
+  - `getContents` handles URLs missing from API response by marking them as failed with "Not returned in results" error
+  - Resolved open question #1: default to Exa cache (no `maxAgeHours`), callers can override via `livecrawlTimeout` opt
+- **Blockers:** None
+- **Insights for next step:** `buildContentsBody()` internal helper translates `ExaContentOptions` → API body format. B1 (keyword expansion) should use `semanticSearch` with `excludeDomains: ['loreai.dev']` to find competitor coverage, then pass competitor URLs to `getContents` for full text. `setExaConfig()` exported for test injection (same pattern as serper).
+
+---
