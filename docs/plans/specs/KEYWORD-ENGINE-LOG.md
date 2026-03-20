@@ -96,3 +96,28 @@
 - **Insights for next step:** `expandTopic()` returns full `ExpansionRunResult` with per-source keyword breakdown — B2 (keyword grouping) can read keywords from DB filtered by `cluster_slug` and `source`. The `normalizeKeyword()` function is exported and reusable by other modules. Volume mapping is rough (high=10000, medium=1000, low=100, very_low=10) — will be calibrated by A4 GSC real impression data.
 
 ---
+
+## B2 — Keyword Grouping Skill
+- **Date:** 2026-03-20
+- **Status:** COMPLETED
+- **Files created/modified:**
+  - scripts/lib/keyword-group.ts (new — core logic: `loadUngroupedKeywords`, `buildPrompt`, `parseGroupingResponse`, `callClaude`, `writeGroupingToDb`, `clearClusterGroups`, `groupCluster`, `groupTopic`)
+  - scripts/group-keywords.ts (new — CLI entry point with `--cluster`, `--topic`, `--dry-run`, `--model`, `--force` args)
+  - skills/keyword-grouping/SKILL.md (new — Claude prompt for intent-based keyword grouping)
+  - scripts/lib/__tests__/keyword-group.test.ts (new — 29 unit tests)
+  - scripts/__tests__/group-keywords.integration.test.ts (new — 3 tests + 1 skipped Claude API integration test)
+  - package.json (modified — added `@anthropic-ai/sdk` dependency)
+- **Tests:** 29 passed (unit), 3 passed (integration parse/build), 1 skipped (integration — no ANTHROPIC_API_KEY in local env)
+- **Build:** pass
+- **Integration test result:** Not run locally (no ANTHROPIC_API_KEY); integration test ready for manual run
+- **Decisions & deviations:**
+  - Added `@anthropic-ai/sdk` as project dependency (first Claude API usage in the codebase)
+  - `setSkillContent()` exported for test injection — avoids filesystem reads in unit tests
+  - Batching threshold at 500 keywords per spec §6.3, with batch size 300
+  - Auto-model upgrade: when keywords > 200 and model is `haiku`, auto-upgrades to `sonnet` (per spec §6.2)
+  - JSON retry mechanism: if Claude returns invalid JSON, retries once with explicit "return valid JSON only" hint (per spec §10)
+  - Markdown fence stripping in `parseGroupingResponse` — handles Claude responses wrapped in ```json blocks
+- **Blockers:** None
+- **Insights for next step:** `groupCluster()` returns `ClusterGroupingResult` with full group summaries — B3 (priority scoring) can read `keyword_groups` table filtered by `status='pending'` and `cluster_slug`. `writeGroupingToDb` updates both `keyword_groups` and `keywords.keyword_group_id + keywords.intent` in a single transaction. The skill prompt (`SKILL.md`) is designed to be iterable — can be tuned based on real grouping quality without code changes.
+
+---
