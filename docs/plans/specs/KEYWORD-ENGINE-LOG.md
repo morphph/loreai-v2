@@ -191,3 +191,24 @@
 - **Insights for next step:** `runDiscoveryCycle()` returns `DiscoveryCycleResult[]` with full stage breakdown + `total_api_calls` + `duration_ms` — C4 (daily pipeline reorg) can use these for budget monitoring and cron logging. JSON output goes to stdout, human-readable summary to stderr — suitable for `>> logs/discovery-cycle.log 2>&1` cron redirect. Event-triggered mode (`--event`) does Stage 0 subtopic discovery then filters expansion to relevant subtopics only — news pipeline can call this directly via CLI.
 
 ---
+
+## C3 — Performance Loop (Weekly Performance Cycle)
+- **Date:** 2026-03-20
+- **Status:** COMPLETED
+- **Files created/modified:**
+  - scripts/lib/performance.ts (new — core orchestration: `calculateDateRanges`, `generateRefreshActions`, `writeActions`, `runPerformanceCycle` + all constants exported)
+  - scripts/performance-cycle.ts (new — CLI entry point with `--days`, `--dry-run`, `--report-only`, `--max-actions`, `--ctr-threshold`, `--impression-threshold`, `--position-drop-threshold` args)
+  - scripts/lib/__tests__/performance.test.ts (new — 30 unit tests covering all pure functions + DB write logic)
+  - scripts/__tests__/performance-cycle.integration.test.ts (new — 5 integration tests with mocked GSC + 1 skipped live GSC test)
+- **Tests:** 545 passed (30 new performance tests + 5 integration), 30 skipped (integration — no API keys in local env)
+- **Build:** pass
+- **Integration test result:** Not run locally (no GSC_SITE_URL); live integration test ready for manual run
+- **Decisions & deviations:**
+  - `_impressions` internal field on `RefreshAction` for sorting within priority groups — stripped from topActions output
+  - `Promise.all` for GSC fetches (current, previous, currentWithPages) — parallel to reduce latency
+  - `writeActions` checks both pending/in_progress dedup AND 7-day completed cooldown (spec §5.3)
+  - Same CLI arg parsing pattern as discovery-cycle.ts — `getArg()` helper + `args.includes()`
+- **Blockers:** None
+- **Insights for next step:** `runPerformanceCycle()` returns full `PerformanceCycleResult` with stage-by-stage metrics — C4 (daily pipeline reorg) can use this for Tuesday cron logging. `writeActions()` is transactional — all-or-nothing write. The `generateRefreshActions()` pure function is highly testable with no side effects — easy to tune priority/impression thresholds. Performance cycle outputs JSON to stdout + human-readable summary to stderr, same pattern as discovery-cycle.ts.
+
+---
