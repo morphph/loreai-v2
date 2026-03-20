@@ -82,6 +82,29 @@ function initSchema(db: Database.Database): void {
       subscribed_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       confirmed BOOLEAN DEFAULT 0
     );
+
+    CREATE TABLE IF NOT EXISTS keyword_groups (
+      group_id INTEGER PRIMARY KEY AUTOINCREMENT,
+      primary_keyword TEXT NOT NULL,
+      intent TEXT NOT NULL DEFAULT 'informational',
+      content_type TEXT,
+      priority_score REAL DEFAULT 0,
+      status TEXT NOT NULL DEFAULT 'pending',
+      cluster_slug TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS create_queue (
+      job_id INTEGER PRIMARY KEY AUTOINCREMENT,
+      keyword_group_id INTEGER REFERENCES keyword_groups(group_id),
+      content_type TEXT NOT NULL,
+      research_pipeline TEXT NOT NULL DEFAULT 'standard',
+      priority_score REAL DEFAULT 0,
+      status TEXT NOT NULL DEFAULT 'pending',
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      completed_at DATETIME
+    );
   `);
 
   // Migration: add selected_for_newsletter_at if missing (for existing DBs)
@@ -94,6 +117,21 @@ function initSchema(db: Database.Database): void {
   const subCols = db.prepare("PRAGMA table_info(subscribers)").all() as { name: string }[];
   if (!subCols.some(c => c.name === 'source')) {
     db.exec("ALTER TABLE subscribers ADD COLUMN source TEXT DEFAULT NULL");
+  }
+
+  // Migration: add keyword engine columns to keywords table
+  const kwCols = db.prepare("PRAGMA table_info(keywords)").all() as { name: string }[];
+  if (!kwCols.some(c => c.name === 'search_volume')) {
+    db.exec("ALTER TABLE keywords ADD COLUMN search_volume INTEGER DEFAULT NULL");
+  }
+  if (!kwCols.some(c => c.name === 'competition')) {
+    db.exec("ALTER TABLE keywords ADD COLUMN competition TEXT DEFAULT NULL");
+  }
+  if (!kwCols.some(c => c.name === 'intent')) {
+    db.exec("ALTER TABLE keywords ADD COLUMN intent TEXT DEFAULT NULL");
+  }
+  if (!kwCols.some(c => c.name === 'keyword_group_id')) {
+    db.exec("ALTER TABLE keywords ADD COLUMN keyword_group_id INTEGER DEFAULT NULL");
   }
 }
 

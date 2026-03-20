@@ -43,6 +43,50 @@ describe('Database layer', () => {
     expect(tableNames).toContain('keywords');
     expect(tableNames).toContain('topic_clusters');
     expect(tableNames).toContain('subscribers');
+    expect(tableNames).toContain('keyword_groups');
+    expect(tableNames).toContain('create_queue');
+  });
+
+  it('keywords table has keyword engine columns', () => {
+    const database = db.getDb();
+    const cols = database.prepare("PRAGMA table_info(keywords)").all() as { name: string }[];
+    const colNames = cols.map(c => c.name);
+    expect(colNames).toContain('search_volume');
+    expect(colNames).toContain('competition');
+    expect(colNames).toContain('intent');
+    expect(colNames).toContain('keyword_group_id');
+  });
+
+  it('keyword_groups table is read/writable', () => {
+    const database = db.getDb();
+    database.prepare(`
+      INSERT INTO keyword_groups (primary_keyword, intent, content_type, priority_score, status, cluster_slug)
+      VALUES (?, ?, ?, ?, ?, ?)
+    `).run('claude code pricing', 'commercial', 'compare', 85.5, 'pending', 'claude-code');
+    const row = database.prepare("SELECT * FROM keyword_groups WHERE primary_keyword = ?").get('claude code pricing') as Record<string, unknown>;
+    expect(row.intent).toBe('commercial');
+    expect(row.content_type).toBe('compare');
+    expect(row.priority_score).toBe(85.5);
+    expect(row.status).toBe('pending');
+    expect(row.cluster_slug).toBe('claude-code');
+  });
+
+  it('create_queue table is read/writable', () => {
+    const database = db.getDb();
+    database.prepare(`
+      INSERT INTO keyword_groups (primary_keyword, intent) VALUES (?, ?)
+    `).run('test keyword', 'informational');
+    const group = database.prepare("SELECT group_id FROM keyword_groups WHERE primary_keyword = ?").get('test keyword') as { group_id: number };
+
+    database.prepare(`
+      INSERT INTO create_queue (keyword_group_id, content_type, research_pipeline, priority_score, status)
+      VALUES (?, ?, ?, ?, ?)
+    `).run(group.group_id, 'faq', 'standard', 42.0, 'pending');
+    const job = database.prepare("SELECT * FROM create_queue WHERE keyword_group_id = ?").get(group.group_id) as Record<string, unknown>;
+    expect(job.content_type).toBe('faq');
+    expect(job.research_pipeline).toBe('standard');
+    expect(job.priority_score).toBe(42.0);
+    expect(job.status).toBe('pending');
   });
 
   // ── News Items ──
