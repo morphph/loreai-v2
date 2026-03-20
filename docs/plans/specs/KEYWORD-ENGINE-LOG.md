@@ -76,3 +76,23 @@
 - **Insights for next step:** Core pure functions (`segmentByPosition`, `detectAnomalies`, `findNewQueries`) are highly testable and ready for C3 performance loop. `fetchQueriesWithPages` is the most API-quota-expensive call — C3 should use it sparingly. GSC data has 2-3 day lag — caller must account for this in date ranges.
 
 ---
+
+## B1 — Keyword Expansion Script
+- **Date:** 2026-03-20
+- **Status:** COMPLETED
+- **Files created/modified:**
+  - scripts/lib/keyword-expand.ts (new — core logic: `normalizeKeyword`, `extractCompetitorKeywords`, `expandViaSerperSearch`, `expandSubtopic`, `expandTopic`)
+  - scripts/expand-keywords.ts (new — CLI entry point with `--topic`, `--subtopics`, `--dry-run`, `--skip-exa`, `--delay` args)
+  - scripts/lib/__tests__/keyword-expand.test.ts (new — 40 unit tests)
+  - scripts/__tests__/expand-keywords.integration.test.ts (new — 7 integration tests, skipped without API keys)
+- **Tests:** 40 passed (unit), 7 skipped (integration — no SERPER_API_KEY/EXA_API_KEY in local env)
+- **Build:** pass
+- **Integration test result:** Not run locally (no API keys); integration tests ready for manual run
+- **Decisions & deviations:**
+  - Implemented PAA + related merge optimization per spec §10: uses single `searchFull()` call via `expandViaSerperSearch()` helper, saves 1 Serper credit per subtopic
+  - Smart quote removal regex uses explicit Unicode escapes (`\u201C\u201D\u2018\u2019`) for reliable matching across file encodings
+  - Volume pre-scoring integrated directly into `expandSubtopic()` rather than as a separate stage — simpler flow while maintaining the same behavior
+- **Blockers:** None
+- **Insights for next step:** `expandTopic()` returns full `ExpansionRunResult` with per-source keyword breakdown — B2 (keyword grouping) can read keywords from DB filtered by `cluster_slug` and `source`. The `normalizeKeyword()` function is exported and reusable by other modules. Volume mapping is rough (high=10000, medium=1000, low=100, very_low=10) — will be calibrated by A4 GSC real impression data.
+
+---
