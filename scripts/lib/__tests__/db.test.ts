@@ -250,6 +250,60 @@ describe('Database layer', () => {
     expect(row.mention_count).toBe(2);
   });
 
+  // ── Recent SEO Pages ──
+
+  it('getRecentSeoPages returns non-newsletter content', () => {
+    // Insert a newsletter — should NOT appear
+    db.upsertContent({
+      type: 'newsletter',
+      slug: '2026-03-20',
+      lang: 'en',
+      title: 'Daily Newsletter',
+      body_markdown: '# Newsletter',
+      meta_json: null,
+    });
+    // Insert SEO pages — should appear
+    db.upsertContent({
+      type: 'faq',
+      slug: 'what-is-claude-code',
+      lang: 'en',
+      title: 'What is Claude Code?',
+      body_markdown: '# FAQ',
+      meta_json: null,
+    });
+    db.upsertContent({
+      type: 'compare',
+      slug: 'claude-vs-gpt',
+      lang: 'en',
+      title: 'Claude vs GPT',
+      body_markdown: '# Compare',
+      meta_json: null,
+    });
+    db.upsertContent({
+      type: 'glossary',
+      slug: 'llm',
+      lang: 'zh',
+      title: 'LLM 大语言模型',
+      body_markdown: '# Glossary',
+      meta_json: null,
+    });
+
+    const enPages = db.getRecentSeoPages(7, 'en');
+    expect(enPages.length).toBe(2);
+    expect(enPages.every(p => p.type !== 'newsletter')).toBe(true);
+    expect(enPages.map(p => p.slug)).toContain('what-is-claude-code');
+    expect(enPages.map(p => p.slug)).toContain('claude-vs-gpt');
+
+    const zhPages = db.getRecentSeoPages(7, 'zh');
+    expect(zhPages.length).toBe(1);
+    expect(zhPages[0].slug).toBe('llm');
+  });
+
+  it('getRecentSeoPages returns empty for no recent content', () => {
+    const pages = db.getRecentSeoPages(7, 'en');
+    expect(pages).toEqual([]);
+  });
+
   // ── Keywords ──
 
   it('upsertKeyword inserts and updates', () => {

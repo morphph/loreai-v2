@@ -298,6 +298,31 @@ export function upsertKeyword(keyword: string, source: string, clusterSlug?: str
   `).run(keyword, source, clusterSlug || null);
 }
 
+// --- Recent SEO Pages (for newsletter graph consumer) ---
+
+export interface RecentSeoPage {
+  type: string;
+  slug: string;
+  lang: string;
+  title: string | null;
+  created_at: string;
+}
+
+/**
+ * Returns SEO content pages created in the last N days.
+ * Used by newsletter to surface recently published cluster pages.
+ */
+export function getRecentSeoPages(days: number = 7, lang: string = 'en'): RecentSeoPage[] {
+  const db = getDb();
+  return db.prepare(`
+    SELECT type, slug, lang, title, created_at FROM content
+    WHERE lang = ?
+      AND type NOT IN ('newsletter')
+      AND created_at > datetime('now', '-' || ? || ' days')
+    ORDER BY created_at DESC
+  `).all(lang, days) as RecentSeoPage[];
+}
+
 export function closeDb(): void {
   if (_db) {
     _db.close();
