@@ -143,3 +143,29 @@
 - **Insights for next step:** `priority.ts` exports all constants (`COMPETITION_MAP`, `INTENT_MULTIPLIER`, `TIMELINESS_*`, `TOPIC_HUB_MIN_PAGES`) for easy tuning. `score-queue.ts` dynamically imports serper module to avoid hard dependency — B4 (content generation) can follow the same pattern. Queue entries include full `score_breakdown` for debugging/reporting. The `routeKeywordGroup` function's SERP override only applies to `informational + faq` combination — all other intent/content_type combos pass through unchanged.
 
 ---
+
+## B4 — Source-Grounded Content Generation
+- **Date:** 2026-03-20
+- **Status:** COMPLETED
+- **Files created/modified:**
+  - scripts/lib/content-gen.ts (new — core orchestration: loadJobs, runStandardResearch, runDeepResearch, buildGenerationPrompt, generateContent, runContentGeneration)
+  - scripts/lib/link-validator.ts (new — extractInternalLinks, validateLinks with broken link removal + missing glossary detection)
+  - scripts/generate-content.ts (new — CLI entry point with --limit, --job, --type, --dry-run, --en-only, --skip-validation args)
+  - scripts/lib/__tests__/content-gen.test.ts (new — 25 unit tests)
+  - scripts/lib/__tests__/link-validator.test.ts (new — 17 unit tests)
+  - scripts/__tests__/generate-content.integration.test.ts (new — 9 integration tests)
+- **Tests:** 51 passed (unit + integration), 0 failed
+- **Build:** pass
+- **Integration test result:** Not run on VPS (no API keys locally); prompt building and validator routing verified via integration tests
+- **Decisions & deviations:**
+  - Dynamic imports for serper/exa/gemini modules (same pattern as score-queue.ts) to avoid hard dependency when API keys are missing
+  - `setSkillContent()` exported for test injection — avoids filesystem reads in unit tests
+  - Content type → directory mapping: topic-hub→topics, news-blog/deep-dive/cornerstone→blog, others keep their name
+  - Model routing: haiku for faq/glossary, sonnet for compare/topic-hub/news-blog, opus for deep-dive/cornerstone (per spec §5.2)
+  - Exa failure fallback: uses Serper snippets as degraded source pages rather than failing completely
+  - Deep Research failure fallback: automatically falls back to Standard pipeline (Serper+Exa)
+  - ZH validation is strict: returns failure if validation fails after all retries (per spec §5.4 ordering: EN first, skip ZH if EN fails)
+- **Blockers:** None
+- **Insights for next step:** `runContentGeneration()` returns full `ContentGenRunResult` with API call counts — C1 (discovery cycle) can use this for budget tracking. The `buildGenerationPrompt()` function assembles three-part prompts (skill + content type instructions + source material) — easy to tune prompt quality by editing SKILL.md or inline instructions. Link validator is independent and reusable — C4 could use it for batch validation of existing content.
+
+---
