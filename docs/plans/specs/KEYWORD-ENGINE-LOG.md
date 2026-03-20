@@ -55,3 +55,24 @@
 - **Insights for next step:** `buildContentsBody()` internal helper translates `ExaContentOptions` → API body format. B1 (keyword expansion) should use `semanticSearch` with `excludeDomains: ['loreai.dev']` to find competitor coverage, then pass competitor URLs to `getContents` for full text. `setExaConfig()` exported for test injection (same pattern as serper).
 
 ---
+
+## A4 — GSC API Client
+- **Date:** 2026-03-20
+- **Status:** COMPLETED
+- **Files created/modified:**
+  - scripts/lib/gsc.ts (new — `createGSCClient` factory + `segmentByPosition` + `detectAnomalies` + `findNewQueries` pure functions + GSCAPIError/GSCAuthError)
+  - scripts/lib/__tests__/gsc.test.ts (new — 33 unit tests)
+  - scripts/lib/__tests__/gsc.integration.test.ts (new — 7 integration tests, skipped without GSC credentials)
+  - .env.example (modified — added GSC_SERVICE_ACCOUNT_KEY_PATH, GSC_SITE_URL)
+- **Tests:** 33 passed (unit), 7 skipped (integration — no GSC credentials in local env)
+- **Build:** pass
+- **Integration test result:** Not run locally (no GSC_SERVICE_ACCOUNT_KEY_PATH); integration tests ready for manual run
+- **Decisions & deviations:**
+  - Used `@googleapis/searchconsole` SDK with `searchconsole()` factory + `searchanalytics.query()` method — handles auth and URL encoding automatically
+  - `GSCClient` is an interface (not class) returned by `createGSCClient()` — encapsulates both noop and real client behind same API
+  - `segmentByPosition` accepts optional `dateRange` param for convenience (not in spec, but useful for callers)
+  - Noop client pattern consistent with serper.ts / exa.ts — `console.warn` + return empty results
+- **Blockers:** None
+- **Insights for next step:** Core pure functions (`segmentByPosition`, `detectAnomalies`, `findNewQueries`) are highly testable and ready for C3 performance loop. `fetchQueriesWithPages` is the most API-quota-expensive call — C3 should use it sparingly. GSC data has 2-3 day lag — caller must account for this in date ranges.
+
+---
