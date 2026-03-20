@@ -1,0 +1,845 @@
+{
+  "week": "2026-W12",
+  "generated_at": "2026-03-20T20:00:15.638Z",
+  "glossary": [
+    {
+      "slug": "openclaw",
+      "term": "OpenClaw",
+      "cluster": "openclaw",
+      "priority": 2
+    },
+    {
+      "slug": "ltx-23",
+      "term": "LTX-2.3",
+      "cluster": "ltx",
+      "priority": 2
+    },
+    {
+      "slug": "vllm",
+      "term": "vLLM",
+      "cluster": "vllm",
+      "priority": 2
+    },
+    {
+      "slug": "xai",
+      "term": "xAI",
+      "cluster": "xai",
+      "priority": 2
+    },
+    {
+      "slug": "ami-labs",
+      "term": "AMI Labs",
+      "cluster": "ami-labs",
+      "priority": 2
+    },
+    {
+      "slug": "ibm",
+      "term": "IBM",
+      "cluster": "ibm",
+      "priority": 2
+    },
+    {
+      "slug": "world-models",
+      "term": "world models",
+      "cluster": "world-models",
+      "priority": 2
+    },
+    {
+      "slug": "nemotron",
+      "term": "Nemotron",
+      "cluster": "nemotron",
+      "priority": 2
+    },
+    {
+      "slug": "langsmith",
+      "term": "LangSmith",
+      "cluster": "langsmith",
+      "priority": 2
+    },
+    {
+      "slug": "glm",
+      "term": "GLM",
+      "cluster": "glm",
+      "priority": 2
+    },
+    {
+      "slug": "claude-opus-46",
+      "term": "Claude Opus 4.6",
+      "cluster": "claude-opus",
+      "priority": 2
+    },
+    {
+      "slug": "alexa",
+      "term": "Alexa+",
+      "cluster": "alexa-plus",
+      "priority": 2
+    },
+    {
+      "slug": "grok",
+      "term": "Grok",
+      "cluster": "grok",
+      "priority": 2
+    },
+    {
+      "slug": "llama-4",
+      "term": "Llama 4",
+      "cluster": "llama",
+      "priority": 2
+    },
+    {
+      "slug": "synthetic-data",
+      "term": "Synthetic Data",
+      "cluster": "synthetic-data",
+      "priority": 2
+    },
+    {
+      "slug": "n8n",
+      "term": "n8n",
+      "cluster": "n8n",
+      "priority": 2
+    },
+    {
+      "slug": "physical-ai",
+      "term": "physical AI",
+      "cluster": "physical-ai",
+      "priority": 2
+    },
+    {
+      "slug": "moonshot-ai",
+      "term": "Moonshot AI",
+      "cluster": "moonshot-ai",
+      "priority": 2
+    },
+    {
+      "slug": "computer-use",
+      "term": "computer use",
+      "cluster": "computer-use",
+      "priority": 2
+    },
+    {
+      "slug": "inference-cost-reduction",
+      "term": "inference cost reduction",
+      "cluster": "inference-cost-reduction",
+      "priority": 2
+    },
+    {
+      "slug": "claude-cowork",
+      "term": "Claude Cowork",
+      "cluster": "claude-cowork",
+      "priority": 2
+    },
+    {
+      "slug": "playwright",
+      "term": "Playwright",
+      "cluster": "playwright",
+      "priority": 2
+    },
+    {
+      "slug": "autonomous-weapons",
+      "term": "autonomous weapons",
+      "cluster": "autonomous-weapons",
+      "priority": 2
+    },
+    {
+      "slug": "gpt-4",
+      "term": "GPT-4",
+      "cluster": "gpt-4",
+      "priority": 2
+    },
+    {
+      "slug": "inference-cost",
+      "term": "inference cost",
+      "cluster": "inference-cost",
+      "priority": 2
+    },
+    {
+      "slug": "ai-agents",
+      "term": "AI agents",
+      "cluster": "ai-agents",
+      "priority": 2
+    },
+    {
+      "slug": "mastercard",
+      "term": "Mastercard",
+      "cluster": "mastercard",
+      "priority": 2
+    },
+    {
+      "slug": "langgraph",
+      "term": "LangGraph",
+      "cluster": "langgraph",
+      "priority": 2
+    },
+    {
+      "slug": "pytorch",
+      "term": "PyTorch",
+      "cluster": "pytorch",
+      "priority": 2
+    },
+    {
+      "slug": "deep-research",
+      "term": "deep research",
+      "cluster": "deep-research",
+      "priority": 2
+    },
+    {
+      "slug": "sora",
+      "term": "Sora",
+      "cluster": "sora",
+      "priority": 2
+    },
+    {
+      "slug": "bitnet",
+      "term": "BitNet",
+      "cluster": "bitnet",
+      "priority": 2
+    },
+    {
+      "slug": "mistral-ai",
+      "term": "Mistral AI",
+      "cluster": "mistral-ai",
+      "priority": 2
+    },
+    {
+      "slug": "generative-ui",
+      "term": "generative UI",
+      "cluster": "generative-ui",
+      "priority": 2
+    },
+    {
+      "slug": "kimi",
+      "term": "Kimi",
+      "cluster": "kimi",
+      "priority": 2
+    },
+    {
+      "slug": "nano-banana-2",
+      "term": "Nano Banana 2",
+      "cluster": "nano-banana",
+      "priority": 2
+    },
+    {
+      "slug": "bytedance",
+      "term": "ByteDance",
+      "cluster": "bytedance",
+      "priority": 2
+    },
+    {
+      "slug": "chain-of-thought",
+      "term": "chain-of-thought",
+      "cluster": "chain-of-thought",
+      "priority": 2
+    },
+    {
+      "slug": "context-engineering",
+      "term": "context engineering",
+      "cluster": "context-engineering",
+      "priority": 2
+    },
+    {
+      "slug": "swe-bench",
+      "term": "SWE-Bench",
+      "cluster": "swe-bench",
+      "priority": 2
+    },
+    {
+      "slug": "openhands",
+      "term": "OpenHands",
+      "cluster": "openhands",
+      "priority": 2
+    },
+    {
+      "slug": "nemo",
+      "term": "NeMo",
+      "cluster": "nemo",
+      "priority": 2
+    },
+    {
+      "slug": "speciesnet",
+      "term": "SpeciesNet",
+      "cluster": "speciesnet",
+      "priority": 2
+    },
+    {
+      "slug": "model-distillation",
+      "term": "model distillation",
+      "cluster": "model-distillation",
+      "priority": 2
+    },
+    {
+      "slug": "seedance",
+      "term": "Seedance",
+      "cluster": "seedance",
+      "priority": 2
+    },
+    {
+      "slug": "claude-max",
+      "term": "Claude Max",
+      "cluster": "claude-max",
+      "priority": 2
+    },
+    {
+      "slug": "cline",
+      "term": "Cline",
+      "cluster": "cline",
+      "priority": 2
+    },
+    {
+      "slug": "webflow",
+      "term": "Webflow",
+      "cluster": "webflow",
+      "priority": 2
+    },
+    {
+      "slug": "ghidra",
+      "term": "Ghidra",
+      "cluster": "ghidra",
+      "priority": 2
+    },
+    {
+      "slug": "eval-integrity",
+      "term": "eval integrity",
+      "cluster": "eval-integrity",
+      "priority": 2
+    },
+    {
+      "slug": "o3",
+      "term": "o3",
+      "cluster": "o3",
+      "priority": 2
+    },
+    {
+      "slug": "sarvam-105b",
+      "term": "Sarvam-105B",
+      "cluster": "sarvam",
+      "priority": 2
+    },
+    {
+      "slug": "figma-mcp",
+      "term": "Figma MCP",
+      "cluster": "figma-mcp",
+      "priority": 2
+    },
+    {
+      "slug": "dall-e-2",
+      "term": "DALL-E 2",
+      "cluster": "dall-e",
+      "priority": 2
+    },
+    {
+      "slug": "reasoning-with-llms",
+      "term": "reasoning with LLMs",
+      "cluster": "llm-reasoning",
+      "priority": 2
+    },
+    {
+      "slug": "openai-baselines",
+      "term": "OpenAI Baselines",
+      "cluster": "openai-baselines",
+      "priority": 2
+    },
+    {
+      "slug": "roboschool",
+      "term": "Roboschool",
+      "cluster": "roboschool",
+      "priority": 2
+    },
+    {
+      "slug": "waymo",
+      "term": "Waymo",
+      "cluster": "waymo",
+      "priority": 2
+    },
+    {
+      "slug": "dqn",
+      "term": "DQN",
+      "cluster": "dqn",
+      "priority": 2
+    },
+    {
+      "slug": "promptfoo",
+      "term": "Promptfoo",
+      "cluster": "promptfoo",
+      "priority": 2
+    },
+    {
+      "slug": "neura-robotics",
+      "term": "Neura Robotics",
+      "cluster": "neura-robotics",
+      "priority": 2
+    },
+    {
+      "slug": "nscale",
+      "term": "Nscale",
+      "cluster": "nscale",
+      "priority": 2
+    },
+    {
+      "slug": "gradient-ai",
+      "term": "Gradient AI",
+      "cluster": "gradient-ai",
+      "priority": 2
+    },
+    {
+      "slug": "datadog",
+      "term": "Datadog",
+      "cluster": "datadog",
+      "priority": 2
+    },
+    {
+      "slug": "legora",
+      "term": "Legora",
+      "cluster": "legora",
+      "priority": 2
+    },
+    {
+      "slug": "hume-ai",
+      "term": "Hume AI",
+      "cluster": "hume-ai",
+      "priority": 2
+    },
+    {
+      "slug": "atlassian",
+      "term": "Atlassian",
+      "cluster": "atlassian",
+      "priority": 2
+    },
+    {
+      "slug": "abb",
+      "term": "ABB",
+      "cluster": "abb",
+      "priority": 2
+    },
+    {
+      "slug": "tada",
+      "term": "TADA",
+      "cluster": "tada",
+      "priority": 2
+    },
+    {
+      "slug": "pinecone",
+      "term": "Pinecone",
+      "cluster": "pinecone",
+      "priority": 2
+    },
+    {
+      "slug": "notebooklm",
+      "term": "NotebookLM",
+      "cluster": "notebooklm",
+      "priority": 2
+    },
+    {
+      "slug": "amazon-bedrock",
+      "term": "Amazon Bedrock",
+      "cluster": "amazon-bedrock",
+      "priority": 2
+    },
+    {
+      "slug": "opencode",
+      "term": "OpenCode",
+      "cluster": "opencode",
+      "priority": 2
+    },
+    {
+      "slug": "vertex-ai",
+      "term": "Vertex AI",
+      "cluster": "vertex-ai",
+      "priority": 2
+    },
+    {
+      "slug": "agentic-payments",
+      "term": "agentic payments",
+      "cluster": "agentic-payments",
+      "priority": 2
+    },
+    {
+      "slug": "jepa",
+      "term": "JEPA",
+      "cluster": "jepa",
+      "priority": 2
+    },
+    {
+      "slug": "canva",
+      "term": "Canva",
+      "cluster": "canva",
+      "priority": 2
+    },
+    {
+      "slug": "wayve",
+      "term": "Wayve",
+      "cluster": "wayve",
+      "priority": 2
+    },
+    {
+      "slug": "ai2",
+      "term": "Ai2",
+      "cluster": "ai2",
+      "priority": 2
+    },
+    {
+      "slug": "pixverse",
+      "term": "PixVerse",
+      "cluster": "pixverse",
+      "priority": 2
+    },
+    {
+      "slug": "recursive-self-improvement",
+      "term": "recursive self-improvement",
+      "cluster": "recursive-self-improvement",
+      "priority": 2
+    },
+    {
+      "slug": "flux",
+      "term": "Flux",
+      "cluster": "flux",
+      "priority": 2
+    },
+    {
+      "slug": "vs-code",
+      "term": "VS Code",
+      "cluster": "vs-code",
+      "priority": 2
+    },
+    {
+      "slug": "claude-agent-sdk",
+      "term": "Claude Agent SDK",
+      "cluster": "claude-agent-sdk",
+      "priority": 2
+    },
+    {
+      "slug": "palantir",
+      "term": "Palantir",
+      "cluster": "palantir",
+      "priority": 2
+    },
+    {
+      "slug": "anduril",
+      "term": "Anduril",
+      "cluster": "anduril",
+      "priority": 2
+    },
+    {
+      "slug": "humanoid-robots",
+      "term": "humanoid robots",
+      "cluster": "humanoid-robots",
+      "priority": 2
+    },
+    {
+      "slug": "ai-governance",
+      "term": "AI governance",
+      "cluster": "ai-governance",
+      "priority": 2
+    },
+    {
+      "slug": "kv-caching",
+      "term": "KV caching",
+      "cluster": "kv-caching",
+      "priority": 2
+    },
+    {
+      "slug": "voice-mode",
+      "term": "voice mode",
+      "cluster": "voice-mode",
+      "priority": 2
+    },
+    {
+      "slug": "world-labs",
+      "term": "World Labs",
+      "cluster": "world-labs",
+      "priority": 2
+    },
+    {
+      "slug": "vercel",
+      "term": "Vercel",
+      "cluster": "vercel",
+      "priority": 2
+    },
+    {
+      "slug": "baidu",
+      "term": "Baidu",
+      "cluster": "baidu",
+      "priority": 2
+    },
+    {
+      "slug": "mirothinker",
+      "term": "MiroThinker",
+      "cluster": "mirothinker",
+      "priority": 2
+    },
+    {
+      "slug": "subagents",
+      "term": "subagents",
+      "cluster": "subagents",
+      "priority": 2
+    },
+    {
+      "slug": "openfold",
+      "term": "OpenFold",
+      "cluster": "openfold",
+      "priority": 2
+    }
+  ],
+  "faq": [],
+  "compare": [
+    {
+      "slug": "open-source-security-vs-proprietary-security",
+      "items": "open-source-security-vs-proprietary-security",
+      "cluster": "anthropic",
+      "priority": 2
+    },
+    {
+      "slug": "openai-safety-framework-vs-google-ai-principles",
+      "items": "openai-safety-framework-vs-google-ai-principles",
+      "cluster": "openai",
+      "priority": 2
+    },
+    {
+      "slug": "openai-o-series-vs-claude-reasoning",
+      "items": "openai-o-series-vs-claude-reasoning",
+      "cluster": "openai",
+      "priority": 2
+    },
+    {
+      "slug": "claude-artifacts-vs-google-gemini-canvas",
+      "items": "claude-artifacts-vs-google-gemini-canvas",
+      "cluster": "google",
+      "priority": 2
+    },
+    {
+      "slug": "oss-fuzz-vs-snyk",
+      "items": "oss-fuzz-vs-snyk",
+      "cluster": "google",
+      "priority": 2
+    },
+    {
+      "slug": "claude-vs-chatgpt",
+      "items": "claude-vs-chatgpt",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "slug": "deepseek-vs-claude",
+      "items": "deepseek-vs-claude",
+      "cluster": "claude",
+      "priority": 2
+    },
+    {
+      "slug": "gpt-5-4-pro-vs-gemini-deepthink",
+      "items": "gpt-5-4-pro-vs-gemini-deepthink",
+      "cluster": "gemini",
+      "priority": 2
+    },
+    {
+      "slug": "cursor-vs-github-copilot",
+      "items": "cursor-vs-github-copilot",
+      "cluster": "cursor",
+      "priority": 2
+    },
+    {
+      "slug": "cursor-vs-claude-code",
+      "items": "cursor-vs-claude-code",
+      "cluster": "cursor",
+      "priority": 2
+    },
+    {
+      "slug": "file-system-context-vs-prompt-context",
+      "items": "file-system-context-vs-prompt-context",
+      "cluster": "model-context-protocol",
+      "priority": 3
+    },
+    {
+      "slug": "voice-coding-vs-typed-coding",
+      "items": "voice-coding-vs-typed-coding",
+      "cluster": "agentic-coding",
+      "priority": 3
+    },
+    {
+      "slug": "agentic-coding-vs-autocomplete",
+      "items": "agentic-coding-vs-autocomplete",
+      "cluster": "agentic-coding",
+      "priority": 3
+    },
+    {
+      "slug": "gpt-realtime-vs-whisper-plus-gpt",
+      "items": "gpt-realtime-vs-whisper-plus-gpt",
+      "cluster": "gpt",
+      "priority": 3
+    },
+    {
+      "slug": "ai-safety-vs-ai-defense",
+      "items": "ai-safety-vs-ai-defense",
+      "cluster": "ai-safety",
+      "priority": 3
+    },
+    {
+      "slug": "deepseek-vs-moonshot-ai",
+      "items": "deepseek-vs-moonshot-ai",
+      "cluster": "deepseek",
+      "priority": 3
+    },
+    {
+      "slug": "model-distillation-vs-fine-tuning",
+      "items": "model-distillation-vs-fine-tuning",
+      "cluster": "fine-tuning",
+      "priority": 3
+    },
+    {
+      "slug": "glm-ocr-vs-gpt-4o-vision",
+      "items": "glm-ocr-vs-gpt-4o-vision",
+      "cluster": "glm",
+      "priority": 3
+    },
+    {
+      "slug": "glm-ocr-vs-google-cloud-vision",
+      "items": "glm-ocr-vs-google-cloud-vision",
+      "cluster": "glm",
+      "priority": 3
+    },
+    {
+      "slug": "claude-vs-gemini-context-window",
+      "items": "claude-vs-gemini-context-window",
+      "cluster": "claude-opus",
+      "priority": 3
+    },
+    {
+      "slug": "claude-opus-vs-claude-sonnet",
+      "items": "claude-opus-vs-claude-sonnet",
+      "cluster": "claude-opus",
+      "priority": 3
+    },
+    {
+      "slug": "computer-access-vs-function-calling",
+      "items": "computer-access-vs-function-calling",
+      "cluster": "computer-use",
+      "priority": 3
+    },
+    {
+      "slug": "agentic-workflows-vs-chat-interactions",
+      "items": "agentic-workflows-vs-chat-interactions",
+      "cluster": "agentic",
+      "priority": 3
+    },
+    {
+      "slug": "chain-of-thought-vs-direct-prompting",
+      "items": "chain-of-thought-vs-direct-prompting",
+      "cluster": "chain-of-thought",
+      "priority": 3
+    },
+    {
+      "slug": "vs-code",
+      "items": "VS Code",
+      "cluster": "vs-code",
+      "priority": 3
+    }
+  ],
+  "topics": [
+    {
+      "slug": "openclaw",
+      "topic": "OpenClaw",
+      "mention_count": 7,
+      "priority": 2
+    },
+    {
+      "slug": "open-weight-models",
+      "topic": "open-weight models",
+      "mention_count": 7,
+      "priority": 2
+    },
+    {
+      "slug": "ltx-23",
+      "topic": "LTX-2.3",
+      "mention_count": 6,
+      "priority": 2
+    },
+    {
+      "slug": "windsurf",
+      "topic": "Windsurf",
+      "mention_count": 6,
+      "priority": 2
+    },
+    {
+      "slug": "whisper",
+      "topic": "Whisper",
+      "mention_count": 6,
+      "priority": 2
+    },
+    {
+      "slug": "ai-safety",
+      "topic": "AI safety",
+      "mention_count": 6,
+      "priority": 2
+    },
+    {
+      "slug": "claude-desktop",
+      "topic": "Claude Desktop",
+      "mention_count": 6,
+      "priority": 2
+    },
+    {
+      "slug": "ai-regulation",
+      "topic": "AI regulation",
+      "mention_count": 6,
+      "priority": 2
+    },
+    {
+      "slug": "fine-tuning",
+      "topic": "fine-tuning",
+      "mention_count": 5,
+      "priority": 2
+    },
+    {
+      "slug": "sakana-ai",
+      "topic": "Sakana AI",
+      "mention_count": 5,
+      "priority": 2
+    },
+    {
+      "slug": "reinforcement-learning",
+      "topic": "reinforcement learning",
+      "mention_count": 5,
+      "priority": 2
+    },
+    {
+      "slug": "grammarly",
+      "topic": "Grammarly",
+      "mention_count": 5,
+      "priority": 2
+    },
+    {
+      "slug": "vllm",
+      "topic": "vLLM",
+      "mention_count": 5,
+      "priority": 2
+    },
+    {
+      "slug": "xai",
+      "topic": "xAI",
+      "mention_count": 5,
+      "priority": 2
+    },
+    {
+      "slug": "ami-labs",
+      "topic": "AMI Labs",
+      "mention_count": 5,
+      "priority": 2
+    },
+    {
+      "slug": "ibm",
+      "topic": "IBM",
+      "mention_count": 5,
+      "priority": 2
+    },
+    {
+      "slug": "world-models",
+      "topic": "world models",
+      "mention_count": 5,
+      "priority": 2
+    },
+    {
+      "slug": "nemotron",
+      "topic": "Nemotron",
+      "mention_count": 5,
+      "priority": 2
+    }
+  ]
+}
