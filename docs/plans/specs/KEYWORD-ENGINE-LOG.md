@@ -169,3 +169,25 @@
 - **Insights for next step:** `runContentGeneration()` returns full `ContentGenRunResult` with API call counts — C1 (discovery cycle) can use this for budget tracking. The `buildGenerationPrompt()` function assembles three-part prompts (skill + content type instructions + source material) — easy to tune prompt quality by editing SKILL.md or inline instructions. Link validator is independent and reusable — C4 could use it for batch validation of existing content.
 
 ---
+
+## C1 — Discovery Cycle Script
+- **Date:** 2026-03-20
+- **Status:** COMPLETED
+- **Files created/modified:**
+  - scripts/lib/discovery.ts (new — core orchestration: `runDiscoveryCycle`, `runDiscoveryForTopic`, `discoverNewSubtopics`, `filterSubtopicsByEvent`, `FLAGSHIP_TOPICS` config)
+  - scripts/discovery-cycle.ts (new — CLI entry point with `--topic`, `--event`, `--expand-only`, `--dry-run`, `--delay`, `--max-serp`, `--skip-exa`, `--skip-serp`, `--model` args)
+  - scripts/lib/__tests__/discovery.test.ts (new — 33 unit tests)
+  - scripts/__tests__/discovery-cycle.integration.test.ts (new — 9 integration tests)
+- **Tests:** 42 passed (33 unit + 9 integration), 0 failed
+- **Build:** pass
+- **Integration test result:** All orchestration tests pass with mocked B1/B2/B3 modules; real API integration not run locally (no API keys)
+- **Decisions & deviations:**
+  - Stage-level try/catch per spec §8.1: Stage 1 failure skips Stage 2 & 3; Stage 2 failure still runs Stage 3; Stage 0 failure still runs Stages 1-3
+  - `filterSubtopicsByEvent` uses token overlap with >3 char filter per spec §6.3
+  - Dynamic import for serper module in `discoverNewSubtopics` to avoid hard dependency (same pattern as score-queue.ts)
+  - `FLAGSHIP_TOPICS` config inline as const array per spec §3 (will move to JSON/DB when 3+ topics)
+  - Grouping force always false (incremental only); scoring force always false — per spec §4.2 and §4.3
+- **Blockers:** None
+- **Insights for next step:** `runDiscoveryCycle()` returns `DiscoveryCycleResult[]` with full stage breakdown + `total_api_calls` + `duration_ms` — C4 (daily pipeline reorg) can use these for budget monitoring and cron logging. JSON output goes to stdout, human-readable summary to stderr — suitable for `>> logs/discovery-cycle.log 2>&1` cron redirect. Event-triggered mode (`--event`) does Stage 0 subtopic discovery then filters expansion to relevant subtopics only — news pipeline can call this directly via CLI.
+
+---
