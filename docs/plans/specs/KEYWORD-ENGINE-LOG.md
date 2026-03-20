@@ -121,3 +121,25 @@
 - **Insights for next step:** `groupCluster()` returns `ClusterGroupingResult` with full group summaries — B3 (priority scoring) can read `keyword_groups` table filtered by `status='pending'` and `cluster_slug`. `writeGroupingToDb` updates both `keyword_groups` and `keywords.keyword_group_id + keywords.intent` in a single transaction. The skill prompt (`SKILL.md`) is designed to be iterable — can be tuned based on real grouping quality without code changes.
 
 ---
+
+## B3 — Priority Scoring + Unified Queue
+- **Date:** 2026-03-20
+- **Status:** COMPLETED
+- **Files created/modified:**
+  - scripts/lib/priority.ts (new — pure scoring/routing logic: `getGroupVolume`, `getCompetitionDivisor`, `getIntentMultiplier`, `getTimelinessBonus`, `calculatePriorityScore`, `routeKeywordGroup`, `shouldDeferTopicHub` + all constants exported)
+  - scripts/lib/score-queue.ts (new — orchestration layer: `scoreAndQueue` bridges pure logic with DB + Serper API, handles SERP depth detection, queue writes, idempotency)
+  - scripts/score-and-queue.ts (new — CLI entry point with `--topic`, `--cluster`, `--dry-run`, `--skip-serp`, `--max-serp`, `--force` args)
+  - scripts/lib/__tests__/priority.test.ts (new — 59 unit tests)
+  - scripts/__tests__/score-and-queue.integration.test.ts (new — 8 integration tests with in-memory SQLite)
+- **Tests:** 59 passed (unit), 8 passed (integration — in-memory DB, no API key needed)
+- **Build:** pass
+- **Decisions & deviations:**
+  - Split into two modules per spec: `priority.ts` (pure functions, zero side effects) and `score-queue.ts` (orchestration with DB/API). This makes unit testing trivial — 59 tests with no mocks
+  - Timeliness source uses keyword matching against `news_items.title/summary` within 7 days (spec Open Question #1 — simplest approach)
+  - SERP depth detection is fully optional — auto-skips when `SERPER_API_KEY` is missing with warning (spec §9)
+  - `loadPendingGroups` queries both `status='pending'` and `status='queued'` to allow rescoring of already-queued groups with `--force`
+  - Cluster page count uses `content.slug LIKE '{cluster_slug}%'` pattern for simplicity
+- **Blockers:** None
+- **Insights for next step:** `priority.ts` exports all constants (`COMPETITION_MAP`, `INTENT_MULTIPLIER`, `TIMELINESS_*`, `TOPIC_HUB_MIN_PAGES`) for easy tuning. `score-queue.ts` dynamically imports serper module to avoid hard dependency — B4 (content generation) can follow the same pattern. Queue entries include full `score_breakdown` for debugging/reporting. The `routeKeywordGroup` function's SERP override only applies to `informational + faq` combination — all other intent/content_type combos pass through unchanged.
+
+---
