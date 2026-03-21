@@ -8,9 +8,9 @@
  * @see docs/plans/specs/SPEC-B2-keyword-grouping.md
  */
 
-import Anthropic from '@anthropic-ai/sdk';
 import fs from 'fs';
 import path from 'path';
+import { callClaudeWithRetry } from './ai';
 import { getDb } from './db';
 
 // ── Types ──
@@ -270,7 +270,8 @@ export function parseGroupingResponse(
 }
 
 /**
- * Call Claude API with the keyword grouping skill.
+ * Call Claude CLI with the keyword grouping skill.
+ * Uses callClaudeWithRetry from ai.ts (Claude CLI binary, no API key needed).
  */
 export async function callClaude(
   keywords: KeywordInput[],
@@ -278,55 +279,25 @@ export async function callClaude(
   pillarTopic: string,
   opts: GroupOptions,
 ): Promise<ClaudeGroupOutput> {
-  const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) {
-    throw new Error('ANTHROPIC_API_KEY is not set');
-  }
-
-  const anthropic = new Anthropic({ apiKey });
   const skill = loadSkill();
   const modelId = MODEL_MAP[opts.model] || MODEL_MAP.haiku;
   const prompt = buildPrompt(clusterSlug, pillarTopic, keywords);
-
-  const response = await anthropic.messages.create({
-    model: modelId,
-    max_tokens: 4096,
-    system: skill,
-    messages: [{ role: 'user', content: prompt }],
-  });
-
-  const textBlock = response.content.find((b) => b.type === 'text');
-  if (!textBlock || textBlock.type !== 'text') {
-    throw new Error('Claude returned no text response');
-  }
-
   const inputKeywordList = keywords.map((kw) => kw.keyword);
 
-  try {
-    return parseGroupingResponse(textBlock.text, inputKeywordList);
-  } catch (err) {
-    // Retry once with a hint
-    if (err instanceof Error && err.message.startsWith('ParseError')) {
-      const retryResponse = await anthropic.messages.create({
-        model: modelId,
-        max_tokens: 4096,
-        system: skill,
-        messages: [
-          { role: 'user', content: prompt },
-          { role: 'assistant', content: textBlock.text },
-          { role: 'user', content: 'Your response was not valid JSON. Please return ONLY valid JSON, no markdown fences or explanation.' },
-        ],
-      });
-
-      const retryText = retryResponse.content.find((b) => b.type === 'text');
-      if (!retryText || retryText.type !== 'text') {
-        throw new Error('Claude retry returned no text response');
+  const response = await callClaudeWithRetry(skill, prompt, {
+    model: modelId,
+    maxRetries: 2,
+    validate: (content) => {
+      try {
+        parseGroupingResponse(content, inputKeywordList);
+        return { valid: true, errors: [] };
+      } catch (err) {
+        return { valid: false, errors: [(err as Error).message] };
       }
+    },
+  });
 
-      return parseGroupingResponse(retryText.text, inputKeywordList);
-    }
-    throw err;
-  }
+  return parseGroupingResponse(response.content, inputKeywordList);
 }
 
 /**

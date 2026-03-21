@@ -23,17 +23,12 @@ import type {
 
 // ── Mocks ──
 
-// Mock the Anthropic SDK
-const mockClaudeCreateFn = vi.fn();
+// Mock the ai.ts CLI wrapper
+const mockCallClaudeWithRetry = vi.fn();
 
-vi.mock('@anthropic-ai/sdk', () => {
-  return {
-    default: class MockAnthropic {
-      messages = { create: mockClaudeCreateFn };
-      constructor() {}
-    },
-  };
-});
+vi.mock('../ai', () => ({
+  callClaudeWithRetry: (...args: unknown[]) => mockCallClaudeWithRetry(...args),
+}));
 
 // Track DB state
 let mockKeywords: Map<
@@ -181,7 +176,7 @@ vi.mock('../db', () => {
   };
 });
 
-const mockClaudeCreate = mockClaudeCreateFn;
+const mockClaudeCreate = mockCallClaudeWithRetry;
 
 // ── Helpers ──
 
@@ -610,18 +605,16 @@ describe('groupCluster', () => {
     // Set a dummy skill content
     setSkillContent('You are a keyword grouping engine.');
 
-    // Mock Claude response
-    mockClaudeCreate.mockResolvedValue({
-      content: [
-        {
-          type: 'text',
-          text: JSON.stringify(MOCK_CLAUDE_RESPONSE),
-        },
-      ],
+    // Mock callClaudeWithRetry response (ai.ts returns { content: string, model: string })
+    mockClaudeCreate.mockImplementation((_sys: string, _user: string, opts: { validate?: (c: string) => { valid: boolean; errors: string[] } }) => {
+      const content = JSON.stringify(MOCK_CLAUDE_RESPONSE);
+      // Run validation if provided (matches real callClaudeWithRetry behavior)
+      if (opts?.validate) {
+        const { valid, errors } = opts.validate(content);
+        if (!valid) throw new Error(`Validation failed: ${errors.join(', ')}`);
+      }
+      return Promise.resolve({ content, model: 'test' });
     });
-
-    // Set API key
-    process.env.ANTHROPIC_API_KEY = 'test-key';
   });
 
   it('happy path — creates groups from Claude response', async () => {

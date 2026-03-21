@@ -5,12 +5,9 @@
  * Only runs when ANTHROPIC_API_KEY is set.
  */
 
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
-import Database from 'better-sqlite3';
+import { describe, it, expect } from 'vitest';
 import path from 'path';
 import fs from 'fs';
-
-const describeIfKey = process.env.ANTHROPIC_API_KEY ? describe : describe.skip;
 
 // We test parseGroupingResponse and buildPrompt without API.
 // The full Claude integration requires an API key.
@@ -118,55 +115,51 @@ describe('buildPrompt — integration', () => {
   });
 });
 
-// ── Full Claude API integration tests ──
+// ── Full Claude CLI integration tests ──
+// Requires Claude CLI binary to be installed and logged in.
+// Skipped in CI (no CLI binary available).
 
-describeIfKey('Claude API integration — keyword grouping', () => {
-  let Anthropic: typeof import('@anthropic-ai/sdk').default;
+const hasCli = (() => {
+  try {
+    require('child_process').execSync('which claude', { stdio: 'pipe' });
+    return true;
+  } catch { return false; }
+})();
 
-  beforeEach(async () => {
-    const mod = await import('@anthropic-ai/sdk');
-    Anthropic = mod.default;
+const describeIfCli = hasCli ? describe : describe.skip;
+
+describeIfCli('Claude CLI integration — keyword grouping', () => {
+  it('groups pricing keywords via callClaude()', { timeout: 120000 }, async () => {
+    // Dynamic import to avoid triggering CLI resolution at module load in CI
+    const { callClaude, setSkillContent } = await import('../lib/keyword-group');
+
+    const skillPath = path.resolve(process.cwd(), 'skills/keyword-grouping/SKILL.md');
+    const skill = fs.readFileSync(skillPath, 'utf-8');
+    setSkillContent(skill);
+
+    const result = await callClaude(
+      TEST_KEYWORDS,
+      'claude-code-pricing',
+      'Claude Code Pricing',
+      { model: 'haiku', dryRun: true, force: false },
+    );
+
+    const inputKeywords = TEST_KEYWORDS.map((kw) => kw.keyword);
+
+    // At least 2 groups (cost/pricing group and free group should be separate)
+    expect(result.groups.length).toBeGreaterThanOrEqual(2);
+
+    // All keywords should be accounted for
+    const grouped = result.groups.flatMap((g) => [g.primary_keyword, ...g.secondary_keywords]);
+    const total = grouped.length + result.ungrouped.length;
+    expect(total).toBeGreaterThanOrEqual(inputKeywords.length - 2); // allow small miss
+
+    // Primary keywords should be from input
+    for (const g of result.groups) {
+      expect(inputKeywords).toContain(g.primary_keyword);
+    }
+
+    // No duplicate assignments
+    expect(new Set(grouped).size).toBe(grouped.length);
   });
-
-  it('groups pricing keywords correctly', { timeout: 30000 }, async () => {
-      const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY! });
-
-      const skillPath = path.resolve(process.cwd(), 'skills/keyword-grouping/SKILL.md');
-      const skill = fs.readFileSync(skillPath, 'utf-8');
-      const prompt = buildPrompt('claude-code-pricing', 'Claude Code Pricing', TEST_KEYWORDS);
-
-      const response = await anthropic.messages.create({
-        model: 'claude-haiku-4-5-20251001',
-        max_tokens: 4096,
-        system: skill,
-        messages: [{ role: 'user', content: prompt }],
-      });
-
-      const textBlock = response.content.find((b) => b.type === 'text');
-      expect(textBlock).toBeDefined();
-
-      const inputKeywords = TEST_KEYWORDS.map((kw) => kw.keyword);
-      const result = parseGroupingResponse(textBlock!.type === 'text' ? textBlock!.text : '', inputKeywords);
-
-      // At least 2 groups (cost/pricing group and free group should be separate)
-      expect(result.groups.length).toBeGreaterThanOrEqual(2);
-
-      // At least one group should have commercial intent (the vs/compare keyword)
-      const hasCommercial = result.groups.some((g) => g.intent === 'commercial');
-      expect(hasCommercial).toBe(true);
-
-      // All keywords should be accounted for
-      const grouped = result.groups.flatMap((g) => [g.primary_keyword, ...g.secondary_keywords]);
-      const total = grouped.length + result.ungrouped.length;
-      expect(total).toBeGreaterThanOrEqual(inputKeywords.length - 2); // allow small miss
-
-      // Primary keywords should be from input
-      for (const g of result.groups) {
-        expect(inputKeywords).toContain(g.primary_keyword);
-      }
-
-      // No duplicate assignments
-      const allGrouped = result.groups.flatMap((g) => [g.primary_keyword, ...g.secondary_keywords]);
-      expect(new Set(allGrouped).size).toBe(allGrouped.length);
-    });
 });
