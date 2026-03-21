@@ -33,9 +33,8 @@ export type ContentType =
   | 'glossary'
   | 'topic-hub'
   | 'blog'
-  | 'news-blog'
-  | 'deep-dive'
-  | 'cornerstone';
+  | 'deep-dive'      // future / manual-only — not auto-assigned by B2
+  | 'cornerstone';    // future / manual-only — not auto-assigned by B2
 
 export interface QueueJob {
   job_id: number;
@@ -123,7 +122,6 @@ const MODEL_MAP: Record<ContentType, string> = {
   compare: 'claude-sonnet-4-20250514',
   'topic-hub': 'claude-sonnet-4-20250514',
   blog: 'claude-sonnet-4-20250514',
-  'news-blog': 'claude-sonnet-4-20250514',
   'deep-dive': 'claude-opus-4-20250514',
   cornerstone: 'claude-opus-4-20250514',
 };
@@ -143,7 +141,6 @@ export function getValidatorForType(
     case 'topic-hub':
       return validateTopicHub;
     case 'blog':
-    case 'news-blog':
       return validateBlogPost;
     case 'deep-dive':
       return (md) => validateBlogPost(md, { maxWords: 5000 });
@@ -160,7 +157,6 @@ const ZH_WORD_RANGES: Record<ContentType, string> = {
   glossary: '200-350',
   'topic-hub': '450-900',
   blog: '600-1200',
-  'news-blog': '600-1200',
   'deep-dive': '2000-3500',
   cornerstone: '2000-3500',
 };
@@ -171,7 +167,6 @@ const ZH_TYPE_LABELS: Record<ContentType, string> = {
   glossary: '术语表',
   'topic-hub': '专题中心',
   blog: '博客文章',
-  'news-blog': '新闻博客',
   'deep-dive': '深度分析',
   cornerstone: '基石页面',
 };
@@ -550,9 +545,8 @@ function buildSourceMaterialSection(sourcePack: SourcePack): string {
 function getContentTypeInstructions(contentType: ContentType): string {
   switch (contentType) {
     case 'blog':
-    case 'news-blog':
-      return `## Generation Task — News Blog Post
-- Lead with the news event, then provide analysis
+      return `## Generation Task — Blog Post
+- Lead with the news event or key insight, then provide analysis
 - First paragraph must state: WHAT happened, WHO is involved, WHEN
 - Structure: News lead → Analysis → Impact → What's next
 - Word count: 800-1500
@@ -740,10 +734,9 @@ export async function generateContent(
 
     // Map content_type to directory name
     const dirType = job.content_type === 'topic-hub' ? 'topics' :
-      job.content_type === 'news-blog' ? 'blog' :
-        job.content_type === 'deep-dive' ? 'blog' :
-          job.content_type === 'cornerstone' ? 'blog' :
-            job.content_type;
+      job.content_type === 'deep-dive' ? 'blog' :
+        job.content_type === 'cornerstone' ? 'blog' :
+          job.content_type;
 
     const dir = path.join(process.cwd(), 'content', dirType, lang);
     fs.mkdirSync(dir, { recursive: true });
@@ -776,13 +769,11 @@ function updateDbAfterGeneration(
   const dirType =
     job.content_type === 'topic-hub'
       ? 'topics'
-      : job.content_type === 'news-blog'
+      : job.content_type === 'deep-dive'
         ? 'blog'
-        : job.content_type === 'deep-dive'
+        : job.content_type === 'cornerstone'
           ? 'blog'
-          : job.content_type === 'cornerstone'
-            ? 'blog'
-            : job.content_type;
+          : job.content_type;
 
   if (enResult.success) {
     // Upsert EN content record
@@ -946,13 +937,11 @@ export async function runContentGeneration(
         const dirType =
           job.content_type === 'topic-hub'
             ? 'topics'
-            : job.content_type === 'news-blog'
+            : job.content_type === 'deep-dive'
               ? 'blog'
-              : job.content_type === 'deep-dive'
+              : job.content_type === 'cornerstone'
                 ? 'blog'
-                : job.content_type === 'cornerstone'
-                  ? 'blog'
-                  : job.content_type;
+                : job.content_type;
         upsertContent({
           type: dirType,
           slug,

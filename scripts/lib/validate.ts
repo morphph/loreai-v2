@@ -39,12 +39,8 @@ export function validateBlogPost(md: string, options?: { maxWords?: number }): V
     errors.push('Forbidden phrase detected');
   if (!md.match(/\[.*(subscribe|订阅).*\]/i)) errors.push('Missing newsletter CTA');
 
-  // Word count check (800-1500 target)
-  const wordCount = md
-    .replace(/^---[\s\S]*?---/m, '') // strip frontmatter
-    .replace(/^#.+$/gm, '') // strip headers
-    .split(/\s+/)
-    .filter((w) => w.length > 0).length;
+  // Word count check (800-1500 target) — uses CJK-aware counter
+  const wordCount = countWords(md);
 
   const maxWords = options?.maxWords ?? 2000;
   if (wordCount < 500) errors.push(`Too short: ${wordCount} words (min 500)`);

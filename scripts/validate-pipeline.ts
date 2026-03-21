@@ -432,7 +432,7 @@ function checkSeo(): CheckResult {
 
 function contentTypeToDirType(ct: string): string {
   if (ct === 'topic-hub') return 'topics';
-  if (ct === 'news-blog' || ct === 'deep-dive' || ct === 'cornerstone') return 'blog';
+  if (ct === 'deep-dive' || ct === 'cornerstone') return 'blog';
   return ct;
 }
 
@@ -442,7 +442,6 @@ function contentTypeToValidator(ct: string): ((md: string) => { valid: boolean; 
     case 'compare': return validateCompare;
     case 'glossary': return validateGlossary;
     case 'topic-hub': return validateTopicHub;
-    case 'news-blog':
     case 'deep-dive':
     case 'cornerstone':
     case 'blog':

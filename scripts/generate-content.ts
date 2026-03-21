@@ -35,7 +35,7 @@ const VALID_TYPES = new Set([
   'compare',
   'glossary',
   'topic-hub',
-  'news-blog',
+  'blog',
   'deep-dive',
   'cornerstone',
 ]);

@@ -8,6 +8,10 @@ You receive:
 
 ## Output
 
+CRITICAL: Every `primary_keyword` and `secondary_keyword` you output MUST be copied
+verbatim from the input list. Do NOT rephrase, combine, or invent new keywords.
+If a keyword doesn't clearly fit any group, put it in "ungrouped".
+
 Return ONLY valid JSON. No markdown fences, no explanation text outside the JSON.
 
 ```json

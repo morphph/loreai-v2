@@ -286,7 +286,7 @@ export async function callClaude(
 
   const response = await callClaudeWithRetry(skill, prompt, {
     model: modelId,
-    maxRetries: 2,
+    maxRetries: 3,
     validate: (content) => {
       try {
         parseGroupingResponse(content, inputKeywordList);

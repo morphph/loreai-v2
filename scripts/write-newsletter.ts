@@ -650,7 +650,6 @@ const SEO_TYPE_URL_PREFIX: Record<string, string> = {
   glossary: '/glossary/',
   blog: '/blog/',
   'topic-hub': '/topics/',
-  'news-blog': '/blog/',
   'deep-dive': '/blog/',
   cornerstone: '/blog/',
 };

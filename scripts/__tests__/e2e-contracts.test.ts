@@ -260,12 +260,12 @@ describe('e2e contract tests', () => {
       // This mapping is from content-gen.ts (dirType logic)
       const mapping: Record<string, string> = {
         'topic-hub': 'topics',
-        'news-blog': 'blog',
         'deep-dive': 'blog',
         cornerstone: 'blog',
         faq: 'faq',
         compare: 'compare',
         glossary: 'glossary',
+        blog: 'blog',
       };
 
       for (const [contentType, storageType] of Object.entries(mapping)) {
@@ -273,13 +273,11 @@ describe('e2e contract tests', () => {
         const dirType =
           contentType === 'topic-hub'
             ? 'topics'
-            : contentType === 'news-blog'
+            : contentType === 'deep-dive'
               ? 'blog'
-              : contentType === 'deep-dive'
+              : contentType === 'cornerstone'
                 ? 'blog'
-                : contentType === 'cornerstone'
-                  ? 'blog'
-                  : contentType;
+                : contentType;
 
         expect(dirType).toBe(storageType);
 
@@ -447,7 +445,7 @@ describe('e2e contract tests', () => {
         'compare',
         'glossary',
         'topic-hub',
-        'news-blog',
+        'blog',
         'deep-dive',
         'cornerstone',
       ];

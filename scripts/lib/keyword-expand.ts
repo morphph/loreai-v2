@@ -85,7 +85,34 @@ export function normalizeKeyword(raw: string): string | null {
 // ── Competitor Keyword Extraction ──
 
 /**
+ * Known CTA / navigation patterns that are not real search queries.
+ */
+const NOISE_PATTERNS = /^(get started|sign up|learn more|read more|subscribe|join|log ?in|download|about this|about us|connect on|contact us|table of contents|related posts|see also|next steps|further reading|share this|leave a comment|comments|acknowledgements?|references|disclaimer|privacy policy|terms of service)/i;
+
+/**
+ * Strip trailing ` | SiteName` or ` - SiteName` suffixes from page titles.
+ */
+function stripSiteSuffix(title: string): string {
+  return title.replace(/\s*[|\-–—]\s*[^|\-–—]+$/, '').trim();
+}
+
+/**
+ * Check if a string looks like a real keyword (not pure CTA/nav noise).
+ */
+function isKeywordNoise(text: string): boolean {
+  const words = text.split(/\s+/);
+  // Too short (<3 words) or too long (>12 words) — unlikely a search query
+  if (words.length < 3 || words.length > 12) return true;
+  // Matches known CTA/nav patterns
+  if (NOISE_PATTERNS.test(text)) return true;
+  // Ends with punctuation typical of CTAs, not queries
+  if (/[.!]$/.test(text)) return true;
+  return false;
+}
+
+/**
  * Extract keywords from Exa competitor page results.
+ * Filters out page titles that are CTAs, navigation, or site-suffixed noise.
  */
 export function extractCompetitorKeywords(
   results: ExaSearchResult[],
@@ -93,13 +120,18 @@ export function extractCompetitorKeywords(
   const keywords: string[] = [];
 
   for (const r of results) {
-    if (r.title) keywords.push(r.title);
+    if (r.title) {
+      const cleaned = stripSiteSuffix(r.title);
+      if (cleaned && !isKeywordNoise(cleaned)) {
+        keywords.push(cleaned);
+      }
+    }
 
     if (r.text) {
       const headings = r.text.match(/^#{2,3}\s+(.+)$/gm) ?? [];
       for (const h of headings) {
         const clean = h.replace(/^#{2,3}\s+/, '').trim();
-        if (clean.length > 5 && clean.length < 100) {
+        if (clean.length > 5 && clean.length < 100 && !isKeywordNoise(clean)) {
           keywords.push(clean);
         }
       }

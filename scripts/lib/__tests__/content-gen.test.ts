@@ -341,8 +341,8 @@ describe('buildGenerationPrompt', () => {
     expect(user).toContain('用中文撰写');
   });
 
-  test('news-blog prompt includes inline instructions', () => {
-    const job = makeJob({ content_type: 'news-blog' });
+  test('blog prompt includes inline instructions', () => {
+    const job = makeJob({ content_type: 'blog' });
     const sp = makeSourcePack();
     const context = {
       job,
@@ -350,9 +350,9 @@ describe('buildGenerationPrompt', () => {
       relatedSlugs: { glossary: [], blog: [], compare: [], faq: [] },
     };
 
-    const { system } = buildGenerationPrompt('news-blog', sp, context, 'en');
+    const { system } = buildGenerationPrompt('blog', sp, context, 'en');
 
-    expect(system).toContain('News Blog Post');
+    expect(system).toContain('Blog Post');
     expect(system).toContain('WHAT happened');
     expect(system).toContain('800-1500');
   });
@@ -432,8 +432,8 @@ describe('getValidatorForType', () => {
     expect(result).toHaveProperty('valid');
   });
 
-  test('routes news-blog to validateBlogPost', () => {
-    const v = getValidatorForType('news-blog');
+  test('routes blog to validateBlogPost', () => {
+    const v = getValidatorForType('blog');
     const result = v('# Test');
     expect(result).toHaveProperty('valid');
   });
@@ -457,7 +457,7 @@ describe('getValidatorForType', () => {
       'compare',
       'glossary',
       'topic-hub',
-      'news-blog',
+      'blog',
       'deep-dive',
       'cornerstone',
     ];
@@ -699,7 +699,7 @@ describe('content type routing — model selection', () => {
   });
 
   test('prompt structure varies by content type', () => {
-    const types: ContentType[] = ['faq', 'compare', 'glossary', 'topic-hub', 'news-blog', 'deep-dive', 'cornerstone'];
+    const types: ContentType[] = ['faq', 'compare', 'glossary', 'topic-hub', 'blog', 'deep-dive', 'cornerstone'];
     const job = makeJob();
     const sp = makeSourcePack();
     const context = {
@@ -724,13 +724,13 @@ describe('ZH generation', () => {
   });
 
   test('ZH word range is correct for each type', () => {
-    const types: ContentType[] = ['faq', 'compare', 'glossary', 'topic-hub', 'news-blog', 'deep-dive', 'cornerstone'];
+    const types: ContentType[] = ['faq', 'compare', 'glossary', 'topic-hub', 'blog', 'deep-dive', 'cornerstone'];
     const expectedRanges: Record<ContentType, string> = {
       faq: '200-450',
       compare: '350-700',
       glossary: '200-350',
       'topic-hub': '450-900',
-      'news-blog': '600-1200',
+      blog: '600-1200',
       'deep-dive': '2000-3500',
       cornerstone: '2000-3500',
     };

@@ -244,11 +244,11 @@ describe('extractCompetitorKeywords', () => {
     expect(kws).toContain('AI Coding Tools');
   });
 
-  it('extracts H2/H3 headings', () => {
+  it('extracts H2/H3 headings (filtering single-word noise)', () => {
     const results: ExaSearchResult[] = [
       {
         url: 'https://a.com',
-        title: 'Title',
+        title: 'Complete Pricing Guide',
         published_date: null,
         author: null,
         text: '## Plans and Pricing\nContent...\n### Free Tier Details\nMore...\n## Overview\nIntro...',
@@ -257,7 +257,8 @@ describe('extractCompetitorKeywords', () => {
     const kws = extractCompetitorKeywords(results);
     expect(kws).toContain('Plans and Pricing');
     expect(kws).toContain('Free Tier Details');
-    expect(kws).toContain('Overview');
+    // "Overview" is a single word — filtered as noise
+    expect(kws).not.toContain('Overview');
   });
 
   it('filters short headings (< 5 chars)', () => {
@@ -310,6 +311,58 @@ describe('extractCompetitorKeywords', () => {
 
   it('handles empty results', () => {
     expect(extractCompetitorKeywords([])).toEqual([]);
+  });
+
+  it('filters CTA/nav titles', () => {
+    const results: ExaSearchResult[] = [
+      { url: 'https://a.com', title: 'Get Started with Claude', published_date: null, author: null },
+      { url: 'https://b.com', title: 'Subscribe to Our Newsletter', published_date: null, author: null },
+      { url: 'https://c.com', title: 'Learn More About AI Tools', published_date: null, author: null },
+    ];
+    const kws = extractCompetitorKeywords(results);
+    expect(kws).toHaveLength(0);
+  });
+
+  it('filters titles ending with punctuation', () => {
+    const results: ExaSearchResult[] = [
+      { url: 'https://a.com', title: 'Make better product decisions.', published_date: null, author: null },
+    ];
+    const kws = extractCompetitorKeywords(results);
+    expect(kws).toHaveLength(0);
+  });
+
+  it('strips site name suffixes from titles', () => {
+    const results: ExaSearchResult[] = [
+      { url: 'https://a.com', title: 'Claude Code Pricing Guide | TechSite', published_date: null, author: null },
+    ];
+    const kws = extractCompetitorKeywords(results);
+    expect(kws).toContain('Claude Code Pricing Guide');
+    expect(kws).not.toContain('Claude Code Pricing Guide | TechSite');
+  });
+
+  it('filters too-short titles (< 3 words)', () => {
+    const results: ExaSearchResult[] = [
+      { url: 'https://a.com', title: 'Overview', published_date: null, author: null },
+      { url: 'https://b.com', title: 'AI Tools', published_date: null, author: null },
+    ];
+    const kws = extractCompetitorKeywords(results);
+    expect(kws).toHaveLength(0);
+  });
+
+  it('filters nav headings like Table of Contents', () => {
+    const results: ExaSearchResult[] = [
+      {
+        url: 'https://a.com',
+        title: 'Claude Code Complete Guide',
+        published_date: null,
+        author: null,
+        text: '## Table of Contents\n...\n## Related Posts and Resources\n...\n## Claude Code Architecture Overview\n...',
+      },
+    ];
+    const kws = extractCompetitorKeywords(results);
+    expect(kws).toContain('Claude Code Architecture Overview');
+    expect(kws).not.toContain('Table of Contents');
+    expect(kws).not.toContain('Related Posts and Resources');
   });
 });
 

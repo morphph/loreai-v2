@@ -128,7 +128,6 @@ function toSlug(keyword: string): string {
 function toDirType(contentType: string): string {
   switch (contentType) {
     case 'topic-hub': return 'topics';
-    case 'news-blog': return 'blog';
     case 'deep-dive': return 'blog';
     case 'cornerstone': return 'blog';
     default: return contentType;
@@ -517,7 +516,7 @@ describe('full keyword lifecycle', () => {
     expect(toDirType('faq')).toBe('faq');
     expect(toDirType('compare')).toBe('compare');
     expect(toDirType('topic-hub')).toBe('topics');
-    expect(toDirType('news-blog')).toBe('blog');
+    expect(toDirType('blog')).toBe('blog');
 
     // ── Stage 5 (DB update simulate updateDbAfterGeneration) ──
 

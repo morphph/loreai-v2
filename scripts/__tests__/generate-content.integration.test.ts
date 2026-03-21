@@ -212,7 +212,7 @@ describe('validator routing integration', () => {
       'compare',
       'glossary',
       'topic-hub',
-      'news-blog',
+      'blog',
       'deep-dive',
       'cornerstone',
     ];
