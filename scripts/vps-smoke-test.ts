@@ -7,6 +7,7 @@
  * Exit: 0 = all pass, 1 = failures detected
  */
 
+import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
 import Database from 'better-sqlite3';

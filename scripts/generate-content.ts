@@ -15,6 +15,7 @@
  * @see docs/plans/specs/SPEC-B4-content-generation.md
  */
 
+import 'dotenv/config';
 import { runContentGeneration } from './lib/content-gen';
 import { closeDb } from './lib/db';
 

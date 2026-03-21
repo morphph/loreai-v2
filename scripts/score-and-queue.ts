@@ -14,6 +14,7 @@
  * @see docs/plans/specs/SPEC-B3-priority-scoring.md
  */
 
+import 'dotenv/config';
 import { scoreAndQueue } from './lib/score-queue';
 import { closeDb } from './lib/db';
 

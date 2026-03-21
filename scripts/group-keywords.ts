@@ -15,6 +15,7 @@
  * @see docs/plans/specs/SPEC-B2-keyword-grouping.md
  */
 
+import 'dotenv/config';
 import { groupCluster, groupTopic } from './lib/keyword-group';
 import { closeDb } from './lib/db';
 

@@ -16,6 +16,7 @@
  * @see docs/plans/specs/SPEC-C1-discovery-cycle.md
  */
 
+import 'dotenv/config';
 import { runDiscoveryCycle } from './lib/discovery';
 import { closeDb } from './lib/db';
 

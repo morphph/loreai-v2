@@ -13,6 +13,7 @@
  * @see docs/plans/specs/SPEC-B1-keyword-expansion.md
  */
 
+import 'dotenv/config';
 import { expandTopic } from './lib/keyword-expand';
 import { closeDb } from './lib/db';
 

@@ -15,6 +15,7 @@
  * @see docs/plans/specs/SPEC-C3-performance-loop.md
  */
 
+import 'dotenv/config';
 import { runPerformanceCycle } from './lib/performance';
 import { closeDb } from './lib/db';
 
