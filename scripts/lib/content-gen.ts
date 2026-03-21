@@ -32,6 +32,7 @@ export type ContentType =
   | 'compare'
   | 'glossary'
   | 'topic-hub'
+  | 'blog'
   | 'news-blog'
   | 'deep-dive'
   | 'cornerstone';
@@ -121,6 +122,7 @@ const MODEL_MAP: Record<ContentType, string> = {
   glossary: 'claude-haiku-4-5-20251001',
   compare: 'claude-sonnet-4-20250514',
   'topic-hub': 'claude-sonnet-4-20250514',
+  blog: 'claude-sonnet-4-20250514',
   'news-blog': 'claude-sonnet-4-20250514',
   'deep-dive': 'claude-opus-4-20250514',
   cornerstone: 'claude-opus-4-20250514',
@@ -140,6 +142,7 @@ export function getValidatorForType(
       return validateGlossary;
     case 'topic-hub':
       return validateTopicHub;
+    case 'blog':
     case 'news-blog':
       return validateBlogPost;
     case 'deep-dive':
@@ -156,6 +159,7 @@ const ZH_WORD_RANGES: Record<ContentType, string> = {
   compare: '350-700',
   glossary: '200-350',
   'topic-hub': '450-900',
+  blog: '600-1200',
   'news-blog': '600-1200',
   'deep-dive': '2000-3500',
   cornerstone: '2000-3500',
@@ -166,6 +170,7 @@ const ZH_TYPE_LABELS: Record<ContentType, string> = {
   compare: '对比分析',
   glossary: '术语表',
   'topic-hub': '专题中心',
+  blog: '博客文章',
   'news-blog': '新闻博客',
   'deep-dive': '深度分析',
   cornerstone: '基石页面',
@@ -544,6 +549,7 @@ function buildSourceMaterialSection(sourcePack: SourcePack): string {
 
 function getContentTypeInstructions(contentType: ContentType): string {
   switch (contentType) {
+    case 'blog':
     case 'news-blog':
       return `## Generation Task — News Blog Post
 - Lead with the news event, then provide analysis
