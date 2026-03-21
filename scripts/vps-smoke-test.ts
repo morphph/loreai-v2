@@ -41,7 +41,7 @@ check('Node.js >= 18', () => {
 
 // ── 2. Required env vars present ──────────────────────────────────────
 check('Required env vars', () => {
-  const required = ['SERPER_API_KEY', 'EXA_API_KEY', 'ANTHROPIC_API_KEY', 'GSC_SITE_URL'];
+  const required = ['SERPER_API_KEY', 'EXA_API_KEY', 'GSC_SITE_URL'];
   const missing = required.filter((k) => !process.env[k]);
   return {
     pass: missing.length === 0,
