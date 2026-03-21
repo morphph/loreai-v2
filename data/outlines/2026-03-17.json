@@ -1,0 +1,228 @@
+{
+  "date": "2026-03-17",
+  "headline_hook": "Anthropic Doubles Claude Usage While Opus 4.6 Goes 1M-Default and Chrome DevTools Gets an AI Brain",
+  "preview_topics": [
+    "Anthropic's capacity surge and Opus 1M upgrade",
+    "Chrome DevTools MCP for agent debugging",
+    "the jagged frontier of AI-assisted coding quality"
+  ],
+  "pick_of_the_day": {
+    "item_id": 7822,
+    "thesis": "The first rigorous study of AI-assisted code quality in real open-source projects reveals a jagged frontier of its own — speed gains are real but the quality debt compounds silently, and most teams have no instrumentation to catch it until it's already in production."
+  },
+  "model_literacy": {
+    "concept": "Context Window vs. Effective Context",
+    "relevance": "Opus 4.6 now defaults to 1M tokens for Claude Code users — but raw context length and how much a model actually utilizes are very different things. Understanding effective context (the portion of the window the model reliably attends to) matters more than the headline number when planning agentic workflows."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 6501,
+          "title": "Anthropic Doubles Claude Usage Limits for Off-Peak Hours Through March 27",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "A rare capacity giveaway signals Anthropic has enough GPU headroom to experiment with demand shaping — and wants you building habits during off-hours.",
+          "key_fact": "2x usage on weekends and outside 5–11am PT weekdays for two weeks"
+        },
+        {
+          "id": 6505,
+          "title": "Opus 4.6 with 1M Context Is Now Default for Claude Code on Paid Plans",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The opt-in long-context model silently became the default — and the API price didn't budge. Claude Code users just got a massive upgrade with zero friction.",
+          "key_fact": "1M-context Opus 4.6 default on Max, Team, and Enterprise with no API price increase"
+        },
+        {
+          "id": 7642,
+          "title": "dots.mocr Sets New Open-Source SOTA for Document Parsing",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "An open-source OCR system that nearly matches Gemini 3 Pro on document parsing — finally a viable self-hosted alternative for production pipelines.",
+          "key_fact": "83.9 on olmOCR Bench, #2 on OCR Arena Elo behind only Gemini 3 Pro"
+        },
+        {
+          "id": 7087,
+          "title": "Anima Trends #1 on HuggingFace with 230K Downloads",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A new model rockets to the top of HuggingFace trending — community adoption at this pace suggests it's hitting a sweet spot others missed.",
+          "key_fact": "831 likes and 230K downloads, trending #1"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 7823,
+          "title": "Google Ships Official Chrome DevTools MCP Server for AI Agents",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The missing bridge between coding agents and front-end debugging just arrived — Google is betting that AI should see what developers see in the browser.",
+          "key_fact": "Official MCP server lets agents inspect, debug, and interact with live Chrome sessions"
+        },
+        {
+          "id": 7052,
+          "title": "Financial Datasets MCP Server Turns Claude into a Live Market Research Assistant",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Real-time stock data, SEC filings, and earnings via MCP — the kind of vertical data integration that makes agents actually useful beyond code.",
+          "key_fact": "Direct agent access to stock prices, financial statements, and SEC filings"
+        },
+        {
+          "id": 7819,
+          "title": "Apideck CLI Tackles MCP's Context-Window Bloat Problem",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "As MCP tool counts grow, context consumption becomes a real bottleneck — this CLI-first alternative trades protocol elegance for token efficiency.",
+          "key_fact": "Significantly lower token consumption per tool call compared to standard MCP"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 7135,
+          "title": "Simon Willison Distills How Coding Agents Actually Work Under the Hood",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "The best explainer yet on the mechanics behind coding agents — essential reading before you trust one with your codebase.",
+          "key_fact": "New foundational chapter added to his Agentic Engineering Patterns guide"
+        },
+        {
+          "id": 7064,
+          "title": "Dan Shipper: Coding Agent UIs Need a Main-Chat-Plus-Side-Chats Paradigm",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Power users are outgrowing single-thread agent UIs — the workflow pattern emerging in practice points to where tools need to go next.",
+          "key_fact": "Main-chat-plus-side-chats is the natural workflow pattern for agent power users"
+        },
+        {
+          "id": 7060,
+          "title": "Skills Files Boost Agent Tool Usage, But Self-Improving Skills Don't Work Yet",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Manually curated Skills files measurably improve coding agent performance with MCP — but the dream of agents writing their own skills hits a wall.",
+          "key_fact": "Human-curated skills help significantly; auto-generated skills don't improve outcomes"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 7822,
+          "title": "First Rigorous Study Quantifies the Quality Cost of AI-Assisted Open-Source Code",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Speed gains are real but quality debt is accumulating silently — the first study with hard numbers on what Cursor-era coding actually produces in the wild.",
+          "key_fact": "Academic study of Cursor AI usage across real open-source projects"
+        },
+        {
+          "id": 6860,
+          "title": "The 'Jagged Frontier' Paper Is Now Peer-Reviewed and Published",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The study that gave us the vocabulary for AI's uneven capability landscape is now the canonical citation — if you're arguing about AI productivity, this is the paper to reference.",
+          "key_fact": "Now formally peer-reviewed and published after widespread preprint adoption"
+        },
+        {
+          "id": 6772,
+          "title": "HuggingFace Open-Sources WAXAL: Speech Dataset for 19 African Languages",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A massive gap in low-resource language AI just got a serious dataset — 17 languages for TTS and 19 for ASR, all open-source.",
+          "key_fact": "Covers 19 African languages for ASR and 17 for TTS"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 7824,
+          "title": "Stop Sloppypasta: The Grassroots Revolt Against AI Content Slop Gains Steam",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The backlash against undifferentiated AI-generated content is organizing — a signal that the market is about to start pricing quality differentiation.",
+          "key_fact": "Campaign gaining significant traction on Hacker News"
+        },
+        {
+          "id": 7063,
+          "title": "Why Most AI CLI Tools Are a Security Nightmare for API Keys",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The industry automated the coding workflow without fixing secrets management — and everyone running coding agents should care.",
+          "key_fact": "Fundamental security hygiene gaps in how AI CLI tools handle API keys"
+        },
+        {
+          "id": 7694,
+          "title": "Bindu Reddy: GPT-6 Will Be Trained by GPT-5.4, Compressing the Cycle 10x",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A concrete timeline claim for recursive self-improvement in model training — speculative but worth tracking as the meta-learning loop tightens.",
+          "key_fact": "Claims 10x compression of the training cycle via recursive AI-assisted training"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 7643,
+          "title": "Tsinghua Open-Sources OpenMAIC: A Multi-Agent Interactive Classroom Framework",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A concrete multi-agent architecture for education you can actually fork and build on — not a paper, a working framework.",
+          "key_fact": "Open-source multi-agent classroom system from Tsinghua University"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 7372,
+      "title": "OpenAI Publicly Elevates Its Healthcare AI Ambitions",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Head of Health outlines clinical AI strategy",
+      "key_fact": "OpenAI's Head of Health and Research Lead discuss building AI for healthcare"
+    },
+    {
+      "id": 7820,
+      "title": "Karpathy Ships an Interactive US Job Market Visualizer",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Another practical public data tool from Karpathy",
+      "key_fact": "Interactive visualization at karpathy.ai/jobs"
+    },
+    {
+      "id": 7805,
+      "title": "Crow-9B HERETIC 4.6 Trends on HuggingFace",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Small model punching above its weight class",
+      "key_fact": "189 likes and 56K downloads"
+    },
+    {
+      "id": 7073,
+      "title": "OmniCoder-9B Joins the Small Coding Model Wave",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Another capable 9B code model for local deployment",
+      "key_fact": "202 likes on HuggingFace trending"
+    },
+    {
+      "id": 7077,
+      "title": "LocoTrainer-4B for Lightweight Fine-Tuning Pipelines",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "4B parameter model designed for training workflows",
+      "key_fact": "163 likes, 1.2K downloads"
+    }
+  ],
+  "total_items": 22
+}

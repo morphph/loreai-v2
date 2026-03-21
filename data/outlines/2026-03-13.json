@@ -1,0 +1,244 @@
+{
+  "date": "2026-03-13",
+  "headline_hook": "Claude Ships Interactive Charts While Sora 2 Powers a Real Video API",
+  "preview_topics": [
+    "Claude's visualization breakout",
+    "Karpathy's intelligence brownouts",
+    "the MoE model dropping on HuggingFace"
+  ],
+  "pick_of_the_day": {
+    "item_id": 6067,
+    "thesis": "Karpathy's lost research agents reveal that we've already crossed the dependency threshold — when frontier AI stutters, real work stops, and nobody has a failover plan yet."
+  },
+  "model_literacy": {
+    "concept": "Mixture of Experts (MoE) — Active vs Total Parameters",
+    "relevance": "NVIDIA's Nemotron 3 Super claims 120B parameters but only activates 12B per token. Understanding MoE explains why a '120B model' can run on hardware that chokes on dense 70B models — and why the parameter count on the tin is increasingly misleading."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 5851,
+          "title": "Claude Gains Interactive Charts and Diagrams Across All Plans",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Claude becomes a data exploration tool, not just a chatbot — interactive visualizations ship to free users today",
+          "key_fact": "Available on all plans including free, in beta today"
+        },
+        {
+          "id": 5950,
+          "title": "OpenAI's Video API Gets Sora 2 Upgrade: Custom Characters, 20-Second Clips",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Sora graduates from demo to developer tool — custom characters, aspect ratios, and video continuation turn it into a production-grade API",
+          "key_fact": "Supports 16:9 and 9:16 exports, clips up to 20 seconds, video continuation"
+        },
+        {
+          "id": 5694,
+          "title": "Replit Agent 4 Pivots From Coding Tool to Full Knowledge Work Agent",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Replit completes its metamorphosis — slides, videos, spreadsheets now join code in a single agent workspace",
+          "key_fact": "Now handles slides, videos, and spreadsheets beyond code"
+        },
+        {
+          "id": 6357,
+          "title": "NVIDIA Drops Nemotron 3 Super: 120B Parameters, Only 12B Active",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "MoE efficiency means this 120B model runs on hardware that can't touch dense models half its size — open weights on HuggingFace",
+          "key_fact": "120B total / 12B active parameters via MoE, BF16, trending on HuggingFace"
+        },
+        {
+          "id": 6008,
+          "title": "Meta Open-Sources Forest Canopy Mapping Model Built on DINOv3",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Foundation models get specialized — Meta and WRI turn satellite vision into environmental monitoring at global scale",
+          "key_fact": "High-resolution global canopy mapping, open source, built with World Resources Institute"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 6067,
+          "title": "Karpathy Coins 'Intelligence Brownouts' After OAuth Outage Kills His Research Agents",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "When frontier AI goes down, autonomous workflows die with it — and nobody's built the failover infrastructure yet",
+          "key_fact": "Entire autonomous research lab wiped out by a single OAuth outage"
+        },
+        {
+          "id": 6242,
+          "title": "Prediction: Amazon Will Ban AI-Generated Code Changes Within Weeks",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The enterprise speed-vs-quality reckoning is here — tech debt from AI-assisted code may trigger the first major corporate pullback",
+          "key_fact": "Prediction cites concerns about accumulated tech debt and bug density"
+        },
+        {
+          "id": 5890,
+          "title": "Anthropic's Alex Albert: Knowledge Work Is Following the Agentic Coding Playbook",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Spreadsheets and presentations are this year's code editors — the same AI disruption pattern, one year later",
+          "key_fact": "Draws direct trajectory parallel between 2025 agentic coding and 2026 knowledge work"
+        },
+        {
+          "id": 5778,
+          "title": "Ramp AI Index: Anthropic Is Now the Default for Business Spending",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Hard spending data confirms the enterprise shift — Anthropic overtakes OpenAI in business adoption metrics",
+          "key_fact": "Latest Ramp AI Index shows Anthropic as default AI provider for businesses"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 5953,
+          "title": "OpenAI Shares Engineering Lessons From Building Computer-Use Agents",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "The hard parts of long-running agent workflows: tighter execution loops, filesystem context, and network security guardrails — from the team that built it",
+          "key_fact": "Three key patterns: tightened execution loops, rich filesystem context, guarded network access"
+        },
+        {
+          "id": 6318,
+          "title": "How a CPO at a $2.6B Company Runs His Entire Day Through Claude Code",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "CLAUDE.md setup, Skills vs MCP vs Hooks, and why a non-engineer executive ditched Cursor for the terminal",
+          "key_fact": "CPO at $2.6B Pendo switched from Cursor to Claude Code for full-day productivity"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 5821,
+          "title": "Claude in Excel and PowerPoint Now Shares Context Across Apps",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Cross-app memory arrives for Office users — Claude remembers what it saw in your spreadsheet while building your slides",
+          "key_fact": "Excel ↔ PowerPoint context sharing plus Skills support"
+        },
+        {
+          "id": 5952,
+          "title": "One Year of the Responses API: How Tool-Use Turned Responses Into Actions",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "OpenAI's retrospective on the API that made agentic workflows possible — a useful reference for where tool-use stands today",
+          "key_fact": "One year since launch, tool-use is now the standard agentic pattern"
+        },
+        {
+          "id": 6048,
+          "title": "HuggingFace PRO Now Offers 1TB Private + 10TB Public Storage for $9/Month",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The Hub just became a serious S3 alternative for ML teams — 10x storage bump makes artifact management a non-issue",
+          "key_fact": "1TB private + 10TB public for $9/month"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 5704,
+          "title": "NVIDIA Publishes How AI-Q Reached #1 on Both DeepResearch Benchmarks",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A detailed technical breakdown of systematic agentic search optimization — the playbook for winning at deep research",
+          "key_fact": "#1 on both DeepResearch Bench I and II"
+        },
+        {
+          "id": 5468,
+          "title": "AutoResearch-RL: Self-Evaluating Agents That Discover Neural Architectures Autonomously",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "RL agents that perpetually improve their own architecture — a step toward AI designing better AI without human steering",
+          "key_fact": "Perpetual self-evaluation loop for autonomous neural architecture search"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 6380,
+          "title": "OneCLI: A Credential Vault Purpose-Built for AI Agents",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Solves the secrets management problem for autonomous agents — no more hardcoded API keys in agent workflows",
+          "key_fact": "Written in Rust, open source, designed specifically for agent credential management"
+        },
+        {
+          "id": 6382,
+          "title": "LogClaw: Open-Source AI SRE That Auto-Creates Tickets From Logs",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Bridges observability and incident response — AI watches your logs and files tickets before humans notice",
+          "key_fact": "Open source, automated log monitoring to ticket creation pipeline"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 5106,
+      "title": "Anthropic Launches The Anthropic Institute for AI Policy and Governance",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "From safety research to active governance engagement",
+      "key_fact": "New institute focused on policy and societal challenges from powerful AI"
+    },
+    {
+      "id": 5107,
+      "title": "Anthropic Opens Fourth APAC Office in Sydney",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Aggressive international expansion continues across Asia-Pacific",
+      "key_fact": "Fourth APAC office after Tokyo, Bengaluru, Seoul"
+    },
+    {
+      "id": 5989,
+      "title": "DeepMind Names London HQ 'Platform 37' After AlphaGo's Famous Move",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Celebrating 10 years since the match that put AI on the map",
+      "key_fact": "Named after Move 37 from the AlphaGo vs Lee Sedol match"
+    },
+    {
+      "id": 6028,
+      "title": "Mistral Announces First Flagship Conference in Paris, May 28",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Enterprise AI transformation focus signals platform ambitions",
+      "key_fact": "AI Now Summit, Paris, May 28"
+    },
+    {
+      "id": 5701,
+      "title": "Google Deploys AI Heart Health Screening in Rural Australia",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Foundation models improving healthcare access in underserved regions",
+      "key_fact": "AI-powered heart health screening in remote Australian communities"
+    },
+    {
+      "id": 5988,
+      "title": "DeepMind Reflects on 10 Years Since AlphaGo: From Games to Scientific Discovery",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Podcast tracing the evolution from game-playing AI to science tools",
+      "key_fact": "10-year retrospective on AlphaGo's legacy"
+    }
+  ],
+  "total_items": 24
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Cursor's new model confirmed based on Kimi",
+    "url": "https://x.com/huggingface/status/2035049292755259786",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 1141,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.3423,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code channels — control sessions via Telegram and Discord",
+    "url": "https://x.com/trq212/status/2034761016320696565",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 27275,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 25.182499999999997,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Introducing Gpt 5",
+    "url": "https://openai.com/index/introducing-gpt-5/",
+    "source": "blog:OpenAI Releases",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Introducing Gpt Realtime",
+    "url": "https://openai.com/index/introducing-gpt-realtime/",
+    "source": "blog:OpenAI Releases",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Introducing Gpt Oss",
+    "url": "https://openai.com/index/introducing-gpt-oss/",
+    "source": "blog:OpenAI Releases",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  }
+]
