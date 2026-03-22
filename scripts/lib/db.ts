@@ -105,6 +105,16 @@ function initSchema(db: Database.Database): void {
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       completed_at DATETIME
     );
+
+    CREATE TABLE IF NOT EXISTS snapshots (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      snapshot_date TEXT NOT NULL,
+      metric_group TEXT NOT NULL,
+      metric_key TEXT NOT NULL,
+      metric_value REAL NOT NULL,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      UNIQUE(snapshot_date, metric_group, metric_key)
+    );
   `);
 
   // Migration: add selected_for_newsletter_at if missing (for existing DBs)
@@ -321,6 +331,44 @@ export function getRecentSeoPages(days: number = 7, lang: string = 'en'): Recent
       AND created_at > datetime('now', '-' || ? || ' days')
     ORDER BY created_at DESC
   `).all(lang, days) as RecentSeoPage[];
+}
+
+// --- Snapshots ---
+
+export function writeSnapshot(date: string, group: string, key: string, value: number): void {
+  const db = getDb();
+  db.prepare(`
+    INSERT INTO snapshots (snapshot_date, metric_group, metric_key, metric_value)
+    VALUES (?, ?, ?, ?)
+    ON CONFLICT(snapshot_date, metric_group, metric_key) DO UPDATE SET
+      metric_value = excluded.metric_value
+  `).run(date, group, key, value);
+}
+
+export function writeSnapshots(date: string, metrics: Array<{ group: string; key: string; value: number }>): void {
+  const db = getDb();
+  const stmt = db.prepare(`
+    INSERT INTO snapshots (snapshot_date, metric_group, metric_key, metric_value)
+    VALUES (?, ?, ?, ?)
+    ON CONFLICT(snapshot_date, metric_group, metric_key) DO UPDATE SET
+      metric_value = excluded.metric_value
+  `);
+  const writeAll = db.transaction(() => {
+    for (const m of metrics) {
+      stmt.run(date, m.group, m.key, m.value);
+    }
+  });
+  writeAll();
+}
+
+export function getSnapshots(weeks: number = 12): Array<{ snapshot_date: string; metric_group: string; metric_key: string; metric_value: number }> {
+  const db = getDb();
+  return db.prepare(`
+    SELECT snapshot_date, metric_group, metric_key, metric_value
+    FROM snapshots
+    WHERE snapshot_date >= date('now', '-' || ? || ' days')
+    ORDER BY snapshot_date ASC
+  `).all(weeks * 7) as Array<{ snapshot_date: string; metric_group: string; metric_key: string; metric_value: number }>;
 }
 
 export function closeDb(): void {

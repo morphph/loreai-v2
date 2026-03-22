@@ -12,7 +12,9 @@ import {
   detectAnomalies,
   findNewQueries,
 } from './gsc';
-import { getDb, upsertKeyword } from './db';
+import { getDb, upsertKeyword, writeSnapshots } from './db';
+import fs from 'fs';
+import path from 'path';
 
 import type {
   GSCQueryParams,
@@ -484,6 +486,116 @@ export async function runPerformanceCycle(
 
   const durationMs = Date.now() - startTime;
   console.error(`\nDuration: ${(durationMs / 1000).toFixed(1)}s`);
+
+  // ── Write weekly snapshot metrics ──
+  if (!opts.dryRun && !opts.reportOnly) {
+    const snapshotDate = dateRanges.current.end;
+    const totalClicks = segmentation.segments.defending.totalClicks
+      + segmentation.segments.page_one.totalClicks
+      + segmentation.segments.striking.totalClicks
+      + segmentation.segments.building.totalClicks
+      + segmentation.segments.long_shot.totalClicks;
+    const totalImpressions = segmentation.segments.defending.totalImpressions
+      + segmentation.segments.page_one.totalImpressions
+      + segmentation.segments.striking.totalImpressions
+      + segmentation.segments.building.totalImpressions
+      + segmentation.segments.long_shot.totalImpressions;
+    const totalQueries = result.segmentation.total;
+    const avgPosition = totalQueries > 0
+      ? currentWithPages.rows.reduce((s, r) => s + r.position, 0) / totalQueries
+      : 0;
+    const avgCtr = totalQueries > 0
+      ? currentWithPages.rows.reduce((s, r) => s + r.ctr, 0) / totalQueries
+      : 0;
+
+    // Keyword + content counts from DB
+    const db = getDb();
+    const kwTotal = (db.prepare('SELECT COUNT(*) as c FROM keywords').get() as { c: number }).c;
+    const kwCovered = (db.prepare('SELECT COUNT(*) as c FROM keywords WHERE content_exists = 1').get() as { c: number }).c;
+    const contentTotal = (db.prepare("SELECT COUNT(*) as c FROM content WHERE type != 'newsletter'").get() as { c: number }).c;
+    const subTotal = (db.prepare('SELECT COUNT(*) as c FROM subscribers').get() as { c: number }).c;
+
+    const metrics = [
+      // GSC
+      { group: 'gsc', key: 'total_clicks', value: totalClicks },
+      { group: 'gsc', key: 'total_impressions', value: totalImpressions },
+      { group: 'gsc', key: 'avg_position', value: Math.round(avgPosition * 100) / 100 },
+      { group: 'gsc', key: 'avg_ctr', value: Math.round(avgCtr * 10000) / 10000 },
+      { group: 'gsc', key: 'defending_count', value: result.segmentation.defending },
+      { group: 'gsc', key: 'page_one_count', value: result.segmentation.page_one },
+      { group: 'gsc', key: 'striking_count', value: result.segmentation.striking },
+      { group: 'gsc', key: 'building_count', value: result.segmentation.building },
+      { group: 'gsc', key: 'long_shot_count', value: result.segmentation.long_shot },
+      { group: 'gsc', key: 'anomalies_total', value: result.anomalies.total },
+      // Keywords
+      { group: 'keywords', key: 'total', value: kwTotal },
+      { group: 'keywords', key: 'covered', value: kwCovered },
+      { group: 'keywords', key: 'coverage_rate', value: kwTotal > 0 ? Math.round((kwCovered / kwTotal) * 10000) / 10000 : 0 },
+      // Content
+      { group: 'content', key: 'total', value: contentTotal },
+      // Subscribers
+      { group: 'subscribers', key: 'total', value: subTotal },
+    ];
+
+    // Per-topic keyword counts
+    const topicRows = db.prepare('SELECT slug FROM topic_clusters').all() as { slug: string }[];
+    for (const topic of topicRows) {
+      const count = (db.prepare('SELECT COUNT(*) as c FROM keywords WHERE cluster_slug LIKE ? || \'%\'').get(topic.slug) as { c: number }).c;
+      metrics.push({ group: 'keywords', key: `${topic.slug}_keywords`, value: count });
+    }
+
+    // Content by type
+    const typeRows = db.prepare("SELECT type, COUNT(*) as c FROM content WHERE type != 'newsletter' GROUP BY type").all() as { type: string; c: number }[];
+    for (const tr of typeRows) {
+      metrics.push({ group: 'content', key: tr.type, value: tr.c });
+    }
+
+    writeSnapshots(snapshotDate, metrics);
+    console.error(`  Wrote ${metrics.length} snapshot metrics for ${snapshotDate}`);
+
+    // ── Write GSC cache for dashboard ──
+    const cacheDir = path.join(process.cwd(), 'data', 'dashboard');
+    fs.mkdirSync(cacheDir, { recursive: true });
+
+    const gscCache = {
+      cached_at: new Date().toISOString(),
+      date_range: dateRanges,
+      segmentation: {
+        defending: { count: segmentation.segments.defending.count, clicks: segmentation.segments.defending.totalClicks },
+        page_one: { count: segmentation.segments.page_one.count, clicks: segmentation.segments.page_one.totalClicks },
+        striking: {
+          count: segmentation.segments.striking.count,
+          clicks: segmentation.segments.striking.totalClicks,
+          queries: segmentation.segments.striking.queries.slice(0, 50).map(q => ({
+            query: q.query, position: q.position, impressions: q.impressions, ctr: q.ctr, clicks: q.clicks, page: q.page,
+          })),
+        },
+        building: { count: segmentation.segments.building.count },
+        long_shot: { count: segmentation.segments.long_shot.count },
+      },
+      anomalies: anomalyReport.anomalies
+        .filter(a => a.type !== 'new_query')
+        .slice(0, 30)
+        .map(a => ({
+          type: a.type,
+          priority: a.priority,
+          query: a.query,
+          position: a.current.position,
+          impressions: a.current.impressions,
+          ctr: a.current.ctr,
+          suggested_action: a.suggestedAction,
+        })),
+      totals: {
+        clicks: totalClicks,
+        impressions: totalImpressions,
+        avg_position: Math.round(avgPosition * 100) / 100,
+        avg_ctr: Math.round(avgCtr * 10000) / 10000,
+      },
+    };
+
+    fs.writeFileSync(path.join(cacheDir, 'gsc-cache.json'), JSON.stringify(gscCache, null, 2));
+    console.error('  Wrote GSC cache to data/dashboard/gsc-cache.json');
+  }
 
   return result;
 }

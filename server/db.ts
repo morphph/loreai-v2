@@ -19,6 +19,19 @@ db.exec(`
   )
 `);
 
+// Ensure snapshots table exists (for dashboard trends)
+db.exec(`
+  CREATE TABLE IF NOT EXISTS snapshots (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    snapshot_date TEXT NOT NULL,
+    metric_group TEXT NOT NULL,
+    metric_key TEXT NOT NULL,
+    metric_value REAL NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    UNIQUE(snapshot_date, metric_group, metric_key)
+  )
+`);
+
 // Migration: add source column if missing
 const cols = db.prepare('PRAGMA table_info(subscribers)').all() as { name: string }[];
 if (!cols.some(c => c.name === 'source')) {
