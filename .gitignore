@@ -65,3 +65,4 @@ e2e/playwright-report/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+data/dashboard/
