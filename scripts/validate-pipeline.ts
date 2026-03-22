@@ -531,6 +531,31 @@ function checkGenerate(): CheckResult {
     warnings.push(`${partialCount} job(s) have status = 'partial' (ZH failures)`);
   }
 
+  // Partial job staleness: partial jobs >48h old need attention
+  const stalePartials = db.prepare(`
+    SELECT COUNT(*) as cnt FROM create_queue
+    WHERE status = 'partial' AND created_at < datetime('now', '-48 hours')
+  `).get() as { cnt: number };
+
+  if (stalePartials.cnt > 0) {
+    warnings.push(`${stalePartials.cnt} partial job(s) older than 48h (ZH generation failed and not retried)`);
+  }
+
+  // Content-keyword sync: keywords marked content_exists=1 should have matching content
+  const orphanedContent = db.prepare(`
+    SELECT k.keyword, k.content_slug, k.content_type
+    FROM keywords k
+    WHERE k.content_exists = 1 AND k.content_slug IS NOT NULL
+      AND NOT EXISTS (
+        SELECT 1 FROM content c
+        WHERE c.slug = k.content_slug AND c.type = k.content_type AND c.lang = 'en'
+      )
+  `).all() as { keyword: string; content_slug: string }[];
+
+  if (orphanedContent.length > 0) {
+    errors.push(`${orphanedContent.length} keyword(s) have content_exists=1 but no matching content record`);
+  }
+
   return {
     name: 'Generate',
     pass: errors.length === 0,
@@ -597,6 +622,38 @@ function checkDiscovery(): CheckResult {
 
   if (orphanedKeywords.cnt > 0) {
     warnings.push(`${orphanedKeywords.cnt} keyword(s) have cluster_slug = NULL (orphaned)`);
+  }
+
+  // Queue starvation: no pending jobs and no recent generation (tightened for Mon+Thu schedule)
+  const queueStarvation = db.prepare(`
+    SELECT COUNT(*) as cnt FROM create_queue
+    WHERE status = 'pending'
+  `).get() as { cnt: number };
+
+  const lastGeneration = db.prepare(`
+    SELECT MAX(completed_at) as last FROM create_queue
+    WHERE status = 'completed'
+  `).get() as { last: string | null };
+
+  if (queueStarvation.cnt === 0 && lastGeneration.last) {
+    const lastGenDate = new Date(lastGeneration.last);
+    const daysSinceLast = (Date.now() - lastGenDate.getTime()) / (1000 * 60 * 60 * 24);
+    if (daysSinceLast > 3) {
+      warnings.push(`Queue empty and last content generation was ${Math.round(daysSinceLast)} days ago`);
+    }
+  }
+
+  // Discovery frequency: with Mon+Thu schedule, gap should never exceed 5 days
+  const lastDiscovery = db.prepare(`
+    SELECT MAX(discovered_at) as last FROM keywords
+  `).get() as { last: string | null };
+
+  if (lastDiscovery.last) {
+    const lastDate = new Date(lastDiscovery.last);
+    const daysSinceLast = (Date.now() - lastDate.getTime()) / (1000 * 60 * 60 * 24);
+    if (daysSinceLast > 5) {
+      warnings.push(`Last keyword discovery was ${Math.round(daysSinceLast)} days ago (expected ≤4 days with Mon+Thu schedule)`);
+    }
   }
 
   return {

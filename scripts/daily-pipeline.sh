@@ -26,9 +26,9 @@ for i in 1 2 3; do git pull --rebase && break; sleep 10; done
 #   7am SGT: generate     — process-queue.ts (NEW — replaces blog + seo steps)
 #
 # Weekly:
-#   Saturday: discovery   — discovery-cycle.ts (keyword universe expansion)
-#   Tuesday:  performance — performance-cycle.ts (GSC → refresh queue)
-#   Sunday:   weekly      — write-weekly.ts (unchanged)
+#   Mon & Thu 1am SGT: discovery   — discovery-cycle.ts (keyword universe expansion)
+#   Tuesday:           performance — performance-cycle.ts (GSC → refresh queue)
+#   Sunday:            weekly      — write-weekly.ts (unchanged)
 #
 # Legacy steps (blog, seo) preserved for manual/fallback use only.
 

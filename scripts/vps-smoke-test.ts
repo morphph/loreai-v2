@@ -204,6 +204,94 @@ check('tmp/ directory writable', () => {
   };
 });
 
+// ── 11. Queue health — no stuck in_progress jobs ─────────────────────
+check('Queue health (no stuck jobs)', () => {
+  const db = new Database(dbPath);
+  try {
+    const stuckJobs = db.prepare(`
+      SELECT COUNT(*) as cnt FROM create_queue
+      WHERE status = 'in_progress' AND created_at < datetime('now', '-2 hours')
+    `).get() as { cnt: number };
+    return {
+      pass: stuckJobs.cnt === 0,
+      detail: stuckJobs.cnt === 0
+        ? 'No stuck in_progress jobs'
+        : `${stuckJobs.cnt} job(s) stuck in in_progress for >2h`,
+    };
+  } finally {
+    db.close();
+  }
+});
+
+// ── 12. Discovery recency (Mon+Thu schedule, gap ≤ 5 days) ──────────
+check('Discovery recency', () => {
+  const db = new Database(dbPath);
+  try {
+    const lastDiscovery = db.prepare(`
+      SELECT MAX(discovered_at) as last FROM keywords
+    `).get() as { last: string | null };
+    if (!lastDiscovery.last) {
+      return { pass: true, detail: 'No keywords yet (fresh DB)' };
+    }
+    const daysSince = (Date.now() - new Date(lastDiscovery.last).getTime()) / (1000 * 60 * 60 * 24);
+    return {
+      pass: daysSince <= 5,
+      detail: `Last discovery: ${lastDiscovery.last} (${Math.round(daysSince)} days ago)`,
+    };
+  } finally {
+    db.close();
+  }
+});
+
+// ── 13. Content generation recency ──────────────────────────────────
+check('Content generation recency', () => {
+  const db = new Database(dbPath);
+  try {
+    const lastGen = db.prepare(`
+      SELECT MAX(completed_at) as last FROM create_queue WHERE status = 'completed'
+    `).get() as { last: string | null };
+    if (!lastGen.last) {
+      return { pass: true, detail: 'No completed jobs yet (fresh DB)' };
+    }
+    const daysSince = (Date.now() - new Date(lastGen.last).getTime()) / (1000 * 60 * 60 * 24);
+    return {
+      pass: daysSince <= 5,
+      detail: `Last generation: ${lastGen.last} (${Math.round(daysSince)} days ago)`,
+    };
+  } finally {
+    db.close();
+  }
+});
+
+// ── 14. Cluster coverage ────────────────────────────────────────────
+check('Flagship topics have keywords', () => {
+  const db = new Database(dbPath);
+  try {
+    const topics = db.prepare(`
+      SELECT tc.slug, tc.pillar_topic,
+        (SELECT COUNT(*) FROM keywords k WHERE k.cluster_slug = tc.slug) as kw_count
+      FROM topic_clusters tc
+      WHERE tc.mention_count >= 3
+      ORDER BY tc.mention_count DESC
+      LIMIT 5
+    `).all() as Array<{ slug: string; pillar_topic: string; kw_count: number }>;
+
+    if (topics.length === 0) {
+      return { pass: true, detail: 'No flagship topics yet (fresh DB)' };
+    }
+
+    const empty = topics.filter((t) => t.kw_count === 0);
+    return {
+      pass: empty.length === 0,
+      detail: empty.length === 0
+        ? `All ${topics.length} flagship topics have keywords`
+        : `Missing keywords: ${empty.map((t) => t.slug).join(', ')}`,
+    };
+  } finally {
+    db.close();
+  }
+});
+
 // ── Output ────────────────────────────────────────────────────────────
 
 const passed = results.filter((r) => r.pass).length;
