@@ -187,7 +187,7 @@ describe('exa', () => {
       const callBody = JSON.parse((global.fetch as ReturnType<typeof vi.fn>).mock.calls[0][1].body);
       expect(callBody.query).toBe('test query');
       expect(callBody.type).toBe('auto');
-      expect(callBody.numResults).toBe(10);
+      expect(callBody.num_results).toBe(10);
     });
 
     it('passes optional filters when provided', async () => {
@@ -281,7 +281,7 @@ describe('exa', () => {
       const [url, init] = (global.fetch as ReturnType<typeof vi.fn>).mock.calls[0];
       expect(url).toBe('https://api.exa.ai/contents');
       const callBody = JSON.parse(init.body);
-      expect(callBody.ids).toEqual(['https://example.com/page1']);
+      expect(callBody.urls).toEqual(['https://example.com/page1']);
       expect(callBody.summary).toEqual({ query: 'summarize this' });
     });
 

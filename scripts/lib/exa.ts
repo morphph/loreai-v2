@@ -71,7 +71,7 @@ export interface CompetitorAnalysis {
 
 export interface SemanticSearchOptions {
   numResults?: number;
-  type?: 'auto' | 'neural';
+  type?: 'auto' | 'fast' | 'deep' | 'deep-reasoning';
   contents?: ExaContentOptions;
   startPublishedDate?: string;
   endPublishedDate?: string;
@@ -83,7 +83,7 @@ export interface SemanticSearchOptions {
 export interface GetContentsOptions {
   text?: boolean | { maxCharacters?: number };
   summary?: boolean | { query?: string };
-  livecrawlTimeout?: number;
+  maxAgeHours?: number;
 }
 
 export interface CompetitorAnalysisOptions {
@@ -196,19 +196,30 @@ function emptyCompetitorAnalysis(sourceUrl: string): CompetitorAnalysis {
   return { source_url: sourceUrl, competitors: [], coverage_gaps: [], common_themes: [] };
 }
 
+// ── Helper: convert camelCase content opts to snake_case for REST API ──
+
+function toSnakeContent(val: boolean | Record<string, unknown>): boolean | Record<string, unknown> {
+  if (typeof val === 'boolean') return val;
+  const out: Record<string, unknown> = {};
+  for (const [k, v] of Object.entries(val)) {
+    out[k === 'maxCharacters' ? 'max_characters' : k] = v;
+  }
+  return out;
+}
+
 // ── Helper: build contents body ──
 
 function buildContentsBody(contents?: ExaContentOptions): Record<string, unknown> {
   if (!contents) return {};
   const body: Record<string, unknown> = {};
   if (contents.text !== undefined) {
-    body.contents = { ...((body.contents as Record<string, unknown>) ?? {}), text: contents.text };
+    body.contents = { ...((body.contents as Record<string, unknown>) ?? {}), text: toSnakeContent(contents.text) };
   }
   if (contents.highlights !== undefined) {
-    body.contents = { ...((body.contents as Record<string, unknown>) ?? {}), highlights: contents.highlights };
+    body.contents = { ...((body.contents as Record<string, unknown>) ?? {}), highlights: toSnakeContent(contents.highlights) };
   }
   if (contents.summary !== undefined) {
-    body.contents = { ...((body.contents as Record<string, unknown>) ?? {}), summary: contents.summary };
+    body.contents = { ...((body.contents as Record<string, unknown>) ?? {}), summary: toSnakeContent(contents.summary) };
   }
   return body;
 }
@@ -231,7 +242,7 @@ export async function semanticSearch(
   const body: Record<string, unknown> = {
     query,
     type: opts?.type ?? 'auto',
-    numResults: opts?.numResults ?? config.defaultNumResults ?? 10,
+    num_results: opts?.numResults ?? config.defaultNumResults ?? 10,
     excludeDomains: opts?.excludeDomains ?? ['loreai.dev'],
     ...contentsBody,
   };
@@ -272,12 +283,12 @@ export async function getContents(
   }
 
   const body: Record<string, unknown> = {
-    ids: urls,
-    text: opts?.text ?? { maxCharacters: 5000 },
+    urls,
+    text: toSnakeContent(opts?.text ?? { maxCharacters: 5000 }),
   };
 
-  if (opts?.summary !== undefined) body.summary = opts.summary;
-  if (opts?.livecrawlTimeout !== undefined) body.livecrawlTimeout = opts.livecrawlTimeout;
+  if (opts?.summary !== undefined) body.summary = toSnakeContent(opts.summary);
+  if (opts?.maxAgeHours !== undefined) body.maxAgeHours = opts.maxAgeHours;
 
   const data = await _post<ExaContentsResponse>('/contents', body);
 
@@ -344,7 +355,7 @@ export async function analyzeCompetitors(
 
   const body: Record<string, unknown> = {
     url: sourceUrl,
-    numResults: opts?.numResults ?? config.defaultNumResults ?? 10,
+    num_results: opts?.numResults ?? config.defaultNumResults ?? 10,
     excludeDomains: opts?.excludeDomains ?? ['loreai.dev'],
     ...contentsBody,
   };
