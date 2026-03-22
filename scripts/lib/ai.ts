@@ -75,10 +75,11 @@ export async function callClaude(
           env: cleanEnv,
         }
       );
-    } catch (err: any) {
-      const stderr = err?.stderr?.toString?.()?.trim() || '';
-      const status = err?.status ?? 'unknown';
-      throw new Error(`Claude CLI failed (exit ${status}): ${stderr || err.message}`);
+    } catch (err: unknown) {
+      const e = err as { stderr?: Buffer; status?: number; message?: string };
+      const stderr = e?.stderr?.toString?.()?.trim() || '';
+      const status = e?.status ?? 'unknown';
+      throw new Error(`Claude CLI failed (exit ${status}): ${stderr || e?.message}`);
     }
 
     // Strip ANSI escape sequences
@@ -126,10 +127,11 @@ export async function callClaudeAgent(
           env: cleanEnv,
         }
       );
-    } catch (err: any) {
-      const stderr = err?.stderr?.toString?.()?.trim() || '';
-      const status = err?.status ?? 'unknown';
-      throw new Error(`Claude Agent CLI failed (exit ${status}): ${stderr || err.message}`);
+    } catch (err: unknown) {
+      const e = err as { stderr?: Buffer; status?: number; message?: string };
+      const stderr = e?.stderr?.toString?.()?.trim() || '';
+      const status = e?.status ?? 'unknown';
+      throw new Error(`Claude Agent CLI failed (exit ${status}): ${stderr || e?.message}`);
     }
 
     // Strip ANSI escape sequences
@@ -151,9 +153,10 @@ export function checkClaudeHealth(): void {
       timeout: 15_000, encoding: 'utf-8', stdio: 'pipe',
     }).trim();
     console.log(`  Claude CLI: ${version}`);
-  } catch (err: any) {
-    const stderr = err?.stderr?.toString?.()?.trim() || '';
-    throw new Error(`Claude CLI health check failed: ${stderr || err.message}`);
+  } catch (err: unknown) {
+    const e = err as { stderr?: Buffer; message?: string };
+    const stderr = e?.stderr?.toString?.()?.trim() || '';
+    throw new Error(`Claude CLI health check failed: ${stderr || e?.message}`);
   }
 }
 

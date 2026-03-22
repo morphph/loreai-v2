@@ -101,8 +101,6 @@ async function main() {
 
   const userPrompt = `Extract all AI-related entities from these ${inputItems.length} news items:\n\n${JSON.stringify(inputItems, null, 2)}`;
 
-  let entities: ExtractedEntity[];
-
   if (DRY_RUN) {
     console.log('  (dry-run: skipping AI call)');
     console.log(`  Would send ${inputItems.length} items to Sonnet 4.6`);
@@ -116,7 +114,7 @@ async function main() {
     validate: validateExtractionResponse,
   });
 
-  entities = parseEntities(response.content);
+  const entities = parseEntities(response.content);
   console.log(`  Extracted ${entities.length} entities via ${response.model}`);
 
   // Stage 3: Update clusters

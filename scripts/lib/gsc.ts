@@ -210,7 +210,7 @@ export function createGSCClient(config?: Partial<GSCConfig>): GSCClient {
     const allRows: GSCRow[] = [];
     let startRow = 0;
 
-    // eslint-disable-next-line no-constant-condition
+     
     while (true) {
       const requestBody: searchconsole_v1.Schema$SearchAnalyticsQueryRequest = {
         startDate: params.startDate,

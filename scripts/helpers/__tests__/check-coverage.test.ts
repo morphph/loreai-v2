@@ -12,9 +12,9 @@ describe('check-coverage.ts', () => {
         stdio: 'pipe',
       });
       expect.fail('Should have exited with code 1');
-    } catch (err: any) {
-      expect(err.status).toBe(1);
-      expect(err.stderr).toContain('Usage');
+    } catch (err: unknown) {
+      expect((err as { status: number }).status).toBe(1);
+      expect((err as { stderr: string }).stderr).toContain('Usage');
     }
   });
 
@@ -45,8 +45,8 @@ describe('check-coverage.ts', () => {
     );
     const result = JSON.parse(output);
     expect(result.days).toBe(1);
-    // Even if there are matches, they should only be from at most 1 date
-    const uniqueDates = new Set(result.matches.map((m: any) => m.date));
-    expect(uniqueDates.size).toBeLessThanOrEqual(1);
+    // days=1 reads 1 file per source (newsletter + filtered-items), so up to 2 dates
+    const uniqueDates = new Set(result.matches.map((m: { date: string }) => m.date));
+    expect(uniqueDates.size).toBeLessThanOrEqual(2);
   });
 });

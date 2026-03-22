@@ -248,7 +248,7 @@ export function loadJobs(opts: ContentGenOptions): QueueJob[] {
 export async function runStandardResearch(
   job: QueueJob,
 ): Promise<{ sourcePack: SourcePack; apiCalls: { serper: number; exa: number } }> {
-  let apiCalls = { serper: 0, exa: 0 };
+  const apiCalls = { serper: 0, exa: 0 };
 
   // Dynamic import to avoid hard dependency
   let searchFull: typeof import('./serper').searchFull;
@@ -362,7 +362,7 @@ export async function runDeepResearch(
   apiCalls: { serper: number; exa: number; gemini: number };
   usedFallback: boolean;
 }> {
-  let apiCalls = { serper: 0, exa: 0, gemini: 0 };
+  const apiCalls = { serper: 0, exa: 0, gemini: 0 };
 
   // Dynamic import
   let runGeminiDeepResearch: typeof import('./gemini-research').runGeminiDeepResearch;

@@ -121,6 +121,7 @@ describe('buildPrompt — integration', () => {
 
 const hasCli = (() => {
   try {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     require('child_process').execSync('which claude', { stdio: 'pipe' });
     return true;
   } catch { return false; }

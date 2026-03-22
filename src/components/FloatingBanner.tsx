@@ -27,9 +27,7 @@ export default function FloatingBanner() {
     window.addEventListener('scroll', handleScroll, { passive: true });
 
     // Check immediately in case user already scrolled
-    if (window.scrollY > 300) {
-      setVisible(true);
-    }
+    handleScroll();
 
     return () => {
       window.removeEventListener('scroll', handleScroll);

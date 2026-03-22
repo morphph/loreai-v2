@@ -68,7 +68,7 @@ const VOLUME_MAP: Record<string, number> = {
  * Normalize a raw keyword string. Returns null if invalid.
  */
 export function normalizeKeyword(raw: string): string | null {
-  let kw = raw
+  const kw = raw
     .toLowerCase()
     .trim()
     .replace(/\s+/g, ' ')

@@ -47,8 +47,8 @@ export async function runGeminiDeepResearch(
     }
 
     console.warn(`[RESEARCH] Python exited 0 but output file not found`);
-  } catch (err: any) {
-    console.warn(`[RESEARCH] Gemini research failed: ${err.message}`);
+  } catch (err: unknown) {
+    console.warn(`[RESEARCH] Gemini research failed: ${(err as Error).message}`);
   }
 
   // Fallback: write minimal context so writers can still produce content

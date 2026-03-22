@@ -157,6 +157,7 @@ describe('loadJobs', () => {
         if (sql.includes('FROM keywords')) return { all: mockSecondaryAll };
         return { all: vi.fn().mockReturnValue([]) };
       }),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any);
 
     const jobs = loadJobs({
@@ -175,11 +176,13 @@ describe('loadJobs', () => {
     const mockAll = vi.fn().mockReturnValue([]);
     mockGetDb.mockReturnValue({
       prepare: vi.fn().mockReturnValue({ all: mockAll }),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any);
 
     loadJobs({ limit: 3, dryRun: false, enOnly: false, skipValidation: false });
 
     // The SQL should include LIMIT
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const sqlCall = mockGetDb().prepare as any;
     expect(mockAll).toHaveBeenCalled();
   });
@@ -205,6 +208,7 @@ describe('loadJobs', () => {
         if (sql.includes('FROM create_queue')) return { all: mockAll };
         return { all: mockSecondaryAll };
       }),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any);
 
     const jobs = loadJobs({
@@ -223,6 +227,7 @@ describe('loadJobs', () => {
     const mockAll = vi.fn().mockReturnValue([]);
     mockGetDb.mockReturnValue({
       prepare: vi.fn().mockReturnValue({ all: mockAll }),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any);
 
     loadJobs({
@@ -602,6 +607,7 @@ describe('generateContent', () => {
         get: vi.fn().mockReturnValue(null),
         all: vi.fn().mockReturnValue([]),
       }),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } as any);
   });
 

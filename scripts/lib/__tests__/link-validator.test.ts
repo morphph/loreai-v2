@@ -29,6 +29,7 @@ function mockDbWith(contentRows: Array<{ slug: string; title: string | null }> =
       get: mockGet,
       all: mockAll,
     }),
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } as any);
   return { mockGet, mockAll };
 }
@@ -120,7 +121,7 @@ describe('validateLinks', () => {
   });
 
   test('handles ZH content paths correctly', () => {
-    mockExistsSync.mockImplementation((p: any) => {
+    mockExistsSync.mockImplementation((p: unknown) => {
       return String(p).includes('/zh/');
     });
     const md = 'See [test](/glossary/test) here.';
@@ -129,7 +130,7 @@ describe('validateLinks', () => {
   });
 
   test('handles mixed valid and broken links', () => {
-    mockExistsSync.mockImplementation((p: any) => {
+    mockExistsSync.mockImplementation((p: unknown) => {
       return String(p).includes('claude-code');
     });
     const md =
@@ -142,7 +143,7 @@ describe('validateLinks', () => {
   });
 
   test('handles blog links', () => {
-    mockExistsSync.mockImplementation((p: any) => {
+    mockExistsSync.mockImplementation((p: unknown) => {
       return String(p).includes('/blog/en/my-post');
     });
     const md = '[My Post](/blog/my-post)';
