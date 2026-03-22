@@ -1,0 +1,228 @@
+{
+  "date": "2026-03-16",
+  "headline_hook": "Anthropic Drops $100M on Partners While 1M Context Goes Free and Codex Gets GPT-5.3",
+  "preview_topics": [
+    "Claude's double-usage weekend blitz",
+    "MCP's hidden token tax",
+    "the three-horse frontier race"
+  ],
+  "pick_of_the_day": {
+    "item_id": 7061,
+    "thesis": "MCP's tool-loading overhead reveals that the industry standardized on an integration protocol before solving the economics — and CLI-based alternatives cutting 96-99% of token waste suggest the real MCP killer isn't a better protocol, it's not using one at all."
+  },
+  "model_literacy": {
+    "concept": "Context Window vs. Effective Context",
+    "relevance": "Claude's 1M context going GA sounds like a solved problem, but research consistently shows models degrade on needle-in-haystack tasks well before hitting their stated limit. Understanding the gap between advertised and effective context is critical for anyone designing RAG-vs-long-context architectures."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 6576,
+          "title": "Claude Doubles Usage Off-Peak Through March 27",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Anthropic is buying weekend and evening adoption with a 2x usage boost across all Claude surfaces — a growth play that signals off-peak capacity is going unused",
+          "key_fact": "2x usage on weekends and off-peak weekday hours through March 27, across claude.ai, Cowork, and Claude Code"
+        },
+        {
+          "id": 6577,
+          "title": "1M Context Window Goes GA for Claude — No Extra Cost",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The long-context price premium era is over — Anthropic bundles 1M tokens into existing Max/Team/Enterprise plans, making context a commodity rather than an upsell",
+          "key_fact": "1M context now GA for Opus 4.6 and Sonnet 4.6, included in Max/Team/Enterprise at no extra cost"
+        },
+        {
+          "id": 6441,
+          "title": "Anthropic Commits $100M to Claude Partner Network",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The enterprise AI war has shifted from model quality to distribution — this $100M bet says Anthropic believes integrations and channel partnerships will determine who wins the enterprise",
+          "key_fact": "$100M investment into partner ecosystem for Claude integrations"
+        },
+        {
+          "id": 6674,
+          "title": "GPT-5.3-Codex Lands in OpenAI's Codex Product",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "OpenAI pairs its dedicated coding model with its agentic coding environment — a direct answer to Claude Code's Opus integration that makes the coding agent war a two-product race",
+          "key_fact": "GPT-5.3-Codex now available inside OpenAI's Codex agentic coding tool"
+        },
+        {
+          "id": 7103,
+          "title": "Qwen3.5-122B Delivers Frontier Knowledge at Mid-Tier Cost",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Alibaba's latest MoE model uses only 10B active parameters out of 122B total, making frontier-class reasoning affordable — already at 438K downloads",
+          "key_fact": "122B total parameters, 10B active; 438K downloads on HuggingFace"
+        },
+        {
+          "id": 6696,
+          "title": "Gemini Brings Multi-Step Reasoning to Google Maps",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "One of the clearest examples of LLMs improving a product billions already use — Maps now reasons across 300M+ community photos to answer complex natural-language queries",
+          "key_fact": "Reasoning across 300M+ community photos and reviews for complex queries"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 6504,
+          "title": "Claude Code Now Starts from Your Phone",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Remote-control coding sessions from mobile turns dead time into productive time — start a refactor from the couch, review on the train",
+          "key_fact": "Spawn and manage Claude Code sessions on your laptop from your phone"
+        },
+        {
+          "id": 7093,
+          "title": "GLM-OCR Hits 2.6M Downloads as the Go-To Document Extraction Model",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Zhipu AI's dedicated OCR model is trending hard on HuggingFace — if you're doing document extraction, benchmark this against your current pipeline",
+          "key_fact": "2.6M downloads and 1.2K likes on HuggingFace"
+        },
+        {
+          "id": 6429,
+          "title": "NVIDIA NeMo Retriever Moves Beyond Semantic Similarity to Agentic Search",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The model actively plans and executes multi-step search strategies — a practical upgrade for anyone hitting the ceiling with vanilla vector search",
+          "key_fact": "Agentic retrieval with multi-step search planning, not just semantic similarity"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 7061,
+          "title": "MCP's Hidden Token Tax: Why CLI Beats Protocol",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "Every connected MCP server loads ALL tool definitions every turn — tools like mcp2cli claim 96-99% token savings by converting to on-demand CLI commands",
+          "key_fact": "96-99% token savings by replacing MCP servers with on-demand CLI commands"
+        },
+        {
+          "id": 6423,
+          "title": "Post-RAG Retrieval: Hybrid Search and Agentic Patterns",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Turbopuffer's Simon Eskildsen breaks down how retrieval architecture needs to evolve beyond naive RAG — covering hybrid search and database design for agentic retrieval",
+          "key_fact": "Covers hybrid search, agentic retrieval patterns, and database design for post-RAG era"
+        },
+        {
+          "id": 7106,
+          "title": "Prompt Injection Meets Real Credentials: Your Agent's Threat Model",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "If you're deploying agents with tool access and real credentials, this breakdown of web-browsing prompt injection attacks is required reading",
+          "key_fact": "Detailed attack taxonomy for AI agents browsing the web with real credentials"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 6680,
+          "title": "GPT-5.4 Tops CursorBench While Using Fewer Tokens",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "OpenAI is optimizing for cost-per-correct-completion — the metric that actually matters for coding agents — not just raw accuracy",
+          "key_fact": "Leads CursorBench on correctness with more efficient token usage than competitors"
+        },
+        {
+          "id": 6981,
+          "title": "PostTrainBench Tests Whether AI Agents Can Automate RLHF and DPO",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A new benchmark evaluates whether frontier agents can handle the full post-training pipeline — the work that makes models actually useful",
+          "key_fact": "Evaluates agents on RLHF, DPO, evaluation, and iteration tasks"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 6954,
+          "title": "Carmack: Training AI on Open Source Is Consistent with the Gift",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A heavyweight voice enters the OSS-vs-AI-training debate — his million+ lines of open source were gifts to humanity, and AI training honors that intent",
+          "key_fact": "3,302 likes — Carmack's personal stance on training AI on his own open-source code"
+        },
+        {
+          "id": 6861,
+          "title": "Frontier AI Consolidates Into a Three-Horse Race",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Mollick argues Anthropic, OpenAI, and Google have pulled away while xAI and Meta lose ground — a useful framing for build-vs-buy decisions",
+          "key_fact": "Based on Grok 4.2 benchmarks and recent reporting, three labs lead; xAI and Meta falling behind"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 6773,
+          "title": "Real-Time Video Captioning Runs Entirely in Your Browser",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Liquid AI's LFM2-VL via WebGPU proves meaningful vision models can run client-side — no server, no latency, full privacy",
+          "key_fact": "Real-time video captioning in-browser via WebGPU, zero server round-trips"
+        },
+        {
+          "id": 6841,
+          "title": "Shopify CEO Uses AI to Speed Up the Template Engine He Built 20 Years Ago",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "AI-assisted autoresearch optimizes mature production code — 53% faster parsing on a 20-year-old codebase proves AI isn't just for greenfield",
+          "key_fact": "53% faster parsing, 61% fewer allocations in Liquid template engine"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 6677,
+      "title": "GPT-5.4 Image Encoder Fix Quietly Improves Vision Quality",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Re-test your image inputs — a bug fix meaningfully improves understanding",
+      "key_fact": "Image encoder bug fix for GPT-5.4 improves image understanding quality"
+    },
+    {
+      "id": 6855,
+      "title": "Every AI VC Bet Is Implicitly a Bet Against the Big Three",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "With 5-8 year exits, most AI startup bets assume the labs won't achieve their stated goals",
+      "key_fact": "VC exit timelines outlast the labs' own capability roadmaps"
+    },
+    {
+      "id": 6916,
+      "title": "Sakana AI Wins Japan Ministry of Defense Contract",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Sovereign AI capabilities becoming a national security priority globally",
+      "key_fact": "Multi-year defense contract for multimodal intelligence analysis"
+    },
+    {
+      "id": 7043,
+      "title": "gigabrain Unifies Memory Across Claude Code, Codex, and OpenClaw",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "One persistent memory layer shared across three coding agent runtimes",
+      "key_fact": "v0.5.3 — unified memory OS for Claude Code, Codex, and OpenClaw"
+    }
+  ],
+  "total_items": 22
+}

@@ -26,7 +26,6 @@ import { todaySGT } from './lib/date.js';
 import { callClaudeWithRetry, callZhNewsletterWithFallback } from './lib/ai';
 import { validateWeeklyNewsletter, validateWeeklyZhNewsletter } from './lib/validate';
 import { upsertContent, closeDb } from './lib/db';
-import { getClusterChanges, type ClusterChange } from './lib/cluster-changes';
 
 
 // --- Args ---
@@ -378,30 +377,6 @@ function stage4_selectTop5(stories: WeeklyStory[]): WeeklyStory[] {
 }
 
 // ============================================================
-// STAGE 4b: Load Cluster Changes
-// ============================================================
-
-function stage4b_clusterChanges(): ClusterChange[] {
-  console.log('\n🎯 Stage 4b: Load Cluster Changes');
-  const changes = getClusterChanges(WEEKDAYS[0], WEEK_END);
-
-  if (changes.length === 0) {
-    console.log('  No cluster changes this week');
-    return [];
-  }
-
-  const totalChanges = changes.reduce((sum, c) => sum + c.changes.length, 0);
-  console.log(`  Found ${totalChanges} changes across ${changes.length} clusters`);
-  for (const c of changes) {
-    console.log(`    ${c.pillar_topic}: ${c.changes.length} changes`);
-    for (const ch of c.changes) {
-      console.log(`      [${ch.action}] ${ch.type}: ${ch.title}`);
-    }
-  }
-  return changes;
-}
-
-// ============================================================
 // Engagement formatting (ported from write-newsletter.ts)
 // ============================================================
 
@@ -487,7 +462,7 @@ function videoPosts(): { en: VideoPost[]; zh: VideoPost[] } {
 // STAGE 5: Generate EN Weekly
 // ============================================================
 
-async function stage5_generateEN(top5: WeeklyStory[], clusterChanges: ClusterChange[] = []): Promise<string> {
+async function stage5_generateEN(top5: WeeklyStory[]): Promise<string> {
   console.log('\n📝 Stage 5: Generate EN Weekly');
 
   const skillPath = path.join(process.cwd(), 'skills', 'newsletter-weekly-en', 'SKILL.md');
@@ -533,22 +508,7 @@ async function stage5_generateEN(top5: WeeklyStory[], clusterChanges: ClusterCha
 Write the weekly AI digest for the week of ${WEEKDAYS[0]} to ${WEEKDAYS[WEEKDAYS.length - 1]}.
 You have 5 stories to cover. Output ONLY the newsletter markdown. No frontmatter, no meta-commentary.`;
 
-  let topicUpdatesSection = '';
-  if (clusterChanges.length > 0) {
-    topicUpdatesSection = '\n\n## Topic Updates This Week\n\n';
-    topicUpdatesSection += 'If any of these topic cluster pages were published or updated this week, ';
-    topicUpdatesSection += 'include a "Topic Updates" section after the 5 stories ';
-    topicUpdatesSection += '(and after Deep Reads if present) with a brief mention and link for each:\n';
-    for (const cluster of clusterChanges) {
-      topicUpdatesSection += `\n### ${cluster.pillar_topic}\n`;
-      for (const change of cluster.changes) {
-        const verb = change.action === 'created' ? 'New' : 'Updated';
-        topicUpdatesSection += `- ${verb}: "${change.title}" → ${change.url_path}\n`;
-      }
-    }
-  }
-
-  const userPrompt = `Write the weekly AI digest for ${WEEK_SLUG} (week of ${WEEKDAYS[0]} to ${WEEKDAYS[WEEKDAYS.length - 1]}) using these top 5 stories:\n\n${storiesText}${videoSection}${topicUpdatesSection}`;
+  const userPrompt = `Write the weekly AI digest for ${WEEK_SLUG} (week of ${WEEKDAYS[0]} to ${WEEKDAYS[WEEKDAYS.length - 1]}) using these top 5 stories:\n\n${storiesText}${videoSection}`;
 
   const response = await callClaudeWithRetry(systemPrompt, userPrompt, {
     maxTokens: 8192,
@@ -567,7 +527,7 @@ You have 5 stories to cover. Output ONLY the newsletter markdown. No frontmatter
 // STAGE 6: Generate ZH Weekly (fallback cascade)
 // ============================================================
 
-async function stage6_generateZH(top5: WeeklyStory[], clusterChanges: ClusterChange[] = []): Promise<string> {
+async function stage6_generateZH(top5: WeeklyStory[]): Promise<string> {
   console.log('\n📝 Stage 6: ZH Weekly (fallback cascade)');
 
   const skillPath = path.join(process.cwd(), 'skills', 'newsletter-weekly-zh', 'SKILL.md');
@@ -606,20 +566,7 @@ async function stage6_generateZH(top5: WeeklyStory[], clusterChanges: ClusterCha
     }
   }
 
-  let zhTopicUpdatesSection = '';
-  if (clusterChanges.length > 0) {
-    zhTopicUpdatesSection = '\n\n## 本周专题更新\n\n';
-    zhTopicUpdatesSection += '如果以下专题页面本周有发布或更新，请在5个故事之后加一个「本周专题更新」板块，简要介绍并附链接：\n';
-    for (const cluster of clusterChanges) {
-      zhTopicUpdatesSection += `\n### ${cluster.pillar_topic}\n`;
-      for (const change of cluster.changes) {
-        const verb = change.action === 'created' ? '新增' : '更新';
-        zhTopicUpdatesSection += `- ${verb}：「${change.title}」→ ${change.url_path}\n`;
-      }
-    }
-  }
-
-  const userPrompt = `以下是本周5大AI热门故事的数据：\n\n${storiesText}${zhVideoSection}${zhTopicUpdatesSection}`;
+  const userPrompt = `以下是本周5大AI热门故事的数据：\n\n${storiesText}${zhVideoSection}`;
 
   const response = await callZhNewsletterWithFallback(systemPrompt, userPrompt, validateWeeklyZhNewsletter);
 
@@ -743,9 +690,6 @@ async function main() {
   // Stage 4
   const top5 = stage4_selectTop5(rankedStories);
 
-  // Stage 4b
-  const clusterChanges = stage4b_clusterChanges();
-
   if (DRY_RUN) {
     console.log('\n📝 Stage 5: EN Weekly (dry-run — skipped)');
     console.log('📝 Stage 6: ZH Weekly (dry-run — skipped)');
@@ -757,8 +701,8 @@ async function main() {
 
   // Stage 5 & 6 (EN + ZH in parallel)
   const [enContent, zhContent] = await Promise.all([
-    stage5_generateEN(top5, clusterChanges),
-    stage6_generateZH(top5, clusterChanges),
+    stage5_generateEN(top5),
+    stage6_generateZH(top5),
   ]);
 
   // Stage 7

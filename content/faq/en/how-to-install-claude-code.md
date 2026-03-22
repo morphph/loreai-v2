@@ -37,13 +37,9 @@ Once installed, Claude Code connects to Anthropic's [Claude](/glossary/claude) m
 - **Command not found after install**: Ensure your npm global bin directory is in your `PATH`
 - **Windows users**: Install WSL 2 first (`wsl --install`), then install Node.js and Claude Code inside the WSL environment
 
-For the full picture, see the [complete guide to Claude Code](/blog/claude-code-complete-guide) and the [Claude Code topic hub](/topics/claude-code).
-
 ## Related Questions
 
 - [How Much Does Claude Code Cost?](/faq/how-much-does-claude-code-cost)
-- [Can Claude Code Run on Windows?](/faq/claude-code-windows)
-- [What is Claude Code?](/faq/what-is-claude-code)
 
 ---
 

@@ -1,0 +1,236 @@
+{
+  "date": "2026-03-19",
+  "headline_hook": "GPT-5.4 Mini Drops as Claude Dispatch Goes Always-On and Mistral Forges an Enterprise Play",
+  "preview_topics": [
+    "OpenAI's speed-optimized GPT-5.4 lineup",
+    "Anthropic's persistent AI assistant",
+    "DeepMind's AGI measurement framework"
+  ],
+  "pick_of_the_day": {
+    "item_id": 9272,
+    "thesis": "The Snowflake sandbox escape isn't just a bug report — it's proof that enterprise AI security theater is crumbling faster than companies can deploy, and the timing alongside Google and Anthropic's open-source security investments this same week reveals an industry quietly bracing for the inevitable breach."
+  },
+  "model_literacy": {
+    "concept": "Model Distillation vs. Architecture Variants",
+    "relevance": "GPT-5.4 mini and nano aren't just smaller models — they're distilled variants optimized for specific task profiles (coding, computer use, subagents). Understanding distillation explains why 'mini' can outperform the original on targeted benchmarks while costing a fraction."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 8095,
+          "title": "OpenAI Ships GPT-5.4 Mini and Nano — 2x Faster, Built for Agents",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The speed-optimized GPT-5.4 family targets the exploding subagent and computer-use market where latency matters more than peak intelligence",
+          "key_fact": "2x faster than GPT-5 mini across coding, computer use, and multimodal tasks"
+        },
+        {
+          "id": 8917,
+          "title": "Mistral Launches Forge: Train Frontier Models on Your Own Data",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Enterprise fine-tuning just became a three-way fight — Mistral bets that proprietary data grounding, not raw scale, wins the enterprise wallet",
+          "key_fact": "Trains frontier-grade models grounded in enterprise-specific workflows, policies, and internal context"
+        },
+        {
+          "id": 7870,
+          "title": "Google Rolls Personal Intelligence Across Search, Gemini, and Chrome",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Google is betting the consumer AI war will be won on personalization, not benchmark scores — embedding user context across its entire product surface",
+          "key_fact": "Personalized AI now spans Search, Gemini app, and Chrome simultaneously"
+        },
+        {
+          "id": 8212,
+          "title": "IBM Granite 4.0 1B Speech: Multilingual Voice Model Small Enough for Edge",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A 1B speech model that runs on-device opens the door for offline multilingual assistants without cloud round-trips",
+          "key_fact": "1B parameters — compact enough for edge deployment"
+        },
+        {
+          "id": 9252,
+          "title": "Baidu's Qianfan-OCR Reasons About Document Layout, Not Just Characters",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Document intelligence is getting crowded fast — layout-aware OCR is the new minimum bar",
+          "key_fact": "4B end-to-end model with document layout reasoning"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 8711,
+          "title": "Claude Dispatch: Your Persistent AI That Runs While You Sleep",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "14.6K likes reveal the pent-up demand for AI that doesn't vanish when you close the tab — Dispatch turns Claude into a background teammate you message from your phone",
+          "key_fact": "14,611 likes — the most viral Anthropic product launch this quarter"
+        },
+        {
+          "id": 9218,
+          "title": "Google Colab Ships Open-Source MCP Server for Remote GPU Access",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Any MCP-compatible agent can now spin up Colab GPUs — this is the 'SSH into cloud GPUs' moment for the agent ecosystem",
+          "key_fact": "Works with Gemini CLI, Antigravity, and any MCP client"
+        },
+        {
+          "id": 8548,
+          "title": "Leanstral: Mistral Open-Sources an Agent for Formal Proof Engineering",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Code generation backed by mathematical proofs — Mistral tackles the trust gap that blocks AI from safety-critical codebases",
+          "key_fact": "First major open-source agent purpose-built for Lean formal verification"
+        },
+        {
+          "id": 9276,
+          "title": "Google's Sashiko Brings AI Code Review to the Linux Kernel",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "If AI code review can pass muster with kernel maintainers, it validates the approach for every codebase downstream",
+          "key_fact": "Targets Linux kernel — the most demanding code review environment in open source"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 7136,
+          "title": "Simon Willison Defines 'Agentic Engineering' as a Discipline",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "As every tool adds agents, Willison's patterns guide is becoming the shared vocabulary the field desperately needs",
+          "key_fact": "Chapter 12 of his agentic engineering patterns reference guide"
+        },
+        {
+          "id": 8279,
+          "title": "Hands-On Workshop: Coding Agents for Data Journalism",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Practical, steal-this-handout materials for using Codex CLI and Claude Code on real data exploration tasks",
+          "key_fact": "NICAR workshop handout — immediately reusable by any data practitioner"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 8596,
+          "title": "DeepMind Proposes a Standard Yardstick for Measuring AGI Progress",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "The industry's biggest missing piece is a shared definition of progress — DeepMind's cognitive framework plus $200K hackathon is a bid to own that definition",
+          "key_fact": "$200K Kaggle hackathon to crowdsource cognitive evals"
+        },
+        {
+          "id": 8295,
+          "title": "RCT Proves AI Tutoring Works: 0.15 SD Gain Equals 6-9 Months of School",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "This is the strongest causal evidence yet — not a vibe check, a randomized controlled trial showing GPT-4o tutoring produces real learning gains",
+          "key_fact": "0.15 standard deviation improvement, equivalent to 6-9 months of additional schooling"
+        },
+        {
+          "id": 7875,
+          "title": "NVIDIA Opens First Dataset and Models for Healthcare Robotics",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Physical AI meets healthcare — the first open foundation for medical robotics research",
+          "key_fact": "First open dataset and foundation models specifically for healthcare robotics"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 8193,
+          "title": "Mistral and NVIDIA Partner to Co-Build Frontier Open-Source Models",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "NVIDIA is becoming the kingmaker — co-developing models with yet another lab cements its position as the compute layer every AI company depends on",
+          "key_fact": "Strategic partnership combining Mistral's architecture with NVIDIA's full compute stack"
+        },
+        {
+          "id": 9272,
+          "title": "Snowflake AI Escapes Its Sandbox and Runs Malware",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "As enterprises rush AI into production, this sandbox escape proves that AI security is harder than 'just containerize it'",
+          "key_fact": "Security researchers achieved actual malware execution from within a Snowflake AI sandbox"
+        },
+        {
+          "id": 8720,
+          "title": "Anthropic's 81,000-Person Survey Reveals What Users Actually Do with AI",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The largest qualitative AI user study ever — the gap between what people do, hope for, and fear should recalibrate every product roadmap",
+          "key_fact": "81,000 responses collected in a single week"
+        },
+        {
+          "id": 7996,
+          "title": "Google and Anthropic Both Invest in Open Source Security This Week",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Two leading labs funding open-source security in the same week signals the industry knows AI-accelerated code is outpacing human review capacity",
+          "key_fact": "Anthropic donates to Linux Foundation; Google launches AI-powered security tools"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 7874,
+          "title": "Holotron-12B: Open Computer Use Agent Built for Throughput",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "As computer use becomes table stakes for agents, an open 12B alternative to proprietary models lowers the barrier for builders",
+          "key_fact": "12B parameter model purpose-built for high-throughput computer use"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 8740,
+      "title": "Code with Claude Dev Conference Goes Global: SF, London, Tokyo",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Anthropic's developer conference expands to three cities with workshops and office hours",
+      "key_fact": "Three cities, remote viewing available"
+    },
+    {
+      "id": 7871,
+      "title": "Google Ships AI-Powered Open Source Security Tools",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "New tooling for AI-era supply chain security",
+      "key_fact": "AI-powered vulnerability detection for open-source projects"
+    },
+    {
+      "id": 7873,
+      "title": "State of Open Source on Hugging Face: Spring 2026",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Periodic health check on model uploads, dataset growth, and community trends",
+      "key_fact": "Spring 2026 ecosystem snapshot"
+    },
+    {
+      "id": 9274,
+      "title": "Full Hacker News Archive as Queryable Parquet — Updated Every 5 Minutes",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "47M+ items in clean Parquet format for training, analysis, or tooling",
+      "key_fact": "11.6GB dataset with near-real-time updates"
+    }
+  ],
+  "total_items": 23
+}

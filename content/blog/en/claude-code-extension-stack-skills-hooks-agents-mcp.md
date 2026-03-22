@@ -201,7 +201,7 @@ sequenceDiagram
 
 **Model Context Protocol** ([MCP](https://modelcontextprotocol.io)) is Anthropic's open standard for connecting AI models to external tools and data sources. Announced in November 2024, it's now the most widely adopted protocol for AI-tool connectivity, with 1,000+ community-built servers covering databases, APIs, cloud infrastructure, and internal tools.
 
-In Claude Code, [MCP servers](/glossary/model-context-protocol) run as persistent processes that expose tools through a standardized JSON-RPC interface. Configure a PostgreSQL MCP server, and Claude Code can query your database directly. Add a GitHub MCP server, and it can create PRs, review code, manage issues — all without leaving the terminal.
+In Claude Code, [MCP servers](/glossary/mcp-server) run as persistent processes that expose tools through a standardized JSON-RPC interface. Configure a PostgreSQL MCP server, and Claude Code can query your database directly. Add a GitHub MCP server, and it can create PRs, review code, manage issues — all without leaving the terminal.
 
 **How MCP differs from function calling:**
 
@@ -296,7 +296,7 @@ Yes, with caveats. **PreToolUse** hooks run before Claude executes a tool — wr
 
 ### How does MCP in Claude Code differ from function calling in the Anthropic API?
 
-Function calling in the [Claude API](/glossary/claude) requires you to define tools in each API request and handle the execution loop yourself — your code calls the model, parses tool calls, executes them, sends results back. MCP is a persistent protocol: MCP servers run as separate processes that Claude Code discovers and connects to automatically. The server handles execution, state management, and resource access. The practical difference: you can share MCP servers across tools (Claude Code, Cursor, Zed) and across team members without reimplementing the integration for each client.
+Function calling in the [Claude API](/glossary/claude-api) requires you to define tools in each API request and handle the execution loop yourself — your code calls the model, parses tool calls, executes them, sends results back. MCP is a persistent protocol: MCP servers run as separate processes that Claude Code discovers and connects to automatically. The server handles execution, state management, and resource access. The practical difference: you can share MCP servers across tools (Claude Code, Cursor, Zed) and across team members without reimplementing the integration for each client.
 
 ### Is the extension stack secure enough for enterprise use?
 
@@ -314,7 +314,7 @@ Yes — composability is the whole point. A practical example: you create a Skil
 - [Claude Code Overview](https://docs.anthropic.com/en/docs/claude-code/overview) — Anthropic, 2025-02-24
 - [MCP Server Registry](https://github.com/modelcontextprotocol/servers) — Anthropic / Community, 2024-11-25
 
-**Related**: [Today's newsletter](/newsletter/2026-03-13) covers the broader AI landscape. See also: [What is Claude Code?](/glossary/claude-code) and [What is MCP?](/glossary/model-context-protocol).
+**Related**: [Today's newsletter](/newsletter/2026-03-13) covers the broader AI landscape. See also: [What is Claude Code?](/glossary/claude-code) and [What is MCP?](/glossary/mcp-server).
 
 ---
 

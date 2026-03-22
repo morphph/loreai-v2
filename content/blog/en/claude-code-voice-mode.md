@@ -17,7 +17,7 @@ video_status: none
 
 # Claude Code Voice Mode: Hands-Free AI Coding Arrives
 
-**Claude Code** is rolling out **voice mode**, letting developers speak coding instructions instead of typing them. For a CLI tool that already handles everything from git operations to multi-file refactors, adding voice input removes one of the last friction points: the keyboard itself. Boris Cherny, who leads Claude Code at Anthropic, has been [using voice mode to write CLI code](https://x.com/bcherny/status/2028629573722939789) for the past week — and the feature is now reaching users. This is part of a broader push that's seen Claude Code ship [HTTP hooks](https://x.com/bcherny/status/2029339111212126458), [remote access](/blog/claude-code-remote-control-mobile), and [new skills](/glossary/claude-md) in rapid succession.
+**Claude Code** is rolling out **voice mode**, letting developers speak coding instructions instead of typing them. For a CLI tool that already handles everything from git operations to multi-file refactors, adding voice input removes one of the last friction points: the keyboard itself. Boris Cherny, who leads Claude Code at Anthropic, has been [using voice mode to write CLI code](https://x.com/bcherny/status/2028629573722939789) for the past week — and the feature is now reaching users. This is part of a broader push that's seen Claude Code ship [HTTP hooks](https://x.com/bcherny/status/2029339111212126458), [remote access](/blog/claude-code-remote-control-mobile), and [new skills](/glossary/skill-md) in rapid succession.
 
 ## What Happened
 
@@ -37,7 +37,7 @@ Claude Code's approach sidesteps this entirely. You're not dictating code — yo
 
 This matters most in three scenarios. First, **accessibility**: developers with repetitive strain injuries or motor disabilities gain a fully functional coding interface. Second, **mobile workflows**: combined with [Claude Code Remote](/blog/claude-code-remote-control-mobile), voice mode means you can push a hotfix from your phone without a keyboard. Third, **rapid prototyping**: when you're sketching out architecture or exploring approaches, speaking is simply faster than typing for most people.
 
-The competitive landscape is worth noting. [Cursor](/glossary/cursor) doesn't offer voice input. Neither does GitHub Copilot's current VS Code integration. Windsurf and other AI editors are similarly keyboard-only. Claude Code is staking out a differentiated position: a CLI tool that you can talk to.
+The competitive landscape is worth noting. [Cursor](/glossary/cursor) doesn't offer voice input. Neither does GitHub Copilot's current VS Code integration. Windsurf and other AI editors are similarly keyboard-only. Claude Code is staking out a differentiated position: a [CLI](/glossary/cli) tool that you can talk to.
 
 ## Technical Deep-Dive
 

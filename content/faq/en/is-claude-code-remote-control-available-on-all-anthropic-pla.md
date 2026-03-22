@@ -30,7 +30,7 @@ For organizations, **Team** and **Enterprise** plans include Claude Code access 
 
 ## Related Questions
 
-- [Claude Code vs Cursor](/compare/claude-code-vs-cursor)
+- [What is the difference between Claude Code and Cursor?](/faq/what-is-the-difference-between-claude-code-and-cursor)
 
 ---
 

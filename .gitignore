@@ -43,15 +43,6 @@ loreai.db
 loreai.db-wal
 loreai.db-shm
 
-# GSC service account key (credentials — never commit)
-config/gsc-service-account.json
-
-# GSC exports (real data, not for git)
-data/gsc-exports/*.csv
-
-# Freshness signal cache (transient, rebuilt on discovery)
-data/flagship-clusters/.freshness-cache.json
-
 # Review reports
 data/review/
 
@@ -74,3 +65,4 @@ e2e/playwright-report/
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+data/dashboard/

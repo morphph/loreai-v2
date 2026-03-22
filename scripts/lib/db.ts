@@ -82,6 +82,39 @@ function initSchema(db: Database.Database): void {
       subscribed_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       confirmed BOOLEAN DEFAULT 0
     );
+
+    CREATE TABLE IF NOT EXISTS keyword_groups (
+      group_id INTEGER PRIMARY KEY AUTOINCREMENT,
+      primary_keyword TEXT NOT NULL,
+      intent TEXT NOT NULL DEFAULT 'informational',
+      content_type TEXT,
+      priority_score REAL DEFAULT 0,
+      status TEXT NOT NULL DEFAULT 'pending',
+      cluster_slug TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE TABLE IF NOT EXISTS create_queue (
+      job_id INTEGER PRIMARY KEY AUTOINCREMENT,
+      keyword_group_id INTEGER REFERENCES keyword_groups(group_id),
+      content_type TEXT NOT NULL,
+      research_pipeline TEXT NOT NULL DEFAULT 'standard',
+      priority_score REAL DEFAULT 0,
+      status TEXT NOT NULL DEFAULT 'pending',
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      completed_at DATETIME
+    );
+
+    CREATE TABLE IF NOT EXISTS snapshots (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      snapshot_date TEXT NOT NULL,
+      metric_group TEXT NOT NULL,
+      metric_key TEXT NOT NULL,
+      metric_value REAL NOT NULL,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      UNIQUE(snapshot_date, metric_group, metric_key)
+    );
   `);
 
   // Migration: add selected_for_newsletter_at if missing (for existing DBs)
@@ -94,6 +127,21 @@ function initSchema(db: Database.Database): void {
   const subCols = db.prepare("PRAGMA table_info(subscribers)").all() as { name: string }[];
   if (!subCols.some(c => c.name === 'source')) {
     db.exec("ALTER TABLE subscribers ADD COLUMN source TEXT DEFAULT NULL");
+  }
+
+  // Migration: add keyword engine columns to keywords table
+  const kwCols = db.prepare("PRAGMA table_info(keywords)").all() as { name: string }[];
+  if (!kwCols.some(c => c.name === 'search_volume')) {
+    db.exec("ALTER TABLE keywords ADD COLUMN search_volume INTEGER DEFAULT NULL");
+  }
+  if (!kwCols.some(c => c.name === 'competition')) {
+    db.exec("ALTER TABLE keywords ADD COLUMN competition TEXT DEFAULT NULL");
+  }
+  if (!kwCols.some(c => c.name === 'intent')) {
+    db.exec("ALTER TABLE keywords ADD COLUMN intent TEXT DEFAULT NULL");
+  }
+  if (!kwCols.some(c => c.name === 'keyword_group_id')) {
+    db.exec("ALTER TABLE keywords ADD COLUMN keyword_group_id INTEGER DEFAULT NULL");
   }
 }
 
@@ -258,6 +306,69 @@ export function upsertKeyword(keyword: string, source: string, clusterSlug?: str
     ON CONFLICT(keyword) DO UPDATE SET
       cluster_slug = COALESCE(excluded.cluster_slug, cluster_slug)
   `).run(keyword, source, clusterSlug || null);
+}
+
+// --- Recent SEO Pages (for newsletter graph consumer) ---
+
+export interface RecentSeoPage {
+  type: string;
+  slug: string;
+  lang: string;
+  title: string | null;
+  created_at: string;
+}
+
+/**
+ * Returns SEO content pages created in the last N days.
+ * Used by newsletter to surface recently published cluster pages.
+ */
+export function getRecentSeoPages(days: number = 7, lang: string = 'en'): RecentSeoPage[] {
+  const db = getDb();
+  return db.prepare(`
+    SELECT type, slug, lang, title, created_at FROM content
+    WHERE lang = ?
+      AND type NOT IN ('newsletter')
+      AND created_at > datetime('now', '-' || ? || ' days')
+    ORDER BY created_at DESC
+  `).all(lang, days) as RecentSeoPage[];
+}
+
+// --- Snapshots ---
+
+export function writeSnapshot(date: string, group: string, key: string, value: number): void {
+  const db = getDb();
+  db.prepare(`
+    INSERT INTO snapshots (snapshot_date, metric_group, metric_key, metric_value)
+    VALUES (?, ?, ?, ?)
+    ON CONFLICT(snapshot_date, metric_group, metric_key) DO UPDATE SET
+      metric_value = excluded.metric_value
+  `).run(date, group, key, value);
+}
+
+export function writeSnapshots(date: string, metrics: Array<{ group: string; key: string; value: number }>): void {
+  const db = getDb();
+  const stmt = db.prepare(`
+    INSERT INTO snapshots (snapshot_date, metric_group, metric_key, metric_value)
+    VALUES (?, ?, ?, ?)
+    ON CONFLICT(snapshot_date, metric_group, metric_key) DO UPDATE SET
+      metric_value = excluded.metric_value
+  `);
+  const writeAll = db.transaction(() => {
+    for (const m of metrics) {
+      stmt.run(date, m.group, m.key, m.value);
+    }
+  });
+  writeAll();
+}
+
+export function getSnapshots(weeks: number = 12): Array<{ snapshot_date: string; metric_group: string; metric_key: string; metric_value: number }> {
+  const db = getDb();
+  return db.prepare(`
+    SELECT snapshot_date, metric_group, metric_key, metric_value
+    FROM snapshots
+    WHERE snapshot_date >= date('now', '-' || ? || ' days')
+    ORDER BY snapshot_date ASC
+  `).all(weeks * 7) as Array<{ snapshot_date: string; metric_group: string; metric_key: string; metric_value: number }>;
 }
 
 export function closeDb(): void {

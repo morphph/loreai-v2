@@ -13,7 +13,9 @@
     "test:e2e:ui": "playwright test --config=e2e/playwright.config.ts --ui"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^0.80.0",
     "@google/genai": "^1.44.0",
+    "@googleapis/searchconsole": "^6.0.1",
     "@hono/node-server": "^1.19.11",
     "better-sqlite3": "^12.6.2",
     "gray-matter": "^4.0.3",

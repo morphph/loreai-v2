@@ -1,0 +1,228 @@
+{
+  "date": "2026-03-20",
+  "headline_hook": "Mistral Drops a 128-Expert Beast While OpenAI Acquires the Python Toolchain",
+  "preview_topics": [
+    "Mistral's 128-expert MoE flagship",
+    "OpenAI's surprise Astral acquisition",
+    "the open-source AI slop crisis"
+  ],
+  "pick_of_the_day": {
+    "item_id": 9946,
+    "thesis": "OpenAI buying Astral isn't about ruff or uv — it's about owning the developer surface area. When your toolchain vendor is also your model vendor, the lock-in runs deeper than any API contract."
+  },
+  "model_literacy": {
+    "concept": "Mixture of Experts (MoE) — active vs. total parameters",
+    "relevance": "Mistral Small 4 has 119B total params but activates only a fraction per token via 128 experts. This is also why Qwen 3.5 397B runs on a Mac — MoE's sparse activation means 'model size' no longer equals 'memory required.' Understanding the distinction is key to evaluating any MoE benchmark claim."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 9653,
+          "title": "Mistral Small 4: 128 Experts, 256K Context, Configurable Reasoning",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Open-weight MoE with configurable reasoning depth gives builders a serious alternative to proprietary models for agentic workflows",
+          "key_fact": "128 experts, 119B total parameters, 256k context window"
+        },
+        {
+          "id": 9583,
+          "title": "Google AI Studio Goes Full-Stack Vibe Coding",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Prompt-to-app with Firebase backends and multiplayer — Google turns AI Studio from a playground into a production builder",
+          "key_fact": "Full-stack apps with Antigravity agent + Firebase backends, built entirely from prompts"
+        },
+        {
+          "id": 9584,
+          "title": "Google Stitch Graduates Into an AI Design Canvas",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Multimodal design-to-code with a context-aware agent — Google's play to close the Figma-to-frontend gap",
+          "key_fact": "Accepts text, images, and code as input; outputs production-ready front-end code"
+        },
+        {
+          "id": 9788,
+          "title": "Chandra OCR 2 Takes the Open-Source OCR Crown",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "85.9% on olmOCR bench makes proprietary OCR APIs harder to justify for document parsing pipelines",
+          "key_fact": "85.9% on olmOCR bench, beating previous open-source SOTA"
+        },
+        {
+          "id": 9317,
+          "title": "MiniMax 2.7 Matches GLM-5 at One-Third the Cost",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Chinese labs keep closing the frontier gap at a fraction of the compute — cost efficiency is becoming the real benchmark",
+          "key_fact": "GLM-5 level performance at 1/3 the cost"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 9434,
+          "title": "Dispatch Bridges Your Phone to Claude Code Sessions",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Kick off a build from your phone, come back to a working project on desktop — the persistent AI assistant finally closes the loop",
+          "key_fact": "Launch Claude Code sessions directly from Dispatch on mobile"
+        },
+        {
+          "id": 9904,
+          "title": "DESIGN.md: A Portable, Agent-Readable Design System Standard",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Stitch's MCP server lets Claude Code, Cursor, and Gemini CLI read your design system while coding — DESIGN.md is the real interop story",
+          "key_fact": "Works with Claude Code, Cursor, and Gemini CLI via MCP"
+        },
+        {
+          "id": 9901,
+          "title": "11K Users Generating Audio Inside Claude via ElevenLabs MCP",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Media generation as a first-class agent capability — MCP adoption is real and growing fast",
+          "key_fact": "11,000 users generating speech, sound effects, and music via MCP"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 9716,
+          "title": "Qwen 3.5 397B Running on a Mac at 5.7 Tokens/Sec",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "Streaming quantized weights from SSD at 17GB/s means MoE models that were 'too big' last month now run on consumer hardware",
+          "key_fact": "209GB model using only 5.5GB active memory via SSD streaming at 17GB/s"
+        },
+        {
+          "id": 8668,
+          "title": "Intercom's Claude Code Setup: 13 Plugins, 100+ Skills, Hooks",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The most detailed enterprise agent customization case study yet — a blueprint for scaling coding agents across teams",
+          "key_fact": "13 plugins, 100+ skills, deterministic guardrails via hooks"
+        },
+        {
+          "id": 9659,
+          "title": "Local Coding Agents Are Now Practical With Small Models",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Latest small models cross the threshold for useful local agent workflows — zero cost, full privacy",
+          "key_fact": "Small models now capable enough for practical local coding agent use"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 9810,
+          "title": "LeCun Proposes a Cognitive Science-Inspired AI Architecture",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A direct challenge to the 'just scale it' paradigm — biologically-grounded learning as an alternative path",
+          "key_fact": "Co-authored by LeCun, Dupoux, and Malik; proposes moving beyond pure scaling"
+        },
+        {
+          "id": 9327,
+          "title": "NVIDIA's SPEED-Bench Finally Standardizes Speculative Decoding Evals",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Speculative decoding promises 2-3x faster inference but comparisons have been chaos — now there's a standard benchmark",
+          "key_fact": "Unified benchmark covering the technique that yields 2-3x inference speedup"
+        },
+        {
+          "id": 9951,
+          "title": "Neural Cellular Automata as a Pre-Pretraining Step for LLMs",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "If this holds up, NCA pre-pretraining could shave significant compute from the most expensive phase of LLM training",
+          "key_fact": "Novel NCA-based approach targeting the expensive early training phase"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 9946,
+          "title": "Astral (ruff, uv) Is Joining OpenAI",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "OpenAI acquiring the fastest Python tooling team signals a strategic bet on developer infrastructure — not just models, but the entire workflow surface",
+          "key_fact": "Astral — creators of ruff and uv — acquired by OpenAI"
+        },
+        {
+          "id": 9662,
+          "title": "AI Slop PRs Are Making Major Open-Source Repos Unusable",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The externality of zero-friction AI code generation lands squarely on maintainers — a new PR every couple of minutes on major repos",
+          "key_fact": "HuggingFace CEO reports repos are overwhelmed with AI-generated junk PRs"
+        },
+        {
+          "id": 9948,
+          "title": "Maintainers Are Prompt-Injecting Their Own CONTRIBUTING.md",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Creative defense against bot PRs, but also a sign of how broken the current equilibrium is",
+          "key_fact": "Hidden prompt injections in contributor docs to detect and block AI-generated PRs"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 8600,
+          "title": "NVIDIA Nemotron 3 Nano: A 4B Model Built for Phones and Edge",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "At 4B parameters with hybrid architecture, this is practical for anyone shipping local-first AI features without cloud dependency",
+          "key_fact": "4B parameter hybrid model optimized for on-device deployment"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 9394,
+      "title": "Code with Claude Conference Goes Global: SF, London, Tokyo",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Anthropic's developer conference expands to three cities this spring",
+      "key_fact": "Workshops, demos, and office hours with Claude teams"
+    },
+    {
+      "id": 9835,
+      "title": "Gemini 3.0 Stumbles as Competitors Ship",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Google's model pace under scrutiny while rivals accelerate",
+      "key_fact": "Most users still on Gemini 2.5 as 3.0 delays mount"
+    },
+    {
+      "id": 9950,
+      "title": "Scaling Karpathy's Autoresearch Agent to a GPU Cluster",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "What happens when you give a research agent real compute — results and failure modes",
+      "key_fact": "SkyPilot scales single-machine agent to a full cluster"
+    },
+    {
+      "id": 8153,
+      "title": "AlphaFold Database: AI's Proof Case for Accelerating Science",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "DeepMind highlights AlphaFold as foundational infrastructure for biology research",
+      "key_fact": "Database now used by researchers worldwide as standard reference"
+    }
+  ],
+  "total_items": 22
+}

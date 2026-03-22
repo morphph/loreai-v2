@@ -1,0 +1,228 @@
+{
+  "date": "2026-03-12",
+  "headline_hook": "Anthropic Launches Its Policy Institute While Claude Code Ships Side Conversations",
+  "preview_topics": [
+    "the Anthropic Institute's societal AI agenda",
+    "multimodal embeddings hit production",
+    "why Karpathy says we need a bigger IDE"
+  ],
+  "pick_of_the_day": {
+    "item_id": 5263,
+    "thesis": "AlphaEvolve producing novel combinatorics results marks the moment AI stopped being a calculator for known math and started being a collaborator in unknown math — and that distinction reshapes what 'AI for science' actually means."
+  },
+  "model_literacy": {
+    "concept": "Multimodal Embedding Spaces",
+    "relevance": "Gemini Embedding 2 puts text, images, and video into a single vector space — understanding how cross-modal embeddings work explains why retrieval pipelines are about to get dramatically more capable."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 4990,
+          "title": "Anthropic Founds the Anthropic Institute to Tackle AI's Societal Fallout",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Anthropic moves beyond safety research into policy and public engagement — a signal that frontier labs now see societal readiness as a core business function, not a side project.",
+          "key_fact": "Dedicated institute focused on societal challenges from powerful AI"
+        },
+        {
+          "id": 5264,
+          "title": "Google Ships Gemini Embedding 2 — Its First Fully Multimodal Embedding Model",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Text, images, and video in a single embedding space means cross-modal search and RAG pipelines just got a native foundation model instead of stitched-together workarounds.",
+          "key_fact": "First Google embedding model covering text, image, and video in one space"
+        },
+        {
+          "id": 5283,
+          "title": "Meta Ships Four Generations of Custom AI Silicon in Two Years",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Meta's MTIA chip cadence now matches its model cadence — custom silicon is becoming a competitive moat, not a side experiment.",
+          "key_fact": "Four MTIA chip generations in two years"
+        },
+        {
+          "id": 5623,
+          "title": "Fish Audio Drops s2-pro, a Next-Gen Open TTS Model",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Trending on HuggingFace with 240 likes — a serious open-weight option for teams building voice interfaces or audio content pipelines.",
+          "key_fact": "240 likes, trending on HuggingFace"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 5188,
+          "title": "Claude Code Gets /btw — Side Conversations While the Agent Works",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The 'wait or interrupt' dilemma in agentic coding is solved — /btw lets you ask side questions without derailing Claude's main task, and 22K likes says developers were starving for this.",
+          "key_fact": "22,849 likes — most-engaged Claude Code feature drop in weeks"
+        },
+        {
+          "id": 5227,
+          "title": "OpenAI Ships a Codex Skill to Automate GPT-5.4 Migration",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Model migration is now a one-click Codex skill — handles prompt adjustments, compatibility checks, and the swap itself.",
+          "key_fact": "Dedicated Codex skill for automated model migration"
+        },
+        {
+          "id": 5126,
+          "title": "Claude for Excel and PowerPoint Now Share Context Seamlessly",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Cross-app context sharing means spreadsheet data flows into decks without re-explaining — the enterprise workflow unlock Anthropic has been building toward.",
+          "key_fact": "Bidirectional context sync between Excel and PowerPoint integrations"
+        },
+        {
+          "id": 5594,
+          "title": "Gemini CLI Adds Plan Mode for Read-Only Exploration",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Explore and strategize before committing to changes — a safety-first pattern that every agentic CLI should steal.",
+          "key_fact": "Read-only mode separates planning from execution"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 5189,
+          "title": "Why Your Agentic Coding Evals Are Lying to You",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Multi-percentage-point variance between identical eval runs means that single-number model comparisons are noise, not signal — essential context before your next model decision.",
+          "key_fact": "Several percentage points of variance between identical eval runs"
+        },
+        {
+          "id": 4957,
+          "title": "Simon Willison's Patterns for AI-Assisted Code That's Actually Better",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A practical guide that reframes the goal: AI should produce better code, not just faster code. Quality-first agentic engineering patterns.",
+          "key_fact": "Comprehensive pattern guide from one of the most respected voices in AI tooling"
+        },
+        {
+          "id": 4961,
+          "title": "LangChain Breaks Down the Anatomy of an Agent Harness",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The harness is the system that turns model intelligence into useful work — LangChain maps the core components every production agent needs.",
+          "key_fact": "Core architectural breakdown of the model-to-action wrapper layer"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 5263,
+          "title": "AlphaEvolve Establishes New Results in Extremal Combinatorics",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "DeepMind's system is now producing novel mathematical proofs, not just verifying known ones — AI as a genuine collaborator in pure math research.",
+          "key_fact": "New results in extremal combinatorics established by AI"
+        },
+        {
+          "id": 5323,
+          "title": "NVIDIA Cosmos Policy Connects World Models to Robot Control",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Bridging the sim-to-real gap: Cosmos Policy turns simulation-trained world foundation models into unified controllers for physical robots.",
+          "key_fact": "World foundation model → robot manipulation policy pipeline"
+        },
+        {
+          "id": 4978,
+          "title": "NVIDIA Publishes Methodology for Synthetic Code Training Data from Concept Seeds",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A replicable recipe for generating high-quality synthetic code data — practical for anyone fine-tuning code models without enough real training data.",
+          "key_fact": "Large-scale synthetic dataset generated from programming concept seeds"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 5342,
+          "title": "Karpathy: The IDE Isn't Dying — It Needs to Level Up",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The basic unit of programming work is shifting upward, and tooling must match — Karpathy's 'bigger IDE' thesis reframes the agentic coding debate from 'will devs disappear' to 'what do devs need next.'",
+          "key_fact": "2,920 likes — the most-engaged take on dev tooling evolution this week"
+        },
+        {
+          "id": 5652,
+          "title": "Security Researchers Use an AI Agent to Hack McKinsey's AI Platform",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "AI-on-AI attack surfaces are real and here now — a case study every enterprise deploying agents needs to read before their next security review.",
+          "key_fact": "Detailed writeup of AI agent compromising a major consulting firm's AI platform"
+        },
+        {
+          "id": 4991,
+          "title": "Anthropic Opens Sydney Office — Fourth in Asia-Pacific",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Tokyo, Bengaluru, Seoul, now Sydney — Anthropic's APAC expansion signals both a talent play and regulatory engagement across four distinct AI markets.",
+          "key_fact": "Fourth APAC office after Tokyo, Bengaluru, and Seoul"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 5653,
+          "title": "Open-Source Browser Protocol Built for AI Agents",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Standard browsers weren't designed for agents — this protocol handles navigation, interaction, and extraction natively for autonomous workflows.",
+          "key_fact": "Open-source, purpose-built for agent browsing patterns"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 4589,
+      "title": "HuggingFace Ships S3-Like Storage Buckets with Xet Dedup",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Mutable storage optimized for AI checkpoints — fills the biggest gap in git-based ML workflows",
+      "key_fact": "S3-like storage with dedup for successive model checkpoints"
+    },
+    {
+      "id": 4591,
+      "title": "TEI v1.9 Adds NVIDIA Blackwell GPU Support",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Embedding inference at scale now runs on latest NVIDIA hardware",
+      "key_fact": "Native Blackwell support in Text Embeddings Inference"
+    },
+    {
+      "id": 5186,
+      "title": "Claude Code and claude.ai Hit Login Issues and Slowdowns",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "AI tool uptime now matters as much as capability — infrastructure growing pains",
+      "key_fact": "Elevated login errors and performance degradation reported"
+    },
+    {
+      "id": 4941,
+      "title": "China's OpenClaw Craze Spawns a Gold Rush of AI Entrepreneurs",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Open-source autonomous device control tool sparks a wave of businesses in China",
+      "key_fact": "MIT Tech Review profiles the OpenClaw ecosystem boom"
+    }
+  ],
+  "total_items": 22
+}

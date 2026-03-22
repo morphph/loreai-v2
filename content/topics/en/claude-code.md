@@ -4,7 +4,7 @@ slug: claude-code
 description: "The complete guide to Claude Code: Anthropic's terminal AI coding agent. Features, tutorials, comparisons, and best practices."
 pillar_topic: Claude Code
 category: tools
-related_glossary: [claude-code, anthropic, claude, model-context-protocol, multi-agent-systems, agentic-coding, agent-teams, claude-md]
+related_glossary: [claude-code, anthropic, claude, model-context-protocol, multi-agent-systems, agentic-coding]
 related_blog:
   - claude-code-agent-teams
   - claude-code-btw-side-chain-conversations
@@ -25,8 +25,8 @@ related_blog:
   - red-green-refactor-claude-code
   - obsidian-claude-code-life
   - superpowers
-related_compare: [claude-code-vs-cursor, claude-code-vs-github-copilot, claude-code-vs-codex, claude-code-vs-windsurf, claude-code-vs-aider, claude-code-vs-cline, claude-code-vs-amazon-q]
-related_faq: [how-much-does-claude-code-cost, how-to-install-claude-code, what-is-claude-code, is-claude-code-free, claude-code-windows, claude-code-with-git, what-is-claude-md, claude-code-mcp-setup, claude-code-pricing, claude-code-ci-cd, claude-code-skills, claude-code-agent-teams]
+related_compare: [claude-code-vs-cursor]
+related_faq: [how-much-does-claude-code-cost, how-to-install-claude-code]
 lang: en
 ---
 
@@ -80,10 +80,6 @@ Third, **[agent teams](/blog/claude-code-agent-teams)** let Claude Code spawn pa
 
 Claude Code isn't just for solo developers. [Ramp, Shopify, Spotify, and other engineering organizations](/blog/claude-code-enterprise-engineering-ramp-shopify-spotify) are deploying it across teams of hundreds, with structured onboarding, CLAUDE.md governance, and measurable productivity gains. The enterprise patterns that work — and the ones that don't — are covered in that deep dive.
 
-## Start Here
-
-**[Claude Code: The Complete Guide](/blog/claude-code-complete-guide)** — our cornerstone resource covering everything from setup to advanced patterns: installation, features, pricing, agent teams, TDD workflows, and enterprise deployment.
-
 ## All Claude Code Resources on LoreAI
 
 ### Deep Dives
@@ -116,38 +112,16 @@ Claude Code isn't just for solo developers. [Ramp, Shopify, Spotify, and other e
 - [Model Context Protocol (MCP)](/glossary/model-context-protocol) — open protocol for connecting AI tools to external data sources
 - [Multi-Agent Systems](/glossary/multi-agent-systems) — architectures where multiple AI agents collaborate on tasks
 - [Agentic Coding](/glossary/agentic-coding) — AI-driven autonomous software development
-- [Agent Teams](/glossary/agent-teams) — coordinated sub-agents working in parallel
-- [CLAUDE.md](/glossary/claude-md) — project-level configuration for Claude Code
-
-### Related Topics
-
-- [Codex — Everything You Need to Know](/topics/codex) — OpenAI's competing coding agent. See how it compares in our [Claude Code vs Codex](/compare/claude-code-vs-codex) and [Codex vs Claude Code](/compare/codex-vs-claude-code) analyses.
 
 ### Comparisons
 
-- [Claude Code vs Cursor](/compare/claude-code-vs-cursor)
-- [Claude Code vs GitHub Copilot](/compare/claude-code-vs-github-copilot)
-- [Claude Code vs Codex](/compare/claude-code-vs-codex)
-- [Claude Code vs Windsurf](/compare/claude-code-vs-windsurf)
-- [Claude Code vs Aider](/compare/claude-code-vs-aider)
-- [Claude Code vs Cline](/compare/claude-code-vs-cline)
-- [Claude Code vs Amazon Q Developer](/compare/claude-code-vs-amazon-q)
+- [Claude Code vs Cursor: Which AI Coding Tool Should You Use?](/compare/claude-code-vs-cursor)
 - [How to Use Claude Code with VS Code](/compare/how-to-use-claude-code-with-vs-code)
 
 ### FAQ
 
-- [What is Claude Code?](/faq/what-is-claude-code)
 - [How Much Does Claude Code Cost?](/faq/how-much-does-claude-code-cost)
 - [How to Install Claude Code](/faq/how-to-install-claude-code)
-- [Is Claude Code Free?](/faq/is-claude-code-free)
-- [Can Claude Code Run on Windows?](/faq/claude-code-windows)
-- [How to Use Claude Code with Git?](/faq/claude-code-with-git)
-- [What is a CLAUDE.md File?](/faq/what-is-claude-md)
-- [How to Use MCP with Claude Code?](/faq/claude-code-mcp-setup)
-- [Claude Code Pricing: API vs Max vs Pro](/faq/claude-code-pricing)
-- [How to Use Claude Code in CI/CD?](/faq/claude-code-ci-cd)
-- [What Are Claude Code Skills?](/faq/claude-code-skills)
-- [How to Use Claude Code Agent Teams?](/faq/claude-code-agent-teams)
 
 ---
 

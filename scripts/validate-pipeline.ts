@@ -36,7 +36,7 @@ function getArg(name: string): string | undefined {
 
 const DATE = getArg('date') || todaySGT();
 const STEP = getArg('step') || 'all';
-const VALID_STEPS = ['all', 'collect', 'newsletter', 'blog', 'seo'];
+const VALID_STEPS = ['all', 'collect', 'newsletter', 'blog', 'seo', 'generate', 'discovery', 'performance'];
 
 if (!VALID_STEPS.includes(STEP)) {
   console.error(`Invalid step: ${STEP}. Must be one of: ${VALID_STEPS.join(', ')}`);
@@ -427,6 +427,223 @@ function checkSeo(): CheckResult {
 }
 
 // ---------------------------------------------------------------------------
+// Generate assertions (process-queue output)
+// ---------------------------------------------------------------------------
+
+function contentTypeToDirType(ct: string): string {
+  if (ct === 'topic-hub') return 'topics';
+  if (ct === 'deep-dive' || ct === 'cornerstone') return 'blog';
+  return ct;
+}
+
+function contentTypeToValidator(ct: string): ((md: string) => { valid: boolean; errors: string[] }) | null {
+  switch (ct) {
+    case 'faq': return validateFaq;
+    case 'compare': return validateCompare;
+    case 'glossary': return validateGlossary;
+    case 'topic-hub': return validateTopicHub;
+    case 'deep-dive':
+    case 'cornerstone':
+    case 'blog':
+      return validateBlogPost;
+    default: return null;
+  }
+}
+
+function checkGenerate(): CheckResult {
+  const errors: string[] = [];
+  const warnings: string[] = [];
+  const db = getDb();
+
+  // Query create_queue for jobs completed today (SGT = UTC+8)
+  const completedJobs = db.prepare(`
+    SELECT cq.id, cq.keyword_group_id, cq.content_type, cq.status,
+           kg.primary_keyword
+    FROM create_queue cq
+    JOIN keyword_groups kg ON kg.id = cq.keyword_group_id
+    WHERE date(cq.completed_at, '+8 hours') = ?
+  `).all(DATE) as {
+    id: number;
+    keyword_group_id: number;
+    content_type: string;
+    status: string;
+    primary_keyword: string;
+  }[];
+
+  if (completedJobs.length === 0) {
+    warnings.push('0 jobs processed today (empty queue — not an error)');
+    return {
+      name: 'Generate',
+      pass: true,
+      summary: '0 jobs (empty queue)',
+      errors,
+      warnings,
+    };
+  }
+
+  let partialCount = 0;
+
+  for (const job of completedJobs) {
+    const slug = job.primary_keyword.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    const dirType = contentTypeToDirType(job.content_type);
+    const enPath = `content/${dirType}/en/${slug}.md`;
+    const prefix = `[${job.content_type}/${slug}]`;
+
+    if (!fileExists(enPath)) {
+      errors.push(`${prefix} EN content file missing: ${enPath}`);
+    } else {
+      // Run type-specific validator
+      const validator = contentTypeToValidator(job.content_type);
+      if (validator) {
+        const content = readFile(enPath);
+        const validation = validator(content);
+        if (!validation.valid) {
+          errors.push(...validation.errors.map((e) => `${prefix} validate: ${e}`));
+        }
+      }
+    }
+
+    if (job.status === 'partial') {
+      partialCount++;
+    }
+  }
+
+  // Verify keywords.content_exists = 1 for completed groups
+  const completedGroupIds = completedJobs
+    .filter((j) => j.status === 'done')
+    .map((j) => j.keyword_group_id);
+
+  if (completedGroupIds.length > 0) {
+    const placeholders = completedGroupIds.map(() => '?').join(',');
+    const missingFlag = db.prepare(`
+      SELECT k.keyword, k.keyword_group_id
+      FROM keywords k
+      WHERE k.keyword_group_id IN (${placeholders})
+        AND k.content_exists != 1
+    `).all(...completedGroupIds) as { keyword: string; keyword_group_id: number }[];
+
+    if (missingFlag.length > 0) {
+      errors.push(`${missingFlag.length} keyword(s) still have content_exists != 1 after completion`);
+    }
+  }
+
+  if (partialCount > 0) {
+    warnings.push(`${partialCount} job(s) have status = 'partial' (ZH failures)`);
+  }
+
+  return {
+    name: 'Generate',
+    pass: errors.length === 0,
+    summary: `${completedJobs.length} job(s), ${partialCount} partial`,
+    errors,
+    warnings,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Discovery assertions (discovery-cycle output)
+// ---------------------------------------------------------------------------
+
+function checkDiscovery(): CheckResult {
+  const errors: string[] = [];
+  const warnings: string[] = [];
+  const db = getDb();
+
+  // Check keywords table for new rows (discovered_at within 24h)
+  const newKeywords = db.prepare(`
+    SELECT COUNT(*) as cnt FROM keywords
+    WHERE discovered_at > datetime('now', '-24 hours')
+  `).get() as { cnt: number };
+
+  if (newKeywords.cnt === 0) {
+    errors.push('No new keywords discovered in the last 24 hours');
+  }
+
+  // Check keyword_groups table for new rows (created_at within 24h)
+  const newGroups = db.prepare(`
+    SELECT COUNT(*) as cnt FROM keyword_groups
+    WHERE created_at > datetime('now', '-24 hours')
+  `).get() as { cnt: number };
+
+  if (newGroups.cnt === 0) {
+    errors.push('No new keyword groups created in the last 24 hours');
+  }
+
+  // Check create_queue for new pending entries (created_at within 24h)
+  const newPending = db.prepare(`
+    SELECT COUNT(*) as cnt FROM create_queue
+    WHERE created_at > datetime('now', '-24 hours') AND status = 'pending'
+  `).get() as { cnt: number };
+
+  if (newPending.cnt === 0) {
+    errors.push('No new pending entries in create_queue in the last 24 hours');
+  }
+
+  // Warn if any keyword_groups have priority_score = 0 (unscored)
+  const unscoredGroups = db.prepare(`
+    SELECT COUNT(*) as cnt FROM keyword_groups
+    WHERE priority_score = 0
+  `).get() as { cnt: number };
+
+  if (unscoredGroups.cnt > 0) {
+    warnings.push(`${unscoredGroups.cnt} keyword group(s) have priority_score = 0 (unscored)`);
+  }
+
+  // Warn if keywords have cluster_slug = NULL (orphaned)
+  const orphanedKeywords = db.prepare(`
+    SELECT COUNT(*) as cnt FROM keywords
+    WHERE cluster_slug IS NULL
+  `).get() as { cnt: number };
+
+  if (orphanedKeywords.cnt > 0) {
+    warnings.push(`${orphanedKeywords.cnt} keyword(s) have cluster_slug = NULL (orphaned)`);
+  }
+
+  return {
+    name: 'Discovery',
+    pass: errors.length === 0,
+    summary: `${newKeywords.cnt} keywords, ${newGroups.cnt} groups, ${newPending.cnt} pending`,
+    errors,
+    warnings,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Performance assertions (performance-cycle output)
+// ---------------------------------------------------------------------------
+
+function checkPerformance(): CheckResult {
+  const errors: string[] = [];
+  const warnings: string[] = [];
+  const db = getDb();
+
+  // Check create_queue for new content_type = 'refresh' rows (created_at within 7 days)
+  const refreshRows = db.prepare(`
+    SELECT COUNT(*) as cnt FROM create_queue
+    WHERE content_type = 'refresh' AND created_at > datetime('now', '-7 days')
+  `).get() as { cnt: number };
+
+  // Check keywords for new source = 'gsc' entries (discovered_at within 7 days)
+  const gscKeywords = db.prepare(`
+    SELECT COUNT(*) as cnt FROM keywords
+    WHERE source = 'gsc' AND discovered_at > datetime('now', '-7 days')
+  `).get() as { cnt: number };
+
+  // Report 0 refresh actions as info warning (not error — may be no anomalies)
+  if (refreshRows.cnt === 0) {
+    warnings.push('0 refresh actions in last 7 days (may be no anomalies detected)');
+  }
+
+  return {
+    name: 'Performance',
+    pass: errors.length === 0,
+    summary: `${refreshRows.cnt} refresh actions, ${gscKeywords.cnt} GSC keywords`,
+    errors,
+    warnings,
+  };
+}
+
+// ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 
@@ -444,6 +661,15 @@ function run(): void {
   }
   if (STEP === 'all' || STEP === 'seo') {
     allResults.push(checkSeo());
+  }
+  if (STEP === 'all' || STEP === 'generate') {
+    allResults.push(checkGenerate());
+  }
+  if (STEP === 'all' || STEP === 'discovery') {
+    allResults.push(checkDiscovery());
+  }
+  if (STEP === 'all' || STEP === 'performance') {
+    allResults.push(checkPerformance());
   }
 
   // Close DB after all checks

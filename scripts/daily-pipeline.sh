@@ -17,6 +17,21 @@ DATE=$(TZ=Asia/Singapore date +%Y-%m-%d)
 mkdir -p logs
 for i in 1 2 3; do git pull --rebase && break; sleep 10; done
 
+# ── Pipeline Steps ──
+#
+# Daily (Mon-Fri):
+#   4am SGT: collect      — collect-news.ts (unchanged)
+#   5am SGT: newsletter   — write-newsletter.ts (unchanged, no longer gates SEO)
+#   5:30am:  extract      — extract-entities.ts (unchanged)
+#   7am SGT: generate     — process-queue.ts (NEW — replaces blog + seo steps)
+#
+# Weekly:
+#   Saturday: discovery   — discovery-cycle.ts (keyword universe expansion)
+#   Tuesday:  performance — performance-cycle.ts (GSC → refresh queue)
+#   Sunday:   weekly      — write-weekly.ts (unchanged)
+#
+# Legacy steps (blog, seo) preserved for manual/fallback use only.
+
 case "$STEP" in
   collect)
     npx tsx scripts/collect-news.ts
@@ -30,16 +45,18 @@ case "$STEP" in
     npx tsx scripts/send-newsletter.ts --date="$DATE" --lang=zh ;;
   extract)
     npx tsx scripts/extract-entities.ts --date="$DATE" ;;
-  blog)
-    npx tsx scripts/write-blog.ts --date="$DATE"
-    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=blog
-    git add content/blog/
-    (git commit -m "📝 Blog $DATE" || true) && git push ;;
-  seo)
-    npx tsx scripts/generate-seo.ts --date="$DATE"
-    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=seo
-    git add content/glossary/ content/faq/ content/compare/ content/topics/
-    (git commit -m "🔍 SEO $DATE" || true) && git push ;;
+  generate)
+    npx tsx scripts/process-queue.ts --limit=5
+    git add content/blog/ content/glossary/ content/faq/ content/compare/ content/topics/
+    (git commit -m "🔧 Content $DATE" || true) && git push ;;
+  discovery)
+    npx tsx scripts/discovery-cycle.ts
+    git add data/
+    (git commit -m "🔭 Discovery $(date +%Y-W%V)" || true) && git push ;;
+  performance)
+    npx tsx scripts/performance-cycle.ts
+    git add data/
+    (git commit -m "📈 Performance $(date +%Y-W%V)" || true) && git push ;;
   weekly)
     npx tsx scripts/write-weekly.ts
     git add content/newsletters/weekly/
@@ -48,36 +65,25 @@ case "$STEP" in
     npx tsx scripts/generate-seo.ts --weekly-strategy
     git add data/content-plan/
     (git commit -m "📋 Plan $(date +%Y-W%V)" || true) && git push ;;
-  cluster)
-    CLUSTER="${2:-claude-code}"
-    npx tsx scripts/generate-seo.ts --cluster="$CLUSTER"
-    git add content/
-    (git commit -m "🎯 Cluster $CLUSTER $(date +%Y-%m-%d)" || true) && git push ;;
-  discover)
-    CLUSTER="${2:-}"
-    if [ -n "$CLUSTER" ]; then
-      npx tsx scripts/planner.ts --cluster="$CLUSTER"
-    else
-      npx tsx scripts/planner.ts --all
-    fi
-    git add data/flagship-clusters/
-    (git commit -m "🔍 Planner discovery $(date +%Y-%m-%d)" || true) && git push ;;
-  gsc-export)
-    npx tsx scripts/gsc-export.ts
-    git add data/gsc-exports/
-    (git commit -m "📊 GSC export $(date +%Y-%m-%d)" || true) && git push ;;
   video-import)
     npx tsx scripts/import-video-blog.ts --batch --auto ;;
-  health)
-    CLUSTER="${2:-}"
-    if [ -n "$CLUSTER" ]; then
-      npx tsx scripts/cluster-health.ts --cluster="$CLUSTER" --format=md --output=data/reports/
-    else
-      npx tsx scripts/cluster-health.ts --all --format=md --output=data/reports/
-    fi
-    git add data/reports/
-    (git commit -m "📊 Health report $(date +%Y-%m-%d)" || true) && git push ;;
+
+  # ── Legacy steps (preserved for manual use / fallback) ──
+  blog)
+    echo "⚠️  Legacy step: use 'generate' instead (process-queue.ts)"
+    npx tsx scripts/write-blog.ts --date="$DATE"
+    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=blog
+    git add content/blog/
+    (git commit -m "📝 Blog $DATE" || true) && git push ;;
+  seo)
+    echo "⚠️  Legacy step: use 'generate' instead (process-queue.ts)"
+    npx tsx scripts/generate-seo.ts --date="$DATE"
+    npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=seo
+    git add content/glossary/ content/faq/ content/compare/ content/topics/
+    (git commit -m "🔍 SEO $DATE" || true) && git push ;;
   *)
-    echo "Usage: $0 {collect|newsletter|extract|blog|seo|weekly|cluster-strategy|cluster|discover|gsc-export|video-import|health}"
+    echo "Usage: $0 {collect|newsletter|extract|generate|discovery|performance|weekly|cluster-strategy|video-import}"
+    echo ""
+    echo "Legacy (manual only): blog, seo"
     exit 1 ;;
 esac

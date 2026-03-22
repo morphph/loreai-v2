@@ -1,0 +1,214 @@
+# Keyword Engine Migration — Execution Log
+
+> 记录 keyword engine migration (A1–C4) 每个 step 的执行结果。
+> 配合 `docs/plans/KEYWORD-ENGINE-MIGRATION.md` 和 `docs/plans/KEYWORD-ENGINE-USAGE.md` 使用。
+
+---
+
+## A1 — Schema Migration
+- **Date:** 2026-03-20
+- **Status:** COMPLETED
+- **Files created/modified:**
+  - scripts/lib/db.ts (modified — extended keywords table, new keyword_groups + create_queue tables)
+  - scripts/lib/__tests__/db.test.ts (modified — added 44 lines of tests)
+- **Tests:** All passed
+- **Build:** pass
+- **Decisions & deviations:** None — straightforward schema addition
+- **Blockers:** None
+- **Insights for next step:** `upsertKeyword()` requires 3 args (keyword, source, clusterSlug); safe ALTER TABLE pattern works for existing SQLite DBs
+
+---
+
+## A2 — Serper API Client
+- **Date:** 2026-03-20
+- **Status:** COMPLETED
+- **Files created/modified:**
+  - scripts/lib/serper.ts (new — 7 public functions + SerperAPIError + config)
+  - scripts/lib/__tests__/serper.test.ts (new — 30 unit tests)
+  - scripts/lib/__tests__/serper.integration.test.ts (new — 7 integration tests, skipped without API key)
+  - .env.example (modified — added SERPER_API_KEY)
+- **Tests:** 30 passed (unit), 7 skipped (integration — no API key in local env)
+- **Build:** pass
+- **Integration test result:** Not run locally (no SERPER_API_KEY); integration tests ready for manual run
+- **Decisions & deviations:** None — implemented strictly per spec
+- **Blockers:** None
+- **Insights for next step:** `_searchWeb()` internal helper returns PAA + related + organic in one call — B1 can optimize by calling `searchFull()` once and splitting results instead of separate `searchPAA()` + `searchRelated()` calls. `setSerperConfig()` exported for test injection and runtime config override.
+
+---
+
+## A3 — Exa API Client
+- **Date:** 2026-03-20
+- **Status:** COMPLETED
+- **Files created/modified:**
+  - scripts/lib/exa.ts (new — 3 public functions: `semanticSearch`, `getContents`, `analyzeCompetitors` + `ExaAPIError` + `countWords` + config)
+  - scripts/lib/__tests__/exa.test.ts (new — 27 unit tests)
+  - scripts/lib/__tests__/exa.integration.test.ts (new — 7 integration tests, skipped without API key)
+  - .env.example (modified — added EXA_API_KEY)
+- **Tests:** 27 passed (unit), 7 skipped (integration — no EXA_API_KEY in local env)
+- **Build:** pass
+- **Integration test result:** Not run locally (no EXA_API_KEY); integration tests ready for manual run
+- **Decisions & deviations:**
+  - `countWords()` exported (not just internal) — useful for B4 content generation to compute word counts elsewhere
+  - `getContents` handles URLs missing from API response by marking them as failed with "Not returned in results" error
+  - Resolved open question #1: default to Exa cache (no `maxAgeHours`), callers can override via `livecrawlTimeout` opt
+- **Blockers:** None
+- **Insights for next step:** `buildContentsBody()` internal helper translates `ExaContentOptions` → API body format. B1 (keyword expansion) should use `semanticSearch` with `excludeDomains: ['loreai.dev']` to find competitor coverage, then pass competitor URLs to `getContents` for full text. `setExaConfig()` exported for test injection (same pattern as serper).
+
+---
+
+## A4 — GSC API Client
+- **Date:** 2026-03-20
+- **Status:** COMPLETED
+- **Files created/modified:**
+  - scripts/lib/gsc.ts (new — `createGSCClient` factory + `segmentByPosition` + `detectAnomalies` + `findNewQueries` pure functions + GSCAPIError/GSCAuthError)
+  - scripts/lib/__tests__/gsc.test.ts (new — 33 unit tests)
+  - scripts/lib/__tests__/gsc.integration.test.ts (new — 7 integration tests, skipped without GSC credentials)
+  - .env.example (modified — added GSC_SERVICE_ACCOUNT_KEY_PATH, GSC_SITE_URL)
+- **Tests:** 33 passed (unit), 7 skipped (integration — no GSC credentials in local env)
+- **Build:** pass
+- **Integration test result:** Not run locally (no GSC_SERVICE_ACCOUNT_KEY_PATH); integration tests ready for manual run
+- **Decisions & deviations:**
+  - Used `@googleapis/searchconsole` SDK with `searchconsole()` factory + `searchanalytics.query()` method — handles auth and URL encoding automatically
+  - `GSCClient` is an interface (not class) returned by `createGSCClient()` — encapsulates both noop and real client behind same API
+  - `segmentByPosition` accepts optional `dateRange` param for convenience (not in spec, but useful for callers)
+  - Noop client pattern consistent with serper.ts / exa.ts — `console.warn` + return empty results
+- **Blockers:** None
+- **Insights for next step:** Core pure functions (`segmentByPosition`, `detectAnomalies`, `findNewQueries`) are highly testable and ready for C3 performance loop. `fetchQueriesWithPages` is the most API-quota-expensive call — C3 should use it sparingly. GSC data has 2-3 day lag — caller must account for this in date ranges.
+
+---
+
+## B1 — Keyword Expansion Script
+- **Date:** 2026-03-20
+- **Status:** COMPLETED
+- **Files created/modified:**
+  - scripts/lib/keyword-expand.ts (new — core logic: `normalizeKeyword`, `extractCompetitorKeywords`, `expandViaSerperSearch`, `expandSubtopic`, `expandTopic`)
+  - scripts/expand-keywords.ts (new — CLI entry point with `--topic`, `--subtopics`, `--dry-run`, `--skip-exa`, `--delay` args)
+  - scripts/lib/__tests__/keyword-expand.test.ts (new — 40 unit tests)
+  - scripts/__tests__/expand-keywords.integration.test.ts (new — 7 integration tests, skipped without API keys)
+- **Tests:** 40 passed (unit), 7 skipped (integration — no SERPER_API_KEY/EXA_API_KEY in local env)
+- **Build:** pass
+- **Integration test result:** Not run locally (no API keys); integration tests ready for manual run
+- **Decisions & deviations:**
+  - Implemented PAA + related merge optimization per spec §10: uses single `searchFull()` call via `expandViaSerperSearch()` helper, saves 1 Serper credit per subtopic
+  - Smart quote removal regex uses explicit Unicode escapes (`\u201C\u201D\u2018\u2019`) for reliable matching across file encodings
+  - Volume pre-scoring integrated directly into `expandSubtopic()` rather than as a separate stage — simpler flow while maintaining the same behavior
+- **Blockers:** None
+- **Insights for next step:** `expandTopic()` returns full `ExpansionRunResult` with per-source keyword breakdown — B2 (keyword grouping) can read keywords from DB filtered by `cluster_slug` and `source`. The `normalizeKeyword()` function is exported and reusable by other modules. Volume mapping is rough (high=10000, medium=1000, low=100, very_low=10) — will be calibrated by A4 GSC real impression data.
+
+---
+
+## B2 — Keyword Grouping Skill
+- **Date:** 2026-03-20
+- **Status:** COMPLETED
+- **Files created/modified:**
+  - scripts/lib/keyword-group.ts (new — core logic: `loadUngroupedKeywords`, `buildPrompt`, `parseGroupingResponse`, `callClaude`, `writeGroupingToDb`, `clearClusterGroups`, `groupCluster`, `groupTopic`)
+  - scripts/group-keywords.ts (new — CLI entry point with `--cluster`, `--topic`, `--dry-run`, `--model`, `--force` args)
+  - skills/keyword-grouping/SKILL.md (new — Claude prompt for intent-based keyword grouping)
+  - scripts/lib/__tests__/keyword-group.test.ts (new — 29 unit tests)
+  - scripts/__tests__/group-keywords.integration.test.ts (new — 3 tests + 1 skipped Claude API integration test)
+  - package.json (modified — added `@anthropic-ai/sdk` dependency)
+- **Tests:** 29 passed (unit), 3 passed (integration parse/build), 1 skipped (integration — no ANTHROPIC_API_KEY in local env)
+- **Build:** pass
+- **Integration test result:** Not run locally (no ANTHROPIC_API_KEY); integration test ready for manual run
+- **Decisions & deviations:**
+  - Added `@anthropic-ai/sdk` as project dependency (first Claude API usage in the codebase)
+  - `setSkillContent()` exported for test injection — avoids filesystem reads in unit tests
+  - Batching threshold at 500 keywords per spec §6.3, with batch size 300
+  - Auto-model upgrade: when keywords > 200 and model is `haiku`, auto-upgrades to `sonnet` (per spec §6.2)
+  - JSON retry mechanism: if Claude returns invalid JSON, retries once with explicit "return valid JSON only" hint (per spec §10)
+  - Markdown fence stripping in `parseGroupingResponse` — handles Claude responses wrapped in ```json blocks
+- **Blockers:** None
+- **Insights for next step:** `groupCluster()` returns `ClusterGroupingResult` with full group summaries — B3 (priority scoring) can read `keyword_groups` table filtered by `status='pending'` and `cluster_slug`. `writeGroupingToDb` updates both `keyword_groups` and `keywords.keyword_group_id + keywords.intent` in a single transaction. The skill prompt (`SKILL.md`) is designed to be iterable — can be tuned based on real grouping quality without code changes.
+
+---
+
+## B3 — Priority Scoring + Unified Queue
+- **Date:** 2026-03-20
+- **Status:** COMPLETED
+- **Files created/modified:**
+  - scripts/lib/priority.ts (new — pure scoring/routing logic: `getGroupVolume`, `getCompetitionDivisor`, `getIntentMultiplier`, `getTimelinessBonus`, `calculatePriorityScore`, `routeKeywordGroup`, `shouldDeferTopicHub` + all constants exported)
+  - scripts/lib/score-queue.ts (new — orchestration layer: `scoreAndQueue` bridges pure logic with DB + Serper API, handles SERP depth detection, queue writes, idempotency)
+  - scripts/score-and-queue.ts (new — CLI entry point with `--topic`, `--cluster`, `--dry-run`, `--skip-serp`, `--max-serp`, `--force` args)
+  - scripts/lib/__tests__/priority.test.ts (new — 59 unit tests)
+  - scripts/__tests__/score-and-queue.integration.test.ts (new — 8 integration tests with in-memory SQLite)
+- **Tests:** 59 passed (unit), 8 passed (integration — in-memory DB, no API key needed)
+- **Build:** pass
+- **Decisions & deviations:**
+  - Split into two modules per spec: `priority.ts` (pure functions, zero side effects) and `score-queue.ts` (orchestration with DB/API). This makes unit testing trivial — 59 tests with no mocks
+  - Timeliness source uses keyword matching against `news_items.title/summary` within 7 days (spec Open Question #1 — simplest approach)
+  - SERP depth detection is fully optional — auto-skips when `SERPER_API_KEY` is missing with warning (spec §9)
+  - `loadPendingGroups` queries both `status='pending'` and `status='queued'` to allow rescoring of already-queued groups with `--force`
+  - Cluster page count uses `content.slug LIKE '{cluster_slug}%'` pattern for simplicity
+- **Blockers:** None
+- **Insights for next step:** `priority.ts` exports all constants (`COMPETITION_MAP`, `INTENT_MULTIPLIER`, `TIMELINESS_*`, `TOPIC_HUB_MIN_PAGES`) for easy tuning. `score-queue.ts` dynamically imports serper module to avoid hard dependency — B4 (content generation) can follow the same pattern. Queue entries include full `score_breakdown` for debugging/reporting. The `routeKeywordGroup` function's SERP override only applies to `informational + faq` combination — all other intent/content_type combos pass through unchanged.
+
+---
+
+## B4 — Source-Grounded Content Generation
+- **Date:** 2026-03-20
+- **Status:** COMPLETED
+- **Files created/modified:**
+  - scripts/lib/content-gen.ts (new — core orchestration: loadJobs, runStandardResearch, runDeepResearch, buildGenerationPrompt, generateContent, runContentGeneration)
+  - scripts/lib/link-validator.ts (new — extractInternalLinks, validateLinks with broken link removal + missing glossary detection)
+  - scripts/generate-content.ts (new — CLI entry point with --limit, --job, --type, --dry-run, --en-only, --skip-validation args)
+  - scripts/lib/__tests__/content-gen.test.ts (new — 25 unit tests)
+  - scripts/lib/__tests__/link-validator.test.ts (new — 17 unit tests)
+  - scripts/__tests__/generate-content.integration.test.ts (new — 9 integration tests)
+- **Tests:** 51 passed (unit + integration), 0 failed
+- **Build:** pass
+- **Integration test result:** Not run on VPS (no API keys locally); prompt building and validator routing verified via integration tests
+- **Decisions & deviations:**
+  - Dynamic imports for serper/exa/gemini modules (same pattern as score-queue.ts) to avoid hard dependency when API keys are missing
+  - `setSkillContent()` exported for test injection — avoids filesystem reads in unit tests
+  - Content type → directory mapping: topic-hub→topics, news-blog/deep-dive/cornerstone→blog, others keep their name
+  - Model routing: haiku for faq/glossary, sonnet for compare/topic-hub/news-blog, opus for deep-dive/cornerstone (per spec §5.2)
+  - Exa failure fallback: uses Serper snippets as degraded source pages rather than failing completely
+  - Deep Research failure fallback: automatically falls back to Standard pipeline (Serper+Exa)
+  - ZH validation is strict: returns failure if validation fails after all retries (per spec §5.4 ordering: EN first, skip ZH if EN fails)
+- **Blockers:** None
+- **Insights for next step:** `runContentGeneration()` returns full `ContentGenRunResult` with API call counts — C1 (discovery cycle) can use this for budget tracking. The `buildGenerationPrompt()` function assembles three-part prompts (skill + content type instructions + source material) — easy to tune prompt quality by editing SKILL.md or inline instructions. Link validator is independent and reusable — C4 could use it for batch validation of existing content.
+
+---
+
+## C1 — Discovery Cycle Script
+- **Date:** 2026-03-20
+- **Status:** COMPLETED
+- **Files created/modified:**
+  - scripts/lib/discovery.ts (new — core orchestration: `runDiscoveryCycle`, `runDiscoveryForTopic`, `discoverNewSubtopics`, `filterSubtopicsByEvent`, `FLAGSHIP_TOPICS` config)
+  - scripts/discovery-cycle.ts (new — CLI entry point with `--topic`, `--event`, `--expand-only`, `--dry-run`, `--delay`, `--max-serp`, `--skip-exa`, `--skip-serp`, `--model` args)
+  - scripts/lib/__tests__/discovery.test.ts (new — 33 unit tests)
+  - scripts/__tests__/discovery-cycle.integration.test.ts (new — 9 integration tests)
+- **Tests:** 42 passed (33 unit + 9 integration), 0 failed
+- **Build:** pass
+- **Integration test result:** All orchestration tests pass with mocked B1/B2/B3 modules; real API integration not run locally (no API keys)
+- **Decisions & deviations:**
+  - Stage-level try/catch per spec §8.1: Stage 1 failure skips Stage 2 & 3; Stage 2 failure still runs Stage 3; Stage 0 failure still runs Stages 1-3
+  - `filterSubtopicsByEvent` uses token overlap with >3 char filter per spec §6.3
+  - Dynamic import for serper module in `discoverNewSubtopics` to avoid hard dependency (same pattern as score-queue.ts)
+  - `FLAGSHIP_TOPICS` config inline as const array per spec §3 (will move to JSON/DB when 3+ topics)
+  - Grouping force always false (incremental only); scoring force always false — per spec §4.2 and §4.3
+- **Blockers:** None
+- **Insights for next step:** `runDiscoveryCycle()` returns `DiscoveryCycleResult[]` with full stage breakdown + `total_api_calls` + `duration_ms` — C4 (daily pipeline reorg) can use these for budget monitoring and cron logging. JSON output goes to stdout, human-readable summary to stderr — suitable for `>> logs/discovery-cycle.log 2>&1` cron redirect. Event-triggered mode (`--event`) does Stage 0 subtopic discovery then filters expansion to relevant subtopics only — news pipeline can call this directly via CLI.
+
+---
+
+## C3 — Performance Loop (Weekly Performance Cycle)
+- **Date:** 2026-03-20
+- **Status:** COMPLETED
+- **Files created/modified:**
+  - scripts/lib/performance.ts (new — core orchestration: `calculateDateRanges`, `generateRefreshActions`, `writeActions`, `runPerformanceCycle` + all constants exported)
+  - scripts/performance-cycle.ts (new — CLI entry point with `--days`, `--dry-run`, `--report-only`, `--max-actions`, `--ctr-threshold`, `--impression-threshold`, `--position-drop-threshold` args)
+  - scripts/lib/__tests__/performance.test.ts (new — 30 unit tests covering all pure functions + DB write logic)
+  - scripts/__tests__/performance-cycle.integration.test.ts (new — 5 integration tests with mocked GSC + 1 skipped live GSC test)
+- **Tests:** 545 passed (30 new performance tests + 5 integration), 30 skipped (integration — no API keys in local env)
+- **Build:** pass
+- **Integration test result:** Not run locally (no GSC_SITE_URL); live integration test ready for manual run
+- **Decisions & deviations:**
+  - `_impressions` internal field on `RefreshAction` for sorting within priority groups — stripped from topActions output
+  - `Promise.all` for GSC fetches (current, previous, currentWithPages) — parallel to reduce latency
+  - `writeActions` checks both pending/in_progress dedup AND 7-day completed cooldown (spec §5.3)
+  - Same CLI arg parsing pattern as discovery-cycle.ts — `getArg()` helper + `args.includes()`
+- **Blockers:** None
+- **Insights for next step:** `runPerformanceCycle()` returns full `PerformanceCycleResult` with stage-by-stage metrics — C4 (daily pipeline reorg) can use this for Tuesday cron logging. `writeActions()` is transactional — all-or-nothing write. The `generateRefreshActions()` pure function is highly testable with no side effects — easy to tune priority/impression thresholds. Performance cycle outputs JSON to stdout + human-readable summary to stderr, same pattern as discovery-cycle.ts.
+
+---

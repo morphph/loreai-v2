@@ -1,0 +1,228 @@
+{
+  "date": "2026-03-21",
+  "headline_hook": "OpenAI Ships GPT-5 and Goes Open Source in a Single Day",
+  "preview_topics": [
+    "OpenAI's five-model mega-drop",
+    "Claude Code goes autonomous",
+    "why coding benchmarks might be lying"
+  ],
+  "pick_of_the_day": {
+    "item_id": 10024,
+    "thesis": "OpenAI releasing open weights isn't generosity — it's a calculated move to set the open-source standard before Llama 4 and DeepSeek define it, and GPT-OSS's safety framework reveals exactly how they plan to compete on trust, not just performance."
+  },
+  "model_literacy": {
+    "concept": "Open Weights vs. Open Source",
+    "relevance": "GPT-OSS is called 'open source' but the distinction between releasing model weights, releasing training code, and true open-source licensing determines what developers can actually do with it — fine-tune, distill, deploy commercially, or just run inference."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 10022,
+          "title": "GPT-5 arrives — OpenAI's next-generation flagship",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The frontier just moved. Every team evaluating model providers needs to benchmark against GPT-5 starting today.",
+          "key_fact": "OpenAI's first new flagship generation since GPT-4o"
+        },
+        {
+          "id": 10024,
+          "title": "GPT-OSS: OpenAI releases its first open-weight model",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The company that built its brand on closed models now competes directly in the open-weight arena — a strategic reversal that reshapes the competitive landscape.",
+          "key_fact": "OpenAI's first-ever open-weight model release"
+        },
+        {
+          "id": 10023,
+          "title": "GPT Realtime: a purpose-built model for voice and streaming",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "A dedicated low-latency model for real-time interactions signals OpenAI is unbundling the monolithic LLM into specialized inference modes.",
+          "key_fact": "Purpose-built for voice, streaming, and interactive use cases"
+        },
+        {
+          "id": 10038,
+          "title": "GPT-5.1 drops same week — OpenAI's iteration speed is the real story",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Shipping a .1 update alongside the base model suggests OpenAI has industrialized the post-training pipeline to a degree competitors haven't matched.",
+          "key_fact": "GPT-5.1 released alongside GPT-5, not months later"
+        },
+        {
+          "id": 10029,
+          "title": "ChatGPT image generation gets a major overhaul",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The image upgrade shipped bundled with GPT-5 — multimodal generation is now table stakes, not a premium feature.",
+          "key_fact": "Coincides with GPT-5 launch as part of a coordinated release blitz"
+        },
+        {
+          "id": 10544,
+          "title": "NVIDIA Nemotron-Cascade: 30B model, only 3B params active",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A 10:1 ratio between total and active parameters — MoE efficiency is making frontier-adjacent quality deployable at edge compute costs.",
+          "key_fact": "30B total parameters, 3B activated, gold-tier benchmark results"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 10173,
+          "title": "Claude Code channels: control coding sessions from Telegram and Discord",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "25K likes says it all — developers want to manage AI agents from their phone, not just their IDE. MCP-based channels turn any messaging app into an agent control plane.",
+          "key_fact": "24,996 likes; MCP-based integration with Telegram and Discord"
+        },
+        {
+          "id": 10077,
+          "title": "Claude Code adds cloud-based recurring tasks",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Schedule a repo + prompt + cron and Claude runs autonomously — this transforms Claude Code from interactive assistant to persistent background worker.",
+          "key_fact": "Cron-based scheduling for autonomous cloud execution"
+        },
+        {
+          "id": 10170,
+          "title": "Claude Code desktop adds point-and-click DOM selection",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Stop describing which button you want changed — just click it. Frontend iteration with AI agents drops another friction barrier.",
+          "key_fact": "Direct DOM element selection eliminates verbal component descriptions"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 10414,
+          "title": "Frontier LLMs ace coding benchmarks but collapse on unfamiliar languages",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "LeCun highlights new evidence that 85-95% benchmark scores mask pattern matching, not reasoning — if your eval uses Python, you're testing memorization.",
+          "key_fact": "Models scoring 85-95% on standard benchmarks fail on equivalent problems in novel languages"
+        },
+        {
+          "id": 10409,
+          "title": "V-JEPA 2.1: Meta trains on 2M hours of video with zero labels",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "LeCun's JEPA architecture learns meaningful representations from raw video — no labels, no physics textbooks, just observation. Self-supervised video understanding is getting real.",
+          "key_fact": "2 million hours of video, zero supervision"
+        },
+        {
+          "id": 10026,
+          "title": "GPT-OSS Safeguard: OpenAI documents the safety framework behind open weights",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "If you're deploying GPT-OSS, this is the red-teaming and guardrail methodology you need to understand — OpenAI is setting the safety standard for open-weight releases.",
+          "key_fact": "Full safety framework and red-teaming methodology published alongside model"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 10247,
+          "title": "Cursor's new model is a Kimi fine-tune — open-source wins the coding layer",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "HuggingFace CEO confirms it: the hottest AI coding tool runs on an open-source base. Proprietary models aren't winning the specialized-task race.",
+          "key_fact": "HuggingFace CEO confirms Cursor's model is fine-tuned from Kimi"
+        },
+        {
+          "id": 10188,
+          "title": "OpenAI monitors 99.9% of internal AI coding traffic for misalignment",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The most concrete internal safety monitoring disclosure from any frontier lab — and a blueprint for enterprise AI governance programs.",
+          "key_fact": "99.9% of internal AI coding traffic monitored"
+        },
+        {
+          "id": 9992,
+          "title": "Every serious AI lab is buying developer toolchains",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "OpenAI bought Astral, Anthropic bought Bun, Google acquired Antigravity. The pattern: AI labs are vertically integrating the developer workflow, not just the model layer.",
+          "key_fact": "Three major AI labs have acquired devtool companies"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 10207,
+          "title": "Practical patterns for building better frontends with GPT-5.4",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "OpenAI DevRel shares the constraints and prompting patterns that actually produce usable frontend code — skip the vibe-coding, use visual references and real content.",
+          "key_fact": "3,012 likes on actionable frontend generation patterns"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 10565,
+          "title": "OpenCode: open-source AI coding agent hits the scene",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "As Claude Code and Codex define the AI coding agent category, open-source alternatives give teams full control over their agent stack.",
+          "key_fact": "Top of Hacker News; fully open-source coding agent"
+        },
+        {
+          "id": 10493,
+          "title": "LongCat-Flash-Prover: Meituan open-sources a formal reasoning model",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "An open model competing on formal mathematical proofs — one of the hardest AI benchmarks — signals rapid capability diffusion beyond the frontier labs.",
+          "key_fact": "Novel hybrid-experts framework for formal verification"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 10250,
+      "title": "Solo dev with $2K budget lands 29 top-ranking HuggingFace models",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The moat is taste, not compute",
+      "key_fact": "$2K GPU spend, 29 models on HuggingFace page 2 rankings"
+    },
+    {
+      "id": 10001,
+      "title": "Build a domain-specific embedding model in under a day",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "NVIDIA + HuggingFace recipe for fixing RAG retrieval quality",
+      "key_fact": "Practical fine-tuning guide from generic to domain-specific embeddings"
+    },
+    {
+      "id": 10285,
+      "title": "Identity-based authz emerges as the answer for AI agent security",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The middle ground between --dangerously-skip-permissions and approving every action",
+      "key_fact": "Emerging consensus around identity-based authorization for agents"
+    },
+    {
+      "id": 10566,
+      "title": "Mamba-3 pushes state-space models forward",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Together AI's latest attention-free architecture iteration",
+      "key_fact": "Continued progress on transformer alternatives for long-context efficiency"
+    }
+  ],
+  "total_items": 22
+}

@@ -4,10 +4,10 @@ slug: codex
 description: "Complete guide to OpenAI Codex: the AI code generation model behind GitHub Copilot and agentic coding tools."
 pillar_topic: Codex
 category: models
-related_glossary: [codex, codex-cli, openai, agentic-coding, chatgpt, claude-code, cursor, github-copilot, windsurf, devin, aider]
-related_blog: [codex-complete-guide, openai-computer-access-agents-lessons]
-related_compare: [codex-vs-claude-code, codex-vs-cursor, codex-vs-github-copilot, codex-vs-windsurf, codex-vs-devin, codex-vs-aider]
-related_faq: [what-is-codex, codex-pricing, is-codex-free, codex-vs-chatgpt, codex-setup, codex-api-access, codex-supported-languages, codex-enterprise]
+related_glossary: [agentic-coding, chatgpt]
+related_blog: [openai-computer-access-agents-lessons]
+related_compare: []
+related_faq: []
 lang: en
 ---
 
@@ -43,42 +43,17 @@ The platform integrates directly into [ChatGPT](/glossary/chatgpt) and is availa
 
 ## How Codex Compares
 
-- [Codex vs Claude Code](/compare/codex-vs-claude-code) — Cloud sandbox vs terminal-first: different tradeoffs between isolation and integration
-- [Codex vs Cursor](/compare/codex-vs-cursor) — Standalone agent vs AI-enhanced IDE
-- [Codex vs GitHub Copilot](/compare/codex-vs-github-copilot) — Autonomous tasks vs inline autocomplete
-- [Codex vs Windsurf](/compare/codex-vs-windsurf) — Cloud agent vs AI-native editor
-- [Codex vs Devin](/compare/codex-vs-devin) — Two cloud-based autonomous coding agents compared
-- [Codex vs Aider](/compare/codex-vs-aider) — Cloud platform vs open-source terminal tool
-
-## Frequently Asked Questions
-
-- [What is OpenAI Codex?](/faq/what-is-codex)
-- [How much does Codex cost?](/faq/codex-pricing)
-- [Is Codex free?](/faq/is-codex-free)
-- [What is the difference between Codex and ChatGPT?](/faq/codex-vs-chatgpt)
-- [How to set up Codex?](/faq/codex-setup)
-- [How to use the Codex API?](/faq/codex-api-access)
-- [What programming languages does Codex support?](/faq/codex-supported-languages)
-- [Is Codex available for enterprise teams?](/faq/codex-enterprise)
+- **Codex vs Claude Code**: Codex runs in the cloud with sandboxed containers; Claude Code runs locally in your terminal with direct shell access — different tradeoffs between isolation and integration
+- **Codex vs GitHub Copilot**: Copilot focuses on inline autocomplete within your IDE; Codex handles autonomous multi-step tasks delivered as pull requests
 
 ## All Codex Resources
 
 ### Blog Posts
-- [Codex Complete Guide](/blog/codex-complete-guide) — Comprehensive guide to OpenAI's coding agent
 - [What OpenAI's Computer Access Agents Teach Us](/blog/openai-computer-access-agents-lessons)
 
 ### Glossary
-- [Codex](/glossary/codex) — OpenAI's AI coding agent
-- [Codex CLI](/glossary/codex-cli) — Open-source terminal client for Codex
-- [OpenAI](/glossary/openai) — The company behind Codex
 - [Agentic Coding](/glossary/agentic-coding) — The paradigm of autonomous AI agents handling end-to-end software engineering tasks
 - [ChatGPT](/glossary/chatgpt) — OpenAI's conversational AI product, now the interface for Codex
-- [Claude Code](/glossary/claude-code) — Anthropic's terminal-based AI coding agent
-- [Cursor](/glossary/cursor) — AI-powered IDE built on VS Code
-- [GitHub Copilot](/glossary/github-copilot) — GitHub's AI coding assistant
-- [Windsurf](/glossary/windsurf) — AI-native code editor by Codeium
-- [Devin](/glossary/devin) — Cognition's autonomous AI software engineer
-- [Aider](/glossary/aider) — Open-source terminal AI coding assistant
 
 ---
 

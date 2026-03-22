@@ -60,8 +60,6 @@ If you want AI integrated into a visual editing experience with tight autocomple
 
 Many teams use both — Cursor for daily editing, Claude Code for the heavy lifting. They're complementary, not competing.
 
-For a deeper look at Claude Code's full capabilities, see our [complete guide](/blog/claude-code-complete-guide) and the [Claude Code topic hub](/topics/claude-code). Also see how Claude Code compares to [GitHub Copilot](/compare/claude-code-vs-github-copilot) and [Codex](/compare/claude-code-vs-codex).
-
 ---
 
 *Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*

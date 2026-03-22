@@ -59,7 +59,7 @@ For teams using Claude Code in CI/CD or automation contexts, remote launch could
 3. **Set up your development machine for persistent sessions** — ensure Claude Code can run in the background without your terminal being active. Tools like `tmux` or `systemd` user services help here.
 4. **Evaluate your threat model**. Remote-triggered AI agents with shell access are powerful but require careful access control, especially on machines with production credentials or sensitive code.
 
-**Related**: [Today's newsletter](/newsletter/2026-03-17) covers the broader context of this week's Claude Code updates. See also: [Claude Code Extension Stack Guide](/blog/claude-code-extension-stack-skills-hooks-agents-mcp).
+**Related**: [Today's newsletter](/newsletter/2026-03-17) covers the broader context of this week's Claude Code updates. See also: [Claude Code Skills Guide](/blog/claude-code-skills-guide).
 
 ---
 
