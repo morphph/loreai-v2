@@ -68,7 +68,8 @@ function main() {
 
     // Phase 1: Entity names don't belong in the keywords table.
     // They were inserted by extract-entities.ts (now fixed) and should be removed.
-    if (row.source === 'ai-extraction') {
+    // Two source names exist historically: 'ai-extraction' and 'entity-extraction'.
+    if (row.source === 'ai-extraction' || row.source === 'entity-extraction') {
       reason = 'entity-not-keyword';
     }
 
