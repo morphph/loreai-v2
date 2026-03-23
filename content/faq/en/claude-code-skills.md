@@ -1,39 +1,36 @@
 ---
-title: "What are Claude Code skills?"
+title: "What Are Claude Code Skills?"
 slug: claude-code-skills
-description: "Claude Code skills are reusable prompt templates stored in a skills directory, invoked via slash commands to standardize recurring tasks."
+description: "Claude Code skills are SKILL.md instruction files that teach Claude Code how to handle specific tasks. Learn what they are and how to use them."
 category: tools
-related_glossary: [claude-code, claude-md, agentic-coding]
-related_blog: [claude-code-simplify-batch-skills, claude-code-extension-stack-skills-hooks-agents-mcp]
+related_glossary: [agentic-coding]
+related_blog: [5-claude-code-skills-i-use-every-single-day]
 lang: en
 ---
 
-# What are Claude Code skills?
+# What Are Claude Code Skills?
 
-Claude Code skills are reusable prompt templates that live in a skills directory within your project. Each skill defines a specific workflow — code review, commit formatting, test generation — and is invoked through slash commands like /commit or /review-pr. They let teams standardize how Claude Code handles recurring tasks so every engineer gets consistent, high-quality results.
+**Claude Code skills** are SKILL.md files — instruction folders that teach Claude Code how to handle specific tasks and workflows. When you create a skill, you're encoding your team's processes, coding standards, and domain expertise into a structured format that Claude loads automatically. Unlike typing the same instructions repeatedly, skills let you teach Claude once and benefit every time.
 
 ## Context
 
-As teams adopt [Claude Code](/glossary/claude-code) across projects, a common problem emerges: different engineers prompt Claude differently for the same task, producing inconsistent results. One developer might get thorough code reviews while another gets superficial ones, simply because they phrased their request differently.
+Skills solve a real problem: repetition. Without skills, you'd explain your preferences ("write in active voice, use this naming convention") in every session. With skills, you write those instructions once in a SKILL.md file, and Claude loads them whenever they're relevant.
 
-Skills solve this by capturing proven prompt patterns as files in a `skills/` directory. Think of them as battle-tested recipes — once a team discovers the right way to prompt Claude Code for a specific workflow, they encode it as a skill and share it through version control. This sits alongside [CLAUDE.md](/glossary/claude-md) as part of the broader [Claude Code extension stack](/blog/claude-code-extension-stack-skills-hooks-agents-mcp) that customizes agent behavior.
+Skills can be standalone (just your custom instructions) or bundled (shipped with Claude Code). Bundled skills like `/batch` and `/claude-api` come built-in and demonstrate what's possible — they're prompt-based instructions that let Claude orchestrate multi-step tasks like large-scale code refactoring or API reference loading.
 
-Each skill file contains a structured prompt template with placeholders for context-specific information. When invoked, Claude Code loads the template, fills in the relevant context from your project, and executes the workflow. This approach to [agentic coding](/glossary/agentic-coding) scales much better than relying on individual prompt engineering. For a comprehensive overview of how skills fit into the full Claude Code ecosystem, see the [complete guide](/blog/claude-code-complete-guide).
+Technically, a skill is simple: a folder containing a `SKILL.md` file with YAML frontmatter (metadata) and instructions in Markdown. You can optionally include scripts/ (executable code), references/ (documentation), and assets/ (templates). Claude uses "progressive disclosure" — the metadata loads everywhere, but full instructions only load when relevant. This means you can bundle entire codebases without bloating every session.
+
+Skills follow the [Agent Skills open standard](https://agentskills.io), so skills you write work across multiple AI tools. For [agentic coding](/glossary/agentic-coding) workflows especially, skills let you encode the exact processes and patterns your team uses. Read our [5 Claude Code skills I use every day](/blog/5-claude-code-skills-i-use-every-single-day) post for concrete examples of skills in action.
 
 ## Practical Steps
 
-1. **Create a skills directory**: Add a `skills/` folder at your project root
-2. **Write a skill file**: Create a markdown file (e.g., `skills/review-pr/prompt.md`) containing the prompt template with instructions and expected output format
-3. **Invoke with slash commands**: In a Claude Code session, type the slash command (e.g., `/review-pr`) to trigger the corresponding skill
-4. **Iterate, don't rewrite**: Refine existing skills based on real usage — small prompt tweaks compound into much better results over time
-5. **Share across projects**: Copy proven skills between repositories or maintain a shared skills library for your organization
+1. **Create a skill folder**: Make `.claude/skills/my-skill/` in your project root
+2. **Write SKILL.md**: Add YAML frontmatter with `name` and `description`, then write your instructions in Markdown
+3. **Add optional support files**: Include scripts/, references/, or assets/ if your skill needs them
+4. **Invoke it directly**: Type `/my-skill` to run it anytime, or let Claude load it automatically when relevant
+5. **Test and refine**: Try your skill, adjust the instructions based on what Claude does, and iterate
 
-For practical examples of skills in production, including simplify and batch patterns, see the deep dive on [simplify and batch skills](/blog/claude-code-simplify-batch-skills). Browse more resources at the [Claude Code topics hub](/topics/claude-code).
-
-## Related Questions
-
-- [How to use Claude Code in CI/CD?](/faq/claude-code-ci-cd)
-- [How to install Claude Code?](/faq/how-to-install-claude-code)
+For detailed guidance on skill creation, see [Anthropic's complete skill-building guide](https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf).
 
 ---
 
