@@ -1,7 +1,7 @@
 #!/usr/bin/env npx tsx
 /**
  * scripts/write-newsletter.ts — Newsletter writing pipeline
- * Runs at 5am SGT (21:00 UTC) daily Mon-Fri
+ * Runs at 2am SGT daily Mon-Fri (crontab TZ=Asia/Singapore)
  *
  * 9 Stages:
  *   1. DB Query (72h window)

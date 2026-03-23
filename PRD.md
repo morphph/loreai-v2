@@ -236,7 +236,7 @@ CREATE TABLE subscribers (
 
 ## Newsletter: Frequency & Coverage
 
-### Daily AI News (Mon-Fri, 5am SGT)
+### Daily AI News (Mon-Fri, 2am SGT)
 
 - **Time window**: 48h primary, 72h DB query buffer for dedup
 - **Item count**: 25-30 selected items
@@ -245,7 +245,7 @@ CREATE TABLE subscribers (
 - **Voice**: "Sharp tech insider briefing a busy founder over coffee — confident, concise, opinionated"
 - **Languages**: EN + ZH (independent creation, not translation)
 
-### Weekly Deep Digest (Saturday, 5am SGT)
+### Weekly Deep Digest (Sunday, 5am SGT)
 
 - **Coverage**: Best 5 stories of the week, each with 200-400 word analysis
 - **Format**: "5 Things That Mattered in AI This Week"
@@ -270,7 +270,7 @@ CREATE TABLE subscribers (
 
 ## Data Collection Pipeline
 
-> `scripts/collect-news.ts` — runs at 4am SGT (20:00 UTC)
+> `scripts/collect-news.ts` — runs at 12am SGT daily Mon-Fri
 
 ### Source Tiers
 
@@ -343,7 +343,7 @@ const SEARCH_QUERIES = [
 
 ## Newsletter Writing Pipeline
 
-> `scripts/write-newsletter.ts` — runs at 5am SGT (21:00 UTC)
+> `scripts/write-newsletter.ts` — runs at 2am SGT daily Mon-Fri
 
 ### Stages
 
@@ -430,7 +430,7 @@ function validateNewsletter(md: string): { valid: boolean; errors: string[] } {
 
 ## Weekly Digest Pipeline
 
-> `scripts/write-weekly.ts` — runs Saturday 5am SGT
+> `scripts/write-weekly.ts` — runs Sunday 5am SGT
 
 1. Load all Mon-Fri newsletters from current week
 2. Load all filtered-items JSONs from the week
@@ -446,7 +446,7 @@ function validateNewsletter(md: string): { valid: boolean; errors: string[] } {
 
 ## Hot Topic Detection & Blog Pipeline
 
-> `scripts/write-blog.ts` — runs at 7am SGT (23:00 UTC)
+> `scripts/write-blog.ts` — legacy step, replaced by `process-queue.ts` (6am SGT)
 
 ### 3-Signal Topic Scoring
 
@@ -536,7 +536,7 @@ video_status: none
 
 ## SEO/AEO Engine
 
-> `scripts/generate-seo.ts` — runs at 9am SGT (01:00 UTC)
+> `scripts/generate-seo.ts` — legacy step, replaced by `process-queue.ts` (6am SGT)
 
 ### Page Types
 

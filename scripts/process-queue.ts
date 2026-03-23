@@ -17,7 +17,7 @@
  *   npx tsx scripts/process-queue.ts --skip-validation   # Skip link validation
  *
  * Pipeline integration (daily-pipeline.sh):
- *   7am SGT: process-queue (replaces blog + seo steps)
+ *   6am SGT: process-queue (replaces blog + seo steps)
  *
  * @see docs/plans/KEYWORD-ENGINE-MIGRATION.md Phase C → C4
  * @see scripts/lib/content-gen.ts (B4 core orchestration)

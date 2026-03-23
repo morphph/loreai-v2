@@ -106,7 +106,7 @@ Each stage feeds the next with increasingly refined data.
 |  Claude Opus generates -> validate -> write -> update DB  |
 +-----------------------------------------------------------+
 
-Saturday 5am SGT
+Sunday 5am SGT
 +-----------------------------------------------------------+
 |  6. WEEKLY  (write-weekly.ts)                             |
 |                                                           |

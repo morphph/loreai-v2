@@ -1,7 +1,7 @@
 #!/usr/bin/env npx tsx
 /**
  * scripts/write-weekly.ts — Weekly digest pipeline
- * Runs Saturday 5am SGT (21:00 UTC)
+ * Runs Sunday 5am SGT (crontab TZ=Asia/Singapore)
  *
  * Stages:
  *   1. Load Mon-Fri newsletters from current week

@@ -1,7 +1,7 @@
 #!/usr/bin/env npx tsx
 /**
  * scripts/write-blog.ts — Blog writing pipeline
- * Runs at 7am SGT (23:00 UTC) daily Mon-Fri
+ * Legacy step — replaced by process-queue.ts (6am SGT)
  *
  * Stages:
  *   1. Load blog seeds from data/blog-seeds/YYYY-MM-DD.json

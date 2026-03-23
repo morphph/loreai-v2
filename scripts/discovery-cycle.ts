@@ -5,7 +5,7 @@
  * Subtopic Discovery → B1 (Expansion) → B2 (Grouping) → B3 (Scoring/Queue)
  *
  * Usage:
- *   npx tsx scripts/discovery-cycle.ts                              # All topics (Saturday cron)
+ *   npx tsx scripts/discovery-cycle.ts                              # All topics (Tue & Sat 8am SGT cron)
  *   npx tsx scripts/discovery-cycle.ts --topic=claude-code          # Single topic
  *   npx tsx scripts/discovery-cycle.ts --topic=claude-code --event="Anthropic launches new pricing"
  *   npx tsx scripts/discovery-cycle.ts --topic=claude-code --expand-only

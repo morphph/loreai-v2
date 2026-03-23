@@ -1,7 +1,7 @@
 #!/usr/bin/env npx tsx
 /**
  * scripts/collect-news.ts — Data collection pipeline
- * Runs at 4am SGT (20:00 UTC) daily Mon-Fri
+ * Runs at 12am SGT daily Mon-Fri (crontab TZ=Asia/Singapore)
  *
  * Tiers:
  *   0: RSS Feeds (~35 items)
