@@ -342,12 +342,38 @@ Extract detects entity mentions
 
 ---
 
-## Summary: Priority Order for Fixes
+## Execution Plan
 
-| # | Issue | Impact | Effort |
-|---|-------|--------|--------|
-| 2 | Exa junk headings poisoning keyword pool | High — wastes generation budget | Medium (filter improvements) |
-| 1 | Grouping hallucination → subtopic failure | Medium — blocks keyword pipeline | Medium (fuzzy match + model upgrade) |
-| 4 | claude-code subtopic unprocessed | Medium — 143 keywords idle | Low (manual rerun or auto-fix from #1) |
-| 3 | Newsletter cross-day overlap | Low-Medium — quality degradation | Low (likely self-resolves; monitor) |
-| 5 | Extract → Discovery gap (no auto-promotion) | Medium — limits content to 2 topics | High (new pipeline + design decisions) |
+### Phase 1: Unblock (do first)
+
+| Step | What | Files | Effort |
+|------|------|-------|--------|
+| 1a | Switch grouping default model from Haiku → Sonnet | `keyword-group.ts` (MODEL_MAP + default) | 5 min |
+| 1b | Simplify retry prompt (don't append errors, just re-send with reminder) | `keyword-group.ts` (`buildRetryPrompt`) | 5 min |
+| 1c | Re-run grouping for `claude-code` cluster with Sonnet | Manual: `npx tsx scripts/group-keywords.ts --cluster=claude-code --model=sonnet` | 5 min |
+
+### Phase 2: Clean the keyword pool (Issue #2)
+
+| Step | What | Files | Effort |
+|------|------|-------|--------|
+| 2a | Add 10 new filters to `isKeywordNoise()` + `normalizeKeyword()` | `keyword-expand.ts` | 30 min |
+| 2b | Write backfill script to purge existing junk keywords from DB | New: `scripts/backfill-clean-keywords.ts` | 20 min |
+| 2c | Run backfill on VPS, verify dashboard shows clean data | Manual on VPS | 10 min |
+
+### Phase 3: Fix hallucination fundamentally (Issue #1, Option B)
+
+| Step | What | Files | Effort |
+|------|------|-------|--------|
+| 3a | Change `buildPrompt()` to output numbered keyword list | `keyword-group.ts` | 15 min |
+| 3b | Change `parseGroupingResponse()` to accept index-based output | `keyword-group.ts` | 20 min |
+| 3c | Update keyword-grouping skill prompt for numbered references | `skills/keyword-grouping/SKILL.md` | 10 min |
+| 3d | Add fuzzy matching fallback as safety net (Option C) | `keyword-group.ts` | 15 min |
+| 3e | Update tests | `keyword-group.test.ts` | 15 min |
+
+### Phase 4: Monitor & future (Issues #3, #5)
+
+| Step | What | Notes |
+|------|------|-------|
+| 4a | Monitor newsletter overlap for 3-5 runs | Should self-resolve; if >40% persists, investigate agent filter |
+| 4b | Design auto-promotion pipeline (Issue #5) | Needs design decisions — separate planning session |
+| 4c | Dashboard: rename root cluster to "General" | Minor UI fix in `TopicTree.tsx` |
