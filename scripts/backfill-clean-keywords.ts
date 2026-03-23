@@ -73,25 +73,25 @@ function main() {
       reason = 'entity-not-keyword';
     }
 
-    // Phase 2: Apply noise filters to actual keyword sources only
-    if (!reason) {
-      // Check: Does it survive normalizeKeyword()?
+    // Phase 2: Apply noise filters to exa-competitor keywords only.
+    // The 10 noise filters were designed for Issue #2 (junk Exa headings).
+    // Blog-generated slugs and serper keywords follow their own rules.
+    if (!reason && row.source === 'exa-competitor') {
       const normalized = normalizeKeyword(row.keyword);
       if (normalized === null) {
         reason = 'normalize-rejected';
       }
-    }
 
-    if (!reason) {
-      const noiseReason = getNoiseReason(row.keyword);
-      if (noiseReason) {
-        reason = noiseReason;
+      if (!reason) {
+        const noiseReason = getNoiseReason(row.keyword);
+        if (noiseReason) {
+          reason = noiseReason;
+        }
       }
-    }
 
-    // Title case check (DB keywords are usually lowercased, but check anyway)
-    if (!reason && isTitleCase(row.keyword)) {
-      reason = 'title-case';
+      if (!reason && isTitleCase(row.keyword)) {
+        reason = 'title-case';
+      }
     }
 
     if (reason) {
