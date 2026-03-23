@@ -457,13 +457,13 @@ function checkGenerate(): CheckResult {
 
   // Query create_queue for jobs completed today (SGT = UTC+8)
   const completedJobs = db.prepare(`
-    SELECT cq.id, cq.keyword_group_id, cq.content_type, cq.status,
+    SELECT cq.job_id, cq.keyword_group_id, cq.content_type, cq.status,
            kg.primary_keyword
     FROM create_queue cq
-    JOIN keyword_groups kg ON kg.id = cq.keyword_group_id
+    JOIN keyword_groups kg ON kg.group_id = cq.keyword_group_id
     WHERE date(cq.completed_at, '+8 hours') = ?
   `).all(DATE) as {
-    id: number;
+    job_id: number;
     keyword_group_id: number;
     content_type: string;
     status: string;
