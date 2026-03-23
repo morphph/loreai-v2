@@ -136,12 +136,12 @@ export function buildPrompt(
   pillarTopic: string,
   keywords: KeywordInput[],
 ): string {
-  const keywordLines = keywords.map((kw) => {
+  const keywordLines = keywords.map((kw, i) => {
     const parts = [kw.keyword];
     if (kw.search_volume) parts.push(`[vol: ${kw.search_volume}]`);
     if (kw.source) parts.push(`[src: ${kw.source}]`);
     if (kw.competition) parts.push(`[comp: ${kw.competition}]`);
-    return `- ${parts.join(' ')}`;
+    return `${i + 1}. ${parts.join(' ')}`;
   });
 
   return [
@@ -155,12 +155,86 @@ export function buildPrompt(
     '',
     'Group these keywords by shared search intent. Return JSON only.',
     '',
-    'IMPORTANT: Every keyword in your output must be copied character-for-character from the list above. Do not paraphrase, shorten, or invent keywords.',
+    'IMPORTANT: Reference keywords by their number (e.g. primary: 1, secondary: [2, 5]). Do NOT output keyword strings.',
   ].join('\n');
 }
 
 /**
+ * Fuzzy match a string keyword against the input list.
+ * Returns the matched keyword if >80% character overlap, else null.
+ */
+export function fuzzyMatchKeyword(candidate: string, inputKeywords: string[]): string | null {
+  const normalizedCandidate = candidate.toLowerCase().trim();
+
+  // Exact match first
+  for (const kw of inputKeywords) {
+    if (kw.toLowerCase().trim() === normalizedCandidate) return kw;
+  }
+
+  // Fuzzy: >80% character overlap (simple Dice coefficient on bigrams)
+  const candidateBigrams = getBigrams(normalizedCandidate);
+
+  let bestMatch: string | null = null;
+  let bestScore = 0;
+
+  for (const kw of inputKeywords) {
+    const kwBigrams = getBigrams(kw.toLowerCase().trim());
+    const intersection = candidateBigrams.filter((b) => kwBigrams.includes(b)).length;
+    const score = (2 * intersection) / (candidateBigrams.length + kwBigrams.length);
+    if (score > 0.8 && score > bestScore) {
+      bestScore = score;
+      bestMatch = kw;
+    }
+  }
+
+  return bestMatch;
+}
+
+function getBigrams(str: string): string[] {
+  const bigrams: string[] = [];
+  for (let i = 0; i < str.length - 1; i++) {
+    bigrams.push(str.substring(i, i + 2));
+  }
+  return bigrams;
+}
+
+/**
+ * Resolve a primary or secondary keyword value to a string keyword.
+ * Supports both index-based (number) and string fallback (fuzzy match).
+ */
+function resolveKeywordRef(
+  value: unknown,
+  inputKeywords: string[],
+  fieldName: string,
+): string {
+  if (typeof value === 'number') {
+    // Index-based (1-based)
+    if (!Number.isInteger(value) || value < 1 || value > inputKeywords.length) {
+      throw new Error(
+        `ValidationError: ${fieldName} index ${value} out of range [1, ${inputKeywords.length}]`,
+      );
+    }
+    return inputKeywords[value - 1];
+  }
+
+  if (typeof value === 'string') {
+    // String fallback with fuzzy matching
+    const matched = fuzzyMatchKeyword(value, inputKeywords);
+    if (!matched) {
+      throw new Error(
+        `ValidationError: ${fieldName} "${value}" not found in input keywords`,
+      );
+    }
+    return matched;
+  }
+
+  throw new Error(`ValidationError: ${fieldName} must be a number (index) or string, got ${typeof value}`);
+}
+
+/**
  * Parse and validate Claude's JSON response.
+ * Supports index-based format (primary: 1, secondary: [2, 5]) as primary path,
+ * with string keyword fallback via fuzzy matching.
  * Throws on invalid schema. Warns on missing keywords.
  */
 export function parseGroupingResponse(
@@ -190,27 +264,31 @@ export function parseGroupingResponse(
     throw new Error(`ValidationError: 'groups' is not an array`);
   }
 
+  // Resolve ungrouped — can be indices or strings
   const ungrouped: string[] = Array.isArray(data.ungrouped)
-    ? data.ungrouped.filter((u): u is string => typeof u === 'string')
+    ? data.ungrouped.map((u) => {
+        if (typeof u === 'number') {
+          if (!Number.isInteger(u) || u < 1 || u > inputKeywords.length) return null;
+          return inputKeywords[u - 1];
+        }
+        if (typeof u === 'string') return fuzzyMatchKeyword(u, inputKeywords) ?? u;
+        return null;
+      }).filter((u): u is string => u !== null)
     : [];
 
-  const inputSet = new Set(inputKeywords);
   const assigned = new Set<string>();
   const groups: KeywordGroup[] = [];
 
   for (const g of data.groups) {
     const group = g as Record<string, unknown>;
 
-    // Validate required fields
-    if (typeof group.primary_keyword !== 'string') {
-      throw new Error(`ValidationError: group missing 'primary_keyword'`);
+    // Resolve primary keyword (index or string)
+    const primaryRef = group.primary_keyword ?? group.primary;
+    if (primaryRef === undefined || primaryRef === null) {
+      throw new Error(`ValidationError: group missing 'primary_keyword' (or 'primary')`);
     }
 
-    if (!inputSet.has(group.primary_keyword)) {
-      throw new Error(
-        `ValidationError: primary_keyword "${group.primary_keyword}" not found in input keywords`,
-      );
-    }
+    const primaryKw = resolveKeywordRef(primaryRef, inputKeywords, 'primary_keyword');
 
     const intent = group.intent as string;
     if (!VALID_INTENTS.includes(intent as typeof VALID_INTENTS[number])) {
@@ -226,21 +304,16 @@ export function parseGroupingResponse(
       );
     }
 
-    const secondaryKeywords = Array.isArray(group.secondary_keywords)
-      ? (group.secondary_keywords as string[]).filter((s) => typeof s === 'string')
+    // Resolve secondary keywords (indices or strings)
+    const rawSecondary = Array.isArray(group.secondary_keywords ?? group.secondary)
+      ? (group.secondary_keywords ?? group.secondary) as unknown[]
       : [];
 
-    // Validate secondary keywords are from input
-    for (const sk of secondaryKeywords) {
-      if (!inputSet.has(sk)) {
-        throw new Error(
-          `ValidationError: secondary keyword "${sk}" not found in input keywords`,
-        );
-      }
-    }
+    const secondaryKeywords: string[] = rawSecondary.map((s, idx) =>
+      resolveKeywordRef(s, inputKeywords, `secondary_keyword[${idx}]`),
+    );
 
     // Handle duplicates: first occurrence wins
-    const primaryKw = group.primary_keyword;
     if (assigned.has(primaryKw)) continue; // skip duplicate
     assigned.add(primaryKw);
 
@@ -282,7 +355,7 @@ export async function callClaude(
   opts: GroupOptions,
 ): Promise<ClaudeGroupOutput> {
   const skill = loadSkill();
-  const modelId = MODEL_MAP[opts.model] || MODEL_MAP.haiku;
+  const modelId = MODEL_MAP[opts.model] || MODEL_MAP.sonnet;
   const prompt = buildPrompt(clusterSlug, pillarTopic, keywords);
   const inputKeywordList = keywords.map((kw) => kw.keyword);
 
@@ -298,14 +371,10 @@ export async function callClaude(
         return { valid: false, errors: [(err as Error).message] };
       }
     },
-    buildRetryPrompt: (originalPrompt, errors) => [
+    buildRetryPrompt: (originalPrompt) => [
       originalPrompt,
       '',
-      '---',
-      'YOUR PREVIOUS RESPONSE HAD ERRORS:',
-      ...errors.map(e => `- ${e}`),
-      '',
-      'REMINDER: Copy keywords EXACTLY from the input list. Do NOT rephrase or invent.',
+      'RETRY: Your previous response had errors. Please try again. Output ONLY valid JSON with keyword indices.',
     ].join('\n'),
   });
 

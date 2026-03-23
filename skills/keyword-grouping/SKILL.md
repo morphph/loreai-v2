@@ -8,9 +8,9 @@ You receive:
 
 ## Output
 
-CRITICAL: Every `primary_keyword` and `secondary_keyword` you output MUST be copied
-verbatim from the input list. Do NOT rephrase, combine, or invent new keywords.
-If a keyword doesn't clearly fit any group, put it in "ungrouped".
+CRITICAL: Reference keywords by their NUMBER from the input list (1-based index).
+Do NOT output keyword strings — use numbers only.
+If a keyword doesn't clearly fit any group, put its number in "ungrouped".
 
 Return ONLY valid JSON. No markdown fences, no explanation text outside the JSON.
 
@@ -18,14 +18,14 @@ Return ONLY valid JSON. No markdown fences, no explanation text outside the JSON
 {
   "groups": [
     {
-      "primary_keyword": "the keyword with highest search intent clarity",
-      "secondary_keywords": ["other", "keywords", "in", "this", "group"],
+      "primary": 1,
+      "secondary": [2, 5],
       "intent": "informational|commercial|definitional|navigational",
       "content_type": "faq|compare|glossary|blog|topic-hub",
       "rationale": "One sentence: why these keywords share the same search intent"
     }
   ],
-  "ungrouped": ["keywords", "that", "dont", "fit", "any", "group"]
+  "ungrouped": [7, 12]
 }
 ```
 

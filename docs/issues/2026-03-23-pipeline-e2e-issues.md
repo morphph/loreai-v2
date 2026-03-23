@@ -5,7 +5,7 @@ This document captures issues found during the run, with enough detail to fix th
 
 ---
 
-## Issue 1: Keyword Grouping — Hallucinated Primary Keywords
+## ~~Issue 1: Keyword Grouping — Hallucinated Primary Keywords~~ ✅ FIXED
 
 **Severity:** Medium (causes subtopic grouping to fail entirely)
 **Pipeline stage:** Discovery → Stage 2 (Keyword Grouping)
@@ -117,7 +117,7 @@ Current retry appends error details which confuses Haiku into producing prose. I
 
 ---
 
-## Issue 2: Exa Competitor Keywords — Junk Headings Poisoning the Keyword Pool
+## ~~Issue 2: Exa Competitor Keywords — Junk Headings Poisoning the Keyword Pool~~ ✅ FIXED
 
 **Severity:** High (creates garbage keyword groups that waste content generation budget)
 **Pipeline stage:** Discovery → Stage 1 (Keyword Expansion) → `extractCompetitorKeywords()`
@@ -262,7 +262,7 @@ These are not new bugs — they're pre-existing quality issues. But the 50%+ ove
 
 ---
 
-## Issue 4: Grouping — claude-code Subtopic Skipped Entirely
+## ~~Issue 4: Grouping — claude-code Subtopic Skipped Entirely~~ ✅ FIXED
 
 **Severity:** Medium (20 new keywords discovered but 0 grouped for the main `claude-code` subtopic)
 **Pipeline stage:** Discovery → Stage 2

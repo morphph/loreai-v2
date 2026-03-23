@@ -11,6 +11,9 @@ import {
   expandViaSerperSearch,
   expandSubtopic,
   expandTopic,
+  isKeywordNoise,
+  getNoiseReason,
+  isTitleCase,
 } from '../keyword-expand';
 
 import type { SubtopicInput, ExpandOptions } from '../keyword-expand';
@@ -164,17 +167,17 @@ function setupDefaultMocks() {
     results: [
       {
         url: 'https://competitor.com/claude-code-cost',
-        title: 'Claude Code Pricing: Complete Cost Breakdown 2026',
+        title: 'claude code cost breakdown',
         published_date: '2026-02-15',
         author: null,
-        text: '## Overview\nContent...\n## Plans and Pricing\nMore content...\n## Free Tier Details\nDetails...',
+        text: '## Overview\nContent...\n## plans and pricing details\nMore content...\n## free tier usage details\nDetails...',
       },
       {
         url: 'https://another.com/ai-coding-tools',
-        title: 'AI Coding Tools Pricing Compared',
+        title: 'ai coding tools compared',
         published_date: '2026-01-20',
         author: null,
-        text: '## Claude Code\nContent...\n## Cursor\nContent...\n## GitHub Copilot\nContent...',
+        text: '## claude code pricing info\nContent...\n## cursor pricing overview\nContent...\n## copilot enterprise pricing\nContent...',
       },
     ],
   });
@@ -231,17 +234,189 @@ describe('normalizeKeyword', () => {
     const kw = Array(15).fill('word').join(' ');
     expect(normalizeKeyword(kw)).toBe(kw);
   });
+
+  it('strips zero-width characters', () => {
+    expect(normalizeKeyword('claude\u200B code\u200C pricing\u200D tool\uFEFF')).toBe('claude code pricing tool');
+  });
+
+  it('strips zero-width characters and still validates length', () => {
+    // Only zero-width chars → empty after strip → too short
+    expect(normalizeKeyword('\u200B\u200C\u200D')).toBeNull();
+  });
+});
+
+describe('isKeywordNoise', () => {
+  it('rejects numbered prefixes', () => {
+    expect(isKeywordNoise('1) add an explicit threat-model sync step per repo')).toBe(true);
+    expect(getNoiseReason('1) add an explicit threat-model sync')).toBe('numbered-prefix');
+    expect(isKeywordNoise('3. harden against agent-specific failure modes')).toBe(true);
+    expect(getNoiseReason('3. harden against agent-specific failure')).toBe('numbered-prefix');
+  });
+
+  it('rejects site suffix remnants with pipe', () => {
+    expect(isKeywordNoise('foo tool | bar baz qux')).toBe(true);
+    expect(getNoiseReason('foo tool | bar baz qux')).toBe('site-suffix-remnant');
+  });
+
+  it('rejects site suffix remnants with backslash', () => {
+    expect(isKeywordNoise('foo tool \\ bar baz qux')).toBe(true);
+    expect(getNoiseReason('foo tool \\ bar baz qux')).toBe('site-suffix-remnant');
+  });
+
+  it('rejects year markers in parentheses', () => {
+    expect(isKeywordNoise('claude code hooks (2026)')).toBe(true);
+    expect(getNoiseReason('claude code hooks (2026)')).toBe('year-in-parens');
+  });
+
+  it('keeps year without parentheses', () => {
+    expect(isKeywordNoise('claude code hooks 2026')).toBe(false);
+  });
+
+  it('rejects subtitle patterns with long text after colon', () => {
+    // This string is also >8 words (too-long fires first), so test a shorter subtitle
+    expect(isKeywordNoise('claude code: what it is how its different and why users love it')).toBe(true);
+    // 8 words total, 6 words after colon → subtitle-pattern
+    expect(isKeywordNoise('claude code: deep coding at terminal velocity now')).toBe(true);
+    expect(getNoiseReason('claude code: deep coding at terminal velocity now')).toBe('subtitle-pattern');
+  });
+
+  it('keeps short subtitle after colon', () => {
+    expect(isKeywordNoise('claude code: pricing info')).toBe(false);
+  });
+
+  it('rejects strings ending with ellipsis', () => {
+    expect(isKeywordNoise('claude code on deskt\u2026')).toBe(true);
+    expect(getNoiseReason('claude code on deskt\u2026')).toBe('sentence-punctuation');
+  });
+
+  it('rejects strings ending with em dash', () => {
+    expect(isKeywordNoise('claude code pricing \u2014')).toBe(true);
+    expect(getNoiseReason('claude code pricing \u2014')).toBe('sentence-punctuation');
+  });
+
+  it('rejects strings ending with en dash', () => {
+    expect(isKeywordNoise('claude code pricing \u2013')).toBe(true);
+    expect(getNoiseReason('claude code pricing \u2013')).toBe('sentence-punctuation');
+  });
+
+  it('rejects self-domain references', () => {
+    expect(isKeywordNoise('something about loreai tools')).toBe(true);
+    expect(getNoiseReason('something about loreai tools')).toBe('self-domain');
+    expect(isKeywordNoise('claude code hooks morph guide')).toBe(true);
+    expect(getNoiseReason('claude code hooks morph guide')).toBe('self-domain');
+  });
+
+  it('keeps keywords without self-domain', () => {
+    expect(isKeywordNoise('claude code pricing guide')).toBe(false);
+  });
+
+  it('rejects markdown artifacts with bold', () => {
+    expect(isKeywordNoise('**bold title** for something')).toBe(true);
+    expect(getNoiseReason('**bold title** for something')).toBe('markdown-artifact');
+  });
+
+  it('rejects markdown artifacts with links', () => {
+    expect(isKeywordNoise('check [this link](url) here now')).toBe(true);
+    expect(getNoiseReason('check [this link](url) here now')).toBe('markdown-artifact');
+  });
+
+  it('rejects markdown artifacts with underscores', () => {
+    expect(isKeywordNoise('some __underlined__ text here today')).toBe(true);
+    expect(getNoiseReason('some __underlined__ text here today')).toBe('markdown-artifact');
+  });
+
+  it('rejects >8 word strings as too long', () => {
+    expect(isKeywordNoise('one two three four five six seven eight nine')).toBe(true);
+    expect(getNoiseReason('one two three four five six seven eight nine')).toBe('too-long');
+  });
+
+  it('keeps 7-word strings', () => {
+    expect(isKeywordNoise('claude code api pricing plans cost guide')).toBe(false);
+  });
+
+  it('keeps 8-word strings', () => {
+    expect(isKeywordNoise('claude code api pricing plans cost guide overview')).toBe(false);
+  });
+
+  it('rejects CTA patterns', () => {
+    expect(isKeywordNoise('native install on mac setup')).toBe(true);
+    expect(isKeywordNoise('how to install claude code')).toBe(true);
+    expect(isKeywordNoise('see pricing for enterprise plans')).toBe(true);
+    expect(isKeywordNoise('click here for more details')).toBe(true);
+    expect(isKeywordNoise('step 3 configure your environment')).toBe(true);
+  });
+
+  it('rejects trailing (recommended) pattern', () => {
+    expect(isKeywordNoise('claude code setup (recommended) for devs')).toBe(false); // not at end
+    expect(isKeywordNoise('claude code setup (recommended)')).toBe(true);
+    expect(getNoiseReason('claude code setup (recommended)')).toBe('trailing-noise');
+  });
+
+  it('rejects truncated text with short unknown last word', () => {
+    expect(isKeywordNoise('claude code on de xy')).toBe(true);
+    expect(getNoiseReason('claude code on de xy')).toBe('truncated-text');
+  });
+
+  it('keeps keywords ending with known short words', () => {
+    // "is" is a known short word
+    expect(isKeywordNoise('what claude code is')).toBe(false);
+    // "vs" is a known short word
+    expect(isKeywordNoise('claude code cursor vs')).toBe(false);
+    // "ai" is a known short word
+    expect(isKeywordNoise('best tools for ai')).toBe(false);
+  });
+
+  it('keeps legitimate keywords', () => {
+    expect(isKeywordNoise('claude code pricing')).toBe(false);
+    expect(isKeywordNoise('how much does claude code cost')).toBe(false);
+    expect(isKeywordNoise('codex cli vs cursor')).toBe(false);
+  });
+});
+
+describe('isTitleCase', () => {
+  it('detects title case article headlines', () => {
+    expect(isTitleCase('Building A Real Feature With Claude Code: Every Step Explained')).toBe(true);
+  });
+
+  it('does not flag lowercase text', () => {
+    expect(isTitleCase('claude code pricing')).toBe(false);
+  });
+
+  it('does not flag short strings (< 4 words)', () => {
+    // Even if capitalized, too few words to judge
+    expect(isTitleCase('Claude Code Pricing')).toBe(false);
+  });
+
+  it('does not flag mostly lowercase with some capitals', () => {
+    // Only 2 out of 5 words capitalized = 40% < 60%
+    expect(isTitleCase('Claude code is a Tool')).toBe(false);
+  });
+
+  it('flags strings with >60% capitalized words', () => {
+    // 4 out of 5 words capitalized = 80% > 60%
+    expect(isTitleCase('Claude Code Pricing Guide Overview')).toBe(true);
+  });
 });
 
 describe('extractCompetitorKeywords', () => {
   it('extracts titles', () => {
     const results: ExaSearchResult[] = [
-      { url: 'https://a.com', title: 'Claude Code Review 2026', published_date: null, author: null },
+      // 3 words — below isTitleCase threshold (< 4 words)
+      { url: 'https://a.com', title: 'claude code review', published_date: null, author: null },
       { url: 'https://b.com', title: 'AI Coding Tools', published_date: null, author: null },
     ];
     const kws = extractCompetitorKeywords(results);
-    expect(kws).toContain('Claude Code Review 2026');
+    expect(kws).toContain('claude code review');
     expect(kws).toContain('AI Coding Tools');
+  });
+
+  it('filters title-case article headlines', () => {
+    const results: ExaSearchResult[] = [
+      // 4+ words, >60% capitalized → title case → rejected
+      { url: 'https://a.com', title: 'Claude Code Review Complete Guide', published_date: null, author: null },
+    ];
+    const kws = extractCompetitorKeywords(results);
+    expect(kws).not.toContain('Claude Code Review Complete Guide');
   });
 
   it('extracts H2/H3 headings (filtering single-word noise)', () => {
@@ -293,10 +468,10 @@ describe('extractCompetitorKeywords', () => {
 
   it('handles results without text', () => {
     const results: ExaSearchResult[] = [
-      { url: 'https://a.com', title: 'Just a Title', published_date: null, author: null },
+      { url: 'https://a.com', title: 'just a title here', published_date: null, author: null },
     ];
     const kws = extractCompetitorKeywords(results);
-    expect(kws).toEqual(['Just a Title']);
+    expect(kws).toEqual(['just a title here']);
   });
 
   it('handles results without title', () => {
@@ -333,11 +508,12 @@ describe('extractCompetitorKeywords', () => {
 
   it('strips site name suffixes from titles', () => {
     const results: ExaSearchResult[] = [
-      { url: 'https://a.com', title: 'Claude Code Pricing Guide | TechSite', published_date: null, author: null },
+      // After stripping " | TechSite", becomes "claude code pricing" — 3 words, below isTitleCase threshold
+      { url: 'https://a.com', title: 'claude code pricing | TechSite', published_date: null, author: null },
     ];
     const kws = extractCompetitorKeywords(results);
-    expect(kws).toContain('Claude Code Pricing Guide');
-    expect(kws).not.toContain('Claude Code Pricing Guide | TechSite');
+    expect(kws).toContain('claude code pricing');
+    expect(kws).not.toContain('claude code pricing | TechSite');
   });
 
   it('filters too-short titles (< 3 words)', () => {
@@ -353,14 +529,14 @@ describe('extractCompetitorKeywords', () => {
     const results: ExaSearchResult[] = [
       {
         url: 'https://a.com',
-        title: 'Claude Code Complete Guide',
+        title: 'claude code guide',
         published_date: null,
         author: null,
-        text: '## Table of Contents\n...\n## Related Posts and Resources\n...\n## Claude Code Architecture Overview\n...',
+        text: '## Table of Contents\n...\n## Related Posts and Resources\n...\n## claude code architecture overview\n...',
       },
     ];
     const kws = extractCompetitorKeywords(results);
-    expect(kws).toContain('Claude Code Architecture Overview');
+    expect(kws).toContain('claude code architecture overview');
     expect(kws).not.toContain('Table of Contents');
     expect(kws).not.toContain('Related Posts and Resources');
   });

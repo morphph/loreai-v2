@@ -69,6 +69,8 @@ const VOLUME_MAP: Record<string, number> = {
  */
 export function normalizeKeyword(raw: string): string | null {
   const kw = raw
+    // Strip zero-width characters early
+    .replace(/[\u200B\u200C\u200D\uFEFF]/g, '')
     .toLowerCase()
     .trim()
     .replace(/\s+/g, ' ')
@@ -87,7 +89,35 @@ export function normalizeKeyword(raw: string): string | null {
 /**
  * Known CTA / navigation patterns that are not real search queries.
  */
-const NOISE_PATTERNS = /^(get started|sign up|learn more|read more|subscribe|join|log ?in|download|about this|about us|connect on|contact us|table of contents|related posts|see also|next steps|further reading|share this|leave a comment|comments|acknowledgements?|references|disclaimer|privacy policy|terms of service)/i;
+const NOISE_PATTERNS = /^(get started|sign up|learn more|read more|subscribe|join|log ?in|download|about this|about us|connect on|contact us|table of contents|related posts|see also|next steps|further reading|share this|leave a comment|comments|acknowledgements?|references|disclaimer|privacy policy|terms of service|install|native install|data collection|make better|about this course|see pricing|view pricing|click here|step \d|how to install)/i;
+
+/**
+ * Trailing noise patterns (UI elements, not queries).
+ */
+const TRAILING_NOISE = /\(recommended\)$/i;
+
+/**
+ * Known short words that can legitimately end a keyword phrase.
+ */
+const KNOWN_SHORT_WORDS = new Set(['a', 'i', 'ai', 'an', 'be', 'by', 'do', 'go', 'if', 'in', 'is', 'it', 'no', 'of', 'on', 'or', 'so', 'to', 'up', 'us', 'vs', 'we']);
+
+/**
+ * Filter reason tags for debugging which filter caught a keyword.
+ */
+export type NoiseFilterReason =
+  | 'too-short'
+  | 'too-long'
+  | 'cta-pattern'
+  | 'trailing-noise'
+  | 'sentence-punctuation'
+  | 'numbered-prefix'
+  | 'site-suffix-remnant'
+  | 'year-in-parens'
+  | 'subtitle-pattern'
+  | 'truncated-text'
+  | 'self-domain'
+  | 'markdown-artifact'
+  | null;
 
 /**
  * Strip trailing ` | SiteName` or ` - SiteName` suffixes from page titles.
@@ -98,16 +128,76 @@ function stripSiteSuffix(title: string): string {
 
 /**
  * Check if a string looks like a real keyword (not pure CTA/nav noise).
+ * Returns true if the text is noise (should be rejected).
  */
-function isKeywordNoise(text: string): boolean {
+export function isKeywordNoise(text: string): boolean {
+  return getNoiseReason(text) !== null;
+}
+
+/**
+ * Returns the reason a keyword is noise, or null if it's clean.
+ * Exported for use by the backfill cleanup script.
+ */
+export function getNoiseReason(text: string): NoiseFilterReason {
   const words = text.split(/\s+/);
-  // Too short (<3 words) or too long (>12 words) — unlikely a search query
-  if (words.length < 3 || words.length > 12) return true;
+
+  // Too short (<3 words) or too long (>8 words) — unlikely a search query
+  if (words.length < 3) return 'too-short';
+  if (words.length > 8) return 'too-long';
+
   // Matches known CTA/nav patterns
-  if (NOISE_PATTERNS.test(text)) return true;
-  // Ends with punctuation typical of CTAs, not queries
-  if (/[.!]$/.test(text)) return true;
-  return false;
+  if (NOISE_PATTERNS.test(text)) return 'cta-pattern';
+
+  // Trailing noise patterns (UI elements)
+  if (TRAILING_NOISE.test(text)) return 'trailing-noise';
+
+  // Ends with punctuation typical of sentences/CTAs, not queries
+  // Also catch `...`, `…`, `—`, `–`
+  if (/[.!]$/.test(text)) return 'sentence-punctuation';
+  if (/[…—–]$/.test(text)) return 'sentence-punctuation';
+  if (/\.{3}$/.test(text)) return 'sentence-punctuation';
+
+  // Numbered prefixes — article/list patterns, not search queries
+  if (/^\d+[.)]\s/.test(text)) return 'numbered-prefix';
+
+  // Site suffix remnants — mid-string pipes or backslashes
+  if (/[|\\]/.test(text)) return 'site-suffix-remnant';
+
+  // Year markers in parentheses — article title patterns
+  if (/\(20[2-3]\d\)/.test(text)) return 'year-in-parens';
+
+  // Subtitle patterns — colon with >5 words after it
+  const colonIdx = text.indexOf(':');
+  if (colonIdx !== -1) {
+    const afterColon = text.slice(colonIdx + 1).trim();
+    if (afterColon.split(/\s+/).filter(Boolean).length > 5) return 'subtitle-pattern';
+  }
+
+  // Truncated text — last word is 1-2 chars and not a known short word,
+  // or string ends with ellipsis/dash
+  const lastWord = words[words.length - 1];
+  if (lastWord.length <= 2 && !KNOWN_SHORT_WORDS.has(lastWord.toLowerCase())) {
+    return 'truncated-text';
+  }
+
+  // Self-domain filter — our own content shouldn't be keywords
+  if (/loreai|morph/i.test(text)) return 'self-domain';
+
+  // Markdown artifacts
+  if (/\*\*|__|]\(|\[/.test(text)) return 'markdown-artifact';
+
+  return null;
+}
+
+/**
+ * Check if a raw (pre-normalization) string looks like a Title Case article headline.
+ * Returns true if >60% of words are capitalized → likely an article title, not a query.
+ */
+export function isTitleCase(raw: string): boolean {
+  const words = raw.trim().split(/\s+/).filter(w => w.length > 0);
+  if (words.length < 4) return false; // too few words to judge
+  const capitalizedCount = words.filter(w => /^[A-Z]/.test(w)).length;
+  return capitalizedCount / words.length > 0.6;
 }
 
 /**
@@ -122,7 +212,7 @@ export function extractCompetitorKeywords(
   for (const r of results) {
     if (r.title) {
       const cleaned = stripSiteSuffix(r.title);
-      if (cleaned && !isKeywordNoise(cleaned)) {
+      if (cleaned && !isTitleCase(cleaned) && !isKeywordNoise(cleaned)) {
         keywords.push(cleaned);
       }
     }
@@ -131,7 +221,7 @@ export function extractCompetitorKeywords(
       const headings = r.text.match(/^#{2,3}\s+(.+)$/gm) ?? [];
       for (const h of headings) {
         const clean = h.replace(/^#{2,3}\s+/, '').trim();
-        if (clean.length > 5 && clean.length < 100 && !isKeywordNoise(clean)) {
+        if (clean.length > 5 && clean.length < 100 && !isTitleCase(clean) && !isKeywordNoise(clean)) {
           keywords.push(clean);
         }
       }

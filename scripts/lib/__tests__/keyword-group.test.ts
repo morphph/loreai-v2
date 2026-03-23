@@ -8,6 +8,7 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 import {
   buildPrompt,
   parseGroupingResponse,
+  fuzzyMatchKeyword,
   loadUngroupedKeywords,
   writeGroupingToDb,
   clearClusterGroups,
@@ -225,7 +226,36 @@ const MOCK_KEYWORDS: KeywordInput[] = [
   { id: 10, keyword: 'claude code enterprise pricing', source: 'exa-competitor', search_volume: null, competition: null },
 ];
 
-const MOCK_CLAUDE_RESPONSE: ClaudeGroupOutput = {
+/** Index-based Claude response (primary path) */
+const MOCK_INDEX_RESPONSE = {
+  groups: [
+    {
+      primary: 2,
+      secondary: [1, 3, 4, 5],
+      intent: 'informational',
+      content_type: 'faq',
+      rationale: 'All express the same intent: understanding the cost/pricing of Claude Code',
+    },
+    {
+      primary: 6,
+      secondary: [7, 8],
+      intent: 'informational',
+      content_type: 'faq',
+      rationale: 'All ask whether a free option exists for Claude Code',
+    },
+    {
+      primary: 9,
+      secondary: [],
+      intent: 'commercial',
+      content_type: 'compare',
+      rationale: 'Comparison intent between two specific products on pricing',
+    },
+  ],
+  ungrouped: [10],
+};
+
+/** String-based Claude response (fallback path — legacy format) */
+const MOCK_STRING_RESPONSE: ClaudeGroupOutput = {
   groups: [
     {
       primary_keyword: 'how much does claude code cost',
@@ -268,6 +298,15 @@ describe('buildPrompt', () => {
     }
   });
 
+  it('uses numbered list format', () => {
+    const prompt = buildPrompt('claude-code-pricing', 'Claude Code Pricing', MOCK_KEYWORDS);
+    expect(prompt).toContain('1. claude code pricing');
+    expect(prompt).toContain('2. how much does claude code cost');
+    expect(prompt).toContain('10. claude code enterprise pricing');
+    // Should NOT use bullet format
+    expect(prompt).not.toMatch(/^- claude code pricing/m);
+  });
+
   it('includes volume metadata', () => {
     const prompt = buildPrompt('claude-code-pricing', 'Claude Code Pricing', MOCK_KEYWORDS);
     expect(prompt).toContain('[vol: 10000]');
@@ -308,19 +347,38 @@ describe('buildPrompt', () => {
     const prompt = buildPrompt('claude-code-pricing', 'Claude Code Pricing', MOCK_KEYWORDS);
     expect(prompt).toContain('Group these keywords by shared search intent. Return JSON only.');
   });
+
+  it('includes index-based instruction instead of character-for-character', () => {
+    const prompt = buildPrompt('claude-code-pricing', 'Claude Code Pricing', MOCK_KEYWORDS);
+    expect(prompt).toContain('Reference keywords by their number');
+    expect(prompt).toContain('Do NOT output keyword strings');
+    // Old instruction should be gone
+    expect(prompt).not.toContain('character-for-character');
+    expect(prompt).not.toContain('Do not paraphrase');
+  });
 });
 
-describe('parseGroupingResponse', () => {
+describe('parseGroupingResponse — index-based (primary path)', () => {
   const inputKeywords = MOCK_KEYWORDS.map((kw) => kw.keyword);
 
-  it('parses valid complete response', () => {
-    const raw = JSON.stringify(MOCK_CLAUDE_RESPONSE);
+  it('parses valid index-based response', () => {
+    const raw = JSON.stringify(MOCK_INDEX_RESPONSE);
     const result = parseGroupingResponse(raw, inputKeywords);
 
     expect(result.groups).toHaveLength(3);
+
+    // Primary resolved from index 2 → 'how much does claude code cost'
+    expect(result.groups[0].primary_keyword).toBe('how much does claude code cost');
+    // Secondary resolved from indices [1, 3, 4, 5]
+    expect(result.groups[0].secondary_keywords).toContain('claude code pricing');
+    expect(result.groups[0].secondary_keywords).toContain('claude code cost');
+    expect(result.groups[0].secondary_keywords).toContain('claude code pricing 2026');
+    expect(result.groups[0].secondary_keywords).toContain('claude code pricing per month');
+
+    // Ungrouped resolved from index 10 → 'claude code enterprise pricing'
     expect(result.ungrouped).toContain('claude code enterprise pricing');
 
-    // Check all input keywords are accounted for
+    // All input keywords accounted for
     const allGrouped = result.groups.flatMap((g) => [
       g.primary_keyword,
       ...g.secondary_keywords,
@@ -331,74 +389,209 @@ describe('parseGroupingResponse', () => {
     }
   });
 
-  it('parses response with single-keyword group', () => {
-    const response: ClaudeGroupOutput = {
+  it('throws on out-of-range primary index (too high)', () => {
+    const bad = {
       groups: [
         {
-          primary_keyword: 'claude code pricing',
-          secondary_keywords: [],
+          primary: 99,
+          secondary: [],
+          intent: 'informational',
+          content_type: 'faq',
+          rationale: 'test',
+        },
+      ],
+      ungrouped: [],
+    };
+    expect(() => parseGroupingResponse(JSON.stringify(bad), inputKeywords)).toThrow(
+      'out of range',
+    );
+  });
+
+  it('throws on out-of-range primary index (zero)', () => {
+    const bad = {
+      groups: [
+        {
+          primary: 0,
+          secondary: [],
+          intent: 'informational',
+          content_type: 'faq',
+          rationale: 'test',
+        },
+      ],
+      ungrouped: [],
+    };
+    expect(() => parseGroupingResponse(JSON.stringify(bad), inputKeywords)).toThrow(
+      'out of range',
+    );
+  });
+
+  it('throws on out-of-range secondary index', () => {
+    const bad = {
+      groups: [
+        {
+          primary: 1,
+          secondary: [2, 999],
+          intent: 'informational',
+          content_type: 'faq',
+          rationale: 'test',
+        },
+      ],
+      ungrouped: [],
+    };
+    expect(() => parseGroupingResponse(JSON.stringify(bad), inputKeywords)).toThrow(
+      'out of range',
+    );
+  });
+
+  it('throws on negative index', () => {
+    const bad = {
+      groups: [
+        {
+          primary: -1,
+          secondary: [],
+          intent: 'informational',
+          content_type: 'faq',
+          rationale: 'test',
+        },
+      ],
+      ungrouped: [],
+    };
+    expect(() => parseGroupingResponse(JSON.stringify(bad), inputKeywords)).toThrow(
+      'out of range',
+    );
+  });
+
+  it('throws on non-integer index', () => {
+    const bad = {
+      groups: [
+        {
+          primary: 1.5,
+          secondary: [],
+          intent: 'informational',
+          content_type: 'faq',
+          rationale: 'test',
+        },
+      ],
+      ungrouped: [],
+    };
+    expect(() => parseGroupingResponse(JSON.stringify(bad), inputKeywords)).toThrow(
+      'out of range',
+    );
+  });
+
+  it('handles single-keyword group with index', () => {
+    const response = {
+      groups: [
+        {
+          primary: 1,
+          secondary: [],
           intent: 'informational',
           content_type: 'faq',
           rationale: 'Single keyword group',
+        },
+      ],
+      ungrouped: [2, 3, 4, 5, 6, 7, 8, 9, 10],
+    };
+
+    const result = parseGroupingResponse(JSON.stringify(response), inputKeywords);
+    expect(result.groups).toHaveLength(1);
+    expect(result.groups[0].primary_keyword).toBe('claude code pricing');
+    expect(result.groups[0].secondary_keywords).toHaveLength(0);
+  });
+
+  it('deduplicates: first occurrence wins (index-based)', () => {
+    const duped = {
+      groups: [
+        {
+          primary: 1,
+          secondary: [3],
+          intent: 'informational',
+          content_type: 'faq',
+          rationale: 'Group A',
+        },
+        {
+          primary: 6,
+          secondary: [3], // duplicate — index 3 already in group A
+          intent: 'informational',
+          content_type: 'faq',
+          rationale: 'Group B',
+        },
+      ],
+      ungrouped: [2, 4, 5, 7, 8, 9, 10],
+    };
+
+    const result = parseGroupingResponse(JSON.stringify(duped), inputKeywords);
+    expect(result.groups[0].secondary_keywords).toContain('claude code cost');
+    expect(result.groups[1].secondary_keywords).not.toContain('claude code cost');
+  });
+
+  it('strips markdown fences from response', () => {
+    const fenced = '```json\n' + JSON.stringify(MOCK_INDEX_RESPONSE) + '\n```';
+    const result = parseGroupingResponse(fenced, inputKeywords);
+    expect(result.groups).toHaveLength(3);
+  });
+});
+
+describe('parseGroupingResponse — string fallback (fuzzy match)', () => {
+  const inputKeywords = MOCK_KEYWORDS.map((kw) => kw.keyword);
+
+  it('parses valid string-based response via fuzzy fallback', () => {
+    const raw = JSON.stringify(MOCK_STRING_RESPONSE);
+    const result = parseGroupingResponse(raw, inputKeywords);
+
+    expect(result.groups).toHaveLength(3);
+    expect(result.ungrouped).toContain('claude code enterprise pricing');
+
+    const allGrouped = result.groups.flatMap((g) => [
+      g.primary_keyword,
+      ...g.secondary_keywords,
+    ]);
+    const allAccountedFor = [...allGrouped, ...result.ungrouped];
+    for (const kw of inputKeywords) {
+      expect(allAccountedFor).toContain(kw);
+    }
+  });
+
+  it('fuzzy matches slightly misspelled keyword', () => {
+    // "claude code pricng" is close enough to "claude code pricing" (>80% bigram overlap)
+    const response = {
+      groups: [
+        {
+          primary_keyword: 'claude code pricng',
+          secondary_keywords: [],
+          intent: 'informational',
+          content_type: 'faq',
+          rationale: 'test',
         },
       ],
       ungrouped: inputKeywords.filter((k) => k !== 'claude code pricing'),
     };
 
     const result = parseGroupingResponse(JSON.stringify(response), inputKeywords);
-    expect(result.groups).toHaveLength(1);
-    expect(result.groups[0].secondary_keywords).toHaveLength(0);
+    expect(result.groups[0].primary_keyword).toBe('claude code pricing');
   });
 
-  it('warns on missing keywords', () => {
-    const partial: ClaudeGroupOutput = {
+  it('throws when string keyword is completely unrelated', () => {
+    const bad = {
       groups: [
         {
-          primary_keyword: 'claude code pricing',
-          secondary_keywords: ['claude code cost'],
+          primary_keyword: 'completely unrelated keyword xyz',
+          secondary_keywords: [],
           intent: 'informational',
           content_type: 'faq',
-          rationale: 'Pricing info',
+          rationale: 'test',
         },
       ],
       ungrouped: [],
     };
-
-    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
-    const result = parseGroupingResponse(JSON.stringify(partial), inputKeywords);
-    expect(result.groups).toHaveLength(1);
-    expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('keywords not accounted for'));
-    warnSpy.mockRestore();
+    expect(() => parseGroupingResponse(JSON.stringify(bad), inputKeywords)).toThrow(
+      'not found in input keywords',
+    );
   });
+});
 
-  it('deduplicates: first occurrence wins', () => {
-    const duped: ClaudeGroupOutput = {
-      groups: [
-        {
-          primary_keyword: 'claude code pricing',
-          secondary_keywords: ['claude code cost'],
-          intent: 'informational',
-          content_type: 'faq',
-          rationale: 'Group A',
-        },
-        {
-          primary_keyword: 'is claude code free',
-          secondary_keywords: ['claude code cost'], // duplicate!
-          intent: 'informational',
-          content_type: 'faq',
-          rationale: 'Group B',
-        },
-      ],
-      ungrouped: inputKeywords.filter(
-        (k) => !['claude code pricing', 'claude code cost', 'is claude code free'].includes(k),
-      ),
-    };
-
-    const result = parseGroupingResponse(JSON.stringify(duped), inputKeywords);
-    // "claude code cost" should only be in the first group
-    expect(result.groups[0].secondary_keywords).toContain('claude code cost');
-    expect(result.groups[1].secondary_keywords).not.toContain('claude code cost');
-  });
+describe('parseGroupingResponse — common validation', () => {
+  const inputKeywords = MOCK_KEYWORDS.map((kw) => kw.keyword);
 
   it('throws on invalid JSON', () => {
     expect(() => parseGroupingResponse('not json', inputKeywords)).toThrow('ParseError');
@@ -414,8 +607,8 @@ describe('parseGroupingResponse', () => {
     const bad = {
       groups: [
         {
-          primary_keyword: 'claude code pricing',
-          secondary_keywords: [],
+          primary: 1,
+          secondary: [],
           intent: 'transactional',
           content_type: 'faq',
           rationale: 'test',
@@ -432,8 +625,8 @@ describe('parseGroupingResponse', () => {
     const bad = {
       groups: [
         {
-          primary_keyword: 'claude code pricing',
-          secondary_keywords: [],
+          primary: 1,
+          secondary: [],
           intent: 'informational',
           content_type: 'landing',
           rationale: 'test',
@@ -453,12 +646,32 @@ describe('parseGroupingResponse', () => {
     expect(result.ungrouped).toEqual(inputKeywords);
   });
 
-  it('throws when primary_keyword not in input', () => {
+  it('warns on missing keywords', () => {
+    const partial = {
+      groups: [
+        {
+          primary: 1,
+          secondary: [3],
+          intent: 'informational',
+          content_type: 'faq',
+          rationale: 'Pricing info',
+        },
+      ],
+      ungrouped: [],
+    };
+
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const result = parseGroupingResponse(JSON.stringify(partial), inputKeywords);
+    expect(result.groups).toHaveLength(1);
+    expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('keywords not accounted for'));
+    warnSpy.mockRestore();
+  });
+
+  it('throws when primary_keyword/primary is missing', () => {
     const bad = {
       groups: [
         {
-          primary_keyword: 'nonexistent keyword',
-          secondary_keywords: [],
+          secondary: [2],
           intent: 'informational',
           content_type: 'faq',
           rationale: 'test',
@@ -467,32 +680,34 @@ describe('parseGroupingResponse', () => {
       ungrouped: [],
     };
     expect(() => parseGroupingResponse(JSON.stringify(bad), inputKeywords)).toThrow(
-      'not found in input keywords',
+      "group missing 'primary_keyword'",
     );
   });
+});
 
-  it('throws when secondary keyword not in input', () => {
-    const bad = {
-      groups: [
-        {
-          primary_keyword: 'claude code pricing',
-          secondary_keywords: ['nonexistent keyword'],
-          intent: 'informational',
-          content_type: 'faq',
-          rationale: 'test',
-        },
-      ],
-      ungrouped: [],
-    };
-    expect(() => parseGroupingResponse(JSON.stringify(bad), inputKeywords)).toThrow(
-      'not found in input keywords',
-    );
+describe('fuzzyMatchKeyword', () => {
+  const keywords = [
+    'claude code pricing',
+    'how much does claude code cost',
+    'claude code free tier',
+  ];
+
+  it('returns exact match', () => {
+    expect(fuzzyMatchKeyword('claude code pricing', keywords)).toBe('claude code pricing');
   });
 
-  it('strips markdown fences from response', () => {
-    const fenced = '```json\n' + JSON.stringify(MOCK_CLAUDE_RESPONSE) + '\n```';
-    const result = parseGroupingResponse(fenced, inputKeywords);
-    expect(result.groups).toHaveLength(3);
+  it('returns exact match case-insensitive', () => {
+    expect(fuzzyMatchKeyword('Claude Code Pricing', keywords)).toBe('claude code pricing');
+  });
+
+  it('returns fuzzy match for close string', () => {
+    // "claude code pricng" — missing one letter
+    const result = fuzzyMatchKeyword('claude code pricng', keywords);
+    expect(result).toBe('claude code pricing');
+  });
+
+  it('returns null for completely different string', () => {
+    expect(fuzzyMatchKeyword('totally unrelated keyword', keywords)).toBeNull();
   });
 });
 
@@ -605,9 +820,9 @@ describe('groupCluster', () => {
     // Set a dummy skill content
     setSkillContent('You are a keyword grouping engine.');
 
-    // Mock callClaudeWithRetry response (ai.ts returns { content: string, model: string })
+    // Mock callClaudeWithRetry response — return index-based format
     mockClaudeCreate.mockImplementation((_sys: string, _user: string, opts: { validate?: (c: string) => { valid: boolean; errors: string[] } }) => {
-      const content = JSON.stringify(MOCK_CLAUDE_RESPONSE);
+      const content = JSON.stringify(MOCK_INDEX_RESPONSE);
       // Run validation if provided (matches real callClaudeWithRetry behavior)
       if (opts?.validate) {
         const { valid, errors } = opts.validate(content);
@@ -686,7 +901,7 @@ describe('groupCluster', () => {
     expect(typeof callOpts.buildRetryPrompt).toBe('function');
   });
 
-  it('buildRetryPrompt appends errors to original prompt', async () => {
+  it('simplified retry prompt does not contain error details', async () => {
     await groupCluster('claude-code-pricing', DEFAULT_OPTS);
 
     const callOpts = mockClaudeCreate.mock.calls[0][2];
@@ -695,20 +910,12 @@ describe('groupCluster', () => {
     const retryPrompt = callOpts.buildRetryPrompt(originalPrompt, errors);
 
     expect(retryPrompt).toContain(originalPrompt);
-    expect(retryPrompt).toContain('YOUR PREVIOUS RESPONSE HAD ERRORS');
-    expect(retryPrompt).toContain('keyword "foo" not found');
-    expect(retryPrompt).toContain('Copy keywords EXACTLY');
-  });
-});
-
-describe('buildPrompt anti-hallucination', () => {
-  it('includes anti-hallucination reminder in user prompt', () => {
-    const keywords: KeywordInput[] = [
-      { id: 1, keyword: 'test keyword', source: 'serper', search_volume: 100, competition: null },
-    ];
-    const prompt = buildPrompt('test-cluster', 'Test Topic', keywords);
-
-    expect(prompt).toContain('character-for-character');
-    expect(prompt).toContain('Do not paraphrase');
+    expect(retryPrompt).toContain('RETRY');
+    expect(retryPrompt).toContain('Output ONLY valid JSON with keyword indices');
+    // Should NOT contain specific error text
+    expect(retryPrompt).not.toContain('keyword "foo" not found');
+    // Should NOT contain old-style instructions
+    expect(retryPrompt).not.toContain('Copy keywords EXACTLY');
+    expect(retryPrompt).not.toContain('YOUR PREVIOUS RESPONSE HAD ERRORS');
   });
 });
