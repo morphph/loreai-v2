@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import HealthStrip from '@/components/dashboard/HealthStrip';
-import TopicCards from '@/components/dashboard/TopicCard';
+import TopicTree from '@/components/dashboard/TopicTree';
 import SegmentChart from '@/components/dashboard/SegmentChart';
 import AnomalyTable from '@/components/dashboard/AnomalyTable';
 import OpportunityList from '@/components/dashboard/OpportunityList';
@@ -94,7 +94,7 @@ export default function DashboardClient() {
 
         {/* B: Topic Cards */}
         <Section title="Flagship Topics">
-          <TopicCards />
+          <TopicTree />
         </Section>
 
         {/* C: GSC Performance */}

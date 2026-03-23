@@ -212,6 +212,101 @@ app.get('/api/dashboard/topics', (c) => {
   return c.json({ topics: result });
 });
 
+app.get('/api/dashboard/topics-tree', (c) => {
+  // Flagship topics: only clusters that have subtopics or keyword groups
+  const FLAGSHIPS = [
+    { slug: 'claude-code', name: 'Claude Code' },
+    { slug: 'codex', name: 'OpenAI Codex' },
+  ];
+
+  const flagships = FLAGSHIPS.map(f => {
+    // Get all clusters under this flagship (exact match + prefix match)
+    const clusters = db.prepare(`
+      SELECT slug, pillar_topic, mention_count
+      FROM topic_clusters
+      WHERE slug = ? OR slug LIKE ? || '-%'
+      ORDER BY CASE WHEN slug = ? THEN 0 ELSE 1 END, mention_count DESC
+    `).all(f.slug, f.slug, f.slug) as Array<{ slug: string; pillar_topic: string; mention_count: number }>;
+
+    let flagshipKeywordsTotal = 0;
+    let flagshipKeywordsCovered = 0;
+    let flagshipContentTotal = 0;
+
+    const clusterData = clusters.map(cl => {
+      const kwTotal = (db.prepare('SELECT COUNT(*) as c FROM keywords WHERE cluster_slug = ?').get(cl.slug) as { c: number }).c;
+      const kwCovered = (db.prepare("SELECT COUNT(*) as c FROM keywords WHERE cluster_slug = ? AND content_exists = 1").get(cl.slug) as { c: number }).c;
+      flagshipKeywordsTotal += kwTotal;
+      flagshipKeywordsCovered += kwCovered;
+
+      // Keyword groups with their keywords
+      const groups = db.prepare(`
+        SELECT kg.group_id, kg.primary_keyword, kg.intent, kg.content_type, kg.priority_score, kg.status
+        FROM keyword_groups kg
+        WHERE kg.cluster_slug = ?
+        ORDER BY kg.priority_score DESC
+      `).all(cl.slug) as Array<{
+        group_id: number; primary_keyword: string; intent: string;
+        content_type: string; priority_score: number; status: string;
+      }>;
+
+      const groupData = groups.map(g => {
+        const keywords = db.prepare(`
+          SELECT keyword FROM keywords WHERE keyword_group_id = ?
+        `).all(g.group_id) as Array<{ keyword: string }>;
+
+        // Check if content exists for this group's primary keyword
+        const slug = g.primary_keyword.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+        const contentType = g.content_type === 'blog' ? 'blog' : g.content_type;
+        const dirMap: Record<string, string> = { blog: 'blog', faq: 'faq', glossary: 'glossary', compare: 'compare', 'topic-hub': 'topics' };
+        const dir = dirMap[contentType] || contentType;
+        const contentUrl = g.status === 'completed' || g.status === 'done'
+          ? `/${dir}/${slug}`
+          : null;
+
+        if (contentUrl) flagshipContentTotal++;
+
+        return {
+          group_id: g.group_id,
+          primary_keyword: g.primary_keyword,
+          intent: g.intent,
+          content_type: g.content_type,
+          priority_score: g.priority_score,
+          status: g.status,
+          content_url: contentUrl,
+          keywords: keywords.map(k => k.keyword),
+        };
+      });
+
+      // Ungrouped keywords
+      const ungrouped = db.prepare(`
+        SELECT keyword FROM keywords WHERE cluster_slug = ? AND keyword_group_id IS NULL
+        ORDER BY search_volume DESC NULLS LAST
+      `).all(cl.slug) as Array<{ keyword: string }>;
+
+      return {
+        slug: cl.slug,
+        name: cl.pillar_topic,
+        mention_count: cl.mention_count,
+        keywords_total: kwTotal,
+        keywords_covered: kwCovered,
+        groups: groupData,
+        ungrouped_keywords: ungrouped.map(u => u.keyword),
+      };
+    });
+
+    return {
+      slug: f.slug,
+      name: f.name,
+      keywords_total: flagshipKeywordsTotal,
+      keywords_covered: flagshipKeywordsCovered,
+      content_total: flagshipContentTotal,
+      clusters: clusterData,
+    };
+  });
+
+  return c.json({ flagships });
+});
+
 app.get('/api/dashboard/gsc', async (c) => {
   const fs = await import('fs');
   const cachePath = `${process.cwd()}/data/dashboard/gsc-cache.json`;
