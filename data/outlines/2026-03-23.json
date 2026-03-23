@@ -1,0 +1,236 @@
+{
+  "date": "2026-03-23",
+  "headline_hook": "OpenAI Ships 10x Faster Agent Containers While Claude Code Reinvents Its Setup Flow",
+  "preview_topics": [
+    "OpenAI's agent container pooling",
+    "the Claude Code skills ecosystem war",
+    "why AI models might be learning taste"
+  ],
+  "pick_of_the_day": {
+    "item_id": 11760,
+    "thesis": "The Codex vs Claude Code skill philosophy split isn't a feature debate — it's two competing theories of how agents should accumulate expertise, and whichever wins will define the next generation of developer tools."
+  },
+  "model_literacy": {
+    "concept": "Container Pooling vs. Cold Start",
+    "relevance": "OpenAI's 10x agent speed-up comes from warm container reuse — understanding the cold-start bottleneck explains why agentic workflows felt sluggish and what changed."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 11504,
+          "title": "OpenAI Cuts Agent Container Spin-Up Time by 10x with Warm Pooling",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The biggest bottleneck in agentic workflows just got axed — container pooling means your agent's next tool call doesn't wait for cold start.",
+          "key_fact": "10x faster container spin-up for skills, shell, and code interpreter"
+        },
+        {
+          "id": 11837,
+          "title": "Alibaba's Z-Image-Turbo Hits 793K Downloads on HuggingFace",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The open-weight image generation race heats up as Alibaba drops a fast text-to-image model that's immediately trending.",
+          "key_fact": "793K downloads and climbing on HuggingFace"
+        },
+        {
+          "id": 11564,
+          "title": "Map-Anything v1 Brings Universal 3D Reconstruction to a Browser Demo",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Feed-forward 3D reconstruction without per-scene optimization — the kind of capability that used to require a PhD and a GPU cluster.",
+          "key_fact": "Metric 3D maps from arbitrary inputs, no per-scene training"
+        },
+        {
+          "id": 10227,
+          "title": "Google AI Caps a Dense Launch Week: Vibe Coding Meets Vibe Designing",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "AI Studio gets full-stack vibe coding, Stitch becomes a design canvas — Google is quietly building the creative suite layer.",
+          "key_fact": "AI Studio full-stack coding + Stitch AI design canvas in one week"
+        },
+        {
+          "id": 10002,
+          "title": "IBM Ships Granite Libraries to Make Its Open Models Actually Usable",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Standardized tooling that lowers the adoption barrier for Granite models — IBM's bet that open models need more than weights.",
+          "key_fact": "Mellea 0.4.0 + Granite Libraries released together"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 11464,
+          "title": "Claude Code's /init Gets an Interactive Overhaul — It Interviews You Now",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Setup friction is the silent killer of developer tools — the new /init that auto-configures skills and hooks from a conversation could change adoption curves.",
+          "key_fact": "Enable with CLAUDE_CODE_NEW_INIT=1, auto-configures skills, hooks, and CLAUDE.md"
+        },
+        {
+          "id": 11353,
+          "title": "Claude Code Skills Now Let You Dial Thinking Effort Per Command",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Trade speed for quality on a per-slash-command basis — the kind of granular control power users have been asking for.",
+          "key_fact": "Effort level configurable per skill/slash command"
+        },
+        {
+          "id": 11803,
+          "title": "Chrome Remote Debugging + MCP = Agent Testing Without CAPTCHA Hell",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Use your existing browser session for agent testing — no re-login, no CAPTCHA, just your auth state piped directly to the agent.",
+          "key_fact": "Skip CAPTCHA and re-auth by reusing your live Chrome session"
+        },
+        {
+          "id": 11790,
+          "title": "Unusual Whales Ships an MCP Server for Live Market Data",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Options flow, dark pools, and congressional trades streaming into Claude — a reference implementation for anyone building financial MCP integrations.",
+          "key_fact": "Live options, equities, dark pool, 13F, and prediction market data via MCP"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 11613,
+          "title": "Simon Willison Writes the Missing Manual for Git + Coding Agents",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "Every team adopting Claude Code or Codex needs git guardrails — Willison's chapter is the practical guidance that didn't exist until now.",
+          "key_fact": "First draft of 'Using Git with coding agents' chapter published"
+        },
+        {
+          "id": 11467,
+          "title": "Anthropic Engineer's Complete Index of Claude Code Deep-Dives",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "One pinned thread linking every technical deep-dive on skills, hooks, and agent patterns — bookmark this before it gets buried.",
+          "key_fact": "6,534 likes, comprehensive index of advanced Claude Code usage"
+        },
+        {
+          "id": 11847,
+          "title": "Teaching Claude to QA a Mobile App — No Test Scripts Required",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Screenshots in, regression reports out — a practical walkthrough of Claude as an automated mobile QA agent.",
+          "key_fact": "Screenshots + interaction flows for automated regression detection"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 11628,
+          "title": "Small Model Trained on Citations Can Predict Which Papers Will Be Hits",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "If AI can learn 'taste' from engagement data, quality judgment stops being a uniquely human moat — and that changes how we think about curation at scale.",
+          "key_fact": "Small model trained on citation signals predicts paper impact"
+        },
+        {
+          "id": 11612,
+          "title": "Willison Shows How LLMs Build Detailed Profiles from Your Public Comments",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Run 'Profile this user' against 1,000 HN comments and see what falls out — a concrete privacy demonstration everyone should try.",
+          "key_fact": "LLM-generated user profiles from public Hacker News comment history"
+        },
+        {
+          "id": 11843,
+          "title": "An Intuition-First Guide to Transformer Circuits",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Mechanistic interpretability made accessible — understand what's actually happening inside models without needing the research background.",
+          "key_fact": "Intuition-driven explainer on transformer circuit analysis"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 11760,
+          "title": "Codex vs Claude Code: Two Competing Philosophies of How Agents Should Learn",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "OpenAI treats skills as functional references, Anthropic frames them as problem-solving approaches — this philosophical split will shape which tools win.",
+          "key_fact": "Emollick's side-by-side comparison of skill design philosophies"
+        },
+        {
+          "id": 10116,
+          "title": "Anthropic Ditched SSR for Static Vite on claude.ai — TTFB Dropped 65%",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A real-world case study in killing SSR for speed — edge-served static assets beat server rendering when your priority is time-to-first-byte.",
+          "key_fact": "65% faster TTFB at p75, prompts appear 50% sooner"
+        },
+        {
+          "id": 10256,
+          "title": "NVIDIA Overtakes Google as the Largest Org on HuggingFace",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "3,881 team members on HuggingFace — NVIDIA's quiet evolution from chip supplier to full-stack AI platform is showing up in the data.",
+          "key_fact": "3,881 NVIDIA team members on HuggingFace, surpassing Google"
+        },
+        {
+          "id": 10331,
+          "title": "Anthropic's Daily Shipping Cadence Is the Argument for AI-Powered Dev Teams",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Learning from OpenClaw community feedback and shipping features daily — evidence that AI-augmented teams operate at a fundamentally different tempo.",
+          "key_fact": "Daily feature shipping driven by community feedback loop"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 11846,
+          "title": "How to Make Your Open-Source Project AI-Agent-Friendly",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Structured docs, machine-readable metadata, contribution patterns agents can follow — the new checklist for maintainers.",
+          "key_fact": "Practical guide to AI-agent-optimized project structure"
+        },
+        {
+          "id": 10569,
+          "title": "An Industrial Piping Contractor Is Using Claude Code for Real Business Tasks",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "When non-developers start building with coding agents, the addressable market conversation changes completely.",
+          "key_fact": "Non-developer industrial contractor using Claude Code professionally"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 9991,
+      "title": "Dreamer: The 'Personal Agent OS' from Stripe's Former CTO",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "$10K prizes for tool builders, serious ecosystem play",
+      "key_fact": "/dev/agents emerges from stealth as Dreamer"
+    },
+    {
+      "id": 10403,
+      "title": "Paradigm AI Ships a Major New Version — Built AI-Native from Scratch",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Rebuilt from scratch rather than bolting AI onto existing workflows",
+      "key_fact": "Purpose-built AI-native workflow platform"
+    }
+  ],
+  "total_items": 23
+}
