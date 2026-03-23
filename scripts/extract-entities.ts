@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import { getDb, getRecentNewsItems, upsertTopicCluster, upsertKeyword, closeDb } from './lib/db';
+import { getDb, getRecentNewsItems, upsertTopicCluster, closeDb } from './lib/db';
 import { callClaudeWithRetry, checkClaudeHealth } from './lib/ai';
 import { braveExpandNewTopics } from './lib/topic-cluster';
 import 'dotenv/config';
@@ -135,7 +135,6 @@ async function main() {
     if (!slug) continue;
 
     upsertTopicCluster(slug, entity.entity);
-    upsertKeyword(entity.entity, 'ai-extraction', slug);
 
     if (existingSlugs.has(slug)) {
       updated++;

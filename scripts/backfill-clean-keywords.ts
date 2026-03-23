@@ -2,8 +2,10 @@
 /**
  * scripts/backfill-clean-keywords.ts — Retroactive keyword cleanup
  *
- * Applies new keyword noise filters retroactively to all existing keywords.
- * Deletes keywords that fail the updated isKeywordNoise() or normalizeKeyword() checks.
+ * Two-phase cleanup:
+ *   Phase 1: Delete all `ai-extraction` source keywords (entities, not keywords — they
+ *            belong in topic_clusters, not the keywords table)
+ *   Phase 2: Apply noise filters to actual keyword sources (exa-competitor, serper-*)
  *
  * Usage:
  *   npx tsx scripts/backfill-clean-keywords.ts --dry-run              # Preview deletions
@@ -31,7 +33,7 @@ interface KeywordRow {
   cluster_slug: string | null;
 }
 
-type DeleteReason = NoiseFilterReason | 'normalize-rejected' | 'title-case';
+type DeleteReason = NoiseFilterReason | 'normalize-rejected' | 'title-case' | 'entity-not-keyword';
 
 function main() {
   console.log(
@@ -64,13 +66,21 @@ function main() {
   for (const row of rows) {
     let reason: DeleteReason = null;
 
-    // Check 1: Does it survive normalizeKeyword()?
-    const normalized = normalizeKeyword(row.keyword);
-    if (normalized === null) {
-      reason = 'normalize-rejected';
+    // Phase 1: Entity names don't belong in the keywords table.
+    // They were inserted by extract-entities.ts (now fixed) and should be removed.
+    if (row.source === 'ai-extraction') {
+      reason = 'entity-not-keyword';
     }
 
-    // Check 2: Does it pass isKeywordNoise()? (operates on the raw keyword since it's already lowercased in DB)
+    // Phase 2: Apply noise filters to actual keyword sources only
+    if (!reason) {
+      // Check: Does it survive normalizeKeyword()?
+      const normalized = normalizeKeyword(row.keyword);
+      if (normalized === null) {
+        reason = 'normalize-rejected';
+      }
+    }
+
     if (!reason) {
       const noiseReason = getNoiseReason(row.keyword);
       if (noiseReason) {
@@ -78,9 +88,7 @@ function main() {
       }
     }
 
-    // Check 3: Title case check (the keyword in DB is lowercased, so check the original keyword text)
-    // Since DB keywords are already lowercased, isTitleCase won't trigger here.
-    // This check is mainly for catching keywords that somehow got stored with casing.
+    // Title case check (DB keywords are usually lowercased, but check anyway)
     if (!reason && isTitleCase(row.keyword)) {
       reason = 'title-case';
     }
@@ -106,7 +114,7 @@ function main() {
     console.log(`    ${reason}: ${count}`);
   }
 
-  // Show samples
+  // Show samples grouped by reason
   console.log('\n  Sample deletions (up to 20):');
   for (const { row, reason } of toDelete.slice(0, 20)) {
     console.log(`    [${reason}] "${row.keyword}" (source=${row.source})`);
