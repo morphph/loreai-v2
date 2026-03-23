@@ -48,12 +48,72 @@ The `codex-cli` cluster has 57 keywords in the DB. Relevant ones:
 - `openai codex cli` (exa-competitor) — also exists! But it was in a different batch/wasn't in the ungrouped set at grouping time
 - Many similar near-misses: `codex cli install`, `codex cli download`, etc.
 
-### Possible fixes
+### Possible fixes — analysis
 
-1. **Fuzzy matching fallback:** If `primary_keyword` not found in input, check for Levenshtein distance < 3 or substring match. Auto-correct to the closest input keyword instead of failing.
-2. **Auto-upgrade to Sonnet on retry.** If Haiku fails once with ValidationError, retry with Sonnet (already done for >200 keywords, but not for validation failures).
-3. **Provide keywords as a numbered list.** Ask Claude to reference keywords by number, not by string. Eliminates copy errors entirely.
-4. **Simplify retry prompt.** Instead of appending error details (which confuses Haiku), just re-send the original prompt with a single extra line: "Output ONLY valid JSON. Do not add, remove, or rephrase any keyword."
+#### Option A: Use a better model (Sonnet instead of Haiku)
+
+**Pros:**
+- Sonnet is dramatically better at following exact-copy instructions
+- Sonnet handles large keyword lists (143+) without confusion
+- Already proven: the >200 keyword auto-upgrade to Sonnet works reliably
+- Cost increase is modest: grouping runs 2x/week for ~6 clusters, so maybe 12 Sonnet calls/week
+
+**Cons:**
+- ~3x slower per call (10-15s vs 3-5s)
+- Doesn't solve the fundamental fragility — Sonnet could still hallucinate on edge cases
+- Treats the symptom (bad copy) not the cause (string-copy is inherently fragile)
+
+**Verdict:** Quick win. Worth doing as the default model for grouping. But not a fundamental fix.
+
+#### Option B: Numbered references instead of string copying ⭐ RECOMMENDED
+
+Instead of asking Claude to output keyword strings, give keywords as a numbered list and ask Claude to reference them by index:
+
+```
+Input:
+1. claude code pricing
+2. claude code download
+3. claude code vs cursor
+...
+
+Output:
+{"groups": [{"primary": 1, "secondary": [2, 5], "intent": "commercial", ...}]}
+```
+
+**Pros:**
+- **Eliminates the hallucination problem entirely** — Claude never needs to reproduce strings
+- Works with any model (even Haiku)
+- Validation becomes trivial: check that all indices are in range
+- No fuzzy matching needed
+- Smaller output tokens (numbers vs full strings)
+
+**Cons:**
+- Requires changes to `buildPrompt()`, `parseGroupingResponse()`, and the skill prompt
+- Need to map indices back to actual keywords after parsing
+
+**Verdict:** Best fundamental fix. Medium effort but permanently solves the problem.
+
+#### Option C: Fuzzy matching fallback
+
+If `primary_keyword` not found, find the closest match by edit distance or substring.
+
+**Pros:** Minimal code change, handles "openai codex cli" → "codex cli" style errors
+**Cons:** Could silently accept genuinely wrong keywords. Hard to tune threshold.
+**Verdict:** Acceptable as a safety net alongside Option B, not as the primary fix.
+
+#### Option D: Simplify retry prompt
+
+Current retry appends error details which confuses Haiku into producing prose. Instead, just resend with one extra line.
+
+**Pros:** Very low effort
+**Cons:** Doesn't fix the root cause
+**Verdict:** Do this regardless — it's a 2-line change.
+
+### Recommended approach
+
+1. **Immediately:** Switch default grouping model to Sonnet (Option A) — unblocks the 143 stuck keywords
+2. **This week:** Implement numbered references (Option B) — permanent fix
+3. **Also:** Simplify retry prompt (Option D) and add fuzzy matching safety net (Option C)
 
 ---
 
@@ -115,13 +175,56 @@ But they're clearly not search queries.
 
 These junk keywords get grouped → scored → queued → **consume content generation budget**. The `"1) add an explicit threat-model sync step per repo"` got a priority score of 3000 and was routed to `blog` with `deep_research` pipeline — that's a Gemini Deep Research call (~5 min + API cost) for a completely non-viable keyword.
 
-### Possible fixes
+### Dashboard evidence (2026-03-23)
 
-1. **Filter numbered prefixes.** Reject headings starting with `\d+[.)]\s` — these are almost always numbered list items in a blog, not standalone topics.
-2. **Filter truncated text.** If a heading doesn't end with a letter/digit (ends mid-word), it was truncated — skip it.
-3. **Max word count reduction.** Current limit is 12 words. Headings like "add an explicit threat-model sync step per repo" (9 words) pass. Real search queries rarely exceed 7-8 words. Consider reducing max to 8.
-4. **Relevance filter.** After extracting headings, run a quick check: does the heading contain any word from the subtopic/cluster? If not, it's likely off-topic drift.
-5. **Zero-width space detection.** Several of these keywords have invisible `\u200B` (zero-width space) characters (visible in DB as `​`). These come from the Exa page text and should be stripped in `normalizeKeyword()`.
+After the tree view was deployed, the full extent became visible. The `claude-code` cluster (143 ungrouped keywords) contains:
+
+**Article titles passed off as keywords:**
+- `"claude code is great. you just need to learn how to use it | medium"` — Medium article title
+- `"claude code: deep coding at terminal velocity \ anthropic"` — Anthropic blog title
+- `"claude code: what it is, how its different, and why non-technical ..."` — truncated article title
+- `"building a real feature with claude code: every step explained"` — blog headline
+- `"claude code in action - anthropic skilljar"` — training page title
+- `"claude code | anthropics next-gen ai coding tool for developers"` — landing page title
+
+**Navigation/CTA noise:**
+- `"get started"`, `"native install (recommended)"`, `"connect on discord"`
+- `"about this course"`, `"make better product decisions."`, `"install the extension"`
+- `"data collection, usage, and retention"` — privacy policy section heading
+
+**Truncated text:**
+- `"claude code on deskt"` — cut mid-word
+- `"the mindset shift that changes everything"` — clickbait headline, not a query
+
+**Our own content showing up as keywords:**
+- `"claude code hooks: complete guide to workflow automation | morph"` — our own published page
+
+**Junk also propagates into grouped keywords.** The `claude-code-hooks` cluster has a group with primary keyword `"claude code hooks: a complete guide to automating your ai coding workflow"` (an article title), and ALL its secondary keywords are also article titles:
+- `"claude code hooks: complete guide with 20+ ready-to-use examples (2026)"`
+- `"claude code hooks guide 2026: automate your workflow | serenities ai"`
+- `"claude code hooks: complete guide to workflow automation | morph"` (our own page!)
+
+This means **the entire pipeline chain is contaminated**: bad keywords → bad groups → bad queue entries → wasted content generation.
+
+### Proposed fix: two-layer cleanup
+
+**Layer 1 — Upstream: stricter `extractCompetitorKeywords()` and `isKeywordNoise()`**
+
+New filters to add to `isKeywordNoise()` / `normalizeKeyword()`:
+1. **Numbered prefixes** — reject `^\d+[.)]\s` (numbered list items)
+2. **Site suffix remnants** — reject strings containing `|`, `\`, or ` - ` followed by a capitalized word (even after `stripSiteSuffix`, many slip through)
+3. **Year markers** — reject `(2026)`, `(2025)` etc. (article title pattern)
+4. **Subtitle patterns** — reject `keyword: long subtitle phrase` where the part after `:` is >5 words (these are article titles, not queries)
+5. **Truncated text** — reject strings ending mid-word (not ending with letter/digit/`)`)
+6. **Self-domain filter** — reject strings containing `loreai`, `morph`, or our own site's slugs
+7. **Sentence patterns** — reject strings ending with `.` (already exists) but also `...`, `—`, or containing markdown artifacts
+8. **Zero-width spaces** — strip `\u200B`, `\u200C`, `\u200D`, `\uFEFF` in `normalizeKeyword()`
+9. **Max word count** — reduce from 12 to 8 (real search queries rarely exceed 7-8 words)
+10. **Min word count for headings** — keep at 3 for Serper keywords, but raise to 3+ for Exa headings and require at least one topical word match
+
+**Layer 2 — Backfill: purge existing junk from the DB**
+
+Run the new filters retroactively against all existing keywords. Delete or flag those that fail. Then re-trigger grouping for `claude-code` which currently has 143 ungrouped junk keywords.
 
 ---
 
