@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Very different philosophies for skills in Codex versus Claude Code",
+    "url": "https://x.com/emollick/status/2035895233519493597",
+    "source": "twitter:search",
+    "x_engagement_24h": 122,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 37.0366,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Agent workflows got even faster. You can spin up containers for skills, shell and code interpreter about 10x faster.",
+    "url": "https://x.com/OpenAIDevs/status/2035437297005727963",
+    "source": "twitter:@OpenAIDevs",
+    "x_engagement_24h": 2156,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.6468,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "The Claude team's ability to learn from OpenClaw and ship features daily is a strong argument for a different software development approach",
+    "url": "https://x.com/emollick/status/2034780127431688684",
+    "source": "twitter:@emollick",
+    "x_engagement_24h": 1313,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.393900000000002,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Chrome's new remote debugging feature is GOLD — skip CAPTCHA, re-login, directly get agent test with your own auth",
+    "url": "https://x.com/jasonzhou1993/status/2035602169618223309",
+    "source": "twitter:search",
+    "x_engagement_24h": 1071,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.3213,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Dreamer: the Personal Agent OS — David Singleton",
+    "url": "https://www.latent.space/p/dreamer",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25,
+    "suggested_angle": "news"
+  }
+]
