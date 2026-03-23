@@ -183,6 +183,62 @@ This means the 143 ungrouped keywords under `claude-code` remain unprocessed. Th
 
 ---
 
+## Issue 5: Extract → Discovery Gap — No Auto-Promotion of Trending Topics
+
+**Severity:** Medium (strategic — limits content coverage to manually configured topics)
+**Pipeline stage:** Between Extract and Discovery (missing link)
+
+### What happened
+
+The dashboard shows 334 topic clusters, but only 2 (Claude Code, Codex) have active discovery + content pipelines. The other 332 were created by the `extract` pipeline from news entity mentions and just sit there accumulating `mention_count` — they never enter the keyword expansion → grouping → content generation flow.
+
+### Current architecture
+
+```
+Extract pipeline (daily)
+  → Scans news items for entities
+  → Creates/updates topic_clusters rows (slug, pillar_topic, mention_count, entity_type)
+  → That's it. Dead end.
+
+Discovery pipeline (2x/week)
+  → Only runs on MANUALLY configured flagship topics (hardcoded in discovery-cycle.ts)
+  → Currently: claude-code (3 subtopics), codex (3 subtopics)
+  → Expands keywords → groups → scores → queues content
+```
+
+There is no bridge between them. A topic like "Llama 4" (mention_count: 4) or "Anthropic" (mention_count: 15) will never get keyword expansion or content generation unless manually added to the discovery config.
+
+### Impact
+
+- **Content coverage limited to 2 topics** despite tracking 334 entities
+- Hot/trending topics detected by extract are invisible to discovery
+- Manual bottleneck: someone must review clusters and decide which to promote
+- The 332 orphan clusters clutter the dashboard (Issue 5b — dashboard should filter these)
+
+### Proposed design: Auto-promotion pipeline
+
+```
+Extract detects entity mentions
+  → topic_clusters.mention_count accumulates
+  → When mention_count crosses threshold (e.g., ≥ 8 in 7 days):
+    → Auto-promote to "flagship candidate"
+    → Run one discovery cycle (expand → group → score)
+    → If keyword volume is sufficient (e.g., ≥ 20 viable keywords):
+      → Mark as active flagship topic
+      → Add to regular discovery rotation
+    → Else:
+      → Mark as "low potential", skip future promotion
+```
+
+### Key decisions needed
+
+1. **Threshold for promotion** — mention_count ≥ X? Or weighted by tier (Tier 0 RSS mention > Tier 4 HN)?
+2. **Max active flagships** — Can't run discovery on 50 topics (API costs). Cap at 10-15?
+3. **Demotion** — If a topic stops being mentioned, should it be demoted from active discovery?
+4. **Dashboard filtering** — Regardless of auto-promotion, the dashboard should only show active flagship topics, not all 334 clusters (separate UI fix)
+
+---
+
 ## Summary: Priority Order for Fixes
 
 | # | Issue | Impact | Effort |
@@ -191,3 +247,4 @@ This means the 143 ungrouped keywords under `claude-code` remain unprocessed. Th
 | 1 | Grouping hallucination → subtopic failure | Medium — blocks keyword pipeline | Medium (fuzzy match + model upgrade) |
 | 4 | claude-code subtopic unprocessed | Medium — 143 keywords idle | Low (manual rerun or auto-fix from #1) |
 | 3 | Newsletter cross-day overlap | Low-Medium — quality degradation | Low (likely self-resolves; monitor) |
+| 5 | Extract → Discovery gap (no auto-promotion) | Medium — limits content to 2 topics | High (new pipeline + design decisions) |
