@@ -121,3 +121,30 @@ _(No issues documented yet — will be added as they're discovered)_
 ## Collection Pipeline (collect-news.ts)
 
 _(No issues documented yet — will be added as they're discovered)_
+
+---
+
+## Discovery Pipeline (discovery-cycle.ts)
+
+## 1. Keyword Grouping Hallucination (关键词分组幻觉)
+- Claude Haiku sometimes outputs keywords not present in the input list (paraphrases, article titles, invented phrasings)
+- Validation catches this via exact string matching in `parseGroupingResponse()`, but blind retries sent the identical prompt
+- After 3 failures, the subtopic was skipped entirely (2 of 3 Claude Code subtopics failed on 2026-03-22)
+- **Fix:** Error-aware retries via `buildRetryPrompt` callback — appends validation errors to retry prompt, giving Claude corrective feedback
+- **Fix:** Anti-hallucination reminder added to user prompt in `buildPrompt()` (not just system prompt)
+- **Fix:** `throwOnValidationFailure` flag prevents silently returning invalid data
+
+## 2. Performance Cycle GSC Not Configured (GSC 凭据未配置)
+- `performance-cycle.ts` runs but returns empty data — "GSC credentials not configured, returning noop GSC client"
+- `GSC_SITE_URL` is set but Google auth credentials are not configured on VPS
+- **TODO:** Configure Google Search Console API credentials on VPS
+
+---
+
+## Cron / Scheduling
+
+## 1. UTC/SGT Timezone Confusion (时区混淆)
+- On 2026-03-22, crontab was rewritten with SGT hour values used directly as UTC cron values
+- Daily jobs fired at noon-3pm SGT instead of intended midnight-6am SGT
+- **Fix:** Added `TZ=Asia/Singapore` to crontab header — all times are now written directly in SGT
+- Singapore has no DST, so this is safe and eliminates conversion errors permanently

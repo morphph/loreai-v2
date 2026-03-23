@@ -5,21 +5,22 @@
 Daily automated pipeline: collect raw AI news → curate newsletter → write deep blogs → generate SEO pages.
 Each stage feeds the next with increasingly refined data.
 
-## Schedule (SGT, Mon-Fri unless noted)
+## Schedule (SGT — crontab uses `TZ=Asia/Singapore`)
 
-| Time | Step | Script |
-|------|------|--------|
-| 4:00am | Collect | `collect-news.ts` |
-| 5:00am | Newsletter | `write-newsletter.ts` |
-| 6:30am | Entity Extract | `extract-entities.ts` |
-| 7:00am | Blog | `write-blog.ts` |
-| 9:00am | SEO | `generate-seo.ts` |
-| Sat 5:00am | Weekly Digest | `write-weekly.ts` |
+| Time (SGT) | Step | Script | Days |
+|-------------|------|--------|------|
+| 12:00am | Collect | `collect-news.ts` | Mon-Fri |
+| 2:00am | Newsletter | `write-newsletter.ts` | Mon-Fri |
+| 4:00am | Entity Extract | `extract-entities.ts` | Mon-Fri |
+| 6:00am | Generate | `process-queue.ts` | Mon-Fri |
+| 8:00am | Discovery | `discovery-cycle.ts` | Tue & Sat |
+| 10:00am | Performance | `performance-cycle.ts` | Sat |
+| 5:00am | Weekly Digest | `write-weekly.ts` | Sun |
 
 ## Pipeline Flow
 
 ```
-4am SGT
+12am SGT
 +-----------------------------------------------------------+
 |  1. COLLECT  (collect-news.ts)                            |
 |                                                           |
@@ -35,7 +36,7 @@ Each stage feeds the next with increasingly refined data.
 +-----------------------------+-----------------------------+
                               |
                               v
-5am SGT
+2am SGT
 +-----------------------------------------------------------+
 |  2. NEWSLETTER  (write-newsletter.ts)                     |
 |                                                           |
@@ -60,9 +61,9 @@ Each stage feeds the next with increasingly refined data.
 +--------------+----------------------------+---------------+
                |                            |
                v                            v
-6:30am SGT                           7am SGT
+4am SGT                              6am SGT
 +--------------------------+   +-----------------------------+
-| 3. EXTRACT ENTITIES      |   | 4. BLOG  (write-blog.ts)   |
+| 3. EXTRACT ENTITIES      |   | 4. GENERATE (process-queue) |
 | (extract-entities.ts)    |   |                            |
 |                          |   | Read blog-seeds JSON       |
 | From recent 72h items,   |   | Pick top 3 by score        |
@@ -85,9 +86,9 @@ Each stage feeds the next with increasingly refined data.
             +---------------+----------------+
                             |
                             v
-9am SGT
+8am SGT (Tue & Sat)
 +-----------------------------------------------------------+
-|  5. SEO  (generate-seo.ts)                                |
+|  5. DISCOVERY  (discovery-cycle.ts)                       |
 |                                                           |
 |  Data sources:                                            |
 |  - keywords table (from Blog's extracted entities)        |

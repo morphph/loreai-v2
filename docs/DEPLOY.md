@@ -65,26 +65,20 @@ git config user.email "bot@loreai.dev"
 
 ### Crontab
 ```cron
-# Data collection (2am SGT = 18:00 UTC prev day, Mon-Fri)
-0 18 * * 0-4 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh collect >> /home/ubuntu/loreai-v2/logs/collect.log 2>&1
+# === LoreAI v2 Pipeline ===
+# All times are SGT (Asia/Singapore)
+TZ=Asia/Singapore
 
-# Newsletter (4am SGT = 20:00 UTC prev day, Mon-Fri)
-0 20 * * 0-4 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh newsletter >> /home/ubuntu/loreai-v2/logs/newsletter.log 2>&1
+# -- Daily (Mon-Fri, 2h apart) --
+0  0  * * 1-5  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh collect    >> /home/ubuntu/loreai-v2/logs/collect.log 2>&1
+0  2  * * 1-5  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh newsletter >> /home/ubuntu/loreai-v2/logs/newsletter.log 2>&1
+0  4  * * 1-5  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh extract    >> /home/ubuntu/loreai-v2/logs/extract.log 2>&1
+0  6  * * 1-5  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh generate   >> /home/ubuntu/loreai-v2/logs/generate.log 2>&1
 
-# Entity extraction (6am SGT = 22:00 UTC prev day, Mon-Fri)
-0 22 * * 0-4 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh extract >> /home/ubuntu/loreai-v2/logs/extract.log 2>&1
-
-# Blog (8am SGT = 00:00 UTC, Tue-Sat)
-0 0 * * 1-5 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh blog >> /home/ubuntu/loreai-v2/logs/blog.log 2>&1
-
-# SEO pages (10am SGT = 02:00 UTC, Tue-Sat)
-0 2 * * 1-5 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh seo >> /home/ubuntu/loreai-v2/logs/seo.log 2>&1
-
-# Weekly digest (Saturday 2am SGT = 18:00 UTC Friday)
-0 18 * * 5 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh weekly >> /home/ubuntu/loreai-v2/logs/weekly.log 2>&1
-
-# Weekly SEO strategy (Saturday 4am SGT = 20:00 UTC Friday)
-0 20 * * 5 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh cluster-strategy >> /home/ubuntu/loreai-v2/logs/strategy.log 2>&1
+# -- Weekly --
+0  8  * * 2,6  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh discovery    >> /home/ubuntu/loreai-v2/logs/discovery.log 2>&1
+0  10 * * 6    /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh performance  >> /home/ubuntu/loreai-v2/logs/performance.log 2>&1
+0  5  * * 0    /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh weekly       >> /home/ubuntu/loreai-v2/logs/weekly.log 2>&1
 ```
 
 ### Log Rotation

@@ -154,6 +154,8 @@ export function buildPrompt(
     ...keywordLines,
     '',
     'Group these keywords by shared search intent. Return JSON only.',
+    '',
+    'IMPORTANT: Every keyword in your output must be copied character-for-character from the list above. Do not paraphrase, shorten, or invent keywords.',
   ].join('\n');
 }
 
@@ -287,6 +289,7 @@ export async function callClaude(
   const response = await callClaudeWithRetry(skill, prompt, {
     model: modelId,
     maxRetries: 3,
+    throwOnValidationFailure: true,
     validate: (content) => {
       try {
         parseGroupingResponse(content, inputKeywordList);
@@ -295,6 +298,15 @@ export async function callClaude(
         return { valid: false, errors: [(err as Error).message] };
       }
     },
+    buildRetryPrompt: (originalPrompt, errors) => [
+      originalPrompt,
+      '',
+      '---',
+      'YOUR PREVIOUS RESPONSE HAD ERRORS:',
+      ...errors.map(e => `- ${e}`),
+      '',
+      'REMINDER: Copy keywords EXACTLY from the input list. Do NOT rephrase or invent.',
+    ].join('\n'),
   });
 
   return parseGroupingResponse(response.content, inputKeywordList);

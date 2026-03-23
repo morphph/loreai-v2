@@ -169,15 +169,19 @@ export async function callClaudeWithRetry(
     temperature?: number;
     maxRetries?: number;
     validate?: (content: string) => { valid: boolean; errors: string[] };
+    buildRetryPrompt?: (originalPrompt: string, errors: string[]) => string;
+    throwOnValidationFailure?: boolean;
   } = {}
 ): Promise<AIResponse> {
   const maxRetries = options.maxRetries ?? 3;
+  const originalUserPrompt = userPrompt;
+  let currentUserPrompt = userPrompt;
   let lastError: Error | null = null;
   let lastResponse: AIResponse | null = null;
 
   for (let attempt = 0; attempt < maxRetries; attempt++) {
     try {
-      const response = await callClaude(systemPrompt, userPrompt, options);
+      const response = await callClaude(systemPrompt, currentUserPrompt, options);
 
       if (options.validate) {
         const { valid, errors } = options.validate(response.content);
@@ -186,6 +190,10 @@ export async function callClaudeWithRetry(
           lastResponse = response;
           lastError = new Error(`Validation failed: ${errors.join(', ')}`);
           if (attempt < maxRetries - 1) {
+            // Build corrective prompt for next attempt if callback provided
+            if (options.buildRetryPrompt) {
+              currentUserPrompt = options.buildRetryPrompt(originalUserPrompt, errors);
+            }
             const delaySec = 30 * Math.pow(2, attempt);
             console.warn(`  Waiting ${delaySec}s before retry...`);
             await new Promise(resolve => setTimeout(resolve, delaySec * 1000));
@@ -207,7 +215,12 @@ export async function callClaudeWithRetry(
   }
 
   // Return last response if we had one (validation failed but content exists)
-  if (lastResponse) return lastResponse;
+  if (lastResponse) {
+    if (options.throwOnValidationFailure) {
+      throw lastError || new Error('All retries exhausted with validation failures');
+    }
+    return lastResponse;
+  }
   throw lastError || new Error('All retries exhausted');
 }
 

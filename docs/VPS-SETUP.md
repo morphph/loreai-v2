@@ -114,29 +114,23 @@ This populates the SQLite database with news items. The newsletter queries a 72-
 crontab -e
 ```
 
-Add these entries (all times UTC, pipeline runs Mon-Fri + Saturday weekly):
+Add these entries (all times SGT via `TZ=Asia/Singapore`):
 
 ```cron
-# Data collection (4am SGT = 20:00 UTC, Mon-Fri)
-0 20 * * 1-5 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh collect >> /home/ubuntu/loreai-v2/logs/collect.log 2>&1
+# === LoreAI v2 Pipeline ===
+# All times are SGT (Asia/Singapore)
+TZ=Asia/Singapore
 
-# Newsletter (5am SGT = 21:00 UTC, Mon-Fri)
-0 21 * * 1-5 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh newsletter >> /home/ubuntu/loreai-v2/logs/newsletter.log 2>&1
+# -- Daily (Mon-Fri, 2h apart) --
+0  0  * * 1-5  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh collect    >> /home/ubuntu/loreai-v2/logs/collect.log 2>&1
+0  2  * * 1-5  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh newsletter >> /home/ubuntu/loreai-v2/logs/newsletter.log 2>&1
+0  4  * * 1-5  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh extract    >> /home/ubuntu/loreai-v2/logs/extract.log 2>&1
+0  6  * * 1-5  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh generate   >> /home/ubuntu/loreai-v2/logs/generate.log 2>&1
 
-# Blog (7am SGT = 23:00 UTC, Mon-Fri)
-0 23 * * 1-5 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh blog >> /home/ubuntu/loreai-v2/logs/blog.log 2>&1
-
-# SEO pages (9am SGT = 01:00 UTC next day, Tue-Sat)
-0 1 * * 2-6 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh seo >> /home/ubuntu/loreai-v2/logs/seo.log 2>&1
-
-# Weekly digest (Saturday 5am SGT = 21:00 UTC Saturday)
-0 21 * * 6 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh weekly >> /home/ubuntu/loreai-v2/logs/weekly.log 2>&1
-
-# Weekly SEO strategy (Saturday 11pm SGT = 15:00 UTC Saturday)
-0 23 * * 6 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh cluster-strategy >> /home/ubuntu/loreai-v2/logs/strategy.log 2>&1
-
-# Video blog import (11:50pm SGT = 15:50 UTC, Mon-Fri)
-50 15 * * 1-5 /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh video-import >> /home/ubuntu/loreai-v2/logs/video-import.log 2>&1
+# -- Weekly --
+0  8  * * 2,6  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh discovery    >> /home/ubuntu/loreai-v2/logs/discovery.log 2>&1
+0  10 * * 6    /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh performance  >> /home/ubuntu/loreai-v2/logs/performance.log 2>&1
+0  5  * * 0    /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh weekly       >> /home/ubuntu/loreai-v2/logs/weekly.log 2>&1
 ```
 
 ## 11. Log Rotation
@@ -177,6 +171,6 @@ After setup, confirm these all work:
 - [ ] `cd /home/ubuntu/loreai-v2 && git pull` → works
 - [ ] `npx tsx scripts/collect-news.ts` → runs without error, populates DB
 - [ ] `cat .env` → all required keys filled in
-- [ ] `crontab -l` → shows 7 cron entries
+- [ ] `crontab -l` → shows 7 cron entries with `TZ=Asia/Singapore`
 - [ ] `ls logs/` → directory exists
 - [ ] `git push` → can push to origin

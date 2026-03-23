@@ -676,4 +676,39 @@ describe('groupCluster', () => {
       'Rate limited',
     );
   });
+
+  it('passes buildRetryPrompt and throwOnValidationFailure to callClaudeWithRetry', async () => {
+    await groupCluster('claude-code-pricing', DEFAULT_OPTS);
+
+    expect(mockClaudeCreate).toHaveBeenCalledTimes(1);
+    const callOpts = mockClaudeCreate.mock.calls[0][2];
+    expect(callOpts.throwOnValidationFailure).toBe(true);
+    expect(typeof callOpts.buildRetryPrompt).toBe('function');
+  });
+
+  it('buildRetryPrompt appends errors to original prompt', async () => {
+    await groupCluster('claude-code-pricing', DEFAULT_OPTS);
+
+    const callOpts = mockClaudeCreate.mock.calls[0][2];
+    const originalPrompt = 'original prompt text';
+    const errors = ['ValidationError: keyword "foo" not found in input keywords'];
+    const retryPrompt = callOpts.buildRetryPrompt(originalPrompt, errors);
+
+    expect(retryPrompt).toContain(originalPrompt);
+    expect(retryPrompt).toContain('YOUR PREVIOUS RESPONSE HAD ERRORS');
+    expect(retryPrompt).toContain('keyword "foo" not found');
+    expect(retryPrompt).toContain('Copy keywords EXACTLY');
+  });
+});
+
+describe('buildPrompt anti-hallucination', () => {
+  it('includes anti-hallucination reminder in user prompt', () => {
+    const keywords: KeywordInput[] = [
+      { id: 1, keyword: 'test keyword', source: 'serper', search_volume: 100, competition: null },
+    ];
+    const prompt = buildPrompt('test-cluster', 'Test Topic', keywords);
+
+    expect(prompt).toContain('character-for-character');
+    expect(prompt).toContain('Do not paraphrase');
+  });
 });

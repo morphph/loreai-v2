@@ -17,18 +17,18 @@ DATE=$(TZ=Asia/Singapore date +%Y-%m-%d)
 mkdir -p logs
 for i in 1 2 3; do git pull --rebase && break; sleep 10; done
 
-# ── Pipeline Steps ──
+# ── Pipeline Steps (crontab uses TZ=Asia/Singapore — all times SGT) ──
 #
-# Daily (Mon-Fri):
-#   4am SGT: collect      — collect-news.ts (unchanged)
-#   5am SGT: newsletter   — write-newsletter.ts (unchanged, no longer gates SEO)
-#   5:30am:  extract      — extract-entities.ts (unchanged)
-#   7am SGT: generate     — process-queue.ts (NEW — replaces blog + seo steps)
+# Daily (Mon-Fri, 2h apart):
+#   12:00am SGT: collect      — collect-news.ts
+#    2:00am SGT: newsletter   — write-newsletter.ts
+#    4:00am SGT: extract      — extract-entities.ts
+#    6:00am SGT: generate     — process-queue.ts (replaces legacy blog + seo)
 #
 # Weekly:
-#   Mon & Thu 1am SGT: discovery   — discovery-cycle.ts (keyword universe expansion)
-#   Tuesday:           performance — performance-cycle.ts (GSC → refresh queue)
-#   Sunday:            weekly      — write-weekly.ts (unchanged)
+#   Tue & Sat 8:00am SGT: discovery   — discovery-cycle.ts (keyword expansion)
+#   Sat      10:00am SGT: performance — performance-cycle.ts (GSC → refresh queue)
+#   Sun       5:00am SGT: weekly      — write-weekly.ts
 #
 # Legacy steps (blog, seo) preserved for manual/fallback use only.
 
