@@ -148,3 +148,9 @@ _(No issues documented yet — will be added as they're discovered)_
 - Daily jobs fired at noon-3pm SGT instead of intended midnight-6am SGT
 - **Fix:** Added `TZ=Asia/Singapore` to crontab header — all times are now written directly in SGT
 - Singapore has no DST, so this is safe and eliminates conversion errors permanently
+
+## 2. validate-pipeline.ts SQL Column Mismatch (SQL 列名不匹配)
+- After keyword engine refactor, `validate-pipeline.ts` still referenced `cq.id` and `kg.id`
+- Actual columns are `cq.job_id` (create_queue PK) and `kg.group_id` (keyword_groups PK)
+- Caused `no such column: cq.id` error, blocking the entire pipeline validation
+- **Fix:** Updated column references to `cq.job_id` and `kg.group_id`
