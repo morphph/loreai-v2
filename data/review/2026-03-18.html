@@ -1,0 +1,2818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pipeline Review — 2026-03-18</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; background: #f5f5f5; color: #171717; line-height: 1.6; }
+  nav { position: sticky; top: 0; z-index: 100; background: #171717; color: #fff; padding: 8px 24px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  nav a { color: #a3a3a3; text-decoration: none; font-size: 13px; padding: 4px 8px; border-radius: 4px; }
+  nav a:hover { color: #fff; background: #333; }
+  nav .title { font-weight: 700; font-size: 15px; color: #fff; margin-right: 12px; }
+  main { max-width: 1400px; margin: 0 auto; padding: 24px; }
+  section { background: #fff; border-radius: 8px; padding: 24px; margin-bottom: 16px; border: 1px solid #e5e5e5; }
+  h2 { margin-top: 0; padding-bottom: 8px; border-bottom: 2px solid #e5e5e5; }
+  h3 { color: #525252; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { padding: 6px 10px; border-bottom: 1px solid #e5e5e5; text-align: left; }
+  th { background: #fafafa; font-weight: 600; position: sticky; top: 44px; }
+  tr:hover td { background: #fafafa; }
+  .md-content { font-size: 14px; max-height: 600px; overflow-y: auto; padding: 12px; border: 1px solid #e5e5e5; border-radius: 4px; background: #fafafa; }
+  .md-content h1 { font-size: 20px; }
+  .md-content h2 { font-size: 17px; border: none; padding: 0; }
+  .md-content h3 { font-size: 15px; }
+  .md-content a { color: #2563eb; }
+  .md-content blockquote { border-left: 3px solid #d4d4d4; margin: 8px 0; padding: 4px 12px; color: #525252; }
+  .md-content pre { background: #f0f0f0; padding: 8px; border-radius: 4px; overflow-x: auto; font-size: 12px; }
+  .md-content code { background: #f0f0f0; padding: 1px 4px; border-radius: 2px; font-size: 12px; }
+  .md-content table { margin: 8px 0; }
+  details summary { user-select: none; }
+  details[open] > summary { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<nav>
+  <span class="title">Pipeline Review — 2026-03-18</span>
+  <a href="#dashboard">Dashboard</a>
+  <a href="#newsletters">Newsletters</a>
+  <a href="#benchmark">Benchmark</a>
+  <a href="#blogs">Blogs</a>
+  <a href="#seo">SEO</a>
+  <a href="#data">Data</a>
+  <a href="#keywords">Keywords</a>
+</nav>
+<main>
+
+    <section id="dashboard">
+      <h2>Dashboard</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px">
+        
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Newsletter EN</strong>
+          <span style="background:#a3a3a3;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">MISSING</span>
+        </div>
+        <div style="font-size:14px;color:#525252">File not found</div>
+        <ul style="margin:8px 0 0;padding-left:18px;font-size:12px;color:#ef4444"><li>content/newsletters/en/2026-03-18.md missing</li></ul>
+      </div>
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Newsletter ZH</strong>
+          <span style="background:#a3a3a3;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">MISSING</span>
+        </div>
+        <div style="font-size:14px;color:#525252">File not found</div>
+        <ul style="margin:8px 0 0;padding-left:18px;font-size:12px;color:#ef4444"><li>content/newsletters/zh/2026-03-18.md missing</li></ul>
+      </div>
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Blog</strong>
+          <span style="background:#22c55e;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">PASS</span>
+        </div>
+        <div style="font-size:14px;color:#525252">3 post(s)</div>
+        
+      </div>
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>SEO Pages</strong>
+          <span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">FAIL</span>
+        </div>
+        <div style="font-size:14px;color:#525252">1 glossary</div>
+        <ul style="margin:8px 0 0;padding-left:18px;font-size:12px;color:#ef4444"><li>[openclaw] Missing ZH version</li></ul>
+      </div>
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Filtered Items</strong>
+          <span style="background:#a3a3a3;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">MISSING</span>
+        </div>
+        <div style="font-size:14px;color:#525252">File not found</div>
+        
+      </div>
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Blog Seeds</strong>
+          <span style="background:#a3a3a3;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">MISSING</span>
+        </div>
+        <div style="font-size:14px;color:#525252">File not found</div>
+        
+      </div>
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Keywords</strong>
+          <span style="background:#22c55e;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">PASS</span>
+        </div>
+        <div style="font-size:14px;color:#525252">31 new, 263 clusters</div>
+        
+      </div>
+      </div>
+    </section>
+
+<section id="newsletters"><h2>Newsletters</h2><p style="color:#a3a3a3">No newsletters found for 2026-03-18</p></section>
+
+      <section id="benchmark">
+        <h2>Benchmark Comparison</h2>
+        <p style="color:#a3a3a3">Could not fetch live site newsletters for comparison</p>
+      </section>
+<section id="blogs"><h2>Blogs (3)</h2>
+      <details style="margin-bottom:8px">
+        <summary style="cursor:pointer;padding:8px;background:#fafafa;border-radius:4px">
+          <strong>coding-agent-gui-ux-overhaul</strong> — 1009 EN / 1505 ZH words <span style="color:#22c55e;font-size:12px">(OK)</span>
+        </summary>
+        <div style="padding:12px">
+          
+          
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "Why Coding Agent GUIs Need a Radical UX Overhaul"
+date: 2026-03-18
+slug: coding-agent-gui-ux-overhaul
+description: "Current coding agent interfaces are holding developers back. Why the terminal-and-chat paradigm needs to evolve, and what better UX could look like."
+keywords: ["coding agent UX", "AI coding interface", "agentic engineering", "developer tools UX"]
+category: DEV
+related_newsletter: 2026-03-18
+related_glossary: [claude-code, cursor]
+related_compare: [claude-code-vs-cursor]
+lang: en
+video_ready: true
+video_hook: "The biggest bottleneck in AI coding isn't the model — it's the interface"
+video_status: none</h2>
+<h1>Why Coding Agent GUIs Need a Radical UX Overhaul</h1>
+<p>The models keep getting smarter, but the interfaces we use to work with them haven't kept up. Dan Shipper's <a href="https://x.com/danshipper/status/2033213845192294793">recent argument</a> that coding agent GUIs need a fundamentally new UX isn't just a design opinion — it reflects a growing consensus among developers who spend their days working alongside AI agents. As coding agents graduate from autocomplete assistants to autonomous workers that can run for minutes or hours, the chat-window-plus-terminal paradigm is becoming the bottleneck. The tools are ready for a new kind of collaboration. The interfaces are not.</p>
+<h2>What Happened</h2>
+<p>Dan Shipper, CEO of Every, posted a pointed observation: <strong>we absolutely need a new UX for coding agent GUIs</strong>. The statement landed in the middle of a broader industry conversation about how humans should interact with increasingly capable AI agents.</p>
+<p>The timing is significant. In the same week, <a href="https://x.com/emollick/status/2031820850337370352">Ethan Mollick noted</a> that talking to agents in Slack — the current "hot" AI UX — is just as transitional as the chatbot website pattern before it. His conclusion: "We need new systems to manage agentic work that also support new ways of organizing. Much more UX imagination will be required."</p>
+<p>Meanwhile, <a href="https://x.com/simonw/status/2033545679491236149">Simon Willison published new chapters</a> of his Agentic Engineering Patterns guide, detailing how coding agents actually work under the hood — a foundation that UX designers need to understand before they can build better interfaces. And teams are <a href="https://x.com/bindureddy/status/2031562559216824819">racing to switch coding workloads</a> to newer models like GPT 5.4, adding pressure on interfaces to handle increasingly complex agent interactions.</p>
+<p>The core problem: today's coding agent UIs were designed for a world where the AI generates a snippet and you accept or reject it. That mental model breaks when the agent is autonomously editing dozens of files, running tests, debugging failures, and iterating — all while you're supposed to maintain oversight.</p>
+<h2>Why It Matters</h2>
+<p>Current coding agent interfaces fall into two camps, and neither is adequate for where agents are heading.</p>
+<p><strong>The chat paradigm</strong> (<a href="/glossary/claude-code">Claude Code</a>, Aider, raw API usage) gives you a conversation thread where the agent explains what it's doing and you approve actions. This works for simple tasks but collapses when the agent is running a 20-step plan. You're either rubber-stamping every action (defeating the purpose of autonomy) or granting blanket permission and losing oversight entirely.</p>
+<p><strong>The IDE-embedded paradigm</strong> (<a href="/glossary/cursor">Cursor</a>, GitHub Copilot, Windsurf) integrates suggestions into your editor. Better for code review, but the interface still treats AI work as a series of diffs to approve. When an agent needs to explore, experiment, and backtrack — the way a human developer actually works — the diff-review UX becomes a straitjacket.</p>
+<p>The economic stakes are rising. As Mollick <a href="https://x.com/emollick/status/2031602680125120839">pointed out</a>, compute costs make AI most viable for high-value tasks like coding, where companies will invest despite the expense. If the UX bottleneck limits how effectively developers can leverage that compute, organizations are leaving value on the table.</p>
+<p>Aaron Levie's prediction that <a href="https://x.com/latentspacepod/status/2032157319371596258">agents will eventually outnumber humans by orders of magnitude</a> makes this even more pressing. Managing one agent in a chat window is feasible. Managing a fleet of agents working across your codebase is not — at least not with today's interfaces.</p>
+<h2>Technical Deep-Dive</h2>
+<p>What would a better coding agent UX actually look like? Several design directions are emerging from the community's frustration:</p>
+<p><strong>Task-board interfaces</strong> instead of chat threads. When an agent is working on a multi-step task, you need a Kanban-like view showing what's planned, what's in progress, what's blocked, and what's done. Each card expands into the detailed actions and diffs. This is closer to how engineering managers oversee human teams — and it's how we'll need to oversee agent teams.</p>
+<p><strong>Divergence detection</strong>, not just diff review. The key question isn't "what changed?" but "did the agent diverge from my intent?" A good UX would highlight semantic divergence — places where the agent's approach differs from what you'd expect — rather than showing every line change equally. This requires the interface to understand intent, not just text.</p>
+<p><strong>Ambient monitoring</strong> for long-running agents. When an agent runs for 10 minutes autonomously, you don't want to stare at a terminal. You want a notification system that surfaces only when something needs your attention: a decision point, an unexpected error, a significant architectural choice. Think CI/CD dashboards, not chat windows.</p>
+<p><strong>Multi-agent orchestration views</strong>. Research on <a href="https://x.com/emollick/status/2032829110242746395">agent organizations vs. agent swarms</a> suggests structured agent teams outperform uncoordinated ones. The UX needs to show how multiple agents are coordinating — which agent is working on which file, where there are dependencies, and where conflicts might arise.</p>
+<p><strong>Replayable sessions</strong>. Simon Willison's <a href="https://x.com/simonw/status/2033545679491236149">deep dive into how coding agents work</a> makes clear that understanding the agent's reasoning chain is crucial. A timeline-based replay feature — scrub through the agent's actions like a video — would let developers audit and learn from agent behavior without interrupting it in real-time.</p>
+<p>The technical challenge is that these interfaces need to work across different agent backends. A UX that only works with one model or one tool won't survive. The winning interface will be agent-agnostic, treating the underlying model as a pluggable runtime.</p>
+<h2>What You Should Do</h2>
+<ol>
+<li><strong>Audit your current workflow friction</strong>. Spend one day logging every moment where your coding agent's interface slows you down or forces an unnecessary context switch. These pain points define the UX gap.</li>
+<li><strong>Try multi-agent setups</strong> even with current tools. Run agents in parallel across different terminal sessions or IDE windows. The awkwardness you feel is exactly what needs solving.</li>
+<li><strong>Watch the emerging tools</strong>. Projects building task-board and orchestration UIs for agents are appearing rapidly — evaluate them as they launch.</li>
+<li><strong>Build internal tooling</strong> if you're running agents at scale. Even a simple dashboard that aggregates agent activity across your team is more useful than individual chat windows.</li>
+<li><strong>Give feedback to tool makers</strong>. Cursor, Claude Code, and others are actively iterating on UX. File issues describing specific workflow breakdowns, not just "make it better."</li>
+</ol>
+<p><strong>Related</strong>: <a href="/newsletter/2026-03-18">Today's newsletter</a> covers the broader context of this week's agent developments. See also: <a href="/glossary/agentic-engineering">Agentic Engineering Patterns</a> for the technical foundations.</p>
+<hr>
+<p><em>Found this useful? <a href="/subscribe">Subscribe to AI News</a> for daily AI briefings.</em></p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><div class="md-content"><hr>
+<h2>title: "编码 Agent 的 GUI 困局：为什么我们急需一套新的交互范式"
+date: 2026-03-18
+slug: coding-agent-gui-ux-overhaul
+description: "当编码 Agent 越来越强，现有的聊天式 GUI 已经成为瓶颈。从 Dan Shipper 的呼吁出发，分析编码 Agent 交互设计的现状、问题和突破方向。"
+keywords: ["编码 Agent UX", "coding agent GUI", "AI 编程工具", "agentic engineering"]
+category: DEV
+related_newsletter: 2026-03-18
+related_glossary: [coding-agent, agentic-engineering]
+related_compare: [claude-code-vs-cursor]
+lang: zh
+video_ready: true
+video_hook: "你每天用的 AI 编程工具，界面设计可能完全错了"
+video_status: none</h2>
+<h1>编码 Agent 的 GUI 困局：为什么我们急需一套新的交互范式</h1>
+<p>Dan Shipper 一条推文引爆了开发者社区的讨论：现有的编码 Agent GUI 已经不够用了。当 <strong>Claude Code</strong>、<strong>Cursor</strong>、<strong>Copilot</strong> 们越来越像独立工作的工程师，我们却还在用聊天框和它们沟通。这不是小问题 — 交互瓶颈正在吃掉 Agent 能力提升带来的生产力增益。</p>
+<h2>发生了什么</h2>
+<p>Dan Shipper <a href="https://x.com/danshipper/status/2033213845192294793">在推特上直言</a>：编码 Agent 的 GUI 需要彻底重做。这条观点迅速引发共鸣，因为它戳中了所有重度 AI 编程用户的痛点。</p>
+<p>与此同时，Ethan Mollick 也<a href="https://x.com/emollick/status/2031820850337370352">指出</a>，在 Slack 里和 Agent 对话只是又一个过渡形态，我们需要全新的系统来管理 Agent 工作，需要"更多的 UX 想象力"。Simon Willison 则从工程实践角度发布了 <a href="https://x.com/simonw/status/2033545679491236149">Agentic Engineering Patterns 指南</a>，试图帮开发者理解编码 Agent 的底层运作机制。</p>
+<p>行业共识正在形成：<strong>Agent 的能力已经跑在了交互设计前面。</strong> 模型从 GPT-5.4 到 Claude Opus，代码理解和生成能力每隔几周就有可感知的跳跃，但我们和它们互动的方式几乎没有变过。</p>
+<h2>为什么重要</h2>
+<p>现有编码 Agent 的交互模式基本上是"高级聊天框"：你输入指令，Agent 输出代码或执行操作，你审查，再输入下一条指令。这个模式在简单任务上勉强够用，但面对复杂工程场景就暴露出三个核心问题。</p>
+<p><strong>第一，信息密度不对称。</strong> Agent 在后台可能读取了几十个文件、执行了十几步操作，但展示给你的只是一个线性的文本流。你无法快速感知它在做什么、改了哪里、为什么这么改。就像让一个工程师只能通过即时通讯汇报工作 — 效率极低。</p>
+<p><strong>第二，并行任务管理缺失。</strong> 真实开发场景中，你希望 Agent 同时处理多个任务：修一个 bug、写一个测试、重构一个模块。但现有 GUI 基本是单线程的，一个会话一个任务。Aaron Levie <a href="https://x.com/latentspacepod/status/2032157319371596258">预判</a> Agent 数量终将远超人类，但我们连管理两三个 Agent 的界面都没设计好。</p>
+<p><strong>第三，审查和干预的粒度太粗。</strong> 你要么让 Agent 全权执行，要么逐步手动确认。缺少中间态 — 比如"这类文件的修改你自己决定，涉及数据库的改动暂停让我看"。</p>
+<p>对比一下：传统的 IDE 用了几十年进化出文件树、断点调试、diff 视图、多标签页。编码 Agent 的 GUI 相当于还停在"只有一个终端窗口"的阶段。</p>
+<h2>技术细节</h2>
+<p>从 Agentic Engineering 的角度看，编码 Agent 的工作流天然是树状或图状的，而不是线性的。Simon Willison 在他的<a href="https://x.com/simonw/status/2033313520436351327">指南</a>中详细解释了 Agent 的内部循环：读取上下文 → 规划 → 执行工具调用 → 观察结果 → 决定下一步。</p>
+<p>理想的 GUI 应该暴露这个过程的关键节点，而不是把一切压扁成聊天记录。具体来说：</p>
+<ul>
+<li><strong>任务看板视图</strong>：每个 Agent 任务是一张卡片，显示状态、改动文件、当前步骤。类似 Linear 或 Jira，但粒度更细。</li>
+<li><strong>实时 Diff 流</strong>：Agent 每次文件修改即时展示 diff，不用等它"说完"。</li>
+<li><strong>权限分级</strong>：按文件路径、操作类型设置 Agent 的自主权限。核心模块需要人工确认，测试文件可以自动执行。</li>
+<li><strong>Agent 协作拓扑</strong>：当多个 Agent 并行工作时，可视化它们的依赖关系和资源冲突。</li>
+</ul>
+<p>Mollick 引用的 <a href="https://x.com/emollick/status/2032829110242746395">Enron 邮件档案实验</a>也提供了一个有趣的发现：Agent 群（swarm）的效果不如有组织结构的 Agent 团队。这意味着 GUI 设计不仅要展示 Agent 的工作，还要帮人类定义 Agent 之间的协作关系。</p>
+<p>目前，<strong>Claude Code</strong> 的终端模式在某些方面反而领先 — 它通过 <code>TodoWrite</code> 任务追踪、Plan 模式和权限分级提供了基础的任务管理能力，但视觉层面依然受限于终端。Cursor 的 IDE 集成更直观，但在多 Agent 协调方面同样空白。</p>
+<p>值得注意的是，计算成本仍然是约束因素。Mollick <a href="https://x.com/emollick/status/2031602680125120839">指出</a> Agent 工作消耗大量算力，这意味着企业只愿意在高价值任务（如编码）上投入。GUI 设计需要帮用户高效分配这些昂贵的计算资源，而不是浪费在无意义的来回确认上。</p>
+<h2>你现在该做什么</h2>
+<ol>
+<li><strong>重新审视你的 Agent 工作流</strong>。如果你还在一个聊天窗口里完成所有操作，试试用多会话、Plan 模式或 worktree 隔离来模拟并行任务管理。</li>
+<li><strong>关注 Simon Willison 的 <a href="https://x.com/simonw/status/2033545679491236149">Agentic Engineering Patterns</a></strong>。理解 Agent 底层运作是用好 Agent 的前提，也能帮你判断哪些 GUI 创新是真解决问题、哪些是噱头。</li>
+<li><strong>给你的工具提需求</strong>。无论用 <a href="/glossary/coding-agent">Claude Code</a> 还是 Cursor，去 GitHub Issues 里提你最需要的交互改进。产品团队正在密切关注社区反馈。</li>
+<li><strong>尝试自建轻量管理层</strong>。用脚本把 Agent 的输出结构化（比如自动提取 diff、生成任务摘要），不必等官方 GUI 迭代。</li>
+</ol>
+<p><strong>相关阅读</strong>：<a href="/newsletter/2026-03-18">今日简报</a> 有更多 AI 工具动态。另见：<a href="/blog/agentic-engineering-patterns">Agentic Engineering 入门指南</a>。</p>
+<hr>
+<p><em>觉得有用？<a href="/subscribe">订阅 AI 简报</a>，每天 5 分钟掌握 AI 动态。</em></p>
+</div></div>
+    </div>
+        </div>
+      </details>
+      <details style="margin-bottom:8px">
+        <summary style="cursor:pointer;padding:8px;background:#fafafa;border-radius:4px">
+          <strong>cursor-ai-speed-vs-quality-study</strong> — 979 EN / 1476 ZH words <span style="color:#22c55e;font-size:12px">(OK)</span>
+        </summary>
+        <div style="padding:12px">
+          
+          
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "Cursor AI Increases Speed but Hurts Code Quality, Study Finds"
+date: 2026-03-18
+slug: cursor-ai-speed-vs-quality-study
+description: "A peer-reviewed study finds Cursor AI boosts short-term development velocity but causes persistent increases in code complexity and static analysis warnings."
+keywords: ["Cursor AI code quality", "AI coding tools study", "LLM agent productivity", "Cursor complexity"]
+category: DEV
+related_newsletter: 2026-03-18
+related_glossary: [cursor, llm-agent]
+related_compare: [claude-code-vs-cursor]
+lang: en
+video_ready: true
+video_hook: "AI coding tools make you faster — but at what hidden cost?"
+video_status: none</h2>
+<h1>Cursor AI Increases Speed but Hurts Code Quality, Study Finds</h1>
+<p>The first rigorous causal study of <strong>Cursor AI</strong>'s impact on real-world open-source projects confirms what many senior engineers suspected: <a href="/glossary/llm-agent">LLM-powered coding agents</a> deliver a measurable velocity boost, but that speed comes with a persistent increase in code complexity and static analysis warnings. Researchers from Carnegie Mellon University used difference-in-differences analysis across GitHub projects to show the tradeoff isn't just anecdotal — it's statistically significant and, worse, the quality degradation compounds over time while the speed gains fade. If you're using AI coding tools without quality gates, you're borrowing against your future velocity.</p>
+<h2>What Happened</h2>
+<p>Researchers Hao He, Courtney Miller, Shyam Agarwal, Christian Kästner, and Bogdan Vasilescu published <a href="https://arxiv.org/abs/2511.04427">"Speed at the Cost of Quality"</a> — a study accepted at MSR '26 (International Conference on Mining Software Repositories) that estimates the <strong>causal effect</strong> of Cursor adoption on development outcomes.</p>
+<p>The methodology is unusually strong for this kind of study. Instead of surveys or self-reported productivity metrics, the team used a difference-in-differences design: they identified GitHub projects that adopted Cursor and matched each with a control group of similar projects that didn't. This lets them isolate Cursor's effect from confounding factors like project maturity, team size, or language ecosystem.</p>
+<p>Key findings:</p>
+<ul>
+<li><strong>Velocity increase</strong>: Cursor adoption caused a statistically significant increase in development velocity (commits, PRs merged, lines changed). But the effect was <strong>transient</strong> — it diminished over time.</li>
+<li><strong>Quality decrease</strong>: Static analysis warnings and code complexity increased substantially. Unlike velocity, this effect was <strong>persistent</strong> — it didn't fade.</li>
+<li><strong>Compounding damage</strong>: Using panel generalized-method-of-moments estimation, the researchers showed that the accumulated quality debt (warnings + complexity) is a major driver of the long-term velocity slowdown.</li>
+</ul>
+<p>In other words, Cursor makes you faster at first, but the mess it creates eventually eats the speed gains.</p>
+<h2>Why It Matters</h2>
+<p>This study matters because it's the first to move beyond vibes and anecdotes. Every AI coding tool vendor claims "multifold productivity increases." Developers on Twitter share impressive demos. But nobody had done the causal analysis on real production codebases — until now.</p>
+<p>The implications cut several ways.</p>
+<p><strong>For individual developers</strong>: The velocity boost is real but temporary. If you're not pairing Cursor with linting, static analysis, and code review, you're accumulating technical debt faster than you're shipping features. The study suggests that the quality assurance layer is the bottleneck, not code generation.</p>
+<p><strong>For teams</strong>: Adopting <a href="/glossary/cursor">Cursor</a> (or any LLM coding agent) without updating your quality processes is a trap. The initial sprint feels great — PRs fly through, features land fast. Six months later, you're fighting a codebase full of subtle complexity that slows everything down.</p>
+<p><strong>For tool builders</strong>: The paper explicitly calls for quality assurance to be "a first-class citizen in the design of agentic AI coding tools." Current tools optimize for generation speed. The research suggests they should optimize for maintainability, readability, and correctness just as aggressively. Tools that integrate linting, testing, and complexity analysis into the generation loop — rather than treating them as afterthoughts — will win long-term.</p>
+<p><strong>For the broader debate</strong>: This adds empirical weight to the "AI slop" concern in software engineering. The quality degradation isn't hypothetical. It's measurable, persistent, and causally linked to LLM agent adoption.</p>
+<h2>Technical Deep-Dive</h2>
+<p>The difference-in-differences (DiD) design deserves attention because it's the gold standard for causal inference in observational studies. The researchers couldn't run a randomized experiment (you can't randomly assign Cursor to open-source projects), so they used matching and DiD to approximate one.</p>
+<p>The matching process paired Cursor-adopting projects with control projects based on observable characteristics: language, stars, contributor count, commit frequency, and other signals. The DiD design then compares changes in outcomes (velocity, warnings, complexity) between treatment and control groups before and after adoption.</p>
+<p>Static analysis warnings were measured using standard tooling (likely ESLint, Pylint, or similar per-language analyzers). Code complexity was measured using cyclomatic complexity and related metrics. These aren't perfect proxies for "code quality," but they're well-established and automated — which matters for a large-scale study.</p>
+<p>The generalized method of moments (GMM) panel estimation is the most technically interesting part. It establishes a <strong>feedback loop</strong>: Cursor increases complexity → increased complexity reduces future velocity → teams push harder with Cursor to compensate → more complexity. This vicious cycle explains why the velocity gains are transient but the quality costs are permanent.</p>
+<p>One caveat: the study focuses on open-source projects, which may differ from commercial codebases in important ways. Open-source projects often have less rigorous CI/CD pipelines, fewer mandatory code reviews, and more varied contributor experience levels. Projects with strong quality gates might mitigate the complexity accumulation. The paper acknowledges this but doesn't test it directly.</p>
+<p>Another limitation: the study examines Cursor specifically, not all AI coding tools. Different tools with different default behaviors (e.g., tools that run tests automatically or enforce linting before accepting generated code) might produce different outcomes.</p>
+<h2>What You Should Do</h2>
+<ol>
+<li><strong>Add quality gates to your AI workflow now.</strong> Run static analysis and complexity checks on every AI-generated PR. Tools like <a href="/glossary/claude-code">Claude Code</a> can be configured with <code>CLAUDE.md</code> rules that enforce linting and testing before any commit — this study is exactly why that matters.</li>
+<li><strong>Track complexity metrics over time.</strong> If you adopted an AI coding tool recently, run a complexity analysis on your codebase and compare to six months ago. The degradation may already be visible.</li>
+<li><strong>Don't trust velocity metrics in isolation.</strong> If your team is shipping faster but not measuring code quality, you're flying blind. Add static analysis warning counts and cyclomatic complexity to your engineering dashboards.</li>
+<li><strong>Review AI-generated code more carefully, not less.</strong> The temptation is to rubber-stamp fast PRs. The data says that's where the debt accumulates.</li>
+<li><strong>Read the <a href="https://arxiv.org/abs/2511.04427">full paper</a></strong> — it's well-written and the methodology section is a masterclass in applied causal inference for software engineering research.</li>
+</ol>
+<p><strong>Related</strong>: <a href="/newsletter/2026-03-18">Today's newsletter</a> covers the broader AI tooling landscape. See also: <a href="/compare/claude-code-vs-cursor">Claude Code vs Cursor</a>.</p>
+<hr>
+<p><em>Found this useful? <a href="/subscribe">Subscribe to AI News</a> for daily AI briefings.</em></p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><div class="md-content"><hr>
+<h2>title: "Cursor AI 速度与质量的代价：CMU 研究揭示 AI 编码工具的隐藏成本"
+date: 2026-03-18
+slug: cursor-ai-speed-vs-quality-study
+description: "CMU 最新研究对 GitHub 开源项目的因果分析发现，Cursor AI 显著提升短期开发速度，但同时带来持续增长的代码复杂度和静态分析警告，长期反而拖慢开发节奏。"
+keywords: ["Cursor AI", "AI 编码工具质量", "代码复杂度", "AI 辅助开发研究"]
+category: DEV
+related_newsletter: 2026-03-18
+related_glossary: [cursor, code-complexity]
+related_compare: [claude-code-vs-cursor]
+lang: zh
+video_ready: true
+video_hook: "用 Cursor 写代码越来越快，但项目质量在悄悄下滑"
+video_status: none</h2>
+<h1>Cursor AI 速度与质量的代价：CMU 研究揭示 AI 编码工具的隐藏成本</h1>
+<p>卡内基梅隆大学（CMU）的研究团队发表了迄今为止最严谨的 <strong>Cursor AI</strong> 效果研究：对 GitHub 开源项目的因果分析显示，采用 Cursor 后短期开发速度显著提升，但代码复杂度和静态分析警告持续增长，最终反而拖慢了长期开发节奏。这篇论文已被 MSR '26 接收，对每一个正在用 AI 编码工具的团队都是一记重要的警钟。</p>
+<h2>发生了什么</h2>
+<p>Hao He 等五位研究者在论文 <a href="https://arxiv.org/abs/2511.04427">Speed at the Cost of Quality</a> 中，使用<strong>双重差分法</strong>（Difference-in-Differences）对比了采用 Cursor 的 GitHub 项目和未采用的匹配对照组。这不是问卷调查或个案分析，而是基于大规模项目数据的因果推断。</p>
+<p>核心发现有三条：</p>
+<ol>
+<li><strong>短期速度提升显著但短暂</strong>。采用 Cursor 后，项目级别的开发速度（commit 频率、PR 合并速度等指标）出现统计显著的大幅提升，但这个效果会随时间衰减。</li>
+<li><strong>代码质量持续下降</strong>。静态分析警告数量和代码复杂度（圈复杂度等指标）出现实质性且持久的增长 — 不是暂时的，而是越用越严重。</li>
+<li><strong>质量下降反噬速度</strong>。通过广义矩估计（GMM）进一步分析发现，静态分析警告和代码复杂度的增长正是长期速度放缓的主要驱动因素。</li>
+</ol>
+<p>简单说：<strong>Cursor 让你跑得更快，但同时在给你挖坑，最后你会被坑绊倒</strong>。</p>
+<h2>为什么重要</h2>
+<p>这篇论文的价值在于它用严格的因果推断方法回答了一个行业里争论已久的问题：AI 编码工具到底是真的提升生产力，还是在制造技术债务？</p>
+<p>答案是：<strong>两者都是</strong>。</p>
+<p>对于正在评估或已经采用 <a href="/glossary/cursor">Cursor</a> 的团队来说，这意味着几件事。首先，单纯看 PR 合并速度或代码产出量来衡量 AI 工具的 ROI 是危险的 — 短期指标会骗人。其次，AI 生成的代码需要更严格而非更宽松的质量门禁。很多团队在引入 AI 工具后反而放松了 Code Review 标准（"反正是 AI 写的，应该没问题"），这恰恰是最糟糕的做法。</p>
+<p>这个发现不只针对 Cursor。<strong>Claude Code</strong>、GitHub Copilot、Codex 等所有 AI 编码工具都面临同样的结构性问题：<a href="/glossary/llm">LLM</a> 优化的是"生成看起来合理的代码"，而不是"生成可维护的代码"。模型不会主动考虑架构一致性、命名规范统一性或者这段代码三个月后是否还能读懂。</p>
+<p>从竞争格局看，这篇论文实际上指出了 AI 编码工具的下一个竞争维度：<strong>不是谁更快，而是谁生成的代码更可维护</strong>。</p>
+<h2>技术细节</h2>
+<p>研究方法上有几个值得关注的点。</p>
+<p><strong>双重差分法（DiD）</strong> 是经济学中做因果推断的经典方法。研究者先根据项目特征（语言、规模、活跃度等）做匹配，找到和 Cursor 采用者相似但没用 Cursor 的对照组，然后比较采用前后的差异变化。这比简单的前后对比或横截面对比可靠得多，能有效控制时间趋势和项目固有差异。</p>
+<p><strong>静态分析警告的增长模式</strong>特别值得注意。不是采用初期涨一波然后稳定，而是持续增长。这说明问题不是"学习期的阵痛"，而是 AI 生成代码的系统性特征 — 它倾向于产生更复杂、更难维护的代码结构。</p>
+<p><strong>GMM 估计揭示的反馈循环</strong>是最有启发性的发现：代码复杂度上升 → 后续修改更困难 → 开发者更依赖 AI 来应对复杂代码 → 产生更多复杂代码。这是一个负向螺旋。</p>
+<p>论文的局限性也值得提。研究对象是开源项目，企业内部项目可能有不同的质量管控流程。此外，Cursor 本身也在快速迭代，论文数据采集期间的版本和现在的版本能力差异不小。但核心结论 — AI 编码工具需要配套的质量保障 — 这个方向性判断是稳健的。</p>
+<h2>你现在该做什么</h2>
+<ol>
+<li><strong>给 AI 生成的代码设置更严格的质量门禁</strong>。在 CI/CD 中加入静态分析阈值检查（ESLint、SonarQube、pylint），复杂度超标的 PR 不允许合并。这是成本最低、效果最直接的措施。</li>
+<li><strong>不要取消 Code Review</strong>。AI 提速的正确用法是让开发者把省下的时间花在审查质量上，而不是跳过审查。</li>
+<li><strong>定期跟踪代码复杂度趋势</strong>。用工具（如 CodeClimate）监控项目级别的复杂度指标，如果发现引入 AI 工具后持续上升，及时介入。</li>
+<li><strong>在 AI 工具的系统提示中加入质量约束</strong>。如果你在用 Claude Code，可以在 <code>CLAUDE.md</code> 或 Skills 中明确要求代码简洁性和可维护性标准。</li>
+<li><strong>阅读原文</strong>。这篇论文写得清晰易读，推荐每个技术负责人花 30 分钟通读：<a href="https://arxiv.org/abs/2511.04427">arXiv:2511.04427</a>。</li>
+</ol>
+<p><strong>相关阅读</strong>：<a href="/newsletter/2026-03-18">今日简报</a> 有更多 AI 开发工具动态。另见：<a href="/compare/claude-code-vs-cursor">Claude Code 与 Cursor 对比</a>。</p>
+<hr>
+<p><em>觉得有用？<a href="/subscribe">订阅 AI 简报</a>，每天 5 分钟掌握 AI 动态。</em></p>
+</div></div>
+    </div>
+        </div>
+      </details>
+      <details style="margin-bottom:8px">
+        <summary style="cursor:pointer;padding:8px;background:#fafafa;border-radius:4px">
+          <strong>opus-4-6-1m-default-claude-code</strong> — 990 EN / 1296 ZH words <span style="color:#22c55e;font-size:12px">(OK)</span>
+        </summary>
+        <div style="padding:12px">
+          
+          
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "Claude Opus 4.6 1M Context Now Default for Claude Code on Max, Team, and Enterprise"
+date: 2026-03-18
+slug: opus-4-6-1m-default-claude-code
+description: "Claude Opus 4.6 with 1M context window is now the default model for Claude Code users on Max, Team, and Enterprise plans — here's what changes."
+keywords: ["Claude Opus 4.6", "Claude Code 1M context", "Anthropic Claude Code", "Claude Code enterprise"]
+category: DEV
+related_newsletter: 2026-03-18
+related_glossary: [claude-code, context-window]
+related_compare: [claude-code-vs-cursor]
+lang: en
+video_ready: true
+video_hook: "Claude Code just silently upgraded every paying user to a 1M context model"
+video_status: none</h2>
+<h1>Claude Opus 4.6 1M Context Now Default for Claude Code on Max, Team, and Enterprise</h1>
+<p><strong>Claude Opus 4.6</strong> with its full <strong>1 million token context window</strong> is now the default Opus model for all <a href="/glossary/claude-code">Claude Code</a> users on Max, Team, and Enterprise plans. No toggle, no opt-in — it's just there. For developers working on large codebases, this eliminates the single biggest friction point in AI-assisted development: running out of context mid-task. The upgrade rolled out to 100% of eligible users, making Opus 4.6 1M the baseline rather than the exception.</p>
+<h2>What Happened</h2>
+<p>Anthropic quietly flipped the switch to make <strong>Opus 4.6 1M</strong> the default model selection for Claude Code across its paid tiers. Previously, users on Max, Team, and Enterprise plans had access to Opus 4.6 but with a shorter default <a href="/glossary/context-window">context window</a>. The 1M variant was available but required explicit selection.</p>
+<p>The change was <a href="https://x.com/bcherny/status/2032514807388123255">confirmed by Boris Cherny</a>, who noted the rollout is now at 100% of users. This isn't a new model — Opus 4.6 has been available since its launch — but making the 1M context version the <em>default</em> signals Anthropic's confidence in both the model's stability at that context length and the infrastructure's ability to handle the load at scale.</p>
+<p>The timing aligns with a broader wave of Claude platform updates. In the same week, Anthropic shipped interactive charts and diagrams in Claude's chat interface, Excel-PowerPoint sync capabilities, and the <code>/btw</code> sidebar feature in Claude Code that lets developers run parallel conversations while a primary task executes. The pattern is clear: Anthropic is pushing Claude Code from "useful coding assistant" toward "full development environment."</p>
+<p>For context, 1 million tokens translates to roughly 750,000 words — enough to hold an entire medium-sized codebase in a single conversation. That's the equivalent of loading ~3,000 source files simultaneously.</p>
+<h2>Why It Matters</h2>
+<p>Context window size is the invisible ceiling on what AI coding tools can actually accomplish. A 200K context model can handle a few files and some conversation history. A 1M context model can hold an entire microservice, its test suite, its documentation, and still have room for a multi-turn debugging session.</p>
+<p>The practical impact shows up in three places:</p>
+<p><strong>Large refactors become viable.</strong> Renaming a pattern across 50 files, migrating an API version, or restructuring a module hierarchy — these tasks require the model to see the full picture. At 200K, you hit the wall. At 1M, most projects fit entirely within context.</p>
+<p><strong>Fewer "I lost track" moments.</strong> Every Claude Code user has experienced the model forgetting a constraint mentioned 20 messages ago. With 1M context, conversations can run significantly longer before context pressure forces compression or truncation.</p>
+<p><strong>Enterprise adoption gets easier.</strong> Teams evaluating AI coding tools care about consistency across long sessions. A model that degrades as context fills up is a hard sell for production workflows. Making 1M the default, not an upsell, removes a common objection.</p>
+<p>The competitive angle matters too. <a href="/glossary/cursor">Cursor</a> and GitHub Copilot operate with significantly shorter context windows. Google's Gemini offers 1M+ context but lacks a dedicated CLI coding tool with Claude Code's depth of integration. By defaulting to 1M, Anthropic sets a new baseline that competitors must match.</p>
+<h2>Technical Deep-Dive</h2>
+<p>The jump to 1M default raises legitimate questions about performance and cost tradeoffs.</p>
+<p><strong>Latency</strong>: Longer context windows mean more tokens to process on every turn. Opus 4.6 uses efficient attention mechanisms, but users should expect marginally higher latency on turns where the full context is active. In practice, Claude Code's context management — which compresses older messages and selectively loads file content — means most requests don't actually hit the 1M ceiling.</p>
+<p><strong>Quality at depth</strong>: Not all context is created equal. Research consistently shows that LLMs attend more strongly to the beginning and end of their context window, with a "lost in the middle" effect for information buried deep in the sequence. Anthropic has invested heavily in mitigating this for Claude models, but developers should still front-load critical constraints (in <code>CLAUDE.md</code> or early in the conversation) rather than relying on the model to perfectly recall a detail from 800K tokens ago.</p>
+<p><strong>Cost implications</strong>: For Max plan users ($100/month or $200/month tiers), the 1M context is included — no per-token billing. Team and Enterprise plans have their own rate structures, but the model itself is now the same across all paid tiers. This is a significant value increase for Max subscribers who were previously choosing between Opus quality and context length.</p>
+<p><strong>What didn't change</strong>: The model's core capabilities — code generation quality, reasoning depth, instruction following — remain identical. This is a context window expansion for the default configuration, not a model upgrade. If you were already using Opus 4.6 1M by explicit selection, nothing changes for you.</p>
+<p>One practical note: Claude Code's automatic context management means the 1M window is a ceiling, not a constant. The system dynamically manages what's in context based on relevance, compressing older conversation turns and selectively including file contents. The 1M capacity means it has more headroom before it <em>must</em> compress.</p>
+<h2>What You Should Do</h2>
+<ol>
+<li><strong>Stop manually selecting models.</strong> If you've been switching to Opus 4.6 1M in Claude Code settings, you can remove that step — it's now the default.</li>
+<li><strong>Try longer sessions.</strong> Test a multi-file refactor or extended debugging session that you'd previously broken into smaller chunks. The extra context should reduce the need to re-explain constraints.</li>
+<li><strong>Front-load your <code>CLAUDE.md</code></strong> with the most critical project rules and conventions. Even with 1M context, information at the top of the window gets the strongest attention.</li>
+<li><strong>Review your plan tier.</strong> If you're on a free or Pro plan without Claude Code access, this is another reason to evaluate Max — the 1M default makes the coding experience meaningfully better for complex projects.</li>
+<li><strong>Monitor latency</strong> on your specific workflows. If you notice slowdowns on very long sessions, consider using <code>/clear</code> strategically to reset context when switching between unrelated tasks.</li>
+</ol>
+<p><strong>Related</strong>: <a href="/newsletter/2026-03-18">Today's newsletter</a> covers the broader context of this week's Anthropic updates. See also: <a href="/glossary/claude-code">Claude Code overview</a>.</p>
+<hr>
+<p><em>Found this useful? <a href="/subscribe">Subscribe to AI News</a> for daily AI briefings.</em></p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><div class="md-content"><hr>
+<h2>title: "Opus 4.6 1M 正式成为 Claude Code 默认模型：百万上下文时代来了"
+date: 2026-03-18
+slug: opus-4-6-1m-default-claude-code
+description: "Anthropic 将 Opus 4.6 1M 设为 Claude Code 默认模型，Max、Team 和 Enterprise 用户直接获得百万 token 上下文窗口，对大型工程项目意味着什么？"
+keywords: ["Opus 4.6", "Claude Code", "1M context window", "Anthropic"]
+category: DEV
+related_newsletter: 2026-03-18
+related_glossary: [claude-code, context-window]
+related_compare: [claude-code-vs-cursor]
+lang: zh
+video_ready: true
+video_hook: "Claude Code 默认模型换成 Opus 4.6 1M，百万上下文到底能干什么？"
+video_status: none</h2>
+<h1>Opus 4.6 1M 正式成为 Claude Code 默认模型：百万上下文时代来了</h1>
+<p><strong>Opus 4.6</strong> 的 1M 上下文版本现在是 <strong>Claude Code</strong> 在 Max、Team 和 Enterprise 计划上的默认模型。这意味着付费用户不需要任何配置，直接获得百万 token 的上下文窗口。对于日常在大型代码库里工作的开发者来说，这是一个实质性的能力跃升——不是新功能发布，而是把最强配置变成了默认体验。</p>
+<h2>发生了什么</h2>
+<p>Anthropic 工程师 Boris Cherny <a href="https://x.com/bcherny/status/2032514807388123255">在 Twitter 上宣布</a>，Opus 4.6 1M 已经成为 Claude Code 的默认 Opus 模型，覆盖 Max、Team 和 Enterprise 三个付费计划。随后他确认该变更已<a href="https://x.com/bcherny/status/2032238378389840018">面向 100% 用户完成灰度</a>。</p>
+<p>这里的关键不是 Opus 4.6 本身——它已经发布一段时间了——而是 <strong>1M 上下文窗口成为默认配置</strong>。此前用户需要手动选择长上下文版本，现在直接开箱即用。</p>
+<p>同期 Claude 生态还有几个值得注意的动态：Claude 聊天界面<a href="https://x.com/adocomplete/status/2032125588677542165">新增了交互式图表功能</a>，Claude for Excel 和 PowerPoint <a href="https://x.com/bcherny/status/2031829285028446651">实现了跨文件协同</a>，Claude Code 还上线了 <code>/btw</code> 侧边栏对话功能，让你在主任务运行时同时开启另一个对话。Anthropic 正在全线提升产品体验。</p>
+<h2>为什么重要</h2>
+<p>上下文窗口的大小直接决定了 AI 编码助手的天花板。200K token 大约对应一个中型项目的核心代码；1M token 则可以一次性装下大型 monorepo 中多个模块的完整实现，包括测试、配置和文档。</p>
+<p><strong>从 200K 到 1M 的实际差距远不止 5 倍。</strong> 很多时候 200K 刚好不够——你需要加载 3-4 个关联文件来理解一个跨模块的 bug，加上对话历史，上下文就爆了。1M 让这种场景从"需要精心管理上下文"变成"直接扔进去就行"。</p>
+<p>对比竞品：<a href="/glossary/cursor">Cursor</a> 目前默认上下文窗口远小于 1M，虽然通过 RAG 和智能索引弥补，但在需要同时理解多个文件完整逻辑的场景下，原生长上下文仍然有不可替代的优势。GitHub Copilot 的上下文管理则更加保守。</p>
+<p>把最强配置设为默认值而不是付费附加项，这个产品决策本身也值得注意——Anthropic 在用模型能力的普惠来建立 Claude Code 的竞争壁垒。</p>
+<h2>技术细节</h2>
+<p><strong>Opus 4.6</strong> 是 Anthropic 当前最强的推理模型，model ID 为 <code>claude-opus-4-6</code>。1M 版本支持最大 100 万 token 的输入上下文，这在 Claude Code 的场景下意味着：</p>
+<ul>
+<li><strong>完整项目加载</strong>：一个典型的 Next.js 全栈项目（50-80 个核心文件）可以一次性全部放入上下文</li>
+<li><strong>跨文件重构</strong>：修改一个接口定义时，所有调用方的代码都在上下文里，减少遗漏</li>
+<li><strong>长对话保持</strong>：复杂的调试会话不会因为上下文截断丢失之前的分析</li>
+</ul>
+<p>需要注意的是，1M 上下文并不意味着每次调用都会用满。Claude Code 的上下文管理系统会自动压缩历史消息，实际使用中大部分时间消耗远低于上限。但关键是——当你真正需要的时候，容量在那里。</p>
+<p>配合同期上线的 <code>/btw</code> 功能（侧边栏对话），工作流变得更加流畅：主线程让 Claude 处理一个耗时任务，你可以同时在侧边栏问另一个问题，两个对话共享项目上下文但独立运行。</p>
+<p>从成本角度，1M 上下文的推理开销显然更高。Anthropic 把它设为默认值意味着他们判断推理成本已经降到可以大规模承受的水平，或者他们愿意用利润换市场份额。</p>
+<h2>你现在该做什么</h2>
+<ol>
+<li><strong>确认你的 Claude Code 已更新到最新版本。</strong> 如果你在 Max、Team 或 Enterprise 计划上，Opus 4.6 1M 应该已经是默认模型，无需手动切换。</li>
+<li><strong>重新审视你的 CLAUDE.md 和 Skills 配置。</strong> 更大的上下文窗口意味着你可以在 <a href="/glossary/skill-md">SKILL.md</a> 中放入更详细的指令和更长的示例，而不用担心挤占工作上下文。</li>
+<li><strong>尝试加载整个模块而不是单个文件。</strong> 以前需要精心挑选哪些文件放入上下文，现在可以更大胆——把整个 <code>src/</code> 目录相关模块一起扔进去，让 Claude 自己找关联。</li>
+<li><strong>试试 <code>/btw</code> 侧边栏功能。</strong> 配合长上下文，多线程工作的体验会好很多。</li>
+<li><strong>如果你还在用免费计划</strong>，这是一个考虑升级的好时机。模型能力的差距正在拉大。</li>
+</ol>
+<p><strong>相关阅读</strong>：<a href="/newsletter/2026-03-18">今日简报</a> 有更多 Claude 生态动态。另见：<a href="/blog/claude-code-guide">Claude Code 完全指南</a>。</p>
+<hr>
+<p><em>觉得有用？<a href="/subscribe">订阅 AI 简报</a>，每天 5 分钟掌握 AI 动态。</em></p>
+</div></div>
+    </div>
+        </div>
+      </details></section>
+<section id="seo"><h2>SEO Pages (1)</h2>
+      <details style="margin-bottom:8px" open>
+        <summary style="cursor:pointer;padding:8px;background:#f0f0f0;border-radius:4px;font-weight:600">
+          glossary (1)
+        </summary>
+        <div style="padding:8px 0">
+        <details style="margin-bottom:4px;margin-left:16px">
+          <summary style="cursor:pointer;padding:6px;background:#fafafa;border-radius:4px">
+            openclaw <span style="color:#ef4444;font-size:12px">(1 issue)</span>
+          </summary>
+          <div style="padding:12px">
+            <div style="background:#fef2f2;padding:8px 12px;border-radius:4px;margin-bottom:12px;font-size:13px;color:#991b1b"><div>• Missing ZH version</div></div>
+            
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "OpenClaw — AI Glossary"
+slug: openclaw
+description: "What is OpenClaw? An open-source dexterous robot hand designed for affordable AI manipulation research."
+term: openclaw
+display_term: "OpenClaw"
+category: frameworks
+related_glossary: [agentic-coding, ai-safety]
+related_blog: []
+related_compare: []
+lang: en</h2>
+<h1>OpenClaw — AI Glossary</h1>
+<p><strong>OpenClaw</strong> is an open-source dexterous robotic hand project designed to make manipulation research accessible and affordable. It provides an open hardware design — largely 3D-printable — along with software for training AI control policies, enabling researchers to experiment with dexterous grasping and object manipulation without relying on expensive proprietary robotic platforms.</p>
+<h2>Why OpenClaw Matters</h2>
+<p>Dexterous manipulation is one of the hardest unsolved problems in robotics. Training an AI policy to control a five-fingered hand requires thousands of hours of real-world or simulated interaction, and until recently, the hardware alone cost tens of thousands of dollars. OpenClaw lowers that barrier dramatically by providing a reproducible, low-cost hand design paired with integration points for reinforcement learning frameworks.</p>
+<p>This matters beyond academia. As <a href="/glossary/ai-safety">AI safety</a> research increasingly focuses on embodied agents, having open and inspectable hardware-software stacks becomes critical for understanding how learned policies behave in the physical world. OpenClaw gives the broader research community a shared platform to benchmark and compare manipulation approaches.</p>
+<h2>How OpenClaw Works</h2>
+<p>OpenClaw combines mechanical design files, firmware, and a training stack into a single reproducible package.</p>
+<p>Key components:</p>
+<ul>
+<li><strong>Hardware</strong>: 3D-printable finger assemblies with tendon-driven actuation, designed for low-cost servos and off-the-shelf components</li>
+<li><strong>Sim-to-real pipeline</strong>: Simulation environments (typically built on MuJoCo or Isaac Gym) where policies are pre-trained before transferring to the physical hand</li>
+<li><strong>Policy training</strong>: Integration with standard reinforcement learning libraries, allowing researchers to train grasping and in-hand manipulation policies</li>
+<li><strong>Teleoperation interface</strong>: Manual control mode for collecting demonstration data, useful for imitation learning approaches</li>
+</ul>
+<p>The open-source nature means researchers can modify finger geometry, sensor placement, and actuator configurations to match their specific research questions.</p>
+<h2>Related Terms</h2>
+<ul>
+<li><strong><a href="/glossary/ai-safety">AI Safety</a></strong>: Understanding learned policies in physical systems is a growing focus of safety research</li>
+<li><strong><a href="/glossary/agentic-coding">Agentic Coding</a></strong>: Autonomous AI agents that plan and execute tasks — OpenClaw applies this paradigm to physical manipulation</li>
+<li><strong><a href="/glossary/chatgpt">ChatGPT</a></strong>: Large language models increasingly serve as high-level planners for robotic manipulation pipelines</li>
+</ul>
+<hr>
+<p><em>Want more AI insights? <a href="/subscribe">Subscribe to LoreAI</a> for daily briefings.</em></p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><p style="color:#a3a3a3"><em>Not found</em></p></div>
+    </div>
+          </div>
+        </details></div>
+      </details></section>
+
+    <section id="data">
+      <h2>Data</h2>
+      <h3>Filtered Items</h3>
+      <p style="color:#a3a3a3">No filtered items file found</p>
+      <h3 style="margin-top:24px">Blog Seeds</h3>
+      <p style="color:#a3a3a3">No blog seeds file found</p>
+    </section>
+
+    <section id="keywords">
+      <h2>Keywords</h2>
+      <h3>Discovered Today</h3>
+      
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr><th>Keyword</th><th>Source</th><th>Cluster</th><th>Content</th></tr></thead>
+          <tbody>
+      <tr>
+        <td>Do I need to opt in to use Opus 4.6 1M in Claude Code?</td>
+        <td>Blog FAQ extraction (opus-4-6-1m-default-claude-code)</td>
+        <td>claude-code</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Does Cursor AI improve developer productivity?</td>
+        <td>Blog FAQ extraction (cursor-ai-speed-vs-quality-study)</td>
+        <td>cursor</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>How does Cursor AI affect code quality in open source projects?</td>
+        <td>Blog FAQ extraction (cursor-ai-speed-vs-quality-study)</td>
+        <td>cursor</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>How many tokens can Opus 4.6 1M handle?</td>
+        <td>Blog FAQ extraction (opus-4-6-1m-default-claude-code)</td>
+        <td>claude-code</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>How should humans interact with autonomous coding agents?</td>
+        <td>Blog FAQ extraction (coding-agent-gui-ux-overhaul)</td>
+        <td>coding-agent-gui-ux-overhaul</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Should teams add quality gates when using AI coding tools?</td>
+        <td>Blog FAQ extraction (cursor-ai-speed-vs-quality-study)</td>
+        <td>cursor</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>What does agentic UX mean for developer tools?</td>
+        <td>Blog FAQ extraction (coding-agent-gui-ux-overhaul)</td>
+        <td>coding-agent-gui-ux-overhaul</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>What is difference-in-differences analysis in software engineering research?</td>
+        <td>Blog FAQ extraction (cursor-ai-speed-vs-quality-study)</td>
+        <td>cursor</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>What is the default context window for Claude Code on Max plans?</td>
+        <td>Blog FAQ extraction (opus-4-6-1m-default-claude-code)</td>
+        <td>claude-code</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>What is wrong with chat-based interfaces for coding agents?</td>
+        <td>Blog FAQ extraction (coding-agent-gui-ux-overhaul)</td>
+        <td>coding-agent-gui-ux-overhaul</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>What plans support Opus 4.6 1M in Claude Code?</td>
+        <td>Blog FAQ extraction (opus-4-6-1m-default-claude-code)</td>
+        <td>claude-code</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Why do coding agent GUIs need a new UX?</td>
+        <td>Blog FAQ extraction (coding-agent-gui-ux-overhaul)</td>
+        <td>coding-agent-gui-ux-overhaul</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>agent-orchestration</td>
+        <td>Blog glossary extraction (coding-agent-gui-ux-overhaul)</td>
+        <td>agent-orchestration</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>agentic-engineering</td>
+        <td>Blog glossary extraction (coding-agent-gui-ux-overhaul)</td>
+        <td>agentic-engineering</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>agentic-ux</td>
+        <td>Blog glossary extraction (coding-agent-gui-ux-overhaul)</td>
+        <td>agentic-ux</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>ai-coding-speed-vs-code-quality</td>
+        <td>Blog comparison extraction (cursor-ai-speed-vs-quality-study)</td>
+        <td>cursor</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>chat-ux-vs-agentic-ux</td>
+        <td>Blog comparison extraction (coding-agent-gui-ux-overhaul)</td>
+        <td>coding-agent-gui-ux-overhaul</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>claude-max-plan</td>
+        <td>Blog glossary extraction (opus-4-6-1m-default-claude-code)</td>
+        <td>claude-max-plan</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>claude-max-vs-enterprise</td>
+        <td>Blog comparison extraction (opus-4-6-1m-default-claude-code)</td>
+        <td>claude-code</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>code-complexity</td>
+        <td>Blog glossary extraction (cursor-ai-speed-vs-quality-study)</td>
+        <td>code-complexity</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>coding-agent</td>
+        <td>Blog glossary extraction (coding-agent-gui-ux-overhaul)</td>
+        <td>coding-agent</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>cursor-ai</td>
+        <td>Blog glossary extraction (cursor-ai-speed-vs-quality-study)</td>
+        <td>cursor-ai</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>cursor-vs-claude-code</td>
+        <td>Blog comparison extraction (cursor-ai-speed-vs-quality-study)</td>
+        <td>cursor</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>cursor-vs-github-copilot</td>
+        <td>Blog comparison extraction (cursor-ai-speed-vs-quality-study)</td>
+        <td>cursor</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>cursor-vs-windsurf</td>
+        <td>Blog comparison extraction (coding-agent-gui-ux-overhaul)</td>
+        <td>coding-agent-gui-ux-overhaul</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>difference-in-differences</td>
+        <td>Blog glossary extraction (cursor-ai-speed-vs-quality-study)</td>
+        <td>difference-in-differences</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>human-in-the-loop</td>
+        <td>Blog glossary extraction (coding-agent-gui-ux-overhaul)</td>
+        <td>human-in-the-loop</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>llm-agent</td>
+        <td>Blog glossary extraction (cursor-ai-speed-vs-quality-study)</td>
+        <td>llm-agent</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>opus-4-6</td>
+        <td>Blog glossary extraction (opus-4-6-1m-default-claude-code)</td>
+        <td>opus-4-6</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>opus-4-6-vs-sonnet-4-6</td>
+        <td>Blog comparison extraction (opus-4-6-1m-default-claude-code)</td>
+        <td>claude-code</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>static-analysis</td>
+        <td>Blog glossary extraction (cursor-ai-speed-vs-quality-study)</td>
+        <td>static-analysis</td>
+        <td>—</td>
+      </tr></tbody>
+        </table>
+        <p style="font-size:12px;color:#737373">31 keywords</p>
+      </div>
+      <h3 style="margin-top:24px">Topic Clusters</h3>
+      
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr><th>Slug</th><th>Pillar Topic</th><th style="text-align:right">Mentions</th><th>Hub</th><th>First Seen</th><th>Last Seen</th></tr></thead>
+          <tbody>
+      <tr>
+        <td>anthropic</td>
+        <td>anthropic</td>
+        <td style="text-align:right">11</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>openai</td>
+        <td>openai</td>
+        <td style="text-align:right">11</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>qwen</td>
+        <td>qwen</td>
+        <td style="text-align:right">11</td>
+        <td>✓</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>codex</td>
+        <td>codex</td>
+        <td style="text-align:right">10</td>
+        <td>✓</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>claude-code</td>
+        <td>claude code</td>
+        <td style="text-align:right">10</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>google</td>
+        <td>google</td>
+        <td style="text-align:right">9</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>claude</td>
+        <td>claude</td>
+        <td style="text-align:right">9</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>gemini</td>
+        <td>gemini</td>
+        <td style="text-align:right">9</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>cursor</td>
+        <td>cursor</td>
+        <td style="text-align:right">8</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>chatgpt</td>
+        <td>ChatGPT</td>
+        <td style="text-align:right">8</td>
+        <td>✓</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>langchain</td>
+        <td>LangChain</td>
+        <td style="text-align:right">8</td>
+        <td>✓</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>nvidia</td>
+        <td>NVIDIA</td>
+        <td style="text-align:right">8</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>gpt</td>
+        <td>GPT-5.4</td>
+        <td style="text-align:right">7</td>
+        <td>✓</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>meta</td>
+        <td>Meta</td>
+        <td style="text-align:right">7</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>microsoft</td>
+        <td>Microsoft</td>
+        <td style="text-align:right">7</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>model-context-protocol</td>
+        <td>MCP</td>
+        <td style="text-align:right">7</td>
+        <td>✓</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>hugging-face</td>
+        <td>Hugging Face</td>
+        <td style="text-align:right">7</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>agentic-coding</td>
+        <td>agentic coding</td>
+        <td style="text-align:right">7</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>ltx</td>
+        <td>LTX-2.3</td>
+        <td style="text-align:right">6</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>rag</td>
+        <td>RAG</td>
+        <td style="text-align:right">6</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>whisper</td>
+        <td>Whisper</td>
+        <td style="text-align:right">6</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>claude-desktop</td>
+        <td>Claude Desktop</td>
+        <td style="text-align:right">6</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>open-weight-models</td>
+        <td>open-weight models</td>
+        <td style="text-align:right">6</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>google-deepmind</td>
+        <td>Google DeepMind</td>
+        <td style="text-align:right">5</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>sakana-ai</td>
+        <td>Sakana AI</td>
+        <td style="text-align:right">5</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>vibe-coding</td>
+        <td>vibe coding</td>
+        <td style="text-align:right">5</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>reinforcement-learning</td>
+        <td>reinforcement learning</td>
+        <td style="text-align:right">5</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>grammarly</td>
+        <td>Grammarly</td>
+        <td style="text-align:right">5</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>openclaw</td>
+        <td>OpenClaw</td>
+        <td style="text-align:right">5</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>ami-labs</td>
+        <td>AMI Labs</td>
+        <td style="text-align:right">5</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>ibm</td>
+        <td>IBM</td>
+        <td style="text-align:right">5</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>world-models</td>
+        <td>world models</td>
+        <td style="text-align:right">5</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>deepseek</td>
+        <td>deepseek</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>fine-tuning</td>
+        <td>fine-tuning</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>windsurf</td>
+        <td>Windsurf</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>glm</td>
+        <td>GLM</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>triton</td>
+        <td>Triton</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>ai-safety</td>
+        <td>AI safety</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>vllm</td>
+        <td>vLLM</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>multi-agent-systems</td>
+        <td>multi-agent systems</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>ai-regulation</td>
+        <td>AI regulation</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>xai</td>
+        <td>xAI</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>qualcomm</td>
+        <td>Qualcomm</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>physical-ai</td>
+        <td>physical AI</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>copilot</td>
+        <td>Copilot</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>github-copilot</td>
+        <td>GitHub Copilot</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>figma</td>
+        <td>Figma</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>claude-opus</td>
+        <td>Claude Opus 4.6</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>alexa-plus</td>
+        <td>Alexa+</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>playwright</td>
+        <td>Playwright</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>autonomous-weapons</td>
+        <td>autonomous weapons</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>gpt-5</td>
+        <td>GPT-5.4</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>gpt-4</td>
+        <td>GPT-4</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>grok</td>
+        <td>Grok</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>llama</td>
+        <td>Llama 4</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>synthetic-data</td>
+        <td>Synthetic Data</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>deep-research</td>
+        <td>deep research</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>nemotron</td>
+        <td>Nemotron</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>generative-ui</td>
+        <td>generative UI</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>agentic</td>
+        <td>agentic</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>gpt-54</td>
+        <td>gpt-5.4</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>huggingface</td>
+        <td>huggingface</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>qwen35</td>
+        <td>qwen3.5</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>qwen3</td>
+        <td>qwen3</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>nano-banana</td>
+        <td>Nano Banana 2</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>diffusers</td>
+        <td>Diffusers</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>langsmith</td>
+        <td>LangSmith</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>bytedance</td>
+        <td>ByteDance</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>chain-of-thought</td>
+        <td>chain-of-thought</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>computer-use</td>
+        <td>computer use</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>context-engineering</td>
+        <td>context engineering</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>inference-cost-reduction</td>
+        <td>inference cost reduction</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>swe-bench</td>
+        <td>SWE-Bench</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>openhands</td>
+        <td>OpenHands</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>nemo</td>
+        <td>NeMo</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>speciesnet</td>
+        <td>SpeciesNet</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>model-distillation</td>
+        <td>model distillation</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>seedance</td>
+        <td>Seedance</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>claude-max</td>
+        <td>Claude Max</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>cline</td>
+        <td>Cline</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>webflow</td>
+        <td>Webflow</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>ghidra</td>
+        <td>Ghidra</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>eval-integrity</td>
+        <td>eval integrity</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>amazon</td>
+        <td>Amazon</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>o3</td>
+        <td>o3</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>sarvam</td>
+        <td>Sarvam-105B</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>rlhf</td>
+        <td>RLHF</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>inference-cost</td>
+        <td>inference cost</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>figma-mcp</td>
+        <td>Figma MCP</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>dall-e</td>
+        <td>DALL-E 2</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>llm-reasoning</td>
+        <td>reasoning with LLMs</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>openai-baselines</td>
+        <td>OpenAI Baselines</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>roboschool</td>
+        <td>Roboschool</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>waymo</td>
+        <td>Waymo</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>dqn</td>
+        <td>DQN</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>ai-agents</td>
+        <td>AI agents</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>promptfoo</td>
+        <td>Promptfoo</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>neura-robotics</td>
+        <td>Neura Robotics</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>nscale</td>
+        <td>Nscale</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>gradient-ai</td>
+        <td>Gradient AI</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>datadog</td>
+        <td>Datadog</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>legora</td>
+        <td>Legora</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>hume-ai</td>
+        <td>Hume AI</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>atlassian</td>
+        <td>Atlassian</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>mastercard</td>
+        <td>Mastercard</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>abb</td>
+        <td>ABB</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>tada</td>
+        <td>TADA</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>langgraph</td>
+        <td>LangGraph</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>n8n</td>
+        <td>n8n</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>pinecone</td>
+        <td>Pinecone</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>notebooklm</td>
+        <td>NotebookLM</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>amazon-bedrock</td>
+        <td>Amazon Bedrock</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>opencode</td>
+        <td>OpenCode</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>vertex-ai</td>
+        <td>Vertex AI</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>agentic-payments</td>
+        <td>agentic payments</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>sora</td>
+        <td>Sora</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>jepa</td>
+        <td>JEPA</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>bitnet</td>
+        <td>BitNet</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>canva</td>
+        <td>Canva</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>wayve</td>
+        <td>Wayve</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>ai2</td>
+        <td>Ai2</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>recursive-self-improvement</td>
+        <td>recursive self-improvement</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>flux</td>
+        <td>Flux</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>vs-code</td>
+        <td>VS Code</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>claude-agent-sdk</td>
+        <td>Claude Agent SDK</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>palantir</td>
+        <td>Palantir</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>moonshot-ai</td>
+        <td>Moonshot AI</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>kimi</td>
+        <td>Kimi</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>anduril</td>
+        <td>Anduril</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>humanoid-robots</td>
+        <td>humanoid robots</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>ai-governance</td>
+        <td>AI governance</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>kv-caching</td>
+        <td>KV caching</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>voice-mode</td>
+        <td>voice mode</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>world-labs</td>
+        <td>World Labs</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>deepmind</td>
+        <td>deepmind</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>luma</td>
+        <td>Luma</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>phi</td>
+        <td>Phi-4</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>olmo</td>
+        <td>OLMo</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>multi-agent</td>
+        <td>multi-agent</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>extended-thinking</td>
+        <td>extended thinking</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>claude-cowork</td>
+        <td>Claude Cowork</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>huggingface-hub</td>
+        <td>huggingface_hub</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>jido</td>
+        <td>Jido</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>vla-fine-tuning</td>
+        <td>VLA fine-tuning</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>mozilla</td>
+        <td>Mozilla</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>tencent</td>
+        <td>Tencent</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>gpt-2</td>
+        <td>GPT-2</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>gpt-4o-mini</td>
+        <td>GPT-4o Mini</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>o4-mini</td>
+        <td>o4 Mini</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>gpt-realtime</td>
+        <td>gpt-realtime-1.5</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>yuan</td>
+        <td>Yuan3.0 Ultra</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>vibevoice-asr</td>
+        <td>VibeVoice-ASR</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>timesfm</td>
+        <td>TimesFM</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>codex-security</td>
+        <td>Codex Security</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>clip</td>
+        <td>CLIP</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>fp8</td>
+        <td>fp8</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>ai-productivity</td>
+        <td>AI productivity</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>mass-surveillance</td>
+        <td>mass surveillance</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>browsecomp</td>
+        <td>BrowseComp</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>livebench</td>
+        <td>LiveBench</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>climbmix</td>
+        <td>ClimbMix</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>zapier</td>
+        <td>Zapier</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>cursor-composer</td>
+        <td>Cursor Composer</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>project-genie</td>
+        <td>Project Genie</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>aardvark</td>
+        <td>Aardvark</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>o-series</td>
+        <td>o3</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-08</td>
+      </tr>
+      <tr>
+        <td>large-language-models</td>
+        <td>LLM</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-08</td>
+      </tr>
+      <tr>
+        <td>ai-wearables</td>
+        <td>AI wearables</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-08</td>
+      </tr>
+      <tr>
+        <td>ai-data-centers</td>
+        <td>AI data centers</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-08</td>
+      </tr>
+      <tr>
+        <td>sparse-gpu-kernels</td>
+        <td>block sparse GPU kernels</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-08</td>
+      </tr>
+      <tr>
+        <td>llm-acceptance-criteria</td>
+        <td>acceptance criteria</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-08</td>
+      </tr>
+      <tr>
+        <td>ai-surveillance</td>
+        <td>AI surveillance</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>jukebox</td>
+        <td>Jukebox</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>stargate</td>
+        <td>Stargate</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>indqa</td>
+        <td>IndQA</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>ai-infrastructure</td>
+        <td>AI infrastructure</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>github</td>
+        <td>GitHub</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>thinking-machines-lab</td>
+        <td>Thinking Machines Lab</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>lyzr-ai</td>
+        <td>Lyzr AI</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>stripe</td>
+        <td>Stripe</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>alphago</td>
+        <td>AlphaGo</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>gguf</td>
+        <td>GGUF</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>mlx</td>
+        <td>MLX</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>ggml</td>
+        <td>GGML</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>sequence-parallelism</td>
+        <td>Ulysses Sequence Parallelism</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>llamaindex</td>
+        <td>LlamaIndex</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>openai-agents-sdk</td>
+        <td>OpenAI Agents SDK</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>crewai</td>
+        <td>CrewAI</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>smolagents</td>
+        <td>SmolAgents</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>llama-cpp</td>
+        <td>llama.cpp</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>pytorch</td>
+        <td>PyTorch</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>adalflow</td>
+        <td>AdalFlow</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>strands</td>
+        <td>Strands</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>autoresearch</td>
+        <td>autoresearch</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>transformers</td>
+        <td>Transformers</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>ollama</td>
+        <td>Ollama</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>codex-cli</td>
+        <td>Codex CLI</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>comfyui</td>
+        <td>ComfyUI</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>lovable</td>
+        <td>Lovable</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>jetbrains-air</td>
+        <td>JetBrains Air</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>context7</td>
+        <td>Context7</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>insforge</td>
+        <td>InsForge</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>moltbook</td>
+        <td>Moltbook</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>harness-engineering</td>
+        <td>harness engineering</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>eval-awareness</td>
+        <td>eval awareness</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>inference-efficiency</td>
+        <td>inference efficiency</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>framer</td>
+        <td>Framer</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>agentic-ai</td>
+        <td>agentic AI</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>ai-coding-agents</td>
+        <td>AI coding agents</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>ai-deepfakes</td>
+        <td>AI deepfakes</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>agentmail</td>
+        <td>AgentMail</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>mind-robotics</td>
+        <td>Mind Robotics</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>eridu</td>
+        <td>Eridu</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>youtube</td>
+        <td>YouTube</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>manulife</td>
+        <td>Manulife</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>autoresearch-rl</td>
+        <td>AutoResearch-RL</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>openapi</td>
+        <td>OpenAPI</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>mistral-ai</td>
+        <td>Mistral AI</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>replit</td>
+        <td>Replit</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>gumloop</td>
+        <td>Gumloop</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>pixverse</td>
+        <td>PixVerse</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>granite</td>
+        <td>Granite</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>warp</td>
+        <td>Warp</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>responses-api</td>
+        <td>Responses API</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>veo</td>
+        <td>Veo</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>runway</td>
+        <td>Runway</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>prompt-caching</td>
+        <td>prompt caching</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>context-compression</td>
+        <td>context compression</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>claude-md</td>
+        <td>CLAUDE.md</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>chrome-devtools-mcp</td>
+        <td>Chrome DevTools MCP</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>github-mcp</td>
+        <td>GitHub MCP</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>azure-mcp</td>
+        <td>Azure MCP</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>deep-agents-sdk</td>
+        <td>Deep Agents SDK</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>bumble</td>
+        <td>Bumble</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>metr-benchmark</td>
+        <td>METR benchmark</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>a2a-protocol</td>
+        <td>A2A protocol</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>qt-creator</td>
+        <td>Qt Creator</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>tailwind-css</td>
+        <td>Tailwind CSS</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>unity-ai</td>
+        <td>Unity AI</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>shadcn</td>
+        <td>Shadcn</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>augment-code</td>
+        <td>Augment Code</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>factory</td>
+        <td>Factory</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>fireworks-ai</td>
+        <td>Fireworks AI</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-12</td>
+        <td>2026-03-12</td>
+      </tr>
+      <tr>
+        <td>claude-sonnet</td>
+        <td>Claude Sonnet 4.6</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>claude-api</td>
+        <td>Claude API</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>siri</td>
+        <td>Siri</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>apple</td>
+        <td>Apple</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>reka</td>
+        <td>Reka</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>long-context-window</td>
+        <td>1M context window</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>agent-swarms</td>
+        <td>agent swarms</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>gpqa-diamond</td>
+        <td>GPQA Diamond</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>supply-chain-attack</td>
+        <td>supply chain attack</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>mcp-security</td>
+        <td>MCP security</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>continual-learning</td>
+        <td>continual learning</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-15</td>
+        <td>2026-03-15</td>
+      </tr>
+      <tr>
+        <td>long-context-windows</td>
+        <td>long context windows</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-16</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>black-forest-labs</td>
+        <td>Black Forest Labs</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-16</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>watsonx</td>
+        <td>WatsonX</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-16</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>reka-edge</td>
+        <td>Reka Edge</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-16</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>mistral</td>
+        <td>Mistral</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-16</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>nous-research</td>
+        <td>NousResearch</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-16</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>manus</td>
+        <td>Manus</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-16</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>multimodal-ocr</td>
+        <td>multimodal OCR</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-16</td>
+        <td>2026-03-16</td>
+      </tr>
+      <tr>
+        <td>llm-as-judge</td>
+        <td>LLM-as-judge</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-16</td>
+        <td>2026-03-16</td>
+      </tr></tbody>
+        </table>
+        <p style="font-size:12px;color:#737373">263 clusters</p>
+      </div>
+    </section>
+</main>
+</body>
+</html>

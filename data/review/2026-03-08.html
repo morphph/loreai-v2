@@ -1,0 +1,2691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pipeline Review — 2026-03-08</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; background: #f5f5f5; color: #171717; line-height: 1.6; }
+  nav { position: sticky; top: 0; z-index: 100; background: #171717; color: #fff; padding: 8px 24px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  nav a { color: #a3a3a3; text-decoration: none; font-size: 13px; padding: 4px 8px; border-radius: 4px; }
+  nav a:hover { color: #fff; background: #333; }
+  nav .title { font-weight: 700; font-size: 15px; color: #fff; margin-right: 12px; }
+  main { max-width: 1400px; margin: 0 auto; padding: 24px; }
+  section { background: #fff; border-radius: 8px; padding: 24px; margin-bottom: 16px; border: 1px solid #e5e5e5; }
+  h2 { margin-top: 0; padding-bottom: 8px; border-bottom: 2px solid #e5e5e5; }
+  h3 { color: #525252; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { padding: 6px 10px; border-bottom: 1px solid #e5e5e5; text-align: left; }
+  th { background: #fafafa; font-weight: 600; position: sticky; top: 44px; }
+  tr:hover td { background: #fafafa; }
+  .md-content { font-size: 14px; max-height: 600px; overflow-y: auto; padding: 12px; border: 1px solid #e5e5e5; border-radius: 4px; background: #fafafa; }
+  .md-content h1 { font-size: 20px; }
+  .md-content h2 { font-size: 17px; border: none; padding: 0; }
+  .md-content h3 { font-size: 15px; }
+  .md-content a { color: #2563eb; }
+  .md-content blockquote { border-left: 3px solid #d4d4d4; margin: 8px 0; padding: 4px 12px; color: #525252; }
+  .md-content pre { background: #f0f0f0; padding: 8px; border-radius: 4px; overflow-x: auto; font-size: 12px; }
+  .md-content code { background: #f0f0f0; padding: 1px 4px; border-radius: 2px; font-size: 12px; }
+  .md-content table { margin: 8px 0; }
+  details summary { user-select: none; }
+  details[open] > summary { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<nav>
+  <span class="title">Pipeline Review — 2026-03-08</span>
+  <a href="#dashboard">Dashboard</a>
+  <a href="#newsletters">Newsletters</a>
+  <a href="#benchmark">Benchmark</a>
+  <a href="#blogs">Blogs</a>
+  <a href="#seo">SEO</a>
+  <a href="#data">Data</a>
+  <a href="#keywords">Keywords</a>
+</nav>
+<main>
+
+    <section id="dashboard">
+      <h2>Dashboard</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px">
+        
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Newsletter EN</strong>
+          <span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">FAIL</span>
+        </div>
+        <div style="font-size:14px;color:#525252">1284 words, 20 links</div>
+        <ul style="margin:8px 0 0;padding-left:18px;font-size:12px;color:#ef4444"><li>Missing H1 title</li></ul>
+      </div>
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Newsletter ZH</strong>
+          <span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">FAIL</span>
+        </div>
+        <div style="font-size:14px;color:#525252">1846 words, 21 links</div>
+        <ul style="margin:8px 0 0;padding-left:18px;font-size:12px;color:#ef4444"><li>Missing H1 title</li></ul>
+      </div>
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Blog</strong>
+          <span style="background:#22c55e;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">PASS</span>
+        </div>
+        <div style="font-size:14px;color:#525252">3 post(s)</div>
+        
+      </div>
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>SEO Pages</strong>
+          <span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">FAIL</span>
+        </div>
+        <div style="font-size:14px;color:#525252">4 glossary</div>
+        <ul style="margin:8px 0 0;padding-left:18px;font-size:12px;color:#ef4444"><li>[meta] Missing ZH version</li></ul>
+      </div>
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Filtered Items</strong>
+          <span style="background:#22c55e;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">PASS</span>
+        </div>
+        <div style="font-size:14px;color:#525252">20 items</div>
+        
+      </div>
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Blog Seeds</strong>
+          <span style="background:#22c55e;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">PASS</span>
+        </div>
+        <div style="font-size:14px;color:#525252">5 seeds</div>
+        
+      </div>
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Keywords</strong>
+          <span style="background:#22c55e;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">PASS</span>
+        </div>
+        <div style="font-size:14px;color:#525252">69 new, 107 clusters</div>
+        
+      </div>
+      </div>
+    </section>
+
+    <section id="source-distribution">
+      <h2>Source Distribution</h2>
+      <table style="border-collapse:collapse;width:100%">
+        <tbody>
+      <tr>
+        <td style="width:120px;font-weight:600">twitter</td>
+        <td>
+          <div style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:20px">
+            <div style="background:#1da1f2;height:100%;width:100%;min-width:2px;border-radius:4px;transition:width 0.3s"></div>
+          </div>
+        </td>
+        <td style="width:50px;text-align:right;font-weight:600">10</td>
+      </tr>
+      <tr>
+        <td style="width:120px;font-weight:600">huggingface</td>
+        <td>
+          <div style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:20px">
+            <div style="background:#fbbf24;height:100%;width:40%;min-width:2px;border-radius:4px;transition:width 0.3s"></div>
+          </div>
+        </td>
+        <td style="width:50px;text-align:right;font-weight:600">4</td>
+      </tr>
+      <tr>
+        <td style="width:120px;font-weight:600">blog</td>
+        <td>
+          <div style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:20px">
+            <div style="background:#8b5cf6;height:100%;width:30%;min-width:2px;border-radius:4px;transition:width 0.3s"></div>
+          </div>
+        </td>
+        <td style="width:50px;text-align:right;font-weight:600">3</td>
+      </tr>
+      <tr>
+        <td style="width:120px;font-weight:600">rss</td>
+        <td>
+          <div style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:20px">
+            <div style="background:#f97316;height:100%;width:20%;min-width:2px;border-radius:4px;transition:width 0.3s"></div>
+          </div>
+        </td>
+        <td style="width:50px;text-align:right;font-weight:600">2</td>
+      </tr>
+      <tr>
+        <td style="width:120px;font-weight:600">hackernews</td>
+        <td>
+          <div style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:20px">
+            <div style="background:#ff6600;height:100%;width:10%;min-width:2px;border-radius:4px;transition:width 0.3s"></div>
+          </div>
+        </td>
+        <td style="width:50px;text-align:right;font-weight:600">1</td>
+      </tr></tbody>
+      </table>
+      <p style="font-size:12px;color:#737373">20 total items across 5 source types</p>
+    </section>
+
+    <section id="newsletters">
+      <h2>Newsletters</h2>
+      
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "AI News 2026-03-08"
+date: 2026-03-08
+type: newsletter
+lang: en
+description: ". <a href="https://www.anthropic.com/news/claude-sonnet-4-6">Read more →</a>"
+items_count: 20
+categories: [LAUNCH, RESEARCH, INSIGHT, TOOL, TECHNIQUE, BUILD]
+top_story: "Introducing Claude Sonnet 4.6"</h2>
+<hr>
+<h2>🧠 LAUNCH</h2>
+<h3>Claude Sonnet 4.6 is here.</h3>
+<p>Anthropic's new fast-tier model delivers frontier performance across coding, agents, and professional workloads at scale. It slots in as a direct competitor to GPT-5.4 in the speed-optimized tier — and if it follows the Sonnet 3.5 playbook, it'll become the default workhorse model for most developers within weeks. Try it in the API today. <a href="https://www.anthropic.com/news/claude-sonnet-4-6">Read more →</a></p>
+<h3>GPT-5.4 Thinking and GPT-5.4 Pro roll out.</h3>
+<p>OpenAI unifies reasoning, coding, and agentic workflows into a single model available in both ChatGPT and the API. The "Thinking" variant brings chain-of-thought to the 5.4 architecture, while Pro targets enterprise deployments. Now available in Codex, making it immediately usable for coding agents. (12,056 likes | 1,425 RTs) <a href="https://x.com/OpenAI/status/2029620619743219811">Read more →</a></p>
+<h3>Gemini 3.1 Flash-Lite lands.</h3>
+<p>Google's most cost-efficient Gemini 3 model yet makes the fast-cheap tier a genuine three-way race between Flash-Lite, Sonnet 4.6, and GPT-5.3 Instant. If you're optimizing for cost-per-token on high-volume workloads, benchmark all three — the price-performance gaps are narrowing fast. (8,794 likes | 864 RTs) <a href="https://deepmind.google/blog/gemini-3-1-flash-lite-built-for-intelligence-at-scale/">Read more →</a></p>
+<p><strong>Nano Banana 2</strong> combines Pro-level image generation with Flash speed. Google's latest image model brings advanced world knowledge, subject consistency, and production-ready specs — a major upgrade if you're running image gen pipelines at scale. <a href="https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/">Read more →</a></p>
+<p><strong>GLM-5 by Zhipu AI</strong> is trending hard on HuggingFace with 210K downloads in its first days. China's top lab delivers a strong new open-weight text generation contender — though given this week's distillation revelations, expect scrutiny on training data provenance. (1,713 likes | 210.2K downloads) <a href="https://huggingface.co/zai-org/GLM-5">Read more →</a></p>
+<p><strong>MiniMax-M2.5</strong> hits 354K downloads on HuggingFace — notable because MiniMax is one of the three labs Anthropic just accused of industrial-scale distillation attacks against Claude. The model's impressive early traction now comes with a significant asterisk. (1,096 likes | 354.3K downloads) <a href="https://huggingface.co/MiniMaxAI/MiniMax-M2.5">Read more →</a></p>
+<hr>
+<h2>🔬 RESEARCH</h2>
+<h3>Anthropic exposes industrial-scale distillation attacks.</h3>
+<p>24,000+ fraudulent accounts. 16M+ exchanges. Three labs — DeepSeek, Moonshot AI, and MiniMax — systematically extracting Claude's capabilities through coordinated API abuse. This is the first major public disclosure of model theft at this scale, and it raises uncomfortable questions about the provenance of several popular open-weight models. The implications for the open-source AI ecosystem are massive. (55,223 likes | 6,365 RTs) <a href="https://x.com/AnthropicAI/status/2025997928242811253">Read more →</a></p>
+<p><strong>AI-resistant technical evaluations</strong>: Anthropic Engineering shows that infrastructure configuration can swing agentic coding benchmark scores by several percentage points — sometimes more than the gap between top models on leaderboards. If you're choosing a model based on a 2% SWE-Bench difference, you might just be measuring server load. Run your own evals on your own infra. <a href="https://www.anthropic.com/engineering/AI-resistant-technical-evaluations">Read more →</a></p>
+<hr>
+<h2>💡 INSIGHT</h2>
+<p><strong>Anthropic and the Pentagon — it's complicated.</strong> Dario Amodei publicly responds to the Department of War labeling Anthropic a supply-chain risk, while OpenAI secures a classified network deployment deal with the same department. The diverging government relationships between the two leading labs is now a major strategic factor — if you're in enterprise AI procurement, the policy landscape matters as much as the benchmarks. (56,249 likes | 9,522 RTs) <a href="https://x.com/AnthropicAI/status/2027150818575528261">Read more →</a></p>
+<p><strong>OpenAI reaches classified deployment agreement with DoW.</strong> Sam Altman confirms models will run on classified networks. While Anthropic navigates scrutiny, OpenAI deepens its government foothold. Two very different bets on the same customer. (34,437 likes | 4,061 RTs) <a href="https://x.com/sama/status/2027578652477821175">Read more →</a></p>
+<p><strong>Anthropic acquires Vercept</strong> to advance Claude's computer use capabilities. The acqui-hire signals that GUI agents are becoming a core product focus, not just a research demo. Expect meaningful computer use improvements in upcoming releases. <a href="https://www.anthropic.com/news/acquires-vercept">Read more →</a></p>
+<p><strong>Karpathy: "Programming has fundamentally changed in the last 2 months."</strong> He argues coding agents basically didn't work before December and basically work now — models have significantly higher quality, long-term coherence, and tenacity. If you dismissed agents after a bad experience in 2025, it's time to re-evaluate. (36,984 likes | 4,737 RTs) <a href="https://x.com/karpathy/status/2026731645169185220">Read more →</a></p>
+<hr>
+<h2>🔧 TOOL</h2>
+<h3>Claude Code Security scans your codebase for vulnerabilities.</h3>
+<p>Claude Code now finds security issues that traditional SAST tools miss and suggests targeted patches for human review. This isn't generic linting — it's AI-powered vulnerability detection with context-aware fix suggestions. Limited research preview, request access now. (50,025 likes | 5,826 RTs) <a href="https://x.com/claudeai/status/2024907535145468326">Read more →</a></p>
+<p><strong>Claude Code Remote Control</strong>: Start a coding task in your terminal, walk away, and control the session from your phone or claude.ai. For long-running agentic tasks — multi-file refactors, test suites, deployments — this changes the workflow entirely. Try <code>/remote</code> in Claude Code. (44,223 likes | 4,660 RTs) <a href="https://x.com/claudeai/status/2026418433911603668">Read more →</a></p>
+<p><strong>Claude Code /simplify and /batch skills</strong>: <code>/simplify</code> automates shepherding PRs to production quality; <code>/batch</code> handles parallelizable code migrations. Two high-leverage workflow automations that save real time on daily coding tasks. (12,781 likes | 831 RTs) <a href="https://x.com/bcherny/status/2027534984534544489">Read more →</a></p>
+<p><strong>Perplexity pplx-embed-v1</strong> — Perplexity's first open embedding model at just 0.6B parameters. Lightweight enough to self-host, backed by search-focused training data. A compelling new option for RAG pipelines where you want quality embeddings without GPU-heavy infrastructure. (125 likes | 14.5K downloads) <a href="https://huggingface.co/perplexity-ai/pplx-embed-v1-0.6b">Read more →</a></p>
+<hr>
+<h2>📝 TECHNIQUE</h2>
+<p><strong>CLIs are the native interface for AI agents.</strong> Karpathy points out that command-line tools are "legacy" tech that agents can interact with perfectly via terminal toolkits. Combine GitHub CLI + Polymarket CLI + an agent and get arbitrary dashboards built on demand. The takeaway: if you're building tools, expose them as CLIs first — agents will thank you. (11,698 likes | 1,106 RTs) <a href="https://x.com/karpathy/status/2026360908398862478">Read more →</a></p>
+<p><strong>Define acceptance criteria before prompting.</strong> High-engagement HN post argues that LLM code quality jumps dramatically when you specify tests and acceptance criteria upfront — essentially TDD for prompting. Simple framework, immediate results. (393 likes | 278 RTs) <a href="https://blog.katanaquant.com/p/your-llm-doesnt-write-correct-code">Read more →</a></p>
+<hr>
+<h2>🏗️ BUILD</h2>
+<p><strong>Karpathy's 243-line GPT</strong>: The full algorithmic content of GPT training and inference in pure, dependency-free Python. No PyTorch, no NumPy — just raw math. Perfect for understanding what's essential vs. what's optimization in transformer architectures. Read it, run it, learn something. (25,229 likes | 3,179 RTs) <a href="https://x.com/karpathy/status/2021694437152157847">Read more →</a></p>
+<p><strong>LocoOperator-4B</strong>: A 4B-parameter open model purpose-built for GUI agent operation. Small enough to run locally on consumer hardware, designed specifically for computer use tasks. An interesting open alternative to large proprietary GUI agents — especially relevant given Anthropic's Vercept acquisition. (268 likes | 3.7K downloads) <a href="https://huggingface.co/LocoreMind/LocoOperator-4B">Read more →</a></p>
+<hr>
+<h2>🎓 MODEL LITERACY</h2>
+<p><strong>Model Distillation (and Why It's Controversial)</strong>: Distillation is a technique where a smaller "student" model learns to mimic a larger "teacher" model by training on the teacher's outputs rather than raw data. The student doesn't need to rediscover patterns from scratch — it learns the teacher's refined knowledge directly. This makes distillation incredibly efficient for creating compact, fast models. But here's the catch: if the teacher model is proprietary and you're harvesting its outputs without permission — as Anthropic alleges DeepSeek, Moonshot, and MiniMax did with 16M+ exchanges — distillation becomes model theft. The technique itself is neutral; the data source makes it legal or illegal.</p>
+<hr>
+<h2>⚡ QUICK LINKS</h2>
+<ul>
+<li><strong>Nano Banana 2</strong>: Google's Pro-quality image gen at Flash speed. <a href="https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/">Link</a></li>
+<li><strong>pplx-embed-v1</strong>: Perplexity's 0.6B open embedding model for RAG. <a href="https://huggingface.co/perplexity-ai/pplx-embed-v1-0.6b">Link</a></li>
+<li><strong>LocoOperator-4B</strong>: Open 4B GUI agent model, runs locally. <a href="https://huggingface.co/LocoreMind/LocoOperator-4B">Link</a></li>
+</ul>
+<hr>
+<h2>🎯 PICK OF THE DAY</h2>
+<p><strong>Anthropic's distillation exposé is the most consequential AI story of the year so far.</strong> Forget the model drops — 24,000 fake accounts and 16 million exchanges represent a systematic, industrial-scale operation to steal Claude's capabilities. The timing is surgical: Anthropic publishes this while MiniMax-M2.5 is trending on HuggingFace and GLM-5 is racking up downloads. It forces a question the open-source community has been dodging: how many popular open-weight models are laundering proprietary capabilities? This doesn't just affect Anthropic — it threatens the legitimacy of the entire open-weight ecosystem. Every lab that trains on synthetic data will now face provenance questions. And for developers choosing models, "open-weight" no longer automatically means "clean." The real test is what happens next: legal action, technical countermeasures, or industry norms. Probably all three. (55,223 likes | 6,365 RTs) <a href="https://x.com/AnthropicAI/status/2025997928242811253">Read more →</a></p>
+<hr>
+<p>Until next time ✌️</p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><div class="md-content"><hr>
+<h2>title: "AI News 2026-03-08"
+date: 2026-03-08
+type: newsletter
+lang: zh
+description: "Anthropic 快模型线的新旗舰 — 在编码、Agent 和专业任务上全面对标 GPT-5.4，定位就是"又快又不蠢"。对于跑 Agent 工作流、需要低延迟高吞吐的场景，Sonnet 4.6 是目前性价比最高的选择之一。API 已可用，现在就去换上试试。 [详情 →](https://www.anthropic."
+items_count: 20
+categories: [LAUNCH, RESEARCH, INSIGHT, TOOL, TECHNIQUE, BUILD]
+top_story: "Introducing Claude Sonnet 4.6"</h2>
+<hr>
+<h2>🧠 发布动态</h2>
+<h3>Claude Sonnet 4.6 来了。</h3>
+<p>Anthropic 快模型线的新旗舰 — 在编码、Agent 和专业任务上全面对标 GPT-5.4，定位就是"又快又不蠢"。对于跑 Agent 工作流、需要低延迟高吞吐的场景，Sonnet 4.6 是目前性价比最高的选择之一。API 已可用，现在就去换上试试。 <a href="https://www.anthropic.com/news/claude-sonnet-4-6">详情 →</a></p>
+<h3>GPT-5.4 Thinking 全面上线。</h3>
+<p>OpenAI 把推理、编码、Agent 能力统一到一个模型里 — GPT-5.4 同时登陆 ChatGPT 和 API。不再需要在"思考模型"和"快模型"之间切换，一个模型全搞定。开发者最关心的：API 和 Codex 即刻可用。(12,056 likes | 1,425 RTs) <a href="https://x.com/OpenAI/status/2029620619743219811">详情 →</a></p>
+<h3>Gemini 3.1 Flash-Lite：Google 的性价比杀手。</h3>
+<p>Google 最便宜的 Gemini 3 系列模型。快模型赛道现在是三国杀：Flash-Lite vs Sonnet 4.6 vs GPT-5.3 Instant，拼的不是谁最聪明，而是每百万 token 谁更划算。跑批量任务的，该重新算一笔账了。(8,794 likes | 864 RTs) <a href="https://deepmind.google/blog/gemini-3-1-flash-lite-built-for-intelligence-at-scale/">详情 →</a></p>
+<p><strong>GLM-5 开源登场。</strong> 智谱 AI 的 <strong>GLM-5</strong> 在 HuggingFace 上火了 — 1.7K likes、21 万次下载。国产开源大模型又多了一个强力选手，值得跑个 benchmark 对比你现在用的模型。(1,713 likes | 210.2K downloads) <a href="https://huggingface.co/zai-org/GLM-5">详情 →</a></p>
+<p><strong>MiniMax-M2.5 下载量炸了，但来源存疑。</strong> 354K 下载、1.1K likes — 数据很好看。但 MiniMax 刚被 Anthropic 点名参与大规模蒸馏攻击（见下文），这个模型的训练数据来源现在打了个大问号。用之前，想清楚风险。(1,096 likes | 354.3K downloads) <a href="https://huggingface.co/MiniMaxAI/MiniMax-M2.5">详情 →</a></p>
+<p><strong>Nano Banana 2：Flash 速度的图像生成。</strong> Google 最新图像生成模型，主打世界知识、主体一致性和生产级规格，速度拉到 Flash 级别。做图像生成 pipeline 的可以关注。 <a href="https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/">详情 →</a></p>
+<hr>
+<h2>🔧 开发者工具</h2>
+<p><strong>Claude Code Security 上线</strong>：扫描代码库漏洞，AI 生成修复补丁供人审核。能发现传统 SAST 工具漏掉的问题。目前是研究预览阶段，感兴趣的赶紧申请。(50,025 likes | 5,826 RTs) <a href="https://x.com/claudeai/status/2024907535145468326">详情 →</a></p>
+<p><strong>Claude Code Remote Control</strong>：终端里启动任务，然后掏出手机或打开 claude.ai 远程控制。跑长任务再也不用盯着屏幕了 — 输入 <code>/remote</code> 即可体验。(44,223 likes | 4,660 RTs) <a href="https://x.com/claudeai/status/2026418433911603668">详情 →</a></p>
+<p><strong>Claude Code 新技能：/simplify 和 /batch</strong>：<code>/simplify</code> 自动把 PR 打磨到生产质量，<code>/batch</code> 并行处理代码迁移任务。两个高杠杆的工作流自动化，日常写代码直接用起来。(12,781 likes | 831 RTs) <a href="https://x.com/bcherny/status/2027534984534544489">详情 →</a></p>
+<p><strong>Perplexity pplx-embed-v1</strong>：Perplexity 首个开源 Embedding 模型，仅 0.6B 参数。轻到可以自托管，搜索导向的训练数据让它在 RAG 场景下值得一试。(125 likes | 14.5K downloads) <a href="https://huggingface.co/perplexity-ai/pplx-embed-v1-0.6b">详情 →</a></p>
+<hr>
+<h2>📝 技术实战</h2>
+<p><strong>Karpathy：CLI 是 Agent 的天然接口。</strong> 终端命令行是"遗产"技术，但恰好是 AI Agent 最容易交互的界面。GitHub CLI + Polymarket CLI + Agent = 任意仪表盘自动生成。启示：把你的工具暴露为 CLI，Agent 就能直接用。(11,698 likes | 1,106 RTs) <a href="https://x.com/karpathy/status/2026360908398862478">详情 →</a></p>
+<p><strong>先写验收标准，再让 LLM 写代码。</strong> HN 高赞文章指出，LLM 代码质量在你预先定义测试用例时会大幅提升 — 本质上就是"TDD for Prompting"。简单、实用、今天就能用。(393 likes | 278 RTs) <a href="https://blog.katanaquant.com/p/your-llm-doesnt-write-correct-code">详情 →</a></p>
+<hr>
+<h2>🔬 研究前沿</h2>
+<p><strong>Anthropic 揭露工业级模型蒸馏攻击。</strong> 24,000+ 欺诈账号、1600 万+ 次对话，被用来系统性地蒸馏 Claude。涉事方包括 <strong>DeepSeek</strong>、<strong>Moonshot AI</strong> 和 <strong>MiniMax</strong>。这是首次有公司公开披露如此大规模的模型盗窃行为 — 对开源模型的"训练数据从哪来"这个问题，行业需要认真面对了。(55,223 likes | 6,365 RTs) <a href="https://x.com/AnthropicAI/status/2025997928242811253">详情 →</a></p>
+<p><strong>AI 防作弊面试设计指南。</strong> 当 Claude 能轻松通过你的 take-home exam，怎么办？Anthropic 分享了三轮迭代经验 — 核心洞察：测模糊场景下的判断力，不要只测技术正确性。2026 年还在招工程师的都该看看。 <a href="https://www.anthropic.com/engineering/AI-resistant-technical-evaluations">详情 →</a></p>
+<hr>
+<h2>💡 行业洞察</h2>
+<p><strong>Anthropic CEO 回应美国国防部"供应链风险"标签。</strong> Dario Amodei 公开声明，回应被标记一事。AI 公司和政府的关系正在定义竞争格局，这是一个关键时刻。(56,249 likes | 9,522 RTs) <a href="https://x.com/AnthropicAI/status/2027150818575528261">详情 →</a></p>
+<p><strong>OpenAI 拿下国防部机密网络部署协议。</strong> 一边 Anthropic 面临审查，一边 OpenAI 签下机密网络部署合同。两家头部实验室与政府的关系正在急剧分化 — 这对企业 AI 采购决策有直接影响。(34,437 likes | 4,061 RTs) <a href="https://x.com/sama/status/2027578652477821175">详情 →</a></p>
+<p><strong>Anthropic 收购 Vercept，加码 Computer Use。</strong> 这不只是一次收购，而是一个信号：GUI Agent 正在从研究 demo 变成核心产品方向。(Anthropic 在 Computer Use 上的投入越来越认真了。) <a href="https://www.anthropic.com/news/acquires-vercept">详情 →</a></p>
+<p><strong>Karpathy：编程在过去两个月里根本性地变了。</strong> "12 月之前 coding agent 基本不能用，现在基本能用了。" 模型质量、长程连贯性、韧性都有质的飞跃。如果你 12 月之后还没重新评估 Agent 工作流，现在该动了。(36,984 likes | 4,737 RTs) <a href="https://x.com/karpathy/status/2026731645169185220">详情 →</a></p>
+<hr>
+<h2>🏗️ 值得一试</h2>
+<p><strong>Karpathy：243 行纯 Python 实现 GPT 训练和推理。</strong> 零依赖，把 GPT 的全部算法本质浓缩到 243 行代码里。想真正理解 LLM 底层在做什么，这是目前最好的入门材料。(25,229 likes | 3,179 RTs) <a href="https://x.com/karpathy/status/2021694437152157847">详情 →</a></p>
+<p><strong>LocoOperator-4B：开源 GUI Agent 模型。</strong> 4B 参数，专为 GUI 操作设计，小到可以本地跑。对于不想依赖大模型 API 做 Computer Use 的开发者，这是一个有趣的替代方案。(268 likes | 3.7K downloads) <a href="https://huggingface.co/LocoreMind/LocoOperator-4B">详情 →</a></p>
+<hr>
+<h2>🎓 模型小课堂</h2>
+<p><strong>模型蒸馏（Model Distillation）</strong>：简单说就是"让小模型模仿大模型"。你拿一个强大的大模型（老师），让它处理大量问题并输出答案，然后用这些输入-输出对去训练一个更小的模型（学生）。学生模型学到了老师的"思维方式"，但参数量小得多、跑起来便宜得多。合法的蒸馏是用自己的模型做老师；Anthropic 这次揭露的问题是，有人用 24,000 个假账号大规模地拿 Claude 当免费老师 — 这就是偷了。</p>
+<hr>
+<h2>⚡ 快讯</h2>
+<ul>
+<li><strong>Nano Banana 2</strong>：Google 新图像生成模型，Pro 能力 + Flash 速度。 <a href="https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/">链接</a></li>
+</ul>
+<hr>
+<h2>🎯 今日精选</h2>
+<p><strong>快模型三国杀：为什么这周比任何单个发布都重要</strong>：Sonnet 4.6、GPT-5.4、Flash-Lite 同周亮相，标志着 AI 竞争的焦点正式从"谁最聪明"转向"谁又快又便宜又够聪明"。这背后的逻辑很清楚 — Agent 工作流需要模型被调用成百上千次，延迟和成本比峰值智力更重要。三家同时押注这个赛道，意味着"够用的智能 + 极致的性价比"将成为 2026 年的主旋律。对开发者来说，现在是重新评估你的模型选择的最佳时机 — 不是选最强的，而是选在你的场景下 ROI 最高的。 <a href="https://www.anthropic.com/news/claude-sonnet-4-6">详情 →</a></p>
+<hr>
+<p>下期见 ✌️</p>
+</div></div>
+    </div>
+    </section>
+
+    <section id="benchmark">
+      <h2>Benchmark Comparison</h2>
+      
+    <div style="overflow-x:auto;margin-bottom:16px">
+      <table>
+        <thead>
+          <tr>
+            <th>Lang</th>
+            <th>Pipeline Words</th>
+            <th>Live Words</th>
+            <th>Pipeline Links</th>
+            <th>Live Stories</th>
+            <th>Live Sections</th>
+          </tr>
+        </thead>
+        <tbody>
+      <tr>
+        <td style="font-weight:600">EN</td>
+        <td>1284</td>
+        <td>1376</td>
+        <td>20</td>
+        <td>20</td>
+        <td>15</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600">ZH</td>
+        <td>1846</td>
+        <td>449</td>
+        <td>21</td>
+        <td>24</td>
+        <td>13</td>
+      </tr></tbody>
+      </table>
+    </div>
+      <details>
+        <summary style="cursor:pointer;padding:8px;background:#fafafa;border-radius:4px">
+          <strong>Side-by-side preview</strong>
+        </summary>
+        <div style="padding:12px">
+          
+      <h3>EN: Pipeline vs Live</h3>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <div style="flex:1;min-width:0">
+          <h4 style="margin:0 0 8px;color:#737373">Pipeline Output</h4>
+          <div class="md-content"><hr>
+<h2>title: "AI News 2026-03-08"
+date: 2026-03-08
+type: newsletter
+lang: en
+description: ". <a href="https://www.anthropic.com/news/claude-sonnet-4-6">Read more →</a>"
+items_count: 20
+categories: [LAUNCH, RESEARCH, INSIGHT, TOOL, TECHNIQUE, BUILD]
+top_story: "Introducing Claude Sonnet 4.6"</h2>
+<hr>
+<h2>🧠 LAUNCH</h2>
+<h3>Claude Sonnet 4.6 is here.</h3>
+<p>Anthropic's new fast-tier model delivers frontier performance across coding, agents, and professional workloads at scale. It slots in as a direct competitor to GPT-5.4 in the speed-optimized tier — and if it follows the Sonnet 3.5 playbook, it'll become the default workhorse model for most developers within weeks. Try it in the API today. <a href="https://www.anthropic.com/news/claude-sonnet-4-6">Read more →</a></p>
+<h3>GPT-5.4 Thinking and GPT-5.4 Pro roll out.</h3>
+<p>OpenAI unifies reasoning, coding, and agentic workflows into a single model available in both ChatGPT and the API. The "Thinking" variant brings chain-of-thought to the 5.4 architecture, while Pro targets enterprise deployments. Now available in Codex, making it immediately usable for coding agents. (12,056 likes | 1,425 RTs) <a href="https://x.com/OpenAI/status/2029620619743219811">Read more →</a></p>
+<h3>Gemini 3.1 Flash-Lite lands.</h3>
+<p>Google's most cost-efficient Gemini 3 model yet makes the fast-cheap tier a genuine three-way race between Flash-Lite, Sonnet 4.6, and GPT-5.3 Instant. If you're optimizing for cost-per-token on high-volume workloads, benchmark all three — the price-performance gaps are narrowing fast. (8,794 likes | 864 RTs) <a href="https://deepmind.google/blog/gemini-3-1-flash-lite-built-for-intelligence-at-scale/">Read more →</a></p>
+<p><strong>Nano Banana 2</strong> combines Pro-level image generation with Flash speed. Google's latest image model brings advanced world knowledge, subject consistency, and production-ready specs — a major upgrade if you're running image gen pipelines at scale. <a href="https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/">Read more →</a></p>
+<p><strong>GLM-5 by Zhipu AI</strong> is trending hard on HuggingFace with 210K downloads in its first days. China's top lab delivers a strong new open-weight text generation contender — though given this week's distillation revelations, expect scrutiny on training data provenance. (1,713 likes | 210.2K downloads) <a href="https://huggingface.co/zai-org/GLM-5">Read more →</a></p>
+<p><strong>MiniMax-M2.5</strong> hits 354K downloads on HuggingFace — notable because MiniMax is one of the three labs Anthropic just accused of industrial-scale distillation attacks against Claude. The model's impressive early traction now comes with a significant asterisk. (1,096 likes | 354.3K downloads) <a href="https://huggingface.co/MiniMaxAI/MiniMax-M2.5">Read more →</a></p>
+<hr>
+<h2>🔬 RESEARCH</h2>
+<h3>Anthropic exposes industrial-scale distillation attacks.</h3>
+<p>24,000+ fraudulent accounts. 16M+ exchanges. Three labs — DeepSeek, Moonshot AI, and MiniMax — systematically extracting Claude's capabilities through coordinated API abuse. This is the first major public disclosure of model theft at this scale, and it raises uncomfortable questions about the provenance of several popular open-weight models. The implications for the open-source AI ecosystem are massive. (55,223 likes | 6,365 RTs) <a href="https://x.com/AnthropicAI/status/2025997928242811253">Read more →</a></p>
+<p><strong>AI-resistant technical evaluations</strong>: Anthropic Engineering shows that infrastructure configuration can swing agentic coding benchmark scores by several percentage points — sometimes more than the gap between top models on leaderboards. If you're choosing a model based on a 2% SWE-Bench difference, you might just be measuring server load. Run your own evals on your own infra. <a href="https://www.anthropic.com/engineering/AI-resistant-technical-evaluations">Read more →</a></p>
+<hr>
+<h2>💡 INSIGHT</h2>
+<p><strong>Anthropic and the Pentagon — it's complicated.</strong> Dario Amodei publicly responds to the Department of War labeling Anthropic a supply-chain risk, while OpenAI secures a classified network deployment deal with the same department. The diverging government relationships between the two leading labs is now a major strategic factor — if you're in enterprise AI procurement, the policy landscape matters as much as the benchmarks. (56,249 likes | 9,522 RTs) <a href="https://x.com/AnthropicAI/status/2027150818575528261">Read more →</a></p>
+<p><strong>OpenAI reaches classified deployment agreement with DoW.</strong> Sam Altman confirms models will run on classified networks. While Anthropic navigates scrutiny, OpenAI deepens its government foothold. Two very different bets on the same customer. (34,437 likes | 4,061 RTs) <a href="https://x.com/sama/status/2027578652477821175">Read more →</a></p>
+<p><strong>Anthropic acquires Vercept</strong> to advance Claude's computer use capabilities. The acqui-hire signals that GUI agents are becoming a core product focus, not just a research demo. Expect meaningful computer use improvements in upcoming releases. <a href="https://www.anthropic.com/news/acquires-vercept">Read more →</a></p>
+<p><strong>Karpathy: "Programming has fundamentally changed in the last 2 months."</strong> He argues coding agents basically didn't work before December and basically work now — models have significantly higher quality, long-term coherence, and tenacity. If you dismissed agents after a bad experience in 2025, it's time to re-evaluate. (36,984 likes | 4,737 RTs) <a href="https://x.com/karpathy/status/2026731645169185220">Read more →</a></p>
+<hr>
+<h2>🔧 TOOL</h2>
+<h3>Claude Code Security scans your codebase for vulnerabilities.</h3>
+<p>Claude Code now finds security issues that traditional SAST tools miss and suggests targeted patches for human review. This isn't generic linting — it's AI-powered vulnerability detection with context-aware fix suggestions. Limited research preview, request access now. (50,025 likes | 5,826 RTs) <a href="https://x.com/claudeai/status/2024907535145468326">Read more →</a></p>
+<p><strong>Claude Code Remote Control</strong>: Start a coding task in your terminal, walk away, and control the session from your phone or claude.ai. For long-running agentic tasks — multi-file refactors, test suites, deployments — this changes the workflow entirely. Try <code>/remote</code> in Claude Code. (44,223 likes | 4,660 RTs) <a href="https://x.com/claudeai/status/2026418433911603668">Read more →</a></p>
+<p><strong>Claude Code /simplify and /batch skills</strong>: <code>/simplify</code> automates shepherding PRs to production quality; <code>/batch</code> handles parallelizable code migrations. Two high-leverage workflow automations that save real time on daily coding tasks. (12,781 likes | 831 RTs) <a href="https://x.com/bcherny/status/2027534984534544489">Read more →</a></p>
+<p><strong>Perplexity pplx-embed-v1</strong> — Perplexity's first open embedding model at just 0.6B parameters. Lightweight enough to self-host, backed by search-focused training data. A compelling new option for RAG pipelines where you want quality embeddings without GPU-heavy infrastructure. (125 likes | 14.5K downloads) <a href="https://huggingface.co/perplexity-ai/pplx-embed-v1-0.6b">Read more →</a></p>
+<hr>
+<h2>📝 TECHNIQUE</h2>
+<p><strong>CLIs are the native interface for AI agents.</strong> Karpathy points out that command-line tools are "legacy" tech that agents can interact with perfectly via terminal toolkits. Combine GitHub CLI + Polymarket CLI + an agent and get arbitrary dashboards built on demand. The takeaway: if you're building tools, expose them as CLIs first — agents will thank you. (11,698 likes | 1,106 RTs) <a href="https://x.com/karpathy/status/2026360908398862478">Read more →</a></p>
+<p><strong>Define acceptance criteria before prompting.</strong> High-engagement HN post argues that LLM code quality jumps dramatically when you specify tests and acceptance criteria upfront — essentially TDD for prompting. Simple framework, immediate results. (393 likes | 278 RTs) <a href="https://blog.katanaquant.com/p/your-llm-doesnt-write-correct-code">Read more →</a></p>
+<hr>
+<h2>🏗️ BUILD</h2>
+<p><strong>Karpathy's 243-line GPT</strong>: The full algorithmic content of GPT training and inference in pure, dependency-free Python. No PyTorch, no NumPy — just raw math. Perfect for understanding what's essential vs. what's optimization in transformer architectures. Read it, run it, learn something. (25,229 likes | 3,179 RTs) <a href="https://x.com/karpathy/status/2021694437152157847">Read more →</a></p>
+<p><strong>LocoOperator-4B</strong>: A 4B-parameter open model purpose-built for GUI agent operation. Small enough to run locally on consumer hardware, designed specifically for computer use tasks. An interesting open alternative to large proprietary GUI agents — especially relevant given Anthropic's Vercept acquisition. (268 likes | 3.7K downloads) <a href="https://huggingface.co/LocoreMind/LocoOperator-4B">Read more →</a></p>
+<hr>
+<h2>🎓 MODEL LITERACY</h2>
+<p><strong>Model Distillation (and Why It's Controversial)</strong>: Distillation is a technique where a smaller "student" model learns to mimic a larger "teacher" model by training on the teacher's outputs rather than raw data. The student doesn't need to rediscover patterns from scratch — it learns the teacher's refined knowledge directly. This makes distillation incredibly efficient for creating compact, fast models. But here's the catch: if the teacher model is proprietary and you're harvesting its outputs without permission — as Anthropic alleges DeepSeek, Moonshot, and MiniMax did with 16M+ exchanges — distillation becomes model theft. The technique itself is neutral; the data source makes it legal or illegal.</p>
+<hr>
+<h2>⚡ QUICK LINKS</h2>
+<ul>
+<li><strong>Nano Banana 2</strong>: Google's Pro-quality image gen at Flash speed. <a href="https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/">Link</a></li>
+<li><strong>pplx-embed-v1</strong>: Perplexity's 0.6B open embedding model for RAG. <a href="https://huggingface.co/perplexity-ai/pplx-embed-v1-0.6b">Link</a></li>
+<li><strong>LocoOperator-4B</strong>: Open 4B GUI agent model, runs locally. <a href="https://huggingface.co/LocoreMind/LocoOperator-4B">Link</a></li>
+</ul>
+<hr>
+<h2>🎯 PICK OF THE DAY</h2>
+<p><strong>Anthropic's distillation exposé is the most consequential AI story of the year so far.</strong> Forget the model drops — 24,000 fake accounts and 16 million exchanges represent a systematic, industrial-scale operation to steal Claude's capabilities. The timing is surgical: Anthropic publishes this while MiniMax-M2.5 is trending on HuggingFace and GLM-5 is racking up downloads. It forces a question the open-source community has been dodging: how many popular open-weight models are laundering proprietary capabilities? This doesn't just affect Anthropic — it threatens the legitimacy of the entire open-weight ecosystem. Every lab that trains on synthetic data will now face provenance questions. And for developers choosing models, "open-weight" no longer automatically means "clean." The real test is what happens next: legal action, technical countermeasures, or industry norms. Probably all three. (55,223 likes | 6,365 RTs) <a href="https://x.com/AnthropicAI/status/2025997928242811253">Read more →</a></p>
+<hr>
+<p>Until next time ✌️</p>
+</div>
+        </div>
+        <div style="flex:1;min-width:0">
+          <h4 style="margin:0 0 8px;color:#737373">Live Site</h4>
+          <div class="md-content"><main class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8"><nav class="mb-8"><a class="inline-flex items-center gap-1 text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100" href="/newsletter"><span aria-hidden="true">←</span> All newsletters</a></nav><header class="mb-8"><time dateTime="2026-03-08" class="text-sm font-medium text-zinc-500 dark:text-zinc-400">Sunday, March 8, 2026</time><div class="mt-3 flex flex-wrap gap-1.5"><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">LAUNCH</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">RESEARCH</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">INSIGHT</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">TOOL</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">TECHNIQUE</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">BUILD</span></div><p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400">20<!-- --> items covered</p></header><article class="prose prose-zinc max-w-none dark:prose-invert prose-headings:font-semibold prose-h1:text-2xl prose-h1:sm:text-3xl prose-h2:text-xl prose-a:text-zinc-900 prose-a:underline-offset-2 hover:prose-a:text-zinc-600 dark:prose-a:text-zinc-200 dark:hover:prose-a:text-zinc-400 prose-hr:border-zinc-200 dark:prose-hr:border-zinc-800 prose-strong:text-zinc-900 dark:prose-strong:text-zinc-100"><hr>
+<h2>🧠 LAUNCH</h2>
+<h3>Claude Sonnet 4.6 is here.</h3>
+<p>Anthropic's new fast-tier model delivers frontier performance across coding, agents, and professional workloads at scale. It slots in as a direct competitor to GPT-5.4 in the speed-optimized tier — and if it follows the Sonnet 3.5 playbook, it'll become the default workhorse model for most developers within weeks. Try it in the API today. <a href="https://www.anthropic.com/news/claude-sonnet-4-6">Read more →</a></p>
+<h3>GPT-5.4 Thinking and GPT-5.4 Pro roll out.</h3>
+<p>OpenAI unifies reasoning, coding, and agentic workflows into a single model available in both ChatGPT and the API. The "Thinking" variant brings chain-of-thought to the 5.4 architecture, while Pro targets enterprise deployments. Now available in Codex, making it immediately usable for coding agents. (12,056 likes | 1,425 RTs) <a href="https://x.com/OpenAI/status/2029620619743219811">Read more →</a></p>
+<h3>Gemini 3.1 Flash-Lite lands.</h3>
+<p>Google's most cost-efficient Gemini 3 model yet makes the fast-cheap tier a genuine three-way race between Flash-Lite, Sonnet 4.6, and GPT-5.3 Instant. If you're optimizing for cost-per-token on high-volume workloads, benchmark all three — the price-performance gaps are narrowing fast. (8,794 likes | 864 RTs) <a href="https://deepmind.google/blog/gemini-3-1-flash-lite-built-for-intelligence-at-scale/">Read more →</a></p>
+<p><strong>Nano Banana 2</strong> combines Pro-level image generation with Flash speed. Google's latest image model brings advanced world knowledge, subject consistency, and production-ready specs — a major upgrade if you're running image gen pipelines at scale. <a href="https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/">Read more →</a></p>
+<p><strong>GLM-5 by Zhipu AI</strong> is trending hard on HuggingFace with 210K downloads in its first days. China's top lab delivers a strong new open-weight text generation contender — though given this week's distillation revelations, expect scrutiny on training data provenance. (1,713 likes | 210.2K downloads) <a href="https://huggingface.co/zai-org/GLM-5">Read more →</a></p>
+<p><strong>MiniMax-M2.5</strong> hits 354K downloads on HuggingFace — notable because MiniMax is one of the three labs Anthropic just accused of industrial-scale distillation attacks against Claude. The model's impressive early traction now comes with a significant asterisk. (1,096 likes | 354.3K downloads) <a href="https://huggingface.co/MiniMaxAI/MiniMax-M2.5">Read more →</a></p>
+<hr>
+<h2>🔬 RESEARCH</h2>
+<h3>Anthropic exposes industrial-scale distillation attacks.</h3>
+<p>24,000+ fraudulent accounts. 16M+ exchanges. Three labs — DeepSeek, Moonshot AI, and MiniMax — systematically extracting Claude's capabilities through coordinated API abuse. This is the first major public disclosure of model theft at this scale, and it raises uncomfortable questions about the provenance of several popular open-weight models. The implications for the open-source AI ecosystem are massive. (55,223 likes | 6,365 RTs) <a href="https://x.com/AnthropicAI/status/2025997928242811253">Read more →</a></p>
+<p><strong>AI-resistant technical evaluations</strong>: Anthropic Engineering shows that infrastructure configuration can swing agentic coding benchmark scores by several percentage points — sometimes more than the gap between top models on leaderboards. If you're choosing a model based on a 2% SWE-Bench difference, you might just be measuring server load. Run your own evals on your own infra. <a href="https://www.anthropic.com/engineering/AI-resistant-technical-evaluations">Read more →</a></p>
+<hr>
+<h2>💡 INSIGHT</h2>
+<p><strong>Anthropic and the Pentagon — it's complicated.</strong> Dario Amodei publicly responds to the Department of War labeling Anthropic a supply-chain risk, while OpenAI secures a classified network deployment deal with the same department. The diverging government relationships between the two leading labs is now a major strategic factor — if you're in enterprise AI procurement, the policy landscape matters as much as the benchmarks. (56,249 likes | 9,522 RTs) <a href="https://x.com/AnthropicAI/status/2027150818575528261">Read more →</a></p>
+<p><strong>OpenAI reaches classified deployment agreement with DoW.</strong> Sam Altman confirms models will run on classified networks. While Anthropic navigates scrutiny, OpenAI deepens its government foothold. Two very different bets on the same customer. (34,437 likes | 4,061 RTs) <a href="https://x.com/sama/status/2027578652477821175">Read more →</a></p>
+<p><strong>Anthropic acquires Vercept</strong> to advance Claude's computer use capabilities. The acqui-hire signals that GUI agents are becoming a core product focus, not just a research demo. Expect meaningful computer use improvements in upcoming releases. <a href="https://www.anthropic.com/news/acquires-vercept">Read more →</a></p>
+<p><strong>Karpathy: "Programming has fundamentally changed in the last 2 months."</strong> He argues coding agents basically didn't work before December and basically work now — models have significantly higher quality, long-term coherence, and tenacity. If you dismissed agents after a bad experience in 2025, it's time to re-evaluate. (36,984 likes | 4,737 RTs) <a href="https://x.com/karpathy/status/2026731645169185220">Read more →</a></p>
+<hr>
+<h2>🔧 TOOL</h2>
+<h3>Claude Code Security scans your codebase for vulnerabilities.</h3>
+<p>Claude Code now finds security issues that traditional SAST tools miss and suggests targeted patches for human review. This isn't generic linting — it's AI-powered vulnerability detection with context-aware fix suggestions. Limited research preview, request access now. (50,025 likes | 5,826 RTs) <a href="https://x.com/claudeai/status/2024907535145468326">Read more →</a></p>
+<p><strong>Claude Code Remote Control</strong>: Start a coding task in your terminal, walk away, and control the session from your phone or claude.ai. For long-running agentic tasks — multi-file refactors, test suites, deployments — this changes the workflow entirely. Try <code>/remote</code> in Claude Code. (44,223 likes | 4,660 RTs) <a href="https://x.com/claudeai/status/2026418433911603668">Read more →</a></p>
+<p><strong>Claude Code /simplify and /batch skills</strong>: <code>/simplify</code> automates shepherding PRs to production quality; <code>/batch</code> handles parallelizable code migrations. Two high-leverage workflow automations that save real time on daily coding tasks. (12,781 likes | 831 RTs) <a href="https://x.com/bcherny/status/2027534984534544489">Read more →</a></p>
+<p><strong>Perplexity pplx-embed-v1</strong> — Perplexity's first open embedding model at just 0.6B parameters. Lightweight enough to self-host, backed by search-focused training data. A compelling new option for RAG pipelines where you want quality embeddings without GPU-heavy infrastructure. (125 likes | 14.5K downloads) <a href="https://huggingface.co/perplexity-ai/pplx-embed-v1-0.6b">Read more →</a></p>
+<hr>
+<h2>📝 TECHNIQUE</h2>
+<p><strong>CLIs are the native interface for AI agents.</strong> Karpathy points out that command-line tools are "legacy" tech that agents can interact with perfectly via terminal toolkits. Combine GitHub CLI + Polymarket CLI + an agent and get arbitrary dashboards built on demand. The takeaway: if you're building tools, expose them as CLIs first — agents will thank you. (11,698 likes | 1,106 RTs) <a href="https://x.com/karpathy/status/2026360908398862478">Read more →</a></p>
+<p><strong>Define acceptance criteria before prompting.</strong> High-engagement HN post argues that LLM code quality jumps dramatically when you specify tests and acceptance criteria upfront — essentially TDD for prompting. Simple framework, immediate results. (393 likes | 278 RTs) <a href="https://blog.katanaquant.com/p/your-llm-doesnt-write-correct-code">Read more →</a></p>
+<hr>
+<h2>🏗️ BUILD</h2>
+<p><strong>Karpathy's 243-line GPT</strong>: The full algorithmic content of GPT training and inference in pure, dependency-free Python. No PyTorch, no NumPy — just raw math. Perfect for understanding what's essential vs. what's optimization in transformer architectures. Read it, run it, learn something. (25,229 likes | 3,179 RTs) <a href="https://x.com/karpathy/status/2021694437152157847">Read more →</a></p>
+<p><strong>LocoOperator-4B</strong>: A 4B-parameter open model purpose-built for GUI agent operation. Small enough to run locally on consumer hardware, designed specifically for computer use tasks. An interesting open alternative to large proprietary GUI agents — especially relevant given Anthropic's Vercept acquisition. (268 likes | 3.7K downloads) <a href="https://huggingface.co/LocoreMind/LocoOperator-4B">Read more →</a></p>
+<hr>
+<h2>🎓 MODEL LITERACY</h2>
+<p><strong>Model Distillation (and Why It's Controversial)</strong>: Distillation is a technique where a smaller "student" model learns to mimic a larger "teacher" model by training on the teacher's outputs rather than raw data. The student doesn't need to rediscover patterns from scratch — it learns the teacher's refined knowledge directly. This makes distillation incredibly efficient for creating compact, fast models. But here's the catch: if the teacher model is proprietary and you're harvesting its outputs without permission — as Anthropic alleges DeepSeek, Moonshot, and MiniMax did with 16M+ exchanges — distillation becomes model theft. The technique itself is neutral; the data source makes it legal or illegal.</p>
+<hr>
+<h2>⚡ QUICK LINKS</h2>
+<ul>
+<li><strong>Nano Banana 2</strong>: Google's Pro-quality image gen at Flash speed. <a href="https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/">Link</a></li>
+<li><strong>pplx-embed-v1</strong>: Perplexity's 0.6B open embedding model for RAG. <a href="https://huggingface.co/perplexity-ai/pplx-embed-v1-0.6b">Link</a></li>
+<li><strong>LocoOperator-4B</strong>: Open 4B GUI agent model, runs locally. <a href="https://huggingface.co/LocoreMind/LocoOperator-4B">Link</a></li>
+</ul>
+<hr>
+<h2>🎯 PICK OF THE DAY</h2>
+<p><strong>Anthropic's distillation exposé is the most consequential AI story of the year so far.</strong> Forget the model drops — 24,000 fake accounts and 16 million exchanges represent a systematic, industrial-scale operation to steal Claude's capabilities. The timing is surgical: Anthropic publishes this while MiniMax-M2.5 is trending on HuggingFace and GLM-5 is racking up downloads. It forces a question the open-source community has been dodging: how many popular open-weight models are laundering proprietary capabilities? This doesn't just affect Anthropic — it threatens the legitimacy of the entire open-weight ecosystem. Every lab that trains on synthetic data will now face provenance questions. And for developers choosing models, "open-weight" no longer automatically means "clean." The real test is what happens next: legal action, technical countermeasures, or industry norms. Probably all three. (55,223 likes | 6,365 RTs) <a href="https://x.com/AnthropicAI/status/2025997928242811253">Read more →</a></p>
+<hr>
+<p>Until next time ✌️</p>
+</article><nav class="mt-12 flex flex-col gap-4 border-t border-zinc-200 pt-8 dark:border-zinc-800 sm:flex-row sm:justify-between"><a class="group flex flex-col" href="/newsletter/2026-03-07"><span class="text-xs font-medium text-zinc-500 dark:text-zinc-400">← Older</span><span class="mt-1 text-sm font-medium text-zinc-900 group-hover:text-zinc-600 dark:text-zinc-100 dark:group-hover:text-zinc-300">The Three-Way Model Drop Nobody Expected</span></a><div></div></nav><section class="mt-12 rounded-xl border border-border bg-surface p-6 sm:p-8"><h3 class="text-lg font-semibold">Get the daily AI briefing</h3><p class="mt-1 text-sm text-muted">Join AI practitioners who start their day with LoreAI. One email, every weekday morning.</p><form class="mt-4 flex flex-col gap-3 sm:flex-row"><input type="email" placeholder="you@example.com" required="" class="flex-1 rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none" value=""/><button type="submit" class="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-hover disabled:opacity-50">Subscribe</button></form></section></div>
+        </div>
+      </div>
+          
+      <h3 style="margin-top:24px">ZH: Pipeline vs Live</h3>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <div style="flex:1;min-width:0">
+          <h4 style="margin:0 0 8px;color:#737373">Pipeline Output</h4>
+          <div class="md-content"><hr>
+<h2>title: "AI News 2026-03-08"
+date: 2026-03-08
+type: newsletter
+lang: zh
+description: "Anthropic 快模型线的新旗舰 — 在编码、Agent 和专业任务上全面对标 GPT-5.4，定位就是"又快又不蠢"。对于跑 Agent 工作流、需要低延迟高吞吐的场景，Sonnet 4.6 是目前性价比最高的选择之一。API 已可用，现在就去换上试试。 [详情 →](https://www.anthropic."
+items_count: 20
+categories: [LAUNCH, RESEARCH, INSIGHT, TOOL, TECHNIQUE, BUILD]
+top_story: "Introducing Claude Sonnet 4.6"</h2>
+<hr>
+<h2>🧠 发布动态</h2>
+<h3>Claude Sonnet 4.6 来了。</h3>
+<p>Anthropic 快模型线的新旗舰 — 在编码、Agent 和专业任务上全面对标 GPT-5.4，定位就是"又快又不蠢"。对于跑 Agent 工作流、需要低延迟高吞吐的场景，Sonnet 4.6 是目前性价比最高的选择之一。API 已可用，现在就去换上试试。 <a href="https://www.anthropic.com/news/claude-sonnet-4-6">详情 →</a></p>
+<h3>GPT-5.4 Thinking 全面上线。</h3>
+<p>OpenAI 把推理、编码、Agent 能力统一到一个模型里 — GPT-5.4 同时登陆 ChatGPT 和 API。不再需要在"思考模型"和"快模型"之间切换，一个模型全搞定。开发者最关心的：API 和 Codex 即刻可用。(12,056 likes | 1,425 RTs) <a href="https://x.com/OpenAI/status/2029620619743219811">详情 →</a></p>
+<h3>Gemini 3.1 Flash-Lite：Google 的性价比杀手。</h3>
+<p>Google 最便宜的 Gemini 3 系列模型。快模型赛道现在是三国杀：Flash-Lite vs Sonnet 4.6 vs GPT-5.3 Instant，拼的不是谁最聪明，而是每百万 token 谁更划算。跑批量任务的，该重新算一笔账了。(8,794 likes | 864 RTs) <a href="https://deepmind.google/blog/gemini-3-1-flash-lite-built-for-intelligence-at-scale/">详情 →</a></p>
+<p><strong>GLM-5 开源登场。</strong> 智谱 AI 的 <strong>GLM-5</strong> 在 HuggingFace 上火了 — 1.7K likes、21 万次下载。国产开源大模型又多了一个强力选手，值得跑个 benchmark 对比你现在用的模型。(1,713 likes | 210.2K downloads) <a href="https://huggingface.co/zai-org/GLM-5">详情 →</a></p>
+<p><strong>MiniMax-M2.5 下载量炸了，但来源存疑。</strong> 354K 下载、1.1K likes — 数据很好看。但 MiniMax 刚被 Anthropic 点名参与大规模蒸馏攻击（见下文），这个模型的训练数据来源现在打了个大问号。用之前，想清楚风险。(1,096 likes | 354.3K downloads) <a href="https://huggingface.co/MiniMaxAI/MiniMax-M2.5">详情 →</a></p>
+<p><strong>Nano Banana 2：Flash 速度的图像生成。</strong> Google 最新图像生成模型，主打世界知识、主体一致性和生产级规格，速度拉到 Flash 级别。做图像生成 pipeline 的可以关注。 <a href="https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/">详情 →</a></p>
+<hr>
+<h2>🔧 开发者工具</h2>
+<p><strong>Claude Code Security 上线</strong>：扫描代码库漏洞，AI 生成修复补丁供人审核。能发现传统 SAST 工具漏掉的问题。目前是研究预览阶段，感兴趣的赶紧申请。(50,025 likes | 5,826 RTs) <a href="https://x.com/claudeai/status/2024907535145468326">详情 →</a></p>
+<p><strong>Claude Code Remote Control</strong>：终端里启动任务，然后掏出手机或打开 claude.ai 远程控制。跑长任务再也不用盯着屏幕了 — 输入 <code>/remote</code> 即可体验。(44,223 likes | 4,660 RTs) <a href="https://x.com/claudeai/status/2026418433911603668">详情 →</a></p>
+<p><strong>Claude Code 新技能：/simplify 和 /batch</strong>：<code>/simplify</code> 自动把 PR 打磨到生产质量，<code>/batch</code> 并行处理代码迁移任务。两个高杠杆的工作流自动化，日常写代码直接用起来。(12,781 likes | 831 RTs) <a href="https://x.com/bcherny/status/2027534984534544489">详情 →</a></p>
+<p><strong>Perplexity pplx-embed-v1</strong>：Perplexity 首个开源 Embedding 模型，仅 0.6B 参数。轻到可以自托管，搜索导向的训练数据让它在 RAG 场景下值得一试。(125 likes | 14.5K downloads) <a href="https://huggingface.co/perplexity-ai/pplx-embed-v1-0.6b">详情 →</a></p>
+<hr>
+<h2>📝 技术实战</h2>
+<p><strong>Karpathy：CLI 是 Agent 的天然接口。</strong> 终端命令行是"遗产"技术，但恰好是 AI Agent 最容易交互的界面。GitHub CLI + Polymarket CLI + Agent = 任意仪表盘自动生成。启示：把你的工具暴露为 CLI，Agent 就能直接用。(11,698 likes | 1,106 RTs) <a href="https://x.com/karpathy/status/2026360908398862478">详情 →</a></p>
+<p><strong>先写验收标准，再让 LLM 写代码。</strong> HN 高赞文章指出，LLM 代码质量在你预先定义测试用例时会大幅提升 — 本质上就是"TDD for Prompting"。简单、实用、今天就能用。(393 likes | 278 RTs) <a href="https://blog.katanaquant.com/p/your-llm-doesnt-write-correct-code">详情 →</a></p>
+<hr>
+<h2>🔬 研究前沿</h2>
+<p><strong>Anthropic 揭露工业级模型蒸馏攻击。</strong> 24,000+ 欺诈账号、1600 万+ 次对话，被用来系统性地蒸馏 Claude。涉事方包括 <strong>DeepSeek</strong>、<strong>Moonshot AI</strong> 和 <strong>MiniMax</strong>。这是首次有公司公开披露如此大规模的模型盗窃行为 — 对开源模型的"训练数据从哪来"这个问题，行业需要认真面对了。(55,223 likes | 6,365 RTs) <a href="https://x.com/AnthropicAI/status/2025997928242811253">详情 →</a></p>
+<p><strong>AI 防作弊面试设计指南。</strong> 当 Claude 能轻松通过你的 take-home exam，怎么办？Anthropic 分享了三轮迭代经验 — 核心洞察：测模糊场景下的判断力，不要只测技术正确性。2026 年还在招工程师的都该看看。 <a href="https://www.anthropic.com/engineering/AI-resistant-technical-evaluations">详情 →</a></p>
+<hr>
+<h2>💡 行业洞察</h2>
+<p><strong>Anthropic CEO 回应美国国防部"供应链风险"标签。</strong> Dario Amodei 公开声明，回应被标记一事。AI 公司和政府的关系正在定义竞争格局，这是一个关键时刻。(56,249 likes | 9,522 RTs) <a href="https://x.com/AnthropicAI/status/2027150818575528261">详情 →</a></p>
+<p><strong>OpenAI 拿下国防部机密网络部署协议。</strong> 一边 Anthropic 面临审查，一边 OpenAI 签下机密网络部署合同。两家头部实验室与政府的关系正在急剧分化 — 这对企业 AI 采购决策有直接影响。(34,437 likes | 4,061 RTs) <a href="https://x.com/sama/status/2027578652477821175">详情 →</a></p>
+<p><strong>Anthropic 收购 Vercept，加码 Computer Use。</strong> 这不只是一次收购，而是一个信号：GUI Agent 正在从研究 demo 变成核心产品方向。(Anthropic 在 Computer Use 上的投入越来越认真了。) <a href="https://www.anthropic.com/news/acquires-vercept">详情 →</a></p>
+<p><strong>Karpathy：编程在过去两个月里根本性地变了。</strong> "12 月之前 coding agent 基本不能用，现在基本能用了。" 模型质量、长程连贯性、韧性都有质的飞跃。如果你 12 月之后还没重新评估 Agent 工作流，现在该动了。(36,984 likes | 4,737 RTs) <a href="https://x.com/karpathy/status/2026731645169185220">详情 →</a></p>
+<hr>
+<h2>🏗️ 值得一试</h2>
+<p><strong>Karpathy：243 行纯 Python 实现 GPT 训练和推理。</strong> 零依赖，把 GPT 的全部算法本质浓缩到 243 行代码里。想真正理解 LLM 底层在做什么，这是目前最好的入门材料。(25,229 likes | 3,179 RTs) <a href="https://x.com/karpathy/status/2021694437152157847">详情 →</a></p>
+<p><strong>LocoOperator-4B：开源 GUI Agent 模型。</strong> 4B 参数，专为 GUI 操作设计，小到可以本地跑。对于不想依赖大模型 API 做 Computer Use 的开发者，这是一个有趣的替代方案。(268 likes | 3.7K downloads) <a href="https://huggingface.co/LocoreMind/LocoOperator-4B">详情 →</a></p>
+<hr>
+<h2>🎓 模型小课堂</h2>
+<p><strong>模型蒸馏（Model Distillation）</strong>：简单说就是"让小模型模仿大模型"。你拿一个强大的大模型（老师），让它处理大量问题并输出答案，然后用这些输入-输出对去训练一个更小的模型（学生）。学生模型学到了老师的"思维方式"，但参数量小得多、跑起来便宜得多。合法的蒸馏是用自己的模型做老师；Anthropic 这次揭露的问题是，有人用 24,000 个假账号大规模地拿 Claude 当免费老师 — 这就是偷了。</p>
+<hr>
+<h2>⚡ 快讯</h2>
+<ul>
+<li><strong>Nano Banana 2</strong>：Google 新图像生成模型，Pro 能力 + Flash 速度。 <a href="https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/">链接</a></li>
+</ul>
+<hr>
+<h2>🎯 今日精选</h2>
+<p><strong>快模型三国杀：为什么这周比任何单个发布都重要</strong>：Sonnet 4.6、GPT-5.4、Flash-Lite 同周亮相，标志着 AI 竞争的焦点正式从"谁最聪明"转向"谁又快又便宜又够聪明"。这背后的逻辑很清楚 — Agent 工作流需要模型被调用成百上千次，延迟和成本比峰值智力更重要。三家同时押注这个赛道，意味着"够用的智能 + 极致的性价比"将成为 2026 年的主旋律。对开发者来说，现在是重新评估你的模型选择的最佳时机 — 不是选最强的，而是选在你的场景下 ROI 最高的。 <a href="https://www.anthropic.com/news/claude-sonnet-4-6">详情 →</a></p>
+<hr>
+<p>下期见 ✌️</p>
+</div>
+        </div>
+        <div style="flex:1;min-width:0">
+          <h4 style="margin:0 0 8px;color:#737373">Live Site</h4>
+          <div class="md-content"><main class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8"><nav class="mb-8 flex items-center justify-between"><a class="inline-flex items-center gap-1 text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100" href="/zh/newsletter"><span aria-hidden="true">←</span> 所有日报</a><a class="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100" href="/newsletter/2026-03-08">English</a></nav><header class="mb-8"><time dateTime="2026-03-08" class="text-sm font-medium text-zinc-500 dark:text-zinc-400">2026年3月8日星期日</time><div class="mt-3 flex flex-wrap gap-1.5"><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">LAUNCH</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">RESEARCH</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">INSIGHT</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">TOOL</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">TECHNIQUE</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">BUILD</span></div><p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400">共 <!-- -->20<!-- --> 条资讯</p></header><article class="prose prose-zinc max-w-none dark:prose-invert prose-headings:font-semibold prose-h1:text-2xl prose-h1:sm:text-3xl prose-h2:text-xl prose-a:text-zinc-900 prose-a:underline-offset-2 hover:prose-a:text-zinc-600 dark:prose-a:text-zinc-200 dark:hover:prose-a:text-zinc-400 prose-hr:border-zinc-200 dark:prose-hr:border-zinc-800 prose-strong:text-zinc-900 dark:prose-strong:text-zinc-100"><hr>
+<h2>🧠 发布动态</h2>
+<h3>Claude Sonnet 4.6 来了。</h3>
+<p>Anthropic 快模型线的新旗舰 — 在编码、Agent 和专业任务上全面对标 GPT-5.4，定位就是"又快又不蠢"。对于跑 Agent 工作流、需要低延迟高吞吐的场景，Sonnet 4.6 是目前性价比最高的选择之一。API 已可用，现在就去换上试试。 <a href="https://www.anthropic.com/news/claude-sonnet-4-6">详情 →</a></p>
+<h3>GPT-5.4 Thinking 全面上线。</h3>
+<p>OpenAI 把推理、编码、Agent 能力统一到一个模型里 — GPT-5.4 同时登陆 ChatGPT 和 API。不再需要在"思考模型"和"快模型"之间切换，一个模型全搞定。开发者最关心的：API 和 Codex 即刻可用。(12,056 likes | 1,425 RTs) <a href="https://x.com/OpenAI/status/2029620619743219811">详情 →</a></p>
+<h3>Gemini 3.1 Flash-Lite：Google 的性价比杀手。</h3>
+<p>Google 最便宜的 Gemini 3 系列模型。快模型赛道现在是三国杀：Flash-Lite vs Sonnet 4.6 vs GPT-5.3 Instant，拼的不是谁最聪明，而是每百万 token 谁更划算。跑批量任务的，该重新算一笔账了。(8,794 likes | 864 RTs) <a href="https://deepmind.google/blog/gemini-3-1-flash-lite-built-for-intelligence-at-scale/">详情 →</a></p>
+<p><strong>GLM-5 开源登场。</strong> 智谱 AI 的 <strong>GLM-5</strong> 在 HuggingFace 上火了 — 1.7K likes、21 万次下载。国产开源大模型又多了一个强力选手，值得跑个 benchmark 对比你现在用的模型。(1,713 likes | 210.2K downloads) <a href="https://huggingface.co/zai-org/GLM-5">详情 →</a></p>
+<p><strong>MiniMax-M2.5 下载量炸了，但来源存疑。</strong> 354K 下载、1.1K likes — 数据很好看。但 MiniMax 刚被 Anthropic 点名参与大规模蒸馏攻击（见下文），这个模型的训练数据来源现在打了个大问号。用之前，想清楚风险。(1,096 likes | 354.3K downloads) <a href="https://huggingface.co/MiniMaxAI/MiniMax-M2.5">详情 →</a></p>
+<p><strong>Nano Banana 2：Flash 速度的图像生成。</strong> Google 最新图像生成模型，主打世界知识、主体一致性和生产级规格，速度拉到 Flash 级别。做图像生成 pipeline 的可以关注。 <a href="https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/">详情 →</a></p>
+<hr>
+<h2>🔧 开发者工具</h2>
+<p><strong>Claude Code Security 上线</strong>：扫描代码库漏洞，AI 生成修复补丁供人审核。能发现传统 SAST 工具漏掉的问题。目前是研究预览阶段，感兴趣的赶紧申请。(50,025 likes | 5,826 RTs) <a href="https://x.com/claudeai/status/2024907535145468326">详情 →</a></p>
+<p><strong>Claude Code Remote Control</strong>：终端里启动任务，然后掏出手机或打开 claude.ai 远程控制。跑长任务再也不用盯着屏幕了 — 输入 <code>/remote</code> 即可体验。(44,223 likes | 4,660 RTs) <a href="https://x.com/claudeai/status/2026418433911603668">详情 →</a></p>
+<p><strong>Claude Code 新技能：/simplify 和 /batch</strong>：<code>/simplify</code> 自动把 PR 打磨到生产质量，<code>/batch</code> 并行处理代码迁移任务。两个高杠杆的工作流自动化，日常写代码直接用起来。(12,781 likes | 831 RTs) <a href="https://x.com/bcherny/status/2027534984534544489">详情 →</a></p>
+<p><strong>Perplexity pplx-embed-v1</strong>：Perplexity 首个开源 Embedding 模型，仅 0.6B 参数。轻到可以自托管，搜索导向的训练数据让它在 RAG 场景下值得一试。(125 likes | 14.5K downloads) <a href="https://huggingface.co/perplexity-ai/pplx-embed-v1-0.6b">详情 →</a></p>
+<hr>
+<h2>📝 技术实战</h2>
+<p><strong>Karpathy：CLI 是 Agent 的天然接口。</strong> 终端命令行是"遗产"技术，但恰好是 AI Agent 最容易交互的界面。GitHub CLI + Polymarket CLI + Agent = 任意仪表盘自动生成。启示：把你的工具暴露为 CLI，Agent 就能直接用。(11,698 likes | 1,106 RTs) <a href="https://x.com/karpathy/status/2026360908398862478">详情 →</a></p>
+<p><strong>先写验收标准，再让 LLM 写代码。</strong> HN 高赞文章指出，LLM 代码质量在你预先定义测试用例时会大幅提升 — 本质上就是"TDD for Prompting"。简单、实用、今天就能用。(393 likes | 278 RTs) <a href="https://blog.katanaquant.com/p/your-llm-doesnt-write-correct-code">详情 →</a></p>
+<hr>
+<h2>🔬 研究前沿</h2>
+<p><strong>Anthropic 揭露工业级模型蒸馏攻击。</strong> 24,000+ 欺诈账号、1600 万+ 次对话，被用来系统性地蒸馏 Claude。涉事方包括 <strong>DeepSeek</strong>、<strong>Moonshot AI</strong> 和 <strong>MiniMax</strong>。这是首次有公司公开披露如此大规模的模型盗窃行为 — 对开源模型的"训练数据从哪来"这个问题，行业需要认真面对了。(55,223 likes | 6,365 RTs) <a href="https://x.com/AnthropicAI/status/2025997928242811253">详情 →</a></p>
+<p><strong>AI 防作弊面试设计指南。</strong> 当 Claude 能轻松通过你的 take-home exam，怎么办？Anthropic 分享了三轮迭代经验 — 核心洞察：测模糊场景下的判断力，不要只测技术正确性。2026 年还在招工程师的都该看看。 <a href="https://www.anthropic.com/engineering/AI-resistant-technical-evaluations">详情 →</a></p>
+<hr>
+<h2>💡 行业洞察</h2>
+<p><strong>Anthropic CEO 回应美国国防部"供应链风险"标签。</strong> Dario Amodei 公开声明，回应被标记一事。AI 公司和政府的关系正在定义竞争格局，这是一个关键时刻。(56,249 likes | 9,522 RTs) <a href="https://x.com/AnthropicAI/status/2027150818575528261">详情 →</a></p>
+<p><strong>OpenAI 拿下国防部机密网络部署协议。</strong> 一边 Anthropic 面临审查，一边 OpenAI 签下机密网络部署合同。两家头部实验室与政府的关系正在急剧分化 — 这对企业 AI 采购决策有直接影响。(34,437 likes | 4,061 RTs) <a href="https://x.com/sama/status/2027578652477821175">详情 →</a></p>
+<p><strong>Anthropic 收购 Vercept，加码 Computer Use。</strong> 这不只是一次收购，而是一个信号：GUI Agent 正在从研究 demo 变成核心产品方向。(Anthropic 在 Computer Use 上的投入越来越认真了。) <a href="https://www.anthropic.com/news/acquires-vercept">详情 →</a></p>
+<p><strong>Karpathy：编程在过去两个月里根本性地变了。</strong> "12 月之前 coding agent 基本不能用，现在基本能用了。" 模型质量、长程连贯性、韧性都有质的飞跃。如果你 12 月之后还没重新评估 Agent 工作流，现在该动了。(36,984 likes | 4,737 RTs) <a href="https://x.com/karpathy/status/2026731645169185220">详情 →</a></p>
+<hr>
+<h2>🏗️ 值得一试</h2>
+<p><strong>Karpathy：243 行纯 Python 实现 GPT 训练和推理。</strong> 零依赖，把 GPT 的全部算法本质浓缩到 243 行代码里。想真正理解 LLM 底层在做什么，这是目前最好的入门材料。(25,229 likes | 3,179 RTs) <a href="https://x.com/karpathy/status/2021694437152157847">详情 →</a></p>
+<p><strong>LocoOperator-4B：开源 GUI Agent 模型。</strong> 4B 参数，专为 GUI 操作设计，小到可以本地跑。对于不想依赖大模型 API 做 Computer Use 的开发者，这是一个有趣的替代方案。(268 likes | 3.7K downloads) <a href="https://huggingface.co/LocoreMind/LocoOperator-4B">详情 →</a></p>
+<hr>
+<h2>🎓 模型小课堂</h2>
+<p><strong>模型蒸馏（Model Distillation）</strong>：简单说就是"让小模型模仿大模型"。你拿一个强大的大模型（老师），让它处理大量问题并输出答案，然后用这些输入-输出对去训练一个更小的模型（学生）。学生模型学到了老师的"思维方式"，但参数量小得多、跑起来便宜得多。合法的蒸馏是用自己的模型做老师；Anthropic 这次揭露的问题是，有人用 24,000 个假账号大规模地拿 Claude 当免费老师 — 这就是偷了。</p>
+<hr>
+<h2>⚡ 快讯</h2>
+<ul>
+<li><strong>Nano Banana 2</strong>：Google 新图像生成模型，Pro 能力 + Flash 速度。 <a href="https://deepmind.google/blog/nano-banana-2-combining-pro-capabilities-with-lightning-fast-speed/">链接</a></li>
+</ul>
+<hr>
+<h2>🎯 今日精选</h2>
+<p><strong>快模型三国杀：为什么这周比任何单个发布都重要</strong>：Sonnet 4.6、GPT-5.4、Flash-Lite 同周亮相，标志着 AI 竞争的焦点正式从"谁最聪明"转向"谁又快又便宜又够聪明"。这背后的逻辑很清楚 — Agent 工作流需要模型被调用成百上千次，延迟和成本比峰值智力更重要。三家同时押注这个赛道，意味着"够用的智能 + 极致的性价比"将成为 2026 年的主旋律。对开发者来说，现在是重新评估你的模型选择的最佳时机 — 不是选最强的，而是选在你的场景下 ROI 最高的。 <a href="https://www.anthropic.com/news/claude-sonnet-4-6">详情 →</a></p>
+<hr>
+<p>下期见 ✌️</p>
+</article><nav class="mt-12 flex flex-col gap-4 border-t border-zinc-200 pt-8 dark:border-zinc-800 sm:flex-row sm:justify-between"><a class="group flex flex-col" href="/zh/newsletter/2026-03-07"><span class="text-xs font-medium text-zinc-500 dark:text-zinc-400">← 更早</span><span class="mt-1 text-sm font-medium text-zinc-900 group-hover:text-zinc-600 dark:text-zinc-100 dark:group-hover:text-zinc-300">GPT-5.4、Sonnet 4.6、GLM-5 同周登场，三国杀进入新赛季</span></a><div></div></nav><section class="mt-12 rounded-xl border border-border bg-surface p-6 sm:p-8"><h3 class="text-lg font-semibold">Get the daily AI briefing</h3><p class="mt-1 text-sm text-muted">Join AI practitioners who start their day with LoreAI. One email, every weekday morning.</p><form class="mt-4 flex flex-col gap-3 sm:flex-row"><input type="email" placeholder="you@example.com" required="" class="flex-1 rounded-lg border border-border bg-background px-4 py-2.5 text-sm text-foreground placeholder:text-muted focus:border-accent focus:outline-none" value=""/><button type="submit" class="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-hover disabled:opacity-50">Subscribe</button></form></section></div>
+        </div>
+      </div>
+        </div>
+      </details>
+    </section>
+<section id="blogs"><h2>Blogs (3)</h2>
+      <details style="margin-bottom:8px">
+        <summary style="cursor:pointer;padding:8px;background:#fafafa;border-radius:4px">
+          <strong>anthropic-department-of-war-dario-amodei-statement</strong> — 961 EN / 1431 ZH words <span style="color:#22c55e;font-size:12px">(OK)</span>
+        </summary>
+        <div style="padding:12px">
+          
+          
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "Anthropic and the Department of War: What Dario Amodei's Statement Means for AI in Defense"
+date: 2026-03-08
+slug: anthropic-department-of-war-dario-amodei-statement
+description: "Dario Amodei issued a statement on Anthropic's discussions with the Department of War, as AI companies navigate classified deployments and safety guardrails."
+keywords: ["Anthropic Department of War", "Dario Amodei AI defense", "AI military deployment", "Claude classified environments"]
+category: PRODUCT
+related_newsletter: 2026-03-08
+related_glossary: [anthropic, claude]
+related_compare: [claude-vs-chatgpt]
+lang: en
+video_ready: true
+video_hook: "Anthropic just entered the defense AI race — but on very different terms"
+video_status: none</h2>
+<h1>Anthropic and the Department of War: What Dario Amodei's Statement Means for AI in Defense</h1>
+<p><strong>Anthropic</strong> CEO Dario Amodei published a statement addressing the company's discussions with the <strong>Department of War</strong> (DoW), landing in the middle of a week where OpenAI also announced its own classified-environment deployment deal. The statement signals a pivotal shift: the AI safety-focused lab is engaging directly with defense — but framing it on its own terms. For anyone tracking how <a href="/glossary/frontier-model">frontier AI models</a> intersect with government power, this is the week the landscape changed.</p>
+<h2>What Happened</h2>
+<p>Dario Amodei released a public statement via <a href="https://x.com/AnthropicAI/status/2027150818575528261">Anthropic's official channels</a> addressing discussions between Anthropic and the Department of War, including comments from Secretary of War Pete Hegseth. The full statement was later <a href="https://x.com/AnthropicAI/status/2029719864533721481">shared again by Anthropic</a>, suggesting the company wanted to ensure broad visibility.</p>
+<p>The timing matters. Just days earlier, <a href="https://x.com/OpenAI/status/2027846012107456943">OpenAI announced</a> that it had reached an agreement with the DoW for deploying advanced AI systems in classified environments. Sam Altman noted that the DoW "displayed a deep respect for safety and a desire to partner" and emphasized that OpenAI had requested the agreement terms be made available to all AI companies — not just OpenAI.</p>
+<p>Anthropic's statement appears to be a direct response to this rapidly evolving landscape. Rather than simply matching OpenAI's announcement, Amodei used the moment to articulate Anthropic's position on what responsible defense engagement should look like. The specific details of any Anthropic-DoW agreement remain limited in public disclosures, but the framing is unmistakable: Anthropic wants to be at the table, but with guardrails.</p>
+<p>This marks a significant evolution for a company that has historically positioned itself as the "safety-first" AI lab, often contrasted with OpenAI's more commercially aggressive posture.</p>
+<h2>Why It Matters</h2>
+<p>The AI defense market is no longer hypothetical. When both <a href="/glossary/anthropic">Anthropic</a> and OpenAI publicly engage with classified deployment in the same week, it signals that frontier AI in government and military contexts has moved from debate to implementation.</p>
+<p>Three dynamics are converging:</p>
+<p><strong>The competitive pressure is real.</strong> If OpenAI deploys in classified environments and Anthropic doesn't, the revenue and influence gap widens. Defense contracts aren't just about money — they shape which models get embedded in critical infrastructure, which creates long-term lock-in. Anthropic sitting out would mean ceding the entire government AI stack to competitors.</p>
+<p><strong>Safety framing becomes a differentiator, not a barrier.</strong> Amodei's statement positions guardrails as a feature, not a concession. In a market where the DoW is actively seeking AI partners, the company that can credibly say "our deployment has stronger safety guarantees" has a real selling point. OpenAI leaned into this too, noting they requested their terms be available to all companies.</p>
+<p><strong>The Overton window has shifted.</strong> A year ago, an AI safety lab working with the Department of War would have triggered a firestorm in the research community. Now, the conversation has moved to <em>how</em> to deploy responsibly, not <em>whether</em> to engage at all. The fact that Amodei published this openly — not leaked, not forced — suggests Anthropic believes its audience is ready for this framing.</p>
+<p>For enterprise buyers and government agencies evaluating AI vendors, the week's events establish a new baseline: both leading frontier labs are willing to operate in classified contexts. The differentiation is now about terms, guardrails, and transparency.</p>
+<h2>Technical Deep-Dive</h2>
+<p>Deploying <a href="/glossary/llm">large language models</a> in classified environments introduces constraints that don't exist in commercial settings.</p>
+<p><strong>Air-gapped infrastructure.</strong> Classified networks (like SIPRNet or JWICS) are physically isolated from the internet. Models can't call home for updates, telemetry, or reinforcement learning feedback. This means deployments are essentially frozen snapshots — the version you deploy is the version that runs until the next manual update cycle.</p>
+<p><strong>Data handling and fine-tuning.</strong> Classified data can't leave the secure environment. Any fine-tuning or retrieval-augmented generation (RAG) must happen entirely within the classified boundary. This favors models with strong base capabilities over those that rely heavily on external tool use or real-time retrieval.</p>
+<p><strong>Guardrail enforcement.</strong> In commercial settings, safety layers often include server-side classifiers, human review pipelines, and usage monitoring. In classified deployments, these mechanisms need to work offline. Anthropic's Constitutional AI approach — where safety behavior is baked into the model weights during training rather than enforced by external systems — may have a structural advantage here.</p>
+<p><strong>Audit and accountability.</strong> Government deployments typically require detailed logging of all model interactions for oversight purposes. The technical challenge is building audit systems that capture decision-relevant information without creating security vulnerabilities through excessive data retention.</p>
+<p>OpenAI's statement that their agreement includes "more guardrails than any previous agreement for classified AI deployment" raises the bar. Anthropic's response, whatever the specific terms, will be measured against that claim.</p>
+<p>The practical limitation is that neither company has disclosed the specific models being deployed, the use cases approved, or the evaluation frameworks governing deployment decisions. These details will matter far more than the press statements.</p>
+<h2>What You Should Do</h2>
+<ol>
+<li>
+<p><strong>If you're building government AI applications</strong>, study both announcements closely. The terms OpenAI negotiated — and requested be made available broadly — may set templates for future classified AI procurement. Prepare your compliance and security posture accordingly.</p>
+</li>
+<li>
+<p><strong>If you're evaluating frontier models for sensitive workloads</strong>, weight offline capability heavily. Models that perform well without real-time internet access and external tool calls have a structural advantage in air-gapped deployments.</p>
+</li>
+<li>
+<p><strong>If you're an AI researcher or policy professional</strong>, watch for the detailed terms of these agreements. The high-level statements are positioning; the implementation details will define the actual safety landscape.</p>
+</li>
+<li>
+<p><strong>Track the competitive response.</strong> Google DeepMind and other frontier labs will likely announce similar engagements. The defense AI market is consolidating around a handful of providers — the next 6 months will determine the map.</p>
+</li>
+</ol>
+<p><strong>Related</strong>: <a href="/newsletter/2026-03-08">Today's newsletter</a> covers the broader AI landscape this week. See also: <a href="/compare/claude-vs-chatgpt">Claude vs ChatGPT</a> for how Anthropic and OpenAI's models compare on capabilities.</p>
+<hr>
+<p><em>Found this useful? <a href="/subscribe">Subscribe to AI News</a> for daily AI briefings.</em></p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><div class="md-content"><hr>
+<h2>title: "Anthropic 与美国国防部合作：Dario Amodei 的公开声明意味着什么"
+date: 2026-03-08
+slug: anthropic-department-of-war-dario-amodei-statement
+description: "Anthropic CEO Dario Amodei 就与美国国防部的合作发表声明，OpenAI 同期也达成协议。AI 公司进入国防领域，安全与商业如何平衡？"
+keywords: ["Anthropic 国防部", "Dario Amodei", "AI 军事应用", "OpenAI 国防部"]
+category: PRODUCT
+related_newsletter: 2026-03-08
+related_glossary: [anthropic, claude]
+related_compare: [claude-vs-chatgpt]
+lang: zh
+video_ready: true
+video_hook: "AI 公司集体进军国防领域，安全承诺还能守住吗？"
+video_status: none</h2>
+<h1>Anthropic 与美国国防部合作：Dario Amodei 的公开声明意味着什么</h1>
+<p><strong>Anthropic</strong> CEO Dario Amodei 就公司与美国国防部（Department of War）的合作公开发声，几乎同一时间 <strong>OpenAI</strong> 也宣布与国防部达成在机密环境中部署 AI 系统的协议。两家以"安全"为招牌的 AI 公司同时踏入国防领域，这不是巧合，而是行业转折点。这篇文章拆解事件背景、各方立场，以及对 AI 行业格局的实际影响。</p>
+<h2>发生了什么</h2>
+<p>Anthropic 官方账号发布了 Dario Amodei 的声明，回应美国国防部长 Pete Hegseth 的相关言论。声明的具体细节尚未完全公开，但从上下文看，Anthropic 正在与国防部就 AI 系统部署进行正式讨论。</p>
+<p>几乎同一时间，<a href="https://x.com/OpenAI/status/2027846012107456943">OpenAI 宣布</a>与国防部达成协议，在机密网络环境中部署先进 AI 系统。Sam Altman 在推文中强调，OpenAI 主动要求国防部将该协议条件向所有 AI 公司开放，并称"国防部展现了对安全的深度尊重"。OpenAI 还表示，这次部署"比此前任何机密 AI 部署协议都有更多防护措施"。</p>
+<p>两家公司几乎同步行动，说明国防部正在系统性地与头部 AI 公司建立合作关系，而非单独绑定某一家。这是美国政府 AI 战略的重要一步。</p>
+<h2>为什么重要</h2>
+<p>回顾 2023 年，Anthropic 和 OpenAI 都把"负责任的 AI"挂在嘴边，彼时与军方合作几乎是禁区话题。两年后，两家公司争先恐后地签国防合同 — 变化之快值得玩味。</p>
+<p>驱动这个转变的因素很现实：</p>
+<p><strong>商业压力。</strong> AI 公司烧钱速度惊人，政府合同是为数不多能提供大规模、长期、稳定收入的渠道。微软已经通过 Azure Government 在国防领域深耕多年，Google 虽然退出了 Project Maven，但后来通过其他渠道重新进入。Anthropic 和 OpenAI 不能把这个市场拱手让人。</p>
+<p><strong>地缘竞争。</strong> 中美 AI 竞争是华盛顿的头号议题。不参与国防合作的 AI 公司，在政策制定中会逐渐失去话语权。Anthropic 一直试图在"安全倡导者"和"可靠合作伙伴"之间找平衡，这份声明就是平衡术的体现。</p>
+<p><strong>行业标准制定。</strong> OpenAI 要求国防部将协议条件向所有公司开放，这一招很聪明 — 既展现了开放姿态，又在实际上推动形成自己参与制定的行业标准。Anthropic 发声回应，也是在争夺标准制定的席位。</p>
+<p>对于关注 <a href="/glossary/ai-safety">AI 安全</a>的从业者来说，核心问题是：当商业利益和安全承诺冲突时，谁来仲裁？</p>
+<h2>技术细节</h2>
+<p>从 OpenAI 披露的信息来看，国防部的 AI 部署有几个关键技术约束：</p>
+<p><strong>机密网络环境（Classified Network）。</strong> 这意味着 AI 模型需要在物理隔离的网络中运行，不连接公网。这对模型部署提出了特殊要求 — 不能依赖云端 API，需要本地化部署，推理基础设施要通过安全认证。</p>
+<p><strong>防护措施（Guardrails）。</strong> OpenAI 称其部署"有更多防护措施"，但具体技术细节未公开。合理推测包括：输出过滤、使用场景限制、审计日志、人工审核环节等。Anthropic 的 <a href="/glossary/constitutional-ai">Constitutional AI</a> 方法论在这类场景下有天然优势 — 通过宪法式规则约束模型行为，比纯粹的 RLHF 更容易向监管方解释和审计。</p>
+<p><strong>多供应商策略。</strong> 国防部同时与多家 AI 公司合作，而不是独家绑定，这在技术上意味着需要统一的接口标准和评估框架。对 AI 公司来说，模型的可部署性（而不仅仅是跑分成绩）成为竞争的关键维度。</p>
+<p>值得注意的是，中国的大模型公司面临完全不同的局面。<strong>DeepSeek</strong>、<strong>Qwen</strong> 等模型在民用领域快速追赶，但在政府和国防场景下，中美 AI 公司走的是两条完全不同的路径，合规要求、部署模式、数据主权的处理方式差异巨大。</p>
+<h2>你现在该做什么</h2>
+<ol>
+<li><strong>关注后续细节披露。</strong> Dario Amodei 的完整声明和 Anthropic 的具体合作范围尚未完全公开，后续信息会更清晰地定义行业边界。</li>
+<li><strong>重新评估"AI 安全"叙事。</strong> 如果你在做 AI 产品决策，不要再把公司的安全承诺当作绝对标准。看实际的技术防护措施、审计机制和治理结构。</li>
+<li><strong>关注合规能力建设。</strong> 无论是国内还是海外市场，AI 在敏感场景的部署能力正在成为商业竞争力。如果你的团队还没有开始研究模型本地化部署和安全审计，现在是时候了。</li>
+<li><strong>追踪政策动向。</strong> 美国国防部与 AI 公司的合作模式，会间接影响全球 AI 监管的走向，包括中国的相关政策。</li>
+</ol>
+<p><strong>相关阅读</strong>：<a href="/newsletter/2026-03-08">今日简报</a> 有更多背景。另见：<a href="/compare/claude-vs-chatgpt">Claude vs ChatGPT 对比</a>。</p>
+<hr>
+<p><em>觉得有用？<a href="/subscribe">订阅 AI 简报</a>，每天 5 分钟掌握 AI 动态。</em></p>
+</div></div>
+    </div>
+        </div>
+      </details>
+      <details style="margin-bottom:8px">
+        <summary style="cursor:pointer;padding:8px;background:#fafafa;border-radius:4px">
+          <strong>anthropic-distillation-attacks-deepseek-moonshot-minimax</strong> — 973 EN / 1431 ZH words <span style="color:#22c55e;font-size:12px">(OK)</span>
+        </summary>
+        <div style="padding:12px">
+          
+          
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "Anthropic Exposes Industrial-Scale Model Distillation Attacks by DeepSeek, Moonshot AI, and MiniMax"
+date: 2026-03-08
+slug: anthropic-distillation-attacks-deepseek-moonshot-minimax
+description: "Anthropic reveals that DeepSeek, Moonshot AI, and MiniMax ran 24,000+ fake accounts to distill Claude's capabilities across 16 million exchanges."
+keywords: ["model distillation attacks", "Anthropic DeepSeek", "AI model theft", "Claude distillation"]
+category: PRODUCT
+related_newsletter: 2026-03-08
+related_glossary: [distillation, anthropic]
+related_compare: [claude-vs-deepseek]
+lang: en
+video_ready: true
+video_hook: "Three major AI labs ran 24,000 fake accounts to steal Claude's capabilities"
+video_status: none</h2>
+<h1>Anthropic Exposes Industrial-Scale Model Distillation Attacks by DeepSeek, Moonshot AI, and MiniMax</h1>
+<p><strong>Anthropic</strong> just dropped a bombshell: three AI labs — <strong>DeepSeek</strong>, <strong>Moonshot AI</strong>, and <strong>MiniMax</strong> — orchestrated a massive, coordinated effort to extract Claude's capabilities through <a href="/glossary/distillation">model distillation</a>. The operation involved over 24,000 fraudulent accounts and more than 16 million exchanges with Claude, all designed to systematically harvest its outputs for training competing models. This isn't casual API misuse — it's industrial-scale intellectual property extraction, and it raises urgent questions about how frontier AI labs protect their models in an increasingly competitive landscape.</p>
+<h2>What Happened</h2>
+<p>Anthropic <a href="https://x.com/AnthropicAI/status/2025997928242811253">disclosed on X</a> that its security teams identified a coordinated distillation campaign targeting Claude across multiple product surfaces. The three labs — all China-linked AI companies — created networks of fake accounts totaling over 24,000, then systematically queried Claude to generate training data for their own models.</p>
+<p>The scale is staggering: 16 million exchanges represents an enormous corpus of high-quality model outputs. At typical conversation lengths, that's potentially billions of tokens of Claude-generated text, carefully curated across diverse tasks and domains. The attackers weren't just chatting — they were running structured extraction pipelines designed to capture Claude's reasoning patterns, coding abilities, and instruction-following behavior.</p>
+<p><strong>DeepSeek</strong> has been one of the most talked-about AI labs in the past year, gaining attention for producing competitive models at reportedly lower costs. <strong>Moonshot AI</strong>, the company behind Kimi, has raised billions in funding and competes aggressively in the Chinese LLM market. <strong>MiniMax</strong> operates the Hailuo AI platform and has similarly positioned itself as a serious contender in the foundation model space.</p>
+<p>All three labs have released models that compete directly with Claude and GPT-4 class systems. The distillation attacks suggest at least part of their capability gains may have been bootstrapped from <a href="/glossary/anthropic">Anthropic</a>'s own technology.</p>
+<h2>Why It Matters</h2>
+<p><strong>Model distillation</strong> — training a smaller or different model on the outputs of a stronger model — has always existed in a gray area. Researchers do it openly in academic settings. But doing it at industrial scale, through fraudulent accounts, against a commercial API's terms of service, crosses a clear line from research technique to intellectual property theft.</p>
+<p>The economic implications are significant. Anthropic has invested billions in compute, research talent, and safety work to build Claude. If competitors can extract a meaningful fraction of those capabilities through API queries costing a few hundred thousand dollars, the incentive structure for frontier AI research breaks down. Why spend $500 million on a training run when you can distill the results for $500,000?</p>
+<p>This also exposes a fundamental asymmetry in the AI industry. Companies that offer public API access — Anthropic, OpenAI, Google — are inherently vulnerable to distillation. Labs that keep their models behind closed interfaces or don't offer commercial APIs face no such risk. The openness that makes these models useful also makes them targets.</p>
+<p>For the broader AI ecosystem, this incident validates long-standing concerns about model theft at scale. OpenAI previously accused DeepSeek of similar distillation practices. With Anthropic now independently confirming attacks from the same actor (plus two additional labs), a pattern is emerging that the industry will need to address collectively.</p>
+<p>The timing matters, too. This disclosure comes during a period of heightened US-China tensions around AI technology, adding a geopolitical dimension to what might otherwise be framed as a commercial dispute.</p>
+<h2>Technical Deep-Dive</h2>
+<p>Distillation attacks at this scale require significant operational sophistication. Creating 24,000 fake accounts means bypassing identity verification, managing payment methods, rotating IP addresses, and coordinating query patterns to avoid detection.</p>
+<p>The extraction methodology likely involved several techniques:</p>
+<p><strong>Structured prompting</strong>: Systematically querying Claude across thousands of task categories — coding, math, reasoning, creative writing, instruction following — to build a comprehensive training dataset. Each response becomes a labeled example: prompt → high-quality completion.</p>
+<p><strong>Chain-of-thought harvesting</strong>: Eliciting Claude's step-by-step reasoning, which is particularly valuable for training models to replicate complex problem-solving behavior. Claude's reasoning traces contain implicit knowledge about how to decompose and solve problems.</p>
+<p><strong>Capability probing</strong>: Testing Claude's performance boundaries across domains to identify where it excels, then focusing extraction efforts on those high-value areas.</p>
+<p>The defense challenge is real. Distinguishing between a legitimate power user making thousands of API calls and a distillation bot running automated extractions is non-trivial. Both generate high volumes of diverse queries. Detection likely relies on behavioral fingerprinting — identifying patterns in query timing, topic distribution, prompt structure, and account creation metadata that distinguish organic usage from systematic extraction.</p>
+<p>Anthropic hasn't disclosed its specific detection methods, which is prudent — revealing them would help attackers adapt. But the 24,000-account figure suggests the attackers distributed their queries thinly across many accounts, attempting to stay under per-account rate limits and anomaly detection thresholds.</p>
+<p>One open question: how much capability can actually be transferred through distillation alone? Research suggests that while distillation can replicate surface-level behaviors effectively, deeper capabilities like robust reasoning under distribution shift are harder to capture. The distilled model often appears capable on standard benchmarks but fails on novel, out-of-distribution problems. Still, 16 million exchanges provide a substantial training signal.</p>
+<h2>What You Should Do</h2>
+<ol>
+<li><strong>If you're building on Claude's API</strong>: Review your own terms of service and output usage policies. Your customers may be doing the same thing to your product's outputs at a smaller scale.</li>
+<li><strong>If you're evaluating AI models</strong>: Factor in provenance. A model that achieves benchmark parity through distillation may lack the robustness and generalization of the source model. Test on your own tasks, not just public benchmarks.</li>
+<li><strong>If you're in AI policy</strong>: This case strengthens the argument for legal frameworks around model output ownership and automated extraction. Current IP law is poorly equipped for this scenario.</li>
+<li><strong>If you're at a frontier lab</strong>: Invest in output watermarking and behavioral fingerprinting. The arms race between distillation attackers and defenders is just beginning.</li>
+</ol>
+<p><strong>Related</strong>: <a href="/newsletter/2026-03-08">Today's newsletter</a> covers this and other Anthropic developments. See also: <a href="/compare/claude-vs-deepseek">Claude vs DeepSeek</a>.</p>
+<hr>
+<p><em>Found this useful? <a href="/subscribe">Subscribe to AI News</a> for daily AI briefings.</em></p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><div class="md-content"><hr>
+<h2>title: "Anthropic 曝光大规模蒸馏攻击：DeepSeek、月之暗面、MiniMax 被点名"
+date: 2026-03-08
+slug: anthropic-distillation-attacks-deepseek-moonshot-minimax
+description: "Anthropic 公开指控 DeepSeek、Moonshot AI 和 MiniMax 通过 2.4 万个虚假账号、1600 万次对话大规模蒸馏 Claude 模型能力。事件始末、技术细节与行业影响分析。"
+keywords: ["模型蒸馏攻击", "Anthropic DeepSeek", "AI 模型安全", "知识产权"]
+category: MODEL
+related_newsletter: 2026-03-08
+related_glossary: [model-distillation, claude]
+related_compare: [claude-vs-deepseek]
+lang: zh
+video_ready: true
+video_hook: "2.4 万个假账号、1600 万次对话 — Anthropic 指控三家中国 AI 公司偷模型"
+video_status: none</h2>
+<h1>Anthropic 曝光大规模蒸馏攻击：DeepSeek、月之暗面、MiniMax 被点名</h1>
+<p><strong>Anthropic</strong> 正式公开指控三家 AI 公司 — <strong>DeepSeek</strong>、<strong>Moonshot AI</strong>（月之暗面）和 <strong>MiniMax</strong> — 对 Claude 模型发起了工业级别的<a href="/glossary/model-distillation">蒸馏</a>攻击。2.4 万个虚假账号，1600 万次对话交互，目的只有一个：系统性地提取 Claude 的能力来训练自家模型。这是 AI 行业首次有头部公司公开点名指控竞争对手进行大规模模型窃取，事件的规模和涉及方之多让整个行业震动。</p>
+<h2>发生了什么</h2>
+<p>Anthropic 在<a href="https://x.com/AnthropicAI/status/2025997928242811253">官方推文</a>中披露，其安全团队检测到针对 Claude 模型的大规模蒸馏攻击行为。三家被点名的公司 — DeepSeek、Moonshot AI 和 MiniMax — 通过创建超过 24,000 个虚假账号，与 Claude 进行了超过 1600 万次对话交互，系统性地提取模型能力用于训练和改进自家模型。</p>
+<p>这不是小规模的学术研究式探测。1600 万次交互意味着这是一个有组织、有预谋的工程化操作 — 需要自动化脚本、代理 IP 池、批量账号管理等完整基础设施的支撑。按照 Anthropic API 的定价估算，这个规模的调用成本至少在数十万美元级别，说明攻击方投入了相当的资源。</p>
+<p>三家被指控的公司都是中国 AI 赛道的重要玩家。DeepSeek 凭借开源模型迅速崛起，Moonshot AI（月之暗面）是 Kimi 的母公司，MiniMax 则以多模态能力著称。Anthropic 同时点名三家，暗示这可能不是孤立事件，而是行业内更普遍的做法。</p>
+<h2>为什么重要</h2>
+<p>模型蒸馏本身是一项合法的技术 — 用大模型的输出来训练小模型，学术界和工业界都在广泛使用。但未经授权、通过欺诈手段大规模蒸馏商业模型，性质完全不同。这触及了 AI 行业一个长期悬而未决的核心问题：<strong>模型的输出到底算谁的知识产权？</strong></p>
+<p>对 Anthropic 而言，这次公开指控是一个战略性动作。在 OpenAI 也曾<a href="https://openai.com/index/openai-and-deepseek/">暗示</a> DeepSeek 可能使用了其模型输出进行训练之后，Anthropic 选择了更直接的方式 — 公开数据、点名公司。这给整个行业画了一条明确的红线。</p>
+<p>对国内 AI 公司的影响更加直接。如果指控属实，相关模型的训练数据合规性将面临严重质疑。对于依赖这些模型的开发者和企业来说，这也是一个风险信号 — 模型能力的来源是否合规，正在成为选型时需要考虑的因素。</p>
+<p>更深层的影响在于，这可能加速 API 服务商的反蒸馏技术部署。未来通过 API 调用获取高质量训练数据的成本和难度都会显著上升。</p>
+<h2>技术细节</h2>
+<p><a href="/glossary/model-distillation">模型蒸馏</a>攻击的核心逻辑并不复杂：通过精心设计的 prompt 从目标模型中提取高质量的输入-输出对（input-output pairs），然后用这些数据微调自己的模型。关键在于规模和系统性。</p>
+<p>典型的蒸馏攻击流程：</p>
+<ol>
+<li><strong>大规模账号创建</strong>：使用虚假身份注册 API 账号，分散流量避免触发速率限制</li>
+<li><strong>结构化数据提取</strong>：覆盖不同领域、难度和任务类型，确保提取的知识具有广度和深度</li>
+<li><strong>Chain-of-Thought 提取</strong>：通过要求模型"一步步思考"来获取推理过程，这比单纯的答案更有训练价值</li>
+<li><strong>数据清洗与微调</strong>：将提取的对话数据处理后用于 SFT（监督微调）甚至 RLHF 训练</li>
+</ol>
+<p>2.4 万个账号、1600 万次交互 — 这个数字意味着平均每个账号约 667 次对话。这种分散模式显然是为了规避单账号的异常检测。Anthropic 能够识别这些攻击，说明其安全团队在流量模式分析和异常行为检测方面做了大量工作。</p>
+<p>防御手段通常包括：输出添加水印（watermarking）、检测自动化调用模式、限制批量 API 访问、以及在模型输出中嵌入可追踪的特征。但攻防始终是一场持续的博弈。</p>
+<h2>你现在该做什么</h2>
+<ol>
+<li><strong>关注后续进展</strong>。Anthropic 是否会采取法律行动、三家公司如何回应，将决定这件事的最终走向。目前三家公司均未公开回应。</li>
+<li><strong>审视你的模型选型</strong>。如果你在生产环境中使用被指控公司的模型，评估一下供应链风险。模型能力来源的合规性正在成为企业采购的考量因素。</li>
+<li><strong>如果你是模型训练者</strong>，确保训练数据的来源合规。通过 API 大规模提取竞品模型输出用于训练，法律和商业风险正在快速上升。</li>
+<li><strong>关注 API 服务条款变化</strong>。预计各大模型提供商会收紧反蒸馏条款和技术措施，这可能影响合法的 API 使用场景。</li>
+</ol>
+<p><strong>相关阅读</strong>：<a href="/newsletter/2026-03-08">今日简报</a> 有更多背景。另见：<a href="/compare/claude-vs-deepseek">Claude 与 DeepSeek 对比</a>。</p>
+<hr>
+<p><em>觉得有用？<a href="/subscribe">订阅 AI 简报</a>，每天 5 分钟掌握 AI 动态。</em></p>
+</div></div>
+    </div>
+        </div>
+      </details>
+      <details style="margin-bottom:8px">
+        <summary style="cursor:pointer;padding:8px;background:#fafafa;border-radius:4px">
+          <strong>claude-code-simplify-batch-skills</strong> — 992 EN / 1478 ZH words <span style="color:#22c55e;font-size:12px">(OK)</span>
+        </summary>
+        <div style="padding:12px">
+          
+          
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "Claude Code's New /simplify and /batch Skills: Automating PR Cleanup and Multi-Task Workflows"
+date: 2026-03-08
+slug: claude-code-simplify-batch-skills
+description: "Claude Code introduces /simplify and /batch skills to automate pull request cleanup and parallel task execution, streamlining developer workflows."
+keywords: ["Claude Code skills", "/simplify", "/batch", "Claude Code workflows"]
+category: DEV
+related_newsletter: 2026-03-08
+related_glossary: [claude-code, skill-md]
+related_compare: [claude-code-vs-cursor]
+lang: en
+video_ready: true
+video_hook: "Two new Claude Code skills that eliminate the tedious parts of shipping code"
+video_status: none</h2>
+<h1>Claude Code's New /simplify and /batch Skills: Automating PR Cleanup and Multi-Task Workflows</h1>
+<p><strong>Claude Code</strong> is adding two built-in skills that target the most time-consuming parts of shipping code: getting a pull request production-ready and running tasks in parallel. The <code>/simplify</code> and <code>/batch</code> commands, <a href="https://x.com/bcherny/status/2027534984534544489">announced by Anthropic engineer Boris Cherny</a>, automate work that developers currently do manually — reviewing changed code for reuse opportunities, cleaning up quality issues, and orchestrating multiple operations simultaneously. For teams already using Claude Code's <a href="/glossary/skill-md">skills system</a>, these two additions signal Anthropic's push toward opinionated, workflow-level automation rather than just code generation.</p>
+<h2>What Happened</h2>
+<p>Boris Cherny, who works on Claude Code at Anthropic, announced that the next version of <strong>Claude Code</strong> will ship with two new built-in skills: <code>/simplify</code> and <code>/batch</code>. Cherny noted he's been using both daily, describing them as automating "much of the work it used to take to shepherd a pull request to production."</p>
+<p><code>/simplify</code> reviews changed code and checks for opportunities to improve reuse, quality, and efficiency — then fixes any issues it finds. Think of it as an automated code review pass that doesn't just flag problems but resolves them. Instead of manually scanning your diff for redundant logic, missed abstractions, or quality gaps, you invoke <code>/simplify</code> and let Claude handle the cleanup.</p>
+<p><code>/batch</code> enables running a prompt or slash command on a recurring interval or across multiple targets. This turns Claude Code into a task orchestrator — you can parallelize independent operations, poll for status changes, or apply the same transformation across multiple files.</p>
+<p>The announcement comes during a significant period for Claude Code. The tool recently hit a milestone where <a href="https://x.com/SemiAnalysis_/status/2027458544493335008">4% of GitHub public commits are authored by Claude Code</a>, and Anthropic just launched Claude Code Remote for Pro users, HTTP hooks for extensibility, and scheduled tasks in Cowork mode.</p>
+<h2>Why It Matters</h2>
+<p>Most AI coding tools focus on generation — writing new code from a prompt. But experienced developers know that writing code is only part of shipping software. The unglamorous work of reviewing diffs, simplifying abstractions, ensuring consistency, and managing parallel workflows eats enormous amounts of time.</p>
+<p><code>/simplify</code> addresses the "last mile" problem of pull requests. After Claude Code (or a human) writes the initial implementation, the code often needs a cleanup pass: extracting shared logic, removing dead code, tightening error handling, improving naming. Developers either do this manually or skip it under time pressure. Having an automated pass that catches these issues before review means cleaner PRs, faster reviews, and less tech debt accumulation.</p>
+<p><code>/batch</code> solves a different pain point: orchestration. Developers frequently need to apply changes across multiple files, run the same check against several services, or execute independent tasks simultaneously. Without <code>/batch</code>, this means either running commands sequentially (slow) or writing custom scripts (overhead). The skill abstracts this into a simple invocation.</p>
+<p>The competitive angle matters too. <a href="/glossary/cursor">Cursor</a> and GitHub Copilot focus primarily on inline completion and chat-based generation. Neither offers built-in workflow automation at this level. By shipping opinionated skills that encode best practices — not just code generation capabilities — Anthropic is positioning <a href="/glossary/claude-code">Claude Code</a> as a development workflow tool, not just an AI assistant.</p>
+<h2>Technical Deep-Dive</h2>
+<p>Both skills build on Claude Code's existing <a href="/glossary/skill-md">SKILL.md</a> architecture. Skills are structured markdown files that define behavior patterns, and Claude Code's built-in skills follow the same convention as user-created ones.</p>
+<h3>/simplify</h3>
+<p>The <code>/simplify</code> skill operates on your current working changes. Based on the announcement and Claude Code's skill system patterns, it likely:</p>
+<ol>
+<li><strong>Identifies changed files</strong> from your git diff</li>
+<li><strong>Analyzes each change</strong> for code quality signals: duplicated logic, overly complex functions, unused imports, inconsistent patterns</li>
+<li><strong>Proposes and applies fixes</strong> directly, rather than just reporting issues</li>
+<li><strong>Validates results</strong> by ensuring tests still pass after modifications</li>
+</ol>
+<p>This is distinct from a linter. Linters catch syntactic issues and style violations. <code>/simplify</code> operates at a semantic level — recognizing that two functions share logic that could be extracted, or that a complex conditional could be simplified without changing behavior.</p>
+<p>The key design decision is that <code>/simplify</code> <em>fixes</em> issues rather than just flagging them. This aligns with Claude Code's action-oriented philosophy: the tool should do the work, not create a to-do list for the developer.</p>
+<h3>/batch</h3>
+<p><code>/batch</code> takes a prompt or slash command and runs it across multiple targets or on a schedule. The syntax follows a pattern like:</p>
+<pre><code>/batch /simplify across src/**/*.ts
+</code></pre>
+<p>This enables workflows that were previously manual or required custom scripting:</p>
+<ul>
+<li>Running code review across all changed files in a monorepo</li>
+<li>Applying a refactoring pattern to multiple modules</li>
+<li>Polling a deployment status at regular intervals</li>
+<li>Generating documentation for multiple endpoints</li>
+</ul>
+<p>One important constraint: batch operations that modify files need careful handling of conflicts. If two parallel <code>/simplify</code> runs both want to extract the same shared utility, the results could conflict. The implementation likely serializes dependent operations while parallelizing independent ones.</p>
+<h3>Limitations</h3>
+<p>Both skills inherit the constraints of Claude Code's skill system. They operate on local context — your codebase, your git state, your file system. They don't reach out to external services unless combined with Claude Code's recently launched <a href="https://x.com/bcherny/status/2029339111212126458">HTTP hooks</a>, which allow triggering external APIs in response to events.</p>
+<h2>What You Should Do</h2>
+<ol>
+<li><strong>Update Claude Code</strong> when the next version drops. These are built-in skills, so no configuration needed — just invoke <code>/simplify</code> or <code>/batch</code> directly.</li>
+<li><strong>Add <code>/simplify</code> to your pre-PR workflow</strong>. Run it after completing a feature and before opening a pull request. This catches cleanup opportunities while the code is fresh.</li>
+<li><strong>Use <code>/batch</code> for repetitive cross-file tasks</strong> instead of writing one-off scripts. Migration patterns, documentation updates, and style changes across modules are ideal candidates.</li>
+<li><strong>Combine with custom skills</strong> for maximum leverage. Your team's <code>/code-review</code> skill plus <code>/batch</code> means automated review across every changed file in a single command.</li>
+<li><strong>Watch for the HTTP hooks integration</strong>. Pairing <code>/batch</code> with hooks could enable powerful CI-adjacent workflows directly from your terminal.</li>
+</ol>
+<p><strong>Related</strong>: <a href="/newsletter/2026-03-08">Today's newsletter</a> covers the broader context of Claude Code's latest updates. See also: <a href="/blog/claude-code-skills-guide">Claude Code Skills System Guide</a>.</p>
+<hr>
+<p><em>Found this useful? <a href="/subscribe">Subscribe to AI News</a> for daily AI briefings.</em></p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><div class="md-content"><hr>
+<h2>title: "Claude Code 新技能 /simplify 和 /batch：代码审查和批量操作的效率飞跃"
+date: 2026-03-08
+slug: claude-code-simplify-batch-skills
+description: "Claude Code 即将上线 /simplify 和 /batch 两个内置 Skills，分别解决代码精简和批量文件操作的痛点。实测体验和使用建议。"
+keywords: ["Claude Code skills", "/simplify", "/batch", "Claude Code 新功能", "AI 编程工具"]
+category: DEV
+related_newsletter: 2026-03-08
+related_glossary: [claude-code, skill-md]
+related_compare: [claude-code-vs-cursor]
+lang: zh
+video_ready: true
+video_hook: "Claude Code 两个新 Skill，让 PR 从提交到合并快一倍"
+video_status: none</h2>
+<h1>Claude Code 新技能 /simplify 和 /batch：代码审查和批量操作的效率飞跃</h1>
+<p><strong>Claude Code</strong> 团队宣布下一版本将内置两个新 Skills：<strong>/simplify</strong> 和 <strong>/batch</strong>。前者自动审查代码变更，精简冗余、提升质量；后者对多个文件批量执行同一操作。这两个功能直击日常开发中最耗时的两个环节 — 把 PR 打磨到可合并状态，以及在大量文件上重复执行相似操作。如果你每天都在用 Claude Code 写代码，这两个 Skill 会显著改变你的工作流。</p>
+<h2>发生了什么</h2>
+<p>Claude Code 工程负责人 Boris Cherny 在推特上<a href="https://x.com/bcherny/status/2027534984534544489">宣布</a>，下一版本的 Claude Code 将引入 <code>/simplify</code> 和 <code>/batch</code> 两个内置 <a href="/glossary/skill-md">Skills</a>。他表示自己已经每天都在使用这两个功能。</p>
+<p><strong>/simplify</strong> 的定位是代码精简助手。当你完成一轮开发后，执行 <code>/simplify</code>，Claude Code 会审查你的变更，寻找可以复用的模式、可以提升的代码质量问题，以及可以优化的效率瓶颈，然后自动修复。本质上，它把 Code Review 中最机械的部分自动化了。</p>
+<p><strong>/batch</strong> 则解决批量操作问题。当你需要对项目中的多个文件执行类似的修改 — 比如批量更新 import 路径、统一错误处理模式、给多个组件加上相同的 props — <code>/batch</code> 让你描述一次操作，然后批量应用。</p>
+<p>这两个 Skill 随 <a href="/glossary/claude-code">Claude Code</a> 内置发布，不需要手动配置 <code>skills/</code> 目录，开箱即用。</p>
+<p>值得注意的时间点：这个发布恰好在 Claude Code 一周年之际。Boris 同时提到，目前 GitHub 上 4% 的公开提交来自 Claude Code，这个数字还在快速增长。</p>
+<h2>为什么重要</h2>
+<p>写代码和把代码送上生产之间，隔着大量的打磨工作。重命名不一致的变量、抽取重复逻辑、简化过度设计的抽象、统一错误处理 — 这些工作重要但枯燥，占据了 PR 从提交到合并的大部分时间。<code>/simplify</code> 把这个环节从手动审查变成了一键操作。</p>
+<p><code>/batch</code> 解决的则是另一个痛点：大规模重构。在一个几百个文件的项目里，把所有 <code>console.log</code> 换成结构化日志，或者给所有 API 路由加上统一的错误处理，传统做法要么写脚本，要么用 IDE 的查找替换再逐个检查。<code>/batch</code> 让你用自然语言描述意图，AI 理解语义后批量执行。</p>
+<p>从竞品角度看，<a href="/glossary/cursor">Cursor</a> 和 GitHub Copilot 目前都没有类似的内置工作流 Skill。Cursor 的 Tab 补全和 Cmd+K 编辑聚焦在单点操作，没有"审查整个 PR 并优化"这个粒度的功能。<code>/simplify</code> 和 <code>/batch</code> 让 Claude Code 在工作流层面拉开了差距。</p>
+<p>更深层的意义在于，这证明了 Skills 系统的可扩展性。Anthropic 不只是把 Skills 作为用户自定义的配置机制，还在用它来交付官方的工作流功能。未来大概率会看到更多内置 Skill。</p>
+<h2>技术细节</h2>
+<p>从已有的 <a href="/glossary/skill-md">SKILL.md 规范</a>推断，<code>/simplify</code> 和 <code>/batch</code> 的实现应该遵循同样的架构：Markdown 文件定义行为规则，Claude Code 运行时加载并执行。</p>
+<p><strong>/simplify</strong> 的工作流大致是：</p>
+<ol>
+<li>读取当前 Git diff（未提交的变更或指定的 PR）</li>
+<li>逐文件分析：是否有重复代码可抽取、命名是否一致、是否有不必要的复杂度</li>
+<li>生成修改建议并自动应用</li>
+<li>用户确认后提交</li>
+</ol>
+<p>这和手动写 Code Review 提示词的区别在于，内置 Skill 经过大量的 Prompt 工程优化，知道哪些模式值得改、哪些改动是过度优化。Boris 提到他"每天都在用"，说明经过了充分的内部测试。</p>
+<p><strong>/batch</strong> 的核心挑战是保持语义一致性。简单的文本替换用 <code>sed</code> 就能搞定，但如果你要"把所有错误处理从 try-catch 改成 Result 类型"，每个文件的上下文不同，需要 AI 逐个理解再修改。<code>/batch</code> 的价值在于它能处理这类需要语义理解的批量操作。</p>
+<p>目前已知的限制：这两个 Skill 还在下一版本中，具体的参数配置（比如 <code>/simplify</code> 的激进程度、<code>/batch</code> 的并发策略）尚未公开。预计会随正式发布一起出文档。</p>
+<p>对于已经在用自定义 Skills 的团队，官方内置 Skill 的优先级通常高于用户自定义 Skill。如果你有自己的 <code>skills/simplify/SKILL.md</code>，可能需要在正式发布后调整命名以避免冲突。</p>
+<h2>你现在该做什么</h2>
+<ol>
+<li><strong>关注 Claude Code 更新</strong>。<code>/simplify</code> 和 <code>/batch</code> 在下一版本发布，确保你的 Claude Code 保持最新。</li>
+<li><strong>现在就可以用自定义 Skill 模拟类似功能</strong>。在 <code>skills/</code> 目录下创建你自己的代码审查 Skill，定义你团队的质量标准和常见问题模式。官方版本发布后可以做对比。</li>
+<li><strong>梳理你的批量操作需求</strong>。想想过去一个月你做过哪些"对很多文件做类似修改"的工作，这些都是 <code>/batch</code> 上线后的第一批使用场景。</li>
+<li><strong>如果还没用 Claude Code 的 Skills 系统，现在是最好的入门时机</strong>。从 <a href="https://docs.anthropic.com/claude-code/skills">SKILL.md 文档</a>开始，先写一个最简单的 Skill 跑通流程。</li>
+</ol>
+<p><strong>相关阅读</strong>：<a href="/newsletter/2026-03-08">今日简报</a> 有更多 Claude Code 生态动态。另见：<a href="/blog/claude-code-skills-guide">Claude Code Skills 系统完全指南</a>。</p>
+<hr>
+<p><em>觉得有用？<a href="/subscribe">订阅 AI 简报</a>，每天 5 分钟掌握 AI 动态。</em></p>
+</div></div>
+    </div>
+        </div>
+      </details></section>
+<section id="seo"><h2>SEO Pages (4)</h2>
+      <details style="margin-bottom:8px" open>
+        <summary style="cursor:pointer;padding:8px;background:#f0f0f0;border-radius:4px;font-weight:600">
+          glossary (4)
+        </summary>
+        <div style="padding:8px 0">
+        <details style="margin-bottom:4px;margin-left:16px">
+          <summary style="cursor:pointer;padding:6px;background:#fafafa;border-radius:4px">
+            chatgpt <span style="color:#22c55e;font-size:12px">(OK)</span>
+          </summary>
+          <div style="padding:12px">
+            
+            
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "ChatGPT — AI Glossary"
+slug: chatgpt
+description: "What is ChatGPT? OpenAI's conversational AI assistant built on the GPT family of large language models."
+term: chatgpt
+display_term: "ChatGPT"
+category: tools
+related_glossary: [gpt, gpt-54, fine-tuning, cursor]
+related_blog: [anthropic-distillation-attacks-deepseek-moonshot-minimax]
+related_compare: []
+lang: en</h2>
+<h1>ChatGPT — AI Glossary</h1>
+<p><strong>ChatGPT</strong> is OpenAI's conversational AI product built on the <a href="/glossary/gpt">GPT</a> family of large language models. It accepts text and image inputs, generates natural-language responses, and can execute tasks like writing code, summarizing documents, and answering multi-turn questions. Launched in November 2022, ChatGPT brought LLM-based chat interfaces to mainstream adoption — crossing 100 million users within two months of release.</p>
+<h2>Why ChatGPT Matters</h2>
+<p>ChatGPT set the template for how people interact with large language models. Before its launch, GPT-3 existed as an API — powerful but inaccessible to non-developers. By wrapping inference in a simple chat interface, OpenAI turned a research artifact into a consumer product that reshaped expectations across every industry.</p>
+<p>For the AI ecosystem, ChatGPT's success triggered an arms race. Google accelerated Gemini, Anthropic scaled Claude, and open-source projects like LLaMA proliferated — all chasing the conversational AI paradigm ChatGPT popularized. Its plugin system and later GPT Store introduced the concept of customizable AI agents to a broad audience. Our coverage of <a href="/blog/anthropic-distillation-attacks-deepseek-moonshot-minimax">model competition dynamics</a> traces how this competitive pressure reshaped the industry.</p>
+<h2>How ChatGPT Works</h2>
+<p>ChatGPT runs on OpenAI's <a href="/glossary/gpt">GPT</a> models, with different tiers offering access to different versions — GPT-4o for free users, GPT-4.5 and reasoning models for paid subscribers. The system uses reinforcement learning from human feedback (RLHF) to align model outputs with user intent, reducing harmful or unhelpful responses compared to raw base models.</p>
+<p>Key components:</p>
+<ul>
+<li><strong>System prompts</strong>: Hidden instructions that shape behavior for different use cases (custom GPTs, enterprise deployments)</li>
+<li><strong>Tool use</strong>: Code Interpreter executes Python in a sandbox; browsing retrieves live web data; DALL-E generates images</li>
+<li><strong>Memory</strong>: Persistent context across conversations, storing user preferences and prior interactions</li>
+<li><strong><a href="/glossary/fine-tuning">Fine-tuning</a> pipeline</strong>: Enterprise customers can customize model behavior on proprietary data via OpenAI's API</li>
+</ul>
+<h2>Related Terms</h2>
+<ul>
+<li><strong><a href="/glossary/gpt">GPT</a></strong>: The underlying model architecture powering ChatGPT's language capabilities</li>
+<li><strong><a href="/glossary/gpt-54">GPT-5.4</a></strong>: OpenAI's latest generation model with expanded reasoning and multimodal abilities</li>
+<li><strong><a href="/glossary/fine-tuning">Fine-Tuning</a></strong>: The process of adapting a pretrained model to specific tasks or domains</li>
+</ul>
+<hr>
+<p><em>Want more AI insights? <a href="/subscribe">Subscribe to LoreAI</a> for daily briefings.</em></p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><div class="md-content"><hr>
+<h2>title: "ChatGPT — AI 术语表"
+slug: chatgpt
+description: "什么是 ChatGPT？OpenAI 推出的对话式 AI 助手，基于 GPT 系列大语言模型构建。"
+term: chatgpt
+display_term: "ChatGPT"
+category: models
+related_glossary: [gpt, fine-tuning, cursor]
+related_blog: [anthropic-distillation-attacks-deepseek-moonshot-minimax]
+related_compare: []
+lang: zh</h2>
+<h1>ChatGPT — AI 术语表</h1>
+<p><strong>ChatGPT</strong> 是 OpenAI 开发的对话式 AI 产品，基于 <a href="/glossary/gpt">GPT</a> 系列大语言模型构建。用户通过自然语言与它交互，可以完成问答、写作、编程辅助、数据分析等任务。自 2022 年 11 月发布以来，ChatGPT 成为历史上用户增长最快的消费级应用之一，直接推动了生成式 AI 的大规模普及。</p>
+<h2>为什么 ChatGPT 重要</h2>
+<p>ChatGPT 的意义不仅在于产品本身，而在于它重新定义了普通人与 AI 的交互方式。在此之前，大语言模型主要停留在研究领域；ChatGPT 把它变成了一个任何人都能用的工具。</p>
+<p>它的成功引发了整个行业的连锁反应——Google 加速推出 Gemini，Anthropic 发布 Claude，Meta 开源 LLaMA 系列。可以说，当前 AI 领域的竞争格局很大程度上由 ChatGPT 的出现所塑造。关于各家模型厂商的竞争动态，可参考我们的<a href="/blog/anthropic-distillation-attacks-deepseek-moonshot-minimax">行业分析</a>。</p>
+<h2>ChatGPT 的工作原理</h2>
+<p>ChatGPT 底层使用经过 <a href="/glossary/fine-tuning">RLHF（人类反馈强化学习）</a> 训练的 GPT 模型。核心流程分三步：</p>
+<ol>
+<li><strong>预训练</strong>：在海量文本数据上学习语言模式和世界知识</li>
+<li><strong>指令微调</strong>：用人工标注的对话数据训练模型遵循指令</li>
+<li><strong>RLHF 对齐</strong>：通过人类偏好排序进一步优化回答质量</li>
+</ol>
+<p>OpenAI 持续迭代底层模型——从 GPT-3.5 到 <a href="/glossary/gpt">GPT-4</a> 再到更新的版本，每次升级都带来推理能力和多模态支持的提升。ChatGPT 还支持插件、联网搜索、代码执行等扩展功能，逐步从聊天工具演变为通用 AI 平台。</p>
+<h2>相关术语</h2>
+<ul>
+<li><strong><a href="/glossary/gpt">GPT</a></strong>：ChatGPT 背后的基础模型架构，由 OpenAI 开发的生成式预训练 Transformer</li>
+<li><strong><a href="/glossary/fine-tuning">Fine-tuning</a></strong>：ChatGPT 使用的关键训练技术，包括指令微调和 RLHF</li>
+<li><strong><a href="/glossary/cursor">Cursor</a></strong>：集成了 ChatGPT/GPT-4 等模型的 AI 代码编辑器</li>
+</ul>
+<hr>
+<p><em>觉得有用？<a href="/subscribe">订阅 LoreAI</a>，每天 5 分钟掌握 AI 动态。</em></p>
+</div></div>
+    </div>
+          </div>
+        </details>
+        <details style="margin-bottom:4px;margin-left:16px">
+          <summary style="cursor:pointer;padding:6px;background:#fafafa;border-radius:4px">
+            google-deepmind <span style="color:#22c55e;font-size:12px">(OK)</span>
+          </summary>
+          <div style="padding:12px">
+            
+            
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "Google DeepMind — AI Glossary"
+slug: google-deepmind
+description: "What is Google DeepMind? Google's primary AI research lab behind Gemini, AlphaFold, and foundational advances in deep learning."
+term: google-deepmind
+display_term: "Google DeepMind"
+category: models
+related_glossary: [gpt, fine-tuning, chatgpt]
+related_blog: [anthropic-distillation-attacks-deepseek-moonshot-minimax]
+related_compare: []
+lang: en</h2>
+<h1>Google DeepMind — AI Glossary</h1>
+<p><strong>Google DeepMind</strong> is Google's central AI research laboratory, formed in April 2023 by merging DeepMind (founded 2010, acquired by Google in 2014) and Google Brain. It develops frontier AI models — including the Gemini family — and conducts fundamental research across deep learning, reinforcement learning, and scientific AI applications like protein structure prediction.</p>
+<h2>Why Google DeepMind Matters</h2>
+<p>Google DeepMind is one of a handful of labs pushing the frontier of AI capabilities. Its research output directly shapes the models powering Google Search, Android, Cloud, and Workspace products — reaching billions of users. Beyond commercial applications, its scientific work has produced genuinely transformative results: <strong>AlphaFold</strong> predicted the 3D structure of virtually every known protein, accelerating drug discovery and biological research worldwide.</p>
+<p>The lab also drives the competitive dynamics of the AI industry. Its <strong>Gemini</strong> model series competes directly with OpenAI's <a href="/glossary/gpt">GPT</a> family and Anthropic's Claude, pushing all three organizations to iterate faster on capability, safety, and efficiency. For context on competitive pressures in the frontier lab space, see our <a href="/blog/anthropic-distillation-attacks-deepseek-moonshot-minimax">coverage of distillation and model competition</a>.</p>
+<h2>How Google DeepMind Works</h2>
+<p>Google DeepMind operates as a unified research-and-product organization under CEO Demis Hassabis. Key research areas include:</p>
+<ul>
+<li><strong>Frontier language models</strong>: The Gemini series (Ultra, Pro, Flash) — multimodal models trained on text, image, audio, and video</li>
+<li><strong>Scientific AI</strong>: AlphaFold for protein folding, AlphaGeometry for mathematical reasoning, weather prediction models</li>
+<li><strong>Reinforcement learning</strong>: Pioneered deep RL with AlphaGo (2016), which defeated the world Go champion — a landmark moment for AI</li>
+<li><strong>AI safety</strong>: Research on alignment, interpretability, and responsible deployment, including structured evaluation frameworks for frontier models</li>
+</ul>
+<p>The lab benefits from access to Google's massive compute infrastructure (TPU clusters) and proprietary data, giving it a scale advantage few organizations can match.</p>
+<h2>Related Terms</h2>
+<ul>
+<li><strong><a href="/glossary/gpt">GPT</a></strong>: OpenAI's competing family of large language models, the primary rival to DeepMind's Gemini series</li>
+<li><strong><a href="/glossary/fine-tuning">Fine-Tuning</a></strong>: A technique Google DeepMind uses and researches to adapt large foundation models for specific tasks</li>
+<li><strong><a href="/glossary/chatgpt">ChatGPT</a></strong>: OpenAI's consumer AI product, competing with Google's Gemini-powered chatbot</li>
+</ul>
+<hr>
+<p><em>Want more AI insights? <a href="/subscribe">Subscribe to LoreAI</a> for daily briefings.</em></p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><div class="md-content"><hr>
+<h2>title: "Google DeepMind — AI 术语表"
+slug: google-deepmind
+description: "什么是 Google DeepMind？Google 旗下的顶级 AI 研究实验室，专注于通用人工智能研究。"
+term: google-deepmind
+display_term: "Google DeepMind"
+category: models
+related_glossary: [gpt, chatgpt, fine-tuning]
+related_blog: [anthropic-distillation-attacks-deepseek-moonshot-minimax]
+related_compare: []
+lang: zh</h2>
+<h1>Google DeepMind — AI 术语表</h1>
+<p><strong>Google DeepMind</strong> 是 Google 旗下的人工智能研究实验室，由原 DeepMind 和 Google Brain 两支顶级团队于 2023 年合并而成。它负责 Google 最前沿的 AI 基础研究与模型开发，包括 Gemini 系列大语言模型，是当前全球最具影响力的 AI 研究机构之一。</p>
+<h2>为什么 Google DeepMind 重要</h2>
+<p>Google DeepMind 的研究直接定义了行业技术边界。从 AlphaGo 击败围棋世界冠军，到 AlphaFold 预测蛋白质三维结构并获得诺贝尔化学奖认可，再到 Gemini 模型在多模态理解上与 <a href="/glossary/gpt">GPT</a> 系列正面竞争——这支团队的产出持续重塑 AI 的可能性。</p>
+<p>对开发者而言，Google DeepMind 的工作通过 Google Cloud Vertex AI 和 Gemini API 直接转化为可用产品。了解其研究方向有助于判断技术趋势。我们在<a href="/blog/anthropic-distillation-attacks-deepseek-moonshot-minimax">近期报道</a>中分析了各大实验室之间的技术竞争态势。</p>
+<h2>Google DeepMind 的运作方式</h2>
+<p>合并后的 Google DeepMind 由 Demis Hassabis 领导，总部位于伦敦，在全球多地设有研究中心。团队涵盖强化学习、神经网络架构、AI 安全等核心方向。</p>
+<p>关键技术成果：</p>
+<ul>
+<li><strong>Gemini 系列</strong>：Google 的旗舰多模态大模型，原生支持文本、图像、音频和视频理解</li>
+<li><strong>AlphaFold</strong>：蛋白质结构预测系统，已预测超过 2 亿种蛋白质结构，开放给全球研究者使用</li>
+<li><strong>Transformer 架构</strong>：Google Brain 团队（现已并入）是 Transformer 的发明者，这一架构是几乎所有现代大语言模型的基础</li>
+</ul>
+<h2>相关术语</h2>
+<ul>
+<li><strong><a href="/glossary/gpt">GPT</a></strong>：OpenAI 的生成式预训练模型系列，Google DeepMind 的 Gemini 在多项基准上与之直接竞争</li>
+<li><strong><a href="/glossary/chatgpt">ChatGPT</a></strong>：基于 GPT 的对话产品，与 Google 的 Gemini 应用形成消费级 AI 市场竞争</li>
+<li><strong><a href="/glossary/fine-tuning">Fine-tuning</a></strong>：模型微调技术，Google DeepMind 在 Gemini API 中提供该能力供开发者定制模型</li>
+</ul>
+<hr>
+<p><em>觉得有用？<a href="/subscribe">订阅 LoreAI</a>，每天 5 分钟掌握 AI 动态。</em></p>
+</div></div>
+    </div>
+          </div>
+        </details>
+        <details style="margin-bottom:4px;margin-left:16px">
+          <summary style="cursor:pointer;padding:6px;background:#fafafa;border-radius:4px">
+            meta <span style="color:#ef4444;font-size:12px">(1 issue)</span>
+          </summary>
+          <div style="padding:12px">
+            <div style="background:#fef2f2;padding:8px 12px;border-radius:4px;margin-bottom:12px;font-size:13px;color:#991b1b"><div>• Missing ZH version</div></div>
+            
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "Meta — AI Glossary"
+slug: meta
+description: "What is Meta? The tech company behind LLaMA, open-weight AI models, and the Metaverse vision."
+term: meta
+display_term: "Meta"
+category: models
+related_glossary: [fine-tuning, gpt, chatgpt]
+related_blog: [anthropic-distillation-attacks-deepseek-moonshot-minimax]
+related_compare: []
+lang: en</h2>
+<h1>Meta — AI Glossary</h1>
+<p><strong>Meta</strong> (formerly Facebook) is the technology company behind the <strong>LLaMA</strong> family of large language models and one of the most influential players in open-weight AI research. Headquartered in Menlo Park, California, Meta operates Facebook, Instagram, WhatsApp, and Reality Labs — but its AI division, Meta AI (formerly FAIR), has become a major force shaping how the industry builds and distributes foundation models.</p>
+<h2>Why Meta Matters</h2>
+<p>Meta's decision to release LLaMA models under permissive licenses fundamentally changed the AI landscape. Before LLaMA, frontier-class models were locked behind API paywalls from OpenAI and Google. Meta's open-weight approach gave researchers, startups, and enterprises direct access to powerful base models they could <a href="/glossary/fine-tuning">fine-tune</a> for specific use cases — no API dependency required.</p>
+<p>This strategy created an entire ecosystem. Models like Mistral, Vicuna, and CodeLlama all trace their lineage to Meta's releases. The competitive pressure also pushed other labs to open up: Google released Gemma, and Alibaba released Qwen. Our <a href="/blog/anthropic-distillation-attacks-deepseek-moonshot-minimax">coverage of distillation and open-weight dynamics</a> explores how this open-weight ecosystem interacts with proprietary model development.</p>
+<h2>How Meta Works in AI</h2>
+<p>Meta AI operates as both a research lab and a product team. On the research side, FAIR publishes papers on self-supervised learning, multimodal models, and AI safety. On the product side, Meta integrates AI across its apps — from content recommendation on Instagram to the Meta AI assistant built into WhatsApp and Messenger.</p>
+<p>Key contributions:</p>
+<ul>
+<li><strong>LLaMA series</strong>: Open-weight LLMs from 7B to 405B parameters, competitive with <a href="/glossary/gpt">GPT</a> models on major benchmarks</li>
+<li><strong>Segment Anything (SAM)</strong>: Foundation model for image segmentation, widely adopted in computer vision</li>
+<li><strong>PyTorch</strong>: The deep learning framework Meta developed that became the industry standard for AI research</li>
+</ul>
+<p>Meta trains its models on custom-built GPU clusters, reportedly one of the largest AI compute infrastructures outside of Google and Microsoft.</p>
+<h2>Related Terms</h2>
+<ul>
+<li><strong><a href="/glossary/fine-tuning">Fine-Tuning</a></strong>: The technique used to adapt Meta's open-weight LLaMA models for domain-specific tasks</li>
+<li><strong><a href="/glossary/gpt">GPT</a></strong>: OpenAI's competing model family, which Meta's LLaMA benchmarks are frequently compared against</li>
+<li><strong><a href="/glossary/chatgpt">ChatGPT</a></strong>: OpenAI's consumer chatbot, the primary competitor to Meta AI's assistant products</li>
+</ul>
+<hr>
+<p><em>Want more AI insights? <a href="/subscribe">Subscribe to LoreAI</a> for daily briefings.</em></p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><p style="color:#a3a3a3"><em>Not found</em></p></div>
+    </div>
+          </div>
+        </details>
+        <details style="margin-bottom:4px;margin-left:16px">
+          <summary style="cursor:pointer;padding:6px;background:#fafafa;border-radius:4px">
+            model-context-protocol <span style="color:#22c55e;font-size:12px">(OK)</span>
+          </summary>
+          <div style="padding:12px">
+            
+            
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "MCP (Model Context Protocol) — AI Glossary"
+slug: model-context-protocol
+description: "What is MCP? An open protocol that connects AI models to external tools, data sources, and services."
+term: model-context-protocol
+display_term: "MCP (Model Context Protocol)"
+category: frameworks
+related_glossary: [cursor, chatgpt, gpt]
+related_blog: [claude-code-simplify-batch-skills]
+related_compare: []
+lang: en</h2>
+<h1>MCP (Model Context Protocol) — AI Glossary</h1>
+<p><strong>MCP (Model Context Protocol)</strong> is an open standard developed by Anthropic that defines how AI models connect to external tools, data sources, and services through a unified interface. Instead of building custom integrations for every tool an AI agent needs to access — databases, APIs, file systems, web browsers — MCP provides a single protocol that any compliant client and server can use to communicate. Think of it as USB-C for AI integrations: one standard connector replacing dozens of proprietary ones.</p>
+<h2>Why MCP Matters</h2>
+<p>Before MCP, every AI tool integration required bespoke code. A coding assistant that needed to query a database, read documentation, and post to Slack required three separate integration implementations with different authentication patterns, data formats, and error handling. MCP eliminates this fragmentation.</p>
+<p>The protocol has gained rapid adoption across the AI tooling ecosystem. <a href="/glossary/cursor">Cursor</a> and other AI-powered IDEs support MCP servers, letting developers extend their AI assistants with custom capabilities without modifying the underlying application. For teams building internal tools, MCP means writing one server that works with any compliant AI client. Our <a href="/blog/claude-code-simplify-batch-skills">guide to Claude Code skills</a> covers how MCP servers integrate into practical development workflows.</p>
+<h2>How MCP Works</h2>
+<p>MCP uses a client-server architecture over JSON-RPC. An <strong>MCP server</strong> exposes a set of capabilities — called tools, resources, and prompts — that any <strong>MCP client</strong> (like Claude Code or Cursor) can discover and invoke.</p>
+<p>Key components:</p>
+<ul>
+<li><strong>Tools</strong>: Executable functions the AI can call (e.g., <code>query_database</code>, <code>send_message</code>, <code>search_docs</code>)</li>
+<li><strong>Resources</strong>: Data the AI can read, similar to GET endpoints (files, database records, API responses)</li>
+<li><strong>Prompts</strong>: Reusable prompt templates the server provides to guide AI interactions</li>
+<li><strong>Transport</strong>: Supports stdio for local servers and HTTP with Server-Sent Events for remote connections</li>
+</ul>
+<p>Servers declare their capabilities on connection. The AI client inspects available tools and decides when to use them based on the user's request — no hardcoded logic required.</p>
+<h2>Related Terms</h2>
+<ul>
+<li><strong><a href="/glossary/cursor">Cursor</a></strong>: AI-powered code editor that supports MCP servers for extending its capabilities beyond code completion</li>
+<li><strong><a href="/glossary/gpt">GPT</a></strong>: OpenAI's model family; function calling in GPT models solves a similar problem to MCP but through a proprietary interface</li>
+<li><strong><a href="/glossary/fine-tuning">Fine-tuning</a></strong>: An alternative approach to specializing AI behavior — baking knowledge into model weights rather than connecting to external tools at runtime</li>
+</ul>
+<hr>
+<p><em>Want more AI insights? <a href="/subscribe">Subscribe to LoreAI</a> for daily briefings.</em></p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><div class="md-content"><hr>
+<h2>title: "MCP（Model Context Protocol）— AI 术语表"
+slug: model-context-protocol
+description: "什么是 MCP？Anthropic 推出的开放协议，让 AI 模型安全连接外部工具和数据源。"
+term: model-context-protocol
+display_term: "MCP"
+category: frameworks
+related_glossary: [claude-code, cursor]
+related_blog: [claude-code-simplify-batch-skills]
+related_compare: []
+lang: zh</h2>
+<h1>MCP（Model Context Protocol）— AI 术语表</h1>
+<p><strong>MCP（Model Context Protocol）</strong> 是 Anthropic 推出的开放标准协议，定义了 AI 模型与外部工具、数据源之间的通信方式。它解决的核心问题是：大语言模型虽然能力强大，但天生被困在文本输入输出的沙盒里——MCP 给了模型一个标准化的「插座」，让它能安全地调用数据库、API、文件系统等外部资源。</p>
+<h2>为什么 MCP 重要</h2>
+<p>在 MCP 出现之前，每个 AI 工具连接外部服务都要写定制化的集成代码。这导致生态碎片化严重——同一个数据库连接器，可能要为十个不同的 AI 产品各写一遍。</p>
+<p>MCP 用「客户端-服务器」的标准架构统一了这个问题。工具开发者只需要写一个 MCP server，所有支持 MCP 的 AI 客户端都能直接使用。<a href="/glossary/claude-code">Claude Code</a> 是最早原生支持 MCP 的开发工具之一，通过 MCP server 扩展能力边界——从查询数据库到操作云服务，都可以通过配置 MCP server 实现。我们在 <a href="/blog/claude-code-simplify-batch-skills">Claude Code 技能指南</a> 中详细介绍了这种扩展机制。</p>
+<h2>MCP 的工作原理</h2>
+<p>MCP 采用 JSON-RPC 2.0 作为通信协议，架构分三层：</p>
+<ul>
+<li><strong>MCP Host</strong>：发起请求的 AI 应用（如 Claude Code、<a href="/glossary/cursor">Cursor</a>）</li>
+<li><strong>MCP Client</strong>：嵌入在 Host 中的协议客户端，负责维护与 Server 的连接</li>
+<li><strong>MCP Server</strong>：暴露具体能力的服务端，每个 server 声明自己提供哪些工具（tools）、资源（resources）和提示模板（prompts）</li>
+</ul>
+<p>连接建立后，Host 通过 Client 发现 Server 提供的能力列表，AI 模型根据任务需要选择调用。整个过程支持权限控制——用户可以审批每次工具调用，防止未授权操作。传输层支持 stdio（本地进程）和 HTTP+SSE（远程服务）两种模式。</p>
+<h2>相关术语</h2>
+<ul>
+<li><strong><a href="/glossary/claude-code">Claude Code</a></strong>：Anthropic 的终端 AI 编程工具，原生支持 MCP server 扩展</li>
+<li><strong><a href="/glossary/cursor">Cursor</a></strong>：支持 MCP 协议的 AI 代码编辑器，可通过 MCP server 连接外部工具</li>
+<li><strong><a href="/glossary/chatgpt">ChatGPT</a></strong>：OpenAI 的对话 AI，采用独立的插件/GPTs 体系而非 MCP 协议</li>
+</ul>
+<hr>
+<p><em>觉得有用？<a href="/subscribe">订阅 LoreAI</a>，每天 5 分钟掌握 AI 动态。</em></p>
+</div></div>
+    </div>
+          </div>
+        </details></div>
+      </details></section>
+
+    <section id="data">
+      <h2>Data</h2>
+      <h3>Filtered Items</h3>
+      
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr><th>Score</th><th>Category</th><th>Title</th><th>Source</th><th style="text-align:right">Likes</th></tr></thead>
+          <tbody>
+      <tr>
+        <td>97</td>
+        <td>LAUNCH</td>
+        <td title="Introducing Claude Sonnet 4.6">Introducing Claude Sonnet 4.6</td>
+        <td>blog:Anthropic News</td>
+        <td style="text-align:right">0</td>
+      </tr>
+      <tr>
+        <td>96</td>
+        <td>LAUNCH</td>
+        <td title="GPT-5.4 Thinking and GPT-5.4 Pro rolling out in ChatGPT and API">GPT-5.4 Thinking and GPT-5.4 Pro rolling out in ChatGPT and API</td>
+        <td>twitter:@OpenAI</td>
+        <td style="text-align:right">12,056</td>
+      </tr>
+      <tr>
+        <td>95</td>
+        <td>RESEARCH</td>
+        <td title="Anthropic identifies industrial-scale distillation attacks by DeepSeek, Moonshot AI, and MiniMax">Anthropic identifies industrial-scale distillation attacks by DeepSeek, Moonshot…</td>
+        <td>twitter:@AnthropicAI</td>
+        <td style="text-align:right">55,223</td>
+      </tr>
+      <tr>
+        <td>93</td>
+        <td>INSIGHT</td>
+        <td title="Dario Amodei statement on Anthropic's discussions with the Department of War">Dario Amodei statement on Anthropic's discussions with the Department of War</td>
+        <td>twitter:@AnthropicAI</td>
+        <td style="text-align:right">56,249</td>
+      </tr>
+      <tr>
+        <td>92</td>
+        <td>TOOL</td>
+        <td title="Claude Code Security: scan codebases for vulnerabilities with AI-suggested patches">Claude Code Security: scan codebases for vulnerabilities with AI-suggested patch…</td>
+        <td>twitter:@claudeai</td>
+        <td style="text-align:right">50,025</td>
+      </tr>
+      <tr>
+        <td>91</td>
+        <td>LAUNCH</td>
+        <td title="Gemini 3.1 Flash-Lite: Built for intelligence at scale">Gemini 3.1 Flash-Lite: Built for intelligence at scale</td>
+        <td>rss:DeepMind Blog</td>
+        <td style="text-align:right">8,794</td>
+      </tr>
+      <tr>
+        <td>90</td>
+        <td>RESEARCH</td>
+        <td title="Designing AI-resistant technical evaluations">Designing AI-resistant technical evaluations</td>
+        <td>blog:Anthropic Engineering</td>
+        <td style="text-align:right">0</td>
+      </tr>
+      <tr>
+        <td>89</td>
+        <td>TOOL</td>
+        <td title="Claude Code Remote Control: kick off terminal tasks, control from your phone">Claude Code Remote Control: kick off terminal tasks, control from your phone</td>
+        <td>twitter:@claudeai</td>
+        <td style="text-align:right">44,223</td>
+      </tr>
+      <tr>
+        <td>88</td>
+        <td>INSIGHT</td>
+        <td title="OpenAI reaches agreement with Department of War to deploy models in classified network">OpenAI reaches agreement with Department of War to deploy models in classified n…</td>
+        <td>twitter:@sama</td>
+        <td style="text-align:right">34,437</td>
+      </tr>
+      <tr>
+        <td>88</td>
+        <td>INSIGHT</td>
+        <td title="Karpathy: programming has fundamentally changed in the last 2 months">Karpathy: programming has fundamentally changed in the last 2 months</td>
+        <td>twitter:@karpathy</td>
+        <td style="text-align:right">36,984</td>
+      </tr>
+      <tr>
+        <td>87</td>
+        <td>INSIGHT</td>
+        <td title="Anthropic acquires Vercept to advance Claude's computer use capabilities">Anthropic acquires Vercept to advance Claude's computer use capabilities</td>
+        <td>blog:Anthropic News</td>
+        <td style="text-align:right">0</td>
+      </tr>
+      <tr>
+        <td>86</td>
+        <td>TOOL</td>
+        <td title="Claude Code introducing /simplify and /batch skills">Claude Code introducing /simplify and /batch skills</td>
+        <td>twitter:@bcherny</td>
+        <td style="text-align:right">12,781</td>
+      </tr>
+      <tr>
+        <td>86</td>
+        <td>BUILD</td>
+        <td title="Karpathy: Train and inference GPT in 243 lines of pure, dependency-free Python">Karpathy: Train and inference GPT in 243 lines of pure, dependency-free Python</td>
+        <td>twitter:@karpathy</td>
+        <td style="text-align:right">25,229</td>
+      </tr>
+      <tr>
+        <td>85</td>
+        <td>LAUNCH</td>
+        <td title="Nano Banana 2: Combining Pro capabilities with lightning-fast speed">Nano Banana 2: Combining Pro capabilities with lightning-fast speed</td>
+        <td>rss:DeepMind Blog</td>
+        <td style="text-align:right">0</td>
+      </tr>
+      <tr>
+        <td>84</td>
+        <td>TECHNIQUE</td>
+        <td title="Karpathy: CLIs are super exciting because AI agents can natively use them">Karpathy: CLIs are super exciting because AI agents can natively use them</td>
+        <td>twitter:@karpathy</td>
+        <td style="text-align:right">11,698</td>
+      </tr>
+      <tr>
+        <td>83</td>
+        <td>LAUNCH</td>
+        <td title="GLM-5 by ZAI (Zhipu AI)">GLM-5 by ZAI (Zhipu AI)</td>
+        <td>huggingface:trending</td>
+        <td style="text-align:right">1,713</td>
+      </tr>
+      <tr>
+        <td>80</td>
+        <td>TECHNIQUE</td>
+        <td title="LLMs work best when the user defines their acceptance criteria first">LLMs work best when the user defines their acceptance criteria first</td>
+        <td>hackernews</td>
+        <td style="text-align:right">393</td>
+      </tr>
+      <tr>
+        <td>80</td>
+        <td>LAUNCH</td>
+        <td title="MiniMax-M2.5 by MiniMaxAI">MiniMax-M2.5 by MiniMaxAI</td>
+        <td>huggingface:trending</td>
+        <td style="text-align:right">1,096</td>
+      </tr>
+      <tr>
+        <td>78</td>
+        <td>TOOL</td>
+        <td title="Perplexity pplx-embed-v1 (0.6B) embedding model">Perplexity pplx-embed-v1 (0.6B) embedding model</td>
+        <td>huggingface:trending</td>
+        <td style="text-align:right">125</td>
+      </tr>
+      <tr>
+        <td>76</td>
+        <td>BUILD</td>
+        <td title="LocoOperator-4B: GUI agent model by LocoreMind">LocoOperator-4B: GUI agent model by LocoreMind</td>
+        <td>huggingface:trending</td>
+        <td style="text-align:right">268</td>
+      </tr></tbody>
+        </table>
+        <p style="font-size:12px;color:#737373">20 items</p>
+      </div>
+      <h3 style="margin-top:24px">Blog Seeds</h3>
+      
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr><th>Score</th><th>Topic</th><th>Source</th><th>Angle</th></tr></thead>
+          <tbody>
+      <tr>
+        <td>41.8</td>
+        <td title="Claude Code Security: scan codebases for vulnerabilities with AI-suggested patches">Claude Code Security: scan codebases for vulnerabilities with AI-suggested patch…</td>
+        <td>twitter:@claudeai</td>
+        <td>news</td>
+      </tr>
+      <tr>
+        <td>32.7</td>
+        <td title="Dario Amodei statement on Anthropic's discussions with the Department of War">Dario Amodei statement on Anthropic's discussions with the Department of War</td>
+        <td>twitter:@AnthropicAI</td>
+        <td>news</td>
+      </tr>
+      <tr>
+        <td>30.7</td>
+        <td title="Claude Code Remote Control: kick off terminal tasks, control from your phone">Claude Code Remote Control: kick off terminal tasks, control from your phone</td>
+        <td>twitter:@claudeai</td>
+        <td>news</td>
+      </tr>
+      <tr>
+        <td>30.5</td>
+        <td title="Anthropic identifies industrial-scale distillation attacks by DeepSeek, Moonshot AI, and MiniMax">Anthropic identifies industrial-scale distillation attacks by DeepSeek, Moonshot…</td>
+        <td>twitter:@AnthropicAI</td>
+        <td>analysis</td>
+      </tr>
+      <tr>
+        <td>29.1</td>
+        <td title="Claude Code introducing /simplify and /batch skills">Claude Code introducing /simplify and /batch skills</td>
+        <td>twitter:@bcherny</td>
+        <td>news</td>
+      </tr></tbody>
+        </table>
+        <p style="font-size:12px;color:#737373">5 seeds</p>
+      </div>
+    </section>
+
+    <section id="keywords">
+      <h2>Keywords</h2>
+      <h3>Discovered Today</h3>
+      
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr><th>Keyword</th><th>Source</th><th>Cluster</th><th>Content</th></tr></thead>
+          <tbody>
+      <tr>
+        <td>AI productivity</td>
+        <td>ai-extraction</td>
+        <td>ai-productivity</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>AI regulation</td>
+        <td>ai-extraction</td>
+        <td>ai-regulation</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Aardvark</td>
+        <td>ai-extraction</td>
+        <td>aardvark</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>BrowseComp</td>
+        <td>ai-extraction</td>
+        <td>browsecomp</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>CLIP</td>
+        <td>ai-extraction</td>
+        <td>clip</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Chain-of-Thought</td>
+        <td>ai-extraction</td>
+        <td>chain-of-thought</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>ClimbMix</td>
+        <td>ai-extraction</td>
+        <td>climbmix</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Codex Security</td>
+        <td>ai-extraction</td>
+        <td>codex-security</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Cursor Composer</td>
+        <td>ai-extraction</td>
+        <td>cursor-composer</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Figma MCP</td>
+        <td>ai-extraction</td>
+        <td>figma-mcp</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>GLM-4.7</td>
+        <td>ai-extraction</td>
+        <td>glm</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>GPT-4</td>
+        <td>ai-extraction</td>
+        <td>gpt-4</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>GPT-4o Mini</td>
+        <td>ai-extraction</td>
+        <td>gpt-4o-mini</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Grammarly</td>
+        <td>ai-extraction</td>
+        <td>grammarly</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>LTX-2</td>
+        <td>ai-extraction</td>
+        <td>ltx</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>LiveBench</td>
+        <td>ai-extraction</td>
+        <td>livebench</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Mozilla</td>
+        <td>ai-extraction</td>
+        <td>mozilla</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>OpenClaw</td>
+        <td>ai-extraction</td>
+        <td>openclaw</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Project Genie</td>
+        <td>ai-extraction</td>
+        <td>project-genie</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>RLHF</td>
+        <td>ai-extraction</td>
+        <td>rlhf</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>SWE-bench</td>
+        <td>ai-extraction</td>
+        <td>swe-bench</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Sarvam-105B</td>
+        <td>ai-extraction</td>
+        <td>sarvam</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Seedance 2.0</td>
+        <td>ai-extraction</td>
+        <td>seedance</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Tencent</td>
+        <td>ai-extraction</td>
+        <td>tencent</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>TimesFM</td>
+        <td>ai-extraction</td>
+        <td>timesfm</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>VibeVoice-ASR</td>
+        <td>ai-extraction</td>
+        <td>vibevoice-asr</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Yuan3.0 Ultra</td>
+        <td>ai-extraction</td>
+        <td>yuan</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Zapier</td>
+        <td>ai-extraction</td>
+        <td>zapier</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>ai-safety</td>
+        <td>Blog glossary extraction (anthropic-department-of-war-dario-amodei-statement)</td>
+        <td>ai-safety</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>ai-safety-vs-ai-defense</td>
+        <td>Blog comparison extraction (anthropic-department-of-war-dario-amodei-statement)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>anthropic-vs-openai</td>
+        <td>Blog comparison extraction (anthropic-department-of-war-dario-amodei-statement)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>api-abuse-detection</td>
+        <td>Blog glossary extraction (anthropic-distillation-attacks-deepseek-moonshot-minimax)</td>
+        <td>api-abuse-detection</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>are-claude-code-skills-customizable-or-only-builtin</td>
+        <td>Blog FAQ extraction (claude-code-simplify-batch-skills)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>can-ai-safety-labs-work-with-defense-agencies-without-compro</td>
+        <td>Blog FAQ extraction (anthropic-department-of-war-dario-amodei-statement)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>classified-environment</td>
+        <td>Blog glossary extraction (anthropic-department-of-war-dario-amodei-statement)</td>
+        <td>classified-environment</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>claude-code-vs-aider</td>
+        <td>Blog comparison extraction (claude-code-simplify-batch-skills)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>claude-vs-chatgpt</td>
+        <td>Blog comparison extraction (anthropic-department-of-war-dario-amodei-statement)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>code-review-automation</td>
+        <td>Blog glossary extraction (claude-code-simplify-batch-skills)</td>
+        <td>code-review-automation</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>deepseek-vs-claude</td>
+        <td>Blog comparison extraction (anthropic-distillation-attacks-deepseek-moonshot-minimax)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>deepseek-vs-moonshot-ai</td>
+        <td>Blog comparison extraction (anthropic-distillation-attacks-deepseek-moonshot-minimax)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>dual-use-ai</td>
+        <td>Blog glossary extraction (anthropic-department-of-war-dario-amodei-statement)</td>
+        <td>dual-use-ai</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>fp8</td>
+        <td>ai-extraction</td>
+        <td>fp8</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>frontier-ai-models</td>
+        <td>Blog glossary extraction (anthropic-distillation-attacks-deepseek-moonshot-minimax)</td>
+        <td>frontier-ai-models</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>frontier-model</td>
+        <td>Blog glossary extraction (anthropic-department-of-war-dario-amodei-statement)</td>
+        <td>frontier-model</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>gpt-realtime-1.5</td>
+        <td>ai-extraction</td>
+        <td>gpt-realtime</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>how-did-anthropic-detect-the-distillation-attacks-from-deeps</td>
+        <td>Blog FAQ extraction (anthropic-distillation-attacks-deepseek-moonshot-minimax)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>how-do-claude-code-skills-differ-from-ide-extensions-like-cu</td>
+        <td>Blog FAQ extraction (claude-code-simplify-batch-skills)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>how-does-anthropics-defense-engagement-differ-from-openais-a</td>
+        <td>Blog FAQ extraction (anthropic-department-of-war-dario-amodei-statement)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>how-does-batch-work-in-claude-code-for-parallel-tasks</td>
+        <td>Blog FAQ extraction (claude-code-simplify-batch-skills)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>inference cost</td>
+        <td>ai-extraction</td>
+        <td>inference-cost</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>intellectual-property-in-ai</td>
+        <td>Blog glossary extraction (anthropic-distillation-attacks-deepseek-moonshot-minimax)</td>
+        <td>intellectual-property-in-ai</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>is-model-distillation-illegal-or-just-a-termsofservice-viola</td>
+        <td>Blog FAQ extraction (anthropic-distillation-attacks-deepseek-moonshot-minimax)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>mass surveillance</td>
+        <td>ai-extraction</td>
+        <td>mass-surveillance</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>model-distillation</td>
+        <td>Blog glossary extraction (anthropic-distillation-attacks-deepseek-moonshot-minimax)</td>
+        <td>model-distillation</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>model-distillation-vs-fine-tuning</td>
+        <td>Blog comparison extraction (anthropic-distillation-attacks-deepseek-moonshot-minimax)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>multi-agent systems</td>
+        <td>ai-extraction</td>
+        <td>multi-agent-systems</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>o3</td>
+        <td>ai-extraction</td>
+        <td>o3</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>o4 Mini</td>
+        <td>ai-extraction</td>
+        <td>o4-mini</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>open-weight models</td>
+        <td>ai-extraction</td>
+        <td>open-weight-models</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>responsible-scaling-policy</td>
+        <td>Blog glossary extraction (anthropic-department-of-war-dario-amodei-statement)</td>
+        <td>responsible-scaling-policy</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>slash-commands</td>
+        <td>Blog glossary extraction (claude-code-simplify-batch-skills)</td>
+        <td>slash-commands</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>task-orchestration</td>
+        <td>Blog glossary extraction (claude-code-simplify-batch-skills)</td>
+        <td>task-orchestration</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>training-data-extraction</td>
+        <td>Blog glossary extraction (anthropic-distillation-attacks-deepseek-moonshot-minimax)</td>
+        <td>training-data-extraction</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>vLLM</td>
+        <td>ai-extraction</td>
+        <td>vllm</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>what-can-ai-companies-do-to-prevent-largescale-model-extract</td>
+        <td>Blog FAQ extraction (anthropic-distillation-attacks-deepseek-moonshot-minimax)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>what-does-the-simplify-skill-do-in-claude-code</td>
+        <td>Blog FAQ extraction (claude-code-simplify-batch-skills)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>what-guardrails-does-anthropic-propose-for-military-ai-use</td>
+        <td>Blog FAQ extraction (anthropic-department-of-war-dario-amodei-statement)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>what-is-anthropics-position-on-providing-ai-to-the-departmen</td>
+        <td>Blog FAQ extraction (anthropic-department-of-war-dario-amodei-statement)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>what-is-model-distillation-and-why-is-it-considered-an-attac</td>
+        <td>Blog FAQ extraction (anthropic-distillation-attacks-deepseek-moonshot-minimax)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr></tbody>
+        </table>
+        <p style="font-size:12px;color:#737373">69 keywords</p>
+      </div>
+      <h3 style="margin-top:24px">Topic Clusters</h3>
+      
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr><th>Slug</th><th>Pillar Topic</th><th style="text-align:right">Mentions</th><th>Hub</th><th>First Seen</th><th>Last Seen</th></tr></thead>
+          <tbody>
+      <tr>
+        <td>anthropic</td>
+        <td>anthropic</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>google</td>
+        <td>google</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>openai</td>
+        <td>openai</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>claude</td>
+        <td>claude</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>qwen</td>
+        <td>qwen</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>codex</td>
+        <td>codex</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>gemini</td>
+        <td>gemini</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>claude-code</td>
+        <td>claude code</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>cursor</td>
+        <td>cursor</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>fine-tuning</td>
+        <td>fine-tuning</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>agentic</td>
+        <td>agentic</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>gpt-54</td>
+        <td>gpt-5.4</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>huggingface</td>
+        <td>huggingface</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>qwen35</td>
+        <td>qwen3.5</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>qwen3</td>
+        <td>qwen3</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>deepseek</td>
+        <td>deepseek</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>gpt</td>
+        <td>GPT-5.4</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>chatgpt</td>
+        <td>ChatGPT</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>google-deepmind</td>
+        <td>Google DeepMind</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>meta</td>
+        <td>Meta</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>microsoft</td>
+        <td>Microsoft</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>model-context-protocol</td>
+        <td>MCP</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>nano-banana</td>
+        <td>Nano Banana 2</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>ltx</td>
+        <td>LTX-2.3</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>hugging-face</td>
+        <td>Hugging Face</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>diffusers</td>
+        <td>Diffusers</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>langchain</td>
+        <td>LangChain</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>windsurf</td>
+        <td>Windsurf</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>github-copilot</td>
+        <td>GitHub Copilot</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>sakana-ai</td>
+        <td>Sakana AI</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>bytedance</td>
+        <td>ByteDance</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>nvidia</td>
+        <td>NVIDIA</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>glm</td>
+        <td>GLM</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>claude-opus</td>
+        <td>Claude Opus 4.6</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>rag</td>
+        <td>RAG</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>chain-of-thought</td>
+        <td>chain-of-thought</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>computer-use</td>
+        <td>computer use</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>agentic-coding</td>
+        <td>agentic coding</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>vibe-coding</td>
+        <td>vibe coding</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>context-engineering</td>
+        <td>context engineering</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>swe-bench</td>
+        <td>SWE-Bench</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>openhands</td>
+        <td>OpenHands</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>nemo</td>
+        <td>NeMo</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>speciesnet</td>
+        <td>SpeciesNet</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>whisper</td>
+        <td>Whisper</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>triton</td>
+        <td>Triton</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>alexa-plus</td>
+        <td>Alexa+</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>model-distillation</td>
+        <td>model distillation</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>ai-safety</td>
+        <td>AI safety</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>seedance</td>
+        <td>Seedance</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>reinforcement-learning</td>
+        <td>reinforcement learning</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>claude-max</td>
+        <td>Claude Max</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>claude-desktop</td>
+        <td>Claude Desktop</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>cline</td>
+        <td>Cline</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>webflow</td>
+        <td>Webflow</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>ghidra</td>
+        <td>Ghidra</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>eval-integrity</td>
+        <td>eval integrity</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>autonomous-weapons</td>
+        <td>autonomous weapons</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>amazon</td>
+        <td>Amazon</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>deepmind</td>
+        <td>deepmind</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>langsmith</td>
+        <td>LangSmith</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>figma</td>
+        <td>Figma</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>luma</td>
+        <td>Luma</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>phi</td>
+        <td>Phi-4</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>olmo</td>
+        <td>OLMo</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>multi-agent</td>
+        <td>multi-agent</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>inference-cost-reduction</td>
+        <td>inference cost reduction</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>extended-thinking</td>
+        <td>extended thinking</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>claude-cowork</td>
+        <td>Claude Cowork</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>playwright</td>
+        <td>Playwright</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>huggingface-hub</td>
+        <td>huggingface_hub</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>jido</td>
+        <td>Jido</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>vla-fine-tuning</td>
+        <td>VLA fine-tuning</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>mozilla</td>
+        <td>Mozilla</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>tencent</td>
+        <td>Tencent</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>grammarly</td>
+        <td>Grammarly</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>gpt-5</td>
+        <td>GPT-5.4</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>gpt-2</td>
+        <td>GPT-2</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>gpt-4</td>
+        <td>GPT-4</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>gpt-4o-mini</td>
+        <td>GPT-4o Mini</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>o3</td>
+        <td>o3</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>o4-mini</td>
+        <td>o4 Mini</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>gpt-realtime</td>
+        <td>gpt-realtime-1.5</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>yuan</td>
+        <td>Yuan3.0 Ultra</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>vibevoice-asr</td>
+        <td>VibeVoice-ASR</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>timesfm</td>
+        <td>TimesFM</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>sarvam</td>
+        <td>Sarvam-105B</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>codex-security</td>
+        <td>Codex Security</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>openclaw</td>
+        <td>OpenClaw</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>vllm</td>
+        <td>vLLM</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>clip</td>
+        <td>CLIP</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>rlhf</td>
+        <td>RLHF</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>fp8</td>
+        <td>fp8</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>multi-agent-systems</td>
+        <td>multi-agent systems</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>ai-regulation</td>
+        <td>AI regulation</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>open-weight-models</td>
+        <td>open-weight models</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>inference-cost</td>
+        <td>inference cost</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>ai-productivity</td>
+        <td>AI productivity</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>mass-surveillance</td>
+        <td>mass surveillance</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>browsecomp</td>
+        <td>BrowseComp</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>livebench</td>
+        <td>LiveBench</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>climbmix</td>
+        <td>ClimbMix</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>figma-mcp</td>
+        <td>Figma MCP</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>zapier</td>
+        <td>Zapier</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>cursor-composer</td>
+        <td>Cursor Composer</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>project-genie</td>
+        <td>Project Genie</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>aardvark</td>
+        <td>Aardvark</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr></tbody>
+        </table>
+        <p style="font-size:12px;color:#737373">107 clusters</p>
+      </div>
+    </section>
+</main>
+</body>
+</html>

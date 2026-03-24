@@ -1,0 +1,228 @@
+{
+  "date": "2026-03-24",
+  "headline_hook": "Claude Takes the Wheel as NVIDIA Drops Kimodo and GLM-5.1 Claims the Open-Source Crown",
+  "preview_topics": [
+    "Claude's computer use research preview",
+    "NVIDIA's controllable video generation",
+    "the case against over-engineered CLAUDE.md files"
+  ],
+  "pick_of_the_day": {
+    "item_id": 12042,
+    "thesis": "Computer use isn't just a feature — it's Anthropic's bet that the next agent interface isn't chat but full desktop control, and the gap between 'AI assistant' and 'AI operator' just collapsed to a research preview toggle."
+  },
+  "model_literacy": {
+    "concept": "Computer Use via Screenshot Parsing",
+    "relevance": "Claude's computer use relies on vision-based screen understanding rather than OS-level accessibility APIs — today's launch makes it worth understanding how screenshot-to-action loops work, their latency tradeoffs, and why this approach generalizes across any app without integration work."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 12042,
+          "title": "Claude Can Now Drive Your Desktop — Anthropic Ships Computer Use",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The AI assistant just became an AI operator — mouse, keyboard, screen control moves Claude from answering questions to doing the work.",
+          "key_fact": "26,177 likes on announcement; research preview available now in Claude"
+        },
+        {
+          "id": 12010,
+          "title": "Dispatch + Computer Use: Remote-Control Claude While You Sleep",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The async agent workflow unlocked — pair computer use with Dispatch and Claude works your machine while you're away.",
+          "key_fact": "9,494 likes; built by Anthropic's Felix Rieseberg"
+        },
+        {
+          "id": 12382,
+          "title": "NVIDIA Kimodo Turns Text Prompts Into Controllable Video Timelines",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "NVIDIA enters controllable video generation — prompt motion sequences like 'a person walks forward' and get coherent video output.",
+          "key_fact": "1,990 likes; prompt-to-timeline video generation"
+        },
+        {
+          "id": 12279,
+          "title": "Dimension Launches as the AI Coworker That Never Clocks Out",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The 'AI teammate' category heats up — Dimension handles briefings, meetings, and async work with a 2-minute setup.",
+          "key_fact": "1,697 likes; 2-minute setup claim"
+        },
+        {
+          "id": 11766,
+          "title": "GLM-5.1 Claims Open-Source #1 Spot",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "If benchmarks hold, teams running self-hosted deployments just got a serious Llama alternative.",
+          "key_fact": "GLM-5 already open-source #1; 5.1 extends the lead"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 10249,
+          "title": "HuggingFace Ships AgentUI — A Chat Interface Built for Multi-Agent Workflows",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The first UI designed natively for multi-agent coordination — agents share reports and figures instead of fighting over a single chat thread.",
+          "key_fact": "Agents coordinate via shared reports and figures; open-source"
+        },
+        {
+          "id": 10175,
+          "title": "Figma × Claude Code MCP Livestream Set for March 31",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The design-to-code bridge frontend teams have wanted — an Anthropic engineer demos the Figma MCP workflow live.",
+          "key_fact": "March 31 livestream; sign-ups open now"
+        },
+        {
+          "id": 12543,
+          "title": "Mozilla AI Launches Cq — Stack Overflow for Coding Agents",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "If agents are the new developers, they need their own knowledge base. Cq lets agents look up solutions instead of re-deriving them.",
+          "key_fact": "Built by Mozilla AI; Show HN launch"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 12240,
+          "title": "HuggingFace Paper Pages: The Research Discovery Workflow Most Builders Miss",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A practical discovery shortcut — surface relevant papers for whatever problem you're solving, directly from HF.",
+          "key_fact": "1,396 likes; underused feature highlighted by HF team"
+        },
+        {
+          "id": 10326,
+          "title": "Random Priming Phrases Measurably Increase LLM Output Diversity",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "LLMs attend disproportionately to prompt start and end — adding random priming phrases exploits this for more diverse outputs.",
+          "key_fact": "Research-backed; shared by Ethan Mollick (353 likes)"
+        },
+        {
+          "id": 12547,
+          "title": "A Practitioner's Playbook for Claude Code Productivity",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Not theory — tested daily patterns for teams onboarding onto coding agents.",
+          "key_fact": "91 likes, 71 RTs on Hacker News"
+        },
+        {
+          "id": 10505,
+          "title": "Hot Take: Your CLAUDE.md Is Probably Too Long",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Contrarian but compelling — making tooling obvious to both humans and AI beats writing pages of instructions.",
+          "key_fact": "77 likes; resonated across the Claude Code community"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 12403,
+          "title": "End-to-End JEPA World Model Beats DINO-WM Without Teacher-Student Training",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "LeCun's architecture thesis keeps producing — SIGReg enables self-supervised visual world models without EMA or distillation overhead.",
+          "key_fact": "Beats DINO-WM; no teacher-student, no EMA required"
+        },
+        {
+          "id": 12542,
+          "title": "iPhone 17 Pro Runs a 400B Parameter LLM",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Even if inference is slow, loading frontier-scale models on mobile silicon signals on-device AI won't stay small for long.",
+          "key_fact": "400B parameters on a phone; 449 likes, 232 RTs"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 12022,
+          "title": "Anthropic Launches a Science Blog — Positioning Claude as a Research Tool",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Not just a coding assistant anymore — Anthropic signals serious investment in Claude for scientific research workflows.",
+          "key_fact": "1,957 likes; dedicated blog for research use cases"
+        },
+        {
+          "id": 12319,
+          "title": "Mollick: GPT-5.4 Pro Remains Uniquely Capable for the Hardest Tasks",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Useful signal for teams picking models — for maximum-context, maximum-difficulty work, Mollick says nothing else matches it yet.",
+          "key_fact": "1,179 likes; 'only model of its class' framing"
+        },
+        {
+          "id": 12353,
+          "title": "Altman Exits Helion Board as OpenAI-Helion Energy Talks Begin",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "AI's energy demands are reshaping power infrastructure — this partnership hints at the scale of compute buildout ahead.",
+          "key_fact": "1,947 likes; board departure + energy collaboration"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 10487,
+          "title": "Production Self-Evolving Agent in 3,500 Lines of Pure Python",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Zero framework dependencies, 8 files, and it actually runs in production — a masterclass in minimal agent architecture.",
+          "key_fact": "3,500 lines; 3-layer memory, MCP plugins, Docker multi-tenant"
+        },
+        {
+          "id": 12545,
+          "title": "Building an AI Receptionist for a Real Mechanic Shop",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "AI crossing from tech into Main Street — handling real calls, real scheduling, real customers at a local business.",
+          "key_fact": "200 likes; production deployment for a non-tech business"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 12544,
+      "title": "Claude Code Cheat Sheet — Commands and Shortcuts in One Place",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Community reference for teams ramping up on Claude Code",
+      "key_fact": "79 likes; community-built"
+    },
+    {
+      "id": 12546,
+      "title": "Designing AI for Disruptive (Not Incremental) Science",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Asimov Press on building AI that produces genuine discoveries",
+      "key_fact": "51 likes; timely with Anthropic Science Blog launch"
+    },
+    {
+      "id": 11264,
+      "title": "Simon Willison Digs Into JavaScript Sandboxing for LLM Code Execution",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The most underinvestigated part of the agent stack: security boundaries",
+      "key_fact": "Simon Willison deep-dive; critical for agent builders"
+    }
+  ],
+  "total_items": 22
+}

@@ -1,0 +1,3241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pipeline Review — 2026-03-12</title>
+<style>
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 0; background: #f5f5f5; color: #171717; line-height: 1.6; }
+  nav { position: sticky; top: 0; z-index: 100; background: #171717; color: #fff; padding: 8px 24px; display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+  nav a { color: #a3a3a3; text-decoration: none; font-size: 13px; padding: 4px 8px; border-radius: 4px; }
+  nav a:hover { color: #fff; background: #333; }
+  nav .title { font-weight: 700; font-size: 15px; color: #fff; margin-right: 12px; }
+  main { max-width: 1400px; margin: 0 auto; padding: 24px; }
+  section { background: #fff; border-radius: 8px; padding: 24px; margin-bottom: 16px; border: 1px solid #e5e5e5; }
+  h2 { margin-top: 0; padding-bottom: 8px; border-bottom: 2px solid #e5e5e5; }
+  h3 { color: #525252; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td { padding: 6px 10px; border-bottom: 1px solid #e5e5e5; text-align: left; }
+  th { background: #fafafa; font-weight: 600; position: sticky; top: 44px; }
+  tr:hover td { background: #fafafa; }
+  .md-content { font-size: 14px; max-height: 600px; overflow-y: auto; padding: 12px; border: 1px solid #e5e5e5; border-radius: 4px; background: #fafafa; }
+  .md-content h1 { font-size: 20px; }
+  .md-content h2 { font-size: 17px; border: none; padding: 0; }
+  .md-content h3 { font-size: 15px; }
+  .md-content a { color: #2563eb; }
+  .md-content blockquote { border-left: 3px solid #d4d4d4; margin: 8px 0; padding: 4px 12px; color: #525252; }
+  .md-content pre { background: #f0f0f0; padding: 8px; border-radius: 4px; overflow-x: auto; font-size: 12px; }
+  .md-content code { background: #f0f0f0; padding: 1px 4px; border-radius: 2px; font-size: 12px; }
+  .md-content table { margin: 8px 0; }
+  details summary { user-select: none; }
+  details[open] > summary { margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<nav>
+  <span class="title">Pipeline Review — 2026-03-12</span>
+  <a href="#dashboard">Dashboard</a>
+  <a href="#newsletters">Newsletters</a>
+  <a href="#benchmark">Benchmark</a>
+  <a href="#blogs">Blogs</a>
+  <a href="#seo">SEO</a>
+  <a href="#data">Data</a>
+  <a href="#keywords">Keywords</a>
+</nav>
+<main>
+
+    <section id="dashboard">
+      <h2>Dashboard</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px">
+        
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Newsletter EN</strong>
+          <span style="background:#22c55e;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">PASS</span>
+        </div>
+        <div style="font-size:14px;color:#525252">1491 words, 22 links</div>
+        
+      </div>
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Newsletter ZH</strong>
+          <span style="background:#22c55e;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">PASS</span>
+        </div>
+        <div style="font-size:14px;color:#525252">2024 words, 22 links</div>
+        
+      </div>
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Blog</strong>
+          <span style="background:#22c55e;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">PASS</span>
+        </div>
+        <div style="font-size:14px;color:#525252">3 post(s)</div>
+        
+      </div>
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>SEO Pages</strong>
+          <span style="background:#ef4444;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">FAIL</span>
+        </div>
+        <div style="font-size:14px;color:#525252">3 glossary</div>
+        <ul style="margin:8px 0 0;padding-left:18px;font-size:12px;color:#ef4444"><li>[figma] Missing ZH version</li></ul>
+      </div>
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Filtered Items</strong>
+          <span style="background:#22c55e;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">PASS</span>
+        </div>
+        <div style="font-size:14px;color:#525252">22 items</div>
+        
+      </div>
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Blog Seeds</strong>
+          <span style="background:#22c55e;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">PASS</span>
+        </div>
+        <div style="font-size:14px;color:#525252">5 seeds</div>
+        
+      </div>
+      <div style="background:#fff;border:1px solid #e5e5e5;border-radius:8px;padding:16px;min-width:180px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+          <strong>Keywords</strong>
+          <span style="background:#22c55e;color:#fff;padding:2px 8px;border-radius:4px;font-size:12px;font-weight:600">PASS</span>
+        </div>
+        <div style="font-size:14px;color:#525252">47 new, 202 clusters</div>
+        
+      </div>
+      </div>
+    </section>
+
+    <section id="source-distribution">
+      <h2>Source Distribution</h2>
+      <table style="border-collapse:collapse;width:100%">
+        <tbody>
+      <tr>
+        <td style="width:120px;font-weight:600">twitter</td>
+        <td>
+          <div style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:20px">
+            <div style="background:#1da1f2;height:100%;width:100%;min-width:2px;border-radius:4px;transition:width 0.3s"></div>
+          </div>
+        </td>
+        <td style="width:50px;text-align:right;font-weight:600">13</td>
+      </tr>
+      <tr>
+        <td style="width:120px;font-weight:600">rss</td>
+        <td>
+          <div style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:20px">
+            <div style="background:#f97316;height:100%;width:31%;min-width:2px;border-radius:4px;transition:width 0.3s"></div>
+          </div>
+        </td>
+        <td style="width:50px;text-align:right;font-weight:600">4</td>
+      </tr>
+      <tr>
+        <td style="width:120px;font-weight:600">blog</td>
+        <td>
+          <div style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:20px">
+            <div style="background:#8b5cf6;height:100%;width:15%;min-width:2px;border-radius:4px;transition:width 0.3s"></div>
+          </div>
+        </td>
+        <td style="width:50px;text-align:right;font-weight:600">2</td>
+      </tr>
+      <tr>
+        <td style="width:120px;font-weight:600">hackernews</td>
+        <td>
+          <div style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:20px">
+            <div style="background:#ff6600;height:100%;width:15%;min-width:2px;border-radius:4px;transition:width 0.3s"></div>
+          </div>
+        </td>
+        <td style="width:50px;text-align:right;font-weight:600">2</td>
+      </tr>
+      <tr>
+        <td style="width:120px;font-weight:600">huggingface</td>
+        <td>
+          <div style="background:#f0f0f0;border-radius:4px;overflow:hidden;height:20px">
+            <div style="background:#fbbf24;height:100%;width:8%;min-width:2px;border-radius:4px;transition:width 0.3s"></div>
+          </div>
+        </td>
+        <td style="width:50px;text-align:right;font-weight:600">1</td>
+      </tr></tbody>
+      </table>
+      <p style="font-size:12px;color:#737373">22 total items across 5 source types</p>
+    </section>
+
+    <section id="newsletters">
+      <h2>Newsletters</h2>
+      
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "Anthropic Founds the Anthropic Institute to Tackle AI's Societal Fallout"
+date: 2026-03-12
+type: newsletter
+lang: en
+description: "Anthropic Founds the Anthropic Institute to Tackle AI's Societal Fallout"
+items_count: 22
+categories: [LAUNCH, TOOL, RESEARCH, INSIGHT, TECHNIQUE, BUILD]
+top_story: "We just added /btw to Claude Code! Use it to have side chain conversations while"</h2>
+<h1>Anthropic Founds the Anthropic Institute to Tackle AI's Societal Fallout</h1>
+<h2>🧠 LAUNCH</h2>
+<h3>Anthropic Founds the Anthropic Institute to Tackle AI's Societal Fallout</h3>
+<p><strong>Anthropic</strong> isn't just doing safety research anymore — it's launching a full institute dedicated to the policy, governance, and societal challenges that powerful AI creates. This is a deliberate shift from "how do we make models safe" to "how does society adapt to models that are already here." The founding charter signals Anthropic wants a seat at every regulatory table, not just the technical ones. If you care about where AI governance is headed, this is the org to watch. <a href="https://www.anthropic.com/news/the-anthropic-institute">Read more →</a></p>
+<h3>Google Ships Gemini Embedding 2 — Its First Fully Multimodal Embedding Model</h3>
+<p><strong>Gemini Embedding 2</strong> puts text, images, and video into a single vector space — meaning your retrieval pipeline can now search across modalities without separate models or stitched-together hacks. This is Google's most capable embedding model yet, and the multimodal piece is the real unlock: imagine searching a video library with a text query and getting frame-level results. If you're running any kind of RAG or search system, benchmark this against whatever you're using today. (2,325 likes | 289 RTs) <a href="https://x.com/GoogleDeepMind/status/2031484894300266939">Read more →</a></p>
+<p><strong>Meta ships four generations of custom AI silicon in two years.</strong> MTIA, Meta's custom training and inference chip, has gone through four architectural generations since 2024 — a pace that closes the gap between chip cycles and the model architecture changes that demand new hardware. Custom silicon is no longer a nice-to-have; it's a competitive moat that determines how fast you can iterate on model training. (264 likes | 44 RTs) <a href="https://x.com/AIatMeta/status/2031735560948068790">Read more →</a></p>
+<p><strong>Fish Audio drops s2-pro, a next-gen open TTS model.</strong> Already trending on HuggingFace, s2-pro is an open text-to-speech model worth testing if you're building voice interfaces or audio content pipelines. If your current TTS sounds robotic, this is your excuse to switch. (240 likes | 746 downloads) <a href="https://huggingface.co/fishaudio/s2-pro">Read more →</a></p>
+<hr>
+<h2>🔧 TOOL</h2>
+<h3>Claude Code Gets /btw — Side Conversations While the Agent Works</h3>
+<p>The new <strong>/btw</strong> command in <strong>Claude Code</strong> lets you ask side questions without interrupting the agent's main task — solving the "do I wait or do I interrupt?" dilemma that kills flow in agentic coding sessions. Think of it as whispering to your pair programmer while they're mid-keystroke. This is the kind of UX detail that separates a tool you tolerate from one you love. (22,849 likes | 1,388 RTs) <a href="https://x.com/trq212/status/2031506296697131352">Read more →</a></p>
+<p><strong>OpenAI ships a Codex skill to automate GPT-5.4 migration.</strong> Instead of manually swapping model IDs and tweaking prompts, this dedicated skill handles the model swap, prompt adjustments, and compatibility checks for you. If you're still on GPT-5.3, this cuts migration from hours to minutes. (700 likes | 26 RTs) <a href="https://x.com/OpenAIDevs/status/2031498496323518846">Read more →</a></p>
+<p><strong>Claude for Excel and PowerPoint now share context seamlessly.</strong> Cross-app context sharing means you can pull spreadsheet analysis into a deck without re-explaining your data — Claude remembers what it saw in Excel when you switch to PowerPoint. A genuine workflow unlock for anyone who lives in Office. (407 likes | 34 RTs) <a href="https://x.com/claudeai/status/2031790754637717772">Read more →</a></p>
+<p><strong>Gemini CLI adds Plan Mode for read-only exploration.</strong> You can now explore and strategize with the model before making any changes — a safety-first pattern that lets you think through a refactor without accidentally touching files. More CLI tools should steal this idea. (250 likes | 22 RTs) <a href="https://x.com/geminicli/status/2031761736232050707">Read more →</a></p>
+<hr>
+<h2>📝 TECHNIQUE</h2>
+<p><strong>Why your agentic coding evals are lying to you</strong>: Agentic coding benchmarks can vary by several percentage points between identical runs — infrastructure config, server load, and non-deterministic tool use all inject noise. If you're choosing a model based on a 2% benchmark edge, you might just be measuring luck. Run your own evals, multiple times, on your own infra. (480 likes | 16 RTs) <a href="https://x.com/trq212/status/2031462032508334434">Read more →</a></p>
+<p><strong>Simon Willison's patterns for AI-assisted code that's actually better</strong>: Not faster code — <em>better</em> code. Willison lays out practical agentic engineering patterns that prioritize correctness, readability, and maintainability over raw speed. The key insight: AI amplifies whatever you optimize for, so optimize for quality. <a href="https://simonwillison.net/guides/agentic-engineering-patterns/better-code/#atom-everything">Read more →</a></p>
+<p><strong>LangChain breaks down the anatomy of an agent harness</strong>: The harness is the system that wraps a model to turn intelligence into work — tool routing, memory management, error recovery, and orchestration. If you're building production agents and your architecture doesn't map cleanly to these components, you probably have a gap. <a href="https://blog.langchain.com/the-anatomy-of-an-agent-harness/">Read more →</a></p>
+<hr>
+<h2>🔬 RESEARCH</h2>
+<p><strong>AlphaEvolve establishes new results in extremal combinatorics.</strong> DeepMind's <strong>AlphaEvolve</strong> isn't just verifying known proofs — it's producing novel mathematical results in extremal combinatorics that human mathematicians hadn't found. This is AI contributing to pure math at the frontier, not pattern-matching on textbook problems. (1,615 likes | 168 RTs) <a href="https://x.com/GoogleDeepMind/status/2031784034125140135">Read more →</a></p>
+<p><strong>NVIDIA Cosmos Policy connects world models to robot control.</strong> Cosmos Policy bridges the gap between simulation-trained world foundation models and actual physical manipulation — turning a model that understands physics into one that can act on it. The unified architecture means one model handles perception, planning, and control instead of a fragile pipeline of specialists. (115 likes | 19 RTs) <a href="https://x.com/huggingface/status/2031753950735523967">Read more →</a></p>
+<p><strong>NVIDIA publishes methodology for synthetic code training data from concept seeds.</strong> The approach generates high-quality training examples by starting from programming concepts rather than scraping repos — giving you control over coverage, difficulty distribution, and domain focus. Practical for anyone fine-tuning code models who's hit the ceiling on natural data. <a href="https://huggingface.co/blog/nvidia/synthetic-code-concepts">Read more →</a></p>
+<hr>
+<h2>💡 INSIGHT</h2>
+<h3>Karpathy: The IDE Isn't Dying — It Needs to Level Up</h3>
+<p><strong>Karpathy</strong> argues that the rise of agentic coding doesn't kill the IDE — it demands a fundamentally better one. Humans now program at a higher level of abstraction, and the basic unit of work has shifted from characters and lines to intentions and plans. The tooling needs to match that shift: better visualization of agent state, richer feedback loops, and interfaces designed for supervising work rather than typing it. If you're building developer tools, this is the north star. (2,920 likes | 198 RTs) <a href="https://x.com/karpathy/status/2031767720933634100">Read more →</a></p>
+<p><strong>Security researchers use an AI agent to hack McKinsey's AI platform.</strong> Codewall details how they compromised McKinsey's production AI system using an autonomous agent — exploiting tool-use permissions and prompt injection vectors that most enterprise deployments haven't hardened against. If you're deploying agents with real credentials, audit your attack surface before someone else does. (223 likes | 88 RTs) <a href="https://codewall.ai/blog/how-we-hacked-mckinseys-ai-platform">Read more →</a></p>
+<p><strong>Anthropic opens Sydney office — fourth in Asia-Pacific.</strong> After Tokyo, Bengaluru, and Seoul, Sydney rounds out an aggressive APAC footprint. Four offices across four major AI markets in under a year signals both a talent play and a regulatory engagement strategy — Anthropic wants local relationships with every government that's writing AI rules. <a href="https://www.anthropic.com/news/sydney-fourth-office-asia-pacific">Read more →</a></p>
+<hr>
+<h2>🏗️ BUILD</h2>
+<p><strong>Open-source browser protocol built for AI agents.</strong> Standard browsers weren't designed for autonomous navigation — this protocol handles page interaction, data extraction, and multi-step workflows in a way that's native to how agents actually work. If you've been fighting Puppeteer or Playwright to make your agent browse the web, this is the purpose-built alternative. (33 likes | 14 RTs) <a href="https://github.com/theredsix/agent-browser-protocol">Read more →</a></p>
+<hr>
+<h2>🎓 MODEL LITERACY</h2>
+<p><strong>Multimodal Embedding Spaces</strong>: Traditional embedding models map text into a vector space where similar meanings cluster together — but what happens when you add images and video? Gemini Embedding 2 puts all three modalities into a single shared space, meaning a text description of a sunset and a photo of a sunset land near each other in the same vector neighborhood. This works because the model is trained on aligned pairs across modalities, learning that "golden retriever playing fetch" (text) and an image of exactly that should have nearly identical vectors. Why this matters: retrieval pipelines can now search across modalities without separate models or post-hoc alignment — ask a question in text, get back the relevant video frame, image, or document in one query.</p>
+<hr>
+<h2>⚡ QUICK LINKS</h2>
+<ul>
+<li><strong>HuggingFace Storage Buckets</strong>: S3-like mutable storage with Xet dedup for ML checkpoints. (15 likes | 5 RTs) <a href="https://x.com/huggingface/status/2031428153948709291">Link</a></li>
+<li><strong>TEI v1.9</strong>: HuggingFace Text Embeddings Inference adds NVIDIA Blackwell GPU support. (25 likes | 3 RTs) <a href="https://x.com/huggingface/status/2031404809706942812">Link</a></li>
+<li><strong>Claude Code outages</strong>: Login issues and slower performance across Claude Code and claude.ai. (1,500 likes | 41 RTs) <a href="https://x.com/trq212/status/2031772228099203487">Link</a></li>
+<li><strong>China's OpenClaw craze</strong>: MIT Tech Review profiles the gold rush of AI entrepreneurs building on China's open-source device control tool. <a href="https://www.technologyreview.com/2026/03/11/1134179/china-openclaw-gold-rush/">Link</a></li>
+</ul>
+<hr>
+<h2>🎯 PICK OF THE DAY</h2>
+<p><strong>AlphaEvolve producing novel combinatorics results marks a genuine inflection point.</strong> There's a meaningful difference between AI verifying known proofs faster and AI discovering results that humans hadn't found — and AlphaEvolve just crossed that line. Extremal combinatorics isn't a toy domain; these are hard, open problems that mathematicians have been chipping away at for decades. What makes this significant isn't the specific results — it's the methodology. AlphaEvolve uses evolutionary search guided by a language model to explore proof strategies that human intuition wouldn't prioritize. This is AI as a collaborator in unknown math, not a calculator for known math. The distinction reshapes what "AI for science" actually means: not just accelerating existing research pipelines, but expanding the space of what gets explored in the first place. Every research lab running compute-intensive searches over combinatorial spaces should be paying close attention. (1,615 likes | 168 RTs) <a href="https://x.com/GoogleDeepMind/status/2031784034125140135">Read more →</a></p>
+<hr>
+<p>Until next time ✌️</p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><div class="md-content"><hr>
+<h2>title: "Anthropic 成立 Anthropic Institute，正式进军 AI 社会治理"
+date: 2026-03-12
+type: newsletter
+lang: zh
+description: "Anthropic 成立 Anthropic Institute，正式进军 AI 社会治理。"
+items_count: 22
+categories: [LAUNCH, TOOL, RESEARCH, INSIGHT, TECHNIQUE, BUILD]
+top_story: "We just added /btw to Claude Code! Use it to have side chain conversations while"</h2>
+<h1>Anthropic 成立 Anthropic Institute，正式进军 AI 社会治理</h1>
+<h2>🧠 发布动态</h2>
+<h3>Anthropic 成立 Anthropic Institute，正式进军 AI 社会治理。</h3>
+<p>不是又一个安全实验室 — 这是一个专门应对强 AI 社会影响的独立机构。从纯技术安全研究扩展到政策制定和公众参与，Anthropic 的野心很明确：不只是做最强的模型，还要定义 AI 时代的规则。对行业来说，这意味着 AI 公司开始主动承担"立法顾问"的角色，而不是等监管来敲门。 <a href="https://www.anthropic.com/news/the-anthropic-institute">详情 →</a></p>
+<h3>Google 发布 Gemini Embedding 2 — 首个全模态嵌入模型。</h3>
+<p>文本、图片、视频，一个向量空间搞定。这不是小升级 — 跨模态检索管线一直是 RAG 架构的痛点，现在 Google 直接给了一个统一方案。如果你在做多模态搜索或知识库，这个模型值得立刻跑个 benchmark 对比你现有的嵌入方案。(2,325 likes | 289 RTs) <a href="https://x.com/GoogleDeepMind/status/2031484894300266939">详情 →</a></p>
+<p><strong>Meta 两年迭代四代自研 AI 芯片。</strong> MTIA 的演进速度说明一件事：芯片迭代周期正在追赶模型架构变化的速度。自研硅片从"省钱手段"变成了竞争壁垒 — Meta 不想在推理成本上受制于 NVIDIA。(264 likes | 44 RTs) <a href="https://x.com/AIatMeta/status/2031735560948068790">详情 →</a></p>
+<p><strong>Fish Audio 发布 s2-pro 开源语音合成模型。</strong> HuggingFace 上热度不低（240 likes | 746 downloads），做语音交互或音频内容管线的团队值得试试。开源 TTS 的质量天花板又被抬高了一截。 <a href="https://huggingface.co/fishaudio/s2-pro">详情 →</a></p>
+<hr>
+<h2>🔧 开发者工具</h2>
+<h3>Claude Code 上线 /btw — Agent 干活的时候你可以开小差了。</h3>
+<p>用过 Claude Code 的都知道那个纠结：Agent 在跑一个大任务，你突然想问个小问题，打断还是等？现在不用选了。/btw 开启侧链对话，主任务不受影响。这个功能看似小，实际上解决了 Agent 编码工作流中最大的效率瓶颈之一。(22,849 likes | 1,388 RTs) <a href="https://x.com/trq212/status/2031506296697131352">详情 →</a></p>
+<p><strong>OpenAI 发布 GPT-5.4 迁移 Codex Skill。</strong> 自动化模型切换、提示词调整和兼容性检查，不用手动一个个改了。如果你还在用 GPT-5.3，这是最省事的升级路径。(700 likes | 26 RTs) <a href="https://x.com/OpenAIDevs/status/2031498496323518846">详情 →</a></p>
+<p><strong>Claude for Excel 和 PowerPoint 现在可以共享上下文。</strong> 在 Excel 里分析完数据，切到 PowerPoint 做汇报，Claude 自动带上之前的上下文，不用重新解释一遍。对商业用户来说，这才是 AI 融入工作流该有的样子。(407 likes | 34 RTs) <a href="https://x.com/claudeai/status/2031790754637717772">详情 →</a></p>
+<p><strong>Gemini CLI 新增 Plan Mode — 先看再动手。</strong> 只读模式下先让模型帮你探索和规划，确认方案再执行。安全第一的设计思路，大重构之前用一次，可能省掉几小时的回滚时间。(250 likes | 22 RTs) <a href="https://x.com/geminicli/status/2031761736232050707">详情 →</a></p>
+<hr>
+<h2>📝 技术实战</h2>
+<p><strong>你的 Agent 编码评测可能在骗你。</strong> 一篇很扎实的分析：Agent 编码 benchmark 在不同运行之间可以波动好几个百分点 — 有时候比模型之间的差距还大。如果你在根据一次跑分结果选模型，先看看这篇再说。(480 likes | 16 RTs) <a href="https://x.com/trq212/status/2031462032508334434">详情 →</a></p>
+<p><strong>Simon Willison 的 AI 辅助编码模式指南。</strong> 不是"怎么用 AI 写更快的代码"，而是"怎么用 AI 写更好的代码"。质量优先于速度 — 这个视角在 AI 编码圈太稀缺了。 <a href="https://simonwillison.net/guides/agentic-engineering-patterns/better-code/#atom-everything">详情 →</a></p>
+<p><strong>LangChain 拆解 Agent Harness 的核心结构。</strong> Agent harness 是把模型智能转化为实际工作的系统框架。LangChain 这篇把核心组件讲得很清楚 — 做生产级 Agent 的必读心智模型。 <a href="https://blog.langchain.com/the-anatomy-of-an-agent-harness/">详情 →</a></p>
+<hr>
+<h2>🔬 研究前沿</h2>
+<p><strong>AlphaEvolve 在极值组合数学中建立全新结果。</strong> DeepMind 的 AlphaEvolve 不是在已知问题上刷分 — 它在极值组合学领域产出了全新的数学结果。AI 从"数学计算器"变成了"数学合作者"，这个跨越比任何 benchmark 都有意义。(1,615 likes | 168 RTs) <a href="https://x.com/GoogleDeepMind/status/2031784034125140135">详情 →</a></p>
+<p><strong>NVIDIA Cosmos Policy：把世界模型接到机器人控制上。</strong> 从仿真训练到物理操作的鸿沟一直是机器人领域的核心难题。Cosmos Policy 试图用世界基础模型统一这个链路 — 思路对了，但落地效果还需要看实际部署数据。(115 likes | 19 RTs) <a href="https://x.com/huggingface/status/2031753950735523967">详情 →</a></p>
+<p><strong>NVIDIA 公开合成代码训练数据生成方法论。</strong> 从"概念种子"出发生成高质量合成代码数据 — 对训练或微调代码模型的团队来说，这套方法论比数据本身更有价值。 <a href="https://huggingface.co/blog/nvidia/synthetic-code-concepts">详情 →</a></p>
+<hr>
+<h2>💡 行业洞察</h2>
+<h3>Karpathy：IDE 没有在死，它需要进化。</h3>
+<p>"We're going to need a bigger IDE" — Karpathy 的观点很清楚：人类现在在更高层级编程，基本工作单元在上移，但工具还停在原地。IDE 不该消失，而该跟上这个变化。对所有在思考"AI 时代还需不需要 IDE"的人来说，这是最好的回答。(2,920 likes | 198 RTs) <a href="https://x.com/karpathy/status/2031767720933634100">详情 →</a></p>
+<p><strong>安全研究员用 AI Agent 黑进了麦肯锡的 AI 平台。</strong> 不是理论推演 — 是真实的渗透测试报告。AI 攻击 AI 的场景已经从论文变成了现实。每个部署 Agent 的企业都该读这篇，然后审计自己的攻击面。(223 likes | 88 RTs) <a href="https://codewall.ai/blog/how-we-hacked-mckinseys-ai-platform">详情 →</a></p>
+<p><strong>Anthropic 悉尼办公室开张 — 亚太第四城。</strong> 继东京、班加罗尔、首尔之后，悉尼成为 Anthropic 在亚太的第四个据点。激进的区域扩张背后是人才争夺和监管布局的双重考量。 <a href="https://www.anthropic.com/news/sydney-fourth-office-asia-pacific">详情 →</a></p>
+<hr>
+<h2>🏗️ 值得一试</h2>
+<p><strong>开源 AI Agent 浏览器协议。</strong> 标准浏览器不是为 AI Agent 设计的 — 这个开源项目专门解决 Agent 的网页导航、交互和数据提取需求。如果你在做需要浏览器操作的 Agent，值得关注。(33 likes | 14 RTs) <a href="https://github.com/theredsix/agent-browser-protocol">详情 →</a></p>
+<hr>
+<h2>🎓 模型小课堂</h2>
+<p><strong>多模态嵌入空间（Multimodal Embedding Spaces）</strong>：传统嵌入模型只能处理单一类型的数据 — 文本归文本，图片归图片，搜索时只能同类匹配。多模态嵌入把文本、图片、视频映射到同一个向量空间里，这意味着你可以用一句话搜到相关的图片，或者用一张图找到相关的文档。Gemini Embedding 2 就是这个思路 — 一个模型、一个空间、多种模态。这解释了为什么检索管线即将迎来一波能力跃升：不再需要为每种数据类型单独建索引了。</p>
+<hr>
+<h2>⚡ 快讯</h2>
+<ul>
+<li><strong>HuggingFace Storage Buckets</strong>：S3 级可变存储上线，带 Xet 去重，专为 AI 训练工作流设计。(15 likes | 5 RTs) <a href="https://x.com/huggingface/status/2031428153948709291">链接</a></li>
+<li><strong>TEI v1.9</strong>：HuggingFace 文本嵌入推理引擎新增 NVIDIA Blackwell GPU 支持。(25 likes | 3 RTs) <a href="https://x.com/huggingface/status/2031404809706942812">链接</a></li>
+<li><strong>Claude 服务波动</strong>：Claude Code 和 claude.ai 出现登录错误和性能下降，已在修复中。(1,500 likes | 41 RTs) <a href="https://x.com/trq212/status/2031772228099203487">链接</a></li>
+<li><strong>中国 OpenClaw 淘金热</strong>：MIT Tech Review 报道，开源 AI 自主设备控制工具 OpenClaw 在中国引发创业热潮。 <a href="https://www.technologyreview.com/2026/03/11/1134179/china-openclaw-gold-rush/">链接</a></li>
+</ul>
+<hr>
+<h2>🎯 今日精选</h2>
+<p><strong>AlphaEvolve 在纯数学中产出原创结果 — AI 从计算器变成了合作者</strong>：DeepMind 的 AlphaEvolve 在极值组合学中建立了全新的数学结果，这不是在已知问题上跑出更优解，而是在未知领域做出了原创贡献。这个区别至关重要 — 它标志着"AI for Science"从"加速已知计算"跨越到"探索未知领域"。过去我们说 AI 辅助科研，本质上还是人类提出假设、AI 加速验证。现在 AlphaEvolve 展示的是 AI 参与假设生成本身。对数学和科学界来说，这重新定义了 AI 作为研究工具的角色边界。(1,615 likes | 168 RTs) <a href="https://x.com/GoogleDeepMind/status/2031784034125140135">详情 →</a></p>
+<hr>
+<p>下期见 ✌️</p>
+</div></div>
+    </div>
+    </section>
+
+    <section id="benchmark">
+      <h2>Benchmark Comparison</h2>
+      
+    <div style="overflow-x:auto;margin-bottom:16px">
+      <table>
+        <thead>
+          <tr>
+            <th>Lang</th>
+            <th>Pipeline Words</th>
+            <th>Live Words</th>
+            <th>Pipeline Links</th>
+            <th>Live Stories</th>
+            <th>Live Sections</th>
+          </tr>
+        </thead>
+        <tbody>
+      <tr>
+        <td style="font-weight:600">EN</td>
+        <td>1491</td>
+        <td>1592</td>
+        <td>22</td>
+        <td>26</td>
+        <td>13</td>
+      </tr>
+      <tr>
+        <td style="font-weight:600">ZH</td>
+        <td>2024</td>
+        <td>429</td>
+        <td>22</td>
+        <td>20</td>
+        <td>13</td>
+      </tr></tbody>
+      </table>
+    </div>
+      <details>
+        <summary style="cursor:pointer;padding:8px;background:#fafafa;border-radius:4px">
+          <strong>Side-by-side preview</strong>
+        </summary>
+        <div style="padding:12px">
+          
+      <h3>EN: Pipeline vs Live</h3>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <div style="flex:1;min-width:0">
+          <h4 style="margin:0 0 8px;color:#737373">Pipeline Output</h4>
+          <div class="md-content"><hr>
+<h2>title: "Anthropic Founds the Anthropic Institute to Tackle AI's Societal Fallout"
+date: 2026-03-12
+type: newsletter
+lang: en
+description: "Anthropic Founds the Anthropic Institute to Tackle AI's Societal Fallout"
+items_count: 22
+categories: [LAUNCH, TOOL, RESEARCH, INSIGHT, TECHNIQUE, BUILD]
+top_story: "We just added /btw to Claude Code! Use it to have side chain conversations while"</h2>
+<h1>Anthropic Founds the Anthropic Institute to Tackle AI's Societal Fallout</h1>
+<h2>🧠 LAUNCH</h2>
+<h3>Anthropic Founds the Anthropic Institute to Tackle AI's Societal Fallout</h3>
+<p><strong>Anthropic</strong> isn't just doing safety research anymore — it's launching a full institute dedicated to the policy, governance, and societal challenges that powerful AI creates. This is a deliberate shift from "how do we make models safe" to "how does society adapt to models that are already here." The founding charter signals Anthropic wants a seat at every regulatory table, not just the technical ones. If you care about where AI governance is headed, this is the org to watch. <a href="https://www.anthropic.com/news/the-anthropic-institute">Read more →</a></p>
+<h3>Google Ships Gemini Embedding 2 — Its First Fully Multimodal Embedding Model</h3>
+<p><strong>Gemini Embedding 2</strong> puts text, images, and video into a single vector space — meaning your retrieval pipeline can now search across modalities without separate models or stitched-together hacks. This is Google's most capable embedding model yet, and the multimodal piece is the real unlock: imagine searching a video library with a text query and getting frame-level results. If you're running any kind of RAG or search system, benchmark this against whatever you're using today. (2,325 likes | 289 RTs) <a href="https://x.com/GoogleDeepMind/status/2031484894300266939">Read more →</a></p>
+<p><strong>Meta ships four generations of custom AI silicon in two years.</strong> MTIA, Meta's custom training and inference chip, has gone through four architectural generations since 2024 — a pace that closes the gap between chip cycles and the model architecture changes that demand new hardware. Custom silicon is no longer a nice-to-have; it's a competitive moat that determines how fast you can iterate on model training. (264 likes | 44 RTs) <a href="https://x.com/AIatMeta/status/2031735560948068790">Read more →</a></p>
+<p><strong>Fish Audio drops s2-pro, a next-gen open TTS model.</strong> Already trending on HuggingFace, s2-pro is an open text-to-speech model worth testing if you're building voice interfaces or audio content pipelines. If your current TTS sounds robotic, this is your excuse to switch. (240 likes | 746 downloads) <a href="https://huggingface.co/fishaudio/s2-pro">Read more →</a></p>
+<hr>
+<h2>🔧 TOOL</h2>
+<h3>Claude Code Gets /btw — Side Conversations While the Agent Works</h3>
+<p>The new <strong>/btw</strong> command in <strong>Claude Code</strong> lets you ask side questions without interrupting the agent's main task — solving the "do I wait or do I interrupt?" dilemma that kills flow in agentic coding sessions. Think of it as whispering to your pair programmer while they're mid-keystroke. This is the kind of UX detail that separates a tool you tolerate from one you love. (22,849 likes | 1,388 RTs) <a href="https://x.com/trq212/status/2031506296697131352">Read more →</a></p>
+<p><strong>OpenAI ships a Codex skill to automate GPT-5.4 migration.</strong> Instead of manually swapping model IDs and tweaking prompts, this dedicated skill handles the model swap, prompt adjustments, and compatibility checks for you. If you're still on GPT-5.3, this cuts migration from hours to minutes. (700 likes | 26 RTs) <a href="https://x.com/OpenAIDevs/status/2031498496323518846">Read more →</a></p>
+<p><strong>Claude for Excel and PowerPoint now share context seamlessly.</strong> Cross-app context sharing means you can pull spreadsheet analysis into a deck without re-explaining your data — Claude remembers what it saw in Excel when you switch to PowerPoint. A genuine workflow unlock for anyone who lives in Office. (407 likes | 34 RTs) <a href="https://x.com/claudeai/status/2031790754637717772">Read more →</a></p>
+<p><strong>Gemini CLI adds Plan Mode for read-only exploration.</strong> You can now explore and strategize with the model before making any changes — a safety-first pattern that lets you think through a refactor without accidentally touching files. More CLI tools should steal this idea. (250 likes | 22 RTs) <a href="https://x.com/geminicli/status/2031761736232050707">Read more →</a></p>
+<hr>
+<h2>📝 TECHNIQUE</h2>
+<p><strong>Why your agentic coding evals are lying to you</strong>: Agentic coding benchmarks can vary by several percentage points between identical runs — infrastructure config, server load, and non-deterministic tool use all inject noise. If you're choosing a model based on a 2% benchmark edge, you might just be measuring luck. Run your own evals, multiple times, on your own infra. (480 likes | 16 RTs) <a href="https://x.com/trq212/status/2031462032508334434">Read more →</a></p>
+<p><strong>Simon Willison's patterns for AI-assisted code that's actually better</strong>: Not faster code — <em>better</em> code. Willison lays out practical agentic engineering patterns that prioritize correctness, readability, and maintainability over raw speed. The key insight: AI amplifies whatever you optimize for, so optimize for quality. <a href="https://simonwillison.net/guides/agentic-engineering-patterns/better-code/#atom-everything">Read more →</a></p>
+<p><strong>LangChain breaks down the anatomy of an agent harness</strong>: The harness is the system that wraps a model to turn intelligence into work — tool routing, memory management, error recovery, and orchestration. If you're building production agents and your architecture doesn't map cleanly to these components, you probably have a gap. <a href="https://blog.langchain.com/the-anatomy-of-an-agent-harness/">Read more →</a></p>
+<hr>
+<h2>🔬 RESEARCH</h2>
+<p><strong>AlphaEvolve establishes new results in extremal combinatorics.</strong> DeepMind's <strong>AlphaEvolve</strong> isn't just verifying known proofs — it's producing novel mathematical results in extremal combinatorics that human mathematicians hadn't found. This is AI contributing to pure math at the frontier, not pattern-matching on textbook problems. (1,615 likes | 168 RTs) <a href="https://x.com/GoogleDeepMind/status/2031784034125140135">Read more →</a></p>
+<p><strong>NVIDIA Cosmos Policy connects world models to robot control.</strong> Cosmos Policy bridges the gap between simulation-trained world foundation models and actual physical manipulation — turning a model that understands physics into one that can act on it. The unified architecture means one model handles perception, planning, and control instead of a fragile pipeline of specialists. (115 likes | 19 RTs) <a href="https://x.com/huggingface/status/2031753950735523967">Read more →</a></p>
+<p><strong>NVIDIA publishes methodology for synthetic code training data from concept seeds.</strong> The approach generates high-quality training examples by starting from programming concepts rather than scraping repos — giving you control over coverage, difficulty distribution, and domain focus. Practical for anyone fine-tuning code models who's hit the ceiling on natural data. <a href="https://huggingface.co/blog/nvidia/synthetic-code-concepts">Read more →</a></p>
+<hr>
+<h2>💡 INSIGHT</h2>
+<h3>Karpathy: The IDE Isn't Dying — It Needs to Level Up</h3>
+<p><strong>Karpathy</strong> argues that the rise of agentic coding doesn't kill the IDE — it demands a fundamentally better one. Humans now program at a higher level of abstraction, and the basic unit of work has shifted from characters and lines to intentions and plans. The tooling needs to match that shift: better visualization of agent state, richer feedback loops, and interfaces designed for supervising work rather than typing it. If you're building developer tools, this is the north star. (2,920 likes | 198 RTs) <a href="https://x.com/karpathy/status/2031767720933634100">Read more →</a></p>
+<p><strong>Security researchers use an AI agent to hack McKinsey's AI platform.</strong> Codewall details how they compromised McKinsey's production AI system using an autonomous agent — exploiting tool-use permissions and prompt injection vectors that most enterprise deployments haven't hardened against. If you're deploying agents with real credentials, audit your attack surface before someone else does. (223 likes | 88 RTs) <a href="https://codewall.ai/blog/how-we-hacked-mckinseys-ai-platform">Read more →</a></p>
+<p><strong>Anthropic opens Sydney office — fourth in Asia-Pacific.</strong> After Tokyo, Bengaluru, and Seoul, Sydney rounds out an aggressive APAC footprint. Four offices across four major AI markets in under a year signals both a talent play and a regulatory engagement strategy — Anthropic wants local relationships with every government that's writing AI rules. <a href="https://www.anthropic.com/news/sydney-fourth-office-asia-pacific">Read more →</a></p>
+<hr>
+<h2>🏗️ BUILD</h2>
+<p><strong>Open-source browser protocol built for AI agents.</strong> Standard browsers weren't designed for autonomous navigation — this protocol handles page interaction, data extraction, and multi-step workflows in a way that's native to how agents actually work. If you've been fighting Puppeteer or Playwright to make your agent browse the web, this is the purpose-built alternative. (33 likes | 14 RTs) <a href="https://github.com/theredsix/agent-browser-protocol">Read more →</a></p>
+<hr>
+<h2>🎓 MODEL LITERACY</h2>
+<p><strong>Multimodal Embedding Spaces</strong>: Traditional embedding models map text into a vector space where similar meanings cluster together — but what happens when you add images and video? Gemini Embedding 2 puts all three modalities into a single shared space, meaning a text description of a sunset and a photo of a sunset land near each other in the same vector neighborhood. This works because the model is trained on aligned pairs across modalities, learning that "golden retriever playing fetch" (text) and an image of exactly that should have nearly identical vectors. Why this matters: retrieval pipelines can now search across modalities without separate models or post-hoc alignment — ask a question in text, get back the relevant video frame, image, or document in one query.</p>
+<hr>
+<h2>⚡ QUICK LINKS</h2>
+<ul>
+<li><strong>HuggingFace Storage Buckets</strong>: S3-like mutable storage with Xet dedup for ML checkpoints. (15 likes | 5 RTs) <a href="https://x.com/huggingface/status/2031428153948709291">Link</a></li>
+<li><strong>TEI v1.9</strong>: HuggingFace Text Embeddings Inference adds NVIDIA Blackwell GPU support. (25 likes | 3 RTs) <a href="https://x.com/huggingface/status/2031404809706942812">Link</a></li>
+<li><strong>Claude Code outages</strong>: Login issues and slower performance across Claude Code and claude.ai. (1,500 likes | 41 RTs) <a href="https://x.com/trq212/status/2031772228099203487">Link</a></li>
+<li><strong>China's OpenClaw craze</strong>: MIT Tech Review profiles the gold rush of AI entrepreneurs building on China's open-source device control tool. <a href="https://www.technologyreview.com/2026/03/11/1134179/china-openclaw-gold-rush/">Link</a></li>
+</ul>
+<hr>
+<h2>🎯 PICK OF THE DAY</h2>
+<p><strong>AlphaEvolve producing novel combinatorics results marks a genuine inflection point.</strong> There's a meaningful difference between AI verifying known proofs faster and AI discovering results that humans hadn't found — and AlphaEvolve just crossed that line. Extremal combinatorics isn't a toy domain; these are hard, open problems that mathematicians have been chipping away at for decades. What makes this significant isn't the specific results — it's the methodology. AlphaEvolve uses evolutionary search guided by a language model to explore proof strategies that human intuition wouldn't prioritize. This is AI as a collaborator in unknown math, not a calculator for known math. The distinction reshapes what "AI for science" actually means: not just accelerating existing research pipelines, but expanding the space of what gets explored in the first place. Every research lab running compute-intensive searches over combinatorial spaces should be paying close attention. (1,615 likes | 168 RTs) <a href="https://x.com/GoogleDeepMind/status/2031784034125140135">Read more →</a></p>
+<hr>
+<p>Until next time ✌️</p>
+</div>
+        </div>
+        <div style="flex:1;min-width:0">
+          <h4 style="margin:0 0 8px;color:#737373">Live Site</h4>
+          <div class="md-content"><main class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8"><nav class="mb-8"><a class="inline-flex items-center gap-1 text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100" href="/newsletter"><span aria-hidden="true">←</span> All newsletters</a></nav><header class="mb-8"><time dateTime="2026-03-12" class="text-sm font-medium text-zinc-500 dark:text-zinc-400">Thursday, March 12, 2026</time><div class="mt-3 flex flex-wrap gap-1.5"><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">LAUNCH</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">TOOL</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">RESEARCH</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">INSIGHT</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">TECHNIQUE</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">BUILD</span></div><p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400">22<!-- --> items covered</p></header><article class="prose prose-zinc max-w-none dark:prose-invert prose-headings:font-semibold prose-h1:text-2xl prose-h1:sm:text-3xl prose-h2:text-xl prose-a:text-zinc-900 prose-a:underline-offset-2 hover:prose-a:text-zinc-600 dark:prose-a:text-zinc-200 dark:hover:prose-a:text-zinc-400 prose-hr:border-zinc-200 dark:prose-hr:border-zinc-800 prose-strong:text-zinc-900 dark:prose-strong:text-zinc-100"><h1>Anthropic Founds the Anthropic Institute to Tackle AI's Societal Fallout</h1>
+<h2>🧠 LAUNCH</h2>
+<h3>Anthropic Founds the Anthropic Institute to Tackle AI's Societal Fallout</h3>
+<p><strong>Anthropic</strong> isn't just doing safety research anymore — it's launching a full institute dedicated to the policy, governance, and societal challenges that powerful AI creates. This is a deliberate shift from "how do we make models safe" to "how does society adapt to models that are already here." The founding charter signals Anthropic wants a seat at every regulatory table, not just the technical ones. If you care about where AI governance is headed, this is the org to watch. <a href="https://www.anthropic.com/news/the-anthropic-institute">Read more →</a></p>
+<h3>Google Ships Gemini Embedding 2 — Its First Fully Multimodal Embedding Model</h3>
+<p><strong>Gemini Embedding 2</strong> puts text, images, and video into a single vector space — meaning your retrieval pipeline can now search across modalities without separate models or stitched-together hacks. This is Google's most capable embedding model yet, and the multimodal piece is the real unlock: imagine searching a video library with a text query and getting frame-level results. If you're running any kind of RAG or search system, benchmark this against whatever you're using today. (2,325 likes | 289 RTs) <a href="https://x.com/GoogleDeepMind/status/2031484894300266939">Read more →</a></p>
+<p><strong>Meta ships four generations of custom AI silicon in two years.</strong> MTIA, Meta's custom training and inference chip, has gone through four architectural generations since 2024 — a pace that closes the gap between chip cycles and the model architecture changes that demand new hardware. Custom silicon is no longer a nice-to-have; it's a competitive moat that determines how fast you can iterate on model training. (264 likes | 44 RTs) <a href="https://x.com/AIatMeta/status/2031735560948068790">Read more →</a></p>
+<p><strong>Fish Audio drops s2-pro, a next-gen open TTS model.</strong> Already trending on HuggingFace, s2-pro is an open text-to-speech model worth testing if you're building voice interfaces or audio content pipelines. If your current TTS sounds robotic, this is your excuse to switch. (240 likes | 746 downloads) <a href="https://huggingface.co/fishaudio/s2-pro">Read more →</a></p>
+<hr>
+<h2>🔧 TOOL</h2>
+<h3>Claude Code Gets /btw — Side Conversations While the Agent Works</h3>
+<p>The new <strong>/btw</strong> command in <strong>Claude Code</strong> lets you ask side questions without interrupting the agent's main task — solving the "do I wait or do I interrupt?" dilemma that kills flow in agentic coding sessions. Think of it as whispering to your pair programmer while they're mid-keystroke. This is the kind of UX detail that separates a tool you tolerate from one you love. (22,849 likes | 1,388 RTs) <a href="https://x.com/trq212/status/2031506296697131352">Read more →</a></p>
+<p><strong>OpenAI ships a Codex skill to automate GPT-5.4 migration.</strong> Instead of manually swapping model IDs and tweaking prompts, this dedicated skill handles the model swap, prompt adjustments, and compatibility checks for you. If you're still on GPT-5.3, this cuts migration from hours to minutes. (700 likes | 26 RTs) <a href="https://x.com/OpenAIDevs/status/2031498496323518846">Read more →</a></p>
+<p><strong>Claude for Excel and PowerPoint now share context seamlessly.</strong> Cross-app context sharing means you can pull spreadsheet analysis into a deck without re-explaining your data — Claude remembers what it saw in Excel when you switch to PowerPoint. A genuine workflow unlock for anyone who lives in Office. (407 likes | 34 RTs) <a href="https://x.com/claudeai/status/2031790754637717772">Read more →</a></p>
+<p><strong>Gemini CLI adds Plan Mode for read-only exploration.</strong> You can now explore and strategize with the model before making any changes — a safety-first pattern that lets you think through a refactor without accidentally touching files. More CLI tools should steal this idea. (250 likes | 22 RTs) <a href="https://x.com/geminicli/status/2031761736232050707">Read more →</a></p>
+<hr>
+<h2>📝 TECHNIQUE</h2>
+<p><strong>Why your agentic coding evals are lying to you</strong>: Agentic coding benchmarks can vary by several percentage points between identical runs — infrastructure config, server load, and non-deterministic tool use all inject noise. If you're choosing a model based on a 2% benchmark edge, you might just be measuring luck. Run your own evals, multiple times, on your own infra. (480 likes | 16 RTs) <a href="https://x.com/trq212/status/2031462032508334434">Read more →</a></p>
+<p><strong>Simon Willison's patterns for AI-assisted code that's actually better</strong>: Not faster code — <em>better</em> code. Willison lays out practical agentic engineering patterns that prioritize correctness, readability, and maintainability over raw speed. The key insight: AI amplifies whatever you optimize for, so optimize for quality. <a href="https://simonwillison.net/guides/agentic-engineering-patterns/better-code/#atom-everything">Read more →</a></p>
+<p><strong>LangChain breaks down the anatomy of an agent harness</strong>: The harness is the system that wraps a model to turn intelligence into work — tool routing, memory management, error recovery, and orchestration. If you're building production agents and your architecture doesn't map cleanly to these components, you probably have a gap. <a href="https://blog.langchain.com/the-anatomy-of-an-agent-harness/">Read more →</a></p>
+<hr>
+<h2>🔬 RESEARCH</h2>
+<p><strong>AlphaEvolve establishes new results in extremal combinatorics.</strong> DeepMind's <strong>AlphaEvolve</strong> isn't just verifying known proofs — it's producing novel mathematical results in extremal combinatorics that human mathematicians hadn't found. This is AI contributing to pure math at the frontier, not pattern-matching on textbook problems. (1,615 likes | 168 RTs) <a href="https://x.com/GoogleDeepMind/status/2031784034125140135">Read more →</a></p>
+<p><strong>NVIDIA Cosmos Policy connects world models to robot control.</strong> Cosmos Policy bridges the gap between simulation-trained world foundation models and actual physical manipulation — turning a model that understands physics into one that can act on it. The unified architecture means one model handles perception, planning, and control instead of a fragile pipeline of specialists. (115 likes | 19 RTs) <a href="https://x.com/huggingface/status/2031753950735523967">Read more →</a></p>
+<p><strong>NVIDIA publishes methodology for synthetic code training data from concept seeds.</strong> The approach generates high-quality training examples by starting from programming concepts rather than scraping repos — giving you control over coverage, difficulty distribution, and domain focus. Practical for anyone fine-tuning code models who's hit the ceiling on natural data. <a href="https://huggingface.co/blog/nvidia/synthetic-code-concepts">Read more →</a></p>
+<hr>
+<h2>💡 INSIGHT</h2>
+<h3>Karpathy: The IDE Isn't Dying — It Needs to Level Up</h3>
+<p><strong>Karpathy</strong> argues that the rise of agentic coding doesn't kill the IDE — it demands a fundamentally better one. Humans now program at a higher level of abstraction, and the basic unit of work has shifted from characters and lines to intentions and plans. The tooling needs to match that shift: better visualization of agent state, richer feedback loops, and interfaces designed for supervising work rather than typing it. If you're building developer tools, this is the north star. (2,920 likes | 198 RTs) <a href="https://x.com/karpathy/status/2031767720933634100">Read more →</a></p>
+<p><strong>Security researchers use an AI agent to hack McKinsey's AI platform.</strong> Codewall details how they compromised McKinsey's production AI system using an autonomous agent — exploiting tool-use permissions and prompt injection vectors that most enterprise deployments haven't hardened against. If you're deploying agents with real credentials, audit your attack surface before someone else does. (223 likes | 88 RTs) <a href="https://codewall.ai/blog/how-we-hacked-mckinseys-ai-platform">Read more →</a></p>
+<p><strong>Anthropic opens Sydney office — fourth in Asia-Pacific.</strong> After Tokyo, Bengaluru, and Seoul, Sydney rounds out an aggressive APAC footprint. Four offices across four major AI markets in under a year signals both a talent play and a regulatory engagement strategy — Anthropic wants local relationships with every government that's writing AI rules. <a href="https://www.anthropic.com/news/sydney-fourth-office-asia-pacific">Read more →</a></p>
+<hr>
+<h2>🏗️ BUILD</h2>
+<p><strong>Open-source browser protocol built for AI agents.</strong> Standard browsers weren't designed for autonomous navigation — this protocol handles page interaction, data extraction, and multi-step workflows in a way that's native to how agents actually work. If you've been fighting Puppeteer or Playwright to make your agent browse the web, this is the purpose-built alternative. (33 likes | 14 RTs) <a href="https://github.com/theredsix/agent-browser-protocol">Read more →</a></p>
+<hr>
+<h2>🎓 MODEL LITERACY</h2>
+<p><strong>Multimodal Embedding Spaces</strong>: Traditional embedding models map text into a vector space where similar meanings cluster together — but what happens when you add images and video? Gemini Embedding 2 puts all three modalities into a single shared space, meaning a text description of a sunset and a photo of a sunset land near each other in the same vector neighborhood. This works because the model is trained on aligned pairs across modalities, learning that "golden retriever playing fetch" (text) and an image of exactly that should have nearly identical vectors. Why this matters: retrieval pipelines can now search across modalities without separate models or post-hoc alignment — ask a question in text, get back the relevant video frame, image, or document in one query.</p>
+<hr>
+<h2>⚡ QUICK LINKS</h2>
+<ul>
+<li><strong>HuggingFace Storage Buckets</strong>: S3-like mutable storage with Xet dedup for ML checkpoints. (15 likes | 5 RTs) <a href="https://x.com/huggingface/status/2031428153948709291">Link</a></li>
+<li><strong>TEI v1.9</strong>: HuggingFace Text Embeddings Inference adds NVIDIA Blackwell GPU support. (25 likes | 3 RTs) <a href="https://x.com/huggingface/status/2031404809706942812">Link</a></li>
+<li><strong>Claude Code outages</strong>: Login issues and slower performance across Claude Code and claude.ai. (1,500 likes | 41 RTs) <a href="https://x.com/trq212/status/2031772228099203487">Link</a></li>
+<li><strong>China's OpenClaw craze</strong>: MIT Tech Review profiles the gold rush of AI entrepreneurs building on China's open-source device control tool. <a href="https://www.technologyreview.com/2026/03/11/1134179/china-openclaw-gold-rush/">Link</a></li>
+</ul>
+<hr>
+<h2>🎯 PICK OF THE DAY</h2>
+<p><strong>AlphaEvolve producing novel combinatorics results marks a genuine inflection point.</strong> There's a meaningful difference between AI verifying known proofs faster and AI discovering results that humans hadn't found — and AlphaEvolve just crossed that line. Extremal combinatorics isn't a toy domain; these are hard, open problems that mathematicians have been chipping away at for decades. What makes this significant isn't the specific results — it's the methodology. AlphaEvolve uses evolutionary search guided by a language model to explore proof strategies that human intuition wouldn't prioritize. This is AI as a collaborator in unknown math, not a calculator for known math. The distinction reshapes what "AI for science" actually means: not just accelerating existing research pipelines, but expanding the space of what gets explored in the first place. Every research lab running compute-intensive searches over combinatorial spaces should be paying close attention. (1,615 likes | 168 RTs) <a href="https://x.com/GoogleDeepMind/status/2031784034125140135">Read more →</a></p>
+<hr>
+<p>Until next time ✌️</p>
+</article><nav class="mt-12 flex flex-col gap-4 border-t border-zinc-200 pt-8 dark:border-zinc-800 sm:flex-row sm:justify-between"><a class="group flex flex-col" href="/newsletter/2026-03-11"><span class="text-xs font-medium text-zinc-500 dark:text-zinc-400">← Older</span><span class="mt-1 text-sm font-medium text-zinc-900 group-hover:text-zinc-600 dark:text-zinc-100 dark:group-hover:text-zinc-300">Qwen3.5 Lands With a 27B Multimodal Flagship and 835K Day-One Downloads</span></a><div></div></nav><!--$!--><template data-dgst="BAILOUT_TO_CLIENT_SIDE_RENDERING"></template><!--/$--></div>
+        </div>
+      </div>
+          
+      <h3 style="margin-top:24px">ZH: Pipeline vs Live</h3>
+      <div style="display:flex;gap:16px;flex-wrap:wrap">
+        <div style="flex:1;min-width:0">
+          <h4 style="margin:0 0 8px;color:#737373">Pipeline Output</h4>
+          <div class="md-content"><hr>
+<h2>title: "Anthropic 成立 Anthropic Institute，正式进军 AI 社会治理"
+date: 2026-03-12
+type: newsletter
+lang: zh
+description: "Anthropic 成立 Anthropic Institute，正式进军 AI 社会治理。"
+items_count: 22
+categories: [LAUNCH, TOOL, RESEARCH, INSIGHT, TECHNIQUE, BUILD]
+top_story: "We just added /btw to Claude Code! Use it to have side chain conversations while"</h2>
+<h1>Anthropic 成立 Anthropic Institute，正式进军 AI 社会治理</h1>
+<h2>🧠 发布动态</h2>
+<h3>Anthropic 成立 Anthropic Institute，正式进军 AI 社会治理。</h3>
+<p>不是又一个安全实验室 — 这是一个专门应对强 AI 社会影响的独立机构。从纯技术安全研究扩展到政策制定和公众参与，Anthropic 的野心很明确：不只是做最强的模型，还要定义 AI 时代的规则。对行业来说，这意味着 AI 公司开始主动承担"立法顾问"的角色，而不是等监管来敲门。 <a href="https://www.anthropic.com/news/the-anthropic-institute">详情 →</a></p>
+<h3>Google 发布 Gemini Embedding 2 — 首个全模态嵌入模型。</h3>
+<p>文本、图片、视频，一个向量空间搞定。这不是小升级 — 跨模态检索管线一直是 RAG 架构的痛点，现在 Google 直接给了一个统一方案。如果你在做多模态搜索或知识库，这个模型值得立刻跑个 benchmark 对比你现有的嵌入方案。(2,325 likes | 289 RTs) <a href="https://x.com/GoogleDeepMind/status/2031484894300266939">详情 →</a></p>
+<p><strong>Meta 两年迭代四代自研 AI 芯片。</strong> MTIA 的演进速度说明一件事：芯片迭代周期正在追赶模型架构变化的速度。自研硅片从"省钱手段"变成了竞争壁垒 — Meta 不想在推理成本上受制于 NVIDIA。(264 likes | 44 RTs) <a href="https://x.com/AIatMeta/status/2031735560948068790">详情 →</a></p>
+<p><strong>Fish Audio 发布 s2-pro 开源语音合成模型。</strong> HuggingFace 上热度不低（240 likes | 746 downloads），做语音交互或音频内容管线的团队值得试试。开源 TTS 的质量天花板又被抬高了一截。 <a href="https://huggingface.co/fishaudio/s2-pro">详情 →</a></p>
+<hr>
+<h2>🔧 开发者工具</h2>
+<h3>Claude Code 上线 /btw — Agent 干活的时候你可以开小差了。</h3>
+<p>用过 Claude Code 的都知道那个纠结：Agent 在跑一个大任务，你突然想问个小问题，打断还是等？现在不用选了。/btw 开启侧链对话，主任务不受影响。这个功能看似小，实际上解决了 Agent 编码工作流中最大的效率瓶颈之一。(22,849 likes | 1,388 RTs) <a href="https://x.com/trq212/status/2031506296697131352">详情 →</a></p>
+<p><strong>OpenAI 发布 GPT-5.4 迁移 Codex Skill。</strong> 自动化模型切换、提示词调整和兼容性检查，不用手动一个个改了。如果你还在用 GPT-5.3，这是最省事的升级路径。(700 likes | 26 RTs) <a href="https://x.com/OpenAIDevs/status/2031498496323518846">详情 →</a></p>
+<p><strong>Claude for Excel 和 PowerPoint 现在可以共享上下文。</strong> 在 Excel 里分析完数据，切到 PowerPoint 做汇报，Claude 自动带上之前的上下文，不用重新解释一遍。对商业用户来说，这才是 AI 融入工作流该有的样子。(407 likes | 34 RTs) <a href="https://x.com/claudeai/status/2031790754637717772">详情 →</a></p>
+<p><strong>Gemini CLI 新增 Plan Mode — 先看再动手。</strong> 只读模式下先让模型帮你探索和规划，确认方案再执行。安全第一的设计思路，大重构之前用一次，可能省掉几小时的回滚时间。(250 likes | 22 RTs) <a href="https://x.com/geminicli/status/2031761736232050707">详情 →</a></p>
+<hr>
+<h2>📝 技术实战</h2>
+<p><strong>你的 Agent 编码评测可能在骗你。</strong> 一篇很扎实的分析：Agent 编码 benchmark 在不同运行之间可以波动好几个百分点 — 有时候比模型之间的差距还大。如果你在根据一次跑分结果选模型，先看看这篇再说。(480 likes | 16 RTs) <a href="https://x.com/trq212/status/2031462032508334434">详情 →</a></p>
+<p><strong>Simon Willison 的 AI 辅助编码模式指南。</strong> 不是"怎么用 AI 写更快的代码"，而是"怎么用 AI 写更好的代码"。质量优先于速度 — 这个视角在 AI 编码圈太稀缺了。 <a href="https://simonwillison.net/guides/agentic-engineering-patterns/better-code/#atom-everything">详情 →</a></p>
+<p><strong>LangChain 拆解 Agent Harness 的核心结构。</strong> Agent harness 是把模型智能转化为实际工作的系统框架。LangChain 这篇把核心组件讲得很清楚 — 做生产级 Agent 的必读心智模型。 <a href="https://blog.langchain.com/the-anatomy-of-an-agent-harness/">详情 →</a></p>
+<hr>
+<h2>🔬 研究前沿</h2>
+<p><strong>AlphaEvolve 在极值组合数学中建立全新结果。</strong> DeepMind 的 AlphaEvolve 不是在已知问题上刷分 — 它在极值组合学领域产出了全新的数学结果。AI 从"数学计算器"变成了"数学合作者"，这个跨越比任何 benchmark 都有意义。(1,615 likes | 168 RTs) <a href="https://x.com/GoogleDeepMind/status/2031784034125140135">详情 →</a></p>
+<p><strong>NVIDIA Cosmos Policy：把世界模型接到机器人控制上。</strong> 从仿真训练到物理操作的鸿沟一直是机器人领域的核心难题。Cosmos Policy 试图用世界基础模型统一这个链路 — 思路对了，但落地效果还需要看实际部署数据。(115 likes | 19 RTs) <a href="https://x.com/huggingface/status/2031753950735523967">详情 →</a></p>
+<p><strong>NVIDIA 公开合成代码训练数据生成方法论。</strong> 从"概念种子"出发生成高质量合成代码数据 — 对训练或微调代码模型的团队来说，这套方法论比数据本身更有价值。 <a href="https://huggingface.co/blog/nvidia/synthetic-code-concepts">详情 →</a></p>
+<hr>
+<h2>💡 行业洞察</h2>
+<h3>Karpathy：IDE 没有在死，它需要进化。</h3>
+<p>"We're going to need a bigger IDE" — Karpathy 的观点很清楚：人类现在在更高层级编程，基本工作单元在上移，但工具还停在原地。IDE 不该消失，而该跟上这个变化。对所有在思考"AI 时代还需不需要 IDE"的人来说，这是最好的回答。(2,920 likes | 198 RTs) <a href="https://x.com/karpathy/status/2031767720933634100">详情 →</a></p>
+<p><strong>安全研究员用 AI Agent 黑进了麦肯锡的 AI 平台。</strong> 不是理论推演 — 是真实的渗透测试报告。AI 攻击 AI 的场景已经从论文变成了现实。每个部署 Agent 的企业都该读这篇，然后审计自己的攻击面。(223 likes | 88 RTs) <a href="https://codewall.ai/blog/how-we-hacked-mckinseys-ai-platform">详情 →</a></p>
+<p><strong>Anthropic 悉尼办公室开张 — 亚太第四城。</strong> 继东京、班加罗尔、首尔之后，悉尼成为 Anthropic 在亚太的第四个据点。激进的区域扩张背后是人才争夺和监管布局的双重考量。 <a href="https://www.anthropic.com/news/sydney-fourth-office-asia-pacific">详情 →</a></p>
+<hr>
+<h2>🏗️ 值得一试</h2>
+<p><strong>开源 AI Agent 浏览器协议。</strong> 标准浏览器不是为 AI Agent 设计的 — 这个开源项目专门解决 Agent 的网页导航、交互和数据提取需求。如果你在做需要浏览器操作的 Agent，值得关注。(33 likes | 14 RTs) <a href="https://github.com/theredsix/agent-browser-protocol">详情 →</a></p>
+<hr>
+<h2>🎓 模型小课堂</h2>
+<p><strong>多模态嵌入空间（Multimodal Embedding Spaces）</strong>：传统嵌入模型只能处理单一类型的数据 — 文本归文本，图片归图片，搜索时只能同类匹配。多模态嵌入把文本、图片、视频映射到同一个向量空间里，这意味着你可以用一句话搜到相关的图片，或者用一张图找到相关的文档。Gemini Embedding 2 就是这个思路 — 一个模型、一个空间、多种模态。这解释了为什么检索管线即将迎来一波能力跃升：不再需要为每种数据类型单独建索引了。</p>
+<hr>
+<h2>⚡ 快讯</h2>
+<ul>
+<li><strong>HuggingFace Storage Buckets</strong>：S3 级可变存储上线，带 Xet 去重，专为 AI 训练工作流设计。(15 likes | 5 RTs) <a href="https://x.com/huggingface/status/2031428153948709291">链接</a></li>
+<li><strong>TEI v1.9</strong>：HuggingFace 文本嵌入推理引擎新增 NVIDIA Blackwell GPU 支持。(25 likes | 3 RTs) <a href="https://x.com/huggingface/status/2031404809706942812">链接</a></li>
+<li><strong>Claude 服务波动</strong>：Claude Code 和 claude.ai 出现登录错误和性能下降，已在修复中。(1,500 likes | 41 RTs) <a href="https://x.com/trq212/status/2031772228099203487">链接</a></li>
+<li><strong>中国 OpenClaw 淘金热</strong>：MIT Tech Review 报道，开源 AI 自主设备控制工具 OpenClaw 在中国引发创业热潮。 <a href="https://www.technologyreview.com/2026/03/11/1134179/china-openclaw-gold-rush/">链接</a></li>
+</ul>
+<hr>
+<h2>🎯 今日精选</h2>
+<p><strong>AlphaEvolve 在纯数学中产出原创结果 — AI 从计算器变成了合作者</strong>：DeepMind 的 AlphaEvolve 在极值组合学中建立了全新的数学结果，这不是在已知问题上跑出更优解，而是在未知领域做出了原创贡献。这个区别至关重要 — 它标志着"AI for Science"从"加速已知计算"跨越到"探索未知领域"。过去我们说 AI 辅助科研，本质上还是人类提出假设、AI 加速验证。现在 AlphaEvolve 展示的是 AI 参与假设生成本身。对数学和科学界来说，这重新定义了 AI 作为研究工具的角色边界。(1,615 likes | 168 RTs) <a href="https://x.com/GoogleDeepMind/status/2031784034125140135">详情 →</a></p>
+<hr>
+<p>下期见 ✌️</p>
+</div>
+        </div>
+        <div style="flex:1;min-width:0">
+          <h4 style="margin:0 0 8px;color:#737373">Live Site</h4>
+          <div class="md-content"><main class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8"><nav class="mb-8 flex items-center justify-between"><a class="inline-flex items-center gap-1 text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100" href="/zh/newsletter"><span aria-hidden="true">←</span> 所有日报</a><a class="text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100" href="/newsletter/2026-03-12">English</a></nav><header class="mb-8"><time dateTime="2026-03-12" class="text-sm font-medium text-zinc-500 dark:text-zinc-400">2026年3月12日星期四</time><div class="mt-3 flex flex-wrap gap-1.5"><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">LAUNCH</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">TOOL</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">RESEARCH</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">INSIGHT</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">TECHNIQUE</span><span class="rounded-full bg-zinc-100 px-2.5 py-0.5 text-xs font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">BUILD</span></div><p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400">共 <!-- -->22<!-- --> 条资讯</p></header><article class="prose prose-zinc max-w-none dark:prose-invert prose-headings:font-semibold prose-h1:text-2xl prose-h1:sm:text-3xl prose-h2:text-xl prose-a:text-zinc-900 prose-a:underline-offset-2 hover:prose-a:text-zinc-600 dark:prose-a:text-zinc-200 dark:hover:prose-a:text-zinc-400 prose-hr:border-zinc-200 dark:prose-hr:border-zinc-800 prose-strong:text-zinc-900 dark:prose-strong:text-zinc-100"><h1>Anthropic 成立 Anthropic Institute，正式进军 AI 社会治理</h1>
+<h2>🧠 发布动态</h2>
+<h3>Anthropic 成立 Anthropic Institute，正式进军 AI 社会治理。</h3>
+<p>不是又一个安全实验室 — 这是一个专门应对强 AI 社会影响的独立机构。从纯技术安全研究扩展到政策制定和公众参与，Anthropic 的野心很明确：不只是做最强的模型，还要定义 AI 时代的规则。对行业来说，这意味着 AI 公司开始主动承担"立法顾问"的角色，而不是等监管来敲门。 <a href="https://www.anthropic.com/news/the-anthropic-institute">详情 →</a></p>
+<h3>Google 发布 Gemini Embedding 2 — 首个全模态嵌入模型。</h3>
+<p>文本、图片、视频，一个向量空间搞定。这不是小升级 — 跨模态检索管线一直是 RAG 架构的痛点，现在 Google 直接给了一个统一方案。如果你在做多模态搜索或知识库，这个模型值得立刻跑个 benchmark 对比你现有的嵌入方案。(2,325 likes | 289 RTs) <a href="https://x.com/GoogleDeepMind/status/2031484894300266939">详情 →</a></p>
+<p><strong>Meta 两年迭代四代自研 AI 芯片。</strong> MTIA 的演进速度说明一件事：芯片迭代周期正在追赶模型架构变化的速度。自研硅片从"省钱手段"变成了竞争壁垒 — Meta 不想在推理成本上受制于 NVIDIA。(264 likes | 44 RTs) <a href="https://x.com/AIatMeta/status/2031735560948068790">详情 →</a></p>
+<p><strong>Fish Audio 发布 s2-pro 开源语音合成模型。</strong> HuggingFace 上热度不低（240 likes | 746 downloads），做语音交互或音频内容管线的团队值得试试。开源 TTS 的质量天花板又被抬高了一截。 <a href="https://huggingface.co/fishaudio/s2-pro">详情 →</a></p>
+<hr>
+<h2>🔧 开发者工具</h2>
+<h3>Claude Code 上线 /btw — Agent 干活的时候你可以开小差了。</h3>
+<p>用过 Claude Code 的都知道那个纠结：Agent 在跑一个大任务，你突然想问个小问题，打断还是等？现在不用选了。/btw 开启侧链对话，主任务不受影响。这个功能看似小，实际上解决了 Agent 编码工作流中最大的效率瓶颈之一。(22,849 likes | 1,388 RTs) <a href="https://x.com/trq212/status/2031506296697131352">详情 →</a></p>
+<p><strong>OpenAI 发布 GPT-5.4 迁移 Codex Skill。</strong> 自动化模型切换、提示词调整和兼容性检查，不用手动一个个改了。如果你还在用 GPT-5.3，这是最省事的升级路径。(700 likes | 26 RTs) <a href="https://x.com/OpenAIDevs/status/2031498496323518846">详情 →</a></p>
+<p><strong>Claude for Excel 和 PowerPoint 现在可以共享上下文。</strong> 在 Excel 里分析完数据，切到 PowerPoint 做汇报，Claude 自动带上之前的上下文，不用重新解释一遍。对商业用户来说，这才是 AI 融入工作流该有的样子。(407 likes | 34 RTs) <a href="https://x.com/claudeai/status/2031790754637717772">详情 →</a></p>
+<p><strong>Gemini CLI 新增 Plan Mode — 先看再动手。</strong> 只读模式下先让模型帮你探索和规划，确认方案再执行。安全第一的设计思路，大重构之前用一次，可能省掉几小时的回滚时间。(250 likes | 22 RTs) <a href="https://x.com/geminicli/status/2031761736232050707">详情 →</a></p>
+<hr>
+<h2>📝 技术实战</h2>
+<p><strong>你的 Agent 编码评测可能在骗你。</strong> 一篇很扎实的分析：Agent 编码 benchmark 在不同运行之间可以波动好几个百分点 — 有时候比模型之间的差距还大。如果你在根据一次跑分结果选模型，先看看这篇再说。(480 likes | 16 RTs) <a href="https://x.com/trq212/status/2031462032508334434">详情 →</a></p>
+<p><strong>Simon Willison 的 AI 辅助编码模式指南。</strong> 不是"怎么用 AI 写更快的代码"，而是"怎么用 AI 写更好的代码"。质量优先于速度 — 这个视角在 AI 编码圈太稀缺了。 <a href="https://simonwillison.net/guides/agentic-engineering-patterns/better-code/#atom-everything">详情 →</a></p>
+<p><strong>LangChain 拆解 Agent Harness 的核心结构。</strong> Agent harness 是把模型智能转化为实际工作的系统框架。LangChain 这篇把核心组件讲得很清楚 — 做生产级 Agent 的必读心智模型。 <a href="https://blog.langchain.com/the-anatomy-of-an-agent-harness/">详情 →</a></p>
+<hr>
+<h2>🔬 研究前沿</h2>
+<p><strong>AlphaEvolve 在极值组合数学中建立全新结果。</strong> DeepMind 的 AlphaEvolve 不是在已知问题上刷分 — 它在极值组合学领域产出了全新的数学结果。AI 从"数学计算器"变成了"数学合作者"，这个跨越比任何 benchmark 都有意义。(1,615 likes | 168 RTs) <a href="https://x.com/GoogleDeepMind/status/2031784034125140135">详情 →</a></p>
+<p><strong>NVIDIA Cosmos Policy：把世界模型接到机器人控制上。</strong> 从仿真训练到物理操作的鸿沟一直是机器人领域的核心难题。Cosmos Policy 试图用世界基础模型统一这个链路 — 思路对了，但落地效果还需要看实际部署数据。(115 likes | 19 RTs) <a href="https://x.com/huggingface/status/2031753950735523967">详情 →</a></p>
+<p><strong>NVIDIA 公开合成代码训练数据生成方法论。</strong> 从"概念种子"出发生成高质量合成代码数据 — 对训练或微调代码模型的团队来说，这套方法论比数据本身更有价值。 <a href="https://huggingface.co/blog/nvidia/synthetic-code-concepts">详情 →</a></p>
+<hr>
+<h2>💡 行业洞察</h2>
+<h3>Karpathy：IDE 没有在死，它需要进化。</h3>
+<p>"We're going to need a bigger IDE" — Karpathy 的观点很清楚：人类现在在更高层级编程，基本工作单元在上移，但工具还停在原地。IDE 不该消失，而该跟上这个变化。对所有在思考"AI 时代还需不需要 IDE"的人来说，这是最好的回答。(2,920 likes | 198 RTs) <a href="https://x.com/karpathy/status/2031767720933634100">详情 →</a></p>
+<p><strong>安全研究员用 AI Agent 黑进了麦肯锡的 AI 平台。</strong> 不是理论推演 — 是真实的渗透测试报告。AI 攻击 AI 的场景已经从论文变成了现实。每个部署 Agent 的企业都该读这篇，然后审计自己的攻击面。(223 likes | 88 RTs) <a href="https://codewall.ai/blog/how-we-hacked-mckinseys-ai-platform">详情 →</a></p>
+<p><strong>Anthropic 悉尼办公室开张 — 亚太第四城。</strong> 继东京、班加罗尔、首尔之后，悉尼成为 Anthropic 在亚太的第四个据点。激进的区域扩张背后是人才争夺和监管布局的双重考量。 <a href="https://www.anthropic.com/news/sydney-fourth-office-asia-pacific">详情 →</a></p>
+<hr>
+<h2>🏗️ 值得一试</h2>
+<p><strong>开源 AI Agent 浏览器协议。</strong> 标准浏览器不是为 AI Agent 设计的 — 这个开源项目专门解决 Agent 的网页导航、交互和数据提取需求。如果你在做需要浏览器操作的 Agent，值得关注。(33 likes | 14 RTs) <a href="https://github.com/theredsix/agent-browser-protocol">详情 →</a></p>
+<hr>
+<h2>🎓 模型小课堂</h2>
+<p><strong>多模态嵌入空间（Multimodal Embedding Spaces）</strong>：传统嵌入模型只能处理单一类型的数据 — 文本归文本，图片归图片，搜索时只能同类匹配。多模态嵌入把文本、图片、视频映射到同一个向量空间里，这意味着你可以用一句话搜到相关的图片，或者用一张图找到相关的文档。Gemini Embedding 2 就是这个思路 — 一个模型、一个空间、多种模态。这解释了为什么检索管线即将迎来一波能力跃升：不再需要为每种数据类型单独建索引了。</p>
+<hr>
+<h2>⚡ 快讯</h2>
+<ul>
+<li><strong>HuggingFace Storage Buckets</strong>：S3 级可变存储上线，带 Xet 去重，专为 AI 训练工作流设计。(15 likes | 5 RTs) <a href="https://x.com/huggingface/status/2031428153948709291">链接</a></li>
+<li><strong>TEI v1.9</strong>：HuggingFace 文本嵌入推理引擎新增 NVIDIA Blackwell GPU 支持。(25 likes | 3 RTs) <a href="https://x.com/huggingface/status/2031404809706942812">链接</a></li>
+<li><strong>Claude 服务波动</strong>：Claude Code 和 claude.ai 出现登录错误和性能下降，已在修复中。(1,500 likes | 41 RTs) <a href="https://x.com/trq212/status/2031772228099203487">链接</a></li>
+<li><strong>中国 OpenClaw 淘金热</strong>：MIT Tech Review 报道，开源 AI 自主设备控制工具 OpenClaw 在中国引发创业热潮。 <a href="https://www.technologyreview.com/2026/03/11/1134179/china-openclaw-gold-rush/">链接</a></li>
+</ul>
+<hr>
+<h2>🎯 今日精选</h2>
+<p><strong>AlphaEvolve 在纯数学中产出原创结果 — AI 从计算器变成了合作者</strong>：DeepMind 的 AlphaEvolve 在极值组合学中建立了全新的数学结果，这不是在已知问题上跑出更优解，而是在未知领域做出了原创贡献。这个区别至关重要 — 它标志着"AI for Science"从"加速已知计算"跨越到"探索未知领域"。过去我们说 AI 辅助科研，本质上还是人类提出假设、AI 加速验证。现在 AlphaEvolve 展示的是 AI 参与假设生成本身。对数学和科学界来说，这重新定义了 AI 作为研究工具的角色边界。(1,615 likes | 168 RTs) <a href="https://x.com/GoogleDeepMind/status/2031784034125140135">详情 →</a></p>
+<hr>
+<p>下期见 ✌️</p>
+</article><nav class="mt-12 flex flex-col gap-4 border-t border-zinc-200 pt-8 dark:border-zinc-800 sm:flex-row sm:justify-between"><a class="group flex flex-col" href="/zh/newsletter/2026-03-11"><span class="text-xs font-medium text-zinc-500 dark:text-zinc-400">← 更早</span><span class="mt-1 text-sm font-medium text-zinc-900 group-hover:text-zinc-600 dark:text-zinc-100 dark:group-hover:text-zinc-300">Qwen3.5 全家桶来了，27B 旗舰首日 83.5 万次下载</span></a><div></div></nav><!--$!--><template data-dgst="BAILOUT_TO_CLIENT_SIDE_RENDERING"></template><!--/$--></div>
+        </div>
+      </div>
+        </div>
+      </details>
+    </section>
+<section id="blogs"><h2>Blogs (3)</h2>
+      <details style="margin-bottom:8px">
+        <summary style="cursor:pointer;padding:8px;background:#fafafa;border-radius:4px">
+          <strong>claude-code-btw-side-chain-conversations</strong> — 947 EN / 1180 ZH words <span style="color:#22c55e;font-size:12px">(OK)</span>
+        </summary>
+        <div style="padding:12px">
+          
+          
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "Claude Code /btw: Side Chain Conversations While Your Agent Works"
+date: 2026-03-12
+slug: claude-code-btw-side-chain-conversations
+description: "Claude Code's new /btw command lets you have side chain conversations while your agent keeps working — no more waiting to ask questions."
+keywords: ["Claude Code /btw", "side chain conversations", "Claude Code commands", "Claude Code multitasking"]
+category: DEV
+related_newsletter: 2026-03-12
+related_glossary: [claude-code, agentic-coding]
+related_compare: [claude-code-vs-cursor]
+lang: en
+video_ready: true
+video_hook: "You no longer have to wait for Claude Code to finish before asking it something else"
+video_status: none</h2>
+<h1>Claude Code /btw: Side Chain Conversations While Your Agent Works</h1>
+<p><strong>Claude Code</strong> just shipped <code>/btw</code> — a command that lets you start a side conversation with Claude while it's in the middle of executing a task. Instead of waiting for a long-running operation to finish before asking a follow-up question or pivoting to a different topic, you can now interrupt with context that doesn't derail the main thread. It's a small UX addition that solves one of the most persistent friction points in agentic coding: the forced serialization of human thought.</p>
+<h2>What Happened</h2>
+<p>Anthropic engineer <a href="https://x.com/trq212/status/2031506296697131352">@trq212 announced on X</a> that <code>/btw</code> is now available in Claude Code. The command creates what the team calls "side chain conversations" — a secondary dialogue channel that runs parallel to whatever Claude Code is currently doing.</p>
+<p>The mechanic is straightforward: while Claude Code is running a build, writing tests, or refactoring a module, you type <code>/btw</code> followed by your message. Claude processes your side request without abandoning or corrupting the in-progress task. When the main task completes, your primary conversation continues as if uninterrupted.</p>
+<p>This lands alongside a string of rapid <strong>Claude Code</strong> updates. In recent weeks, Anthropic has shipped <a href="https://x.com/bcherny/status/2029339111212126458">HTTP hooks</a> for more secure extensibility, <a href="https://x.com/bcherny/status/2027462787358949679">Claude Code Remote</a> for Pro users, new built-in skills like <code>/simplify</code> and <code>/batch</code>, and scheduled tasks in Cowork mode. The pace of iteration suggests Anthropic is treating Claude Code less as a product and more as a platform — each feature building on the agentic foundation.</p>
+<p>The <code>/btw</code> command fits a pattern: removing artificial bottlenecks between human intent and AI execution. Previous options were limited — you could either wait, cancel the current task, or open a separate Claude Code session.</p>
+<h2>Why It Matters</h2>
+<p>Agentic coding tools have a serialization problem. When Claude Code is running a 90-second build-and-test cycle, your brain doesn't stop. You notice a typo in a different file. You wonder if the API you're about to use has rate limits. You want to ask about a deployment config. But the current interaction model forces you to queue these thoughts mentally and hope you remember them later.</p>
+<p><code>/btw</code> breaks that forced serialization. It acknowledges a fundamental asymmetry in human-AI collaboration: the human's context-switching cost is low (you can think about multiple things), but the tool's UX previously imposed an artificial single-thread constraint.</p>
+<p>The competitive angle matters too. <a href="/glossary/cursor">Cursor</a> and similar tools handle this through multi-pane UIs or separate chat windows, but those require explicit window management. <code>/btw</code> is inline — you stay in the same terminal, the same flow, the same mental context. It's closer to how you'd tap a colleague on the shoulder while they're running a deploy: "btw, do you know where the staging credentials are?"</p>
+<p>For teams running complex pipelines — builds that take minutes, test suites with dozens of files, multi-step refactors — the cumulative time savings add up. Every "wait and remember" becomes "ask now and move on."</p>
+<h2>Technical Deep-Dive</h2>
+<p>The implementation challenge behind <code>/btw</code> is non-trivial. Claude Code operates as a <a href="/glossary/agentic-coding">stateful agentic loop</a> — it maintains context about what it's doing, what tools it's called, and what it expects to happen next. Injecting a side conversation means managing two concurrent context threads without letting them interfere.</p>
+<p>From a user perspective, the interaction model works like this:</p>
+<pre><code>> Claude Code is running: npm test (23 tests passing, 2 remaining...)
+
+> /btw what's the difference between vitest's vi.fn() and vi.spyOn()?
+
+Claude (side): vi.fn() creates a standalone mock function.
+vi.spyOn() wraps an existing method, preserving the original
+implementation unless you override it. Use spyOn when you
+want to track calls without changing behavior.
+
+> Tests complete. All 25 passed. ✓
+> (main conversation continues)
+</code></pre>
+<p>The key architectural decision is isolation: the side chain doesn't modify the main task's state. You can ask questions, get explanations, or request information, but the side chain doesn't trigger file edits or tool calls that would conflict with the running operation. This prevents race conditions where a side request might modify a file that the main task is actively working on.</p>
+<p>This design mirrors a pattern familiar in concurrent systems: read-only side channels. The side chain can read context (your codebase, documentation, conversation history) but writes are reserved for the main thread. It's a pragmatic trade-off — full concurrent write access would require conflict resolution logic that could introduce more problems than it solves.</p>
+<p>One consideration: side chain conversations share the same context window. Complex side discussions during long-running tasks could theoretically consume tokens that the main task needs for its final steps. In practice, most <code>/btw</code> interactions are short queries — the "quick question" pattern that the feature is designed for.</p>
+<h2>What You Should Do</h2>
+<ol>
+<li><strong>Use <code>/btw</code> for knowledge queries</strong> while Claude Code runs long tasks. "What does this error code mean?" or "What's the syntax for X?" are ideal candidates — they don't require file modifications.</li>
+<li><strong>Don't use <code>/btw</code> for task pivots</strong>. If you need Claude to change direction entirely, it's better to let the current task finish or cancel it explicitly. Side chains are for tangential questions, not course corrections.</li>
+<li><strong>Pair with Claude Code Remote</strong> for maximum benefit. If you're running Claude Code on a remote server with longer build times, side chains become even more valuable — those idle minutes are now usable.</li>
+<li><strong>Combine with the new <code>/simplify</code> and <code>/batch</code> skills</strong> to create efficient workflows: batch your changes, simplify the output, and ask clarifying questions via <code>/btw</code> — all without breaking flow.</li>
+<li><strong>Update Claude Code</strong> to the latest version to access <code>/btw</code>. Check your version with <code>claude --version</code> and update if needed.</li>
+</ol>
+<p><strong>Related</strong>: <a href="/newsletter/2026-03-12">Today's newsletter</a> covers the broader context of this week's Claude Code updates. See also: <a href="/blog/claude-code-skills-guide">Claude Code Skills System</a>.</p>
+<hr>
+<p><em>Found this useful? <a href="/subscribe">Subscribe to AI News</a> for daily AI briefings.</em></p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><div class="md-content"><hr>
+<h2>title: "Claude Code /btw 命令：AI 编码时也能「插嘴」了"
+date: 2026-03-12
+slug: claude-code-btw-side-chain-conversations
+description: "Claude Code 新增 /btw 命令，支持在 AI 执行任务时发起侧链对话，不打断主流程。这对多任务开发工作流意味着什么？"
+keywords: ["Claude Code /btw", "side chain conversation", "Claude Code 新功能", "AI 编码工具"]
+category: DEV
+related_newsletter: 2026-03-12
+related_glossary: [claude-code]
+related_compare: [claude-code-vs-cursor]
+lang: zh
+video_ready: true
+video_hook: "Claude Code 终于解决了 AI 干活时你只能干等的问题"
+video_status: none</h2>
+<h1>Claude Code /btw 命令：AI 编码时也能「插嘴」了</h1>
+<p><strong>Claude Code</strong> 新增了 <code>/btw</code> 命令，解决一个真实痛点：当 Claude 正在执行复杂任务时，你想问个不相关的问题，以前只能等它做完或者打断它。现在可以发起一条「侧链对话」，主任务继续跑，你的问题同步得到回答。这个看似简单的功能，实际上改变了人和 AI 编码助手的协作模式。</p>
+<h2>发生了什么</h2>
+<p>Anthropic 工程师 <a href="https://x.com/trq212/status/2031506296697131352">trq212 在推特上宣布</a>，Claude Code 正式加入 <code>/btw</code> 命令，支持 side chain conversations（侧链对话）。</p>
+<p>使用方式很直接：当 Claude 正在执行任务（比如重构一个模块、跑测试、生成代码）时，你输入 <code>/btw</code> 加上你的问题，Claude 会在不中断当前任务的情况下回答你。主任务的上下文不受影响，侧链对话独立运行。</p>
+<p>这是 Claude Code 近期密集更新的一部分。过去一周，团队还发布了 HTTP hooks（比现有的 command hooks 更安全易用）、语音模式编码、<code>/simplify</code> 和 <code>/batch</code> 两个新 Skill，以及 Claude Code Remote 对 Pro 用户的开放。产品迭代节奏非常快——根据 SemiAnalysis 的数据，GitHub 上 4% 的公开 commit 已经由 Claude Code 生成。</p>
+<h2>为什么重要</h2>
+<p>用过任何 AI 编码工具的人都遇到过这个场景：Claude 正在帮你重构一个 500 行的文件，跑到一半你突然想问「这个项目的 CI 配置在哪？」或者「帮我查一下这个 API 的参数格式」。</p>
+<p>以前你有两个选择：等它做完（浪费时间），或者打断它（丢失进度和上下文）。两个都不理想。</p>
+<p><code>/btw</code> 本质上实现了<strong>异步多任务对话</strong>。这和操作系统从单任务进化到多任务是同一个逻辑——当 AI 助手足够强大、单次任务足够长时，阻塞式交互就成了瓶颈。</p>
+<p>对比 <a href="/glossary/cursor">Cursor</a> 和 GitHub Copilot，目前都没有类似的侧链对话能力。Cursor 的 Composer 模式虽然支持多文件编辑，但交互仍然是单线程的。Claude Code 在这个方向上走在了前面。</p>
+<p>从更大的视角看，这反映了 AI 编码工具正在从「问答式」向「协作式」演进。你不再是在和一个聊天机器人对话，而是和一个正在干活的同事协作——你可以随时拍拍他肩膀问个问题，他不需要放下手里的活。</p>
+<h2>技术细节</h2>
+<p>侧链对话的核心挑战是<strong>上下文隔离</strong>。主任务和侧链需要共享项目上下文（文件系统、代码库状态），但对话状态必须独立，否则侧链的问答会污染主任务的推理链。</p>
+<p>从 Claude Code 的架构来看，这和最近发布的 Agent 子进程机制有关。Claude Code 已经支持通过 Agent 工具启动独立的子代理来处理并行任务，<code>/btw</code> 很可能复用了这套基础设施——在同一个项目上下文中启动一个轻量级的侧链代理，独立处理用户的临时问题。</p>
+<p>实际使用场景举几个例子：</p>
+<ul>
+<li>Claude 在跑测试套件时，你用 <code>/btw</code> 问一个不相关的 API 用法</li>
+<li>Claude 在重构大文件时，你用 <code>/btw</code> 让它帮你查另一个文件的某个函数签名</li>
+<li>Claude 在生成代码时，你用 <code>/btw</code> 讨论架构决策，不影响当前生成</li>
+</ul>
+<p>需要注意的是，侧链对话大概率是轻量级的——适合快速问答，不适合再启动一个复杂的多步骤任务。如果你需要真正的并行任务执行，应该用 <code>/batch</code> 或者手动启动 Agent 子进程。</p>
+<h2>你现在该做什么</h2>
+<ol>
+<li><strong>更新 Claude Code 到最新版本</strong>，确保 <code>/btw</code> 命令可用。</li>
+<li><strong>养成使用习惯</strong>：下次 Claude 在执行长任务时，不要干等，试试 <code>/btw</code> 问你想问的问题。</li>
+<li><strong>区分场景</strong>：快速问答用 <code>/btw</code>，并行任务用 <code>/batch</code>，独立子任务用 Agent。三者互补，不是替代关系。</li>
+<li><strong>结合 HTTP hooks 和 Skills 一起用</strong>：<code>/btw</code> + <code>/simplify</code> + HTTP hooks 组合起来，可以构建相当高效的开发工作流。</li>
+</ol>
+<p><strong>相关阅读</strong>：<a href="/newsletter/2026-03-12">今日简报</a> 有更多 Claude Code 动态。另见：<a href="/glossary/claude-code">Claude Code 完全指南</a>。</p>
+<hr>
+<p><em>觉得有用？<a href="/subscribe">订阅 AI 简报</a>，每天 5 分钟掌握 AI 动态。</em></p>
+</div></div>
+    </div>
+        </div>
+      </details>
+      <details style="margin-bottom:8px">
+        <summary style="cursor:pointer;padding:8px;background:#fafafa;border-radius:4px">
+          <strong>claude-code-claude-ai-login-errors-performance</strong> — 893 EN / 1167 ZH words <span style="color:#22c55e;font-size:12px">(OK)</span>
+        </summary>
+        <div style="padding:12px">
+          
+          
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "Claude Code and Claude.ai Hit With Login Errors and Performance Issues"
+date: 2026-03-12
+slug: claude-code-claude-ai-login-errors-performance
+description: "Claude Code and claude.ai users report elevated login errors and slower performance amid surging demand. Here's what's happening and what to do."
+keywords: ["Claude Code outage", "claude.ai login errors", "Claude performance issues"]
+category: APP
+related_newsletter: 2026-03-12
+related_glossary: [claude-code]
+related_compare: [claude-code-vs-cursor]
+lang: en
+video_ready: true
+video_hook: "Claude is down — again. Here's what's really going on behind the outages"
+video_status: none</h2>
+<h1>Claude Code and Claude.ai Hit With Login Errors and Performance Issues</h1>
+<p><strong>Claude Code</strong> and <strong>claude.ai</strong> users are reporting elevated login failures and noticeably slower response times across both platforms. The timing is notable — Anthropic's developer tools have seen explosive adoption over the past month, with Claude reaching #1 in the App Store and <a href="https://x.com/SemiAnalysis_/status/2027458544493335008">SemiAnalysis estimating</a> that 4% of all public GitHub commits now come from Claude Code. When your infrastructure becomes load-bearing for a meaningful slice of global software development, reliability stops being a feature and becomes the product.</p>
+<h2>What Happened</h2>
+<p>Multiple users began reporting authentication failures and degraded performance on both claude.ai and Claude Code starting on March 12, 2026. The issues manifest as login errors that prevent session establishment, along with slower-than-usual response generation for users who do get through.</p>
+<p>The reports surfaced on X (formerly Twitter), with developer <a href="https://x.com/trq212/status/2031772228099203487">@trq212 flagging the issue</a> and others confirming similar experiences across different regions and account tiers.</p>
+<p>Anthropic hasn't issued a detailed post-mortem at the time of writing. The <a href="https://status.anthropic.com">Anthropic status page</a> is the canonical source for real-time updates. These incidents typically resolve within hours, but the frequency matters — developers building production workflows on Claude Code need to plan around potential downtime.</p>
+<p>This isn't the first time Anthropic's services have buckled under load. Rapid feature expansion — Claude Code Remote for Pro users, HTTP hooks, scheduled Cowork tasks, memory on the free plan — all shipped in the past two weeks. Each feature brings new users and new traffic patterns that stress authentication and inference infrastructure differently.</p>
+<h2>Why It Matters</h2>
+<p>The reliability question hits differently when <strong>Claude Code</strong> is embedded in professional engineering workflows. A chatbot going slow is annoying. A coding assistant failing mid-session can break flow state, stall deployments, and cost real money.</p>
+<p>Consider the context: companies like Ramp, Rakuten, Brex, Wiz, Shopify, and Spotify are <a href="https://x.com/bcherny/status/2028638679204577380">using Claude Code in production engineering workflows</a>. When login fails for these teams, it's not a minor inconvenience — it's blocked sprints and missed deadlines.</p>
+<p>The competitive landscape amplifies the stakes. <a href="/glossary/cursor">Cursor</a>, GitHub Copilot, and other AI coding tools are viable alternatives. Each outage gives teams a reason to evaluate whether their Claude Code dependency carries acceptable risk. Anthropic's technical moat — model quality — is real, but operational reliability is the price of admission for enterprise adoption.</p>
+<p>There's also a structural tension at play. Anthropic is simultaneously scaling consumer access (free-tier memory, App Store push) and developer infrastructure (Claude Code Remote, HTTP hooks). These audiences have different latency expectations and usage patterns. Consumer traffic is bursty and read-heavy; developer traffic is sustained and write-heavy. Serving both on shared infrastructure creates resource contention that's hard to manage without significant overprovisioning.</p>
+<h2>Technical Deep-Dive</h2>
+<p>Login errors and performance degradation typically trace to a few root causes in systems at this scale:</p>
+<p><strong>Authentication service saturation.</strong> OAuth and session management services have finite connection pools. When new user signups spike — as they do after hitting #1 in the App Store — the auth layer can become the bottleneck. Every Claude Code session requires token validation, and expired tokens trigger re-authentication flows that multiply load.</p>
+<p><strong>Inference queue depth.</strong> Claude's models run on dedicated GPU clusters. When demand exceeds provisioned capacity, requests queue. Longer queues mean higher latency, and eventually timeout errors that surface as failed requests. The challenge is compounded by Claude Code's agentic usage pattern — a single user session can trigger dozens of model calls as the agent reasons through a task, creating multiplicative load compared to single-turn chat.</p>
+<p><strong>Rate limiting propagation.</strong> When backend systems approach capacity, rate limiters activate. But rate limiting in a distributed system is imprecise — some users get throttled aggressively while others see no impact, creating inconsistent experiences that are hard to diagnose from the user side.</p>
+<p>For developers building on the <a href="/glossary/claude-code">Claude API</a> directly, it's worth noting that API access and Claude Code share inference infrastructure but have separate rate limit pools. API users may see elevated latency during these events even if they don't see outright failures.</p>
+<p>The architectural challenge for Anthropic is real: Claude Code's agentic mode generates 10-50x more inference calls per user session than conversational chat. As Claude Code adoption grows — and features like scheduled Cowork tasks add always-on background load — the capacity planning math changes fundamentally.</p>
+<h2>What You Should Do</h2>
+<ol>
+<li><strong>Monitor <a href="https://status.anthropic.com">status.anthropic.com</a></strong> before starting critical work sessions. Bookmark it. Check it when things feel slow instead of retrying blindly.</li>
+<li><strong>Build retry logic into CI/CD pipelines</strong> that depend on Claude Code. Exponential backoff with a 3-attempt limit prevents your automation from compounding the problem.</li>
+<li><strong>Save work frequently.</strong> If you're in a long Claude Code session, commit incrementally. Don't let a dropped session lose 30 minutes of agentic work.</li>
+<li><strong>Have a fallback plan.</strong> Keep <a href="/compare/claude-code-vs-cursor">Cursor</a> or another tool configured for critical-path work. Vendor lock-in is the real risk when your primary tool has availability issues.</li>
+<li><strong>Report issues with specifics.</strong> Timestamps, error codes, and account tier help Anthropic's infrastructure team diagnose patterns faster than "it's broken."</li>
+</ol>
+<p>The broader signal: Anthropic is in a growth phase where demand is outpacing infrastructure. That's a good problem to have, but it's still a problem. For teams making Claude Code load-bearing, the question isn't whether outages will happen — it's whether your workflow handles them gracefully.</p>
+<p><strong>Related</strong>: <a href="/newsletter/2026-03-12">Today's newsletter</a> covers the full day's AI developments. See also: <a href="/compare/claude-code-vs-cursor">Claude Code vs Cursor</a> for alternative tool comparison.</p>
+<hr>
+<p><em>Found this useful? <a href="/subscribe">Subscribe to AI News</a> for daily AI briefings.</em></p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><div class="md-content"><hr>
+<h2>title: "Claude Code 登录异常与性能下降：发生了什么，开发者该怎么办"
+date: 2026-03-12
+slug: claude-code-claude-ai-login-errors-performance
+description: "Claude Code 和 claude.ai 出现登录错误激增和响应变慢。分析背后原因、对开发者工作流的影响，以及应对建议。"
+keywords: ["Claude Code 故障", "claude.ai 登录错误", "Claude Code 性能", "Anthropic 服务状态"]
+category: DEV
+related_newsletter: 2026-03-12
+related_glossary: [claude-code, anthropic]
+related_compare: [claude-code-vs-cursor]
+lang: zh
+video_ready: true
+video_hook: "Claude Code 挂了？别慌，先看这篇"
+video_status: none</h2>
+<h1>Claude Code 登录异常与性能下降：发生了什么，开发者该怎么办</h1>
+<p><strong>Claude Code</strong> 和 <strong>claude.ai</strong> 正在经历登录错误激增和响应速度下降。对于已经把 Claude Code 深度集成到日常开发流程的团队来说，这不是小事 — GitHub 上 4% 的公开提交现在由 Claude Code 完成，任何服务中断都会直接影响生产力。这篇文章梳理已知情况，分析可能原因，给出实操应对方案。</p>
+<h2>发生了什么</h2>
+<p>多位开发者在社交媒体上报告 Claude Code 和 claude.ai 出现异常：登录请求频繁失败，已登录用户的响应延迟明显增加。部分用户反映 Claude Code 的 CLI 会话中断后无法重新认证，需要多次重试才能恢复连接。</p>
+<p>这次问题的时间点值得注意。过去一周 Anthropic 密集发布了多项功能：<strong>Claude Code Remote</strong> 向 Pro 用户推送、新的 <strong>/simplify</strong> 和 <strong>/batch</strong> Skills 即将上线、<strong>HTTP Hooks</strong> 刚刚发布、claude.ai 免费版开放了 Memory 功能，App Store 排名冲到第一。用户量和功能复杂度同时激增，对后端基础设施的压力不言自明。</p>
+<p>截至发稿时，Anthropic 尚未发布正式的事故报告或状态页更新。</p>
+<h2>为什么重要</h2>
+<p>一年前 Claude Code 还是研究预览版，今天它已经是 Ramp、Rakuten、Brex、Shopify、Spotify 等公司工程团队的生产工具。SemiAnalysis 的数据显示 Claude Code 贡献了 GitHub 4% 的公开提交量，按当前增长趋势还在加速。</p>
+<p>这意味着 Claude Code 的可用性已经不是"方便不方便"的问题，而是直接影响工程产出的基础设施问题。当你的 CI/CD 管线、代码审查流程、甚至日常编码都依赖 Claude Code 时，一次几小时的服务降级就可能让整个团队停摆。</p>
+<p>对比 <a href="/glossary/cursor">Cursor</a> 和 GitHub Copilot，它们的认证和推理服务相对解耦 — 即使模型响应变慢，IDE 的基础功能不受影响。Claude Code 作为 CLI 工具，认证失败意味着完全不可用，没有优雅降级。</p>
+<p>这也给所有重度依赖单一 AI 编码工具的团队敲了个警钟：你的开发流程需要容错设计。</p>
+<h2>技术细节</h2>
+<p>从症状推测，问题可能出在几个层面：</p>
+<p><strong>认证服务瓶颈</strong>。Claude Code 的登录流程走 OAuth，涉及 Token 签发和刷新。当并发用户量激增（App Store 第一 + Claude Code Remote 推送），认证服务的请求队列可能饱和。登录错误通常指向 Token 服务的超时或限流。</p>
+<p><strong>推理服务过载</strong>。响应变慢更可能是 GPU 推理资源不足。Anthropic 最近同时推出了 Memory（需要额外上下文处理）、Cowork 定时任务（产生持续的后台推理负载）、Remote 模式（每个 Remote 会话占用一个长期连接），这些功能叠加会显著增加每用户的资源消耗。</p>
+<p><strong>对开发者管线的具体影响</strong>：</p>
+<ul>
+<li>自动化脚本中调用 Claude API 可能遇到 429（限流）或 503（服务不可用）</li>
+<li>Claude Code 的 Agent 模式（多步骤任务）比单次请求更脆弱，中间任何一步超时都会导致整个任务失败</li>
+<li>HTTP Hooks 刚上线，如果你的 Hook 依赖 Claude Code 的认证状态，也可能受影响</li>
+</ul>
+<pre><code class="language-bash"># 快速检查 Claude Code 连接状态
+claude --version &#x26;&#x26; claude "echo hello" 2>&#x26;1 | head -5
+</code></pre>
+<p>如果返回认证错误，可以尝试重新登录：</p>
+<pre><code class="language-bash">claude logout &#x26;&#x26; claude login
+</code></pre>
+<h2>你现在该做什么</h2>
+<ol>
+<li><strong>管线脚本加重试逻辑</strong>。如果你的自动化流程调用 Claude API，确保有指数退避重试（3 次，间隔 5s/15s/45s）。这不只是应对这次事故，而是长期最佳实践。</li>
+<li><strong>关键工作流准备降级方案</strong>。把 <a href="/glossary/cursor">Cursor</a> 或其他编码助手作为备选，不要让团队因为单一工具故障完全停工。</li>
+<li><strong>关注 Anthropic 状态页</strong>（status.anthropic.com）和官方 Twitter，等待正式事故通报。</li>
+<li><strong>如果你在用 Claude Code Remote</strong>，暂时切回本地模式可能更稳定 — Remote 模式对网络和认证的依赖更重。</li>
+<li><strong>不要反复重试登录</strong>。频繁的认证请求可能触发更严格的限流，等几分钟再试。</li>
+</ol>
+<p><strong>相关阅读</strong>：<a href="/newsletter/2026-03-12">今日简报</a> 有更多 Claude Code 动态。另见：<a href="/blog/claude-code-skills-guide">Claude Code 完全指南</a>。</p>
+<hr>
+<p><em>觉得有用？<a href="/subscribe">订阅 AI 简报</a>，每天 5 分钟掌握 AI 动态。</em></p>
+</div></div>
+    </div>
+        </div>
+      </details>
+      <details style="margin-bottom:8px">
+        <summary style="cursor:pointer;padding:8px;background:#fafafa;border-radius:4px">
+          <strong>claude-excel-powerpoint-sync</strong> — 884 EN / 1453 ZH words <span style="color:#22c55e;font-size:12px">(OK)</span>
+        </summary>
+        <div style="padding:12px">
+          
+          
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "Claude for Excel and PowerPoint Now Sync Seamlessly: What It Means for Enterprise AI"
+date: 2026-03-12
+slug: claude-excel-powerpoint-sync
+description: "Claude for Excel and Claude for PowerPoint now sync together seamlessly, bringing unified AI assistance across Microsoft Office workflows."
+keywords: ["Claude for Excel", "Claude for PowerPoint", "Claude Office integration", "Anthropic Microsoft Office"]
+category: APP
+related_newsletter: 2026-03-12
+related_glossary: [claude, anthropic]
+related_compare: [claude-vs-chatgpt]
+lang: en
+video_ready: true
+video_hook: "Claude just connected your spreadsheets to your slide decks — and it changes everything"
+video_status: none</h2>
+<h1>Claude for Excel and PowerPoint Now Sync Seamlessly</h1>
+<p><strong>Claude for Excel</strong> and <strong>Claude for PowerPoint</strong> now work as a unified system. Anthropic <a href="https://x.com/claudeai/status/2031790754637717772">announced</a> that the two Office add-ins sync together seamlessly, meaning analysis you build in a spreadsheet can flow directly into presentation decks — and vice versa — with Claude maintaining context across both applications. For anyone who's spent hours manually copying charts into slides or rebuilding spreadsheet logic to match a deck's narrative, this is the integration that makes enterprise AI actually useful rather than just impressive.</p>
+<h2>What Happened</h2>
+<p>Anthropic shipped a sync layer between its Excel and PowerPoint add-ins. Previously, <strong>Claude for Excel</strong> and <strong>Claude for PowerPoint</strong> operated as independent tools — you could use Claude to analyze data in a spreadsheet or generate slide content, but each session started from scratch with no awareness of the other.</p>
+<p>The new sync capability lets Claude carry context between the two applications. Build a financial model in Excel with Claude's help, and when you switch to PowerPoint, Claude already understands the data structure, key metrics, and analysis you performed. Ask it to "create slides summarizing Q1 performance," and it pulls directly from the spreadsheet context — correct numbers, appropriate chart types, consistent terminology.</p>
+<p>This works bidirectionally. Start with a strategy deck in PowerPoint, and Claude can generate the supporting Excel models that back up your claims. The shared context means Claude understands not just the raw data but the narrative framing you've chosen.</p>
+<p>The timing aligns with Anthropic's broader push into enterprise tooling. With <a href="https://x.com/bcherny/status/2028567040114713038">Claude's memory now available on the free plan</a> and Claude reaching <a href="https://x.com/bcherny/status/2027888681034649900">#1 in the App Store</a>, Anthropic is clearly investing in making Claude useful across the full spectrum of knowledge work — not just coding.</p>
+<h2>Why It Matters</h2>
+<p>The Excel-to-PowerPoint pipeline is one of the most time-consuming workflows in corporate life. Analysts, consultants, and finance teams spend hours every week turning spreadsheet analysis into presentable decks. The work is tedious, error-prone, and adds zero analytical value — it's pure formatting and translation.</p>
+<p>Current AI solutions treat each application as an island. ChatGPT's Excel integration doesn't know what you're building in PowerPoint. Google's Gemini in Sheets doesn't talk to Gemini in Slides in any meaningful way. By syncing context across applications, Anthropic is solving the actual workflow problem rather than just adding AI to individual tools.</p>
+<p>The competitive implications are significant. Microsoft's own <a href="/glossary/copilot">Copilot</a> has the deepest Office integration, but its cross-app context sharing has been inconsistent. If Claude delivers reliable sync between Excel and PowerPoint — where the numbers in your deck always match the spreadsheet, where chart styling follows your established patterns — it undermines one of Microsoft's key advantages.</p>
+<p>For enterprise buyers, this is the kind of feature that drives adoption decisions. Individual AI features are nice; connected AI workflows that eliminate entire categories of busywork are what justify seat licenses.</p>
+<h2>Technical Deep-Dive</h2>
+<p>The sync mechanism likely relies on a shared context store that both add-ins read from and write to. When Claude processes an Excel workbook, it generates a structured representation of the data — schema, computed values, named ranges, chart configurations — and persists this to a context layer accessible by the PowerPoint add-in.</p>
+<p>Key technical considerations include:</p>
+<p><strong>Data fidelity</strong>: Spreadsheet data is inherently structured (rows, columns, formulas, types), while presentations are visual and narrative. Claude must bridge these representations without losing precision. A revenue figure of $4,287,391 in Excel should appear as "$4.3M" in a slide title but "$4,287,391" in a detailed table — context determines formatting.</p>
+<p><strong>Incremental sync</strong>: When you update a number in Excel, the corresponding PowerPoint elements should reflect the change. This requires Claude to maintain a dependency graph between spreadsheet cells and slide elements. The complexity scales with workbook size, so performance on large enterprise spreadsheets will be the real test.</p>
+<p><strong>Privacy boundaries</strong>: Enterprise users need assurance that sync doesn't leak data between documents unintentionally. If you're working on two different client projects in parallel, Claude must scope its context appropriately — the Q1 revenue model for Client A should never bleed into Client B's strategy deck.</p>
+<p>One notable limitation: the announcement doesn't mention Word integration. The document-to-deck and spreadsheet-to-document pipelines are equally common in enterprise work. Expect this to follow, but for now the sync is Excel-PowerPoint only.</p>
+<h2>What You Should Do</h2>
+<ol>
+<li><strong>Install both add-ins</strong> if you haven't already. The sync only works when both Claude for Excel and Claude for PowerPoint are active in your Microsoft 365 environment.</li>
+<li><strong>Test with a real workflow</strong> — take an actual spreadsheet you'd normally turn into a presentation and let Claude handle the translation. Evaluate whether it gets the narrative framing right, not just the numbers.</li>
+<li><strong>Establish naming conventions</strong> in your spreadsheets. Claude's sync works best when ranges and sheets have descriptive names rather than default labels like "Sheet1" — the clearer your data structure, the better the output.</li>
+<li><strong>Watch for data accuracy</strong>. Cross-app sync is only valuable if the numbers are right every time. Spot-check Claude's work carefully in early usage before trusting it for client-facing materials.</li>
+<li><strong>Compare against Copilot</strong> if your organization has both. The winner of this comparison will likely determine which AI assistant gets the enterprise seat allocation.</li>
+</ol>
+<p><strong>Related</strong>: <a href="/newsletter/2026-03-12">Today's newsletter</a> covers the broader AI news landscape. See also: <a href="/compare/claude-vs-chatgpt">Claude vs ChatGPT</a> for a detailed comparison of enterprise AI capabilities.</p>
+<hr>
+<p><em>Found this useful? <a href="/subscribe">Subscribe to AI News</a> for daily AI briefings.</em></p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><div class="md-content"><hr>
+<h2>title: "Claude for Excel 和 PowerPoint 打通了：办公自动化进入 AI 原生时代"
+date: 2026-03-12
+slug: claude-excel-powerpoint-sync
+description: "Anthropic 宣布 Claude for Excel 和 Claude for PowerPoint 实现无缝同步，数据分析到汇报演示一气呵成。这对企业 AI 办公流程意味着什么？"
+keywords: ["Claude for Excel", "Claude for PowerPoint", "Claude 办公套件", "AI 办公自动化"]
+category: APP
+related_newsletter: 2026-03-12
+related_glossary: [claude, anthropic]
+related_compare: [claude-vs-chatgpt]
+lang: zh
+video_ready: true
+video_hook: "Excel 分析完，PPT 自动生成——Claude 办公套件终于打通了"
+video_status: none</h2>
+<h1>Claude for Excel 和 PowerPoint 打通了：办公自动化进入 AI 原生时代</h1>
+<p><strong>Anthropic</strong> 官宣 <strong>Claude for Excel</strong> 和 <strong>Claude for PowerPoint</strong> 实现无缝同步。这意味着你在 Excel 里用 Claude 做完数据分析，结果可以直接流入 PowerPoint 生成汇报——不用手动复制粘贴，不用重新描述上下文。对于每周花几个小时从表格搬数据到幻灯片的人来说，这可能是今年最实用的 AI 办公功能更新。</p>
+<h2>发生了什么</h2>
+<p>Anthropic 通过官方 Twitter 账号（<a href="https://x.com/claudeai/status/2031790754637717772">@claudeai</a>）宣布，Claude for Excel 和 Claude for PowerPoint 现在可以无缝协同工作。</p>
+<p>具体来说，两个插件之间建立了数据同步通道。在 Excel 中通过 Claude 完成的数据分析、图表生成、趋势总结等工作成果，可以直接被 Claude for PowerPoint 读取和引用。你在 PowerPoint 中让 Claude 生成汇报时，它已经"知道"你刚才在 Excel 里分析了什么——数据口径、关键发现、图表样式都能保持一致。</p>
+<p>这不是简单的复制粘贴自动化。Claude 理解两端的语义上下文：Excel 端的数据结构和分析逻辑，PowerPoint 端的叙事需求和呈现方式。它在中间做的是从"分析"到"叙事"的转译。</p>
+<p>这个更新是 Anthropic 企业办公战略的重要一步。在此之前，Claude 的 Office 插件各自独立运作，用户需要在每个应用中重新提供上下文。打通之后，Claude 开始具备跨应用的工作流记忆能力。</p>
+<h2>为什么重要</h2>
+<p>企业办公中最大的时间黑洞之一，就是"从数据到汇报"这个环节。分析师在 Excel 里花 2 小时做完分析，然后再花 2 小时把结果搬进 PPT、调格式、写解读。这个过程机械、重复、容易出错——数据更新了忘记同步 PPT 是常态。</p>
+<p>Claude 的这次更新直接砍掉了中间环节。更重要的是，它不是把 Excel 表格截图贴进 PPT 那种低级自动化，而是让 AI 理解数据含义后重新组织表达。同一组销售数据，在 Excel 里是透视表和趋势线，到了 PPT 里变成管理层看得懂的故事线和关键数字高亮。</p>
+<p>从竞争格局看，<strong>微软 Copilot</strong> 在 Office 套件的 AI 集成上一直领先——毕竟是自家产品。但 Copilot 的跨应用协同能力一直被用户吐槽不够智能，经常只是搬运数据而不是重新理解。Claude 选择在这个痛点上发力，用更强的语义理解能力做差异化，是聪明的切入点。</p>
+<p>对于国内用户，虽然 Claude 的 Office 插件目前主要面向海外市场，但这个产品方向值得关注。WPS 和飞书文档如果想做类似功能，Claude 的方案是很好的参考——关键不在于"能不能跨应用传数据"，而在于"AI 能不能理解数据在不同场景下应该怎么呈现"。</p>
+<h2>技术细节</h2>
+<p>从产品设计角度推测，Claude for Excel 和 PowerPoint 的同步机制很可能基于共享的会话上下文（session context）。两个插件通过 Anthropic 的后端 API 共享同一个对话线程，Excel 端生成的分析结果以结构化数据（而非纯文本）的形式存储，PowerPoint 端可以直接引用。</p>
+<p>这种架构的优势在于：</p>
+<ol>
+<li><strong>上下文不丢失</strong>：Claude 在 PPT 端拥有完整的分析过程，不只是最终数字</li>
+<li><strong>双向更新</strong>：Excel 数据变了，PPT 端可以感知并建议更新</li>
+<li><strong>语义级同步</strong>：不是搬运单元格，而是传递"Q4 收入同比增长 23%"这样的结构化洞察</li>
+</ol>
+<p>需要注意的局限性：这种同步目前限于同一个用户的同一个工作会话。团队协作场景——比如分析师做 Excel、经理改 PPT——还没有覆盖。另外，数据隐私方面，企业用户需要确认数据是否经过 Anthropic 服务器，这对金融、医疗等敏感行业是硬性要求。</p>
+<p>Anthropic 近期动作频繁：Claude 登上 App Store 榜首、Claude Code 一周年、<a href="/glossary/claude">Memory 功能</a>开放免费用户、Cowork 定时任务上线。Office 插件的打通是其"AI 无处不在"战略的又一块拼图。从开发者工具（<strong>Claude Code</strong>）到办公生产力（Office 插件），Anthropic 正在两条线同时推进。</p>
+<h2>你现在该做什么</h2>
+<ol>
+<li><strong>如果你已经在用 Claude for Excel 或 PowerPoint</strong>：更新到最新版本，尝试在 Excel 分析后直接在 PPT 中引用结果。重点体验"上下文保持"的效果——Claude 在 PPT 端是否真正理解了你的分析。</li>
+<li><strong>如果你是企业 IT 决策者</strong>：把这个功能加入你的 AI 办公工具评估清单，和微软 Copilot 做对比测试。重点关注跨应用语义理解的质量差异。</li>
+<li><strong>如果你在做类似产品</strong>：关注 Anthropic 的"共享会话上下文"设计思路。跨应用 AI 协同的核心不是数据管道，而是语义层的统一。</li>
+<li><strong>国内开发者</strong>：关注 WPS AI 和飞书智能文档在这个方向的进展，Claude 的方案验证了需求真实存在。</li>
+</ol>
+<p><strong>相关阅读</strong>：<a href="/newsletter/2026-03-12">今日简报</a> 有更多 Anthropic 生态动态。另见：<a href="/compare/claude-vs-chatgpt">Claude vs ChatGPT 对比</a>。</p>
+<hr>
+<p><em>觉得有用？<a href="/subscribe">订阅 AI 简报</a>，每天 5 分钟掌握 AI 动态。</em></p>
+</div></div>
+    </div>
+        </div>
+      </details></section>
+<section id="seo"><h2>SEO Pages (3)</h2>
+      <details style="margin-bottom:8px" open>
+        <summary style="cursor:pointer;padding:8px;background:#f0f0f0;border-radius:4px;font-weight:600">
+          glossary (3)
+        </summary>
+        <div style="padding:8px 0">
+        <details style="margin-bottom:4px;margin-left:16px">
+          <summary style="cursor:pointer;padding:6px;background:#fafafa;border-radius:4px">
+            claude-desktop <span style="color:#22c55e;font-size:12px">(OK)</span>
+          </summary>
+          <div style="padding:12px">
+            
+            
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "Claude Desktop — AI Glossary"
+slug: claude-desktop
+description: "What is Claude Desktop? Anthropic's desktop app for interacting with Claude across documents, images, and agentic workflows."
+term: claude-desktop
+display_term: "Claude Desktop"
+category: tools
+related_glossary: [chatgpt, cursor, agentic-coding]
+related_blog: [claude-excel-powerpoint-sync]
+related_compare: []
+lang: en</h2>
+<h1>Claude Desktop — AI Glossary</h1>
+<p><strong>Claude Desktop</strong> is Anthropic's native desktop application for macOS and Windows that provides direct access to Claude outside the browser. It supports text conversations, image and document analysis, file uploads, and — with its <strong>Computer Use</strong> and <strong>Cowork</strong> capabilities — agentic workflows where Claude can observe and interact with your screen. Unlike the web interface at claude.ai, the desktop app integrates with your local environment and supports extended background tasks.</p>
+<h2>Why Claude Desktop Matters</h2>
+<p>Claude Desktop bridges the gap between a chat-based AI assistant and an on-device productivity tool. By running natively, it can process local files without uploading them through a browser, handle drag-and-drop workflows, and maintain persistent conversations across sessions.</p>
+<p>The addition of <strong>agentic features</strong> — where Claude can view your screen, click UI elements, and operate applications on your behalf — positions Claude Desktop as more than a chatbot. It becomes a general-purpose digital assistant capable of completing multi-step tasks across desktop applications. For coverage of Claude's latest desktop agent capabilities, see our <a href="/blog/claude-excel-powerpoint-sync">analysis of Claude's Office integration</a>. Developers building <a href="/glossary/agentic-coding">agentic coding</a> workflows can pair Claude Desktop with terminal-based tools for a hybrid approach.</p>
+<h2>How Claude Desktop Works</h2>
+<p>Claude Desktop connects to Anthropic's API while adding a native application layer for local system integration. Key mechanisms:</p>
+<ul>
+<li><strong>File handling</strong>: Drag files directly into conversations — PDFs, images, spreadsheets, code files — for analysis without manual copy-paste</li>
+<li><strong>MCP integration</strong>: Connects to local and remote <strong>Model Context Protocol</strong> servers, giving Claude access to databases, APIs, and development tools from the desktop</li>
+<li><strong>Computer Use</strong>: An opt-in mode where Claude receives screenshots of your display and can execute mouse clicks and keyboard input to operate applications autonomously</li>
+<li><strong>Persistent projects</strong>: Organize conversations by topic with attached files and custom instructions that carry across sessions</li>
+</ul>
+<h2>Related Terms</h2>
+<ul>
+<li><strong><a href="/glossary/chatgpt">ChatGPT</a></strong>: OpenAI's competing conversational AI, also available as a desktop app with broadly similar chat capabilities</li>
+<li><strong><a href="/glossary/cursor">Cursor</a></strong>: An AI-enhanced code editor — specialized for development, whereas Claude Desktop is a general-purpose assistant</li>
+<li><strong><a href="/glossary/agentic-coding">Agentic Coding</a></strong>: The paradigm of AI agents autonomously writing and executing code, which Claude Desktop supports through Computer Use and MCP</li>
+</ul>
+<hr>
+<p><em>Want more AI insights? <a href="/subscribe">Subscribe to LoreAI</a> for daily briefings.</em></p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><div class="md-content"><hr>
+<h2>title: "Claude Desktop — AI 术语表"
+slug: claude-desktop
+description: "什么是 Claude Desktop？Anthropic 推出的桌面端 AI 助手应用，支持文件处理与多模态交互。"
+term: claude-desktop
+display_term: "Claude Desktop"
+category: tools
+related_glossary: [claude-code, chatgpt]
+related_blog: [claude-excel-powerpoint-sync]
+related_compare: []
+lang: zh</h2>
+<h1>Claude Desktop — AI 术语表</h1>
+<p><strong>Claude Desktop</strong> 是 Anthropic 推出的桌面端应用程序，让用户无需通过浏览器即可直接与 Claude 模型交互。它支持文件上传、图片识别、长文档处理等多模态能力，并通过 MCP（Model Context Protocol）协议连接外部工具和数据源，将 Claude 从一个对话窗口扩展为本地工作流的核心节点。</p>
+<h2>为什么 Claude Desktop 重要</h2>
+<p>对于日常依赖 AI 辅助工作的用户来说，浏览器标签页切换是效率的隐形杀手。Claude Desktop 作为独立应用常驻系统，随时可用——拖入一份 PDF 就能获得摘要，贴一张截图就能分析内容。</p>
+<p>更关键的是 MCP 集成能力。通过配置 MCP 服务器，Claude Desktop 可以读取本地文件系统、查询数据库、调用内部 API，真正融入你的工作环境而非停留在聊天框里。我们在 <a href="/blog/claude-excel-powerpoint-sync">Claude 处理 Excel 和 PowerPoint 的实测</a> 中详细分析了这种本地文件处理能力的实际表现。</p>
+<h2>Claude Desktop 如何工作</h2>
+<p>Claude Desktop 本质上是 Claude 模型的原生客户端，核心机制包括：</p>
+<ul>
+<li><strong>多模态输入</strong>：支持文本、图片、PDF、代码文件等多种格式的直接上传和分析</li>
+<li><strong>MCP 协议</strong>：通过本地配置文件定义可连接的外部工具，实现文件读取、命令执行等扩展功能</li>
+<li><strong>对话记忆</strong>：支持项目级上下文管理，在同一项目的多轮对话中保持连贯性</li>
+<li><strong>跨平台支持</strong>：覆盖 macOS 和 Windows，提供系统级快捷键唤起</li>
+</ul>
+<p>与 <a href="/glossary/claude-code">Claude Code</a> 的终端代理模式不同，Claude Desktop 面向更广泛的用户群体——不只是开发者，还包括研究人员、分析师和内容创作者。</p>
+<h2>相关术语</h2>
+<ul>
+<li><strong><a href="/glossary/claude-code">Claude Code</a></strong>：Anthropic 的终端编程代理，面向开发者的命令行工具，与 Claude Desktop 的图形界面形成互补</li>
+<li><strong><a href="/glossary/chatgpt">ChatGPT</a></strong>：OpenAI 的对话式 AI 产品，同样提供桌面客户端，是 Claude Desktop 的主要竞品</li>
+<li><strong><a href="/glossary/agentic-coding">Agentic Coding</a></strong>：AI 代理式编程范式，Claude Desktop 通过 MCP 集成正在向这个方向演进</li>
+</ul>
+<hr>
+<p><em>觉得有用？<a href="/subscribe">订阅 LoreAI</a>，每天 5 分钟掌握 AI 动态。</em></p>
+</div></div>
+    </div>
+          </div>
+        </details>
+        <details style="margin-bottom:4px;margin-left:16px">
+          <summary style="cursor:pointer;padding:6px;background:#fafafa;border-radius:4px">
+            figma <span style="color:#ef4444;font-size:12px">(1 issue)</span>
+          </summary>
+          <div style="padding:12px">
+            <div style="background:#fef2f2;padding:8px 12px;border-radius:4px;margin-bottom:12px;font-size:13px;color:#991b1b"><div>• Missing ZH version</div></div>
+            
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "Figma — AI Glossary"
+slug: figma
+description: "What is Figma? A collaborative design platform now integrating AI features for UI/UX workflows."
+term: figma
+display_term: "Figma"
+category: tools
+related_glossary: [claude-desktop, chatgpt]
+related_blog: [claude-excel-powerpoint-sync]
+related_compare: []
+lang: en</h2>
+<h1>Figma — AI Glossary</h1>
+<p><strong>Figma</strong> is a browser-based collaborative design platform used for UI/UX design, prototyping, and design systems. Acquired by no one — it remained independent after Adobe's $20B acquisition attempt was blocked by regulators in late 2023. Figma has since accelerated its own AI strategy, shipping features that automate repetitive design tasks and bridge the gap between design and code.</p>
+<h2>Why Figma Matters</h2>
+<p>Figma dominates collaborative product design the way Google Docs dominates collaborative writing — real-time multiplayer editing with a shared source of truth. Its relevance to the AI landscape is twofold.</p>
+<p>First, Figma is integrating AI directly into the design workflow. Features like auto-layout suggestions, asset search, and design-to-code generation reduce the manual overhead of translating ideas into production-ready interfaces. Second, Figma's design files are increasingly used as input for AI coding tools — <a href="/glossary/agentic-coding">agentic coding</a> assistants can reference Figma designs to generate frontend components with accurate styling and layout.</p>
+<p>For teams using AI-assisted development, Figma sits at the start of the pipeline: design in Figma, hand off to an AI coder, ship to production. Our coverage of <a href="/blog/claude-excel-powerpoint-sync">Claude's productivity integrations</a> explores how AI models interact with design and productivity tools.</p>
+<h2>How Figma Works</h2>
+<p>Figma runs entirely in the browser using WebGL for rendering, which means no installation and instant collaboration. Key technical aspects:</p>
+<ul>
+<li><strong>Real-time collaboration</strong>: Operational transformation keeps multiple editors in sync without conflicts</li>
+<li><strong>Component system</strong>: Reusable design components with variants and properties, similar to React components</li>
+<li><strong>Dev Mode</strong>: Extracts CSS, iOS, and Android code snippets directly from design layers</li>
+<li><strong>Plugin API</strong>: JavaScript-based plugin system that third-party AI tools use to add generative design capabilities</li>
+<li><strong>FigJam</strong>: Companion whiteboarding tool for brainstorming and planning</li>
+</ul>
+<p>Figma's file format stores vector data as nodes in a scene graph, making designs programmatically accessible — a property that AI tools leverage for automated design analysis and code generation.</p>
+<h2>Related Terms</h2>
+<ul>
+<li><strong><a href="/glossary/claude-desktop">Claude Desktop</a></strong>: Anthropic's desktop AI assistant that can interact with applications including design tools</li>
+<li><strong><a href="/glossary/chatgpt">ChatGPT</a></strong>: OpenAI's conversational AI, which supports image-based design feedback via vision capabilities</li>
+<li><strong><a href="/glossary/agentic-coding">Agentic Coding</a></strong>: AI-driven development workflows that can consume Figma designs as input for code generation</li>
+</ul>
+<hr>
+<p><em>Want more AI insights? <a href="/subscribe">Subscribe to LoreAI</a> for daily briefings.</em></p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><p style="color:#a3a3a3"><em>Not found</em></p></div>
+    </div>
+          </div>
+        </details>
+        <details style="margin-bottom:4px;margin-left:16px">
+          <summary style="cursor:pointer;padding:6px;background:#fafafa;border-radius:4px">
+            rag <span style="color:#22c55e;font-size:12px">(OK)</span>
+          </summary>
+          <div style="padding:12px">
+            
+            
+    <div style="display:flex;gap:24px;flex-wrap:wrap">
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">EN</h4><div class="md-content"><hr>
+<h2>title: "RAG — AI Glossary"
+slug: rag
+description: "What is RAG? Retrieval-Augmented Generation combines LLM reasoning with external knowledge retrieval for accurate, grounded responses."
+term: rag
+display_term: "RAG"
+category: techniques
+related_glossary: [chatgpt, cursor, agentic-coding]
+related_blog: [claude-code-btw-side-chain-conversations]
+related_compare: []
+lang: en</h2>
+<h1>RAG — AI Glossary</h1>
+<p><strong>RAG (Retrieval-Augmented Generation)</strong> is a technique that enhances large language model outputs by retrieving relevant documents from an external knowledge base before generating a response. Instead of relying solely on what a model learned during training, RAG grounds its answers in specific, up-to-date source material — reducing hallucinations and enabling responses backed by verifiable references.</p>
+<h2>Why RAG Matters</h2>
+<p>LLMs have a fundamental limitation: their knowledge is frozen at training time, and they can confidently fabricate information they don't actually know. RAG solves both problems by giving the model access to a live corpus of documents at inference time.</p>
+<p>This makes RAG essential for enterprise applications where accuracy is non-negotiable — legal research, medical Q&#x26;A, internal knowledge bases, and customer support. Teams building <a href="/glossary/agentic-coding">agentic coding</a> tools also use RAG to give AI assistants access to project documentation and codebases that didn't exist when the model was trained. For a practical example of how context retrieval shapes AI-assisted workflows, see our coverage of <a href="/blog/claude-code-btw-side-chain-conversations">side-chain conversations in Claude Code</a>.</p>
+<h2>How RAG Works</h2>
+<p>A RAG system has two core components: a <strong>retriever</strong> and a <strong>generator</strong>.</p>
+<ol>
+<li><strong>Indexing</strong>: Documents are split into chunks and converted into vector embeddings using an embedding model, then stored in a vector database (Pinecone, Weaviate, Chroma, pgvector, etc.)</li>
+<li><strong>Retrieval</strong>: When a user query arrives, it's embedded using the same model and matched against the vector store via similarity search. The top-k most relevant chunks are returned.</li>
+<li><strong>Generation</strong>: The retrieved chunks are injected into the LLM's prompt as context. The model generates its response grounded in this retrieved material.</li>
+</ol>
+<p>Advanced RAG pipelines add re-ranking (scoring retrieved chunks for relevance before passing them to the LLM), hybrid search (combining vector similarity with keyword matching), and query decomposition (breaking complex questions into sub-queries for better retrieval coverage).</p>
+<h2>Related Terms</h2>
+<ul>
+<li><strong><a href="/glossary/chatgpt">ChatGPT</a></strong>: OpenAI's conversational AI, which uses retrieval-based features in its browse and file-upload capabilities</li>
+<li><strong><a href="/glossary/agentic-coding">Agentic Coding</a></strong>: AI-driven development workflows that often rely on RAG to access codebase context beyond the model's training data</li>
+<li><strong><a href="/glossary/cursor">Cursor</a></strong>: An AI-enhanced IDE that uses codebase indexing and retrieval to provide context-aware completions</li>
+</ul>
+<hr>
+<p><em>Want more AI insights? <a href="/subscribe">Subscribe to LoreAI</a> for daily briefings.</em></p>
+</div></div>
+      <div style="flex:1;min-width:0"><h4 style="margin:0 0 8px;color:#737373">ZH</h4><div class="md-content"><hr>
+<h2>title: "RAG（检索增强生成） — AI 术语表"
+slug: rag
+description: "什么是 RAG？一种结合外部知识检索与大语言模型生成的技术架构，显著减少幻觉并提升回答准确性。"
+term: rag
+display_term: "RAG"
+category: techniques
+related_glossary: [chatgpt, cursor, agentic-coding]
+related_blog: [claude-code-btw-side-chain-conversations]
+related_compare: []
+lang: zh</h2>
+<h1>RAG（检索增强生成） — AI 术语表</h1>
+<p><strong>RAG</strong>（Retrieval-Augmented Generation，检索增强生成）是一种将外部知识检索与大语言模型文本生成相结合的技术架构。核心思路：模型在生成回答前，先从知识库中检索相关文档片段作为上下文，而非完全依赖训练时记忆的参数知识。这直接解决了 LLM 最大的痛点——幻觉和知识过时。</p>
+<h2>为什么 RAG 重要</h2>
+<p>大语言模型的参数知识有截止日期，且无法覆盖企业私有数据。RAG 让模型能够在推理时动态接入最新、最相关的信息源，大幅提升回答的准确性和可追溯性。</p>
+<p>对企业而言，RAG 是当前最实用的 LLM 落地方案之一——不需要微调模型，只需搭建检索管道，就能让通用模型变成领域专家。从客服问答到内部知识管理，RAG 已成为生产级 AI 应用的标配架构。我们在<a href="/blog/claude-code-btw-side-chain-conversations">近期的报道</a>中也讨论了类似的上下文增强思路。</p>
+<h2>RAG 的工作原理</h2>
+<p>RAG 的典型流程分三步：</p>
+<ol>
+<li><strong>索引阶段</strong>：将文档切分为 chunk，通过 embedding 模型转化为向量，存入向量数据库（如 Pinecone、Weaviate、pgvector）</li>
+<li><strong>检索阶段</strong>：用户提问后，将问题同样转为向量，在数据库中执行相似度搜索，召回最相关的 Top-K 文档片段</li>
+<li><strong>生成阶段</strong>：将检索到的片段与原始问题一起注入 LLM 的 prompt，模型基于这些上下文生成最终回答</li>
+</ol>
+<p>进阶实践中，还会加入 reranker 重排序、query 改写、混合检索（关键词 + 语义）等策略来提升召回质量。与<a href="/glossary/agentic-coding">智能编程工具</a>类似，RAG 的核心价值在于让 AI 能够利用外部上下文做出更可靠的判断。</p>
+<h2>相关术语</h2>
+<ul>
+<li><strong><a href="/glossary/agentic-coding">Agentic Coding</a></strong>：AI 代理式编程，同样依赖上下文增强来提升代码生成质量</li>
+<li><strong><a href="/glossary/chatgpt">ChatGPT</a></strong>：OpenAI 的对话模型，其企业版和自定义 GPT 均支持 RAG 架构</li>
+<li><strong><a href="/glossary/cursor">Cursor</a></strong>：AI 编程编辑器，内部使用类似 RAG 的代码库检索机制来理解项目上下文</li>
+</ul>
+<hr>
+<p><em>觉得有用？<a href="/subscribe">订阅 LoreAI</a>，每天 5 分钟掌握 AI 动态。</em></p>
+</div></div>
+    </div>
+          </div>
+        </details></div>
+      </details></section>
+
+    <section id="data">
+      <h2>Data</h2>
+      <h3>Filtered Items</h3>
+      
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr><th>Score</th><th>Category</th><th>Title</th><th>Source</th><th style="text-align:right">Likes</th></tr></thead>
+          <tbody>
+      <tr>
+        <td>95</td>
+        <td>TOOL</td>
+        <td title="We just added /btw to Claude Code! Use it to have side chain conversations while Claude is working.">We just added /btw to Claude Code! Use it to have side chain conversations while…</td>
+        <td>twitter:@trq212</td>
+        <td style="text-align:right">22,849</td>
+      </tr>
+      <tr>
+        <td>92</td>
+        <td>LAUNCH</td>
+        <td title="Introducing The Anthropic Institute">Introducing The Anthropic Institute</td>
+        <td>blog:Anthropic News</td>
+        <td style="text-align:right">0</td>
+      </tr>
+      <tr>
+        <td>90</td>
+        <td>LAUNCH</td>
+        <td title="Gemini Embedding 2 — Google's first fully multimodal embedding model">Gemini Embedding 2 — Google's first fully multimodal embedding model</td>
+        <td>twitter:@GoogleDeepMind</td>
+        <td style="text-align:right">2,325</td>
+      </tr>
+      <tr>
+        <td>88</td>
+        <td>RESEARCH</td>
+        <td title="AlphaEvolve helps establish new results in extremal combinatorics">AlphaEvolve helps establish new results in extremal combinatorics</td>
+        <td>twitter:@GoogleDeepMind</td>
+        <td style="text-align:right">1,615</td>
+      </tr>
+      <tr>
+        <td>88</td>
+        <td>INSIGHT</td>
+        <td title="Karpathy: we're going to need a bigger IDE">Karpathy: we're going to need a bigger IDE</td>
+        <td>twitter:@karpathy</td>
+        <td style="text-align:right">2,920</td>
+      </tr>
+      <tr>
+        <td>87</td>
+        <td>TOOL</td>
+        <td title="Migrate to GPT-5.4 with this Codex skill">Migrate to GPT-5.4 with this Codex skill</td>
+        <td>twitter:@OpenAIDevs</td>
+        <td style="text-align:right">700</td>
+      </tr>
+      <tr>
+        <td>86</td>
+        <td>TOOL</td>
+        <td title="Claude for Excel and Claude for PowerPoint now sync together seamlessly">Claude for Excel and Claude for PowerPoint now sync together seamlessly</td>
+        <td>twitter:@claudeai</td>
+        <td style="text-align:right">407</td>
+      </tr>
+      <tr>
+        <td>85</td>
+        <td>LAUNCH</td>
+        <td title="Meta details MTIA custom silicon — four generations in two years">Meta details MTIA custom silicon — four generations in two years</td>
+        <td>twitter:@AIatMeta</td>
+        <td style="text-align:right">264</td>
+      </tr>
+      <tr>
+        <td>84</td>
+        <td>TECHNIQUE</td>
+        <td title="Really good post on why agentic coding evals are so noisy">Really good post on why agentic coding evals are so noisy</td>
+        <td>twitter:@trq212</td>
+        <td style="text-align:right">480</td>
+      </tr>
+      <tr>
+        <td>83</td>
+        <td>RESEARCH</td>
+        <td title="NVIDIA Cosmos Policy — turning world foundation models into unified robot brains">NVIDIA Cosmos Policy — turning world foundation models into unified robot brains</td>
+        <td>twitter:@huggingface</td>
+        <td style="text-align:right">115</td>
+      </tr>
+      <tr>
+        <td>83</td>
+        <td>TECHNIQUE</td>
+        <td title="AI should help us produce better code">AI should help us produce better code</td>
+        <td>rss:Simon Willison</td>
+        <td style="text-align:right">0</td>
+      </tr>
+      <tr>
+        <td>82</td>
+        <td>INSIGHT</td>
+        <td title="Sydney will become Anthropic's fourth office in Asia-Pacific">Sydney will become Anthropic's fourth office in Asia-Pacific</td>
+        <td>blog:Anthropic News</td>
+        <td style="text-align:right">0</td>
+      </tr>
+      <tr>
+        <td>82</td>
+        <td>TOOL</td>
+        <td title="HuggingFace ships Storage Buckets — S3-like mutable storage with Xet dedup">HuggingFace ships Storage Buckets — S3-like mutable storage with Xet dedup</td>
+        <td>twitter:@huggingface</td>
+        <td style="text-align:right">15</td>
+      </tr>
+      <tr>
+        <td>81</td>
+        <td>TOOL</td>
+        <td title="Gemini CLI launches Plan Mode — read-only exploration before implementation">Gemini CLI launches Plan Mode — read-only exploration before implementation</td>
+        <td>twitter:@geminicli</td>
+        <td style="text-align:right">250</td>
+      </tr>
+      <tr>
+        <td>80</td>
+        <td>RESEARCH</td>
+        <td title="Code Concepts: Large-Scale Synthetic Dataset Generated from Programming Concept Seeds">Code Concepts: Large-Scale Synthetic Dataset Generated from Programming Concept …</td>
+        <td>rss:HuggingFace Blog</td>
+        <td style="text-align:right">0</td>
+      </tr>
+      <tr>
+        <td>80</td>
+        <td>LAUNCH</td>
+        <td title="Fish Audio s2-pro: next-gen text-to-speech model">Fish Audio s2-pro: next-gen text-to-speech model</td>
+        <td>huggingface:trending</td>
+        <td style="text-align:right">240</td>
+      </tr>
+      <tr>
+        <td>79</td>
+        <td>TECHNIQUE</td>
+        <td title="The Anatomy of an Agent Harness">The Anatomy of an Agent Harness</td>
+        <td>rss:LangChain Blog</td>
+        <td style="text-align:right">0</td>
+      </tr>
+      <tr>
+        <td>79</td>
+        <td>INSIGHT</td>
+        <td title="AI Agent Hacks McKinsey">AI Agent Hacks McKinsey</td>
+        <td>hackernews</td>
+        <td style="text-align:right">223</td>
+      </tr>
+      <tr>
+        <td>78</td>
+        <td>TOOL</td>
+        <td title="HuggingFace Text Embeddings Inference v1.9 adds NVIDIA Blackwell support">HuggingFace Text Embeddings Inference v1.9 adds NVIDIA Blackwell support</td>
+        <td>twitter:@huggingface</td>
+        <td style="text-align:right">25</td>
+      </tr>
+      <tr>
+        <td>77</td>
+        <td>INSIGHT</td>
+        <td title="Hustlers are cashing in on China's OpenClaw AI craze">Hustlers are cashing in on China's OpenClaw AI craze</td>
+        <td>rss:MIT Tech Review AI</td>
+        <td style="text-align:right">0</td>
+      </tr>
+      <tr>
+        <td>75</td>
+        <td>BUILD</td>
+        <td title="Show HN: Open-source browser for AI agents">Show HN: Open-source browser for AI agents</td>
+        <td>hackernews</td>
+        <td style="text-align:right">33</td>
+      </tr>
+      <tr>
+        <td>70</td>
+        <td>INSIGHT</td>
+        <td title="Claude Code and claude.ai experiencing elevated login errors and slower performance">Claude Code and claude.ai experiencing elevated login errors and slower performa…</td>
+        <td>twitter:@trq212</td>
+        <td style="text-align:right">1,500</td>
+      </tr></tbody>
+        </table>
+        <p style="font-size:12px;color:#737373">22 items</p>
+      </div>
+      <h3 style="margin-top:24px">Blog Seeds</h3>
+      
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr><th>Score</th><th>Topic</th><th>Source</th><th>Angle</th></tr></thead>
+          <tbody>
+      <tr>
+        <td>24.3</td>
+        <td title="We just added /btw to Claude Code! Use it to have side chain conversations while Claude is working.">We just added /btw to Claude Code! Use it to have side chain conversations while…</td>
+        <td>twitter:@trq212</td>
+        <td>news</td>
+      </tr>
+      <tr>
+        <td>17.5</td>
+        <td title="Claude Code and claude.ai experiencing elevated login errors and slower performance">Claude Code and claude.ai experiencing elevated login errors and slower performa…</td>
+        <td>twitter:@trq212</td>
+        <td>news</td>
+      </tr>
+      <tr>
+        <td>17.1</td>
+        <td title="Claude for Excel and Claude for PowerPoint now sync together seamlessly">Claude for Excel and Claude for PowerPoint now sync together seamlessly</td>
+        <td>twitter:@claudeai</td>
+        <td>news</td>
+      </tr>
+      <tr>
+        <td>17.0</td>
+        <td title="HuggingFace Text Embeddings Inference v1.9 adds NVIDIA Blackwell support">HuggingFace Text Embeddings Inference v1.9 adds NVIDIA Blackwell support</td>
+        <td>twitter:@huggingface</td>
+        <td>news</td>
+      </tr>
+      <tr>
+        <td>16.8</td>
+        <td title="Gemini Embedding 2 — Google's first fully multimodal embedding model">Gemini Embedding 2 — Google's first fully multimodal embedding model</td>
+        <td>twitter:@GoogleDeepMind</td>
+        <td>news</td>
+      </tr></tbody>
+        </table>
+        <p style="font-size:12px;color:#737373">5 seeds</p>
+      </div>
+    </section>
+
+    <section id="keywords">
+      <h2>Keywords</h2>
+      <h3>Discovered Today</h3>
+      
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr><th>Keyword</th><th>Source</th><th>Cluster</th><th>Content</th></tr></thead>
+          <tbody>
+      <tr>
+        <td>AI coding agents</td>
+        <td>ai-extraction</td>
+        <td>ai-coding-agents</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>AI deepfakes</td>
+        <td>ai-extraction</td>
+        <td>ai-deepfakes</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>AgentMail</td>
+        <td>ai-extraction</td>
+        <td>agentmail</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Ai2</td>
+        <td>ai-extraction</td>
+        <td>ai2</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>AutoResearch-RL</td>
+        <td>ai-extraction</td>
+        <td>autoresearch-rl</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>BitNet</td>
+        <td>ai-extraction</td>
+        <td>bitnet</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Canva</td>
+        <td>ai-extraction</td>
+        <td>canva</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Copilot</td>
+        <td>ai-extraction</td>
+        <td>copilot</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>DeepSeek</td>
+        <td>ai-extraction</td>
+        <td>deepseek</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Eridu</td>
+        <td>ai-extraction</td>
+        <td>eridu</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Framer</td>
+        <td>ai-extraction</td>
+        <td>framer</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>JEPA</td>
+        <td>ai-extraction</td>
+        <td>jepa</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Manulife</td>
+        <td>ai-extraction</td>
+        <td>manulife</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Mind Robotics</td>
+        <td>ai-extraction</td>
+        <td>mind-robotics</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Model Context Protocol</td>
+        <td>ai-extraction</td>
+        <td>model-context-protocol</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>OpenAPI</td>
+        <td>ai-extraction</td>
+        <td>openapi</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Qwen</td>
+        <td>ai-extraction</td>
+        <td>qwen</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Sora</td>
+        <td>ai-extraction</td>
+        <td>sora</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Wayve</td>
+        <td>ai-extraction</td>
+        <td>wayve</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>YouTube</td>
+        <td>ai-extraction</td>
+        <td>youtube</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>agentic AI</td>
+        <td>ai-extraction</td>
+        <td>agentic-ai</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>anthropic-status-page</td>
+        <td>Blog glossary extraction (claude-code-claude-ai-login-errors-performance)</td>
+        <td>anthropic-status-page</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>can-i-interact-with-claude-code-while-it-is-running-a-long-t</td>
+        <td>Blog FAQ extraction (claude-code-btw-side-chain-conversations)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>claude-ai</td>
+        <td>Blog glossary extraction (claude-code-claude-ai-login-errors-performance)</td>
+        <td>claude-ai</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>claude-ai-vs-chatgpt</td>
+        <td>Blog comparison extraction (claude-code-claude-ai-login-errors-performance)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>claude-code-hooks</td>
+        <td>Blog glossary extraction (claude-code-btw-side-chain-conversations)</td>
+        <td>claude-code-hooks</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>claude-for-excel</td>
+        <td>Blog glossary extraction (claude-excel-powerpoint-sync)</td>
+        <td>claude-for-excel</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>claude-for-excel-vs-copilot-for-excel</td>
+        <td>Blog comparison extraction (claude-excel-powerpoint-sync)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>claude-for-powerpoint</td>
+        <td>Blog glossary extraction (claude-excel-powerpoint-sync)</td>
+        <td>claude-for-powerpoint</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>claude-for-powerpoint-vs-gamma</td>
+        <td>Blog comparison extraction (claude-excel-powerpoint-sync)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>claude-office-add-ins-vs-microsoft-copilot</td>
+        <td>Blog comparison extraction (claude-excel-powerpoint-sync)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>cowork-mode</td>
+        <td>Blog glossary extraction (claude-code-btw-side-chain-conversations)</td>
+        <td>cowork-mode</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>cross-application-context</td>
+        <td>Blog glossary extraction (claude-excel-powerpoint-sync)</td>
+        <td>cross-application-context</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>does-claude-code-have-an-uptime-sla</td>
+        <td>Blog FAQ extraction (claude-code-claude-ai-login-errors-performance)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>does-claude-for-office-addins-require-a-paid-plan</td>
+        <td>Blog FAQ extraction (claude-excel-powerpoint-sync)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>how-does-claude-code-handle-parallel-conversations-without-l</td>
+        <td>Blog FAQ extraction (claude-code-btw-side-chain-conversations)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>how-does-claude-sync-data-between-excel-and-powerpoint</td>
+        <td>Blog FAQ extraction (claude-excel-powerpoint-sync)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>how-to-check-if-claudeai-is-down</td>
+        <td>Blog FAQ extraction (claude-code-claude-ai-login-errors-performance)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>inference-infrastructure</td>
+        <td>Blog glossary extraction (claude-code-claude-ai-login-errors-performance)</td>
+        <td>inference-infrastructure</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>office-add-ins</td>
+        <td>Blog glossary extraction (claude-excel-powerpoint-sync)</td>
+        <td>office-add-ins</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>side-chain-conversations</td>
+        <td>Blog glossary extraction (claude-code-btw-side-chain-conversations)</td>
+        <td>side-chain-conversations</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>synthetic data</td>
+        <td>ai-extraction</td>
+        <td>synthetic-data</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>what-are-side-chain-conversations-in-claude-code</td>
+        <td>Blog FAQ extraction (claude-code-btw-side-chain-conversations)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>what-can-claude-for-excel-and-powerpoint-do-together-that-th</td>
+        <td>Blog FAQ extraction (claude-excel-powerpoint-sync)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>what-is-the-btw-command-in-claude-code-and-how-do-i-use-it</td>
+        <td>Blog FAQ extraction (claude-code-btw-side-chain-conversations)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>what-to-do-when-claude-code-authentication-fails</td>
+        <td>Blog FAQ extraction (claude-code-claude-ai-login-errors-performance)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>why-is-claude-code-showing-login-errors</td>
+        <td>Blog FAQ extraction (claude-code-claude-ai-login-errors-performance)</td>
+        <td>—</td>
+        <td>—</td>
+      </tr></tbody>
+        </table>
+        <p style="font-size:12px;color:#737373">47 keywords</p>
+      </div>
+      <h3 style="margin-top:24px">Topic Clusters</h3>
+      
+      <div style="overflow-x:auto">
+        <table>
+          <thead><tr><th>Slug</th><th>Pillar Topic</th><th style="text-align:right">Mentions</th><th>Hub</th><th>First Seen</th><th>Last Seen</th></tr></thead>
+          <tbody>
+      <tr>
+        <td>anthropic</td>
+        <td>anthropic</td>
+        <td style="text-align:right">8</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>openai</td>
+        <td>openai</td>
+        <td style="text-align:right">8</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>qwen</td>
+        <td>qwen</td>
+        <td style="text-align:right">8</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>google</td>
+        <td>google</td>
+        <td style="text-align:right">7</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>codex</td>
+        <td>codex</td>
+        <td style="text-align:right">7</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>claude-code</td>
+        <td>claude code</td>
+        <td style="text-align:right">7</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>claude</td>
+        <td>claude</td>
+        <td style="text-align:right">6</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>gemini</td>
+        <td>gemini</td>
+        <td style="text-align:right">6</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>cursor</td>
+        <td>cursor</td>
+        <td style="text-align:right">5</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>gpt</td>
+        <td>GPT-5.4</td>
+        <td style="text-align:right">5</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>chatgpt</td>
+        <td>ChatGPT</td>
+        <td style="text-align:right">5</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>ltx</td>
+        <td>LTX-2.3</td>
+        <td style="text-align:right">5</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>langchain</td>
+        <td>LangChain</td>
+        <td style="text-align:right">5</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>nvidia</td>
+        <td>NVIDIA</td>
+        <td style="text-align:right">5</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>reinforcement-learning</td>
+        <td>reinforcement learning</td>
+        <td style="text-align:right">5</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>fine-tuning</td>
+        <td>fine-tuning</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>meta</td>
+        <td>Meta</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>microsoft</td>
+        <td>Microsoft</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>model-context-protocol</td>
+        <td>MCP</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>hugging-face</td>
+        <td>Hugging Face</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>rag</td>
+        <td>RAG</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>agentic-coding</td>
+        <td>agentic coding</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>whisper</td>
+        <td>Whisper</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>triton</td>
+        <td>Triton</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>claude-desktop</td>
+        <td>Claude Desktop</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>grammarly</td>
+        <td>Grammarly</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>ai-regulation</td>
+        <td>AI regulation</td>
+        <td style="text-align:right">4</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>deepseek</td>
+        <td>deepseek</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>google-deepmind</td>
+        <td>Google DeepMind</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>github-copilot</td>
+        <td>GitHub Copilot</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>figma</td>
+        <td>Figma</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>sakana-ai</td>
+        <td>Sakana AI</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>vibe-coding</td>
+        <td>vibe coding</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>ai-safety</td>
+        <td>AI safety</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>autonomous-weapons</td>
+        <td>autonomous weapons</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>multi-agent-systems</td>
+        <td>multi-agent systems</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>open-weight-models</td>
+        <td>open-weight models</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>grok</td>
+        <td>Grok</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>qualcomm</td>
+        <td>Qualcomm</td>
+        <td style="text-align:right">3</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>agentic</td>
+        <td>agentic</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>gpt-54</td>
+        <td>gpt-5.4</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>huggingface</td>
+        <td>huggingface</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>qwen35</td>
+        <td>qwen3.5</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>qwen3</td>
+        <td>qwen3</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>nano-banana</td>
+        <td>Nano Banana 2</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>diffusers</td>
+        <td>Diffusers</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>windsurf</td>
+        <td>Windsurf</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>bytedance</td>
+        <td>ByteDance</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>glm</td>
+        <td>GLM</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>claude-opus</td>
+        <td>Claude Opus 4.6</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>chain-of-thought</td>
+        <td>chain-of-thought</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>computer-use</td>
+        <td>computer use</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>context-engineering</td>
+        <td>context engineering</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>swe-bench</td>
+        <td>SWE-Bench</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>openhands</td>
+        <td>OpenHands</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>nemo</td>
+        <td>NeMo</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>speciesnet</td>
+        <td>SpeciesNet</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>alexa-plus</td>
+        <td>Alexa+</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>model-distillation</td>
+        <td>model distillation</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>seedance</td>
+        <td>Seedance</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>claude-max</td>
+        <td>Claude Max</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>cline</td>
+        <td>Cline</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>webflow</td>
+        <td>Webflow</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>ghidra</td>
+        <td>Ghidra</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>playwright</td>
+        <td>Playwright</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>eval-integrity</td>
+        <td>eval integrity</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>amazon</td>
+        <td>Amazon</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>gpt-5</td>
+        <td>GPT-5.4</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>gpt-4</td>
+        <td>GPT-4</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-08</td>
+      </tr>
+      <tr>
+        <td>o3</td>
+        <td>o3</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>sarvam</td>
+        <td>Sarvam-105B</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>openclaw</td>
+        <td>OpenClaw</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>vllm</td>
+        <td>vLLM</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>inference-cost</td>
+        <td>inference cost</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>dall-e</td>
+        <td>DALL-E 2</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>llm-reasoning</td>
+        <td>reasoning with LLMs</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>openai-baselines</td>
+        <td>OpenAI Baselines</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>roboschool</td>
+        <td>Roboschool</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>waymo</td>
+        <td>Waymo</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>dqn</td>
+        <td>DQN</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>promptfoo</td>
+        <td>Promptfoo</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>xai</td>
+        <td>xAI</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>neura-robotics</td>
+        <td>Neura Robotics</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>nscale</td>
+        <td>Nscale</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>gradient-ai</td>
+        <td>Gradient AI</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>ami-labs</td>
+        <td>AMI Labs</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>datadog</td>
+        <td>Datadog</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>legora</td>
+        <td>Legora</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>mastercard</td>
+        <td>Mastercard</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>ibm</td>
+        <td>IBM</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>abb</td>
+        <td>ABB</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>synthetic-data</td>
+        <td>Synthetic Data</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>n8n</td>
+        <td>n8n</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>pinecone</td>
+        <td>Pinecone</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>notebooklm</td>
+        <td>NotebookLM</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>amazon-bedrock</td>
+        <td>Amazon Bedrock</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>opencode</td>
+        <td>OpenCode</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>vertex-ai</td>
+        <td>Vertex AI</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>world-models</td>
+        <td>world models</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>agentic-payments</td>
+        <td>agentic payments</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>physical-ai</td>
+        <td>physical AI</td>
+        <td style="text-align:right">2</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>deepmind</td>
+        <td>deepmind</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>langsmith</td>
+        <td>LangSmith</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>luma</td>
+        <td>Luma</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>phi</td>
+        <td>Phi-4</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>olmo</td>
+        <td>OLMo</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>multi-agent</td>
+        <td>multi-agent</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>inference-cost-reduction</td>
+        <td>inference cost reduction</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>extended-thinking</td>
+        <td>extended thinking</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>claude-cowork</td>
+        <td>Claude Cowork</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>huggingface-hub</td>
+        <td>huggingface_hub</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>jido</td>
+        <td>Jido</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>vla-fine-tuning</td>
+        <td>VLA fine-tuning</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-06</td>
+        <td>2026-03-06</td>
+      </tr>
+      <tr>
+        <td>mozilla</td>
+        <td>Mozilla</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>tencent</td>
+        <td>Tencent</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>gpt-2</td>
+        <td>GPT-2</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>gpt-4o-mini</td>
+        <td>GPT-4o Mini</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>o4-mini</td>
+        <td>o4 Mini</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>gpt-realtime</td>
+        <td>gpt-realtime-1.5</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>yuan</td>
+        <td>Yuan3.0 Ultra</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>vibevoice-asr</td>
+        <td>VibeVoice-ASR</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>timesfm</td>
+        <td>TimesFM</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>codex-security</td>
+        <td>Codex Security</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>clip</td>
+        <td>CLIP</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>rlhf</td>
+        <td>RLHF</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>fp8</td>
+        <td>fp8</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>ai-productivity</td>
+        <td>AI productivity</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>mass-surveillance</td>
+        <td>mass surveillance</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>browsecomp</td>
+        <td>BrowseComp</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>livebench</td>
+        <td>LiveBench</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>climbmix</td>
+        <td>ClimbMix</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>figma-mcp</td>
+        <td>Figma MCP</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>zapier</td>
+        <td>Zapier</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>cursor-composer</td>
+        <td>Cursor Composer</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>project-genie</td>
+        <td>Project Genie</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>aardvark</td>
+        <td>Aardvark</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-07</td>
+        <td>2026-03-07</td>
+      </tr>
+      <tr>
+        <td>o-series</td>
+        <td>o3</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-08</td>
+      </tr>
+      <tr>
+        <td>large-language-models</td>
+        <td>LLM</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-08</td>
+      </tr>
+      <tr>
+        <td>ai-wearables</td>
+        <td>AI wearables</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-08</td>
+      </tr>
+      <tr>
+        <td>ai-data-centers</td>
+        <td>AI data centers</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-08</td>
+      </tr>
+      <tr>
+        <td>sparse-gpu-kernels</td>
+        <td>block sparse GPU kernels</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-08</td>
+      </tr>
+      <tr>
+        <td>llm-acceptance-criteria</td>
+        <td>acceptance criteria</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-08</td>
+        <td>2026-03-08</td>
+      </tr>
+      <tr>
+        <td>ai-surveillance</td>
+        <td>AI surveillance</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>ai-agents</td>
+        <td>AI agents</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>jukebox</td>
+        <td>Jukebox</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>stargate</td>
+        <td>Stargate</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>indqa</td>
+        <td>IndQA</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>ai-infrastructure</td>
+        <td>AI infrastructure</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-09</td>
+        <td>2026-03-09</td>
+      </tr>
+      <tr>
+        <td>github</td>
+        <td>GitHub</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>thinking-machines-lab</td>
+        <td>Thinking Machines Lab</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>hume-ai</td>
+        <td>Hume AI</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>atlassian</td>
+        <td>Atlassian</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>lyzr-ai</td>
+        <td>Lyzr AI</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>stripe</td>
+        <td>Stripe</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>llama</td>
+        <td>Llama 4</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>alphago</td>
+        <td>AlphaGo</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>tada</td>
+        <td>TADA</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>gguf</td>
+        <td>GGUF</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>mlx</td>
+        <td>MLX</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>ggml</td>
+        <td>GGML</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>sequence-parallelism</td>
+        <td>Ulysses Sequence Parallelism</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>langgraph</td>
+        <td>LangGraph</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>llamaindex</td>
+        <td>LlamaIndex</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>openai-agents-sdk</td>
+        <td>OpenAI Agents SDK</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>crewai</td>
+        <td>CrewAI</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>smolagents</td>
+        <td>SmolAgents</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>llama-cpp</td>
+        <td>llama.cpp</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>pytorch</td>
+        <td>PyTorch</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>adalflow</td>
+        <td>AdalFlow</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>strands</td>
+        <td>Strands</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>autoresearch</td>
+        <td>autoresearch</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>transformers</td>
+        <td>Transformers</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>ollama</td>
+        <td>Ollama</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>codex-cli</td>
+        <td>Codex CLI</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>comfyui</td>
+        <td>ComfyUI</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>lovable</td>
+        <td>Lovable</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>jetbrains-air</td>
+        <td>JetBrains Air</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>context7</td>
+        <td>Context7</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>insforge</td>
+        <td>InsForge</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>moltbook</td>
+        <td>Moltbook</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>harness-engineering</td>
+        <td>harness engineering</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>deep-research</td>
+        <td>deep research</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>eval-awareness</td>
+        <td>eval awareness</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>inference-efficiency</td>
+        <td>inference efficiency</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-10</td>
+        <td>2026-03-10</td>
+      </tr>
+      <tr>
+        <td>sora</td>
+        <td>Sora</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>copilot</td>
+        <td>Copilot</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>jepa</td>
+        <td>JEPA</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>bitnet</td>
+        <td>BitNet</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>framer</td>
+        <td>Framer</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>canva</td>
+        <td>Canva</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>agentic-ai</td>
+        <td>agentic AI</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>ai-coding-agents</td>
+        <td>AI coding agents</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>ai-deepfakes</td>
+        <td>AI deepfakes</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>agentmail</td>
+        <td>AgentMail</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>wayve</td>
+        <td>Wayve</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>ai2</td>
+        <td>Ai2</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>mind-robotics</td>
+        <td>Mind Robotics</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>eridu</td>
+        <td>Eridu</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>youtube</td>
+        <td>YouTube</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>manulife</td>
+        <td>Manulife</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>autoresearch-rl</td>
+        <td>AutoResearch-RL</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr>
+      <tr>
+        <td>openapi</td>
+        <td>OpenAPI</td>
+        <td style="text-align:right">1</td>
+        <td>—</td>
+        <td>2026-03-11</td>
+        <td>2026-03-11</td>
+      </tr></tbody>
+        </table>
+        <p style="font-size:12px;color:#737373">202 clusters</p>
+      </div>
+    </section>
+</main>
+</body>
+</html>
