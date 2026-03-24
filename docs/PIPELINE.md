@@ -79,7 +79,9 @@ Each stage feeds the next. The **Keyword Engine** (B1→B4) is the core content 
 | 3. EXTRACT ENTITIES      |   | 4. GENERATE (process-queue) |
 | (extract-entities.ts)    |   |                             |
 |                          |   | Read top-N jobs from        |
-| From recent 30h items,   |   | create_queue (by priority)  |
+| From ALL items in last   |
+|   30h (incl. newsletter- |
+|   selected items),       |   | create_queue (by priority)  |
 | Claude Sonnet extracts:  |   |                             |
 | - Company names          |   | For each job:               |
 | - Model names            |   |  Research (Serper + Exa)    |

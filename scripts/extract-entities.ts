@@ -1,6 +1,6 @@
 import { readFileSync } from 'fs';
 import { join } from 'path';
-import { getDb, getRecentNewsItems, upsertTopicCluster, closeDb } from './lib/db';
+import { getDb, getAllRecentNewsItems, upsertTopicCluster, closeDb } from './lib/db';
 import { callClaudeWithRetry, checkClaudeHealth } from './lib/ai';
 import { braveExpandNewTopics } from './lib/topic-cluster';
 import 'dotenv/config';
@@ -71,7 +71,7 @@ async function main() {
 
   // Stage 1: Load recent news items
   console.log('📥 Stage 1: Load Recent News Items');
-  const items = getRecentNewsItems(30); // last 30 hours to catch overnight items
+  const items = getAllRecentNewsItems(30); // last 30 hours — includes newsletter-selected items
   console.log(`  Found ${items.length} items from last 30 hours`);
 
   if (items.length === 0) {

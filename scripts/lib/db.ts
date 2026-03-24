@@ -212,6 +212,16 @@ export function getRecentNewsItems(hours: number = 72): NewsItem[] {
   `).all() as NewsItem[];
 }
 
+/** Like getRecentNewsItems but without the IS NULL filter — sees ALL items including newsletter-selected ones. */
+export function getAllRecentNewsItems(hours: number = 30): NewsItem[] {
+  const db = getDb();
+  return db.prepare(`
+    SELECT * FROM news_items
+    WHERE detected_at > datetime('now', '-${hours} hours')
+    ORDER BY score DESC
+  `).all() as NewsItem[];
+}
+
 export function markItemsAsSelected(itemIds: number[]): void {
   if (itemIds.length === 0) return;
   const db = getDb();
