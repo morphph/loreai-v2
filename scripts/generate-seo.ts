@@ -724,6 +724,7 @@ async function stage4_generatePages(jobs: PageJob[]): Promise<GeneratedPage[]> {
           cluster_slug: job.clusterSlug,
           pillar_topic: job.pillarTopic,
         }),
+        generated_by: 'claude',
       });
       console.log(`  EN DB record id=${enContentId}`);
     }
@@ -746,6 +747,7 @@ async function stage4_generatePages(jobs: PageJob[]): Promise<GeneratedPage[]> {
           cluster_slug: job.clusterSlug,
           pillar_topic: job.pillarTopic,
         }),
+        generated_by: 'claude',
       });
       console.log(`  ZH DB record id=${zhContentId}`);
     } else {

@@ -621,6 +621,7 @@ async function stage3_processCandidates(candidates: BlogSeed[]): Promise<string[
         keywords: enResult.frontmatter.keywords,
         video_ready: enResult.frontmatter.video_ready,
       }),
+      generated_by: 'claude',
     });
     console.log(`  EN DB record id=${enContentId}`);
 
@@ -645,6 +646,7 @@ async function stage3_processCandidates(candidates: BlogSeed[]): Promise<string[
           keywords: zhResult.frontmatter.keywords,
           video_ready: zhResult.frontmatter.video_ready,
         }),
+        generated_by: 'claude',
       });
       console.log(`  ZH DB record id=${zhContentId}`);
     } else {

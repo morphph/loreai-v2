@@ -348,6 +348,7 @@ IMPORTANT: Follow the SKILL.md frontmatter format exactly. Use date: ${date}, sl
     title: enTitle,
     body_markdown: enMd,
     meta_json: JSON.stringify(enParsed.data),
+    generated_by: 'gemini-deep-research',
   });
   log('PERSIST', `EN blog: content/blog/en/${finalSlug}.md + DB`);
 
@@ -383,6 +384,7 @@ IMPORTANT: Follow the SKILL.md frontmatter format exactly. Use date: ${date}, sl
       title: zhTitle,
       body_markdown: zhMd,
       meta_json: JSON.stringify(zhParsed.data),
+      generated_by: 'gemini-deep-research',
     });
     log('PERSIST', `ZH blog: content/blog/zh/${finalSlug}.md + DB`);
   }

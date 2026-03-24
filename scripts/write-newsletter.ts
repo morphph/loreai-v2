@@ -1085,6 +1085,7 @@ async function stage7_persist(
     title: enTitle,
     body_markdown: enFull,
     meta_json: JSON.stringify({ categories, items_count: filtered.length }),
+    generated_by: 'claude',
   });
 
   const zhContentId = upsertContent({
@@ -1094,6 +1095,7 @@ async function stage7_persist(
     title: zhTitle,
     body_markdown: zhFull,
     meta_json: JSON.stringify({ categories, items_count: filtered.length }),
+    generated_by: 'claude',
   });
 
   // Link content to news items & mark as selected (prevents re-selection in future runs)

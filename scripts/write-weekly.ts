@@ -648,6 +648,7 @@ async function stage7_persist(enContent: string, zhContent: string, top5: Weekly
     title: enTitle,
     body_markdown: enFull,
     meta_json: JSON.stringify({ top_story: topStory, stories: top5.length }),
+    generated_by: 'claude',
   });
 
   upsertContent({
@@ -657,6 +658,7 @@ async function stage7_persist(enContent: string, zhContent: string, top5: Weekly
     title: zhTitle,
     body_markdown: zhFull,
     meta_json: JSON.stringify({ top_story: topStory, stories: top5.length }),
+    generated_by: 'claude',
   });
 
   console.log('  DB records upserted');

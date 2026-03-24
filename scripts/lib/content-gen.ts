@@ -788,6 +788,7 @@ function updateDbAfterGeneration(
         cluster_slug: job.cluster_slug,
         intent: job.intent,
       }),
+      generated_by: job.research_pipeline === 'deep_research' ? 'gemini-deep-research' : 'claude',
     });
 
     // Update create_queue status
@@ -953,6 +954,7 @@ export async function runContentGeneration(
             cluster_slug: job.cluster_slug,
             intent: job.intent,
           }),
+          generated_by: job.research_pipeline === 'deep_research' ? 'gemini-deep-research' : 'claude',
         });
       } else {
         console.warn(`  ⚠️  ZH failed: ${zhResult.errors?.join(', ')}`);

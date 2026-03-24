@@ -21,7 +21,6 @@ Do NOT skip failing tests. Do NOT comment out lint rules.
 - New feature → discuss design first, get human approval before coding
 - Bug fix → systematic debug, not random trial-and-error
 - Pipeline changes → run validate-pipeline.ts before commit
-- After daily pipeline run → always run generate-review.ts
 
 ## Style
 Newsletter: "sharp tech insider briefing a busy founder over coffee"

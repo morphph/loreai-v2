@@ -159,7 +159,6 @@ Newsletter -> curated items -> blog-seeds JSON -> Blog
 | `content/topics/{en,zh}/` | SEO | Markdown + frontmatter |
 | `data/filtered-items/` | Newsletter | JSON |
 | `data/blog-seeds/` | Newsletter | JSON |
-| `data/review/` | Review | HTML |
 
 ## Timezone
 

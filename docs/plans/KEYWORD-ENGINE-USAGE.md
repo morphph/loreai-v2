@@ -468,7 +468,6 @@
 
 ### E2E validation 设计原则
 - 在 VPS 上跑完整 pipeline（从 keyword expansion → grouping → scoring → generation）
-- 输出 review HTML（类似现有 @scripts/generate-review.ts ）
 - Human review 生成的内容质量
 
 ---

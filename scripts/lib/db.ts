@@ -41,6 +41,7 @@ function initSchema(db: Database.Database): void {
       title TEXT,
       body_markdown TEXT,
       meta_json TEXT,
+      generated_by TEXT,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       updated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       UNIQUE(type, slug, lang)
@@ -143,6 +144,12 @@ function initSchema(db: Database.Database): void {
   if (!kwCols.some(c => c.name === 'keyword_group_id')) {
     db.exec("ALTER TABLE keywords ADD COLUMN keyword_group_id INTEGER DEFAULT NULL");
   }
+
+  // Migration: add generated_by column to content table
+  const contentCols = db.prepare("PRAGMA table_info(content)").all() as { name: string }[];
+  if (!contentCols.some(c => c.name === 'generated_by')) {
+    db.exec("ALTER TABLE content ADD COLUMN generated_by TEXT DEFAULT NULL");
+  }
 }
 
 // --- News Items ---
@@ -229,6 +236,7 @@ export interface ContentRecord {
   title: string | null;
   body_markdown: string | null;
   meta_json: string | null;
+  generated_by?: string | null;
   created_at?: string;
   updated_at?: string;
 }
@@ -236,16 +244,18 @@ export interface ContentRecord {
 export function upsertContent(record: ContentRecord): number {
   const db = getDb();
   db.prepare(`
-    INSERT INTO content (type, slug, lang, title, body_markdown, meta_json)
-    VALUES (?, ?, ?, ?, ?, ?)
+    INSERT INTO content (type, slug, lang, title, body_markdown, meta_json, generated_by)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
     ON CONFLICT(type, slug, lang) DO UPDATE SET
       title = excluded.title,
       body_markdown = excluded.body_markdown,
       meta_json = excluded.meta_json,
+      generated_by = COALESCE(excluded.generated_by, content.generated_by),
       updated_at = CURRENT_TIMESTAMP
   `).run(
     record.type, record.slug, record.lang,
-    record.title, record.body_markdown, record.meta_json
+    record.title, record.body_markdown, record.meta_json,
+    record.generated_by ?? null
   );
   const row = db.prepare(
     'SELECT id FROM content WHERE type = ? AND slug = ? AND lang = ?'

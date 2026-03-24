@@ -433,6 +433,7 @@ function writeAndPersist(
         source_type: 'video',
         ...(zhResult.frontmatter.flow_source && { flow_source: zhResult.frontmatter.flow_source }),
       }),
+      generated_by: 'claude',
     });
   }
 
@@ -458,6 +459,7 @@ function writeAndPersist(
         source_type: 'video',
         ...(enResult.frontmatter.flow_source && { flow_source: enResult.frontmatter.flow_source }),
       }),
+      generated_by: 'claude',
     });
   }
 
