@@ -2,7 +2,6 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import { getDb, getAllRecentNewsItems, upsertTopicCluster, closeDb } from './lib/db';
 import { callClaudeWithRetry, checkClaudeHealth } from './lib/ai';
-import { braveExpandNewTopics } from './lib/topic-cluster';
 import 'dotenv/config';
 
 // Parse args
@@ -147,12 +146,6 @@ async function main() {
   }
 
   console.log(`  Updated ${updated} existing, created ${created} new clusters`);
-
-  // Stage 4: Brave expand new topics
-  if (newSeeds.length > 0) {
-    console.log('\n🌐 Stage 4: Brave Search Expansion');
-    await braveExpandNewTopics(newSeeds);
-  }
 
   closeDb();
   console.log(`\n✅ Entity extraction complete — ${entities.length} entities, ${created} new clusters`);

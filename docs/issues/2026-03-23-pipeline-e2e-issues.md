@@ -342,6 +342,48 @@ Extract detects entity mentions
 
 ---
 
+## Issue 6: Subtopic Discovery — Missing 2 of 3 Channels
+
+**Severity:** Medium (strategic — limits subtopic coverage to what appears in news)
+**Pipeline stage:** Discovery → C1 (Subtopic Discovery)
+**Relevant docs:** STRATEGY.md §4.3, SPEC-C1
+
+### What's defined in STRATEGY.md §4.3
+
+Subtopic discovery for flagship topics should come from 3 channels:
+
+| Channel | What It Discovers | Frequency | Status |
+|---------|-------------------|-----------|--------|
+| Official documentation structure | Natural topic anatomy (features, workflows, integrations). E.g., Anthropic docs have sections for hooks, skills, agent teams → each is a subtopic | Weekly | **NOT IMPLEMENTED** |
+| Exa semantic search (competitors + related content) | Coverage gaps and semantically related topics we haven't considered. E.g., competitor has "Claude Code for monorepos" → subtopic gap | Weekly | **NOT IMPLEMENTED** (Exa is used in B1 for keyword expansion within existing subtopics, not for discovering new subtopics) |
+| News pipeline entities | New developments worth covering. E.g., "Anthropic launches Agent Teams" → new subtopic | Daily | **Implemented** via `extract-entities.ts` |
+
+### Current behavior
+
+- **Scheduled discovery (Tue & Sat cron):** No subtopic discovery at all. `loadSubtopics()` just reads whatever already exists in `topic_clusters` matching `slug LIKE '{flagship}-%'`. No proactive expansion.
+- **Event-triggered discovery (`--event` flag):** Uses Serper related searches to find new subtopics. But this is manual/CLI-only — never called automatically.
+- **Entity extraction (daily 4am):** Creates new `topic_clusters` entries when entities appear in news. If news mentions "Claude Code Hooks", a `claude-code-hooks` cluster is created. Discovery cycle picks it up next run because slug matches `claude-code-%`.
+
+### Gap
+
+Subtopic coverage for flagships is entirely passive — depends on what appears in the news. Features nobody tweets about are never discovered. For example:
+- Anthropic docs list "CLAUDE.md files", "sub-agents", "permissions" as major features → none become subtopics unless a news article mentions them
+- Competitors write about "Claude Code for monorepos" or "Claude Code in CI/CD" → we'd never discover these subtopics without Exa competitor crawling
+
+### What needs to be built
+
+1. **Official docs crawler:** For each flagship, periodically fetch the official documentation (e.g., `docs.anthropic.com/en/docs/claude-code`) and parse heading structure into subtopic candidates. New headings that don't match existing subtopics get upserted into `topic_clusters`.
+
+2. **Exa subtopic discovery:** Feed the flagship's cornerstone URL to Exa `findSimilar()` or search for the topic name. Extract unique subtopic angles from competitor pages that we don't cover yet. Distinct from B1's keyword expansion — this is about finding NEW subtopics, not expanding keywords within existing ones.
+
+3. **Integration:** Both channels should run in C1 Stage 0 during the scheduled (Tue & Sat) discovery cycle, not just in event-triggered mode.
+
+### Note
+
+The legacy Brave Search expansion in `extract-entities.ts` (Stage 4) was removed — it seeded `brave-related` and `brave-discussion` keywords into the `keywords` table but no active pipeline consumed them.
+
+---
+
 ## Execution Plan
 
 ### Phase 1: Unblock (do first)

@@ -90,11 +90,10 @@ Each stage feeds the next. The **Keyword Engine** (B1→B4) is the core content 
 |                          |   |  -> Claude Opus writes ZH  |
 | -> Upsert into           |   |  -> Validate links         |
 |    topic_clusters table  |   |  -> Write files + update DB|
-| -> Brave Search expands  |   |                             |
-|    new cluster context   |   | Content types:              |
-|                          |   |  faq, compare, glossary,   |
-| Output: DB updates       |   |  blog, topic-hub,          |
-| (topic_clusters)         |   |  deep-dive, cornerstone    |
+|                          |   | Content types:              |
+| Output: DB updates       |   |  faq, compare, glossary,   |
+| (topic_clusters)         |   |  blog, topic-hub,          |
+|                          |   |  deep-dive, cornerstone    |
 +-----------+--------------+   +-------------+--------------+
             |                                |
             +---------------+----------------+
@@ -263,7 +262,6 @@ Dashboard URL: `https://loreai.dev/dashboard?key=aeodashboard`
 | Serper | Discovery (B1), Generate (B4) | Google SERP data, PAA, related searches |
 | Exa.ai | Discovery (B1), Generate (B4) | Semantic search, competitor page scan |
 | Gemini Deep Research | Generate (B4) | Deep research pipeline (optional) |
-| Brave Search | Entity Extract | Context expansion for new topic clusters |
 | Buttondown | Newsletter | Email delivery (EN + ZH) |
 | Twitter API (twitterapi.io) | Collect | Tweet collection (36 accounts + 18 queries) |
 | GitHub API | Collect | Trending repos, releases |
