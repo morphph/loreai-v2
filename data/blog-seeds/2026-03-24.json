@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "You can now enable Claude to use your computer to complete tasks.  It opens your apps, navigates your browser, fills in spreadsheets—anything you'd do sitting at your desk.  Research preview in Claude",
+    "url": "https://x.com/claudeai/status/2036195789601374705",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 28237,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 45.4711,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Today, we're releasing a feature that allows Claude to control your computer: Mouse, keyboard, and screen, giving it the ability to use any app.  I believe this is especially useful if used with Dispatch, which allows you to remotely control Claude on your computer while you're away.",
+    "url": "https://x.com/felixrieseberg/status/2036193240509235452",
+    "source": "twitter:@felixrieseberg",
+    "x_engagement_24h": 10139,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 44.0417,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "I'll be doing a livestream with Figma on March 31st on how to use Claude Code with the Figma MCP to collaborate between engineers and designers.   Hope to see you there, you can sign up below!",
+    "url": "https://x.com/trq212/status/2034729777903673706",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 2064,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.6192,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "How I'm Productive with Claude Code",
+    "url": "https://neilkakkar.com/productive-with-claude-code.html",
+    "source": "hackernews",
+    "x_engagement_24h": 162,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.0486,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "RT @koylanai: If you're building anything in AI, the best skill you need to be using right now is hugging-face-paper-pages  Whatever proble…",
+    "url": "https://x.com/huggingface/status/2036066265186423123",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 1517,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.4551,
+    "suggested_angle": "news"
+  }
+]
