@@ -1,41 +1,29 @@
 ---
-title: "Claude Code 定价：API vs Max vs Pro 怎么选？"
+title: "Claude Code 的定价是多少？"
 slug: claude-code-pricing
-description: "Claude Code 本身不收费。通过 API 按 token 计费（用多少花多少），Pro 月付 $20（有限额），Max 月付 $100-200（高限额适合重度用户）。"
+description: "Claude Code 有 Free、Pro 和 Max 四个订阅等级，月费 $0-200。Max 比 API 按量计费便宜 18 倍以上。"
 category: tools
-related_glossary: [claude-code, anthropic, claude]
-related_blog: [claude-code-complete-guide, claude-code-enterprise-engineering-ramp-shopify-spotify]
+related_glossary: [agentic-coding]
+related_blog: [integrate-claude-code-into-your-development-workflow]
 lang: zh
 ---
 
-# Claude Code 定价：API vs Max vs Pro 怎么选？
+# Claude Code 的定价是多少？
 
-Claude Code 没有单独的授权费。你通过三种方式付费使用：API 按 token 计费，花多少算多少；Claude Pro 每月 20 美元，包含 Claude Code 但有用量限制；Claude Max 每月 100 到 200 美元，给专业开发者提供高用量上限。
+Claude Code 有四个订阅计划：**Free（$0）、Pro（$20/月）、Max 5x（$100/月）和 Max 20x（$200/月）**。每个等级的区别是使用额度——Free 和 Pro 有基础限制，Max 则按倍数提高可用额度。
 
-## 背景
+## 为什么这个问题这么普遍
 
-[Anthropic](/glossary/anthropic) 这样设计定价是有原因的：[Claude Code](/glossary/claude-code) 的 agentic 编码会话消耗的 token 量远超普通聊天。一次会话里，agent 要读项目代码、规划多文件修改、执行命令、迭代调试，随便一个任务就是几万 token。所以选对定价方案，对你的钱包影响不小。
+Max $200/月看起来很贵，但用户真实数据很有说服力。有开发者用 Claude Code 做了 8 个月的日常开发，处理了 10 亿 tokens，如果按 API 按量计费要花 $15,000+，但付 Max 订阅只花了 $800——**省 93%**。更精确的分析表明，Max 比直接按 API 价格便宜 18 倍。所以虽然订阅费看起来高，但对频繁开发的人来说，其实是最划算的选择。
 
-API 模式按输入和输出 token 分别计费，不同模型价格不同。Opus 单价比 Sonnet 贵，所以把简单任务路由给轻量模型是常见的省钱技巧。活跃开发者的 API 月账单通常在 50 到 150 美元之间，看使用频率和任务复杂度。
+## 怎么选
 
-[Claude](/glossary/claude) Pro 每月 20 美元包含 Claude Code 使用权限，但限额比较保守，每天只能跑几个会话。重度用户会很快撞到天花板。Claude Max 分两档：100 美元和 200 美元，限额逐级提高，高峰时段还有优先通道。
+- **Free**：试用或偶尔用
+- **Pro**：轻量工作，一周用几次
+- **Max 5x**：日常开发，工作日都用
+- **Max 20x**：全职编程或复杂项目
 
-企业团队还有额外的批量定价和团队管理功能。想看大厂怎么落地 Claude Code 的，可以读我们的[企业工程案例分析](/blog/claude-code-enterprise-engineering-ramp-shopify-spotify)。完整功能介绍在 [Claude Code 完全指南](/blog/claude-code-complete-guide)。
-
-## 实用步骤
-
-1. 先开 Claude Pro（$20/月）试用一两周，看 Claude Code 是否适合你的日常工作流
-2. 记录你的使用模式——多久撞一次限额、每天跑几个会话
-3. 如果经常在下班前就用完额度，升级到 Claude Max（$100/月）
-4. API 用户善用模型路由：Sonnet 处理快速编辑和搜索，Opus 留给多文件重构和复杂调试
-5. 通过 Anthropic 后台的用量面板监控消费，按会话维度看 token 消耗
-6. 团队用户评估企业计划，有批量折扣和统一账单
-
-## 相关问题
-
-- [Claude Code 免费吗？](/faq/is-claude-code-free)
-- [Claude Code 多少钱？](/faq/how-much-does-claude-code-cost)
-- [什么是 Claude Code？](/faq/what-is-claude-code)
+没把握的话，可以从 Pro 开始，看一个月的实际用量再决定升级。
 
 ---
 
