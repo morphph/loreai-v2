@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Sakana Chat launched — Namazu model with web search, built on post-trained DeepSeek-V3.1 for Japanese users.",
+    "url": "https://x.com/hardmaru/status/2036246671877918900",
+    "source": "twitter:@hardmaru",
+    "x_engagement_24h": 6816,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 35.0448,
+    "suggested_angle": "analysis"
+  },
+  {
+    "topic": "New in Claude Code: auto mode. Instead of approving every file write and bash command, or skipping permissions entirely, auto mode lets Claude make permission decisions on your behalf.",
+    "url": "https://x.com/claudeai/status/2036503582166393240",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 26890,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 29.067,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "MolmoWeb: an open source agent that can navigate and complete tasks in a browser on your behalf, built on Molmo VLMs.",
+    "url": "https://x.com/huggingface/status/2036525161956941829",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 636,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 28.1908,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "This is pure nightmare fuel. Identity theft via vibe agents — your entire filesystem is the new distributed codebase.",
+    "url": "https://x.com/DrJimFan/status/2036494601750716711",
+    "source": "twitter:@drjimfan",
+    "x_engagement_24h": 430,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.128999999999998,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Today's Figma MCP update makes it one of the strongest integrations with Claude Code I've seen. You can now use Claude Code to design in Figma with the full context of your design systems.",
+    "url": "https://x.com/trq212/status/2036442891346755787",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 5317,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 21.5951,
+    "suggested_angle": "news"
+  }
+]
