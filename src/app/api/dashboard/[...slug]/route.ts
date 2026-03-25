@@ -22,6 +22,14 @@ export async function GET(
     if (!res.ok) {
       return NextResponse.json({ error: 'VPS error' }, { status: res.status });
     }
+    const contentType = res.headers.get('content-type') || '';
+    if (contentType.includes('text/markdown')) {
+      const text = await res.text();
+      return new NextResponse(text, {
+        status: 200,
+        headers: { 'Content-Type': 'text/markdown; charset=utf-8' },
+      });
+    }
     const data = await res.json();
     return NextResponse.json(data);
   } catch {
