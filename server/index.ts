@@ -400,6 +400,217 @@ app.get('/api/dashboard/trends', (c) => {
   return c.json({ weeks: weeklyData });
 });
 
+// ── Markdown report for LLM consumption ──────────────────────
+app.get('/api/dashboard/report', async (c) => {
+  const format = c.req.query('format') === 'json' ? 'json' : 'markdown';
+  const today = new Date().toISOString().slice(0, 10);
+  const now = new Date().toISOString();
+
+  // --- Health ---
+  const newsCount = (db.prepare("SELECT COUNT(*) as c FROM news_items WHERE detected_at > datetime('now', '-24 hours')").get() as { c: number }).c;
+  const tierCount = (db.prepare("SELECT COUNT(DISTINCT source_tier) as c FROM news_items WHERE detected_at > datetime('now', '-24 hours')").get() as { c: number }).c;
+  const nlEn = (db.prepare("SELECT COUNT(*) as c FROM content WHERE type = 'newsletter' AND lang = 'en' AND slug = ?").get(today) as { c: number }).c;
+  const nlZh = (db.prepare("SELECT COUNT(*) as c FROM content WHERE type = 'newsletter' AND lang = 'zh' AND slug = ?").get(today) as { c: number }).c;
+  const blogToday = (db.prepare("SELECT COUNT(*) as c FROM content WHERE type = 'blog' AND DATE(created_at) = ?").get(today) as { c: number }).c;
+  const blogWeek = (db.prepare("SELECT COUNT(*) as c FROM content WHERE type = 'blog' AND created_at > datetime('now', '-7 days')").get() as { c: number }).c;
+  const seoCompleted = (db.prepare("SELECT COUNT(*) as c FROM create_queue WHERE status = 'done' AND completed_at > datetime('now', '-7 days')").get() as { c: number }).c;
+  const seoPending = (db.prepare("SELECT COUNT(*) as c FROM create_queue WHERE status = 'pending'").get() as { c: number }).c;
+  const newKw = (db.prepare("SELECT COUNT(*) as c FROM keywords WHERE discovered_at > datetime('now', '-7 days')").get() as { c: number }).c;
+  const newGroups = (db.prepare("SELECT COUNT(*) as c FROM keyword_groups WHERE created_at > datetime('now', '-7 days')").get() as { c: number }).c;
+  const refreshJobs = (db.prepare("SELECT COUNT(*) as c FROM create_queue WHERE content_type = 'refresh' AND created_at > datetime('now', '-7 days')").get() as { c: number }).c;
+
+  const healthStatus = (count: number, threshold: [number, number]) =>
+    count >= threshold[1] ? '🟢' : count >= threshold[0] ? '🟡' : '🔴';
+
+  // --- Topics ---
+  const topics = db.prepare('SELECT slug, pillar_topic FROM topic_clusters ORDER BY mention_count DESC').all() as Array<{ slug: string; pillar_topic: string }>;
+  const topicData = topics.map(t => {
+    const kwTotal = (db.prepare("SELECT COUNT(*) as c FROM keywords WHERE cluster_slug LIKE ? || '%'").get(t.slug) as { c: number }).c;
+    const kwCovered = (db.prepare("SELECT COUNT(*) as c FROM keywords WHERE cluster_slug LIKE ? || '%' AND content_exists = 1").get(t.slug) as { c: number }).c;
+    const groupPending = (db.prepare("SELECT COUNT(*) as c FROM keyword_groups WHERE cluster_slug LIKE ? || '%' AND status = 'pending'").get(t.slug) as { c: number }).c;
+    const groupQueued = (db.prepare("SELECT COUNT(*) as c FROM keyword_groups WHERE cluster_slug LIKE ? || '%' AND status = 'queued'").get(t.slug) as { c: number }).c;
+    const groupDone = (db.prepare("SELECT COUNT(*) as c FROM keyword_groups WHERE cluster_slug LIKE ? || '%' AND status = 'done'").get(t.slug) as { c: number }).c;
+    return {
+      slug: t.slug,
+      name: t.pillar_topic,
+      keywords_total: kwTotal,
+      keywords_covered: kwCovered,
+      coverage_pct: kwTotal > 0 ? Math.round((kwCovered / kwTotal) * 100) : 0,
+      groups_pending: groupPending,
+      groups_queued: groupQueued,
+      groups_done: groupDone,
+    };
+  });
+
+  // --- Activity (7d) ---
+  const contentCreated = db.prepare(`
+    SELECT type, slug, lang, created_at FROM content
+    WHERE created_at > datetime('now', '-7 days') AND type != 'newsletter'
+    ORDER BY created_at DESC LIMIT 30
+  `).all() as Array<{ type: string; slug: string; lang: string; created_at: string }>;
+
+  const queueCompleted = db.prepare(`
+    SELECT cq.content_type, kg.primary_keyword, cq.completed_at
+    FROM create_queue cq
+    JOIN keyword_groups kg ON cq.keyword_group_id = kg.group_id
+    WHERE cq.status = 'done' AND cq.completed_at > datetime('now', '-7 days')
+    ORDER BY cq.completed_at DESC LIMIT 30
+  `).all() as Array<{ content_type: string; primary_keyword: string; completed_at: string }>;
+
+  const kwBySource = db.prepare(
+    "SELECT source, COUNT(*) as c FROM keywords WHERE discovered_at > datetime('now', '-7 days') GROUP BY source"
+  ).all() as Array<{ source: string; c: number }>;
+
+  // --- GSC ---
+  let gscData: { totals?: { clicks: number; impressions: number; avg_position: number; avg_ctr: number }; segmentation?: Record<string, { queries: number; clicks: number; impressions: number }>; anomalies?: Array<{ query: string; metric: string; change_pct: number; current: number; previous: number }> } | null = null;
+  try {
+    const fs = await import('fs');
+    const cachePath = `${process.cwd()}/data/dashboard/gsc-cache.json`;
+    if (fs.existsSync(cachePath)) {
+      const raw = JSON.parse(fs.readFileSync(cachePath, 'utf-8'));
+      const ageMs = Date.now() - new Date(raw.cached_at).getTime();
+      if (ageMs < 8 * 24 * 60 * 60 * 1000) gscData = raw;
+    }
+  } catch { /* ignore */ }
+
+  // --- Trends ---
+  const trendRows = db.prepare(`
+    SELECT snapshot_date, metric_group, metric_key, metric_value
+    FROM snapshots WHERE snapshot_date >= date('now', '-84 days')
+    ORDER BY snapshot_date ASC
+  `).all() as Array<{ snapshot_date: string; metric_group: string; metric_key: string; metric_value: number }>;
+  const trendByDate = new Map<string, Record<string, number>>();
+  for (const r of trendRows) {
+    if (!trendByDate.has(r.snapshot_date)) trendByDate.set(r.snapshot_date, {});
+    trendByDate.get(r.snapshot_date)![`${r.metric_group}_${r.metric_key}`] = r.metric_value;
+  }
+  const trendWeeks = Array.from(trendByDate.entries()).map(([date, m]) => ({
+    date,
+    clicks: m['gsc_total_clicks'] ?? 0,
+    impressions: m['gsc_total_impressions'] ?? 0,
+    avg_position: m['gsc_avg_position'] ?? 0,
+    keywords: m['keywords_total'] ?? 0,
+    content: m['content_total'] ?? 0,
+    subscribers: m['subscribers_total'] ?? 0,
+    striking: m['gsc_striking_count'] ?? 0,
+  }));
+
+  // --- Build report ---
+  if (format === 'json') {
+    return c.json({
+      generated_at: now,
+      health: {
+        collect: { news_items_24h: newsCount, source_tiers: tierCount },
+        newsletter: { en: nlEn > 0, zh: nlZh > 0 },
+        blog: { today: blogToday, this_week: blogWeek },
+        seo_gen: { completed_7d: seoCompleted, pending: seoPending },
+        discovery: { new_keywords_7d: newKw, new_groups_7d: newGroups },
+        performance: { refresh_jobs_7d: refreshJobs },
+      },
+      topics: topicData,
+      activity_7d: {
+        content_created: contentCreated,
+        queue_completed: queueCompleted,
+        keywords_discovered: { total: newKw, by_source: Object.fromEntries(kwBySource.map(r => [r.source, r.c])) },
+      },
+      gsc: gscData ? {
+        totals: gscData.totals,
+        segmentation: gscData.segmentation,
+        top_anomalies: gscData.anomalies?.slice(0, 10),
+      } : null,
+      trends_12w: trendWeeks,
+    });
+  }
+
+  // Markdown format
+  const lines: string[] = [];
+  lines.push(`# LoreAI SEO Pipeline Report`);
+  lines.push(`Generated: ${now}\n`);
+
+  lines.push(`## Pipeline Health`);
+  lines.push(`| Stage | Status | Details |`);
+  lines.push(`|-------|--------|---------|`);
+  lines.push(`| Collect | ${healthStatus(newsCount, [10, 20])} | ${newsCount} items, ${tierCount} source tiers (24h) |`);
+  lines.push(`| Newsletter | ${nlEn > 0 && nlZh > 0 ? '🟢' : nlEn > 0 ? '🟡' : '🔴'} | EN: ${nlEn > 0 ? 'published' : 'missing'}, ZH: ${nlZh > 0 ? 'published' : 'missing'} |`);
+  lines.push(`| Blog | ${healthStatus(blogToday, [0, 1])} | ${blogToday} today, ${blogWeek} this week |`);
+  lines.push(`| SEO Gen | ${healthStatus(seoCompleted, [1, 5])} | ${seoCompleted} completed (7d), ${seoPending} pending |`);
+  lines.push(`| Discovery | ${newKw > 0 && newGroups > 0 ? '🟢' : newKw > 0 ? '🟡' : '🔴'} | ${newKw} keywords, ${newGroups} groups (7d) |`);
+  lines.push(`| Performance | ${refreshJobs > 0 ? '🟢' : '🟡'} | ${refreshJobs} refresh actions (7d) |`);
+  lines.push('');
+
+  lines.push(`## Topic Clusters (${topicData.length} total)`);
+  lines.push(`| Topic | Keywords | Covered | Coverage | Groups (P/Q/D) |`);
+  lines.push(`|-------|----------|---------|----------|----------------|`);
+  for (const t of topicData) {
+    lines.push(`| ${t.name} | ${t.keywords_total} | ${t.keywords_covered} | ${t.coverage_pct}% | ${t.groups_pending}/${t.groups_queued}/${t.groups_done} |`);
+  }
+  lines.push('');
+
+  if (gscData?.totals) {
+    lines.push(`## Google Search Console`);
+    lines.push(`- **Clicks**: ${gscData.totals.clicks}`);
+    lines.push(`- **Impressions**: ${gscData.totals.impressions}`);
+    lines.push(`- **Avg Position**: ${gscData.totals.avg_position}`);
+    lines.push(`- **Avg CTR**: ${(gscData.totals.avg_ctr * 100).toFixed(1)}%`);
+    lines.push('');
+
+    if (gscData.segmentation) {
+      lines.push(`### Position Segments`);
+      lines.push(`| Segment | Queries | Clicks | Impressions |`);
+      lines.push(`|---------|---------|--------|-------------|`);
+      for (const [seg, data] of Object.entries(gscData.segmentation)) {
+        lines.push(`| ${seg} | ${data.queries} | ${data.clicks} | ${data.impressions} |`);
+      }
+      lines.push('');
+    }
+
+    if (gscData.anomalies && gscData.anomalies.length > 0) {
+      lines.push(`### Top Anomalies`);
+      lines.push(`| Query | Metric | Change | Current | Previous |`);
+      lines.push(`|-------|--------|--------|---------|----------|`);
+      for (const a of gscData.anomalies.slice(0, 10)) {
+        lines.push(`| ${a.query} | ${a.metric} | ${a.change_pct > 0 ? '+' : ''}${a.change_pct}% | ${a.current} | ${a.previous} |`);
+      }
+      lines.push('');
+    }
+  }
+
+  lines.push(`## Recent Activity (7 days)`);
+  if (contentCreated.length > 0) {
+    lines.push(`### Content Created`);
+    for (const c of contentCreated) {
+      lines.push(`- [${c.created_at}] ${c.type} (${c.lang}): ${c.slug}`);
+    }
+    lines.push('');
+  }
+  if (queueCompleted.length > 0) {
+    lines.push(`### Queue Completed`);
+    for (const q of queueCompleted) {
+      lines.push(`- [${q.completed_at}] ${q.content_type}: "${q.primary_keyword}"`);
+    }
+    lines.push('');
+  }
+  if (kwBySource.length > 0) {
+    lines.push(`### Keywords Discovered: ${newKw} total`);
+    for (const s of kwBySource) {
+      lines.push(`- ${s.source}: ${s.c}`);
+    }
+    lines.push('');
+  }
+
+  if (trendWeeks.length > 0) {
+    lines.push(`## Trends (12 weeks)`);
+    lines.push(`| Date | Clicks | Impressions | Avg Pos | Keywords | Content | Subscribers | Striking |`);
+    lines.push(`|------|--------|-------------|---------|----------|---------|-------------|----------|`);
+    for (const w of trendWeeks) {
+      lines.push(`| ${w.date} | ${w.clicks} | ${w.impressions} | ${w.avg_position} | ${w.keywords} | ${w.content} | ${w.subscribers} | ${w.striking} |`);
+    }
+    lines.push('');
+  }
+
+  return c.text(lines.join('\n'), 200, { 'Content-Type': 'text/markdown; charset=utf-8' });
+});
+
 const port = Number(process.env.PORT) || 3001;
 console.log(`LoreAI API server listening on port ${port}`);
 
