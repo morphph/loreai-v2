@@ -139,7 +139,7 @@ app.get('/api/dashboard/health', (c) => {
 
   // SEO Gen
   const seoCompleted = (db.prepare(
-    "SELECT COUNT(*) as c FROM create_queue WHERE status = 'done' AND completed_at > datetime('now', '-7 days')"
+    "SELECT COUNT(*) as c FROM create_queue WHERE status = 'completed' AND completed_at > datetime('now', '-7 days')"
   ).get() as { c: number }).c;
   const seoPending = (db.prepare(
     "SELECT COUNT(*) as c FROM create_queue WHERE status = 'pending'"
@@ -185,7 +185,7 @@ app.get('/api/dashboard/topics', (c) => {
 
     const groupPending = (db.prepare("SELECT COUNT(*) as c FROM keyword_groups WHERE cluster_slug LIKE ? || '%' AND status = 'pending'").get(t.slug) as { c: number }).c;
     const groupQueued = (db.prepare("SELECT COUNT(*) as c FROM keyword_groups WHERE cluster_slug LIKE ? || '%' AND status = 'queued'").get(t.slug) as { c: number }).c;
-    const groupDone = (db.prepare("SELECT COUNT(*) as c FROM keyword_groups WHERE cluster_slug LIKE ? || '%' AND status = 'done'").get(t.slug) as { c: number }).c;
+    const groupDone = (db.prepare("SELECT COUNT(*) as c FROM keyword_groups WHERE cluster_slug LIKE ? || '%' AND status = 'completed'").get(t.slug) as { c: number }).c;
 
     const queueDepth = (db.prepare(
       "SELECT COUNT(*) as c FROM create_queue cq JOIN keyword_groups kg ON cq.keyword_group_id = kg.group_id WHERE kg.cluster_slug LIKE ? || '%' AND cq.status = 'pending'"
@@ -348,7 +348,7 @@ app.get('/api/dashboard/activity', (c) => {
     SELECT cq.job_id, cq.content_type, kg.primary_keyword, cq.completed_at
     FROM create_queue cq
     JOIN keyword_groups kg ON cq.keyword_group_id = kg.group_id
-    WHERE cq.status = 'done' AND cq.completed_at > datetime('now', '-' || ? || ' days')
+    WHERE cq.status = 'completed' AND cq.completed_at > datetime('now', '-' || ? || ' days')
     ORDER BY cq.completed_at DESC LIMIT 50
   `).all(days) as Array<{ job_id: number; content_type: string; primary_keyword: string; completed_at: string }>;
 
@@ -413,7 +413,7 @@ app.get('/api/dashboard/report', async (c) => {
   const nlZh = (db.prepare("SELECT COUNT(*) as c FROM content WHERE type = 'newsletter' AND lang = 'zh' AND slug = ?").get(today) as { c: number }).c;
   const blogToday = (db.prepare("SELECT COUNT(*) as c FROM content WHERE type = 'blog' AND DATE(created_at) = ?").get(today) as { c: number }).c;
   const blogWeek = (db.prepare("SELECT COUNT(*) as c FROM content WHERE type = 'blog' AND created_at > datetime('now', '-7 days')").get() as { c: number }).c;
-  const seoCompleted = (db.prepare("SELECT COUNT(*) as c FROM create_queue WHERE status = 'done' AND completed_at > datetime('now', '-7 days')").get() as { c: number }).c;
+  const seoCompleted = (db.prepare("SELECT COUNT(*) as c FROM create_queue WHERE status = 'completed' AND completed_at > datetime('now', '-7 days')").get() as { c: number }).c;
   const seoPending = (db.prepare("SELECT COUNT(*) as c FROM create_queue WHERE status = 'pending'").get() as { c: number }).c;
   const newKw = (db.prepare("SELECT COUNT(*) as c FROM keywords WHERE discovered_at > datetime('now', '-7 days')").get() as { c: number }).c;
   const newGroups = (db.prepare("SELECT COUNT(*) as c FROM keyword_groups WHERE created_at > datetime('now', '-7 days')").get() as { c: number }).c;
@@ -429,7 +429,7 @@ app.get('/api/dashboard/report', async (c) => {
     const kwCovered = (db.prepare("SELECT COUNT(*) as c FROM keywords WHERE cluster_slug LIKE ? || '%' AND content_exists = 1").get(t.slug) as { c: number }).c;
     const groupPending = (db.prepare("SELECT COUNT(*) as c FROM keyword_groups WHERE cluster_slug LIKE ? || '%' AND status = 'pending'").get(t.slug) as { c: number }).c;
     const groupQueued = (db.prepare("SELECT COUNT(*) as c FROM keyword_groups WHERE cluster_slug LIKE ? || '%' AND status = 'queued'").get(t.slug) as { c: number }).c;
-    const groupDone = (db.prepare("SELECT COUNT(*) as c FROM keyword_groups WHERE cluster_slug LIKE ? || '%' AND status = 'done'").get(t.slug) as { c: number }).c;
+    const groupDone = (db.prepare("SELECT COUNT(*) as c FROM keyword_groups WHERE cluster_slug LIKE ? || '%' AND status = 'completed'").get(t.slug) as { c: number }).c;
     return {
       slug: t.slug,
       name: t.pillar_topic,
@@ -453,7 +453,7 @@ app.get('/api/dashboard/report', async (c) => {
     SELECT cq.content_type, kg.primary_keyword, cq.completed_at
     FROM create_queue cq
     JOIN keyword_groups kg ON cq.keyword_group_id = kg.group_id
-    WHERE cq.status = 'done' AND cq.completed_at > datetime('now', '-7 days')
+    WHERE cq.status = 'completed' AND cq.completed_at > datetime('now', '-7 days')
     ORDER BY cq.completed_at DESC LIMIT 30
   `).all() as Array<{ content_type: string; primary_keyword: string; completed_at: string }>;
 

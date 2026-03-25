@@ -804,6 +804,11 @@ function updateDbAfterGeneration(
     db.prepare(
       'UPDATE keywords SET content_exists = 1, content_type = ?, content_slug = ? WHERE keyword_group_id = ?',
     ).run(dirType, slug, job.keyword_group_id);
+
+    // Mark keyword group as completed
+    db.prepare(
+      "UPDATE keyword_groups SET status = 'completed' WHERE group_id = ?",
+    ).run(job.keyword_group_id);
   }
   // If EN failed, status stays 'pending' — no DB changes
 }
