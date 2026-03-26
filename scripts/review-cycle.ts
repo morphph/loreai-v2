@@ -16,9 +16,11 @@
 import 'dotenv/config';
 import {
   runHealthChecks,
+  runQualityChecks,
   saveReport,
   cleanOldReports,
   formatHealthReportMd,
+  formatQualityReportMd,
 } from './lib/review';
 import { getDb, closeDb } from './lib/db';
 
@@ -89,7 +91,32 @@ async function main() {
   }
 
   if (opts.mode === 'quality' || opts.mode === 'full') {
-    console.error('\nLayer 2 quality sampling: not yet implemented (Phase 2)');
+    console.error('\nRunning Layer 2 quality checks (pure logic rubrics)...');
+    const qualityReport = runQualityChecks(db, {
+      contentRoot: opts.contentRoot,
+      topic: opts.topic,
+      dryRun: opts.dryRun,
+      model: opts.model,
+    });
+
+    const savedQPath = saveReport(qualityReport as unknown as import('./lib/review').HealthReport, 'quality');
+    console.error(`Quality report saved: ${savedQPath}`);
+
+    if (opts.format === 'md') {
+      console.log(formatQualityReportMd(qualityReport));
+    } else {
+      console.log(JSON.stringify(qualityReport, null, 2));
+    }
+
+    console.error(`\nQuality overall: ${qualityReport.overall_quality.toUpperCase()}`);
+    console.error(`  Duration: ${qualityReport.duration_ms}ms | LLM calls: ${qualityReport.llm_calls}`);
+
+    const d = qualityReport.pure_checks.priority_sanity;
+    const g = qualityReport.pure_checks.internal_linking;
+    const h = qualityReport.pure_checks.refresh_pipeline;
+    console.error(`  Rubric D (priority): ${d.status.toUpperCase()} (${d.issues.length} issues)`);
+    console.error(`  Rubric G (linking): ${g.status.toUpperCase()} (${g.by_topic.length} topics)`);
+    console.error(`  Rubric H (refresh): ${h.status.toUpperCase()}`);
   }
 
   if (opts.mode === 'strategic') {

@@ -17,6 +17,11 @@ import {
   type CheckStatus,
   type CheckOptions,
 } from './review-checks';
+import {
+  runPureQualityChecks,
+  type PureQualityReport,
+  type QualityCheckOptions,
+} from './review-quality';
 
 // ── Types ──
 
@@ -88,6 +93,109 @@ export function runHealthChecks(db: Database.Database, opts?: CheckOptions): Hea
     summary,
     issues: checks.filter(c => c.status === 'yellow' || c.status === 'red' || c.status === 'error'),
   };
+}
+
+// ── Quality Report ──
+
+export interface QualityReport {
+  generated_at: string;
+  pure_checks: PureQualityReport;
+  overall_quality: 'green' | 'yellow' | 'red';
+  // LLM rubrics will be added here in follow-up
+  llm_calls: number;
+  llm_model: string;
+  duration_ms: number;
+}
+
+export function runQualityChecks(db: Database.Database, opts?: QualityCheckOptions): QualityReport {
+  const start = Date.now();
+
+  // Phase 2 step 1: pure logic rubrics only (D, G, H)
+  const pureChecks = runPureQualityChecks(db, opts);
+
+  // Determine overall quality from pure checks
+  const statuses = [
+    pureChecks.priority_sanity.status,
+    pureChecks.internal_linking.status,
+    pureChecks.refresh_pipeline.status === 'not_implemented' ? 'info' : pureChecks.refresh_pipeline.status,
+  ] as CheckStatus[];
+
+  const STATUS_SEVERITY: Record<string, number> = {
+    green: 0, info: 0, yellow: 1, red: 2, error: 2,
+  };
+
+  let worst = 0;
+  for (const s of statuses) {
+    const sev = STATUS_SEVERITY[s] ?? 0;
+    if (sev > worst) worst = sev;
+  }
+
+  const overall = worst >= 2 ? 'red' : worst >= 1 ? 'yellow' : 'green';
+
+  return {
+    generated_at: new Date().toISOString(),
+    pure_checks: pureChecks,
+    overall_quality: overall,
+    llm_calls: 0,
+    llm_model: opts?.model ?? 'sonnet',
+    duration_ms: Date.now() - start,
+  };
+}
+
+// ── Quality Report Formatter ──
+
+const QUALITY_STATUS_ICON: Record<string, string> = {
+  green: '[OK]',
+  yellow: '[WARN]',
+  red: '[FAIL]',
+  error: '[ERR]',
+  info: '[INFO]',
+  not_implemented: '[N/A]',
+};
+
+export function formatQualityReportMd(report: QualityReport): string {
+  const lines: string[] = [];
+  lines.push('# Pipeline Quality Report');
+  lines.push(`Generated: ${report.generated_at}`);
+  lines.push(`Overall: **${report.overall_quality.toUpperCase()}**`);
+  lines.push(`LLM calls: ${report.llm_calls} | Model: ${report.llm_model} | Duration: ${report.duration_ms}ms`);
+  lines.push('');
+
+  // Rubric D
+  const d = report.pure_checks.priority_sanity;
+  lines.push(`## Rubric D — Priority Score Sanity ${QUALITY_STATUS_ICON[d.status]}`);
+  if (d.issues.length === 0) {
+    lines.push('No issues detected.');
+  } else {
+    for (const issue of d.issues) {
+      lines.push(`- ${issue}`);
+    }
+  }
+  lines.push('');
+
+  // Rubric G
+  const g = report.pure_checks.internal_linking;
+  lines.push(`## Rubric G — Internal Linking ${QUALITY_STATUS_ICON[g.status]}`);
+  if (g.by_topic.length === 0) {
+    lines.push('No topic clusters with content found.');
+  }
+  for (const t of g.by_topic) {
+    lines.push(`### ${t.topic} (${t.total_pages} pages)`);
+    lines.push(`- Orphans: ${t.orphan_pages.length > 0 ? t.orphan_pages.join(', ') : 'none'}`);
+    lines.push(`- Hub coverage: ${Math.round(t.hub_link_coverage * 100)}%`);
+    lines.push(`- Broken links: ${t.broken_links.length}`);
+    lines.push(`- Cross-cluster links: ${t.cross_cluster_links}`);
+    lines.push(`- Reciprocal rate: ${Math.round(t.reciprocal_rate * 100)}%`);
+  }
+  lines.push('');
+
+  // Rubric H
+  const h = report.pure_checks.refresh_pipeline;
+  lines.push(`## Rubric H — Refresh Pipeline ${QUALITY_STATUS_ICON[h.status]}`);
+  lines.push(h.detail);
+  lines.push('');
+
+  return lines.join('\n');
 }
 
 // ── Report Storage ──
