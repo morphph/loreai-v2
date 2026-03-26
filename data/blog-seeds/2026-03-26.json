@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Your work tools in Claude are now available on mobile.  Explore Figma designs, create Canva slides, check Amplitude dashboards, all from your phone.",
+    "url": "https://x.com/claudeai/status/2036850783526719610",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 14341,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 10,
+    "composite_score": 44.3023,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code auto mode: a safer way to skip permissions",
+    "url": "https://www.anthropic.com/engineering/claude-code-auto-mode",
+    "source": "blog:Anthropic Engineering",
+    "x_engagement_24h": 601,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 41.1803,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Dispatch, a way for you to talk to Claude Cowork & Claude Code on your computer, is now available on all Teams plans.",
+    "url": "https://x.com/felixrieseberg/status/2036625147474665773",
+    "source": "twitter:@felixrieseberg",
+    "x_engagement_24h": 358,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 41.1074,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Cowork is now available on Windows on Arm!",
+    "url": "https://x.com/felixrieseberg/status/2036586477556252940",
+    "source": "twitter:@felixrieseberg",
+    "x_engagement_24h": 476,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 32.1428,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "BREAKING: We've given Claude full access to options, equities, and prediction markets. The Unusual Whales MCP Server connects any AI to give live, structured market data on demand.",
+    "url": "https://x.com/unusual_whales/status/2036566408151417118",
+    "source": "twitter:search:\"MCP\" (implementation OR plugin OR server OR tool) min_faves:10 -crypto",
+    "x_engagement_24h": 408,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 32.1224,
+    "suggested_angle": "news"
+  }
+]
