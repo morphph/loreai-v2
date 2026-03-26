@@ -19,8 +19,11 @@ import {
 } from './review-checks';
 import {
   runPureQualityChecks,
+  runLLMQualityChecks,
   type PureQualityReport,
+  type LLMQualityReport,
   type QualityCheckOptions,
+  type LLMCallFn,
 } from './review-quality';
 
 // ── Types ──
@@ -100,25 +103,53 @@ export function runHealthChecks(db: Database.Database, opts?: CheckOptions): Hea
 export interface QualityReport {
   generated_at: string;
   pure_checks: PureQualityReport;
+  llm_checks?: LLMQualityReport;
   overall_quality: 'green' | 'yellow' | 'red';
-  // LLM rubrics will be added here in follow-up
   llm_calls: number;
   llm_model: string;
   duration_ms: number;
 }
 
-export function runQualityChecks(db: Database.Database, opts?: QualityCheckOptions): QualityReport {
+const MODEL_MAP: Record<string, string> = {
+  sonnet: 'claude-sonnet-4-20250514',
+  haiku: 'claude-haiku-4-5-20251001',
+};
+
+export async function runQualityChecks(
+  db: Database.Database,
+  opts?: QualityCheckOptions & { callLLM?: LLMCallFn },
+): Promise<QualityReport> {
   const start = Date.now();
 
-  // Phase 2 step 1: pure logic rubrics only (D, G, H)
+  // Pure logic rubrics (D, G, H) — always run
   const pureChecks = runPureQualityChecks(db, opts);
 
-  // Determine overall quality from pure checks
-  const statuses = [
+  // LLM rubrics (A, B, C, E, F) — skip if no callLLM provided
+  let llmChecks: LLMQualityReport | undefined;
+  if (opts?.callLLM) {
+    try {
+      llmChecks = await runLLMQualityChecks(db, opts.callLLM, opts);
+    } catch (err) {
+      console.error('LLM quality checks failed (pure rubric results preserved):', err);
+    }
+  }
+
+  // Determine overall quality from all checks
+  const statuses: CheckStatus[] = [
     pureChecks.priority_sanity.status,
     pureChecks.internal_linking.status,
     pureChecks.refresh_pipeline.status === 'not_implemented' ? 'info' : pureChecks.refresh_pipeline.status,
-  ] as CheckStatus[];
+  ];
+
+  if (llmChecks) {
+    statuses.push(
+      llmChecks.keyword_coherence.status,
+      llmChecks.content_intent_match.status,
+      llmChecks.content_aeo_readiness.status,
+      llmChecks.subtopic_discovery.status,
+      llmChecks.keyword_quality.status,
+    );
+  }
 
   const STATUS_SEVERITY: Record<string, number> = {
     green: 0, info: 0, yellow: 1, red: 2, error: 2,
@@ -135,8 +166,9 @@ export function runQualityChecks(db: Database.Database, opts?: QualityCheckOptio
   return {
     generated_at: new Date().toISOString(),
     pure_checks: pureChecks,
+    llm_checks: llmChecks,
     overall_quality: overall,
-    llm_calls: 0,
+    llm_calls: llmChecks?.llm_calls ?? 0,
     llm_model: opts?.model ?? 'sonnet',
     duration_ms: Date.now() - start,
   };
@@ -194,6 +226,75 @@ export function formatQualityReportMd(report: QualityReport): string {
   lines.push(`## Rubric H — Refresh Pipeline ${QUALITY_STATUS_ICON[h.status]}`);
   lines.push(h.detail);
   lines.push('');
+
+  // LLM Rubrics (if present)
+  if (report.llm_checks) {
+    const lc = report.llm_checks;
+
+    // Rubric A
+    const a = lc.keyword_coherence;
+    lines.push(`## Rubric A — Keyword Group Coherence ${QUALITY_STATUS_ICON[a.status]}`);
+    lines.push(`Samples: ${a.samples_scored} | Average: ${a.average_score}`);
+    if (a.worst_groups.length > 0) {
+      lines.push('Worst groups:');
+      for (const w of a.worst_groups) {
+        lines.push(`- ${w.primary_keyword} (score=${w.score}): ${w.reason}`);
+      }
+    }
+    if (a.errors.length > 0) lines.push(`Errors: ${a.errors.length}`);
+    lines.push('');
+
+    // Rubric B
+    const b = lc.content_intent_match;
+    lines.push(`## Rubric B — Content Intent Match ${QUALITY_STATUS_ICON[b.status]}`);
+    lines.push(`Samples: ${b.samples_scored} | Average: ${b.average_score}`);
+    for (const [type, data] of Object.entries(b.by_type)) {
+      lines.push(`- ${type}: avg=${data.average} (n=${data.count})`);
+    }
+    if (b.worst_pieces.length > 0) {
+      lines.push('Worst pieces:');
+      for (const w of b.worst_pieces) {
+        lines.push(`- ${w.type}/${w.slug} (score=${w.score}): ${w.reason}`);
+      }
+    }
+    lines.push('');
+
+    // Rubric C
+    const c = lc.content_aeo_readiness;
+    lines.push(`## Rubric C — Content AEO Readiness ${QUALITY_STATUS_ICON[c.status]}`);
+    lines.push(`Samples: ${c.samples_scored} | Average: ${c.average_score}`);
+    if (c.common_issues.length > 0) {
+      lines.push('Common issues:');
+      for (const issue of c.common_issues) {
+        lines.push(`- ${issue}`);
+      }
+    }
+    lines.push('');
+
+    // Rubric E
+    const e = lc.subtopic_discovery;
+    lines.push(`## Rubric E — Subtopic Discovery ${QUALITY_STATUS_ICON[e.status]}`);
+    lines.push(`Samples: ${e.samples_scored} | Average: ${e.average_score}`);
+    if (e.worst_subtopics.length > 0) {
+      lines.push('Worst subtopics:');
+      for (const w of e.worst_subtopics) {
+        lines.push(`- ${w.slug} (score=${w.score}): ${w.reason}`);
+      }
+    }
+    lines.push('');
+
+    // Rubric F
+    const f = lc.keyword_quality;
+    lines.push(`## Rubric F — Raw Keyword Quality ${QUALITY_STATUS_ICON[f.status]}`);
+    lines.push(`Samples: ${f.samples_scored} | Average: ${f.average_score} | Junk rate: ${Math.round(f.junk_rate * 100)}%`);
+    if (Object.keys(f.junk_rate_by_source).length > 0) {
+      lines.push('Junk rate by source:');
+      for (const [source, rate] of Object.entries(f.junk_rate_by_source)) {
+        lines.push(`- ${source}: ${Math.round(rate * 100)}%`);
+      }
+    }
+    lines.push('');
+  }
 
   return lines.join('\n');
 }

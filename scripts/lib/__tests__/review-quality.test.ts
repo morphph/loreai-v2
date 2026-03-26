@@ -493,13 +493,13 @@ describe('runPureQualityChecks', async () => {
 describe('runQualityChecks', async () => {
   const { runQualityChecks } = await import('../review');
 
-  it('returns quality report with timing', () => {
+  it('returns quality report with timing', async () => {
     const database = getTestDb();
-    const report = runQualityChecks(database, { contentRoot: tmpDir });
+    const report = await runQualityChecks(database, { contentRoot: tmpDir });
     expect(report.generated_at).toBeDefined();
     expect(report.overall_quality).toBeDefined();
     expect(report.duration_ms).toBeGreaterThanOrEqual(0);
-    expect(report.llm_calls).toBe(0); // No LLM rubrics yet
+    expect(report.llm_calls).toBe(0); // No callLLM provided
     expect(report.pure_checks).toBeDefined();
   });
 });
@@ -507,13 +507,616 @@ describe('runQualityChecks', async () => {
 describe('formatQualityReportMd', async () => {
   const { runQualityChecks, formatQualityReportMd } = await import('../review');
 
-  it('produces valid markdown', () => {
+  it('produces valid markdown', async () => {
     const database = getTestDb();
-    const report = runQualityChecks(database, { contentRoot: tmpDir });
+    const report = await runQualityChecks(database, { contentRoot: tmpDir });
     const md = formatQualityReportMd(report);
     expect(md).toContain('# Pipeline Quality Report');
     expect(md).toContain('Rubric D');
     expect(md).toContain('Rubric G');
     expect(md).toContain('Rubric H');
+  });
+});
+
+// ════════════════════════════════════════════
+// LLM Rubric Prompt Builders
+// ════════════════════════════════════════════
+
+describe('buildPromptA', async () => {
+  const { buildPromptA } = await import('../review-quality');
+
+  it('builds coherence prompt with all fields', () => {
+    const prompt = buildPromptA({
+      group_id: 1,
+      primary_keyword: 'claude code hooks',
+      secondary_keywords: ['claude code git hooks', 'hooks in claude'],
+      intent: 'informational',
+      content_type: 'blog',
+    });
+    expect(prompt).toContain('claude code hooks');
+    expect(prompt).toContain('claude code git hooks');
+    expect(prompt).toContain('informational');
+    expect(prompt).toContain('blog');
+    expect(prompt).toContain('{"score":');
+  });
+});
+
+describe('buildPromptB', async () => {
+  const { buildPromptB } = await import('../review-quality');
+
+  it('builds intent match prompt with first 500 words', () => {
+    const prompt = buildPromptB({
+      type: 'faq',
+      slug: 'test-faq',
+      title: 'What is X?',
+      keyword: 'what is X',
+      first_500_words: 'X is a great tool...',
+      full_content: 'X is a great tool...',
+    });
+    expect(prompt).toContain('what is X');
+    expect(prompt).toContain('What is X?');
+    expect(prompt).toContain('faq');
+    expect(prompt).toContain('X is a great tool');
+    expect(prompt).toContain('"improvement"');
+  });
+});
+
+describe('buildPromptC', async () => {
+  const { buildPromptC } = await import('../review-quality');
+
+  it('builds AEO prompt with full content', () => {
+    const prompt = buildPromptC({
+      type: 'glossary',
+      slug: 'test-glossary',
+      title: 'Glossary: AI',
+      keyword: 'AI',
+      first_500_words: 'AI is...',
+      full_content: 'AI is artificial intelligence used in many domains...',
+    });
+    expect(prompt).toContain('AI answer engine readiness');
+    expect(prompt).toContain('Glossary: AI');
+    expect(prompt).toContain('artificial intelligence');
+    expect(prompt).toContain('"missing"');
+  });
+});
+
+describe('buildPromptE', async () => {
+  const { buildPromptE } = await import('../review-quality');
+
+  it('builds subtopic batch prompt', () => {
+    const prompt = buildPromptE(
+      [
+        { slug: 'sub-1', pillar_topic: 'AI Tools' },
+        { slug: 'sub-2', pillar_topic: 'AI Tools' },
+      ],
+      'AI Tools',
+    );
+    expect(prompt).toContain('AI Tools');
+    expect(prompt).toContain('sub-1');
+    expect(prompt).toContain('sub-2');
+    expect(prompt).toContain('"scores"');
+  });
+});
+
+describe('buildPromptF', async () => {
+  const { buildPromptF } = await import('../review-quality');
+
+  it('builds keyword quality batch prompt', () => {
+    const prompt = buildPromptF(
+      [
+        { keyword: 'claude code setup', source: 'serper-paa', cluster_slug: 'claude-code' },
+        { keyword: 'xyzzy123 error', source: 'exa-competitor', cluster_slug: 'claude-code' },
+      ],
+      'claude-code',
+    );
+    expect(prompt).toContain('claude code setup');
+    expect(prompt).toContain('serper-paa');
+    expect(prompt).toContain('exa-competitor');
+    expect(prompt).toContain('"junk_rate"');
+  });
+});
+
+// ════════════════════════════════════════════
+// LLM Rubric Response Parsers
+// ════════════════════════════════════════════
+
+describe('parseResponseA', async () => {
+  const { parseResponseA } = await import('../review-quality');
+
+  it('parses valid JSON response', () => {
+    const result = parseResponseA('{"score": 4, "reason": "Good coherence", "misfit_keywords": ["odd one"]}');
+    expect(result.score).toBe(4);
+    expect(result.reason).toBe('Good coherence');
+    expect(result.misfit_keywords).toEqual(['odd one']);
+  });
+
+  it('parses JSON wrapped in code fence', () => {
+    const result = parseResponseA('```json\n{"score": 3, "reason": "OK", "misfit_keywords": []}\n```');
+    expect(result.score).toBe(3);
+  });
+
+  it('handles missing misfit_keywords', () => {
+    const result = parseResponseA('{"score": 5, "reason": "Perfect"}');
+    expect(result.misfit_keywords).toEqual([]);
+  });
+
+  it('throws on invalid score', () => {
+    expect(() => parseResponseA('{"score": 0, "reason": "Bad"}')).toThrow('Invalid score');
+    expect(() => parseResponseA('{"score": 6, "reason": "Bad"}')).toThrow('Invalid score');
+  });
+
+  it('throws on malformed JSON', () => {
+    expect(() => parseResponseA('not json at all')).toThrow();
+  });
+});
+
+describe('parseResponseB', async () => {
+  const { parseResponseB } = await import('../review-quality');
+
+  it('parses valid response', () => {
+    const result = parseResponseB('{"score": 4, "reason": "Matches intent well", "improvement": "Add more examples"}');
+    expect(result.score).toBe(4);
+    expect(result.improvement).toBe('Add more examples');
+  });
+
+  it('handles null improvement', () => {
+    const result = parseResponseB('{"score": 5, "reason": "Perfect", "improvement": null}');
+    expect(result.improvement).toBeNull();
+  });
+});
+
+describe('parseResponseC', async () => {
+  const { parseResponseC } = await import('../review-quality');
+
+  it('parses valid response', () => {
+    const result = parseResponseC('{"score": 3, "reason": "Needs structure", "missing": "Add a summary table"}');
+    expect(result.score).toBe(3);
+    expect(result.missing).toBe('Add a summary table');
+  });
+});
+
+describe('parseResponseE', async () => {
+  const { parseResponseE } = await import('../review-quality');
+
+  it('parses batch scores', () => {
+    const result = parseResponseE('{"scores": [{"slug": "sub-1", "score": 4, "reason": "Good"}, {"slug": "sub-2", "score": 2, "reason": "Too vague"}]}');
+    expect(result.scores).toHaveLength(2);
+    expect(result.scores[0].score).toBe(4);
+    expect(result.scores[1].score).toBe(2);
+  });
+
+  it('throws on missing scores array', () => {
+    expect(() => parseResponseE('{"result": "oops"}')).toThrow('Missing scores array');
+  });
+
+  it('throws on invalid individual score', () => {
+    expect(() => parseResponseE('{"scores": [{"slug": "x", "score": 0, "reason": "bad"}]}')).toThrow('Invalid score');
+  });
+});
+
+describe('parseResponseF', async () => {
+  const { parseResponseF } = await import('../review-quality');
+
+  it('parses batch keyword scores with junk_rate', () => {
+    const result = parseResponseF('{"scores": [{"keyword": "good kw", "score": 5, "reason": "Real"}, {"keyword": "bad kw", "score": 1, "reason": "Noise"}], "junk_rate": 0.5}');
+    expect(result.scores).toHaveLength(2);
+    expect(result.junk_rate).toBe(0.5);
+  });
+
+  it('defaults junk_rate to 0 when missing', () => {
+    const result = parseResponseF('{"scores": [{"keyword": "kw", "score": 3, "reason": "ok"}]}');
+    expect(result.junk_rate).toBe(0);
+  });
+});
+
+// ════════════════════════════════════════════
+// LLM Rubric Sampling Functions
+// ════════════════════════════════════════════
+
+describe('sampleKeywordGroups', async () => {
+  const { sampleKeywordGroups } = await import('../review-quality');
+
+  it('returns empty when no groups', () => {
+    const database = getTestDb();
+    const samples = sampleKeywordGroups(database);
+    expect(samples).toHaveLength(0);
+  });
+
+  it('samples keyword groups with secondary keywords', () => {
+    const database = getTestDb();
+    insertGroup(database, {
+      status: 'pending',
+      clusterSlug: 'test-cluster',
+      primaryKeyword: 'main keyword',
+    });
+    insertKeyword(database, 'main keyword', { clusterSlug: 'test-cluster' });
+    insertKeyword(database, 'secondary kw', { clusterSlug: 'test-cluster' });
+    insertKeyword(database, 'another kw', { clusterSlug: 'test-cluster' });
+
+    const samples = sampleKeywordGroups(database);
+    expect(samples).toHaveLength(1);
+    expect(samples[0].primary_keyword).toBe('main keyword');
+    expect(samples[0].secondary_keywords).toContain('secondary kw');
+    expect(samples[0].secondary_keywords).toContain('another kw');
+    expect(samples[0].secondary_keywords).not.toContain('main keyword');
+  });
+
+  it('respects topic filter', () => {
+    const database = getTestDb();
+    insertGroup(database, { status: 'pending', clusterSlug: 'wanted', primaryKeyword: 'kw-a' });
+    insertGroup(database, { status: 'pending', clusterSlug: 'unwanted', primaryKeyword: 'kw-b' });
+
+    const samples = sampleKeywordGroups(database, { topic: 'wanted' });
+    expect(samples).toHaveLength(1);
+    expect(samples[0].primary_keyword).toBe('kw-a');
+  });
+});
+
+describe('sampleContent', async () => {
+  const { sampleContent } = await import('../review-quality');
+
+  it('returns empty when no content files exist', () => {
+    const database = getTestDb();
+    const samples = sampleContent(database, tmpDir);
+    expect(samples).toHaveLength(0);
+  });
+
+  it('samples content with file reading', () => {
+    const database = getTestDb();
+    insertContent(database, 'faq', 'my-faq');
+    writeContentFile(tmpDir, 'faq', 'my-faq', '# FAQ\nThis is a test FAQ about something useful.');
+
+    const samples = sampleContent(database, tmpDir);
+    expect(samples.length).toBeGreaterThanOrEqual(1);
+    const faq = samples.find(s => s.slug === 'my-faq');
+    expect(faq).toBeDefined();
+    expect(faq!.full_content).toContain('test FAQ');
+    expect(faq!.first_500_words).toContain('test FAQ');
+  });
+});
+
+describe('sampleSubtopics', async () => {
+  const { sampleSubtopics } = await import('../review-quality');
+
+  it('returns empty when no topic clusters', () => {
+    const database = getTestDb();
+    const samples = sampleSubtopics(database);
+    expect(samples).toHaveLength(0);
+  });
+
+  it('samples topic clusters', () => {
+    const database = getTestDb();
+    database.prepare(
+      `INSERT INTO topic_clusters (slug, pillar_topic, last_seen) VALUES ('tc-1', 'Topic One', datetime('now'))`
+    ).run();
+    database.prepare(
+      `INSERT INTO topic_clusters (slug, pillar_topic, last_seen) VALUES ('tc-2', 'Topic Two', datetime('now'))`
+    ).run();
+
+    const samples = sampleSubtopics(database);
+    expect(samples).toHaveLength(2);
+    expect(samples.map(s => s.slug)).toContain('tc-1');
+  });
+});
+
+describe('sampleRawKeywords', async () => {
+  const { sampleRawKeywords } = await import('../review-quality');
+
+  it('returns empty when no keywords with cluster_slug', () => {
+    const database = getTestDb();
+    const samples = sampleRawKeywords(database);
+    expect(samples).toHaveLength(0);
+  });
+
+  it('samples keywords with source info', () => {
+    const database = getTestDb();
+    insertKeyword(database, 'kw-one', { clusterSlug: 'my-topic' });
+    insertKeyword(database, 'kw-two', { clusterSlug: 'my-topic' });
+
+    const samples = sampleRawKeywords(database);
+    expect(samples).toHaveLength(2);
+    expect(samples[0].source).toBe('test');
+  });
+
+  it('respects topic filter', () => {
+    const database = getTestDb();
+    insertKeyword(database, 'wanted-kw', { clusterSlug: 'target-topic' });
+    insertKeyword(database, 'unwanted-kw', { clusterSlug: 'other-topic' });
+
+    const samples = sampleRawKeywords(database, { topic: 'target-topic' });
+    expect(samples).toHaveLength(1);
+    expect(samples[0].keyword).toBe('wanted-kw');
+  });
+});
+
+// ════════════════════════════════════════════
+// LLM Rubric Check Functions (with mock LLM)
+// ════════════════════════════════════════════
+
+describe('checkKeywordCoherence', async () => {
+  const { checkKeywordCoherence } = await import('../review-quality');
+
+  const mockLLM = async () => ({
+    content: '{"score": 4, "reason": "Good coherence", "misfit_keywords": []}',
+  });
+
+  it('returns info when no keyword groups', async () => {
+    const database = getTestDb();
+    const result = await checkKeywordCoherence(database, mockLLM);
+    expect(result.status).toBe('info');
+    expect(result.samples_scored).toBe(0);
+  });
+
+  it('scores keyword groups via mock LLM', async () => {
+    const database = getTestDb();
+    insertGroup(database, { status: 'pending', clusterSlug: 'cs', primaryKeyword: 'test kw' });
+    insertKeyword(database, 'test kw', { clusterSlug: 'cs' });
+
+    const result = await checkKeywordCoherence(database, mockLLM, { limit: 5 });
+    expect(result.samples_scored).toBe(1);
+    expect(result.average_score).toBe(4);
+    expect(result.status).toBe('green');
+  });
+
+  it('returns yellow for borderline scores', async () => {
+    const database = getTestDb();
+    insertGroup(database, { status: 'pending', clusterSlug: 'cs', primaryKeyword: 'test kw' });
+    insertKeyword(database, 'test kw', { clusterSlug: 'cs' });
+
+    const borderlineLLM = async () => ({
+      content: '{"score": 3, "reason": "Borderline", "misfit_keywords": ["bad one"]}',
+    });
+    const result = await checkKeywordCoherence(database, borderlineLLM, { limit: 5 });
+    expect(result.status).toBe('yellow');
+  });
+
+  it('handles LLM parse errors gracefully', async () => {
+    const database = getTestDb();
+    insertGroup(database, { status: 'pending', clusterSlug: 'cs', primaryKeyword: 'test kw' });
+    insertKeyword(database, 'test kw', { clusterSlug: 'cs' });
+
+    const failingLLM = async () => ({ content: 'not json' });
+    const result = await checkKeywordCoherence(database, failingLLM, { limit: 5 });
+    expect(result.errors.length).toBeGreaterThan(0);
+    expect(result.samples_scored).toBe(0);
+  });
+
+  it('returns info in dry-run mode', async () => {
+    const database = getTestDb();
+    insertGroup(database, { status: 'pending', clusterSlug: 'cs', primaryKeyword: 'test kw' });
+    insertKeyword(database, 'test kw', { clusterSlug: 'cs' });
+
+    const neverCalled = vi.fn();
+    const result = await checkKeywordCoherence(database, neverCalled, { dryRun: true, limit: 5 });
+    expect(result.status).toBe('info');
+    expect(neverCalled).not.toHaveBeenCalled();
+  });
+});
+
+describe('checkContentIntentMatch', async () => {
+  const { checkContentIntentMatch } = await import('../review-quality');
+
+  const mockLLM = async () => ({
+    content: '{"score": 4, "reason": "Relevant content", "improvement": null}',
+  });
+
+  it('returns info for empty samples', async () => {
+    const result = await checkContentIntentMatch([], mockLLM);
+    expect(result.status).toBe('info');
+  });
+
+  it('scores content via mock LLM', async () => {
+    const samples = [{
+      type: 'faq', slug: 'test-faq', title: 'Test FAQ',
+      keyword: 'test', first_500_words: 'Test content', full_content: 'Test content',
+    }];
+    const result = await checkContentIntentMatch(samples, mockLLM);
+    expect(result.samples_scored).toBe(1);
+    expect(result.average_score).toBe(4);
+    expect(result.by_type.faq).toBeDefined();
+    expect(result.by_type.faq.count).toBe(1);
+  });
+
+  it('groups scores by content type', async () => {
+    const samples = [
+      { type: 'faq', slug: 'faq-1', title: 'FAQ 1', keyword: 'faq', first_500_words: 'a', full_content: 'a' },
+      { type: 'blog', slug: 'blog-1', title: 'Blog 1', keyword: 'blog', first_500_words: 'b', full_content: 'b' },
+    ];
+    const result = await checkContentIntentMatch(samples, mockLLM);
+    expect(result.by_type.faq).toBeDefined();
+    expect(result.by_type.blog).toBeDefined();
+  });
+});
+
+describe('checkContentAEO', async () => {
+  const { checkContentAEO } = await import('../review-quality');
+
+  const mockLLM = async () => ({
+    content: '{"score": 3, "reason": "Needs structure", "missing": "Add summary table"}',
+  });
+
+  it('returns info for empty samples', async () => {
+    const result = await checkContentAEO([], mockLLM);
+    expect(result.status).toBe('info');
+  });
+
+  it('scores and collects common issues', async () => {
+    const samples = [
+      { type: 'faq', slug: 'faq-1', title: 'FAQ', keyword: 'test', first_500_words: 'a', full_content: 'a' },
+      { type: 'faq', slug: 'faq-2', title: 'FAQ2', keyword: 'test2', first_500_words: 'b', full_content: 'b' },
+    ];
+    const result = await checkContentAEO(samples, mockLLM);
+    expect(result.samples_scored).toBe(2);
+    expect(result.average_score).toBe(3);
+    expect(result.status).toBe('yellow');
+    expect(result.common_issues).toContain('Add summary table');
+  });
+});
+
+describe('checkSubtopicDiscovery', async () => {
+  const { checkSubtopicDiscovery } = await import('../review-quality');
+
+  it('returns info when no subtopics', async () => {
+    const database = getTestDb();
+    const mockLLM = async () => ({ content: '{}' });
+    const result = await checkSubtopicDiscovery(database, mockLLM);
+    expect(result.status).toBe('info');
+  });
+
+  it('scores subtopics via mock batch LLM', async () => {
+    const database = getTestDb();
+    database.prepare(`INSERT INTO topic_clusters (slug, pillar_topic, last_seen) VALUES ('st-1', 'AI', datetime('now'))`).run();
+    database.prepare(`INSERT INTO topic_clusters (slug, pillar_topic, last_seen) VALUES ('st-2', 'AI', datetime('now'))`).run();
+
+    const mockLLM = async () => ({
+      content: '{"scores": [{"slug": "st-1", "score": 5, "reason": "Great"}, {"slug": "st-2", "score": 2, "reason": "Vague"}]}',
+    });
+    const result = await checkSubtopicDiscovery(database, mockLLM);
+    expect(result.samples_scored).toBe(2);
+    expect(result.average_score).toBe(3.5);
+    expect(result.status).toBe('green');
+    expect(result.worst_subtopics[0].slug).toBe('st-2');
+  });
+
+  it('returns error on LLM failure', async () => {
+    const database = getTestDb();
+    database.prepare(`INSERT INTO topic_clusters (slug, pillar_topic, last_seen) VALUES ('st-x', 'AI', datetime('now'))`).run();
+
+    const failingLLM = async () => { throw new Error('API timeout'); };
+    const result = await checkSubtopicDiscovery(database, failingLLM);
+    expect(result.status).toBe('error');
+    expect(result.errors[0]).toContain('API timeout');
+  });
+
+  it('returns info in dry-run mode', async () => {
+    const database = getTestDb();
+    database.prepare(`INSERT INTO topic_clusters (slug, pillar_topic, last_seen) VALUES ('st-y', 'AI', datetime('now'))`).run();
+
+    const neverCalled = vi.fn();
+    const result = await checkSubtopicDiscovery(database, neverCalled, { dryRun: true });
+    expect(result.status).toBe('info');
+    expect(neverCalled).not.toHaveBeenCalled();
+  });
+});
+
+describe('checkRawKeywordQuality', async () => {
+  const { checkRawKeywordQuality } = await import('../review-quality');
+
+  it('returns info when no keywords', async () => {
+    const database = getTestDb();
+    const mockLLM = async () => ({ content: '{}' });
+    const result = await checkRawKeywordQuality(database, mockLLM);
+    expect(result.status).toBe('info');
+  });
+
+  it('scores keywords and computes junk_rate_by_source', async () => {
+    const database = getTestDb();
+    insertKeyword(database, 'good-kw', { clusterSlug: 'topic' });
+    insertKeyword(database, 'bad-kw', { clusterSlug: 'topic' });
+
+    const mockLLM = async () => ({
+      content: '{"scores": [{"keyword": "good-kw", "score": 5, "reason": "Real"}, {"keyword": "bad-kw", "score": 1, "reason": "Junk"}], "junk_rate": 0.5}',
+    });
+    const result = await checkRawKeywordQuality(database, mockLLM, { limit: 10 });
+    expect(result.samples_scored).toBe(2);
+    expect(result.junk_rate).toBe(0.5);
+    expect(result.status).toBe('red');
+    expect(result.junk_rate_by_source.test).toBeDefined();
+  });
+
+  it('returns green for low junk rate', async () => {
+    const database = getTestDb();
+    insertKeyword(database, 'quality-kw', { clusterSlug: 'topic' });
+
+    const mockLLM = async () => ({
+      content: '{"scores": [{"keyword": "quality-kw", "score": 5, "reason": "Real"}], "junk_rate": 0.05}',
+    });
+    const result = await checkRawKeywordQuality(database, mockLLM, { limit: 10 });
+    expect(result.status).toBe('green');
+  });
+
+  it('returns info in dry-run mode', async () => {
+    const database = getTestDb();
+    insertKeyword(database, 'dry-kw', { clusterSlug: 'topic' });
+
+    const neverCalled = vi.fn();
+    const result = await checkRawKeywordQuality(database, neverCalled, { dryRun: true, limit: 10 });
+    expect(result.status).toBe('info');
+    expect(neverCalled).not.toHaveBeenCalled();
+  });
+});
+
+// ════════════════════════════════════════════
+// LLM Quality Report Orchestrator
+// ════════════════════════════════════════════
+
+describe('runLLMQualityChecks', async () => {
+  const { runLLMQualityChecks } = await import('../review-quality');
+
+  it('runs all LLM rubrics with mock LLM', async () => {
+    const database = getTestDb();
+    // Set up data for all rubrics
+    insertGroup(database, { status: 'pending', clusterSlug: 'cs', primaryKeyword: 'test kw' });
+    insertKeyword(database, 'test kw', { clusterSlug: 'cs' });
+    insertKeyword(database, 'secondary kw', { clusterSlug: 'cs' });
+    database.prepare(`INSERT INTO topic_clusters (slug, pillar_topic, last_seen) VALUES ('cs', 'Test', datetime('now'))`).run();
+
+    let callCount = 0;
+    const mockLLM = async (_sys: string, prompt: string) => {
+      callCount++;
+      // Return appropriate response based on prompt content
+      if (prompt.includes('keyword group')) {
+        return { content: '{"score": 4, "reason": "Good", "misfit_keywords": []}' };
+      }
+      if (prompt.includes('search intent')) {
+        return { content: '{"score": 4, "reason": "Matches", "improvement": null}' };
+      }
+      if (prompt.includes('AI answer engine')) {
+        return { content: '{"score": 3, "reason": "OK", "missing": null}' };
+      }
+      if (prompt.includes('subtopic')) {
+        return { content: '{"scores": [{"slug": "cs", "score": 4, "reason": "Good"}]}' };
+      }
+      if (prompt.includes('targetable search query')) {
+        return { content: '{"scores": [{"keyword": "test kw", "score": 4, "reason": "Real"}], "junk_rate": 0.05}' };
+      }
+      return { content: '{"score": 3, "reason": "default"}' };
+    };
+
+    const report = await runLLMQualityChecks(database, mockLLM, { contentRoot: tmpDir });
+    expect(report.keyword_coherence).toBeDefined();
+    expect(report.content_intent_match).toBeDefined();
+    expect(report.content_aeo_readiness).toBeDefined();
+    expect(report.subtopic_discovery).toBeDefined();
+    expect(report.keyword_quality).toBeDefined();
+    expect(report.llm_calls).toBe(callCount);
+  });
+});
+
+// ════════════════════════════════════════════
+// Quality Report with LLM checks
+// ════════════════════════════════════════════
+
+describe('runQualityChecks with LLM', async () => {
+  const { runQualityChecks } = await import('../review');
+
+  it('includes LLM checks when callLLM provided', async () => {
+    const database = getTestDb();
+    const mockLLM = async () => ({
+      content: '{"score": 4, "reason": "Good", "misfit_keywords": []}',
+    });
+
+    const report = await runQualityChecks(database, {
+      contentRoot: tmpDir,
+      callLLM: mockLLM,
+    });
+    expect(report.llm_checks).toBeDefined();
+  });
+
+  it('omits LLM checks when no callLLM', async () => {
+    const database = getTestDb();
+    const report = await runQualityChecks(database, { contentRoot: tmpDir });
+    expect(report.llm_checks).toBeUndefined();
+    expect(report.llm_calls).toBe(0);
   });
 });
