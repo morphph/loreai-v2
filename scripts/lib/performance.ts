@@ -271,8 +271,8 @@ export function writeActions(
   `);
 
   const insertQueue = db.prepare(`
-    INSERT INTO create_queue (keyword_group_id, content_type, research_pipeline, priority_score, status)
-    VALUES (?, 'refresh', 'standard', ?, 'pending')
+    INSERT INTO create_queue (keyword_group_id, content_type, research_pipeline, priority_score, status, refresh_meta)
+    VALUES (?, 'refresh', 'standard', ?, 'pending', ?)
   `);
 
   const writeAll = db.transaction(() => {
@@ -307,7 +307,12 @@ export function writeActions(
       }
 
       const priorityScore = PRIORITY_SCORES[action.priority] ?? 0;
-      insertQueue.run(row.group_id, priorityScore);
+      const refreshMeta = JSON.stringify({
+        anomaly_type: action.anomaly_type ?? 'striking_distance',
+        suggested_action: action.suggested_action,
+        detail: action.detail,
+      });
+      insertQueue.run(row.group_id, priorityScore, refreshMeta);
       queued++;
     }
   });

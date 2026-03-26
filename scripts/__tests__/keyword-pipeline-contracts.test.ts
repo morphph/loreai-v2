@@ -77,6 +77,7 @@ function createTestDb(): InstanceType<typeof Database> {
       research_pipeline TEXT NOT NULL DEFAULT 'standard',
       priority_score REAL DEFAULT 0,
       status TEXT NOT NULL DEFAULT 'pending',
+      refresh_meta TEXT,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       completed_at DATETIME
     );
@@ -552,11 +553,15 @@ describe('keyword pipeline contracts', () => {
 
       const groupId = Number(groupRes.lastInsertRowid);
 
-      // C3 inserts refresh job with priority A (10000)
+      // C3 inserts refresh job with priority A (10000) and refresh_meta
       testDb.prepare(`
-        INSERT INTO create_queue (keyword_group_id, content_type, research_pipeline, priority_score, status)
-        VALUES (?, 'refresh', 'standard', 10000, 'pending')
-      `).run(groupId);
+        INSERT INTO create_queue (keyword_group_id, content_type, research_pipeline, priority_score, status, refresh_meta)
+        VALUES (?, 'refresh', 'standard', 10000, 'pending', ?)
+      `).run(groupId, JSON.stringify({
+        anomaly_type: 'striking_distance',
+        suggested_action: 'Add content depth',
+        detail: 'Position 12 with 200 impressions',
+      }));
 
       // Also insert a regular discovery job with lower priority
       const group2Res = testDb.prepare(`
@@ -572,7 +577,7 @@ describe('keyword pipeline contracts', () => {
       // B4's loadJobs query — should return refresh first (higher priority)
       const jobs = testDb.prepare(`
         SELECT cq.job_id, cq.content_type, cq.research_pipeline, cq.priority_score,
-               kg.primary_keyword
+               cq.refresh_meta, kg.primary_keyword
         FROM create_queue cq
         JOIN keyword_groups kg ON cq.keyword_group_id = kg.group_id
         WHERE cq.status IN ('pending', 'partial')
@@ -582,6 +587,7 @@ describe('keyword pipeline contracts', () => {
         content_type: string;
         research_pipeline: string;
         priority_score: number;
+        refresh_meta: string | null;
         primary_keyword: string;
       }>;
 
@@ -593,9 +599,16 @@ describe('keyword pipeline contracts', () => {
       expect(jobs[0].priority_score).toBe(10000);
       expect(jobs[0].primary_keyword).toBe('declining page keyword');
 
+      // refresh_meta is stored
+      expect(jobs[0].refresh_meta).not.toBeNull();
+      const meta = JSON.parse(jobs[0].refresh_meta!);
+      expect(meta.anomaly_type).toBe('striking_distance');
+      expect(meta.suggested_action).toBe('Add content depth');
+
       // Regular job second
       expect(jobs[1].content_type).toBe('faq');
       expect(jobs[1].priority_score).toBe(500);
+      expect(jobs[1].refresh_meta).toBeNull();
     });
   });
 });

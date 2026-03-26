@@ -4,6 +4,7 @@ import {
   buildGenerationPrompt,
   getValidatorForType,
   setSkillContent,
+  setRefreshSkillContent,
   runStandardResearch,
   runDeepResearch,
   generateContent,
@@ -75,6 +76,7 @@ function makeJob(overrides: Partial<QueueJob> = {}): QueueJob {
     intent: 'informational',
     cluster_slug: 'claude-code',
     secondary_keywords: ['claude code pricing', 'claude code free tier'],
+    is_refresh: false,
     ...overrides,
   };
 }
@@ -144,6 +146,7 @@ describe('loadJobs', () => {
         research_pipeline: 'standard',
         priority_score: 450,
         status: 'pending',
+        refresh_meta: null,
         primary_keyword: 'test keyword',
         intent: 'informational',
         cluster_slug: 'test-cluster',
@@ -155,6 +158,8 @@ describe('loadJobs', () => {
       prepare: vi.fn().mockImplementation((sql: string) => {
         if (sql.includes('FROM create_queue')) return { all: mockAll };
         if (sql.includes('FROM keywords')) return { all: mockSecondaryAll };
+        if (sql.includes('FROM content')) return { get: vi.fn().mockReturnValue(undefined) };
+        if (sql.includes('FROM keyword_groups')) return { get: vi.fn().mockReturnValue(undefined) };
         return { all: vi.fn().mockReturnValue([]) };
       }),
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -170,6 +175,7 @@ describe('loadJobs', () => {
     expect(jobs).toHaveLength(1);
     expect(jobs[0].job_id).toBe(1);
     expect(jobs[0].secondary_keywords).toEqual(['secondary kw']);
+    expect(jobs[0].is_refresh).toBe(false);
   });
 
   test('respects --limit flag', () => {
@@ -196,6 +202,7 @@ describe('loadJobs', () => {
         research_pipeline: 'standard',
         priority_score: 450,
         status: 'pending',
+        refresh_meta: null,
         primary_keyword: 'test',
         intent: 'informational',
         cluster_slug: null,
@@ -206,6 +213,8 @@ describe('loadJobs', () => {
     mockGetDb.mockReturnValue({
       prepare: vi.fn().mockImplementation((sql: string) => {
         if (sql.includes('FROM create_queue')) return { all: mockAll };
+        if (sql.includes('FROM content')) return { get: vi.fn().mockReturnValue(undefined) };
+        if (sql.includes('FROM keyword_groups')) return { get: vi.fn().mockReturnValue(undefined) };
         return { all: mockSecondaryAll };
       }),
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -239,6 +248,115 @@ describe('loadJobs', () => {
     });
 
     expect(mockAll).toHaveBeenCalled();
+  });
+
+  test('resolves refresh job to original content type from content table', () => {
+    const mockAll = vi.fn().mockReturnValue([
+      {
+        job_id: 99,
+        keyword_group_id: 20,
+        content_type: 'refresh',
+        research_pipeline: 'standard',
+        priority_score: 10000,
+        status: 'pending',
+        refresh_meta: JSON.stringify({ anomaly_type: 'striking_distance', suggested_action: 'Add depth', detail: 'Position 12' }),
+        primary_keyword: 'claude code hooks',
+        intent: 'informational',
+        cluster_slug: 'claude-code',
+      },
+    ]);
+
+    const mockContentGet = vi.fn().mockReturnValue({ type: 'faq', body_markdown: '# Existing FAQ\nSome content.' });
+    const mockGroupGet = vi.fn().mockReturnValue(undefined);
+
+    mockGetDb.mockReturnValue({
+      prepare: vi.fn().mockImplementation((sql: string) => {
+        if (sql.includes('FROM create_queue')) return { all: mockAll };
+        if (sql.includes('FROM keywords')) return { all: vi.fn().mockReturnValue([]) };
+        if (sql.includes('FROM content')) return { get: mockContentGet };
+        if (sql.includes('FROM keyword_groups')) return { get: mockGroupGet };
+        return { all: vi.fn().mockReturnValue([]) };
+      }),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any);
+
+    const jobs = loadJobs({ limit: 5, dryRun: false, enOnly: false, skipValidation: false });
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].is_refresh).toBe(true);
+    expect(jobs[0].content_type).toBe('faq');
+    expect(jobs[0].existing_content).toBe('# Existing FAQ\nSome content.');
+    expect(jobs[0].refresh_meta?.anomaly_type).toBe('striking_distance');
+  });
+
+  test('resolves refresh job to keyword_group content_type as fallback', () => {
+    const mockAll = vi.fn().mockReturnValue([
+      {
+        job_id: 100,
+        keyword_group_id: 30,
+        content_type: 'refresh',
+        research_pipeline: 'standard',
+        priority_score: 5000,
+        status: 'pending',
+        refresh_meta: null,
+        primary_keyword: 'some new keyword',
+        intent: 'informational',
+        cluster_slug: null,
+      },
+    ]);
+
+    const mockContentGet = vi.fn().mockReturnValue(undefined); // no existing content
+    const mockGroupGet = vi.fn().mockReturnValue({ content_type: 'glossary' }); // group has original type
+
+    mockGetDb.mockReturnValue({
+      prepare: vi.fn().mockImplementation((sql: string) => {
+        if (sql.includes('FROM create_queue')) return { all: mockAll };
+        if (sql.includes('FROM keywords')) return { all: vi.fn().mockReturnValue([]) };
+        if (sql.includes('FROM content')) return { get: mockContentGet };
+        if (sql.includes('FROM keyword_groups')) return { get: mockGroupGet };
+        return { all: vi.fn().mockReturnValue([]) };
+      }),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any);
+
+    const jobs = loadJobs({ limit: 5, dryRun: false, enOnly: false, skipValidation: false });
+
+    expect(jobs[0].is_refresh).toBe(true);
+    expect(jobs[0].content_type).toBe('glossary');
+    expect(jobs[0].existing_content).toBeUndefined();
+  });
+
+  test('resolves refresh job to blog as final fallback', () => {
+    const mockAll = vi.fn().mockReturnValue([
+      {
+        job_id: 101,
+        keyword_group_id: 40,
+        content_type: 'refresh',
+        research_pipeline: 'standard',
+        priority_score: 2000,
+        status: 'pending',
+        refresh_meta: null,
+        primary_keyword: 'unknown keyword',
+        intent: 'informational',
+        cluster_slug: null,
+      },
+    ]);
+
+    mockGetDb.mockReturnValue({
+      prepare: vi.fn().mockImplementation((sql: string) => {
+        if (sql.includes('FROM create_queue')) return { all: mockAll };
+        if (sql.includes('FROM keywords')) return { all: vi.fn().mockReturnValue([]) };
+        if (sql.includes('FROM content')) return { get: vi.fn().mockReturnValue(undefined) };
+        if (sql.includes('FROM keyword_groups')) return { get: vi.fn().mockReturnValue({ content_type: 'refresh' }) };
+        return { all: vi.fn().mockReturnValue([]) };
+      }),
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } as any);
+
+    const jobs = loadJobs({ limit: 5, dryRun: false, enOnly: false, skipValidation: false });
+
+    expect(jobs[0].is_refresh).toBe(true);
+    expect(jobs[0].content_type).toBe('blog');
   });
 });
 
@@ -407,6 +525,56 @@ describe('buildGenerationPrompt', () => {
 
     expect(user).toContain('ONLY the source material');
     expect(user).toContain('Do not fabricate');
+  });
+
+  test('refresh job loads refresh skill and includes anomaly context', () => {
+    setRefreshSkillContent('# Mock Refresh Skill\nImprove existing pages.');
+    const job = makeJob({
+      is_refresh: true,
+      existing_content: '# Old FAQ\nOutdated content here.',
+      refresh_meta: {
+        anomaly_type: 'high_impressions_low_ctr',
+        suggested_action: 'Rewrite title and meta description',
+        detail: 'Query has 500 impressions but only 1.5% CTR',
+      },
+    });
+    const sp = makeSourcePack();
+    const context = {
+      job,
+      sourcePack: sp,
+      relatedSlugs: { glossary: [], blog: [], compare: [], faq: [] },
+    };
+
+    const { system } = buildGenerationPrompt('faq', sp, context, 'en');
+
+    // Should use refresh skill, not base SEO skill
+    expect(system).toContain('Mock Refresh Skill');
+    expect(system).not.toContain('Mock SEO Skill');
+
+    // Should include anomaly context
+    expect(system).toContain('high_impressions_low_ctr');
+    expect(system).toContain('Rewrite title and meta description');
+
+    // Should include existing content
+    expect(system).toContain('Old FAQ');
+    expect(system).toContain('Outdated content here.');
+  });
+
+  test('non-refresh job uses base SEO skill even after refresh skill is set', () => {
+    setSkillContent('# Mock SEO Skill\nWrite good content.');
+    setRefreshSkillContent('# Mock Refresh Skill\nImprove existing pages.');
+    const job = makeJob({ is_refresh: false });
+    const sp = makeSourcePack();
+    const context = {
+      job,
+      sourcePack: sp,
+      relatedSlugs: { glossary: [], blog: [], compare: [], faq: [] },
+    };
+
+    const { system } = buildGenerationPrompt('faq', sp, context, 'en');
+
+    expect(system).toContain('Mock SEO Skill');
+    expect(system).not.toContain('Mock Refresh Skill');
   });
 });
 

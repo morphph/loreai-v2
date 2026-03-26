@@ -103,6 +103,7 @@ function initSchema(db: Database.Database): void {
       research_pipeline TEXT NOT NULL DEFAULT 'standard',
       priority_score REAL DEFAULT 0,
       status TEXT NOT NULL DEFAULT 'pending',
+      refresh_meta TEXT,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
       completed_at DATETIME
     );

@@ -104,6 +104,12 @@ _(No issues documented yet — will be added as they're discovered)_
 - This meant 25+ topic blog posts contributed zero FAQ/Compare keywords to the SEO pipeline
 - **Fix:** Added SEO entity extraction step (Step 4b) after persist, using shared `extractSEOEntities()` + `saveSEOEntities()` from `scripts/lib/seo-extract.ts`
 
+## 4. Refresh Pipeline Dead Letter (Refresh 队列死信)
+- `performance-cycle.ts` (C3) creates `create_queue` entries with `content_type = 'refresh'` for underperforming pages
+- `content-gen.ts` had no 'refresh' in `ContentType` union — `MODEL_MAP['refresh']` and `getValidatorForType('refresh')` returned `undefined`, crashing the pipeline
+- Additionally, anomaly context (`anomaly_type`, `suggested_action`) was lost — not stored in DB, so refresh prompts couldn't differentiate CTR issues from content depth issues
+- **Fix:** (1) Refresh jobs resolved to original content type at load time (lookup content table → keyword_group fallback → 'blog' default). (2) Added `refresh_meta` column to `create_queue` to store anomaly context. (3) Created `skills/seo-refresh/SKILL.md` with anomaly-specific refresh strategies. (4) `buildGenerationPrompt()` loads refresh skill instead of base SEO skill for refresh jobs.
+
 ---
 
 ## Weekly Digest Pipeline

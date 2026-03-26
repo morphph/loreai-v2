@@ -430,6 +430,12 @@ describe('writeActions', () => {
     expect(jobs[0].content_type).toBe('refresh');
     expect(jobs[0].status).toBe('pending');
     expect(jobs[0].priority_score).toBe(10000); // Priority A
+
+    // refresh_meta stores anomaly context
+    expect(jobs[0].refresh_meta).toBeTruthy();
+    const meta = JSON.parse(jobs[0].refresh_meta as string);
+    expect(meta.anomaly_type).toBe('striking_distance');
+    expect(meta.suggested_action).toBe('Improve');
   });
 
   it('deduplicates — skips if pending refresh job exists', async () => {

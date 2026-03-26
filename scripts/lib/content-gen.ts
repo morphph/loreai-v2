@@ -36,6 +36,12 @@ export type ContentType =
   | 'deep-dive'      // future / manual-only — not auto-assigned by B2
   | 'cornerstone';    // future / manual-only — not auto-assigned by B2
 
+export interface RefreshMeta {
+  anomaly_type?: string;
+  suggested_action?: string;
+  detail?: string;
+}
+
 export interface QueueJob {
   job_id: number;
   keyword_group_id: number;
@@ -47,6 +53,9 @@ export interface QueueJob {
   intent: string;
   cluster_slug: string | null;
   secondary_keywords: string[];
+  is_refresh: boolean;
+  existing_content?: string;
+  refresh_meta?: RefreshMeta;
 }
 
 export interface SourcePack {
@@ -182,7 +191,7 @@ export function loadJobs(opts: ContentGenOptions): QueueJob[] {
   if (opts.jobId) {
     sql = `
       SELECT cq.job_id, cq.keyword_group_id, cq.content_type, cq.research_pipeline,
-             cq.priority_score, cq.status,
+             cq.priority_score, cq.status, cq.refresh_meta,
              kg.primary_keyword, kg.intent, kg.cluster_slug
       FROM create_queue cq
       JOIN keyword_groups kg ON cq.keyword_group_id = kg.group_id
@@ -192,7 +201,7 @@ export function loadJobs(opts: ContentGenOptions): QueueJob[] {
   } else {
     sql = `
       SELECT cq.job_id, cq.keyword_group_id, cq.content_type, cq.research_pipeline,
-             cq.priority_score, cq.status,
+             cq.priority_score, cq.status, cq.refresh_meta,
              kg.primary_keyword, kg.intent, kg.cluster_slug
       FROM create_queue cq
       JOIN keyword_groups kg ON cq.keyword_group_id = kg.group_id
@@ -215,10 +224,19 @@ export function loadJobs(opts: ContentGenOptions): QueueJob[] {
     research_pipeline: string;
     priority_score: number;
     status: string;
+    refresh_meta: string | null;
     primary_keyword: string;
     intent: string;
     cluster_slug: string | null;
   }>;
+
+  // Prepared statements for refresh resolution
+  const findContentBySlug = db.prepare(
+    "SELECT type, body_markdown FROM content WHERE slug = ? AND lang = 'en' LIMIT 1",
+  );
+  const findGroupType = db.prepare(
+    'SELECT content_type FROM keyword_groups WHERE group_id = ?',
+  );
 
   // Load secondary keywords for each job
   return rows.map((row) => {
@@ -228,10 +246,39 @@ export function loadJobs(opts: ContentGenOptions): QueueJob[] {
       )
       .all(row.keyword_group_id, row.primary_keyword) as Array<{ keyword: string }>;
 
+    const isRefresh = row.content_type === 'refresh';
+    let resolvedType: ContentType = row.content_type as ContentType;
+    let existingContent: string | undefined;
+    let refreshMeta: RefreshMeta | undefined;
+
+    if (isRefresh) {
+      // Parse refresh_meta
+      if (row.refresh_meta) {
+        try { refreshMeta = JSON.parse(row.refresh_meta); } catch { /* ignore malformed */ }
+      }
+
+      // Resolve original content type from existing content
+      const slug = row.primary_keyword.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+      const content = findContentBySlug.get(slug) as { type: string; body_markdown: string | null } | undefined;
+
+      if (content) {
+        resolvedType = dirTypeToContentType(content.type);
+        if (content.body_markdown) existingContent = content.body_markdown;
+      } else {
+        // Fallback: check keyword_group's own content_type
+        const group = findGroupType.get(row.keyword_group_id) as { content_type: string } | undefined;
+        if (group && group.content_type !== 'refresh' && isValidContentType(group.content_type)) {
+          resolvedType = group.content_type as ContentType;
+        } else {
+          resolvedType = 'blog';
+        }
+      }
+    }
+
     return {
       job_id: row.job_id,
       keyword_group_id: row.keyword_group_id,
-      content_type: row.content_type as ContentType,
+      content_type: resolvedType,
       research_pipeline: row.research_pipeline as 'standard' | 'deep_research',
       priority_score: row.priority_score,
       status: row.status,
@@ -239,8 +286,17 @@ export function loadJobs(opts: ContentGenOptions): QueueJob[] {
       intent: row.intent,
       cluster_slug: row.cluster_slug,
       secondary_keywords: secondaryKws.map((k) => k.keyword),
+      is_refresh: isRefresh,
+      existing_content: existingContent,
+      refresh_meta: refreshMeta,
     };
   });
+}
+
+const VALID_CONTENT_TYPES = new Set<string>(['faq', 'compare', 'glossary', 'topic-hub', 'blog', 'deep-dive', 'cornerstone']);
+
+function isValidContentType(t: string): t is ContentType {
+  return VALID_CONTENT_TYPES.has(t);
 }
 
 // ── Stage 2: Research Pipelines ──
@@ -452,6 +508,23 @@ function loadSkill(): string {
   return fs.readFileSync(skillPath, 'utf-8');
 }
 
+let _refreshSkillContent: string | null = null;
+
+export function setRefreshSkillContent(content: string): void {
+  _refreshSkillContent = content;
+}
+
+function loadRefreshSkill(): string {
+  if (_refreshSkillContent) return _refreshSkillContent;
+  const skillPath = path.join(process.cwd(), 'skills', 'seo-refresh', 'SKILL.md');
+  return fs.readFileSync(skillPath, 'utf-8');
+}
+
+function dirTypeToContentType(dirType: string): ContentType {
+  if (dirType === 'topics') return 'topic-hub';
+  return dirType as ContentType;
+}
+
 function getRelatedSlugs(clusterSlug: string | null): {
   glossary: string[];
   blog: string[];
@@ -597,25 +670,57 @@ export function buildGenerationPrompt(
   context: GenerationContext,
   lang: 'en' | 'zh',
 ): { system: string; user: string } {
-  const skill = loadSkill();
   const { job, relatedSlugs } = context;
   const slug = job.primary_keyword
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
 
-  // Build system prompt
-  let system = skill + '\n\n';
+  // Build system prompt — use refresh skill for refresh jobs, base SEO skill otherwise
+  let system: string;
 
-  // Content type instructions
-  const inlineInstructions = getContentTypeInstructions(contentType);
-  if (inlineInstructions) {
-    system += inlineInstructions + '\n\n';
+  if (job.is_refresh) {
+    system = loadRefreshSkill() + '\n\n';
+
+    // Add anomaly-specific context
+    if (job.refresh_meta) {
+      system += `## Refresh Context\n`;
+      system += `- Anomaly type: ${job.refresh_meta.anomaly_type || 'unknown'}\n`;
+      system += `- Recommended action: ${job.refresh_meta.suggested_action || 'general improvement'}\n`;
+      system += `- Detail: ${job.refresh_meta.detail || 'none'}\n\n`;
+    }
+
+    // Add page type structure rules from base SEO skill
+    const inlineInstructions = getContentTypeInstructions(contentType);
+    if (inlineInstructions) {
+      system += inlineInstructions + '\n\n';
+    } else {
+      const pageTypeLabel = getSkillPageTypeLabel(contentType);
+      if (pageTypeLabel) {
+        system += `## Page Type: ${pageTypeLabel}\nThis is a ${pageTypeLabel} page refresh. Maintain the ${pageTypeLabel} structure.\n\n`;
+      }
+    }
+
+    // Add existing content as reference
+    if (job.existing_content) {
+      const truncated = job.existing_content.length > 4000
+        ? job.existing_content.slice(0, 4000) + '\n\n[... truncated ...]'
+        : job.existing_content;
+      system += `## Current Page Content (reference)\n\n\`\`\`markdown\n${truncated}\n\`\`\`\n\n`;
+    }
   } else {
-    const pageTypeLabel = getSkillPageTypeLabel(contentType);
-    system += `## Generation Task — ${pageTypeLabel} Page
+    system = loadSkill() + '\n\n';
+
+    // Content type instructions
+    const inlineInstructions = getContentTypeInstructions(contentType);
+    if (inlineInstructions) {
+      system += inlineInstructions + '\n\n';
+    } else {
+      const pageTypeLabel = getSkillPageTypeLabel(contentType);
+      system += `## Generation Task — ${pageTypeLabel} Page
 Generate a ${pageTypeLabel} page for "${job.primary_keyword}".
 Output the FULL markdown file including the --- frontmatter block ---.\n\n`;
+    }
   }
 
   // Source material
@@ -787,8 +892,11 @@ function updateDbAfterGeneration(
         content_type: job.content_type,
         cluster_slug: job.cluster_slug,
         intent: job.intent,
+        ...(job.is_refresh ? { is_refresh: true, refresh_meta: job.refresh_meta } : {}),
       }),
-      generated_by: job.research_pipeline === 'deep_research' ? 'gemini-deep-research' : 'claude',
+      generated_by: job.is_refresh
+        ? (job.research_pipeline === 'deep_research' ? 'gemini-deep-research-refresh' : 'claude-refresh')
+        : (job.research_pipeline === 'deep_research' ? 'gemini-deep-research' : 'claude'),
     });
 
     // Update create_queue status
