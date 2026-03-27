@@ -13,9 +13,11 @@
  *   npx tsx scripts/flagship-discovery.ts --topic=claude-code --skip-serp
  */
 
+import { todaySGT } from './lib/date';
+import { writeSnapshots } from './lib/db';
 import { FLAGSHIP_TOPICS } from './lib/discovery';
 import { runFullDiscovery } from './lib/flagship-discovery';
-import { approvePack } from './lib/subtopic-pack';
+import { approvePack, loadPack } from './lib/subtopic-pack';
 
 // ── CLI Args ──
 
@@ -65,6 +67,28 @@ async function main() {
   // Full discovery mode
   for (const t of topics) {
     await runFullDiscovery(t, { dryRun, skipSerp });
+  }
+
+  // Observability: write snapshot metrics
+  if (!dryRun) {
+    let approvedPacks = 0;
+    let totalSubtopics = 0;
+    let draftPacks = 0;
+    for (const t of FLAGSHIP_TOPICS) {
+      const pack = loadPack(t.slug);
+      if (!pack) continue;
+      if (pack.status === 'approved') {
+        approvedPacks++;
+        totalSubtopics += pack.subtopics.length;
+      } else {
+        draftPacks++;
+      }
+    }
+    writeSnapshots(todaySGT(), [
+      { group: 'flagship_discovery', key: 'approved_packs', value: approvedPacks },
+      { group: 'flagship_discovery', key: 'total_subtopics', value: totalSubtopics },
+      { group: 'flagship_discovery', key: 'draft_packs', value: draftPacks },
+    ]);
   }
 }
 

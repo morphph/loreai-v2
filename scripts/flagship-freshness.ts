@@ -13,9 +13,11 @@
  *   npx tsx scripts/flagship-freshness.ts --dry-run                # No DB writes
  */
 
+import { todaySGT } from './lib/date';
+import { writeSnapshots } from './lib/db';
 import { FLAGSHIP_TOPICS } from './lib/discovery';
-import { loadPack } from './lib/subtopic-pack';
 import { runFreshnessMode } from './lib/flagship-freshness';
+import { loadPack } from './lib/subtopic-pack';
 
 // ── CLI Args ──
 
@@ -63,8 +65,30 @@ async function main() {
 
   console.log(`Flagship Freshness Mode — ${topics.length} topic(s), ${hours}h lookback${dryRun ? ' [DRY RUN]' : ''}`);
 
+  let totalProcessed = 0;
+  let totalRouted = 0;
+  let totalIgnored = 0;
+  let totalDraftsWritten = 0;
+  let totalDeduped = 0;
+
   for (const t of topics) {
-    await runFreshnessMode(t, { dryRun, hours });
+    const result = await runFreshnessMode(t, { dryRun, hours });
+    totalProcessed += result.signalsFound;
+    totalRouted += result.routingsCreated;
+    totalIgnored += result.ignored;
+    totalDraftsWritten += result.draftsWritten;
+    totalDeduped += result.skippedDedup;
+  }
+
+  // Observability: write snapshot metrics
+  if (!dryRun) {
+    writeSnapshots(todaySGT(), [
+      { group: 'flagship_freshness', key: 'events_processed', value: totalProcessed },
+      { group: 'flagship_freshness', key: 'events_routed', value: totalRouted },
+      { group: 'flagship_freshness', key: 'events_ignored', value: totalIgnored },
+      { group: 'flagship_freshness', key: 'queue_drafts_created', value: totalDraftsWritten },
+      { group: 'flagship_freshness', key: 'queue_drafts_deduped', value: totalDeduped },
+    ]);
   }
 }
 

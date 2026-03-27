@@ -29,6 +29,7 @@ safe_push() {
 #   12:00am SGT: collect      — collect-news.ts
 #    2:00am SGT: newsletter   — write-newsletter.ts
 #    4:00am SGT: extract      — extract-entities.ts
+#    4:30am SGT: freshness    — flagship-freshness.ts (D1 — automated)
 #    6:00am SGT: generate     — process-queue.ts (replaces legacy blog + seo)
 #
 # Nightly Review (C5 — after all pipeline stages complete):
@@ -43,6 +44,7 @@ safe_push() {
 #
 # Weekly:
 #   Tue & Sat 8:00am SGT: discovery   — discovery-cycle.ts (keyword expansion)
+#   Sat  7:30am SGT: flagship-discovery — flagship-discovery.ts (D1 — sends Telegram)
 #   Sat      10:00am SGT: performance — performance-cycle.ts (GSC → refresh queue)
 #   Sun       5:00am SGT: weekly      — write-weekly.ts
 #
@@ -62,6 +64,18 @@ case "$STEP" in
     npx tsx scripts/send-newsletter.ts --date="$DATE" --lang=zh ;;
   extract)
     npx tsx scripts/extract-entities.ts --date="$DATE" ;;
+  flagship-freshness)
+    npx tsx scripts/flagship-freshness.ts 2>&1 | tee "logs/flagship-freshness-$DATE.log"
+    echo "flagship_freshness_exit=$?" >> "logs/flagship-freshness-$DATE.log"
+    git add data/flagship-packs/
+    (git commit -m "🔄 Flagship freshness $DATE" || true)
+    safe_push ;;
+  flagship-discovery)
+    npx tsx scripts/flagship-discovery.ts 2>&1 | tee "logs/flagship-discovery-$DATE.log"
+    echo "flagship_discovery_exit=$?" >> "logs/flagship-discovery-$DATE.log"
+    git add data/flagship-packs/
+    (git commit -m "🔭 Flagship discovery $DATE" || true)
+    safe_push ;;
   generate)
     npx tsx scripts/process-queue.ts --limit=5
     git add content/blog/ content/glossary/ content/faq/ content/compare/ content/topics/
@@ -123,8 +137,9 @@ case "$STEP" in
     (git commit -m "🔍 SEO $DATE" || true)
     safe_push ;;
   *)
-    echo "Usage: $0 {collect|newsletter|extract|generate|discovery|performance|weekly|cluster-strategy|video-import|review-health|review-quality|review-strategic}"
+    echo "Usage: $0 {collect|newsletter|extract|flagship-freshness|generate|flagship-discovery|discovery|performance|weekly|cluster-strategy|video-import|review-health|review-quality|review-strategic}"
     echo ""
+    echo "Flagship: flagship-freshness (daily), flagship-discovery (weekly)"
     echo "Review: review-health, review-quality, review-strategic"
     echo "Legacy (manual only): blog, seo"
     exit 1 ;;

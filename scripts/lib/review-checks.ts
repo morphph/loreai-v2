@@ -11,6 +11,8 @@ import type Database from 'better-sqlite3';
 import fs from 'fs';
 import path from 'path';
 import { todaySGT } from './date';
+import { FLAGSHIP_TOPICS } from './discovery';
+import type { SubtopicPack } from './subtopic-pack';
 
 // ── Status String Constants ──
 // Authoritative reference. Never hardcode status strings in SQL.
@@ -791,6 +793,79 @@ export function checkRefreshActions(db: Database.Database): HealthCheckResult {
 }
 
 // ════════════════════════════════════════════
+// Group F — Flagship Topic Health
+// ════════════════════════════════════════════
+
+export function checkFlagshipPackStatus(db: Database.Database, opts?: CheckOptions): HealthCheckResult {
+  return safeCheck('flagship_pack_status', 'snapshot', () => {
+    const missing: string[] = [];
+    const drafts: string[] = [];
+    const stale: string[] = [];
+
+    for (const topic of FLAGSHIP_TOPICS) {
+      const packPath = path.join(opts?.contentRoot ?? process.cwd(), 'data', 'flagship-packs', `${topic.slug}.json`);
+      if (!fs.existsSync(packPath)) {
+        missing.push(topic.slug);
+        continue;
+      }
+      const pack: SubtopicPack = JSON.parse(fs.readFileSync(packPath, 'utf-8'));
+      if (pack.status === 'draft') {
+        drafts.push(topic.slug);
+      }
+      if (pack.approved_at) {
+        const daysSince = (Date.now() - new Date(pack.approved_at).getTime()) / 86400_000;
+        if (daysSince > 14) {
+          stale.push(`${topic.slug} (${Math.floor(daysSince)}d)`);
+        }
+      }
+    }
+
+    const issues: string[] = [];
+    if (missing.length > 0) issues.push(`missing: ${missing.join(', ')}`);
+    if (drafts.length > 0) issues.push(`draft: ${drafts.join(', ')}`);
+    if (stale.length > 0) issues.push(`stale: ${stale.join(', ')}`);
+
+    let status: CheckStatus = 'green';
+    if (missing.length > 0) status = 'red';
+    else if (drafts.length > 0 || stale.length > 0) status = 'yellow';
+
+    return {
+      check_id: 'flagship_pack_status',
+      window: 'snapshot',
+      status,
+      value: FLAGSHIP_TOPICS.length - missing.length,
+      threshold: { green: 'all packs approved & fresh', yellow: 'draft or stale (>14d)', red: 'missing pack' },
+      summary: issues.length > 0
+        ? `Flagship packs: ${issues.join('; ')}`
+        : `All ${FLAGSHIP_TOPICS.length} flagship packs approved & fresh`,
+    };
+  });
+}
+
+export function checkFlagshipMigration(db: Database.Database): HealthCheckResult {
+  return safeCheck('flagship_migration', 'snapshot', () => {
+    const flagshipClusters = db.prepare(
+      `SELECT COUNT(*) as cnt FROM topic_clusters WHERE source = 'flagship_discovery'`
+    ).get() as { cnt: number };
+    const entityClusters = db.prepare(
+      `SELECT COUNT(*) as cnt FROM topic_clusters WHERE source = 'entity_extract'`
+    ).get() as { cnt: number };
+
+    const total = flagshipClusters.cnt + entityClusters.cnt;
+    const pct = total > 0 ? Math.round((flagshipClusters.cnt / total) * 100) : 0;
+
+    return {
+      check_id: 'flagship_migration',
+      window: 'snapshot',
+      status: 'info',
+      value: pct,
+      threshold: { green: 'informational', yellow: '—', red: '—' },
+      summary: `Flagship: ${flagshipClusters.cnt} clusters (${pct}%), Entity: ${entityClusters.cnt} clusters`,
+    };
+  });
+}
+
+// ════════════════════════════════════════════
 // All checks registry
 // ════════════════════════════════════════════
 
@@ -825,4 +900,7 @@ export const ALL_CHECKS: HealthCheckFn[] = [
   // E — Performance Loop Health
   checkGscFreshness,
   checkRefreshActions,
+  // F — Flagship Topic Health
+  checkFlagshipPackStatus,
+  checkFlagshipMigration,
 ];
