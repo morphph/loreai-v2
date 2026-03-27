@@ -264,4 +264,84 @@ Expected — no approved pack in local DB (live DB is on VPS).
 
 ---
 
+## Phase 4: Cron Integration & Observability (2026-03-27)
+
+**Scope:** Wire flagship scripts into VPS cron via `daily-pipeline.sh`, add snapshot metrics for observability, add C5 health checks for pack status and migration tracking.
+
+### Deliverables
+
+| # | Artifact | Status |
+|---|---|---|
+| 1 | `scripts/daily-pipeline.sh` — two new cron steps | Done |
+| 2 | `scripts/flagship-discovery.ts` — snapshot writes | Done |
+| 3 | `scripts/flagship-freshness.ts` — snapshot writes | Done |
+| 4 | `scripts/lib/review-checks.ts` — two new C5 checks | Done |
+
+### 1. Cron Integration (`scripts/daily-pipeline.sh`)
+
+Two new case entries added:
+
+| Step | Cron Slot | Command | Notes |
+|---|---|---|---|
+| `flagship-freshness` | 4:30am SGT Mon–Fri (after extract) | `npx tsx scripts/flagship-freshness.ts` | Tees to `logs/flagship-freshness-$DATE.log`, git commits `data/flagship-packs/` |
+| `flagship-discovery` | 7:30am SGT Saturday (before discovery) | `npx tsx scripts/flagship-discovery.ts` | Tees to `logs/flagship-discovery-$DATE.log`, git commits `data/flagship-packs/` |
+
+Both steps record exit code to the log file and use `safe_push` for git push.
+
+**Updated schedule comments** in the script header to reflect the new 4:30am freshness slot and 7:30am Saturday discovery slot.
+
+**Crontab entries (to be added on VPS):**
+```
+30 20 * * 0-4  bash scripts/daily-pipeline.sh flagship-freshness
+30 23 * * 5    bash scripts/daily-pipeline.sh flagship-discovery
+```
+
+### 2. Observability — Snapshot Metrics
+
+**`flagship-discovery.ts`** — writes after each run (skipped in dry-run):
+
+| metric_group | metric_key | Description |
+|---|---|---|
+| `flagship_discovery` | `approved_packs` | Count of topics with approved packs |
+| `flagship_discovery` | `total_subtopics` | Total subtopics across all approved packs |
+| `flagship_discovery` | `draft_packs` | Packs in draft status (need approval) |
+
+Iterates over all `FLAGSHIP_TOPICS` (not just the ones processed in this run) to give a global view.
+
+**`flagship-freshness.ts`** — accumulates metrics across all topics processed, writes once:
+
+| metric_group | metric_key | Description |
+|---|---|---|
+| `flagship_freshness` | `events_processed` | Total signals evaluated |
+| `flagship_freshness` | `events_routed` | Signals that produced actionable routings |
+| `flagship_freshness` | `events_ignored` | Signals ignored (irrelevant) |
+| `flagship_freshness` | `queue_drafts_created` | Jobs written to create_queue |
+| `flagship_freshness` | `queue_drafts_deduped` | Jobs skipped (already in queue) |
+
+Both use `writeSnapshots()` from `db.ts` with `todaySGT()` as the snapshot date.
+
+### 3. C5 Health Checks (`scripts/lib/review-checks.ts`)
+
+Two new checks added to Group F — Flagship Topic Health:
+
+| Check ID | Window | Description | Thresholds |
+|---|---|---|---|
+| `flagship_pack_status` | snapshot | For each `FLAGSHIP_TOPICS` entry: checks pack file exists, warns if draft, warns if `approved_at` > 14 days | Green: all approved & fresh. Yellow: draft or stale. Red: missing pack file |
+| `flagship_migration` | snapshot | Counts `topic_clusters` by `source` column — `flagship_discovery` vs `entity_extract` | Info only (migration progress metric) |
+
+Both registered in `ALL_CHECKS` array and will run automatically during `review-health` cron step.
+
+### Quality Gates
+
+| Gate | Result |
+|---|---|
+| `npm test` | 889 passed, 8 skipped, 0 failed |
+| `npm run build` | Success (exit 0) |
+
+### Commit
+
+`6cb1092` — `feat: add D1 Phase 4 — cron integration and observability` — pushed to main
+
+---
+
 <!-- Future phases append below -->
