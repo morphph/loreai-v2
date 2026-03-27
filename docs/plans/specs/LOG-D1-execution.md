@@ -80,4 +80,90 @@ Backward-compatible — all existing rows retain their meaning via defaults.
 
 ---
 
+## Phase 2: Full Discovery Mode Script (2026-03-27)
+
+**Scope:** LLM skill prompt + core discovery logic + CLI entry point. Uses Phase 1's subtopic-pack module for persistence and approval.
+
+### Deliverables
+
+| # | Artifact | Status |
+|---|---|---|
+| 1 | `skills/flagship-discovery/SKILL-full.md` | Done |
+| 2 | `scripts/lib/flagship-discovery.ts` | Done |
+| 3 | `scripts/flagship-discovery.ts` | Done |
+
+### 1. LLM Skill Prompt (`skills/flagship-discovery/SKILL-full.md`)
+
+System prompt for Claude Sonnet that synthesizes official + competitor surfaces into subtopic candidates.
+
+**Key instructions to the LLM:**
+- Normalize raw nav labels into durable concept buckets (not "Getting Started" → "setup-and-installation")
+- Slug format: `{topic-slug}-{subtopic}`, lowercase hyphenated
+- Assign evidence types: `official_doc`, `serp_competitor`, `gap_analysis`
+- Freshness sensitivity: `high` (releases/changelogs), `medium` (comparisons), `low` (tutorials)
+- Draft 5–15 seed keywords per subtopic (real search queries, not marketing copy)
+- 1–3 page type hints from: `faq`, `blog`, `compare`, `glossary`, `topic-hub`, `tutorial`
+- 2–5 aliases per subtopic
+- Target 8–20 subtopics per flagship topic
+- Gap analysis: missing angles, weak content types, compare opportunities, refresh opportunities
+
+### 2. Core Logic (`scripts/lib/flagship-discovery.ts`)
+
+**Functions implemented:**
+
+| Function | Description |
+|---|---|
+| `synthesizeOfficialSurfaces(topic, opts)` | Exa semantic search + Serper site-scoped queries for official docs → Claude Sonnet synthesis → official subtopic candidates |
+| `synthesizeCompetitors(topic, existingSubtopics, opts)` | Serper broad search + Exa competitor content → Claude identifies gaps → competitor candidates + GapReport |
+| `normalizeAndMerge(official, competitor, topic, previousPack, opts)` | Deduplicate by slug (official wins), merge aliases, Claude drafts missing seed keywords, set freshness_sensitivity, compute diff vs previous pack |
+| `runFullDiscovery(topic, opts)` | Orchestrate all 4 steps → write draft pack → print summary |
+
+**Data flow:**
+1. Exa + Serper → official surfaces (titles + snippets + URLs)
+2. Claude Sonnet + SKILL-full.md → official subtopic candidates
+3. Serper broad + Exa competitors → competitor surfaces (top 15 URLs, content extracted)
+4. Claude Sonnet → competitor candidates + gap report
+5. Merge (official wins ties) → Claude fills missing seed keywords → validate → write pack
+
+**API clients used:**
+- `semanticSearch()` from `exa.ts` — semantic doc search with domain filtering
+- `getContents()` from `exa.ts` — extract page content from competitor URLs
+- `searchFull()` from `serper.ts` — site-scoped and broad SERP queries
+- `callClaudeWithRetry()` from `ai.ts` — LLM calls with JSON validation + retry
+
+**Known official domains config:**
+- `claude-code` → `docs.anthropic.com`
+- `codex` → `openai.com`, `platform.openai.com`
+
+### 3. CLI Entry Point (`scripts/flagship-discovery.ts`)
+
+| Arg | Default | Description |
+|---|---|---|
+| `--topic=slug` | All flagship topics | Single topic mode |
+| `--approve` | false | Approve draft → materialize via `approvePack()` |
+| `--dry-run` | false | No file/DB writes, print results |
+| `--skip-serp` | false | Skip competitor synthesis (faster, official only) |
+
+**Usage:**
+```bash
+npx tsx scripts/flagship-discovery.ts                              # All topics
+npx tsx scripts/flagship-discovery.ts --topic=claude-code          # Single topic
+npx tsx scripts/flagship-discovery.ts --topic=claude-code --approve # Approve draft
+npx tsx scripts/flagship-discovery.ts --topic=claude-code --dry-run # Preview
+npx tsx scripts/flagship-discovery.ts --topic=claude-code --skip-serp # Official only
+```
+
+### Quality Gates
+
+| Gate | Result |
+|---|---|
+| `npm test` | 889 passed, 8 skipped, 0 failed |
+| `npm run build` | Success (exit 0) |
+
+### Commit
+
+`3ef71da` — `feat: add D1 Phase 2 — full discovery mode script` — pushed to main
+
+---
+
 <!-- Future phases append below -->
