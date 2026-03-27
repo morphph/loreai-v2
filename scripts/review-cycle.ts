@@ -6,6 +6,7 @@
  * Usage:
  *   npx tsx scripts/review-cycle.ts --mode=health              # Layer 1 health checks (pure SQL)
  *   npx tsx scripts/review-cycle.ts --mode=health --format=md  # Markdown output
+ *   npx tsx scripts/review-cycle.ts --mode=health --fix        # Report + auto-fix deterministic issues
  *   npx tsx scripts/review-cycle.ts --mode=quality             # Layer 2 LLM quality sampling
  *   npx tsx scripts/review-cycle.ts --mode=full                # Layer 1 + Layer 2
  *   npx tsx scripts/review-cycle.ts --mode=strategic           # Strategic context package
@@ -16,6 +17,7 @@
 import 'dotenv/config';
 import {
   runHealthChecks,
+  applyAutoFixes,
   runQualityChecks,
   saveReport,
   cleanOldReports,
@@ -38,6 +40,8 @@ function getArg(name: string): string | undefined {
   const arg = args.find((a) => a.startsWith(`--${name}=`));
   return arg?.split('=').slice(1).join('=');
 }
+
+const fix = args.includes('--fix');
 
 const opts: ReviewOptions = {
   mode: (getArg('mode') as ReviewOptions['mode']) ?? 'health',
@@ -70,7 +74,21 @@ async function main() {
 
   if (opts.mode === 'health' || opts.mode === 'full') {
     console.error('Running Layer 1 health checks...');
-    const report = runHealthChecks(db);
+    let report = runHealthChecks(db);
+
+    // Apply auto-fixes if --fix is passed
+    if (fix && report.issues.length > 0) {
+      console.error('Applying deterministic auto-fixes...');
+      report = applyAutoFixes(db, report);
+      if (report.auto_fixes && report.auto_fixes.length > 0) {
+        console.error(`Applied ${report.auto_fixes.length} fix(es):`);
+        for (const f of report.auto_fixes) {
+          console.error(`  [FIX] ${f.check_id}: ${f.action}`);
+        }
+      } else {
+        console.error('No applicable fixes for current issues.');
+      }
+    }
 
     // Save report
     const savedPath = saveReport(report, 'health');

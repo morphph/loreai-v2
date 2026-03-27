@@ -17,6 +17,7 @@ import {
   type CheckStatus,
   type CheckOptions,
 } from './review-checks';
+import { runAutoFixes, type AutoFix } from './review-fixes';
 import {
   runPureQualityChecks,
   runLLMQualityChecks,
@@ -40,6 +41,7 @@ export interface HealthReport {
     info: number;
   };
   issues: HealthCheckResult[];
+  auto_fixes?: AutoFix[];
 }
 
 export interface ReviewOptions {
@@ -97,6 +99,17 @@ export function runHealthChecks(db: Database.Database, opts?: CheckOptions): Hea
     issues: checks.filter(c => c.status === 'yellow' || c.status === 'red' || c.status === 'error'),
   };
 }
+
+// ── Auto-Fix ──
+
+export function applyAutoFixes(db: Database.Database, report: HealthReport): HealthReport {
+  const fixes = runAutoFixes(db, report.issues);
+  if (fixes.length === 0) return report;
+  return { ...report, auto_fixes: fixes };
+}
+
+// Re-export for convenience
+export type { AutoFix } from './review-fixes';
 
 // ── Quality Report ──
 
@@ -762,6 +775,15 @@ export function formatHealthReportMd(report: HealthReport): string {
     for (const issue of report.issues) {
       lines.push(`- ${STATUS_ICON[issue.status]} **${issue.check_id}** (${issue.window}): ${issue.summary}`);
       if (issue.detail) lines.push(`  ${issue.detail}`);
+    }
+    lines.push('');
+  }
+
+  if (report.auto_fixes && report.auto_fixes.length > 0) {
+    lines.push('## Auto-Fixes Applied');
+    lines.push('');
+    for (const fix of report.auto_fixes) {
+      lines.push(`- [FIX] **${fix.check_id}**: ${fix.action}`);
     }
     lines.push('');
   }

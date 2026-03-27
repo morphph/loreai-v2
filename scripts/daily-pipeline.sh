@@ -17,6 +17,12 @@ DATE=$(TZ=Asia/Singapore date +%Y-%m-%d)
 mkdir -p logs
 for i in 1 2 3; do git pull --rebase && break; sleep 10; done
 
+# Safe push: pull --rebase first to handle divergence, then push.
+# Non-fatal — logs a warning but doesn't kill the pipeline.
+safe_push() {
+  git pull --rebase origin main 2>&1 && git push 2>&1 || echo "⚠️  git push failed — will retry next cycle"
+}
+
 # ── Pipeline Steps (crontab uses TZ=Asia/Singapore — all times SGT) ──
 #
 # Daily (Mon-Fri, 2h apart):
@@ -50,7 +56,8 @@ case "$STEP" in
     npx tsx scripts/write-newsletter.ts --date="$DATE"
     npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=newsletter
     git add content/newsletters/ data/filtered-items/ data/blog-seeds/
-    (git commit -m "📰 AI News $DATE" || true) && git push
+    (git commit -m "📰 AI News $DATE" || true)
+    safe_push
     npx tsx scripts/send-newsletter.ts --date="$DATE" --lang=en
     npx tsx scripts/send-newsletter.ts --date="$DATE" --lang=zh ;;
   extract)
@@ -58,39 +65,47 @@ case "$STEP" in
   generate)
     npx tsx scripts/process-queue.ts --limit=5
     git add content/blog/ content/glossary/ content/faq/ content/compare/ content/topics/
-    (git commit -m "🔧 Content $DATE" || true) && git push ;;
+    (git commit -m "🔧 Content $DATE" || true)
+    safe_push ;;
   discovery)
     npx tsx scripts/discovery-cycle.ts
     git add data/
-    (git commit -m "🔭 Discovery $(date +%Y-W%V)" || true) && git push ;;
+    (git commit -m "🔭 Discovery $(date +%Y-W%V)" || true)
+    safe_push ;;
   performance)
     npx tsx scripts/performance-cycle.ts
     git add data/
-    (git commit -m "📈 Performance $(date +%Y-W%V)" || true) && git push ;;
+    (git commit -m "📈 Performance $(date +%Y-W%V)" || true)
+    safe_push ;;
   weekly)
     npx tsx scripts/write-weekly.ts
     git add content/newsletters/weekly/
-    (git commit -m "📊 Weekly $(date +%Y-W%V)" || true) && git push ;;
+    (git commit -m "📊 Weekly $(date +%Y-W%V)" || true)
+    safe_push ;;
   cluster-strategy)
     npx tsx scripts/generate-seo.ts --weekly-strategy
     git add data/content-plan/
-    (git commit -m "📋 Plan $(date +%Y-W%V)" || true) && git push ;;
+    (git commit -m "📋 Plan $(date +%Y-W%V)" || true)
+    safe_push ;;
   video-import)
     npx tsx scripts/import-video-blog.ts --batch --auto ;;
 
   # ── C5 Review Cycle ──
   review-health)
-    npx tsx scripts/review-cycle.ts --mode=health --format=md 2>&1 | tee "logs/review-health-$DATE.log"
+    npx tsx scripts/review-cycle.ts --mode=health --fix --format=md 2>&1 | tee "logs/review-health-$DATE.log"
     git add data/review/
-    (git commit -m "🔍 Review health $DATE" || true) && git push ;;
+    (git commit -m "🔍 Review health $DATE" || true)
+    safe_push ;;
   review-quality)
     npx tsx scripts/review-cycle.ts --mode=quality --format=md 2>&1 | tee "logs/review-quality-$DATE.log"
     git add data/review/
-    (git commit -m "🔍 Review quality $DATE" || true) && git push ;;
+    (git commit -m "🔍 Review quality $DATE" || true)
+    safe_push ;;
   review-strategic)
     npx tsx scripts/review-cycle.ts --mode=strategic 2>&1 | tee "logs/review-strategic-$DATE.log"
     git add data/review/
-    (git commit -m "🔍 Review strategic $DATE" || true) && git push ;;
+    (git commit -m "🔍 Review strategic $DATE" || true)
+    safe_push ;;
 
   # ── Legacy steps (preserved for manual use / fallback) ──
   blog)
@@ -98,13 +113,15 @@ case "$STEP" in
     npx tsx scripts/write-blog.ts --date="$DATE"
     npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=blog
     git add content/blog/
-    (git commit -m "📝 Blog $DATE" || true) && git push ;;
+    (git commit -m "📝 Blog $DATE" || true)
+    safe_push ;;
   seo)
     echo "⚠️  Legacy step: use 'generate' instead (process-queue.ts)"
     npx tsx scripts/generate-seo.ts --date="$DATE"
     npx tsx scripts/validate-pipeline.ts --date="$DATE" --step=seo
     git add content/glossary/ content/faq/ content/compare/ content/topics/
-    (git commit -m "🔍 SEO $DATE" || true) && git push ;;
+    (git commit -m "🔍 SEO $DATE" || true)
+    safe_push ;;
   *)
     echo "Usage: $0 {collect|newsletter|extract|generate|discovery|performance|weekly|cluster-strategy|video-import|review-health|review-quality|review-strategic}"
     echo ""
