@@ -344,4 +344,84 @@ Both registered in `ALL_CHECKS` array and will run automatically during `review-
 
 ---
 
+## SPEC-D2: Entity Extraction Guard + C1 Adaptation (2026-03-27)
+
+**Spec:** SPEC-D2-migration-sunset.md — Phase 2 (§4) + Phase 3 (§3, §5)
+
+### Deliverables
+
+| # | Artifact | Status |
+|---|---|---|
+| 1 | `scripts/extract-entities.ts` — flagship subtopic guard | Done |
+| 2 | `scripts/lib/discovery.ts` — `loadSubtopics()` C1 adaptation | Done |
+| 3 | `scripts/migrate-flagship-tags.ts` — one-time backfill script | Done |
+| 4 | `scripts/__tests__/d2-entity-guard.test.ts` — unit tests | Done |
+
+### 1. Entity Extraction Guard (`scripts/extract-entities.ts`)
+
+New exported function `isFlagshipSubtopic(slug)` with 3-tier check:
+
+| Priority | Check | Description |
+|---|---|---|
+| 1 | Direct match | `flagshipSlugs.has(slug)` against `FLAGSHIP_TOPICS` |
+| 2 | DB check | `topic_clusters WHERE slug = ? AND flagship_topic_slug IS NOT NULL` |
+| 3 | Prefix match | `slug.startsWith('{flagshipSlug}-')` as fallback |
+
+In Stage 3 entity loop: skips `upsertTopicCluster()` for flagship subtopics, logs each skip, prints `skippedFlagship` count at end.
+
+**Non-flagship entities are completely unaffected** — the guard only prevents writes for entities matching flagship topic structure.
+
+### 2. C1 Adaptation (`scripts/lib/discovery.ts`)
+
+`loadSubtopics()` changed from private to exported, with new pack-aware logic:
+
+1. Check if `data/flagship-packs/{topicSlug}.json` exists
+2. If yes: query `topic_clusters WHERE flagship_topic_slug = ? AND source = 'flagship_discovery'` ORDER BY mention_count DESC
+3. If that returns rows, use them (flagship-discovery authority)
+4. Otherwise fall through to legacy `LIKE` query (backward-compatible)
+
+**Key property:** Non-flagship topics and topics without approved packs use the original path exactly.
+
+### 3. Migration Script (`scripts/migrate-flagship-tags.ts`)
+
+One-time idempotent script to backfill `flagship_topic_slug` for existing clusters:
+- For each `FLAGSHIP_TOPICS` entry: UPDATE where `slug = ?` (topic itself) + `slug LIKE '{slug}-%'` (subtopics)
+- Prints tagged count per topic
+
+**VPS execution result:**
+```
+Claude Code: tagged 2 subtopics
+OpenAI Codex: tagged 3 subtopics
+```
+
+### 4. Unit Tests (`scripts/__tests__/d2-entity-guard.test.ts`)
+
+9 tests covering both `isFlagshipSubtopic()` and `loadSubtopics()`:
+
+| Group | Tests | Coverage |
+|---|---|---|
+| `isFlagshipSubtopic` | 5 | Direct flagship slug, DB flagship_topic_slug match, prefix match, non-flagship rejection, no false positive on partial prefix (e.g. "claude-coder" does NOT match "claude-code-") |
+| `loadSubtopics` | 4 | Pack exists with flagship_discovery rows, pack exists but no rows (fallback), no pack (legacy LIKE), empty result |
+
+### Quality Gates
+
+| Gate | Result |
+|---|---|
+| `npm test` | 898 passed, 8 skipped, 0 failed |
+| `npm run build` | Success (exit 0) |
+
+### VPS Deployment
+
+| Step | Result |
+|---|---|
+| `git pull` | Fast-forward to dbe0746 |
+| `npx tsx scripts/migrate-flagship-tags.ts` | 5 subtopics tagged (2 Claude Code + 3 Codex) |
+| `npx tsx scripts/extract-entities.ts --dry-run` | 135 items found, dry-run exits before Stage 3 |
+
+### Commit
+
+`dbe0746` — `feat: implement SPEC-D2 — entity extraction guard + C1 adaptation` — pushed to main
+
+---
+
 <!-- Future phases append below -->
