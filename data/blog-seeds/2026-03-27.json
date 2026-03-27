@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Anthropic adjusts Claude session limits during peak hours",
+    "url": "https://x.com/trq212/status/2037254607001559305",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 3789,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 26.136699999999998,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code auto-fix — in the cloud",
+    "url": "https://x.com/trq212/status/2037219617819812137",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 4052,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 18.215600000000002,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Gemini 3.1 Flash Live: Making audio AI more natural and reliable",
+    "url": "https://deepmind.google/blog/gemini-3-1-flash-live-making-audio-ai-more-natural-and-reliable/",
+    "source": "rss:DeepMind Blog",
+    "x_engagement_24h": 1487,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.4461,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Codex gets 2x rate limits for all ChatGPT subscriptions this week",
+    "url": "https://x.com/reach_vb/status/2037272222297964621",
+    "source": "twitter:@reach_vb",
+    "x_engagement_24h": 1024,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.3072,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Search Live is expanding globally",
+    "url": "https://blog.google/products-and-platforms/products/search/search-live-global-expansion/",
+    "source": "rss:Google AI Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  }
+]
