@@ -151,6 +151,20 @@ function initSchema(db: Database.Database): void {
   if (!contentCols.some(c => c.name === 'generated_by')) {
     db.exec("ALTER TABLE content ADD COLUMN generated_by TEXT DEFAULT NULL");
   }
+
+  // D1 migration: flagship discovery columns
+  const tcCols = db.prepare("PRAGMA table_info(topic_clusters)").all() as { name: string }[];
+  if (!tcCols.some(c => c.name === 'source')) {
+    db.exec("ALTER TABLE topic_clusters ADD COLUMN source TEXT DEFAULT 'entity_extract'");
+  }
+  if (!tcCols.some(c => c.name === 'flagship_topic_slug')) {
+    db.exec("ALTER TABLE topic_clusters ADD COLUMN flagship_topic_slug TEXT DEFAULT NULL");
+  }
+
+  const cqCols = db.prepare("PRAGMA table_info(create_queue)").all() as { name: string }[];
+  if (!cqCols.some(c => c.name === 'source')) {
+    db.exec("ALTER TABLE create_queue ADD COLUMN source TEXT DEFAULT 'discovery'");
+  }
 }
 
 // --- News Items ---
