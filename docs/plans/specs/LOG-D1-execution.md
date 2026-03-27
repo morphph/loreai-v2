@@ -166,4 +166,102 @@ npx tsx scripts/flagship-discovery.ts --topic=claude-code --skip-serp # Official
 
 ---
 
+## Phase 3: Daily Freshness Mode Script (2026-03-27)
+
+**Scope:** LLM skill prompt + freshness routing core logic + CLI entry point. Routes daily news signals to existing approved subtopics and generates create/refresh queue drafts. Fully automated — no human approval needed.
+
+### Deliverables
+
+| # | Artifact | Status |
+|---|---|---|
+| 1 | `skills/flagship-freshness/SKILL.md` | Done |
+| 2 | `scripts/lib/flagship-freshness.ts` | Done |
+| 3 | `scripts/flagship-freshness.ts` | Done |
+
+### 1. LLM Skill Prompt (`skills/flagship-freshness/SKILL.md`)
+
+System prompt for Claude Sonnet that routes fresh news signals to existing approved subtopics.
+
+**Key instructions to the LLM:**
+- Accept: fresh signals + approved subtopic pack (names, descriptions, slugs) + existing content inventory (slugs, titles)
+- NEVER propose new subtopics — only map to existing approved ones
+- Fan-out: one event can affect multiple subtopics/pages
+- Return per-signal routing decisions: target subtopics, target pages, action, reasoning
+- Actions: `refresh`, `create`, `refresh_and_create`, `ignore`
+- Conservative with `create` (clear content gap needed), aggressive with `refresh`
+- Suggested keyword + content type for create actions
+
+### 2. Core Logic (`scripts/lib/flagship-freshness.ts`)
+
+**Functions implemented:**
+
+| Function | Description |
+|---|---|
+| `loadFreshSignals(topicSlug, pack, backHours)` | Load `getAllRecentNewsItems()`, filter by keyword match against topic name + subtopic names + aliases |
+| `loadExistingContent(topicSlug, pack)` | Query `content` table for pages matching topic/subtopic slugs (for refresh targeting) |
+| `routeEventsToSubtopics(signals, pack, existingContent, opts)` | Batch signals (max 20/call), Claude Sonnet + SKILL.md, validate target slugs against pack, calculate timeliness_hours |
+| `generateQueueDrafts(routings, topicSlug, pack, opts)` | Convert routings to `QueueDraftItem[]` with triple dedup |
+| `writeQueueDrafts(queueDraft, opts)` | Seed keywords via `upsertKeyword()`, create keyword groups, write to `create_queue` with source='flagship_freshness' |
+| `runFreshnessMode(topic, opts)` | Orchestrate: load pack (must be approved) → load signals → route → draft → write → print summary |
+
+**Triple dedup in `generateQueueDrafts`:**
+1. Against `create_queue` — via `isDuplicateQueueJob()` (pending/in_progress jobs)
+2. Against recent content — skip refresh if content updated within 7 days
+3. Within same run — merge same-subtopic drafts (combine reasoning, keep highest priority)
+
+**Priority scoring:**
+- `high` (80 points) — event detected < 12 hours ago
+- `medium` (50 points) — event detected < 48 hours ago
+- `low` (30 points) — older events
+
+**API clients used:**
+- `getAllRecentNewsItems()` from `db.ts` — load recent news signals
+- `upsertKeyword()` from `db.ts` — seed keywords for create actions
+- `isDuplicateQueueJob()` from `subtopic-pack.ts` — queue dedup
+- `callClaudeWithRetry()` from `ai.ts` — LLM routing calls with JSON validation
+
+### 3. CLI Entry Point (`scripts/flagship-freshness.ts`)
+
+| Arg | Default | Description |
+|---|---|---|
+| `--topic=slug` | All topics with approved packs | Single topic mode |
+| `--hours=N` | 30 | Lookback window for news_items |
+| `--dry-run` | false | No DB writes, print results |
+
+**Usage:**
+```bash
+npx tsx scripts/flagship-freshness.ts                              # All approved topics
+npx tsx scripts/flagship-freshness.ts --topic=claude-code          # Single topic
+npx tsx scripts/flagship-freshness.ts --hours=48                   # Custom lookback
+npx tsx scripts/flagship-freshness.ts --dry-run                    # Preview
+```
+
+**Default behavior:** Only processes topics with approved packs. Skips topics with draft or missing packs.
+
+### Smoke Test
+
+```
+$ npx tsx scripts/flagship-freshness.ts --topic=claude-code --dry-run
+Flagship Freshness Mode — 1 topic(s), 30h lookback [DRY RUN]
+
+🔄 Flagship Freshness — Claude Code
+══════════════════════════════════════════
+  No pack found for claude-code — skipping
+```
+
+Expected — no approved pack in local DB (live DB is on VPS).
+
+### Quality Gates
+
+| Gate | Result |
+|---|---|
+| `npm test` | 889 passed, 8 skipped, 0 failed |
+| `npm run build` | Success (exit 0) |
+
+### Commit
+
+`dca1c79` — `feat: add D1 Phase 3 — daily freshness mode script` — pushed to main
+
+---
+
 <!-- Future phases append below -->
