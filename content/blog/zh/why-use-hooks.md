@@ -1,61 +1,83 @@
 ---
-title: "为什么要用 Claude Code Hooks？"
+title: "为什么要用 Hooks？从 Webhook 到 React、AI Agent 的统一范式"
 slug: why-use-hooks
-description: "Claude Code Hooks 让你在 AI 执行操作时自动触发自定义脚本，实现质量把关、日志记录和流程自动化。"
-lang: zh
+description: "Hooks 是现代软件工程的核心机制——从 Webhook 到 React Hooks 再到 Claude Code，一文讲清它的本质与价值。"
 category: tools
+lang: zh
 ---
 
-# 为什么要用 Claude Code Hooks？
+# 为什么要用 Hooks？从 Webhook 到 React、AI Agent 的统一范式
 
-大多数开发者用 Claude Code 一段时间后，都会遇到同一个问题：AI 帮你改了代码，但你不确定它有没有跑 lint、有没有格式化、有没有触发某个必须执行的检查。每次都要手动提醒它，或者事后补救——这正是 **Claude Code Hooks** 要解决的问题。
+软件工程里有个词反复出现：**Hooks**。Webhook、React Hooks、PyTorch Hooks、Git Hooks、Claude Code Hooks——名字一样，场景各异，但背后逻辑惊人地一致：**在不修改核心结构的情况下，拦截、增强或响应特定事件**。
 
-## Hooks 是什么
+理解 Hooks 为什么重要，先要理解它解决了什么问题。
 
-[Claude Code Hooks](/glossary/what-are-claude-code-hooks) 是一套配置在 Claude Code 设置里的 shell 命令，在特定事件发生时自动执行。比如每次 Claude 调用工具前后、提交代码前、或者会话结束时，你可以让它自动运行格式化、测试、或者通知脚本。
+## 轮询的代价：为什么"推送"比"拉取"好
 
-它不是插件，不是扩展，就是普通的 shell 命令——只是绑定在 Claude Code 的行为事件上。
+2007 年，开发者 Jeff Lindsay 提出了 Webhook 这个概念。在此之前，两个系统要同步数据，只能靠轮询（polling）：服务 A 每隔几秒问服务 B"有新数据吗？"。这种方式资源消耗高、延迟不稳定，且大量请求都是无效的。
 
-## 为什么不用 Hooks 会让你痛苦
+Webhook 把逻辑倒过来：服务 B 发生事件时，主动推送通知给服务 A。这就是事件驱动架构的核心——**只在有事发生时才行动**，而不是持续消耗资源等待。
 
-不用 Hooks 的团队通常面临三个重复出现的问题：
+这个思路影响深远，后来被 React、PyTorch、AI 工具链反复借鉴。
 
-**一致性问题**：Claude Code 有时会忘记你在系统提示里说的"每次改完都要跑 `npm run lint`"。每隔几轮对话就需要重新提醒，摩擦感很强。
+## React Hooks：解决类组件的根本问题
 
-**可见性问题**：AI 在后台做了什么，你只能通过输出猜测。没有结构化的日志，审计和调试都很难。
+2018 年 10 月，React 官方在 React Conf 上发布了 Hooks（React 16.8）。这不是语法糖，而是对类组件（class component）架构的根本性修正。
 
-**流程断层**：AI 改完代码，但你的 CI/CD 前置检查没有自动触发，等到 push 后才发现问题，又要回头修。
+类组件有三个长期存在的痛点：
 
-## Hooks 真正的价值在哪里
+1. **状态逻辑难以复用**：相关逻辑分散在 `componentDidMount`、`componentDidUpdate`、`componentWillUnmount` 等生命周期方法里，跨组件共享需要高阶组件或 render props，层层嵌套导致"wrapper hell"
+2. **组件臃肿**：一个复杂组件里，不相关的逻辑混在同一个生命周期方法中
+3. **`this` 的困境**：JavaScript 的 `this` 绑定规则对人和编译器都不友好
 
-用过 [Claude Code Hooks 进阶用法](/blog/claude-code-hooks-mastery) 的开发者普遍反馈，Hooks 的核心价值不是"自动化"——而是**把质量保证嵌进 AI 的行为循环里**。
+`useState`、`useEffect`、`useContext` 这些 Hook 让函数组件具备了完整的状态管理能力，同时让相关逻辑聚合在一起，而不是按生命周期分散。
 
-举几个实际场景：
+值得注意的是，React Hooks 的引入也带来了新的学习曲线——`useEffect` 的依赖数组、闭包陷阱、竞态条件调试，社区对此讨论至今。工具改变了范式，但没有消除复杂度，只是将它转移了。
 
-- **格式化守门**：每次 Claude 编辑文件后，自动跑 `prettier` 或 `gofmt`，杜绝风格问题进入代码库
-- **测试触发**：在 Claude 提交代码前，强制跑单元测试，失败则阻断
-- **操作审计**：把每次工具调用记录到日志文件，方便复盘 AI 做了什么决策
-- **通知集成**：任务完成时发 Slack 消息，适合长时间运行的后台任务
+## PyTorch Hooks：给神经网络装"探针"
 
-这些事情你当然可以手动做，但一旦绑定在 Hooks 里，它就变成了不依赖记忆的系统——AI 再也"忘不了"。
+机器学习框架里，Hooks 解决的是另一类问题：**如何在不修改模型结构的情况下，观察中间层的计算过程？**
 
-## 什么时候不需要 Hooks
+PyTorch 的 `register_forward_hook` 和 `register_backward_hook` 允许开发者在前向传播或反向传播时，拦截指定层的输入和输出。这对于：
 
-Hooks 不是万能的。几个不适合用 Hooks 的场景：
+- 调试梯度消失问题
+- 可视化激活层（activation maps）
+- 记录训练指标
 
-- **一次性任务**：如果你只是临时问 Claude 一个问题，不涉及文件操作，没必要配置 Hooks
-- **过度复杂的逻辑**：Hooks 是 shell 命令，不是脚本平台。复杂的业务逻辑应该放在独立脚本里，Hooks 只负责调用入口
-- **调试阶段**：Hooks 会在每次操作时触发，调试时可能干扰信号，建议临时禁用
+……都是非侵入式的关键工具。不需要改动模型代码，只需"挂上"一个 hook 函数。
 
-社区里也有讨论 [Hooks 的常见误区](/faq/claude-code-hooks-reddit)，最常见的一个错误是把太多逻辑堆进单个 Hook 脚本，导致 Claude Code 响应变慢。保持 Hooks 轻量，把重活交给它调用的脚本。
+不过，PyTorch 的 Hook 文档质量一直被社区批评为"严重不足"——功能强大，但使用门槛偏高。
 
-## 从哪里开始
+## Claude Code Hooks：给 AI Agent 加上确定性约束
 
-最简单的入门方式：先加一个格式化 Hook。每次 Claude 编辑 TypeScript 文件后，自动跑 `npx prettier --write`。配置两行，立刻感受到差异。
+最近一个值得关注的应用场景：[Claude Code 的 Hooks 系统](/glossary/what-are-claude-code-hooks)。
 
-然后观察你的工作流里，哪些步骤是"Claude 做完后我需要手动做的"——那些就是 Hooks 的目标。
+LLM 本质上是非确定性的——同样的提示，不同时刻可能产生不同输出。这在自动化工程流程里是个问题：你无法保证 AI 每次都遵循安全规则、代码风格或上下文限制。
 
-用 [Agentic Coding](/glossary/agentic-coding) 的方式思考：不是教 AI 记住规则，而是把规则编码进系统，让它没法绕过。
+[Claude Code 的 Hooks](/glossary/how-hooks-work) 通过在特定事件点（如工具调用前、响应生成后）注入确定性逻辑来解决这个问题。它让开发者可以：
+
+- 在 AI 执行破坏性操作前强制确认
+- 自动注入项目上下文（如 CLAUDE.md 内容）
+- 记录所有 AI 操作用于审计
+- 拦截违反安全策略的命令
+
+这与 Git Hooks 的逻辑完全一致：`pre-commit` 在提交前运行检查，不通过则阻止提交。AI Agent 的 Hooks 在工具执行前运行检查，不通过则阻止操作。
+
+更多实战用法可参考：[Claude Code Hooks 实战指南](/blog/claude-code-hooks-mastery)。
+
+## Hooks 的共同本质
+
+回顾这几个场景，Hooks 的价值可以归结为三点：
+
+**1. 关注点分离**：核心逻辑不需要知道"谁在监听它"，监听者也不需要修改核心逻辑。
+
+**2. 非侵入式扩展**：在不 fork、不重写的前提下，给已有系统添加新行为。
+
+**3. 事件驱动优于轮询**：只在需要时触发，而不是持续消耗资源等待。
+
+无论是 1990 年代的 Web 回调、2018 年的 React 函数组件，还是 2025 年的 AI Agent 工具链，这个范式都在重复证明自己的价值。
+
+理解了为什么要用 Hooks，才能在具体场景里用对它——而不是把它当成"新语法"死记硬背。
 
 ---
 
