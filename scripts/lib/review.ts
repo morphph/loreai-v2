@@ -305,7 +305,7 @@ const REPORT_DIR = 'data/review';
 const RETENTION_DAYS = 30;
 
 export function saveReport(
-  report: HealthReport,
+  report: HealthReport | QualityReport | string,
   mode: string,
   rootDir: string = process.cwd(),
 ): string {
@@ -319,7 +319,8 @@ export function saveReport(
   const filename = `${mode}-${today}.${ext}`;
   const filePath = path.join(dir, filename);
 
-  fs.writeFileSync(filePath, JSON.stringify(report, null, 2), 'utf-8');
+  const content = typeof report === 'string' ? report : JSON.stringify(report, null, 2);
+  fs.writeFileSync(filePath, content, 'utf-8');
   return filePath;
 }
 
@@ -351,6 +352,394 @@ const STATUS_ICON: Record<string, string> = {
   error: '[ERR]',
   info: '[INFO]',
 };
+
+// ── Trend Tracking ──
+
+export interface QualityTrend {
+  previous_report_date: string | null;
+  deltas: {
+    keyword_coherence: number | null;
+    content_intent_match: number | null;
+    content_aeo_readiness: number | null;
+    keyword_quality_junk_rate: number | null;
+  };
+}
+
+export function loadLatestReport<T>(
+  mode: string,
+  rootDir: string = process.cwd(),
+): { date: string; report: T } | null {
+  const dir = path.join(rootDir, REPORT_DIR);
+  if (!fs.existsSync(dir)) return null;
+
+  const files = fs.readdirSync(dir)
+    .filter(f => f.startsWith(`${mode}-`) && f.endsWith('.json'))
+    .sort()
+    .reverse();
+
+  if (files.length === 0) return null;
+
+  const dateMatch = files[0].match(/\d{4}-\d{2}-\d{2}/);
+  if (!dateMatch) return null;
+
+  const content = fs.readFileSync(path.join(dir, files[0]), 'utf-8');
+  return { date: dateMatch[0], report: JSON.parse(content) as T };
+}
+
+export function loadReportsInRange<T>(
+  mode: string,
+  days: number,
+  rootDir: string = process.cwd(),
+): Array<{ date: string; report: T }> {
+  const dir = path.join(rootDir, REPORT_DIR);
+  if (!fs.existsSync(dir)) return [];
+
+  const cutoff = new Date(Date.now() - days * 86400_000).toISOString().slice(0, 10);
+
+  return fs.readdirSync(dir)
+    .filter(f => f.startsWith(`${mode}-`) && f.endsWith('.json'))
+    .sort()
+    .map(f => {
+      const dateMatch = f.match(/\d{4}-\d{2}-\d{2}/);
+      if (!dateMatch || dateMatch[0] < cutoff) return null;
+      const content = fs.readFileSync(path.join(dir, f), 'utf-8');
+      return { date: dateMatch[0], report: JSON.parse(content) as T };
+    })
+    .filter((x): x is { date: string; report: T } => x !== null);
+}
+
+export function computeQualityTrends(
+  current: QualityReport,
+  rootDir: string = process.cwd(),
+): QualityTrend {
+  const prev = loadLatestReport<QualityReport>('quality', rootDir);
+
+  if (!prev || !prev.report.llm_checks) {
+    return {
+      previous_report_date: prev?.date ?? null,
+      deltas: {
+        keyword_coherence: null,
+        content_intent_match: null,
+        content_aeo_readiness: null,
+        keyword_quality_junk_rate: null,
+      },
+    };
+  }
+
+  const prevLLM = prev.report.llm_checks;
+  const curLLM = current.llm_checks;
+
+  const delta = (cur: number | undefined, prev: number): number | null =>
+    cur != null ? Math.round((cur - prev) * 100) / 100 : null;
+
+  return {
+    previous_report_date: prev.date,
+    deltas: {
+      keyword_coherence: delta(curLLM?.keyword_coherence.average_score, prevLLM.keyword_coherence.average_score),
+      content_intent_match: delta(curLLM?.content_intent_match.average_score, prevLLM.content_intent_match.average_score),
+      content_aeo_readiness: delta(curLLM?.content_aeo_readiness.average_score, prevLLM.content_aeo_readiness.average_score),
+      keyword_quality_junk_rate: delta(curLLM?.keyword_quality.junk_rate, prevLLM.keyword_quality.junk_rate),
+    },
+  };
+}
+
+// ── Strategic Report Generator ──
+
+export interface StrategicContext {
+  db: Database.Database;
+  rootDir?: string;
+  contentRoot?: string;
+}
+
+export function generateStrategicReport(ctx: StrategicContext): string {
+  const { db, rootDir = process.cwd(), contentRoot = process.cwd() } = ctx;
+  const today = todaySGT();
+  const lines: string[] = [];
+
+  lines.push(`# LoreAI Strategic Review — ${today}`);
+  lines.push('');
+
+  // ── Section 1: Pipeline Health ──
+  const latestHealth = loadLatestReport<HealthReport>('health', rootDir);
+  if (latestHealth) {
+    lines.push('## Pipeline Health (Layer 1)');
+    lines.push(`*From: ${latestHealth.date}*`);
+    lines.push(`Overall: **${latestHealth.report.overall_status.toUpperCase()}**`);
+    lines.push('');
+    if (latestHealth.report.issues.length > 0) {
+      lines.push('Issues:');
+      for (const issue of latestHealth.report.issues) {
+        lines.push(`- [${issue.status.toUpperCase()}] **${issue.check_id}**: ${issue.summary}`);
+      }
+    } else {
+      lines.push('No issues detected.');
+    }
+    lines.push('');
+  } else {
+    lines.push('## Pipeline Health (Layer 1)');
+    lines.push('*No health report available — run `--mode=health` first.*');
+    lines.push('');
+  }
+
+  // ── Section 2: Quality Scores + Trends ──
+  const qualityReports = loadReportsInRange<QualityReport>('quality', 7, rootDir);
+  const latestQuality = qualityReports.length > 0 ? qualityReports[qualityReports.length - 1] : null;
+
+  lines.push('## Quality Scores (Layer 2)');
+  if (latestQuality) {
+    const q = latestQuality.report;
+    lines.push(`*From: ${latestQuality.date} | Overall: ${q.overall_quality.toUpperCase()}*`);
+    lines.push('');
+
+    // Pure checks summary
+    const d = q.pure_checks.priority_sanity;
+    const g = q.pure_checks.internal_linking;
+    const h = q.pure_checks.refresh_pipeline;
+    lines.push(`| Rubric | Status | Detail |`);
+    lines.push(`|--------|--------|--------|`);
+    lines.push(`| D — Priority | ${d.status.toUpperCase()} | ${d.issues.length} issues |`);
+    lines.push(`| G — Linking | ${g.status.toUpperCase()} | ${g.by_topic.length} topics |`);
+    lines.push(`| H — Refresh | ${h.status.toUpperCase()} | ${h.detail.slice(0, 60)} |`);
+
+    // LLM checks summary
+    if (q.llm_checks) {
+      const lc = q.llm_checks;
+      lines.push(`| A — Coherence | ${lc.keyword_coherence.status.toUpperCase()} | avg=${lc.keyword_coherence.average_score} (n=${lc.keyword_coherence.samples_scored}) |`);
+      lines.push(`| B — Intent | ${lc.content_intent_match.status.toUpperCase()} | avg=${lc.content_intent_match.average_score} (n=${lc.content_intent_match.samples_scored}) |`);
+      lines.push(`| C — AEO | ${lc.content_aeo_readiness.status.toUpperCase()} | avg=${lc.content_aeo_readiness.average_score} (n=${lc.content_aeo_readiness.samples_scored}) |`);
+      lines.push(`| E — Subtopics | ${lc.subtopic_discovery.status.toUpperCase()} | avg=${lc.subtopic_discovery.average_score} (n=${lc.subtopic_discovery.samples_scored}) |`);
+      lines.push(`| F — Keywords | ${lc.keyword_quality.status.toUpperCase()} | junk=${Math.round(lc.keyword_quality.junk_rate * 100)}% (n=${lc.keyword_quality.samples_scored}) |`);
+    }
+    lines.push('');
+
+    // Weekly trends from multiple quality reports
+    if (qualityReports.length >= 2) {
+      const first = qualityReports[0].report;
+      const last = qualityReports[qualityReports.length - 1].report;
+      lines.push('### Weekly Trends');
+      lines.push(`Reports this week: ${qualityReports.length}`);
+      lines.push('');
+      if (first.llm_checks && last.llm_checks) {
+        const trend = (label: string, cur: number, prev: number) => {
+          const d = Math.round((cur - prev) * 100) / 100;
+          const arrow = d > 0 ? '+' : d < 0 ? '' : '=';
+          return `- ${label}: ${prev} → ${cur} (${arrow}${d})`;
+        };
+        lines.push(trend('Keyword coherence', last.llm_checks.keyword_coherence.average_score, first.llm_checks.keyword_coherence.average_score));
+        lines.push(trend('Intent match', last.llm_checks.content_intent_match.average_score, first.llm_checks.content_intent_match.average_score));
+        lines.push(trend('AEO readiness', last.llm_checks.content_aeo_readiness.average_score, first.llm_checks.content_aeo_readiness.average_score));
+        lines.push(trend('Junk rate', last.llm_checks.keyword_quality.junk_rate, first.llm_checks.keyword_quality.junk_rate));
+      }
+      lines.push('');
+    }
+  } else {
+    lines.push('*No quality report available — run `--mode=quality` first.*');
+    lines.push('');
+  }
+
+  // ── Section 3: Content Inventory ──
+  lines.push('## Content Inventory');
+  const contentTypes = ['blog', 'faq', 'compare', 'glossary', 'topics'] as const;
+  for (const type of contentTypes) {
+    const enDir = path.join(contentRoot, 'content', type, 'en');
+    const zhDir = path.join(contentRoot, 'content', type, 'zh');
+    const enCount = countContentFiles(enDir);
+    const zhCount = countContentFiles(zhDir);
+    lines.push(`- ${type}: ${enCount} EN / ${zhCount} ZH`);
+  }
+  lines.push('');
+
+  // ── Section 4: Flagship Topic Status ──
+  lines.push('## Flagship Topic Status');
+  try {
+    const topicRows = db.prepare(
+      `SELECT
+         tc.slug,
+         COUNT(DISTINCT k.id) as total_kw,
+         SUM(CASE WHEN k.content_exists = 1 THEN 1 ELSE 0 END) as covered_kw
+       FROM topic_clusters tc
+       LEFT JOIN keywords k ON k.cluster_slug = tc.slug
+       GROUP BY tc.slug
+       HAVING total_kw > 0
+       ORDER BY total_kw DESC
+       LIMIT 15`
+    ).all() as Array<{ slug: string; total_kw: number; covered_kw: number }>;
+
+    // Also get group/queue counts per topic
+    const groupRows = db.prepare(
+      `SELECT cluster_slug, COUNT(*) as cnt, status
+       FROM keyword_groups
+       WHERE cluster_slug IS NOT NULL
+       GROUP BY cluster_slug, status`
+    ).all() as Array<{ cluster_slug: string; cnt: number; status: string }>;
+
+    const groupMap = new Map<string, Record<string, number>>();
+    for (const r of groupRows) {
+      if (!groupMap.has(r.cluster_slug)) groupMap.set(r.cluster_slug, {});
+      groupMap.get(r.cluster_slug)![r.status] = r.cnt;
+    }
+
+    const queueRows = db.prepare(
+      `SELECT kg.cluster_slug, cq.status, COUNT(*) as cnt
+       FROM create_queue cq
+       JOIN keyword_groups kg ON cq.keyword_group_id = kg.group_id
+       WHERE kg.cluster_slug IS NOT NULL
+       GROUP BY kg.cluster_slug, cq.status`
+    ).all() as Array<{ cluster_slug: string; status: string; cnt: number }>;
+
+    const queueMap = new Map<string, Record<string, number>>();
+    for (const r of queueRows) {
+      if (!queueMap.has(r.cluster_slug)) queueMap.set(r.cluster_slug, {});
+      queueMap.get(r.cluster_slug)![r.status] = r.cnt;
+    }
+
+    lines.push('| Topic | Keywords | Covered | Groups | Queue | Coverage |');
+    lines.push('|-------|----------|---------|--------|-------|----------|');
+    for (const row of topicRows) {
+      const coverage = row.total_kw > 0 ? Math.round((row.covered_kw / row.total_kw) * 100) : 0;
+      const gs = groupMap.get(row.slug) ?? {};
+      const qs = queueMap.get(row.slug) ?? {};
+      const groupTotal = Object.values(gs).reduce((s, n) => s + n, 0);
+      const queueTotal = Object.values(qs).reduce((s, n) => s + n, 0);
+      lines.push(`| ${row.slug} | ${row.total_kw} | ${row.covered_kw} | ${groupTotal} | ${queueTotal} | ${coverage}% |`);
+    }
+  } catch {
+    lines.push('*Could not query topic data.*');
+  }
+  lines.push('');
+
+  // ── Section 5: Top 10 Queue ──
+  lines.push('## Top 10 Queue (What System Wants to Build Next)');
+  try {
+    const queueItems = db.prepare(
+      `SELECT cq.job_id, kg.primary_keyword, cq.content_type, cq.priority_score
+       FROM create_queue cq
+       JOIN keyword_groups kg ON cq.keyword_group_id = kg.group_id
+       WHERE cq.status = 'pending'
+       ORDER BY cq.priority_score DESC
+       LIMIT 10`
+    ).all() as Array<{ job_id: number; primary_keyword: string; content_type: string; priority_score: number }>;
+
+    if (queueItems.length > 0) {
+      for (const item of queueItems) {
+        lines.push(`- [${item.priority_score}] ${item.primary_keyword} (${item.content_type})`);
+      }
+    } else {
+      lines.push('*Queue is empty.*');
+    }
+  } catch {
+    lines.push('*Could not query queue.*');
+  }
+  lines.push('');
+
+  // ── Section 6: Bottom 5 Quality Samples ──
+  lines.push('## Bottom 5 Quality Samples (What Needs Attention)');
+  if (latestQuality?.report.llm_checks) {
+    const lc = latestQuality.report.llm_checks;
+    const worstContent = lc.content_intent_match.worst_pieces.slice(0, 5);
+    if (worstContent.length > 0) {
+      for (const w of worstContent) {
+        lines.push(`- ${w.type}/${w.slug} (intent score=${w.score}): ${w.reason}`);
+      }
+    } else {
+      lines.push('*No low-scoring content samples.*');
+    }
+  } else {
+    lines.push('*No LLM quality data available.*');
+  }
+  lines.push('');
+
+  // ── Section 7: Worst Keyword Groups ──
+  lines.push('## Worst Keyword Groups (Grouping Issues)');
+  if (latestQuality?.report.llm_checks) {
+    const worstGroups = latestQuality.report.llm_checks.keyword_coherence.worst_groups.slice(0, 5);
+    if (worstGroups.length > 0) {
+      for (const w of worstGroups) {
+        lines.push(`- ${w.primary_keyword} (score=${w.score}): ${w.reason}`);
+      }
+    } else {
+      lines.push('*No low-scoring keyword groups.*');
+    }
+  } else {
+    lines.push('*No LLM quality data available.*');
+  }
+  lines.push('');
+
+  // ── Section 8: Questions for Human Review ──
+  lines.push('## Questions for Human Review');
+  const questions = generateReviewQuestions(latestHealth?.report ?? null, latestQuality?.report ?? null);
+  if (questions.length > 0) {
+    for (const q of questions) {
+      lines.push(`- ${q}`);
+    }
+  } else {
+    lines.push('*No auto-generated questions — everything looks healthy.*');
+  }
+  lines.push('');
+
+  return lines.join('\n');
+}
+
+function countContentFiles(dir: string): number {
+  if (!fs.existsSync(dir)) return 0;
+  return fs.readdirSync(dir).filter(f => f.endsWith('.md') && f !== '.gitkeep').length;
+}
+
+function generateReviewQuestions(
+  health: HealthReport | null,
+  quality: QualityReport | null,
+): string[] {
+  const questions: string[] = [];
+
+  if (health) {
+    for (const issue of health.issues) {
+      if (issue.check_id === 'queue_drain_rate' && issue.value === 0) {
+        questions.push('Queue drain rate is 0. Is process-queue.ts cron running?');
+      }
+      if (issue.check_id === 'newsletter_published' && issue.status === 'red') {
+        questions.push(`Newsletter missing: ${issue.summary}. Check write-newsletter.ts cron?`);
+      }
+      if (issue.check_id === 'discovery_freshness' && issue.status === 'red') {
+        questions.push('Discovery cycle is stale. Check discovery-cycle.ts cron?');
+      }
+      if (issue.check_id === 'queue_stuck_items' && issue.status !== 'green') {
+        questions.push(`${issue.value} stuck queue items. Investigate process-queue.ts failures?`);
+      }
+    }
+  }
+
+  if (quality?.llm_checks) {
+    const lc = quality.llm_checks;
+    if (lc.keyword_coherence.average_score < 3.5) {
+      questions.push(`Keyword coherence is ${lc.keyword_coherence.average_score}/5. Review grouping prompt?`);
+    }
+    if (lc.content_aeo_readiness.average_score < 3.0) {
+      questions.push(`AEO readiness is ${lc.content_aeo_readiness.average_score}/5. Update SEO skill prompt?`);
+    }
+    if (lc.content_intent_match.average_score < 3.0) {
+      questions.push(`Intent match is ${lc.content_intent_match.average_score}/5. Check content generation prompts?`);
+    }
+    if (lc.keyword_quality.junk_rate > 0.3) {
+      questions.push(`Keyword junk rate is ${Math.round(lc.keyword_quality.junk_rate * 100)}%. Tighten discovery filters?`);
+    }
+  }
+
+  if (quality?.pure_checks) {
+    const d = quality.pure_checks.priority_sanity;
+    if (d.status === 'red') {
+      questions.push(`Priority scoring has ${d.issues.length} issues. Review scoring logic?`);
+    }
+    const g = quality.pure_checks.internal_linking;
+    if (g.status === 'red') {
+      const totalOrphans = g.by_topic.reduce((s, t) => s + t.orphan_pages.length, 0);
+      questions.push(`${totalOrphans} orphan pages detected. Add internal links?`);
+    }
+  }
+
+  return questions;
+}
+
+// ── Markdown Formatter ──
 
 export function formatHealthReportMd(report: HealthReport): string {
   const lines: string[] = [];

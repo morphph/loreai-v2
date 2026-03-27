@@ -21,6 +21,8 @@ import {
   cleanOldReports,
   formatHealthReportMd,
   formatQualityReportMd,
+  generateStrategicReport,
+  computeQualityTrends,
 } from './lib/review';
 import { getDb, closeDb } from './lib/db';
 import { callClaude } from './lib/ai';
@@ -112,7 +114,11 @@ async function main() {
       callLLM: opts.dryRun ? undefined : callLLM,
     });
 
-    const savedQPath = saveReport(qualityReport as unknown as import('./lib/review').HealthReport, 'quality');
+    // Compute trends from previous quality report
+    const trends = computeQualityTrends(qualityReport);
+    const reportWithTrends = { ...qualityReport, trends };
+
+    const savedQPath = saveReport(reportWithTrends, 'quality');
     console.error(`Quality report saved: ${savedQPath}`);
 
     if (opts.format === 'md') {
@@ -142,7 +148,18 @@ async function main() {
   }
 
   if (opts.mode === 'strategic') {
-    console.error('\nStrategic mode: not yet implemented (Phase 3)');
+    console.error('\nGenerating strategic context package...');
+    const strategicMd = generateStrategicReport({
+      db,
+      rootDir: process.cwd(),
+      contentRoot: opts.contentRoot ?? process.cwd(),
+    });
+
+    const savedPath = saveReport(strategicMd, 'strategic');
+    console.error(`Strategic report saved: ${savedPath}`);
+
+    // Always output markdown for strategic mode
+    console.log(strategicMd);
   }
 
   closeDb();

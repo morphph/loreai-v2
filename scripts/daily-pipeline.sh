@@ -25,6 +25,16 @@ for i in 1 2 3; do git pull --rebase && break; sleep 10; done
 #    4:00am SGT: extract      — extract-entities.ts
 #    6:00am SGT: generate     — process-queue.ts (replaces legacy blog + seo)
 #
+# Nightly Review (C5 — after all pipeline stages complete):
+#    9:00pm SGT Mon-Fri: review-health    — Layer 1 health checks (pure SQL)
+#    9:30pm SGT Mon-Fri: review-quality   — Layer 2 quality sampling (LLM)
+#   10:00pm SGT Sun:     review-strategic — Weekly context package for human review
+#
+# Crontab entries (UTC = SGT - 8h):
+#   0  13 * * 1-5  bash scripts/daily-pipeline.sh review-health
+#   30 13 * * 1-5  bash scripts/daily-pipeline.sh review-quality
+#   0  14 * * 0    bash scripts/daily-pipeline.sh review-strategic
+#
 # Weekly:
 #   Tue & Sat 8:00am SGT: discovery   — discovery-cycle.ts (keyword expansion)
 #   Sat      10:00am SGT: performance — performance-cycle.ts (GSC → refresh queue)
@@ -68,6 +78,20 @@ case "$STEP" in
   video-import)
     npx tsx scripts/import-video-blog.ts --batch --auto ;;
 
+  # ── C5 Review Cycle ──
+  review-health)
+    npx tsx scripts/review-cycle.ts --mode=health --format=md 2>&1 | tee "logs/review-health-$DATE.log"
+    git add data/review/
+    (git commit -m "🔍 Review health $DATE" || true) && git push ;;
+  review-quality)
+    npx tsx scripts/review-cycle.ts --mode=quality --format=md 2>&1 | tee "logs/review-quality-$DATE.log"
+    git add data/review/
+    (git commit -m "🔍 Review quality $DATE" || true) && git push ;;
+  review-strategic)
+    npx tsx scripts/review-cycle.ts --mode=strategic 2>&1 | tee "logs/review-strategic-$DATE.log"
+    git add data/review/
+    (git commit -m "🔍 Review strategic $DATE" || true) && git push ;;
+
   # ── Legacy steps (preserved for manual use / fallback) ──
   blog)
     echo "⚠️  Legacy step: use 'generate' instead (process-queue.ts)"
@@ -82,8 +106,9 @@ case "$STEP" in
     git add content/glossary/ content/faq/ content/compare/ content/topics/
     (git commit -m "🔍 SEO $DATE" || true) && git push ;;
   *)
-    echo "Usage: $0 {collect|newsletter|extract|generate|discovery|performance|weekly|cluster-strategy|video-import}"
+    echo "Usage: $0 {collect|newsletter|extract|generate|discovery|performance|weekly|cluster-strategy|video-import|review-health|review-quality|review-strategic}"
     echo ""
+    echo "Review: review-health, review-quality, review-strategic"
     echo "Legacy (manual only): blog, seo"
     exit 1 ;;
 esac
