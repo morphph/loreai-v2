@@ -2,7 +2,33 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 import { getDb, getAllRecentNewsItems, upsertTopicCluster, closeDb } from './lib/db';
 import { callClaudeWithRetry, checkClaudeHealth } from './lib/ai';
+import { FLAGSHIP_TOPICS } from './lib/discovery';
 import 'dotenv/config';
+
+// ── Flagship Guard ──
+
+const flagshipSlugs = new Set(FLAGSHIP_TOPICS.map(t => t.slug));
+
+export function isFlagshipSubtopic(slug: string): boolean {
+  // Direct match against flagship topic slugs
+  if (flagshipSlugs.has(slug)) return true;
+
+  // Subtopic match: check flagship_topic_slug in DB
+  const db = getDb();
+  const row = db.prepare(
+    `SELECT 1 FROM topic_clusters
+     WHERE slug = ? AND flagship_topic_slug IS NOT NULL
+     LIMIT 1`
+  ).get(slug);
+  if (row) return true;
+
+  // Prefix match against flagship slugs (fallback)
+  for (const fs of flagshipSlugs) {
+    if (slug.startsWith(`${fs}-`)) return true;
+  }
+
+  return false;
+}
 
 // Parse args
 const args = process.argv.slice(2);
@@ -121,6 +147,7 @@ async function main() {
   const newSeeds: string[] = [];
   let updated = 0;
   let created = 0;
+  let skippedFlagship = 0;
 
   // Batch-load existing clusters to avoid N+1 queries
   const db = getDb();
@@ -132,6 +159,13 @@ async function main() {
   for (const entity of entities) {
     const slug = entity.normalized;
     if (!slug) continue;
+
+    // Skip flagship subtopics — these are managed by flagship discovery
+    if (isFlagshipSubtopic(slug)) {
+      console.log(`  Skipped flagship subtopic: "${entity.entity}" → ${slug}`);
+      skippedFlagship++;
+      continue;
+    }
 
     upsertTopicCluster(slug, entity.entity);
 
@@ -146,6 +180,7 @@ async function main() {
   }
 
   console.log(`  Updated ${updated} existing, created ${created} new clusters`);
+  console.log(`  Skipped ${skippedFlagship} flagship subtopics (managed by discovery agent)`);
 
   closeDb();
   console.log(`\n✅ Entity extraction complete — ${entities.length} entities, ${created} new clusters`);

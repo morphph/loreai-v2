@@ -7,6 +7,8 @@
  * @see docs/plans/specs/SPEC-C1-discovery-cycle.md
  */
 
+import { existsSync } from 'fs';
+import { join } from 'path';
 import { getDb, upsertTopicCluster, closeDb } from './db';
 import { expandTopic } from './keyword-expand';
 import { groupTopic } from './keyword-group';
@@ -186,8 +188,31 @@ export async function discoverNewSubtopics(
 
 // ── Load Subtopics from DB ──
 
-function loadSubtopics(topicSlug: string): SubtopicInput[] {
+export function loadSubtopics(topicSlug: string): SubtopicInput[] {
   const db = getDb();
+
+  // Check if this topic has an approved flagship pack
+  const hasApprovedPack = existsSync(
+    join(__dirname, '../../data/flagship-packs', `${topicSlug}.json`),
+  );
+
+  if (hasApprovedPack) {
+    // Prefer flagship-discovery subtopics
+    const rows = db
+      .prepare(
+        `SELECT slug, pillar_topic FROM topic_clusters
+         WHERE flagship_topic_slug = ? AND source = 'flagship_discovery'
+         ORDER BY mention_count DESC`,
+      )
+      .all(topicSlug) as Array<{ slug: string; pillar_topic: string }>;
+
+    if (rows.length > 0) {
+      return rows.map((r) => ({ slug: r.slug, pillar_topic: r.pillar_topic }));
+    }
+    // Fall through to legacy query if materialization hasn't happened yet
+  }
+
+  // Legacy: slug prefix matching (unchanged)
   const rows = db
     .prepare(
       `SELECT slug, pillar_topic FROM topic_clusters
