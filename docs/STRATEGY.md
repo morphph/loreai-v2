@@ -189,10 +189,12 @@ Every activity in the pipeline operates at one of these levels:
 Two weekly cycles drive the engine:
 
 
-| Cycle                 | Cadence                                    | Purpose                   | Output                                              |
-| --------------------- | ------------------------------------------ | ------------------------- | --------------------------------------------------- |
-| **Discovery Cycle**   | Weekly (Saturday) + event-triggered        | Expand what we know about | New subtopics, new keywords, updated priority queue |
-| **Performance Cycle** | Weekly (Tuesday, after GSC data refreshes) | Evaluate what we've built | Refresh/optimize actions for existing pages         |
+| Cycle                        | Cadence                              | Purpose                                    | Output                                              |
+| ---------------------------- | ------------------------------------ | ------------------------------------------ | --------------------------------------------------- |
+| **Flagship Discovery (D1)**  | Weekly (Saturday 7:30am), human-approved | Synthesize authoritative subtopic structure | Approved subtopic-packs, materialized topic_clusters |
+| **Flagship Freshness (D1)**  | Daily (Mon-Fri 4:30am), automated   | Route news events to flagship subtopics    | Refresh/create jobs in create_queue                 |
+| **Discovery Cycle (C1→B3)**  | Tue & Sat (8am), automated          | Expand keyword universe for subtopics      | New keywords, keyword groups, priority queue         |
+| **Performance Cycle**        | Weekly (Saturday 10am)              | Evaluate what we've built                  | Refresh/optimize actions for existing pages         |
 
 
 Both feed into one **Unified Create Queue**, sorted by expected traffic impact.
@@ -208,7 +210,7 @@ Flagship topics are **manually curated by the human**. A topic qualifies when it
 - Enough compare richness and FAQ richness
 - Enough update frequency to sustain the refresh loop
 
-This is the only manual gate in the pipeline. Everything downstream is automated.
+This is the first of two manual gates. The second is approving subtopic-packs (§4.3, D1 `--approve`). Everything else is automated.
 
 **System role:** Human decision. The discovery engine can surface candidate topics, but the decision to invest in a full cluster (20–30+ coordinated pages) is always human-approved.
 
@@ -496,14 +498,14 @@ Priority E — NEW DISCOVERIES (GSC queries not in our universe)
 ### 4.10 Weekly Schedule
 
 
-| Day              | Activity                                                                                               | Engine          |
-| ---------------- | ------------------------------------------------------------------------------------------------------ | --------------- |
-| Monday           | GSC data refreshes (Google updates with ~3-day lag)                                                    | —               |
-| Tuesday          | **Performance Cycle:** GSC import → position segmentation → anomaly detection → refresh/optimize queue | Performance     |
-| Wednesday–Friday | **Create:** process unified queue (refreshes + new pages, highest ROI first)                           | Create          |
-| Saturday         | **Discovery Cycle:** subtopic discovery + keyword expansion + grouping + priority scoring              | Discovery       |
-| Sunday           | Queue auto-processes: Standard pages build immediately, Deep Research top 5 by priority score          | —               |
-| Daily            | News pipeline runs → timely events enter keyword universe with timeliness bonus                        | Event-triggered |
+| Day              | Activity                                                                                               | Engine            |
+| ---------------- | ------------------------------------------------------------------------------------------------------ | ----------------- |
+| Monday–Friday    | **Flagship Freshness (4:30am):** route daily news signals to approved flagship subtopics → create_queue | D1 Freshness      |
+| Monday–Friday    | **Create (6am):** process unified queue (refreshes + new pages, highest ROI first)                     | Create            |
+| Tuesday & Saturday | **Discovery Cycle (8am):** keyword expansion + grouping + priority scoring (C1 prefers flagship packs) | Discovery         |
+| Saturday         | **Flagship Discovery (7:30am):** re-synthesize subtopics from official docs + competitors → draft pack | D1 Discovery      |
+| Saturday         | **Performance Cycle (10am):** GSC import → position segmentation → anomaly detection → refresh queue   | Performance       |
+| Sunday           | Queue auto-processes: Standard pages build immediately, Deep Research top 5 by priority score           | —                 |
 
 
 ---
@@ -591,7 +593,7 @@ Claude Code is the **pilot template** — the first proving ground for the flags
 | D. Ecosystem  | MCP, agents, skills, CLI vs MCP vs hooks, enterprise governance                                             |
 
 
-Cluster definition lives in `data/flagship-clusters/claude-code.json`.
+Cluster definition lives in `data/flagship-clusters/claude-code.json` (legacy static structure). D1 subtopic-packs live in `data/flagship-packs/claude-code.json` (dynamic, discovery-generated, human-approved).
 
 → See: SPEC-03 through SPEC-08
 
@@ -790,6 +792,9 @@ Every content node in the graph should be distributable through multiple channel
 | SPEC-14  | 3     | Cluster health dashboard                                | §8, §4.9         | ✅ Done  |
 | SPEC-15  | 1     | Discovery engine upgrade (Serper + Exa)                 | §4.3, §4.4       | Draft   |
 | SPEC-16  | 2     | Keyword expansion & priority scoring engine             | §4.4, §4.5       | Planned |
+| SPEC-C5  | —     | Pipeline review cycle (health checks + quality sampling) | §8               | ✅ Done  |
+| SPEC-D1  | —     | Flagship topic discovery agent (full + freshness modes) | §4.3, §4.10      | ✅ Done  |
+| SPEC-D2  | —     | Migration & sunset (entity guard + C1 adaptation)       | §4.3             | ✅ Done  |
 
 
 ---
@@ -814,8 +819,10 @@ Every content node in the graph should be distributable through multiple channel
 | **Signal engine**                    | The system component that ingests and normalizes raw inputs into structured signals.                                                           |
 | **Refresh trigger**                  | An event (news-driven) or performance signal (GSC-driven) that flags a page for content update.                                                |
 | **Hub-and-spoke linking**            | Internal linking pattern where every spoke page links to the hub and the hub links to all spokes.                                              |
-| **Discovery cycle**                  | Weekly automated process that expands the keyword universe (Saturday).                                                                         |
-| **Performance cycle**                | Weekly automated process that evaluates keyword positions and generates refresh/optimize actions (Tuesday).                                    |
+| **Discovery cycle**                  | Automated process (Tue & Sat) that expands the keyword universe via C1→B1→B2→B3. For flagship topics, C1 reads from approved subtopic-packs.  |
+| **Flagship discovery (D1 full)**     | Weekly (Sat) synthesis of official docs + competitor content into a subtopic-pack. Human-approved via `--approve`.                              |
+| **Flagship freshness (D1 daily)**    | Daily (Mon-Fri) routing of news signals to approved flagship subtopics, creating refresh/create jobs in create_queue.                          |
+| **Performance cycle**                | Weekly automated process (Saturday) that evaluates keyword positions and generates refresh/optimize actions.                                    |
 | **Timeliness bonus**                 | Priority score boost for keyword groups related to recent news events. Decays over 7 days.                                                     |
 
 

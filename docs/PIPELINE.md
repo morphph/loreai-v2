@@ -2,8 +2,8 @@
 
 ## Overview
 
-Daily automated pipeline: collect raw AI news → curate newsletter → extract entities → generate content → expand keywords → monitor performance.
-Each stage feeds the next. The **Keyword Engine** (B1→B4) is the core content generation driver.
+Daily automated pipeline: collect raw AI news → curate newsletter → extract entities → discover flagship subtopics → generate content → expand keywords → monitor performance.
+Each stage feeds the next. The **Keyword Engine** (B1→B4) is the core content generation driver. The **Flagship Discovery Agent** (D1) maintains subtopic authority for flagship topics via weekly full discovery and daily freshness routing.
 
 ## Schedule (SGT — crontab uses `TZ=Asia/Singapore`)
 
@@ -94,15 +94,50 @@ Each stage feeds the next. The **Keyword Engine** (B1→B4) is the core content 
 |                          |   |  -> Claude Opus writes ZH  |
 | -> Upsert into           |   |  -> Validate links         |
 |    topic_clusters table  |   |  -> Write files + update DB|
-|                          |   | Content types:              |
-| Output: DB updates       |   |  faq, compare, glossary,   |
-| (topic_clusters)         |   |  blog, topic-hub,          |
+|  (D2: skips flagship     |   | Content types:              |
+|   subtopics — guarded    |   |  faq, compare, glossary,   |
+|   by isFlagshipSubtopic) |   |  blog, topic-hub,          |
 |                          |   |  deep-dive, cornerstone    |
+| Output: DB updates       |   |                             |
+| (non-flagship entities)  |   |                             |
 +-----------+--------------+   +-------------+--------------+
             |                                |
             +---------------+----------------+
                             |
                             v
+4:30am SGT (Mon-Fri)
++-----------------------------------------------------------+
+|  3b. FLAGSHIP FRESHNESS  (flagship-freshness.ts)          |
+|                                                           |
+|  Routes daily news signals to approved flagship subtopics.|
+|  Reads approved subtopic-pack, maps events to existing    |
+|  subtopics/pages, drafts refresh/create actions.          |
+|                                                           |
+|  -> Writes jobs to create_queue (source='flagship_fresh') |
+|  -> Seeds keywords via upsertKeyword()                    |
+|                                                           |
+|  Triple dedup: vs create_queue, vs recent content,        |
+|  vs same-run duplicates.                                  |
++-----------------------------------------------------------+
+
+Sat 7:30am SGT
++-----------------------------------------------------------+
+|  3c. FLAGSHIP DISCOVERY  (flagship-discovery.ts)          |
+|                                                           |
+|  Weekly full discovery — synthesizes official docs +      |
+|  competitor content into subtopic-pack.                   |
+|                                                           |
+|  Step 1: Official surface synthesis (Exa + Serper)        |
+|  Step 2: SERP/content-competitor synthesis                 |
+|  Step 3: Normalize & merge (official wins ties)           |
+|  Step 4: Write draft pack to data/flagship-packs/         |
+|                                                           |
+|  Human approves via --approve -> materializePack()        |
+|  -> Upserts subtopics into topic_clusters                 |
+|     (source='flagship_discovery')                         |
+|  -> Seeds keywords from pack                              |
++-----------------------------------------------------------+
+
 8am SGT (Tue & Sat)
 +-----------------------------------------------------------+
 |  5. DISCOVERY  (discovery-cycle.ts)                       |
@@ -110,7 +145,8 @@ Each stage feeds the next. The **Keyword Engine** (B1→B4) is the core content 
 |  Keyword Engine Pipeline (C1 -> B1 -> B2 -> B3):         |
 |                                                           |
 |  C1: Subtopic Discovery                                   |
-|      Read topic_clusters, find subtopics to expand        |
+|      For flagship topics: reads approved subtopic-pack    |
+|      For others: legacy topic_clusters LIKE query         |
 |                                                           |
 |  B1: Keyword Expansion (expand-keywords.ts)               |
 |      Serper: PAA, related searches, autocomplete          |
@@ -187,16 +223,21 @@ Collect -> news_items (raw articles)
 Newsletter -> curated items -> filtered-items JSON (for Weekly)
                |                blog-seeds JSON (legacy)
                |
-Entity Extract -> topic_clusters (AI entities)
-                       |
+Entity Extract -> topic_clusters (non-flagship entities only; D2 guard skips flagship subtopics)
+               |
+Flagship Discovery -> subtopic-pack (approved) -> topic_clusters (source='flagship_discovery')
+               |                                         |
+Flagship Freshness -> create_queue (source='flagship_freshness')
+               |                                         |
 Discovery (C1->B1->B2->B3) -> keywords -> keyword_groups -> create_queue
+  (C1 prefers flagship packs when available)                      |
                                                                   |
 Process Queue (B4) --------> content files (EN+ZH) + content table
                                                                   |
 Performance -> GSC snapshots -> refresh jobs -------> create_queue
 ```
 
-**Collect is raw material. Newsletter is the filter. Entity Extract seeds the topic taxonomy. Discovery expands keywords and queues content jobs. Process Queue generates the content. Performance closes the feedback loop.**
+**Collect is raw material. Newsletter is the filter. Entity Extract seeds non-flagship entities. Flagship Discovery defines authoritative subtopics (human-approved). Flagship Freshness routes daily news to flagship subtopics. Discovery expands keywords and queues content jobs. Process Queue generates the content. Performance closes the feedback loop.**
 
 ## Key Database Tables
 
@@ -206,9 +247,9 @@ Performance -> GSC snapshots -> refresh jobs -------> create_queue
 | `content` | Newsletter, Generate (B4), Weekly | Discovery (gap analysis), Performance |
 | `content_sources` | Newsletter, Generate (B4) | (traceability) |
 | `keywords` | Discovery (B1), Generate (B4) | Discovery (B2, B3), Generate (B4) |
-| `topic_clusters` | Entity Extract, Discovery | Discovery (C1), Dashboard |
+| `topic_clusters` | Entity Extract (non-flagship), Flagship Discovery (flagship subtopics) | Discovery (C1), Dashboard |
 | `keyword_groups` | Discovery (B2) | Discovery (B3), Generate (B4) |
-| `create_queue` | Discovery (B3), Performance | Generate (B4), Dashboard |
+| `create_queue` | Discovery (B3), Flagship Freshness, Performance | Generate (B4), Dashboard |
 | `snapshots` | Performance | Dashboard (trends) |
 | `subscribers` | API server | Newsletter (send) |
 
@@ -225,6 +266,7 @@ Performance -> GSC snapshots -> refresh jobs -------> create_queue
 | `content/topics/{en,zh}/` | Generate (B4) | Markdown + frontmatter |
 | `data/filtered-items/` | Newsletter | JSON |
 | `data/blog-seeds/` | Newsletter | JSON (legacy) |
+| `data/flagship-packs/` | Flagship Discovery | JSON (subtopic packs, human-approved) |
 
 ## Orchestration (`daily-pipeline.sh`)
 
@@ -262,7 +304,7 @@ Dashboard URL: `https://loreai.dev/dashboard?key=aeodashboard`
 | API | Used by | Purpose |
 |-----|---------|---------|
 | Claude CLI (Opus) | Newsletter, Generate (B4), Weekly | Content generation |
-| Claude CLI (Sonnet) | Entity Extract, Keyword Grouping (B2) | Classification + extraction |
+| Claude CLI (Sonnet) | Entity Extract, Keyword Grouping (B2), Flagship Discovery, Flagship Freshness | Classification, extraction, synthesis, event routing |
 | Serper | Discovery (B1), Generate (B4) | Google SERP data, PAA, related searches |
 | Exa.ai | Discovery (B1), Generate (B4) | Semantic search, competitor page scan |
 | Gemini Deep Research | Generate (B4) | Deep research pipeline (optional) |
