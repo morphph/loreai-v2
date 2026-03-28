@@ -222,11 +222,17 @@ app.get('/api/dashboard/topics-tree', (c) => {
   const flagships = FLAGSHIPS.map(f => {
     // Get all clusters under this flagship (exact match + prefix match)
     const clusters = db.prepare(`
-      SELECT slug, pillar_topic, mention_count
+      SELECT slug, pillar_topic, mention_count, source, description,
+             freshness_sensitivity, pack_version, evidence_type
       FROM topic_clusters
       WHERE slug = ? OR slug LIKE ? || '-%'
       ORDER BY CASE WHEN slug = ? THEN 0 ELSE 1 END, mention_count DESC
-    `).all(f.slug, f.slug, f.slug) as Array<{ slug: string; pillar_topic: string; mention_count: number }>;
+    `).all(f.slug, f.slug, f.slug) as Array<{
+      slug: string; pillar_topic: string; mention_count: number;
+      source: string | null; description: string | null;
+      freshness_sensitivity: string | null; pack_version: number | null;
+      evidence_type: string | null;
+    }>;
 
     let flagshipKeywordsTotal = 0;
     let flagshipKeywordsCovered = 0;
@@ -287,6 +293,11 @@ app.get('/api/dashboard/topics-tree', (c) => {
         slug: cl.slug,
         name: cl.pillar_topic,
         mention_count: cl.mention_count,
+        source: cl.source ?? 'entity_extract',
+        description: cl.description,
+        freshness_sensitivity: cl.freshness_sensitivity,
+        pack_version: cl.pack_version,
+        evidence_type: cl.evidence_type,
         keywords_total: kwTotal,
         keywords_covered: kwCovered,
         groups: groupData,
@@ -294,9 +305,15 @@ app.get('/api/dashboard/topics-tree', (c) => {
       };
     });
 
+    // Pack version from the parent cluster row (slug === flagship slug)
+    const parentCluster = clusters.find(cl => cl.slug === f.slug);
+    const packManaged = clusters.some(cl => cl.source === 'flagship_discovery');
+
     return {
       slug: f.slug,
       name: f.name,
+      pack_managed: packManaged,
+      pack_version: parentCluster?.pack_version ?? null,
       keywords_total: flagshipKeywordsTotal,
       keywords_covered: flagshipKeywordsCovered,
       content_total: flagshipContentTotal,

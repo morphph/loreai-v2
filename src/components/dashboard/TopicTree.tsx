@@ -19,6 +19,11 @@ interface ClusterNode {
   slug: string;
   name: string;
   mention_count: number;
+  source: string;
+  description: string | null;
+  freshness_sensitivity: string | null;
+  pack_version: number | null;
+  evidence_type: string | null;
   keywords_total: number;
   keywords_covered: number;
   groups: KeywordGroupNode[];
@@ -28,6 +33,8 @@ interface ClusterNode {
 interface FlagshipNode {
   slug: string;
   name: string;
+  pack_managed: boolean;
+  pack_version: number | null;
   keywords_total: number;
   keywords_covered: number;
   content_total: number;
@@ -73,6 +80,12 @@ const STATUS_COLORS: Record<string, string> = {
   queued: 'bg-yellow-100 text-yellow-700',
   completed: 'bg-green-100 text-green-700',
   done: 'bg-green-100 text-green-700',
+};
+
+const FRESHNESS_COLORS: Record<string, string> = {
+  high: 'bg-red-100 text-red-700',
+  medium: 'bg-orange-100 text-orange-700',
+  low: 'bg-slate-100 text-slate-600',
 };
 
 function Badge({ text, className }: { text: string; className?: string }) {
@@ -150,6 +163,7 @@ function ClusterSection({ cluster }: { cluster: ClusterNode }) {
   const [showUngrouped, setShowUngrouped] = useState(false);
   const grouped = cluster.groups.length;
   const ungrouped = cluster.ungrouped_keywords.length;
+  const isCanonical = cluster.source === 'flagship_discovery';
 
   return (
     <div className="ml-4 border-l border-border/50 pl-2">
@@ -160,6 +174,12 @@ function ClusterSection({ cluster }: { cluster: ClusterNode }) {
           <span className="flex items-center gap-2 text-sm font-medium">
             {cluster.name}
             <span className="text-xs font-normal text-muted">{cluster.slug}</span>
+            {isCanonical && cluster.freshness_sensitivity && (
+              <Badge text={cluster.freshness_sensitivity} className={FRESHNESS_COLORS[cluster.freshness_sensitivity]} />
+            )}
+            {!isCanonical && (
+              <Badge text="entity" className="bg-gray-100 text-gray-500" />
+            )}
           </span>
         }
         right={
@@ -172,6 +192,9 @@ function ClusterSection({ cluster }: { cluster: ClusterNode }) {
       />
       {open && (
         <div className="space-y-0.5 pb-2">
+          {cluster.description && (
+            <p className="ml-8 py-1 text-xs text-muted leading-relaxed">{cluster.description}</p>
+          )}
           {cluster.groups.length === 0 && ungrouped === 0 && (
             <p className="ml-8 py-2 text-xs text-muted">No keywords discovered yet.</p>
           )}
@@ -221,7 +244,14 @@ function FlagshipSection({ flagship }: { flagship: FlagshipNode }) {
           open={open}
           onClick={() => setOpen(!open)}
           label={
-            <span className="text-base font-semibold">{flagship.name}</span>
+            <span className="flex items-center gap-2 text-base font-semibold">
+              {flagship.name}
+              {flagship.pack_managed ? (
+                <Badge text={`pack v${flagship.pack_version}`} className="bg-indigo-100 text-indigo-700" />
+              ) : (
+                <Badge text="entity-driven" className="bg-gray-100 text-gray-500" />
+              )}
+            </span>
           }
           right={
             <span className="flex gap-4 text-xs text-muted">
