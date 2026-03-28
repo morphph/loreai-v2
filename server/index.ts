@@ -417,6 +417,142 @@ app.get('/api/dashboard/trends', (c) => {
   return c.json({ weeks: weeklyData });
 });
 
+// ── Queue detail ─────────────────────────────────────────────
+app.get('/api/dashboard/queue', (c) => {
+  const jobs = db.prepare(`
+    SELECT cq.job_id, cq.content_type, cq.priority_score, cq.status,
+           cq.source, cq.created_at, cq.completed_at, cq.refresh_meta,
+           kg.primary_keyword, kg.cluster_slug, kg.intent,
+           tc.flagship_topic_slug, tc.pillar_topic as cluster_name
+    FROM create_queue cq
+    LEFT JOIN keyword_groups kg ON cq.keyword_group_id = kg.group_id
+    LEFT JOIN topic_clusters tc ON kg.cluster_slug = tc.slug
+    ORDER BY
+      CASE cq.status WHEN 'pending' THEN 0 WHEN 'in_progress' THEN 1 ELSE 2 END,
+      cq.priority_score DESC
+    LIMIT 200
+  `).all() as Array<{
+    job_id: number; content_type: string; priority_score: number; status: string;
+    source: string | null; created_at: string; completed_at: string | null;
+    refresh_meta: string | null; primary_keyword: string | null;
+    cluster_slug: string | null; intent: string | null;
+    flagship_topic_slug: string | null; cluster_name: string | null;
+  }>;
+
+  const pending = (db.prepare("SELECT COUNT(*) as c FROM create_queue WHERE status = 'pending'").get() as { c: number }).c;
+  const inProgress = (db.prepare("SELECT COUNT(*) as c FROM create_queue WHERE status = 'in_progress'").get() as { c: number }).c;
+  const completed7d = (db.prepare("SELECT COUNT(*) as c FROM create_queue WHERE status = 'completed' AND completed_at > datetime('now', '-7 days')").get() as { c: number }).c;
+  const failed = (db.prepare("SELECT COUNT(*) as c FROM create_queue WHERE status = 'failed'").get() as { c: number }).c;
+  const aging = (db.prepare("SELECT COUNT(*) as c FROM create_queue WHERE status = 'pending' AND created_at < datetime('now', '-3 days')").get() as { c: number }).c;
+
+  const bySourceRows = db.prepare(`
+    SELECT COALESCE(source, 'unknown') as source, COUNT(*) as c
+    FROM create_queue WHERE status = 'pending' GROUP BY source
+  `).all() as Array<{ source: string; c: number }>;
+  const bySource: Record<string, number> = {};
+  for (const r of bySourceRows) bySource[r.source] = r.c;
+
+  const byTypeRows = db.prepare(`
+    SELECT content_type, COUNT(*) as c
+    FROM create_queue WHERE status = 'pending' GROUP BY content_type
+  `).all() as Array<{ content_type: string; c: number }>;
+  const byType: Record<string, number> = {};
+  for (const r of byTypeRows) byType[r.content_type] = r.c;
+
+  return c.json({
+    summary: { pending, in_progress: inProgress, completed_7d: completed7d, failed, aging },
+    by_source: bySource,
+    by_type: byType,
+    jobs,
+  });
+});
+
+// ── Coverage gap analysis ────────────────────────────────────
+app.get('/api/dashboard/coverage', (c) => {
+  const FLAGSHIPS = [
+    { slug: 'claude-code', name: 'Claude Code' },
+    { slug: 'codex', name: 'OpenAI Codex' },
+  ];
+
+  const result = FLAGSHIPS.map(f => {
+    const subtopics = db.prepare(`
+      SELECT slug, pillar_topic as name, source, freshness_sensitivity, description
+      FROM topic_clusters
+      WHERE slug = ? OR slug LIKE ? || '-%'
+      ORDER BY CASE WHEN slug = ? THEN 0 ELSE 1 END, mention_count DESC
+    `).all(f.slug, f.slug, f.slug) as Array<{
+      slug: string; name: string; source: string | null;
+      freshness_sensitivity: string | null; description: string | null;
+    }>;
+
+    const subtopicData = subtopics.map(st => {
+      const groups = db.prepare(`
+        SELECT kg.group_id, kg.primary_keyword, kg.content_type, kg.status, kg.priority_score
+        FROM keyword_groups kg WHERE kg.cluster_slug = ?
+        ORDER BY kg.priority_score DESC
+      `).all(st.slug) as Array<{
+        group_id: number; primary_keyword: string; content_type: string;
+        status: string; priority_score: number;
+      }>;
+
+      const totalGroups = groups.length;
+      const withPages = groups.filter(g => g.status === 'completed' || g.status === 'done').length;
+      const pendingCount = groups.filter(g => g.status === 'pending').length;
+      const queuedCount = groups.filter(g => g.status === 'queued').length;
+
+      const ungroupedKw = (db.prepare(
+        'SELECT COUNT(*) as c FROM keywords WHERE cluster_slug = ? AND keyword_group_id IS NULL'
+      ).get(st.slug) as { c: number }).c;
+
+      const totalKw = (db.prepare(
+        'SELECT COUNT(*) as c FROM keywords WHERE cluster_slug = ?'
+      ).get(st.slug) as { c: number }).c;
+
+      return {
+        slug: st.slug,
+        name: st.name,
+        source: st.source ?? 'entity_extract',
+        freshness_sensitivity: st.freshness_sensitivity,
+        description: st.description,
+        keywords_total: totalKw,
+        keyword_groups: totalGroups,
+        with_pages: withPages,
+        pending: pendingCount,
+        queued: queuedCount,
+        ungrouped_keywords: ungroupedKw,
+        gap: totalGroups > 0 && withPages < totalGroups,
+        groups: groups.map(g => ({
+          primary_keyword: g.primary_keyword,
+          content_type: g.content_type,
+          status: g.status,
+          has_page: g.status === 'completed' || g.status === 'done',
+        })),
+      };
+    });
+
+    const totalSubtopics = subtopicData.length;
+    const subtopicsWithPages = subtopicData.filter(s => s.with_pages > 0).length;
+    const totalGroups = subtopicData.reduce((a, s) => a + s.keyword_groups, 0);
+    const totalWithPages = subtopicData.reduce((a, s) => a + s.with_pages, 0);
+    const totalGaps = subtopicData.filter(s => s.gap).length;
+
+    return {
+      slug: f.slug,
+      name: f.name,
+      summary: {
+        subtopics: totalSubtopics,
+        subtopics_with_pages: subtopicsWithPages,
+        keyword_groups: totalGroups,
+        keyword_groups_with_pages: totalWithPages,
+        gaps: totalGaps,
+      },
+      subtopics: subtopicData,
+    };
+  });
+
+  return c.json({ flagships: result });
+});
+
 // ── Markdown report for LLM consumption ──────────────────────
 app.get('/api/dashboard/report', async (c) => {
   const format = c.req.query('format') === 'json' ? 'json' : 'markdown';
