@@ -161,6 +161,29 @@ function initSchema(db: Database.Database): void {
     db.exec("ALTER TABLE topic_clusters ADD COLUMN flagship_topic_slug TEXT DEFAULT NULL");
   }
 
+  // B+ migration: enrich topic_clusters with flagship pack metadata
+  if (!tcCols.some(c => c.name === 'description')) {
+    db.exec("ALTER TABLE topic_clusters ADD COLUMN description TEXT DEFAULT NULL");
+  }
+  if (!tcCols.some(c => c.name === 'aliases_json')) {
+    db.exec("ALTER TABLE topic_clusters ADD COLUMN aliases_json TEXT DEFAULT NULL");
+  }
+  if (!tcCols.some(c => c.name === 'freshness_sensitivity')) {
+    db.exec("ALTER TABLE topic_clusters ADD COLUMN freshness_sensitivity TEXT DEFAULT NULL");
+  }
+  if (!tcCols.some(c => c.name === 'page_type_hints_json')) {
+    db.exec("ALTER TABLE topic_clusters ADD COLUMN page_type_hints_json TEXT DEFAULT NULL");
+  }
+  if (!tcCols.some(c => c.name === 'seed_keywords_json')) {
+    db.exec("ALTER TABLE topic_clusters ADD COLUMN seed_keywords_json TEXT DEFAULT NULL");
+  }
+  if (!tcCols.some(c => c.name === 'evidence_type')) {
+    db.exec("ALTER TABLE topic_clusters ADD COLUMN evidence_type TEXT DEFAULT NULL");
+  }
+  if (!tcCols.some(c => c.name === 'pack_version')) {
+    db.exec("ALTER TABLE topic_clusters ADD COLUMN pack_version INTEGER DEFAULT NULL");
+  }
+
   const cqCols = db.prepare("PRAGMA table_info(create_queue)").all() as { name: string }[];
   if (!cqCols.some(c => c.name === 'source')) {
     db.exec("ALTER TABLE create_queue ADD COLUMN source TEXT DEFAULT 'discovery'");
@@ -321,6 +344,55 @@ export function getSubscriberCount(): number {
 }
 
 // --- Topic Clusters ---
+
+export interface SubtopicRow {
+  slug: string;
+  pillar_topic: string;
+  mention_count: number;
+  first_seen: string;
+  last_seen: string;
+  has_topic_hub: number;
+  brave_related_json: string | null;
+  brave_updated_at: string | null;
+  source: string;
+  flagship_topic_slug: string | null;
+  description: string | null;
+  aliases_json: string | null;
+  freshness_sensitivity: string | null;
+  page_type_hints_json: string | null;
+  seed_keywords_json: string | null;
+  evidence_type: string | null;
+  pack_version: number | null;
+}
+
+/**
+ * Single entry point for loading subtopics for a given topic.
+ * Prefers flagship-materialized rows (source='flagship_discovery');
+ * falls back to legacy prefix matching for non-flagship or pre-materialization.
+ */
+export function resolveSubtopics(topicSlug: string): SubtopicRow[] {
+  const db = getDb();
+
+  // Prefer flagship-materialized rows (check DB, not filesystem)
+  const flagshipRows = db
+    .prepare(
+      `SELECT * FROM topic_clusters
+       WHERE flagship_topic_slug = ? AND source = 'flagship_discovery'
+       ORDER BY mention_count DESC`,
+    )
+    .all(topicSlug) as SubtopicRow[];
+
+  if (flagshipRows.length > 0) return flagshipRows;
+
+  // Fallback: legacy prefix matching (non-flagship or pre-materialization)
+  return db
+    .prepare(
+      `SELECT * FROM topic_clusters
+       WHERE slug LIKE ? OR slug = ?
+       ORDER BY mention_count DESC`,
+    )
+    .all(`${topicSlug}-%`, topicSlug) as SubtopicRow[];
+}
 
 export function upsertTopicCluster(slug: string, pillarTopic: string): void {
   const db = getDb();

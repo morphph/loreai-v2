@@ -273,28 +273,52 @@ export function materializePack(
 
   const db = getDb();
 
-  // Write the flagship topic's own entry
+  // Write the flagship topic's own entry (parent row — no subtopic-level metadata)
   db.prepare(
-    `INSERT INTO topic_clusters (slug, pillar_topic, mention_count, source, flagship_topic_slug)
-     VALUES (?, ?, 100, 'flagship_discovery', ?)
+    `INSERT INTO topic_clusters (slug, pillar_topic, mention_count, source, flagship_topic_slug, pack_version)
+     VALUES (?, ?, 100, 'flagship_discovery', ?, ?)
      ON CONFLICT(slug) DO UPDATE SET
        source = 'flagship_discovery',
        flagship_topic_slug = excluded.flagship_topic_slug,
        mention_count = MAX(mention_count, 100),
+       pack_version = excluded.pack_version,
        last_seen = CURRENT_TIMESTAMP`,
-  ).run(pack.topic_slug, pack.topic_name, pack.topic_slug);
+  ).run(pack.topic_slug, pack.topic_name, pack.topic_slug, pack.version);
 
-  // Write each subtopic
+  // Write each subtopic with full pack metadata
+  const subtopicStmt = db.prepare(
+    `INSERT INTO topic_clusters (
+       slug, pillar_topic, mention_count, source, flagship_topic_slug,
+       description, aliases_json, freshness_sensitivity,
+       page_type_hints_json, seed_keywords_json, evidence_type, pack_version
+     ) VALUES (?, ?, 100, 'flagship_discovery', ?, ?, ?, ?, ?, ?, ?, ?)
+     ON CONFLICT(slug) DO UPDATE SET
+       source = 'flagship_discovery',
+       flagship_topic_slug = excluded.flagship_topic_slug,
+       mention_count = MAX(mention_count, 100),
+       description = excluded.description,
+       aliases_json = excluded.aliases_json,
+       freshness_sensitivity = excluded.freshness_sensitivity,
+       page_type_hints_json = excluded.page_type_hints_json,
+       seed_keywords_json = excluded.seed_keywords_json,
+       evidence_type = excluded.evidence_type,
+       pack_version = excluded.pack_version,
+       last_seen = CURRENT_TIMESTAMP`,
+  );
+
   for (const subtopic of pack.subtopics) {
-    db.prepare(
-      `INSERT INTO topic_clusters (slug, pillar_topic, mention_count, source, flagship_topic_slug)
-       VALUES (?, ?, 100, 'flagship_discovery', ?)
-       ON CONFLICT(slug) DO UPDATE SET
-         source = 'flagship_discovery',
-         flagship_topic_slug = excluded.flagship_topic_slug,
-         mention_count = MAX(mention_count, 100),
-         last_seen = CURRENT_TIMESTAMP`,
-    ).run(subtopic.slug, subtopic.name, pack.topic_slug);
+    subtopicStmt.run(
+      subtopic.slug,
+      subtopic.name,
+      pack.topic_slug,
+      subtopic.description,
+      JSON.stringify(subtopic.aliases),
+      subtopic.freshness_sensitivity,
+      JSON.stringify(subtopic.page_type_hints),
+      JSON.stringify(subtopic.seed_keywords),
+      subtopic.evidence_type,
+      pack.version,
+    );
     result.subtopics_written++;
 
     // Seed keywords

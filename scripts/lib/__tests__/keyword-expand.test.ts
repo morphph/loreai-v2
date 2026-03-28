@@ -91,6 +91,29 @@ vi.mock('../db', () => {
         competition: null,
       });
     }),
+    resolveSubtopics: vi.fn((topicSlug: string) => {
+      // Mimic resolveSubtopics: return all clusters matching prefix or exact
+      return Array.from(clusters.values())
+        .filter((c) => c.slug === topicSlug || c.slug.startsWith(`${topicSlug}-`))
+        .sort((a, b) => b.mention_count - a.mention_count)
+        .map((c) => ({
+          ...c,
+          first_seen: '',
+          last_seen: '',
+          has_topic_hub: 0,
+          brave_related_json: null,
+          brave_updated_at: null,
+          source: 'entity_extract',
+          flagship_topic_slug: null,
+          description: null,
+          aliases_json: null,
+          freshness_sensitivity: null,
+          page_type_hints_json: null,
+          seed_keywords_json: null,
+          evidence_type: null,
+          pack_version: null,
+        }));
+    }),
     closeDb: vi.fn(),
     __resetMockDb: () => {
       keywords = new Map();

@@ -14,23 +14,17 @@ const mockAll = vi.fn();
 const mockPrepare = vi.fn(() => ({ get: mockGet, all: mockAll, run: vi.fn() }));
 const mockDb = { prepare: mockPrepare };
 
+const mockResolveSubtopics = vi.fn(() => [] as Array<{ slug: string; pillar_topic: string; source: string }>);
+
 vi.mock('../lib/db', () => ({
   getDb: vi.fn(() => mockDb),
   upsertTopicCluster: vi.fn(),
+  resolveSubtopics: (...args: unknown[]) => mockResolveSubtopics(...args),
   closeDb: vi.fn(),
   getAllRecentNewsItems: vi.fn(() => []),
 }));
 
-// ── Mock fs for loadSubtopics pack check ──
-
-vi.mock('fs', async () => {
-  const actual = await vi.importActual<typeof import('fs')>('fs');
-  return {
-    ...actual,
-    existsSync: vi.fn(() => false),
-    readFileSync: actual.readFileSync,
-  };
-});
+// fs mock removed — loadSubtopics now delegates to resolveSubtopics (no filesystem check)
 
 // ── Mock AI (not needed for these tests but extract-entities imports it) ──
 
@@ -48,9 +42,6 @@ vi.mock('../lib/serper', () => ({ searchRelated: vi.fn() }));
 
 import { isFlagshipSubtopic } from '../extract-entities';
 import { loadSubtopics, FLAGSHIP_TOPICS } from '../lib/discovery';
-import { existsSync } from 'fs';
-
-const mockExistsSync = vi.mocked(existsSync);
 
 beforeEach(() => {
   vi.clearAllMocks();
@@ -104,57 +95,45 @@ describe('isFlagshipSubtopic', () => {
 
 describe('loadSubtopics', () => {
   it('returns flagship_discovery rows when pack exists and DB has them', () => {
-    mockExistsSync.mockReturnValue(true);
-    mockAll.mockReturnValueOnce([
-      { slug: 'claude-code-hooks', pillar_topic: 'Claude Code Hooks' },
-      { slug: 'claude-code-pricing', pillar_topic: 'Claude Code Pricing' },
+    // loadSubtopics now delegates to resolveSubtopics
+    mockResolveSubtopics.mockReturnValueOnce([
+      { slug: 'claude-code-hooks', pillar_topic: 'Claude Code Hooks', source: 'flagship_discovery' },
+      { slug: 'claude-code-pricing', pillar_topic: 'Claude Code Pricing', source: 'flagship_discovery' },
     ]);
 
     const result = loadSubtopics('claude-code');
 
     expect(result).toHaveLength(2);
     expect(result[0].slug).toBe('claude-code-hooks');
-    // Should have queried with flagship_topic_slug = ? AND source = 'flagship_discovery'
-    expect(mockPrepare).toHaveBeenCalledWith(
-      expect.stringContaining('flagship_topic_slug'),
-    );
+    expect(mockResolveSubtopics).toHaveBeenCalledWith('claude-code');
   });
 
-  it('falls back to legacy LIKE query when pack exists but no flagship_discovery rows', () => {
-    mockExistsSync.mockReturnValue(true);
-    // First call (flagship query) returns empty
-    mockAll.mockReturnValueOnce([]);
-    // Second call (legacy query) returns rows
-    mockAll.mockReturnValueOnce([
-      { slug: 'claude-code', pillar_topic: 'Claude Code' },
-      { slug: 'claude-code-tips', pillar_topic: 'Claude Code Tips' },
+  it('falls back to legacy LIKE query when no flagship_discovery rows', () => {
+    // resolveSubtopics handles fallback internally; returns entity rows
+    mockResolveSubtopics.mockReturnValueOnce([
+      { slug: 'claude-code', pillar_topic: 'Claude Code', source: 'entity_extract' },
+      { slug: 'claude-code-tips', pillar_topic: 'Claude Code Tips', source: 'entity_extract' },
     ]);
 
     const result = loadSubtopics('claude-code');
 
     expect(result).toHaveLength(2);
-    expect(mockPrepare).toHaveBeenCalledTimes(2);
+    expect(mockResolveSubtopics).toHaveBeenCalledWith('claude-code');
   });
 
-  it('uses legacy LIKE query when no pack file exists', () => {
-    mockExistsSync.mockReturnValue(false);
-    mockAll.mockReturnValueOnce([
-      { slug: 'openai-gpt', pillar_topic: 'OpenAI GPT' },
+  it('uses resolveSubtopics for non-flagship topics too', () => {
+    mockResolveSubtopics.mockReturnValueOnce([
+      { slug: 'openai-gpt', pillar_topic: 'OpenAI GPT', source: 'entity_extract' },
     ]);
 
     const result = loadSubtopics('openai-gpt');
 
     expect(result).toHaveLength(1);
-    // Should NOT have queried for flagship_topic_slug
-    expect(mockPrepare).toHaveBeenCalledTimes(1);
-    expect(mockPrepare).toHaveBeenCalledWith(
-      expect.stringContaining('LIKE'),
-    );
+    expect(mockResolveSubtopics).toHaveBeenCalledWith('openai-gpt');
   });
 
   it('returns empty array when no rows match', () => {
-    mockExistsSync.mockReturnValue(false);
-    mockAll.mockReturnValueOnce([]);
+    mockResolveSubtopics.mockReturnValueOnce([]);
 
     const result = loadSubtopics('nonexistent-topic');
     expect(result).toHaveLength(0);

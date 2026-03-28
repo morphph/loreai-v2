@@ -74,7 +74,14 @@ function createTestDb(): InstanceType<typeof Database> {
       brave_related_json TEXT,
       brave_updated_at DATETIME,
       source TEXT DEFAULT 'entity_extract',
-      flagship_topic_slug TEXT DEFAULT NULL
+      flagship_topic_slug TEXT DEFAULT NULL,
+      description TEXT DEFAULT NULL,
+      aliases_json TEXT DEFAULT NULL,
+      freshness_sensitivity TEXT DEFAULT NULL,
+      page_type_hints_json TEXT DEFAULT NULL,
+      seed_keywords_json TEXT DEFAULT NULL,
+      evidence_type TEXT DEFAULT NULL,
+      pack_version INTEGER DEFAULT NULL
     );
 
     CREATE TABLE IF NOT EXISTS keywords (
@@ -400,6 +407,28 @@ describe('materializePack', () => {
     expect(hooks.pillar_topic).toBe('Hooks');
     expect(hooks.source).toBe('flagship_discovery');
     expect(hooks.flagship_topic_slug).toBe('claude-code');
+
+    // Check enriched metadata columns
+    const hooksRow = testDb
+      .prepare('SELECT * FROM topic_clusters WHERE slug = ?')
+      .get('claude-code-hooks') as Record<string, unknown>;
+
+    expect(hooksRow.description).toBe('Git-style lifecycle hooks for Claude Code');
+    expect(JSON.parse(hooksRow.aliases_json as string)).toEqual(['claude code hook', 'cc hooks']);
+    expect(hooksRow.freshness_sensitivity).toBe('high');
+    expect(JSON.parse(hooksRow.page_type_hints_json as string)).toEqual(['faq', 'blog']);
+    expect(JSON.parse(hooksRow.seed_keywords_json as string)).toEqual([
+      'claude code hooks',
+      'claude code git hooks',
+    ]);
+    expect(hooksRow.evidence_type).toBe('official_doc');
+    expect(hooksRow.pack_version).toBe(1);
+
+    // Parent row should have pack_version but no subtopic-level metadata
+    const parentRow = testDb
+      .prepare('SELECT * FROM topic_clusters WHERE slug = ?')
+      .get('claude-code') as Record<string, unknown>;
+    expect(parentRow.pack_version).toBe(1);
 
     // Check keywords
     const kwRows = testDb

@@ -7,9 +7,7 @@
  * @see docs/plans/specs/SPEC-C1-discovery-cycle.md
  */
 
-import { existsSync } from 'fs';
-import { join } from 'path';
-import { getDb, upsertTopicCluster, closeDb } from './db';
+import { getDb, upsertTopicCluster, resolveSubtopics, closeDb } from './db';
 import { expandTopic } from './keyword-expand';
 import { groupTopic } from './keyword-group';
 import { scoreAndQueue } from './score-queue';
@@ -189,41 +187,9 @@ export async function discoverNewSubtopics(
 // ── Load Subtopics from DB ──
 
 export function loadSubtopics(topicSlug: string): SubtopicInput[] {
-  const db = getDb();
-
-  // Check if this topic has an approved flagship pack
-  const hasApprovedPack = existsSync(
-    join(__dirname, '../../data/flagship-packs', `${topicSlug}.json`),
-  );
-
-  if (hasApprovedPack) {
-    // Prefer flagship-discovery subtopics
-    const rows = db
-      .prepare(
-        `SELECT slug, pillar_topic FROM topic_clusters
-         WHERE flagship_topic_slug = ? AND source = 'flagship_discovery'
-         ORDER BY mention_count DESC`,
-      )
-      .all(topicSlug) as Array<{ slug: string; pillar_topic: string }>;
-
-    if (rows.length > 0) {
-      return rows.map((r) => ({ slug: r.slug, pillar_topic: r.pillar_topic }));
-    }
-    // Fall through to legacy query if materialization hasn't happened yet
-  }
-
-  // Legacy: slug prefix matching (unchanged)
-  const rows = db
-    .prepare(
-      `SELECT slug, pillar_topic FROM topic_clusters
-       WHERE slug LIKE ? OR slug = ?
-       ORDER BY mention_count DESC`,
-    )
-    .all(`${topicSlug}-%`, topicSlug) as Array<{
-    slug: string;
-    pillar_topic: string;
-  }>;
-
+  // Delegates to resolveSubtopics() — single entry point for subtopic loading.
+  // Prefers flagship-materialized rows, falls back to legacy prefix matching.
+  const rows = resolveSubtopics(topicSlug);
   return rows.map((r) => ({ slug: r.slug, pillar_topic: r.pillar_topic }));
 }
 
@@ -260,6 +226,12 @@ export async function runDiscoveryForTopic(
   // ── Stage 0: Subtopic Discovery (event-triggered only) ──
 
   if (opts.event && opts.mode === 'event-triggered') {
+    // Check if this is a flagship topic with materialized pack rows.
+    // Flagship topics must not have canonical subtopics created outside the approved pack.
+    const isFlagshipWithPack = resolveSubtopics(topic.slug).some(
+      (r) => r.source === 'flagship_discovery',
+    );
+
     try {
       console.error(`\nStage 0 — Subtopic Discovery`);
       const existingSlugs = new Set(subtopics.map((s) => s.slug));
@@ -270,10 +242,21 @@ export async function runDiscoveryForTopic(
       );
       result.subtopic_discovery = discovery;
 
-      // Write new subtopics to DB
-      if (!opts.dryRun) {
-        for (const st of discovery.new_subtopics) {
-          upsertTopicCluster(st.slug, st.pillar_topic);
+      // Write new subtopics to DB — guarded for flagship topics
+      if (!opts.dryRun && discovery.new_subtopics.length > 0) {
+        if (isFlagshipWithPack) {
+          // Flagship guard: do NOT create canonical subtopics outside the approved pack.
+          // Log as candidates for the next full-discovery cycle.
+          console.error(
+            `  ⚠ Flagship guard: ${discovery.new_subtopics.length} candidate subtopic(s) logged (not inserted):`,
+          );
+          for (const st of discovery.new_subtopics) {
+            console.error(`    → ${st.slug} (${st.pillar_topic})`);
+          }
+        } else {
+          for (const st of discovery.new_subtopics) {
+            upsertTopicCluster(st.slug, st.pillar_topic);
+          }
         }
       }
 
@@ -281,8 +264,8 @@ export async function runDiscoveryForTopic(
         `  New subtopics: ${discovery.new_subtopics.length}, Existing matches: ${discovery.existing_match_count}`,
       );
 
-      // Reload subtopics if new ones were added
-      if (discovery.new_subtopics.length > 0 && !opts.dryRun) {
+      // Reload subtopics if new ones were added (non-flagship only)
+      if (discovery.new_subtopics.length > 0 && !opts.dryRun && !isFlagshipWithPack) {
         subtopics = loadSubtopics(topic.slug);
       }
     } catch (err) {

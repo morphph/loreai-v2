@@ -36,7 +36,16 @@ function createTestDb(): InstanceType<typeof Database> {
       last_seen DATETIME DEFAULT CURRENT_TIMESTAMP,
       has_topic_hub BOOLEAN DEFAULT 0,
       brave_related_json TEXT,
-      brave_updated_at DATETIME
+      brave_updated_at DATETIME,
+      source TEXT DEFAULT 'entity_extract',
+      flagship_topic_slug TEXT DEFAULT NULL,
+      description TEXT DEFAULT NULL,
+      aliases_json TEXT DEFAULT NULL,
+      freshness_sensitivity TEXT DEFAULT NULL,
+      page_type_hints_json TEXT DEFAULT NULL,
+      seed_keywords_json TEXT DEFAULT NULL,
+      evidence_type TEXT DEFAULT NULL,
+      pack_version INTEGER DEFAULT NULL
     );
 
     CREATE TABLE IF NOT EXISTS keywords (

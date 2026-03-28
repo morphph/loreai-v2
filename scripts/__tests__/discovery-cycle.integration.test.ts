@@ -31,6 +31,24 @@ vi.mock('../lib/db', () => {
     { slug: 'claude-code-pricing', pillar_topic: 'Claude Code Pricing' },
     { slug: 'claude-code-hooks', pillar_topic: 'Claude Code Hooks' },
   ];
+  const subtopicRows = subtopics.map((s) => ({
+    ...s,
+    mention_count: 100,
+    first_seen: '',
+    last_seen: '',
+    has_topic_hub: 0,
+    brave_related_json: null,
+    brave_updated_at: null,
+    source: 'entity_extract',
+    flagship_topic_slug: null,
+    description: null,
+    aliases_json: null,
+    freshness_sensitivity: null,
+    page_type_hints_json: null,
+    seed_keywords_json: null,
+    evidence_type: null,
+    pack_version: null,
+  }));
   const mockDb = {
     prepare: vi.fn(() => ({
       all: vi.fn(() => subtopics),
@@ -40,6 +58,7 @@ vi.mock('../lib/db', () => {
   return {
     getDb: vi.fn(() => mockDb),
     upsertTopicCluster: vi.fn(),
+    resolveSubtopics: vi.fn(() => subtopicRows),
     closeDb: vi.fn(),
   };
 });

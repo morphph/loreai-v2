@@ -34,6 +34,7 @@ vi.mock('../db', () => {
   return {
     getDb: vi.fn(() => mockDb),
     upsertTopicCluster: vi.fn(),
+    resolveSubtopics: vi.fn(() => []),
     closeDb: vi.fn(),
   };
 });
@@ -54,7 +55,7 @@ import { expandTopic } from '../keyword-expand';
 import { groupTopic } from '../keyword-group';
 import { scoreAndQueue } from '../score-queue';
 import { searchRelated } from '../serper';
-import { getDb, upsertTopicCluster } from '../db';
+import { getDb, upsertTopicCluster, resolveSubtopics } from '../db';
 
 const mockExpandTopic = vi.mocked(expandTopic);
 const mockGroupTopic = vi.mocked(groupTopic);
@@ -62,6 +63,7 @@ const mockScoreAndQueue = vi.mocked(scoreAndQueue);
 const mockSearchRelated = vi.mocked(searchRelated);
 const mockGetDb = vi.mocked(getDb);
 const mockUpsertTopicCluster = vi.mocked(upsertTopicCluster);
+const mockResolveSubtopics = vi.mocked(resolveSubtopics);
 
 // ── Mock Data ──
 
@@ -167,6 +169,27 @@ const DEFAULT_OPTS: DiscoveryOptions = {
 // ── Helpers ──
 
 function setupMockDb(subtopics: SubtopicInput[] = MOCK_SUBTOPICS) {
+  const subtopicRows = subtopics.map((s) => ({
+    slug: s.slug,
+    pillar_topic: s.pillar_topic,
+    mention_count: 100,
+    first_seen: '',
+    last_seen: '',
+    has_topic_hub: 0,
+    brave_related_json: null,
+    brave_updated_at: null,
+    source: 'entity_extract',
+    flagship_topic_slug: null,
+    description: null,
+    aliases_json: null,
+    freshness_sensitivity: null,
+    page_type_hints_json: null,
+    seed_keywords_json: null,
+    evidence_type: null,
+    pack_version: null,
+  }));
+  mockResolveSubtopics.mockReturnValue(subtopicRows);
+
   const mockAll = vi.fn(() => subtopics.map((s) => ({ slug: s.slug, pillar_topic: s.pillar_topic })));
   const mockPrepare = vi.fn(() => ({ all: mockAll, run: vi.fn() }));
   mockGetDb.mockReturnValue({ prepare: mockPrepare } as unknown as ReturnType<typeof getDb>);

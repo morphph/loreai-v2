@@ -9,7 +9,7 @@
 
 import { searchFull, searchAutocomplete, estimateVolume } from './serper';
 import { semanticSearch } from './exa';
-import { getDb, upsertKeyword } from './db';
+import { getDb, upsertKeyword, resolveSubtopics } from './db';
 
 import type { SerperSearchResponse } from './serper';
 import type { ExaSearchResult } from './exa';
@@ -440,11 +440,11 @@ export async function expandTopic(
 ): Promise<ExpansionRunResult> {
   const db = getDb();
 
-  // Load subtopics from DB
+  // Load subtopics via resolveSubtopics() (flagship-aware, single entry point)
   let subtopics: SubtopicInput[];
 
   if (subtopicSlugs && subtopicSlugs.length > 0) {
-    // Load only specified subtopics
+    // Load only specified subtopics by slug
     const placeholders = subtopicSlugs.map(() => '?').join(',');
     subtopics = db
       .prepare(
@@ -460,14 +460,11 @@ export async function expandTopic(
       }
     }
   } else {
-    // Load all subtopics for the topic
-    subtopics = db
-      .prepare(
-        `SELECT slug, pillar_topic FROM topic_clusters
-         WHERE slug LIKE ? OR slug = ?
-         ORDER BY mention_count DESC`,
-      )
-      .all(`${topicSlug}-%`, topicSlug) as SubtopicInput[];
+    // Load all subtopics for the topic (flagship-aware)
+    subtopics = resolveSubtopics(topicSlug).map((r) => ({
+      slug: r.slug,
+      pillar_topic: r.pillar_topic,
+    }));
   }
 
   if (subtopics.length === 0) {
