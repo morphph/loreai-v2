@@ -226,9 +226,11 @@ For each flagship topic, automatically discover subtopics from three channels:
 | News pipeline entities                              | New developments worth covering                                     | "Anthropic launches Agent Teams" → new subtopic                                                                     | Daily     |
 
 
-**Output:** Structured list of subtopics per flagship topic, each with source signals and discovery date.
+**Output:** Structured list of subtopics per flagship topic, each with source signals and discovery date. Persisted as `SubtopicPack` JSON artifacts in `data/flagship-packs/`.
 
-→ See: SPEC-09a (external discovery), SPEC-09c (internal signal discovery), SPEC-10 (GSC pipeline)
+> **Implemented (2026-03-27):** D1 Full Discovery synthesizes official docs + competitor content weekly; D1 Freshness routes daily news signals to approved subtopics. D2 ensures flagship subtopics are the authority source (`source='flagship_discovery'`) while entity extraction feeds `entity_extract` candidates separately.
+
+→ See: SPEC-D1 (flagship discovery agent), SPEC-D2 (migration & sunset), SPEC-09a (external discovery), SPEC-09c (internal signal discovery), SPEC-10 (GSC pipeline)
 
 ### 4.4 Stage 3 — Keyword Expansion & Grouping
 

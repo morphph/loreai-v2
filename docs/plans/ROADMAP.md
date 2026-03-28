@@ -22,9 +22,9 @@
 
 ## Auto-Promotion: Extract → Discovery 自动晋升
 
-**现状**: Extract pipeline 每天从新闻中提取实体，创建 topic_clusters 记录（334个），但只追踪 mention_count。Discovery pipeline 只在手动配置的 2 个 flagship topic（Claude Code、Codex）上运行。两者之间没有桥梁。
+**现状 (updated 2026-03-27)**: D1 (Flagship Discovery) 和 D2 (Migration Guard) 已上线。`topic_clusters.source` 列区分 `flagship_discovery` vs `entity_extract`。Entity extraction 自动跳过 flagship subtopics（`isFlagshipSubtopic` 三层检查）。Discovery cycle 的 `loadSubtopics()` 优先使用 approved flagship packs。目前手动配置 2 个 flagship topic（Claude Code、Codex）。
 
-**未来方向**: 当某个 topic 的 mention_count 在 7 天内超过阈值（如 ≥8），自动触发一轮 discovery cycle（关键词扩展 → 分组 → 评分）。如果关键词量足够（如 ≥20 个可用关键词），自动晋升为活跃 flagship topic，加入定期 discovery 轮换。
+**未来方向**: 当某个 topic 的 mention_count 在 7 天内超过阈值（如 ≥8），自动触发一轮 full discovery（official docs + competitor synthesis）。如果 subtopic 数量和关键词量足够，自动晋升为活跃 flagship topic，加入定期 freshness + discovery 轮换。
 
 **关键设计决策**:
 - 晋升阈值：纯 mention_count 还是按 tier 加权？
@@ -32,8 +32,13 @@
 - 降级机制：长期无新提及的 topic 是否退出 discovery 轮换？
 - Dashboard 过滤：无论是否实现自动晋升，dashboard 应只显示活跃 flagship
 
+**基础设施已就绪**:
+- `source` 列 + `flagship_topic_slug` 列已存在（D1 Phase 1）
+- Entity extraction guard 已就绪（D2）— 新 flagship 一旦 approved 即自动被 guard 保护
+- `materializePack()` + `approvePack()` 可直接复用
+- C5 health check `flagship_pack_status` 会自动监控新 flagship
+
 **为什么现在不做**:
-- 需要先解决 keyword grouping 质量问题（Haiku 幻觉、Exa 垃圾关键词）
 - 需要更多数据验证当前 2 个 flagship 的 ROI
 - 设计决策需要人工判断（哪些 topic 值得投入）
 

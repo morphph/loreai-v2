@@ -424,4 +424,35 @@ OpenAI Codex: tagged 3 subtopics
 
 ---
 
+## Phase 6: End-to-End VPS Test (2026-03-27)
+
+**Scope:** Full pipeline verification on VPS with live DB. Not a code phase — manual execution of all D1 + D2 scripts in sequence to validate integration.
+
+### Test Steps & Results
+
+| # | Step | Command | Result |
+|---|------|---------|--------|
+| 1 | Migration | `npx tsx scripts/migrate-flagship-tags.ts` | Tagged 5 subtopics (2 Claude Code, 3 OpenAI Codex) |
+| 2 | Full Discovery | `npx tsx scripts/flagship-discovery.ts --topic=claude-code` | 29 subtopics, 317 seed keywords. 4 stages: official (22 sources, 17 candidates) → competitor (15 analyzed, 12 gap, 5 compare) → merge → persist draft |
+| 3 | Review Draft | `cat data/flagship-packs/claude-code.json \| jq '.subtopics[].name'` | 29 subtopics covering: setup, CLI, interactive mode, IDE, Agent SDK, MCP, subagents, plugins, skills, memory, output styles, workflows, remote, permissions, auth, desktop, CI/CD, plan mode, comparisons, pricing, non-technical, context mgmt, git, parallel sessions, scheduled tasks, prompt engineering, computer use, Slack/Linear integrations, TDD |
+| 4 | Approve | `npx tsx scripts/flagship-discovery.ts --topic=claude-code --approve` | Pack v1 approved & materialized |
+| 5 | Verify DB | `sqlite3 loreai.db "SELECT slug, source, flagship_topic_slug FROM topic_clusters WHERE source='flagship_discovery'"` | 30 rows (1 parent + 29 subtopics), all with `source='flagship_discovery'` and `flagship_topic_slug='claude-code'` |
+| 6 | Freshness | `npx tsx scripts/flagship-freshness.ts --topic=claude-code` | 12 fresh signals, 9 actionable routings (3 ignored), 12 queue drafts written. Actions: `refresh_and_create` (4), `refresh` (5) |
+| 7 | Entity Extraction | `npx tsx scripts/extract-entities.ts` | 74 entities extracted, 18 new clusters, 54 updated. **Skipped 2 flagship subtopics** (Claude Code, Codex) — guard working correctly |
+| 8 | Discovery Cycle | `npx tsx scripts/discovery-cycle.ts --topic=claude-code --expand-only --dry-run` | 31 subtopics processed, 830 new keywords discovered across 93 API calls (62 Serper, 31 Exa). Flagship subtopics used as expansion targets |
+
+### Key Verifications
+
+- **D1 Full Discovery → Approve → Materialize** pipeline works end-to-end
+- **D1 Freshness** correctly routes live news signals to approved subtopics, creates queue drafts with dedup
+- **D2 Entity Guard** correctly skips flagship subtopics during entity extraction (2 skipped)
+- **D2 C1 Adaptation** confirmed — discovery cycle uses flagship subtopics as expansion targets (31 subtopics processed vs legacy LIKE query)
+- **No regressions** — entity extraction still processes non-flagship entities normally (74 extracted, 18 new clusters)
+
+### Status
+
+All 8 steps passed. D1 + D2 integration verified on live VPS.
+
+---
+
 <!-- Future phases append below -->

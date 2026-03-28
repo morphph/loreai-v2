@@ -12,10 +12,14 @@ Each stage feeds the next. The **Keyword Engine** (B1→B4) is the core content 
 | 12:00am | Collect | `collect-news.ts` | Mon-Fri |
 | 2:00am | Newsletter | `write-newsletter.ts` | Mon-Fri |
 | 4:00am | Entity Extract | `extract-entities.ts` | Mon-Fri |
+| 4:30am | Flagship Freshness | `flagship-freshness.ts` | Mon-Fri |
 | 6:00am | Generate | `process-queue.ts` | Mon-Fri |
+| 7:30am | Flagship Discovery | `flagship-discovery.ts` | Sat |
 | 8:00am | Discovery | `discovery-cycle.ts` | Tue & Sat |
 | 10:00am | Performance | `performance-cycle.ts` | Sat |
 | 5:00am | Weekly Digest | `write-weekly.ts` | Sun |
+
+**D1 Flagship steps (added 2026-03-27):** Freshness routes daily news signals to approved flagship subtopics and queues create/refresh jobs. Full Discovery runs weekly to re-synthesize subtopics from official docs + competitors (human approval required via `--approve`). See SPEC-D1.
 
 ## Pipeline Flow
 
