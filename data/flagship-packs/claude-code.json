@@ -1,0 +1,962 @@
+{
+  "topic_slug": "claude-code",
+  "topic_name": "Claude Code",
+  "version": 1,
+  "status": "approved",
+  "created_at": "2026-03-27T12:00:26.484Z",
+  "approved_at": "2026-03-27T12:01:39.253Z",
+  "subtopics": [
+    {
+      "slug": "claude-code-installation-setup",
+      "name": "Installation & Setup",
+      "description": "Everything required to install Claude Code across platforms (macOS, Linux, Windows) and configure it for first use, including package manager support, auto-updates, and cloud provider authentication.",
+      "aliases": [
+        "claude code install",
+        "cc setup",
+        "claude code quickstart",
+        "claude code getting started"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "faq",
+        "topic-hub"
+      ],
+      "seed_keywords": [
+        "how to install claude code",
+        "claude code setup guide",
+        "claude code windows install",
+        "claude code homebrew install",
+        "claude code winget",
+        "claude code linux installation",
+        "claude code prerequisites",
+        "claude code quickstart tutorial",
+        "claude code login setup",
+        "install claude code vs code extension",
+        "claude code subscription requirements",
+        "claude code auto update"
+      ]
+    },
+    {
+      "slug": "claude-code-cli-reference",
+      "name": "CLI Commands & Flags",
+      "description": "Complete reference for the Claude Code command-line interface: session commands, flags, piping content, authentication commands, plugin management, and remote control via CLI.",
+      "aliases": [
+        "claude code command line",
+        "cc cli",
+        "claude code terminal commands",
+        "claude code flags"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "glossary",
+        "faq",
+        "tutorial"
+      ],
+      "seed_keywords": [
+        "claude code cli commands",
+        "claude code cli flags",
+        "claude code cli reference",
+        "claude code command line options",
+        "claude code pipe input",
+        "claude code resume session cli",
+        "claude code continue conversation flag",
+        "claude code auth login command",
+        "claude code update command",
+        "how to run claude code from terminal",
+        "claude code add directory flag",
+        "claude code non-interactive mode"
+      ]
+    },
+    {
+      "slug": "claude-code-interactive-mode",
+      "name": "Interactive Mode & Keyboard Shortcuts",
+      "description": "Controls, keyboard shortcuts, input modes, and session management features available within Claude Code's interactive REPL-style session, including model switching and extended thinking toggles.",
+      "aliases": [
+        "claude code keyboard shortcuts",
+        "cc interactive",
+        "claude code keybindings",
+        "claude code session controls"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "low",
+      "page_type_hints": [
+        "faq",
+        "tutorial",
+        "glossary"
+      ],
+      "seed_keywords": [
+        "claude code keyboard shortcuts",
+        "claude code interactive mode guide",
+        "claude code cancel input shortcut",
+        "claude code verbose mode toggle",
+        "claude code switch model during session",
+        "claude code fast mode shortcut",
+        "claude code extended thinking mode",
+        "claude code terminal compatibility settings",
+        "claude code session management",
+        "how to edit prompt in claude code",
+        "claude code input modes"
+      ]
+    },
+    {
+      "slug": "claude-code-ide-integrations",
+      "name": "IDE Integrations",
+      "description": "Guides for using Claude Code inside development environments including VS Code, JetBrains IDEs, and browser-based editors — covering installation, inline diffs, @-mentions, and conversation history.",
+      "aliases": [
+        "claude code vs code",
+        "claude code jetbrains",
+        "claude code editor extension",
+        "cc ide plugin"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "faq",
+        "compare"
+      ],
+      "seed_keywords": [
+        "claude code vs code extension",
+        "claude code visual studio code setup",
+        "claude code jetbrains plugin",
+        "how to use claude code in vs code",
+        "claude code inline diff",
+        "claude code activity bar vs code",
+        "claude code @mentions ide",
+        "claude code auto accept edits",
+        "claude code multi tab ide",
+        "claude code vs code vs terminal",
+        "claude code ide vs cli",
+        "claude code plan review vs code"
+      ]
+    },
+    {
+      "slug": "claude-code-agent-sdk",
+      "name": "Agent SDK",
+      "description": "The Claude Agent SDK (formerly Claude Code SDK) for building autonomous AI agents in Python and TypeScript, with built-in tools for file management, command execution, and multi-turn conversation sessions.",
+      "aliases": [
+        "claude code sdk",
+        "claude agent sdk",
+        "cc sdk",
+        "claude code python sdk",
+        "claude code typescript sdk"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "high",
+      "page_type_hints": [
+        "tutorial",
+        "faq",
+        "topic-hub"
+      ],
+      "seed_keywords": [
+        "claude code sdk tutorial",
+        "claude agent sdk python",
+        "claude agent sdk typescript",
+        "how to use claude code sdk",
+        "claude code sdk query function",
+        "claude code sdk multi-turn conversation",
+        "claude code sdk ClaudeSDKClient",
+        "build autonomous agent claude sdk",
+        "claude code sdk custom tools",
+        "claude agent sdk vs openai agents",
+        "claude code sdk pip install",
+        "claude code sdk bedrock vertex integration",
+        "claude code sdk session management"
+      ]
+    },
+    {
+      "slug": "claude-code-mcp-servers",
+      "name": "MCP Server Integration",
+      "description": "Connecting Claude Code to external tools, APIs, and data sources via the Model Context Protocol (MCP) — an open standard for AI-tool connectivity enabling hundreds of third-party integrations.",
+      "aliases": [
+        "claude code mcp",
+        "model context protocol claude",
+        "cc mcp servers",
+        "claude code tool connections"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "high",
+      "page_type_hints": [
+        "tutorial",
+        "topic-hub",
+        "faq"
+      ],
+      "seed_keywords": [
+        "claude code mcp setup",
+        "claude code model context protocol",
+        "how to connect mcp server claude code",
+        "claude code mcp tools",
+        "claude code mcp vs plugins",
+        "claude code external tools integration",
+        "claude code mcp configuration",
+        "mcp server claude code examples",
+        "claude code mcp database connection",
+        "claude code mcp github integration",
+        "what is mcp claude code",
+        "claude code mcp server list"
+      ]
+    },
+    {
+      "slug": "claude-code-subagents",
+      "name": "Custom Subagents",
+      "description": "Creating and orchestrating specialized AI subagents within Claude Code for task-specific workflows, improved context isolation, and parallel execution of complex multi-step tasks.",
+      "aliases": [
+        "claude code sub-agents",
+        "cc subagents",
+        "claude code agents",
+        "claude code custom agents"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "high",
+      "page_type_hints": [
+        "tutorial",
+        "blog",
+        "faq"
+      ],
+      "seed_keywords": [
+        "claude code subagents guide",
+        "how to create subagents claude code",
+        "claude code custom agent definition",
+        "claude code subagent vs agent",
+        "claude code parallel subagents",
+        "claude code agent orchestration",
+        "claude code subagent context isolation",
+        "claude code task-specific agents",
+        "claude code --agents flag",
+        "claude code subagent examples",
+        "claude code specialized agents workflow",
+        "claude code subagent vs skill"
+      ]
+    },
+    {
+      "slug": "claude-code-plugins",
+      "name": "Plugin Development",
+      "description": "Building, configuring, and sharing Claude Code plugins — standalone configuration bundles defined by a plugin.json manifest that extend Claude Code's capabilities for teams or public distribution.",
+      "aliases": [
+        "claude code plugin",
+        "cc plugins",
+        "claude code extensions",
+        "claude code plugin.json"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "high",
+      "page_type_hints": [
+        "tutorial",
+        "faq",
+        "blog"
+      ],
+      "seed_keywords": [
+        "claude code plugin tutorial",
+        "how to create claude code plugin",
+        "claude code plugin.json manifest",
+        "claude code plugin vs skill",
+        "claude code plugin discovery",
+        "claude code plugin install",
+        "claude code plugin vs mcp",
+        "claude code plugin examples",
+        "share claude code plugin",
+        "claude code plugin configuration",
+        "claude code standalone plugin",
+        "claude code plugin quickstart"
+      ]
+    },
+    {
+      "slug": "claude-code-skills",
+      "name": "Skills & Slash Commands",
+      "description": "Extending Claude Code with custom slash commands and bundled skills via SKILL.md files — covering invocation patterns, dynamic context injection, and built-in skill reference (/batch, /debug, /simplify, etc.).",
+      "aliases": [
+        "claude code slash commands",
+        "cc skills",
+        "claude code custom commands",
+        "claude code /commands"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "glossary",
+        "faq"
+      ],
+      "seed_keywords": [
+        "claude code skills guide",
+        "claude code slash commands list",
+        "how to create custom skill claude code",
+        "claude code SKILL.md",
+        "claude code /batch command",
+        "claude code /debug skill",
+        "claude code /simplify command",
+        "claude code bundled skills",
+        "claude code custom slash command tutorial",
+        "claude code skill invocation",
+        "claude code skills vs plugins",
+        "claude code automatic skill triggering"
+      ]
+    },
+    {
+      "slug": "claude-code-memory",
+      "name": "Memory & CLAUDE.md",
+      "description": "Persistent project context via CLAUDE.md files — how Claude Code reads, prioritizes, and inherits instructions at the project, personal, and organizational scope across sessions.",
+      "aliases": [
+        "claude code CLAUDE.md",
+        "cc memory",
+        "claude code persistent context",
+        "claude code project instructions"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "low",
+      "page_type_hints": [
+        "tutorial",
+        "faq",
+        "blog"
+      ],
+      "seed_keywords": [
+        "claude code CLAUDE.md guide",
+        "how to use CLAUDE.md",
+        "claude code persistent memory",
+        "claude code project instructions file",
+        "claude code memory across sessions",
+        "claude code organization CLAUDE.md",
+        "claude code personal CLAUDE.md",
+        "how does claude code remember context",
+        "claude code instructions inheritance",
+        "claude code CLAUDE.md examples",
+        "claude code memory vs prompt",
+        "claude code project context setup"
+      ]
+    },
+    {
+      "slug": "claude-code-output-styles",
+      "name": "Output Styles & Response Customization",
+      "description": "Built-in and custom output styles that modify Claude Code's response behavior — including Default, Explanatory, and Learning modes — configured via /config or Markdown files with frontmatter.",
+      "aliases": [
+        "claude code response modes",
+        "cc output style",
+        "claude code explanatory mode",
+        "claude code learning mode"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "low",
+      "page_type_hints": [
+        "faq",
+        "tutorial",
+        "glossary"
+      ],
+      "seed_keywords": [
+        "claude code output styles",
+        "claude code response customization",
+        "claude code explanatory mode",
+        "claude code learning mode",
+        "how to change claude code style",
+        "claude code /config output style",
+        "claude code custom output style markdown",
+        "claude code teaching mode",
+        "claude code non-engineering use cases",
+        "claude code system prompt customization",
+        "claude code response format options"
+      ]
+    },
+    {
+      "slug": "claude-code-common-workflows",
+      "name": "Common Dev Workflows",
+      "description": "Practical workflow patterns for software development tasks — codebase exploration, debugging, refactoring, test writing, PR creation, and code review — with example prompts and best practices.",
+      "aliases": [
+        "claude code workflows",
+        "cc use cases",
+        "claude code debugging",
+        "claude code refactoring guide"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "low",
+      "page_type_hints": [
+        "tutorial",
+        "blog",
+        "topic-hub"
+      ],
+      "seed_keywords": [
+        "claude code workflow examples",
+        "how to debug with claude code",
+        "claude code refactoring tutorial",
+        "claude code write tests workflow",
+        "claude code create pull request",
+        "claude code explore codebase",
+        "claude code code review workflow",
+        "claude code fix bug step by step",
+        "claude code subagent for code review",
+        "claude code understand architecture",
+        "claude code common prompts",
+        "best practices claude code software development"
+      ]
+    },
+    {
+      "slug": "claude-code-remote-control",
+      "name": "Remote Control & Mobile Access",
+      "description": "Continuing and managing local Claude Code sessions remotely from any browser, phone, or tablet — enabling cross-device session continuity via claude.ai/code and the Claude mobile app.",
+      "aliases": [
+        "claude code remote",
+        "cc remote control",
+        "claude code mobile",
+        "claude code cloud session"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "high",
+      "page_type_hints": [
+        "tutorial",
+        "faq",
+        "blog"
+      ],
+      "seed_keywords": [
+        "claude code remote control",
+        "claude code mobile access",
+        "continue claude code session from phone",
+        "claude code remote session setup",
+        "claude code cross-device session",
+        "claude code tablet browser session",
+        "claude.ai/code remote",
+        "claude code remote vs local",
+        "claude code cloud session management",
+        "access claude code from anywhere",
+        "claude code remote control tutorial"
+      ]
+    },
+    {
+      "slug": "claude-code-permissions",
+      "name": "Permissions & Security Controls",
+      "description": "Permission modes, access controls, and security settings governing what Claude Code can execute — covering approval workflows, allowed/denied tool lists, and enterprise policy configuration.",
+      "aliases": [
+        "claude code permission modes",
+        "cc security settings",
+        "claude code allow deny",
+        "claude code approval flow"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "faq",
+        "tutorial",
+        "blog"
+      ],
+      "seed_keywords": [
+        "claude code permissions guide",
+        "claude code permission modes",
+        "claude code allow tool execution",
+        "claude code security settings",
+        "claude code auto approve commands",
+        "claude code deny list",
+        "claude code enterprise permissions",
+        "claude code bypass permissions",
+        "claude code tool approval workflow",
+        "how to restrict claude code access",
+        "claude code permission mode vs default",
+        "claude code dontAsk mode"
+      ]
+    },
+    {
+      "slug": "claude-code-authentication",
+      "name": "Authentication & Account Setup",
+      "description": "Logging into Claude Code via Claude account, Anthropic Console, or supported cloud providers (Amazon Bedrock, Google Vertex AI, Azure) — covering API key management and session authentication.",
+      "aliases": [
+        "claude code login",
+        "cc auth",
+        "claude code api key",
+        "claude code cloud provider auth"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "faq",
+        "tutorial",
+        "glossary"
+      ],
+      "seed_keywords": [
+        "claude code login setup",
+        "claude code authentication guide",
+        "claude code api key configuration",
+        "claude code bedrock authentication",
+        "claude code vertex ai login",
+        "claude code azure auth",
+        "claude code auth status command",
+        "claude code logout",
+        "claude code anthropic console account",
+        "claude code subscription vs api key",
+        "how to authenticate claude code ci cd",
+        "claude code enterprise sso"
+      ]
+    },
+    {
+      "slug": "claude-code-desktop-app",
+      "name": "Desktop App",
+      "description": "The standalone Claude Code desktop application for macOS and Windows — enabling visual diff review, multi-session management, and project switching outside the terminal.",
+      "aliases": [
+        "claude code app",
+        "cc desktop",
+        "claude code native app",
+        "claude code gui"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "high",
+      "page_type_hints": [
+        "tutorial",
+        "faq",
+        "compare"
+      ],
+      "seed_keywords": [
+        "claude code desktop app",
+        "claude code native app download",
+        "claude code desktop vs terminal",
+        "claude code multi session desktop",
+        "claude code visual diff review",
+        "claude code mac app",
+        "claude code windows app",
+        "claude code desktop app features",
+        "claude code app vs vs code extension",
+        "claude code desktop install guide",
+        "claude code project switching desktop"
+      ]
+    },
+    {
+      "slug": "claude-code-ci-cd-integration",
+      "name": "CI/CD & Automation Integration",
+      "description": "Running Claude Code in non-interactive, headless, and CI/CD pipeline contexts — including GitHub Actions, automated code review, and batch processing workflows without human-in-the-loop approval.",
+      "aliases": [
+        "claude code ci cd",
+        "cc github actions",
+        "claude code automation",
+        "claude code headless"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "blog",
+        "faq"
+      ],
+      "seed_keywords": [
+        "claude code ci cd integration",
+        "claude code github actions",
+        "claude code non-interactive automation",
+        "claude code headless mode",
+        "automate code review claude code",
+        "claude code pipeline integration",
+        "claude code batch automation",
+        "claude code ci authentication",
+        "claude code automated pr review",
+        "claude code devops workflow",
+        "how to run claude code in ci",
+        "claude code no human in loop"
+      ]
+    },
+    {
+      "slug": "claude-code-plan-mode",
+      "name": "Plan Mode",
+      "description": "Claude Code's Plan mode, which pauses before executing changes to present a structured action plan for human review and approval — a distinct execution posture separate from autonomous and interactive modes.",
+      "aliases": [
+        "claude code planning mode",
+        "cc plan mode",
+        "claude code review before execute",
+        "claude code pre-execution approval"
+      ],
+      "evidence_type": "serp_competitor",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "faq",
+        "blog"
+      ],
+      "seed_keywords": [
+        "claude code plan mode",
+        "how to use claude code plan mode",
+        "claude code plan before execute",
+        "claude code approve actions",
+        "claude code plan vs auto mode",
+        "claude code plan mode tutorial",
+        "when to use claude code plan mode",
+        "claude code human in the loop"
+      ]
+    },
+    {
+      "slug": "claude-code-vs-alternatives",
+      "name": "Claude Code vs Alternatives",
+      "description": "Head-to-head comparisons of Claude Code against competing AI coding tools — Cursor, GitHub Copilot, Windsurf, Cline, and others — covering capability, cost, workflow fit, and switching considerations.",
+      "aliases": [
+        "claude code vs cursor",
+        "claude code vs copilot",
+        "claude code vs windsurf",
+        "cc alternatives",
+        "best ai coding assistant"
+      ],
+      "evidence_type": "gap_analysis",
+      "freshness_sensitivity": "high",
+      "page_type_hints": [
+        "compare",
+        "blog",
+        "faq"
+      ],
+      "seed_keywords": [
+        "claude code vs cursor",
+        "claude code vs github copilot",
+        "claude code vs windsurf",
+        "claude code vs cline",
+        "is claude code better than cursor",
+        "claude code vs copilot which is better",
+        "switching from cursor to claude code",
+        "best ai coding assistant 2025",
+        "claude code pros and cons",
+        "claude code vs copilot cost comparison",
+        "claude code terminal vs ide ai assistant"
+      ]
+    },
+    {
+      "slug": "claude-code-cost-pricing",
+      "name": "Cost, Pricing & Token Usage",
+      "description": "Subscription plan options (Free, Pro, Max, API), token consumption patterns, cost optimization strategies, and enterprise pricing — covering what heavy Claude Code usage actually costs and how to reduce it.",
+      "aliases": [
+        "claude code pricing",
+        "claude code cost",
+        "claude code token usage",
+        "claude code subscription",
+        "claude code max plan"
+      ],
+      "evidence_type": "serp_competitor",
+      "freshness_sensitivity": "high",
+      "page_type_hints": [
+        "faq",
+        "blog",
+        "compare"
+      ],
+      "seed_keywords": [
+        "claude code pricing",
+        "how much does claude code cost",
+        "claude code subscription plans",
+        "claude code max vs pro plan",
+        "claude code token usage per session",
+        "reduce claude code costs",
+        "claude code cost optimization",
+        "claude code free tier limits",
+        "is claude code worth it",
+        "claude code enterprise pricing",
+        "claude code api cost vs subscription"
+      ]
+    },
+    {
+      "slug": "claude-code-non-technical-use-cases",
+      "name": "Non-Technical & Non-Coding Use Cases",
+      "description": "Using Claude Code for tasks beyond software development — research workflows, task management, document processing, content creation, and file system automation — making the case for non-developer adoption.",
+      "aliases": [
+        "claude code for non developers",
+        "claude code research tool",
+        "claude code productivity",
+        "claude code non coding",
+        "claude code file automation"
+      ],
+      "evidence_type": "serp_competitor",
+      "freshness_sensitivity": "low",
+      "page_type_hints": [
+        "blog",
+        "tutorial",
+        "faq"
+      ],
+      "seed_keywords": [
+        "claude code for non technical users",
+        "claude code without coding",
+        "claude code for research",
+        "claude code for writers",
+        "claude code task management",
+        "claude code file organization",
+        "claude code for non developers",
+        "what can non coders do with claude code",
+        "claude code productivity use cases",
+        "claude code data analysis without code"
+      ]
+    },
+    {
+      "slug": "claude-code-context-management",
+      "name": "Context Management & Task Chunking",
+      "description": "Strategies for managing Claude Code's context window effectively — breaking large tasks into chunks, using /compact or context-reset patterns, structuring long sessions, and avoiding context overflow in multi-step work.",
+      "aliases": [
+        "claude code context window",
+        "claude code compact",
+        "task chunking claude code",
+        "claude code session context",
+        "cc context reset"
+      ],
+      "evidence_type": "gap_analysis",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "blog",
+        "faq"
+      ],
+      "seed_keywords": [
+        "claude code context window management",
+        "claude code task chunking",
+        "claude code context too long",
+        "how to manage context in claude code",
+        "claude code compact command",
+        "claude code context reset",
+        "claude code large codebase context",
+        "claude code session memory limits",
+        "break large tasks claude code",
+        "claude code context overflow fix"
+      ]
+    },
+    {
+      "slug": "claude-code-git-workflow",
+      "name": "Git Workflow Integration",
+      "description": "Patterns for integrating Claude Code into day-to-day Git workflows — automated commit messages, branch management, conflict resolution, PR creation from the terminal, and code review assistance via Git context.",
+      "aliases": [
+        "claude code git",
+        "claude code commits",
+        "claude code git integration",
+        "cc git workflow",
+        "claude code version control"
+      ],
+      "evidence_type": "serp_competitor",
+      "freshness_sensitivity": "low",
+      "page_type_hints": [
+        "tutorial",
+        "blog",
+        "faq"
+      ],
+      "seed_keywords": [
+        "claude code git workflow",
+        "claude code git commit",
+        "claude code git branch management",
+        "how to use claude code with git",
+        "claude code pull request creation",
+        "claude code merge conflict resolution",
+        "claude code git history context",
+        "claude code automate git commits",
+        "claude code code review git",
+        "claude code gitignore setup"
+      ]
+    },
+    {
+      "slug": "claude-code-parallel-sessions",
+      "name": "Parallel Sessions & Git Worktrees",
+      "description": "Running multiple Claude Code sessions simultaneously with Git worktree isolation — enabling parallel feature development, A/B experimentation on codebases, and multi-agent orchestration without branch conflicts.",
+      "aliases": [
+        "claude code parallel",
+        "claude code multiple sessions",
+        "claude code worktree",
+        "cc parallel agents",
+        "claude code concurrent tasks"
+      ],
+      "evidence_type": "serp_competitor",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "blog",
+        "faq"
+      ],
+      "seed_keywords": [
+        "claude code parallel sessions",
+        "claude code multiple instances",
+        "claude code git worktree",
+        "run multiple claude code sessions",
+        "claude code parallel agents",
+        "claude code concurrent tasks",
+        "claude code worktree isolation",
+        "how to run claude code in parallel",
+        "claude code multi agent parallel execution"
+      ]
+    },
+    {
+      "slug": "claude-code-scheduled-tasks",
+      "name": "Scheduled & Recurring Tasks",
+      "description": "Setting up Claude Code to run recurring automated tasks on a schedule — cron-style triggers, nightly jobs, periodic code analysis, and scheduled agent runs without continuous human involvement.",
+      "aliases": [
+        "claude code cron",
+        "claude code scheduled jobs",
+        "claude code automation schedule",
+        "cc recurring tasks",
+        "claude code background tasks"
+      ],
+      "evidence_type": "serp_competitor",
+      "freshness_sensitivity": "high",
+      "page_type_hints": [
+        "tutorial",
+        "faq",
+        "blog"
+      ],
+      "seed_keywords": [
+        "claude code scheduled tasks",
+        "claude code cron job",
+        "automate claude code on schedule",
+        "claude code recurring agent",
+        "claude code background automation",
+        "claude code run at night",
+        "schedule claude code task",
+        "claude code periodic code review",
+        "claude code automated nightly build review"
+      ]
+    },
+    {
+      "slug": "claude-code-prompt-engineering",
+      "name": "Prompt Engineering for Claude Code",
+      "description": "Effective prompt patterns, structuring strategies, and phrasing techniques specific to Claude Code — covering how to specify scope, constrain autonomy, frame complex tasks, and iterate on failing instructions.",
+      "aliases": [
+        "claude code prompting",
+        "claude code prompts",
+        "how to prompt claude code",
+        "cc prompt tips",
+        "effective claude code instructions"
+      ],
+      "evidence_type": "gap_analysis",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "blog",
+        "tutorial",
+        "faq"
+      ],
+      "seed_keywords": [
+        "how to prompt claude code effectively",
+        "claude code prompt examples",
+        "claude code prompting best practices",
+        "claude code prompt engineering",
+        "good prompts for claude code",
+        "claude code instruction format",
+        "how to give claude code context",
+        "claude code prompt structure",
+        "claude code system prompt tips",
+        "claude code prompt vs chatgpt prompt differences"
+      ]
+    },
+    {
+      "slug": "claude-code-computer-use",
+      "name": "Computer Use & GUI Automation",
+      "description": "Claude Code's computer use capability on macOS — controlling the desktop GUI, interacting with applications, and automating tasks that require mouse/keyboard input beyond terminal-accessible workflows.",
+      "aliases": [
+        "claude code computer control",
+        "claude code macos automation",
+        "cc computer use",
+        "claude code gui control",
+        "claude code desktop automation"
+      ],
+      "evidence_type": "serp_competitor",
+      "freshness_sensitivity": "high",
+      "page_type_hints": [
+        "tutorial",
+        "blog",
+        "faq"
+      ],
+      "seed_keywords": [
+        "claude code computer use",
+        "claude code computer control macos",
+        "claude code gui automation",
+        "claude code desktop control",
+        "claude code click buttons",
+        "how does claude code computer use work",
+        "claude code mouse keyboard control",
+        "claude code automate desktop apps",
+        "enable computer use claude code"
+      ]
+    },
+    {
+      "slug": "claude-code-slack-linear-integrations",
+      "name": "Slack, Linear & Project Tool Integrations",
+      "description": "Connecting Claude Code to project management and communication platforms — Slack channels for task dispatch, Linear issue tracking, GitHub notifications, and other external service integrations available in the Desktop app.",
+      "aliases": [
+        "claude code slack",
+        "claude code linear",
+        "claude code project tools",
+        "cc slack integration",
+        "claude code notification integrations"
+      ],
+      "evidence_type": "serp_competitor",
+      "freshness_sensitivity": "high",
+      "page_type_hints": [
+        "tutorial",
+        "faq",
+        "blog"
+      ],
+      "seed_keywords": [
+        "claude code slack integration",
+        "claude code linear integration",
+        "connect claude code to slack",
+        "claude code project management tools",
+        "claude code github notifications",
+        "claude code task from slack",
+        "claude code issue tracking",
+        "send claude code tasks from slack",
+        "claude code external tool integrations"
+      ]
+    },
+    {
+      "slug": "claude-code-tdd-autonomous-testing",
+      "name": "Test-Driven Development with Autonomous Agents",
+      "description": "Using Claude Code to drive test-first development loops — writing failing tests, implementing code to pass them, and running autonomous red-green-refactor cycles with minimal human intervention.",
+      "aliases": [
+        "claude code tdd",
+        "claude code test driven",
+        "claude code autonomous testing",
+        "cc red green refactor",
+        "claude code test first"
+      ],
+      "evidence_type": "gap_analysis",
+      "freshness_sensitivity": "low",
+      "page_type_hints": [
+        "tutorial",
+        "blog",
+        "faq"
+      ],
+      "seed_keywords": [
+        "claude code test driven development",
+        "claude code tdd",
+        "claude code write tests first",
+        "claude code autonomous testing",
+        "claude code red green refactor",
+        "how to do tdd with claude code",
+        "claude code failing tests workflow",
+        "claude code test and implement loop",
+        "claude code unit test generation",
+        "claude code vitest jest workflow"
+      ]
+    }
+  ],
+  "sources": {
+    "official_docs": [
+      "https://docs.anthropic.com/en/docs/claude-code/quickstart",
+      "https://docs.anthropic.com/",
+      "https://docs.anthropic.com/en/docs/claude-code/common-workflows",
+      "https://docs.anthropic.com/en/docs/claude-code/ide-integrations",
+      "https://docs.anthropic.com/en/docs/claude-code/cli-usage",
+      "https://docs.anthropic.com/en/docs/claude-code/interactive-mode",
+      "https://docs.anthropic.com/en/docs/claude-code/sdk",
+      "https://docs.anthropic.com/en/docs/claude-code/plugins",
+      "https://docs.anthropic.com/en/docs/claude-code/sdk/sdk-python",
+      "http://docs.anthropic.com/s/claude-code",
+      "https://docs.anthropic.com/en/docs/build-with-claude/overview",
+      "https://docs.anthropic.com/en/docs/claude-code/cli-reference",
+      "https://docs.anthropic.com/en/docs/claude-code/slash-commands",
+      "https://docs.anthropic.com/en/docs/claude-code/output-styles",
+      "https://docs.anthropic.com/en/docs/claude-code",
+      "https://docs.anthropic.com/en/docs/claude-code/setup",
+      "https://docs.anthropic.com/en/docs/claude-code/sub-agents",
+      "https://docs.anthropic.com/en/docs/claude-code/mcp",
+      "https://docs.anthropic.com/es/docs/claude-code/overview",
+      "https://docs.anthropic.com/en/docs/claude-code/remote-control",
+      "https://docs.anthropic.com/en/docs/welcome",
+      "https://docs.anthropic.com/en/docs/claude-code/memory"
+    ],
+    "serp_competitors": [
+      "https://code.claude.com/docs/en/overview",
+      "https://claude.ai/",
+      "https://code.claude.com/docs/en/desktop",
+      "https://anthropic.skilljar.com/claude-code-in-action",
+      "https://www.youtube.com/watch?v=AJpK3YTTKZ4",
+      "https://github.com/anthropics/claude-code",
+      "https://www.producttalk.org/claude-code-what-it-is-and-how-its-different/?srsltid=AfmBOooH01jSzoMmdCIWuYyXsn8vJm-SGlh4EFX2IvPDwjbvgb8GSCIn",
+      "https://code.claude.com/docs/en/quickstart",
+      "https://leo-godin.medium.com/claude-code-is-great-6db35d8685f0",
+      "https://www.reddit.com/r/LocalLLaMA/comments/1g47gpq/is_claude_from_anthropic_the_best_ai_code_assist/",
+      "https://www.reddit.com/r/ClaudeCode/comments/1qb3262/the_ultimate_guide_to_claude_code_everything_i/",
+      "https://www.builder.io/blog/claude-code",
+      "https://www.producttalk.org/how-to-use-claude-code-features/?srsltid=AfmBOopBvTRnulZHVMPvb7s4KnaqCnVHmdFoM1NBg2tiM-IaY8XA2Ec9",
+      "https://medium.com/@dan.avila7/claude-code-learning-path-a-practical-guide-to-getting-started-fcc601550476",
+      "https://www.youtube.com/watch?v=eMZmDH3T2bY&vl=en"
+    ]
+  }
+}

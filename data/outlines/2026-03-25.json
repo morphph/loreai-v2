@@ -1,0 +1,236 @@
+{
+  "date": "2026-03-25",
+  "headline_hook": "Claude Code Ships Auto Mode as GPT-5.4 Solves Open Math",
+  "preview_topics": [
+    "Claude Code's autonomous permission engine",
+    "a confirmed AI mathematical discovery",
+    "the LiteLLM supply chain attack"
+  ],
+  "pick_of_the_day": {
+    "item_id": 13265,
+    "thesis": "GPT-5.4 solving an open Ramsey hypergraph problem isn't a benchmark flex — it's the first credible evidence that LLMs can contribute to mathematical frontiers, and it forces us to rethink what 'reasoning capability' actually means beyond leaderboard scores."
+  },
+  "model_literacy": {
+    "concept": "Agentic Harness Design",
+    "relevance": "Anthropic's new research shows that how you configure the scaffolding around a coding agent — file access, tool permissions, context injection — can swing benchmark scores by more than the gap between top models. Today's Claude Code auto mode and Figma MCP stories are harness design decisions in practice."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 12741,
+          "title": "Claude Code's New Auto Mode Lets the Agent Govern Its Own Permissions",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The permission UX was the last major friction point in agentic coding — auto mode eliminates it with guardrails, not by removing them",
+          "key_fact": "25,237 likes — the most-engaged Claude Code announcement this quarter"
+        },
+        {
+          "id": 12879,
+          "title": "Gemini Flash-Lite Generates Entire Websites in Real Time as You Click",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Google's demo isn't about website quality — it's a showcase of what sub-second inference latency enables at the application layer",
+          "key_fact": "Pages render on-navigate, not pre-built — each click triggers generation"
+        },
+        {
+          "id": 13074,
+          "title": "Sakana AI Launches Free Japanese Chat Service on Post-Trained DeepSeek-V3.1",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A template for regional AI adaptation: take an open model, post-train to remove biases, ship a free product for a specific culture",
+          "key_fact": "5,311 likes — massive traction in the Japanese AI community"
+        },
+        {
+          "id": 13252,
+          "title": "Moonshot's Kimi-K2.5 Hits 3.6M Downloads as Multimodal Agent Model",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The agent-capable architecture is drawing Claude comparisons — Chinese multimodal models are no longer a generation behind",
+          "key_fact": "3.63M downloads on HuggingFace and climbing"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 12803,
+          "title": "Figma's MCP Server Gives Claude Code Full Design System Context",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The design-to-code handoff has been broken for a decade — MCP just made it a bidirectional conversation between Figma and your codebase",
+          "key_fact": "Full design system tokens, components, and layout context flow into the coding agent"
+        },
+        {
+          "id": 12666,
+          "title": "Claude Code Gets Cloud Cron Jobs with /schedule",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Claude shifts from on-demand tool to persistent background worker — schedule recurring tasks directly from terminal",
+          "key_fact": "Cloud-based execution means jobs run even when your machine is off"
+        },
+        {
+          "id": 12946,
+          "title": "Allen AI Releases MolmoWeb: Open-Source Browser Agent You Can Inspect and Run Locally",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A fully open alternative to proprietary computer-use agents — built on Molmo VLMs with inspectable code",
+          "key_fact": "Built on Allen AI's Molmo vision-language models, runs locally"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 12599,
+          "title": "Anthropic: Harness Design Swings Coding Benchmarks More Than Model Choice",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "Infrastructure configuration — not model selection — is the biggest lever in agentic coding performance. Most teams are optimizing the wrong variable.",
+          "key_fact": "Harness config swings scores by several percentage points, sometimes exceeding the gap between top models"
+        },
+        {
+          "id": 13003,
+          "title": "Running Massive MoE Models on Mac by Streaming Expert Weights from SSD",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "You don't need the whole model in RAM — SSD streaming makes frontier-scale MoE inference practical on consumer hardware",
+          "key_fact": "3,104 likes — the local inference community is paying close attention"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 13265,
+          "title": "Epoch Confirms GPT-5.4 Pro Solved an Open Problem in Ramsey Hypergraph Theory",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "This isn't a benchmark — it's independently verified mathematical discovery by an AI system, a qualitative shift from 'can solve hard problems' to 'can find new results'",
+          "key_fact": "Independent confirmation by Epoch AI on a genuine open problem, not a curated challenge"
+        },
+        {
+          "id": 12721,
+          "title": "Anthropic Economic Index: Experienced Users Iterate More, Automate Less, Achieve More",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Data shows the skill ceiling for AI tools is high and rising — expert users avoid full autonomy and attempt harder tasks",
+          "key_fact": "Experienced users deliberately iterate more carefully rather than delegating fully"
+        },
+        {
+          "id": 13096,
+          "title": "OpenReward: 330+ RL Environments Under One API with Autoscaled Compute",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A bid to become the standard infrastructure for RL agent training — 4.5M tasks, sandboxed, one API",
+          "key_fact": "4.5M+ unique tasks across 330+ environments with autoscaled sandboxed compute"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 13002,
+          "title": "LiteLLM Quarantined on PyPI After Supply Chain Compromise",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "One of the most popular LLM proxy libraries was compromised — if it's in your dependency tree, audit now. Supply chain attacks on AI tooling are no longer hypothetical.",
+          "key_fact": "Package quarantined on PyPI; compromised update was blocked but exposure window existed"
+        },
+        {
+          "id": 13027,
+          "title": "The Agent Attack Surface: Your Filesystem Is the New Distributed Codebase",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "AI agents with filesystem access can be poisoned through any file in context — the LiteLLM incident makes this attack vector concrete",
+          "key_fact": "Skills, PDFs, config files — any document an agent reads can carry poisoned instructions"
+        },
+        {
+          "id": 13190,
+          "title": "India's Sarvam Raises $200-250M from NVIDIA, Accel — First AI Unicorn of 2026",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Frontier AI isn't just a US-China story — regional labs with hardware partnerships are becoming viable competitors",
+          "key_fact": "NVIDIA backing plus $200-250M makes this India's first AI unicorn of 2026"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 13259,
+          "title": "Hypura: Storage-Tier-Aware LLM Inference Scheduler for Apple Silicon",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Pairs with the MoE-on-SSD technique — Hypura intelligently schedules inference across RAM, SSD, and swap on Mac hardware",
+          "key_fact": "Storage-tier awareness means the scheduler knows when to stream vs. cache expert weights"
+        },
+        {
+          "id": 13260,
+          "title": "SentrySearch: Sub-Second Video Search Using Gemini's Native Video Embeddings",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A practical build showing what multimodal embeddings unlock — search across video content as fast as text search",
+          "key_fact": "Built on Gemini's native video embedding API for sub-second retrieval"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 12842,
+      "title": "OpenAI Open-Sources Prompt-Based Teen Safety Classifiers",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Ready-to-use moderation policies for apps with younger users",
+      "key_fact": "Released as part of gpt-oss-safeguard"
+    },
+    {
+      "id": 13080,
+      "title": "hf-mount: Attach Any HuggingFace Model or Dataset as a Local Folder",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "No downloads, no storage management — filesystem mount for HF assets",
+      "key_fact": "Works with models, datasets, and storage buckets"
+    },
+    {
+      "id": 12239,
+      "title": "HuggingFace Enables Full LLM Pretraining on Their Platform",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Train your own model from a browser tab — barrier dropped again",
+      "key_fact": "Timed with OpenAI's pretraining competition"
+    },
+    {
+      "id": 12880,
+      "title": "DeepMind Partners with Agile Robots to Bring Gemini into Physical Robotics",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Foundation models meet hardware — the post-software-agent frontier",
+      "key_fact": "Research partnership integrating Gemini with robotics hardware"
+    },
+    {
+      "id": 12595,
+      "title": "ServiceNow Releases EVA: A Framework for Evaluating Voice Agents",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Standardized voice agent eval — overdue as voice AI proliferates",
+      "key_fact": "Systematic evaluation framework covering accuracy, latency, and naturalness"
+    },
+    {
+      "id": 13266,
+      "title": "ProofShot: Visual Verification for AI Coding Agents",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Screenshots the output, compares against intent — closes the UI verification gap",
+      "key_fact": "Adds eyes to agents that only see code"
+    }
+  ],
+  "total_items": 23
+}

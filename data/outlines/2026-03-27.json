@@ -1,0 +1,236 @@
+{
+  "date": "2026-03-27",
+  "headline_hook": "Gemini Goes Live, Meta Reads Brains, and Open-Weight Audio Hits Critical Mass",
+  "preview_topics": [
+    "Google's real-time voice AI upgrade",
+    "Meta's brain-predicting foundation model",
+    "the day open-weight audio went full stack"
+  ],
+  "pick_of_the_day": {
+    "item_id": 14338,
+    "thesis": "TRIBE v2's zero-shot neural predictions aren't just a neuroscience flex — they reveal that foundation model scaling laws apply to biological data the same way they apply to text, and the team that cracks brain-to-model alignment first owns the next input modality after voice."
+  },
+  "model_literacy": {
+    "concept": "Zero-Shot Generalization",
+    "relevance": "TRIBE v2 predicts brain activity for subjects it has never seen. Today's open-weight audio models also generalize to unseen voices and accents. Understanding how models transfer to novel inputs without fine-tuning is the key concept behind all three of today's biggest launches."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 14027,
+          "title": "Gemini 3.1 Flash Live Ships With Lower Latency and Smarter Function Calling",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Google's real-time voice model just got fast enough and reliable enough to make voice-first AI apps viable for production — not just demos.",
+          "key_fact": "Lower latency and improved function calling available now across Google products"
+        },
+        {
+          "id": 14386,
+          "title": "Mistral Drops Voxtral TTS: Open-Weight Text-to-Speech You Can Actually Run",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Mistral enters the TTS race with downloadable weights — the output end of the speech pipeline just got a serious open alternative.",
+          "key_fact": "4B parameter open-weight model available on Hugging Face"
+        },
+        {
+          "id": 14378,
+          "title": "Cohere Transcribe Claims SOTA for Open-Source Speech Recognition",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Between Voxtral TTS and Cohere Transcribe dropping on the same day, both ends of the open-weight speech pipeline just leveled up.",
+          "key_fact": "Claims state-of-the-art for open-source ASR"
+        },
+        {
+          "id": 14031,
+          "title": "Google Translate Goes Ambient: Real-Time Translation Through Your Headphones",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Translation is becoming invisible infrastructure you wear, not an app you open — now on iOS with expanding Android support.",
+          "key_fact": "Live translation via headphones now available on iOS, expanding on Android"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 14240,
+          "title": "Claude Code Goes Cloud-Native: Auto-Fixes CI Failures While You Sleep",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Async agent coding just crossed a threshold — your Claude Code session follows PRs and fixes CI without you being at your terminal.",
+          "key_fact": "Web and mobile sessions now auto-follow PRs and fix CI failures"
+        },
+        {
+          "id": 14529,
+          "title": "OpenAI Doubles Codex Rate Limits Across All Tiers This Week",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "If you've been throttled while building, this is your window — 2x limits for the next week across all subscription tiers.",
+          "key_fact": "2x rate limits for all ChatGPT subscriptions, one week only"
+        },
+        {
+          "id": 14696,
+          "title": "How Cursor Built Fast Regex Search for AI Coding Agents",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The 'find the right code' bottleneck limits every coding agent — Cursor's engineering team explains how they solved it.",
+          "key_fact": "Directly applicable indexing technique for anyone building code-aware agent tools"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 14338,
+          "title": "Meta's TRIBE v2 Creates Digital Twins of Your Brain's Response to Sight and Sound",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Trained on 500+ hours of fMRI data, TRIBE v2 predicts neural activity for people it has never scanned — a foundation model for the brain.",
+          "key_fact": "Zero-shot predictions for new subjects across 700+ participants"
+        },
+        {
+          "id": 14417,
+          "title": "Uni-1: A Single Model That Both Understands and Generates",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The unification trend accelerates — expect fewer specialized models and more general-purpose architectures that handle both comprehension and creation.",
+          "key_fact": "Built by ~15 researchers, handles understanding and generation in one architecture"
+        },
+        {
+          "id": 14028,
+          "title": "DeepMind Maps How AI Can Be Weaponized for Emotional Manipulation",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "As voice AI gets more persuasive, DeepMind's research on exploitation vectors across finance and health is required reading.",
+          "key_fact": "Proposes new safety measures against AI-driven emotional exploitation"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 14697,
+          "title": "From Zero to Production RAG: An Honest Post-Mortem of What Actually Breaks",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The non-obvious failure modes in production RAG systems — the kind of practitioner wisdom that saves you weeks of debugging.",
+          "key_fact": "Documents both successes and failures with specific failure modes identified"
+        },
+        {
+          "id": 14299,
+          "title": "Voice-Controlled App Building With Gemini Flash Live in AI Studio",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Talk out loud, the model keeps pace — a glimpse at what low-latency voice AI enables for developer brainstorming workflows.",
+          "key_fact": "Real-time voice-to-code demo in Google AI Studio"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 14398,
+          "title": "Karpathy: AI Writes the Code, But the Infrastructure Maze Remains Unsolved",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Every vibe-coder hits the same wall — services, payments, auth, databases. Karpathy is waiting for agents that handle the full DevOps stack.",
+          "key_fact": "Reflection on building menugen: code was easy, DevOps was the hard part"
+        },
+        {
+          "id": 14692,
+          "title": "Minute-by-Minute: How One Developer Caught the LiteLLM Supply Chain Attack",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A real-time incident response timeline that doubles as a practical playbook for when your AI dependency gets compromised.",
+          "key_fact": "Detailed timeline of detecting and responding to a live supply chain attack"
+        },
+        {
+          "id": 14239,
+          "title": "Anthropic Throttles Claude Sessions During Peak Hours to Manage Demand",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "5-hour session limits now flex during weekday peaks (5-11am PT) for free, Pro, and Max tiers. Weekly limits unchanged — plan your heavy sessions accordingly.",
+          "key_fact": "Peak-hour throttling for 5am-11am PT weekdays, weekly limits unchanged"
+        },
+        {
+          "id": 14695,
+          "title": "Federal Court Grants Anthropic Injunction Against U.S. Department of War",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A legal precedent for AI companies pushing back on government mandates — the details matter for the entire industry's relationship with defense.",
+          "key_fact": "Preliminary injunction granted in federal court"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 14694,
+          "title": "AI-Assisted JSONata Rewrite: One Day of Work, $500K/Year Saved",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A concrete case study of AI-powered technical debt elimination delivering immediate, measurable ROI.",
+          "key_fact": "$500K/year cost eliminated in a single day using AI-assisted rewrite"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 14033,
+      "title": "Google's Search Live Expands to All AI Mode Languages and Locations",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Real-time conversational search goes global",
+      "key_fact": "Available in all languages and locations where AI Mode is active"
+    },
+    {
+      "id": 14690,
+      "title": "A Working AI Agent on a $7/Month VPS With IRC as Transport",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Proof you don't need expensive infra to run useful agents",
+      "key_fact": "$7/month VPS running a functional AI agent over IRC"
+    },
+    {
+      "id": 14461,
+      "title": "Mollick: If You're Not Failing With AI, You're Not Being Ambitious Enough",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Zero AI failures signals insufficient ambition, not good execution",
+      "key_fact": "Reframes AI adoption fear as an ambition problem"
+    },
+    {
+      "id": 14021,
+      "title": "Latent Space Breaks Down Anthropic's Biggest Launch Week Ever",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Good synthesis if you missed any pieces of the Claude rollout",
+      "key_fact": "Covers computer use, auto mode, scheduling, and more"
+    },
+    {
+      "id": 13561,
+      "title": "The Emerging Inner Loop of AI-Assisted Development",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "New workflow patterns separating productive agent users from frustrated ones",
+      "key_fact": "Breaks down coding agent workflow patterns"
+    },
+    {
+      "id": 14030,
+      "title": "Google's James Manyika Talks AI and Creativity With LL COOL J",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Rare mainstream-facing AI conversation from Google leadership",
+      "key_fact": "SVP of Technology and Society discusses AI's impact on creative industries"
+    }
+  ],
+  "total_items": 23
+}

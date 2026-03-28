@@ -1,0 +1,220 @@
+{
+  "date": "2026-03-26",
+  "headline_hook": "Google Ships AI Music, Claude Goes Mobile, and NVIDIA Squeezes Reasoning Into 3B Params",
+  "preview_topics": [
+    "Google's music-generating Lyria 3 API",
+    "NVIDIA's ultra-efficient reasoning cascade",
+    "where all that AI-generated code actually goes"
+  ],
+  "pick_of_the_day": {
+    "item_id": 13804,
+    "thesis": "Nemotron-Cascade-2 using only 3B active parameters to match full-size reasoners isn't just an efficiency win — it signals that reasoning capability is about to escape the data center and land on laptops, phones, and edge devices, collapsing the moat between frontier labs and everyone else."
+  },
+  "model_literacy": {
+    "concept": "Model Quantization and Compression",
+    "relevance": "Three stories today — TurboQuant, Qwen3.5 GGUF, and Nemotron-Cascade — all attack the same problem from different angles: making big models run small. Quantization reduces numerical precision (FP16→INT4) while compression techniques like cascaded MoE activate only a fraction of total parameters. Understanding these tradeoffs explains why 'runs on my GPU' models are suddenly competitive."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 13312,
+          "title": "Google's Lyria 3 Pro Understands Song Structure — Intros, Verses, the Whole Album",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "DeepMind's music model doesn't just generate loops — it composes structured tracks with intros, verses, and bridges, pushing AI music from novelty to production tool.",
+          "key_fact": "First music gen model to handle full song structure across extended tracks"
+        },
+        {
+          "id": 13462,
+          "title": "Claude's Tool Integrations Hit Mobile — Figma, Canva, Amplitude From Your Phone",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Anthropic untethers AI-powered workflows from the desktop — review Figma designs and check dashboards from anywhere, making Claude a genuine mobile productivity layer.",
+          "key_fact": "13,382 likes — Claude's most-engaged product announcement this month"
+        },
+        {
+          "id": 13804,
+          "title": "NVIDIA's Nemotron-Cascade-2 Matches Big Reasoners With Just 3B Active Params",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Cascaded MoE architecture achieves competitive reasoning with a fraction of the compute — the first model to make serious reasoning viable on consumer GPUs.",
+          "key_fact": "30B total / 3B active parameters, trending #1 on Hugging Face"
+        },
+        {
+          "id": 13664,
+          "title": "MiniMax M2.5 Draws Strong Reviews as an Open-Weight Agent Runner",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Running as Hermes Agent on dual RTX PRO 6000s, M2.5 shows open-weight models are catching up fast on agentic workloads.",
+          "key_fact": "Early testers report strong agentic task completion on local hardware"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 13313,
+          "title": "Lyria 3 API Opens Music Generation to Developers for the First Time",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Paid preview via Gemini API — any developer can now build music generation into their app through a Google endpoint.",
+          "key_fact": "First Google API for music generation, available in paid preview now"
+        },
+        {
+          "id": 13428,
+          "title": "Claude Dispatch Graduates to All Teams Plans — Remote-Control Your Agents",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Dispatch lets you talk to Claude Cowork and Claude Code remotely, and it's no longer gated — every paid team gets async agent orchestration.",
+          "key_fact": "Available on all Teams plans, up from limited access"
+        },
+        {
+          "id": 13198,
+          "title": "Unusual Whales Ships MCP Server for Live Market Data — Options, Equities, Prediction Markets",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "MCP expands beyond code tools into finance — AI agents can now pull live options flow and equity data on demand.",
+          "key_fact": "Covers options, equities, and prediction markets via structured MCP endpoints"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 13319,
+          "title": "Inside Claude Code's Auto Mode: How Anthropic Built Safety Classifiers for Agent Autonomy",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Deep technical post on the classifiers that let Claude Code skip permissions safely — infrastructure config matters more than model choice for agent performance.",
+          "key_fact": "Classifiers approve safe actions while blocking destructive ones automatically"
+        },
+        {
+          "id": 13805,
+          "title": "Community Discovers Qwen3.5-9B Distilled From Opus Runs 'Just Like Opus' Under 48GB",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A practical local alternative to API calls — 8-bit GGUF quantization of an Opus-distilled model delivers surprisingly close quality on consumer hardware.",
+          "key_fact": "Under 48GB VRAM in 8-bit GGUF, 2,488 likes from impressed testers"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 13982,
+          "title": "Google's TurboQuant Pushes Model Compression to Extremes Without Wrecking Quality",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "New quantization technique directly applicable to edge deployment and inference cost reduction — the math behind making big models small.",
+          "key_fact": "Extreme compression ratios while preserving model quality"
+        },
+        {
+          "id": 13795,
+          "title": "Sakana's AI Scientist — Fully Automated ML Research — Published in Nature",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The system that autonomously generates, implements, and writes up ML papers gets Nature's stamp of approval — a landmark for automated scientific discovery.",
+          "key_fact": "Published in Nature, the highest-profile validation of AI-driven research"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 13978,
+          "title": "90% of Claude Code Output Goes to Repos With Under 2 Stars",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Data shows AI coding tools are democratizing development for solo builders and tiny projects — not the big-team productivity story everyone assumed.",
+          "key_fact": "90% of Claude-linked output targets repos with fewer than 2 GitHub stars"
+        },
+        {
+          "id": 13306,
+          "title": "Apple's War on Slop: The Anti-AI-Content Offensive Takes Shape",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Latent Space rounds up Apple's aggressive moves against AI-generated content alongside Sora's shutdown — the industry's quality backlash is gaining real momentum.",
+          "key_fact": "Apple actively filtering AI-generated content across its ecosystem"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 13964,
+          "title": "Qwen3.5-9B Claude Opus Distilled GGUF Hits 149K Downloads on Hugging Face",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The most-downloaded new model this week — community demand for local reasoning is massive, and this GGUF makes it one download away.",
+          "key_fact": "149,500 downloads and 171 likes in early access"
+        },
+        {
+          "id": 13979,
+          "title": "Ente Launches Ensu — A Local-Only LLM App From a Privacy-First Company",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The encrypted-photo-storage company bets that privacy-conscious users want AI that never phones home — on-device inference as a product feature, not a compromise.",
+          "key_fact": "322 likes — strong signal from privacy-focused community"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 13429,
+      "title": "Claude Cowork Now Runs Natively on Windows on Arm",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Snapdragon users get native Claude desktop agent support",
+      "key_fact": "Windows on Arm native build now available"
+    },
+    {
+      "id": 13739,
+      "title": "Emollick's Eulogy for Sora — OpenAI Kills Products to Focus Resources",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The duck-hat video creator mourns Sora's shutdown as strategic retreat",
+      "key_fact": "3,369 likes on the farewell post"
+    },
+    {
+      "id": 13196,
+      "title": "Claude Code's /init Now Interviews You Through Project Setup",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Guided CLAUDE.md, hooks, and skills config in one session",
+      "key_fact": "Replaces manual file editing with interactive walkthrough"
+    },
+    {
+      "id": 13542,
+      "title": "OpenAI Details How the Model Spec Actually Works in Practice",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Chain of command for conflicting instructions, real-world evolution",
+      "key_fact": "Researcher explains instruction hierarchy and spec updates"
+    },
+    {
+      "id": 12667,
+      "title": "Anthropic Engineer Reveals the Tiny Team Behind MCP, Skills, and Claude Code",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A few people shipped Anthropic's most impactful developer tools",
+      "key_fact": "8,162 likes — most-engaged Anthropic insider post this week"
+    },
+    {
+      "id": 13981,
+      "title": "Optio: Open-Source K8s Orchestrator Routes Tickets to AI Coding Agents",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Ticket-to-PR automation for teams running K8s",
+      "key_fact": "Open-source, runs AI agents in Kubernetes pods"
+    }
+  ],
+  "total_items": 21
+}

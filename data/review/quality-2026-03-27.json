@@ -1,0 +1,2906 @@
+{
+  "generated_at": "2026-03-27T01:06:51.474Z",
+  "pure_checks": {
+    "priority_sanity": {
+      "status": "yellow",
+      "issues": [
+        "Bottom-10 contains 10 group(s) with high volume (>100) that were deprioritized: what are hooks in claude code (vol=1000), claude-code-hooks (vol=1000), openai codex | openai (vol=1000), how codex security works (vol=1000), quick start guide (vol=1000), guide to codex cli (vol=1000), codex pricing (vol=1000), openai launches codex security: a new era for app security (vol=1000), why cvss scores dont tell th (vol=1000), cybersecurity webinars (vol=1000)"
+      ],
+      "top10": [
+        {
+          "group_id": 80,
+          "primary_keyword": "key benefits and features",
+          "priority_score": 3000,
+          "intent": "informational",
+          "content_type": "blog"
+        },
+        {
+          "group_id": 95,
+          "primary_keyword": "claude code is not a coding tool",
+          "priority_score": 3000,
+          "intent": "informational",
+          "content_type": "blog"
+        },
+        {
+          "group_id": 96,
+          "primary_keyword": "is the claude code actually useful",
+          "priority_score": 3000,
+          "intent": "informational",
+          "content_type": "faq"
+        },
+        {
+          "group_id": 97,
+          "primary_keyword": "does claude code expose your code",
+          "priority_score": 3000,
+          "intent": "informational",
+          "content_type": "faq"
+        },
+        {
+          "group_id": 100,
+          "primary_keyword": "what youll learn",
+          "priority_score": 3000,
+          "intent": "informational",
+          "content_type": "faq"
+        },
+        {
+          "group_id": 120,
+          "primary_keyword": "why use hooks",
+          "priority_score": 3000,
+          "intent": "informational",
+          "content_type": "blog"
+        },
+        {
+          "group_id": 121,
+          "primary_keyword": "/simplify – code quality review",
+          "priority_score": 3000,
+          "intent": "informational",
+          "content_type": "blog"
+        },
+        {
+          "group_id": 122,
+          "primary_keyword": "how good is the claude code actually",
+          "priority_score": 3000,
+          "intent": "informational",
+          "content_type": "faq"
+        },
+        {
+          "group_id": 128,
+          "primary_keyword": "como o codex security funciona",
+          "priority_score": 3000,
+          "intent": "informational",
+          "content_type": "blog"
+        },
+        {
+          "group_id": 130,
+          "primary_keyword": "command line options",
+          "priority_score": 3000,
+          "intent": "informational",
+          "content_type": "faq"
+        }
+      ],
+      "bottom10": [
+        {
+          "group_id": 8,
+          "primary_keyword": "claude-code-hooks",
+          "priority_score": 10,
+          "intent": "navigational",
+          "content_type": "faq"
+        },
+        {
+          "group_id": 15,
+          "primary_keyword": "openai codex | openai",
+          "priority_score": 10,
+          "intent": "navigational",
+          "content_type": "faq"
+        },
+        {
+          "group_id": 40,
+          "primary_keyword": "openai launches codex security: a new era for app security",
+          "priority_score": 10,
+          "intent": "navigational",
+          "content_type": "blog"
+        },
+        {
+          "group_id": 75,
+          "primary_keyword": "cybersecurity webinars",
+          "priority_score": 10,
+          "intent": "navigational",
+          "content_type": "faq"
+        },
+        {
+          "group_id": 6,
+          "primary_keyword": "what are hooks in claude code",
+          "priority_score": 20,
+          "intent": "definitional",
+          "content_type": "glossary"
+        },
+        {
+          "group_id": 74,
+          "primary_keyword": "why cvss scores dont tell th",
+          "priority_score": 20,
+          "intent": "definitional",
+          "content_type": "glossary"
+        },
+        {
+          "group_id": 17,
+          "primary_keyword": "how codex security works",
+          "priority_score": 30,
+          "intent": "informational",
+          "content_type": "blog"
+        },
+        {
+          "group_id": 24,
+          "primary_keyword": "quick start guide",
+          "priority_score": 30,
+          "intent": "informational",
+          "content_type": "faq"
+        },
+        {
+          "group_id": 27,
+          "primary_keyword": "guide to codex cli",
+          "priority_score": 30,
+          "intent": "informational",
+          "content_type": "blog"
+        },
+        {
+          "group_id": 30,
+          "primary_keyword": "codex pricing",
+          "priority_score": 30,
+          "intent": "informational",
+          "content_type": "faq"
+        }
+      ]
+    },
+    "internal_linking": {
+      "status": "red",
+      "by_topic": [
+        {
+          "topic": "claude-code",
+          "total_pages": 99,
+          "orphan_pages": [
+            "/faq/codex",
+            "/faq/how-did-anthropic-detect-the-distillation-attacks-from-deeps",
+            "/faq/how-do-consulting-firms-join-the-claude-partner-network",
+            "/faq/how-does-openais-model-spec-compare-to-anthropics-claude-cha",
+            "/faq/using-codex",
+            "/faq/what-funding-and-resources-does-anthropic-provide-for-claude",
+            "/faq/what-guardrails-does-anthropic-propose-for-military-ai-use",
+            "/faq/what-is-the-claude-partner-network",
+            "/blog/1-add-an-explicit-threat-model-sync-step-per-repo",
+            "/blog/a-unified-identity-defense-layer-why-pam-with-itdr-is-the-foundation-for-2026-security",
+            "/blog/anthropic-claude-community-meetup-program",
+            "/blog/anthropic-department-of-war-dario-amodei-statement",
+            "/blog/anthropic-distillation-attacks-deepseek-moonshot-minimax",
+            "/blog/claude-1-million-context-window-ga",
+            "/blog/claude-code-btw-side-chain-conversations",
+            "/blog/claude-code-claude-ai-login-errors-performance",
+            "/blog/claude-code-ctrl-s-prompt-stashing",
+            "/blog/claude-code-memory",
+            "/blog/claude-code-remote-sessions-phone",
+            "/blog/claude-code-review-agents",
+            "/blog/claude-code-security-vulnerability-scanning",
+            "/blog/claude-code-simplify-batch-skills",
+            "/blog/claude-code-voice-mode",
+            "/blog/claude-connectors-free-150-integrations",
+            "/blog/claude-doubles-usage-off-peak",
+            "/blog/claude-excel-powerpoint-sync",
+            "/blog/claude-interactive-charts-diagrams",
+            "/blog/coding-agent-gui-ux-overhaul",
+            "/blog/cursor-ai-speed-vs-quality-study",
+            "/blog/dispatch-launch-claude-code-sessions",
+            "/blog/effective-harnesses-for-long-running-agents",
+            "/blog/first-few-days-with-codex-cli",
+            "/blog/glm-ocr-open-source-image-to-text-model",
+            "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+            "/blog/headless-mode",
+            "/blog/intercom-claude-code-plugins-skills-hooks",
+            "/blog/ivanhzhao-notion-thoughts",
+            "/blog/juliandeangelis-ai-agents-future",
+            "/blog/obsidian-claude-code-life",
+            "/blog/openai-chain-of-thought-controllability-evaluation",
+            "/blog/red-green-refactor-claude-code",
+            "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+            "/blog/scheduled-tasks",
+            "/blog/superpowers",
+            "/blog/trq212-2027463795355095314",
+            "/blog/trq212-coding-agents",
+            "/blog/tw-hitw93-2032091246588518683",
+            "/blog/web-search-tool",
+            "/compare/anthropic-developer-program-vs-vercel-community",
+            "/compare/anthropic-partner-network-vs-openai-partner-program",
+            "/compare/anthropic-vs-google-ai-partnerships",
+            "/compare/anthropic-vs-openai-enterprise-strategy",
+            "/compare/anthropic-vs-openai-open-source",
+            "/compare/claude-enterprise-vs-chatgpt-enterprise",
+            "/compare/claude-partner-network-vs-openai-partner-program",
+            "/compare/claude-vs-chatgpt-enterprise",
+            "/compare/openssf-scorecard-vs-slsa"
+          ],
+          "hub_link_coverage": 0.05,
+          "broken_links": [
+            {
+              "page": "/faq/is-claude-code-remote-control-available-on-all-anthropic-pla",
+              "broken_target": "/faq/what-is-the-difference-between-claude-code-and-cursor"
+            },
+            {
+              "page": "/faq/what-is-anthropics-position-on-providing-ai-to-the-departmen",
+              "broken_target": "/faq/what-are-autonomous-weapons-and-why-are-they-controversial"
+            },
+            {
+              "page": "/faq/what-is-anthropics-position-on-providing-ai-to-the-departmen",
+              "broken_target": "/faq/how-does-ai-regulation-affect-model-deployment"
+            },
+            {
+              "page": "/blog/agent-harnesses-2026",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/agent-harnesses-2026",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/agent-harnesses-2026",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/anthropic-claude-community-meetup-program",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/anthropic-claude-community-meetup-program",
+              "broken_target": "/glossary/claude-api"
+            },
+            {
+              "page": "/blog/anthropic-department-of-war-dario-amodei-statement",
+              "broken_target": "/glossary/frontier-model"
+            },
+            {
+              "page": "/blog/anthropic-department-of-war-dario-amodei-statement",
+              "broken_target": "/glossary/llm"
+            },
+            {
+              "page": "/blog/anthropic-department-of-war-dario-amodei-statement",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/anthropic-distillation-attacks-deepseek-moonshot-minimax",
+              "broken_target": "/glossary/distillation"
+            },
+            {
+              "page": "/blog/anthropic-distillation-attacks-deepseek-moonshot-minimax",
+              "broken_target": "/compare/claude-vs-deepseek"
+            },
+            {
+              "page": "/blog/anthropic-linux-foundation-open-source-security",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/anthropic-linux-foundation-open-source-security",
+              "broken_target": "/glossary/frontier-model"
+            },
+            {
+              "page": "/blog/anthropic-linux-foundation-open-source-security",
+              "broken_target": "/glossary/open-source-ai"
+            },
+            {
+              "page": "/blog/claude-1-million-context-window-ga",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/claude-code-btw-side-chain-conversations",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-enterprise-engineering-ramp-shopify-spotify",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-memory",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-remote-control-mobile",
+              "broken_target": "/glossary/mcp-server"
+            },
+            {
+              "page": "/blog/claude-code-remote-sessions-phone",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-security-vulnerability-scanning",
+              "broken_target": "/glossary/llm"
+            },
+            {
+              "page": "/blog/claude-code-security-vulnerability-scanning",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-simplify-batch-skills",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-simplify-batch-skills",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-simplify-batch-skills",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-voice-mode",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-voice-mode",
+              "broken_target": "/glossary/cli"
+            },
+            {
+              "page": "/blog/claude-doubles-usage-off-peak",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/claude-excel-powerpoint-skills-context",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-excel-powerpoint-skills-context",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-excel-powerpoint-sync",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/claude-interactive-charts-diagrams",
+              "broken_target": "/glossary/vega-lite"
+            },
+            {
+              "page": "/blog/claude-interactive-charts-diagrams",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/coding-agent-gui-ux-overhaul",
+              "broken_target": "/glossary/agentic-engineering"
+            },
+            {
+              "page": "/blog/coding-agents-reshaping-epd",
+              "broken_target": "/glossary/coding-agent"
+            },
+            {
+              "page": "/blog/coding-agents-reshaping-epd",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/cursor-ai-speed-vs-quality-study",
+              "broken_target": "/glossary/llm-agent"
+            },
+            {
+              "page": "/blog/effective-harnesses-for-long-running-agents",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/effective-harnesses-for-long-running-agents",
+              "broken_target": "/glossary/claude-agent-sdk"
+            },
+            {
+              "page": "/blog/effective-harnesses-for-long-running-agents",
+              "broken_target": "/glossary/claude-agent-sdk"
+            },
+            {
+              "page": "/blog/glm-ocr-open-source-image-to-text-model",
+              "broken_target": "/glossary/vision-language-model"
+            },
+            {
+              "page": "/blog/glm-ocr-open-source-image-to-text-model",
+              "broken_target": "/glossary/open-source-models"
+            },
+            {
+              "page": "/blog/glm-ocr-open-source-image-to-text-model",
+              "broken_target": "/glossary/vision-language-model"
+            },
+            {
+              "page": "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+              "broken_target": "/glossary/llm"
+            },
+            {
+              "page": "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+              "broken_target": "/glossary/extended-thinking"
+            },
+            {
+              "page": "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+              "broken_target": "/compare/claude-vs-gpt"
+            },
+            {
+              "page": "/blog/intercom-claude-code-plugins-skills-hooks",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/intercom-claude-code-plugins-skills-hooks",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/intercom-claude-code-plugins-skills-hooks",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/ivanhzhao-notion-thoughts",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/ivanhzhao-notion-thoughts",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/juliandeangelis-ai-agents-future",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/juliandeangelis-ai-agents-future",
+              "broken_target": "/glossary/prompt-engineering"
+            },
+            {
+              "page": "/blog/juliandeangelis-ai-agents-future",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/langchain-improving-deep-agents-harness-engineering",
+              "broken_target": "/glossary/ai-agents"
+            },
+            {
+              "page": "/blog/langchain-improving-deep-agents-harness-engineering",
+              "broken_target": "/glossary/ai-agents"
+            },
+            {
+              "page": "/blog/obsidian-claude-code-life",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/openai-chain-of-thought-controllability-evaluation",
+              "broken_target": "/glossary/chain-of-thought"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/agentic-ai"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/computer-use"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/computer-use"
+            },
+            {
+              "page": "/blog/openai-updated-model-spec-2026",
+              "broken_target": "/glossary/ai-alignment"
+            },
+            {
+              "page": "/blog/openai-updated-model-spec-2026",
+              "broken_target": "/glossary/ai-alignment"
+            },
+            {
+              "page": "/blog/openai-updated-model-spec-2026",
+              "broken_target": "/compare/openai-vs-anthropic"
+            },
+            {
+              "page": "/blog/opus-4-6-1m-default-claude-code",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/red-green-refactor-claude-code",
+              "broken_target": "/glossary/tdd"
+            },
+            {
+              "page": "/blog/red-green-refactor-claude-code",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+              "broken_target": "/glossary/voice-agent"
+            },
+            {
+              "page": "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+              "broken_target": "/glossary/gpt-realtime"
+            },
+            {
+              "page": "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+              "broken_target": "/glossary/voice-agent"
+            },
+            {
+              "page": "/blog/run-ai-coding-agents-locally",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/scheduled-tasks",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/superpowers",
+              "broken_target": "/glossary/prompt-engineering"
+            },
+            {
+              "page": "/blog/superpowers",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/superpowers",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/trq212-2027463795355095314",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/trq212-2027463795355095314",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/trq212-coding-agents",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/trq212-coding-agents",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/tw-hitw93-2032091246588518683",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/web-search-tool",
+              "broken_target": "/glossary/claude-api"
+            },
+            {
+              "page": "/blog/web-search-tool",
+              "broken_target": "/glossary/claude-api"
+            }
+          ],
+          "cross_cluster_links": 264,
+          "reciprocal_rate": 0.06
+        },
+        {
+          "topic": "claude-code-hooks",
+          "total_pages": 117,
+          "orphan_pages": [
+            "/glossary/figma",
+            "/glossary/github-copilot",
+            "/glossary/grammarly",
+            "/glossary/how-hooks-work",
+            "/glossary/hugging-face",
+            "/glossary/ltx",
+            "/glossary/meta",
+            "/glossary/model-context-protocol",
+            "/glossary/open-weight-models",
+            "/glossary/openclaw",
+            "/glossary/qualcomm",
+            "/glossary/sakana-ai",
+            "/glossary/triton",
+            "/glossary/vibe-coding",
+            "/glossary/whisper",
+            "/glossary/windsurf",
+            "/blog/1-add-an-explicit-threat-model-sync-step-per-repo",
+            "/blog/a-unified-identity-defense-layer-why-pam-with-itdr-is-the-foundation-for-2026-security",
+            "/blog/anthropic-claude-community-meetup-program",
+            "/blog/anthropic-department-of-war-dario-amodei-statement",
+            "/blog/anthropic-linux-foundation-open-source-security",
+            "/blog/claude-1-million-context-window-ga",
+            "/blog/claude-code-claude-ai-login-errors-performance",
+            "/blog/claude-code-memory",
+            "/blog/claude-code-remote-sessions-phone",
+            "/blog/claude-code-review-agents",
+            "/blog/claude-doubles-usage-off-peak",
+            "/blog/claude-interactive-charts-diagrams",
+            "/blog/coding-agent-gui-ux-overhaul",
+            "/blog/coding-agents-reshaping-epd",
+            "/blog/cursor-ai-speed-vs-quality-study",
+            "/blog/dispatch-launch-claude-code-sessions",
+            "/blog/effective-harnesses-for-long-running-agents",
+            "/blog/first-few-days-with-codex-cli",
+            "/blog/glm-ocr-open-source-image-to-text-model",
+            "/blog/google-ai-open-source-security-tools",
+            "/blog/headless-mode",
+            "/blog/intercom-claude-code-plugins-skills-hooks",
+            "/blog/ivanhzhao-notion-thoughts",
+            "/blog/juliandeangelis-ai-agents-future",
+            "/blog/obsidian-claude-code-life",
+            "/blog/red-green-refactor-claude-code",
+            "/blog/scheduled-tasks",
+            "/blog/superpowers",
+            "/blog/trq212-2027463795355095314",
+            "/blog/trq212-coding-agents",
+            "/blog/tw-hitw93-2032091246588518683",
+            "/blog/web-search-tool",
+            "/faq/can-i-approve-or-reject-code-changes-from-my-mobile-device-w",
+            "/faq/claude-code-pricing",
+            "/faq/codex",
+            "/faq/how-did-anthropic-detect-the-distillation-attacks-from-deeps",
+            "/faq/how-do-consulting-firms-join-the-claude-partner-network",
+            "/faq/how-does-openais-model-spec-compare-to-anthropics-claude-cha",
+            "/faq/using-codex",
+            "/faq/what-funding-and-resources-does-anthropic-provide-for-claude",
+            "/faq/what-guardrails-does-anthropic-propose-for-military-ai-use",
+            "/faq/what-is-the-claude-partner-network"
+          ],
+          "hub_link_coverage": 0,
+          "broken_links": [
+            {
+              "page": "/glossary/gpt-54",
+              "broken_target": "/glossary/gpt-5"
+            },
+            {
+              "page": "/glossary/gpt-54",
+              "broken_target": "/glossary/large-language-model"
+            },
+            {
+              "page": "/blog/agent-harnesses-2026",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/agent-harnesses-2026",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/agent-harnesses-2026",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/anthropic-claude-community-meetup-program",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/anthropic-claude-community-meetup-program",
+              "broken_target": "/glossary/claude-api"
+            },
+            {
+              "page": "/blog/anthropic-department-of-war-dario-amodei-statement",
+              "broken_target": "/glossary/frontier-model"
+            },
+            {
+              "page": "/blog/anthropic-department-of-war-dario-amodei-statement",
+              "broken_target": "/glossary/llm"
+            },
+            {
+              "page": "/blog/anthropic-department-of-war-dario-amodei-statement",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/anthropic-distillation-attacks-deepseek-moonshot-minimax",
+              "broken_target": "/glossary/distillation"
+            },
+            {
+              "page": "/blog/anthropic-distillation-attacks-deepseek-moonshot-minimax",
+              "broken_target": "/compare/claude-vs-deepseek"
+            },
+            {
+              "page": "/blog/anthropic-linux-foundation-open-source-security",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/anthropic-linux-foundation-open-source-security",
+              "broken_target": "/glossary/frontier-model"
+            },
+            {
+              "page": "/blog/anthropic-linux-foundation-open-source-security",
+              "broken_target": "/glossary/open-source-ai"
+            },
+            {
+              "page": "/blog/claude-1-million-context-window-ga",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/claude-code-btw-side-chain-conversations",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-enterprise-engineering-ramp-shopify-spotify",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-memory",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-remote-control-mobile",
+              "broken_target": "/glossary/mcp-server"
+            },
+            {
+              "page": "/blog/claude-code-remote-sessions-phone",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-security-vulnerability-scanning",
+              "broken_target": "/glossary/llm"
+            },
+            {
+              "page": "/blog/claude-code-security-vulnerability-scanning",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-simplify-batch-skills",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-simplify-batch-skills",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-simplify-batch-skills",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-voice-mode",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-voice-mode",
+              "broken_target": "/glossary/cli"
+            },
+            {
+              "page": "/blog/claude-doubles-usage-off-peak",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/claude-excel-powerpoint-skills-context",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-excel-powerpoint-skills-context",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-excel-powerpoint-sync",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/claude-interactive-charts-diagrams",
+              "broken_target": "/glossary/vega-lite"
+            },
+            {
+              "page": "/blog/claude-interactive-charts-diagrams",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/coding-agent-gui-ux-overhaul",
+              "broken_target": "/glossary/agentic-engineering"
+            },
+            {
+              "page": "/blog/coding-agents-reshaping-epd",
+              "broken_target": "/glossary/coding-agent"
+            },
+            {
+              "page": "/blog/coding-agents-reshaping-epd",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/cursor-ai-speed-vs-quality-study",
+              "broken_target": "/glossary/llm-agent"
+            },
+            {
+              "page": "/blog/effective-harnesses-for-long-running-agents",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/effective-harnesses-for-long-running-agents",
+              "broken_target": "/glossary/claude-agent-sdk"
+            },
+            {
+              "page": "/blog/effective-harnesses-for-long-running-agents",
+              "broken_target": "/glossary/claude-agent-sdk"
+            },
+            {
+              "page": "/blog/glm-ocr-open-source-image-to-text-model",
+              "broken_target": "/glossary/vision-language-model"
+            },
+            {
+              "page": "/blog/glm-ocr-open-source-image-to-text-model",
+              "broken_target": "/glossary/open-source-models"
+            },
+            {
+              "page": "/blog/glm-ocr-open-source-image-to-text-model",
+              "broken_target": "/glossary/vision-language-model"
+            },
+            {
+              "page": "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+              "broken_target": "/glossary/llm"
+            },
+            {
+              "page": "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+              "broken_target": "/glossary/extended-thinking"
+            },
+            {
+              "page": "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+              "broken_target": "/compare/claude-vs-gpt"
+            },
+            {
+              "page": "/blog/intercom-claude-code-plugins-skills-hooks",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/intercom-claude-code-plugins-skills-hooks",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/intercom-claude-code-plugins-skills-hooks",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/ivanhzhao-notion-thoughts",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/ivanhzhao-notion-thoughts",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/juliandeangelis-ai-agents-future",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/juliandeangelis-ai-agents-future",
+              "broken_target": "/glossary/prompt-engineering"
+            },
+            {
+              "page": "/blog/juliandeangelis-ai-agents-future",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/langchain-improving-deep-agents-harness-engineering",
+              "broken_target": "/glossary/ai-agents"
+            },
+            {
+              "page": "/blog/langchain-improving-deep-agents-harness-engineering",
+              "broken_target": "/glossary/ai-agents"
+            },
+            {
+              "page": "/blog/obsidian-claude-code-life",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/openai-chain-of-thought-controllability-evaluation",
+              "broken_target": "/glossary/chain-of-thought"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/agentic-ai"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/computer-use"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/computer-use"
+            },
+            {
+              "page": "/blog/openai-updated-model-spec-2026",
+              "broken_target": "/glossary/ai-alignment"
+            },
+            {
+              "page": "/blog/openai-updated-model-spec-2026",
+              "broken_target": "/glossary/ai-alignment"
+            },
+            {
+              "page": "/blog/openai-updated-model-spec-2026",
+              "broken_target": "/compare/openai-vs-anthropic"
+            },
+            {
+              "page": "/blog/opus-4-6-1m-default-claude-code",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/red-green-refactor-claude-code",
+              "broken_target": "/glossary/tdd"
+            },
+            {
+              "page": "/blog/red-green-refactor-claude-code",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+              "broken_target": "/glossary/voice-agent"
+            },
+            {
+              "page": "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+              "broken_target": "/glossary/gpt-realtime"
+            },
+            {
+              "page": "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+              "broken_target": "/glossary/voice-agent"
+            },
+            {
+              "page": "/blog/run-ai-coding-agents-locally",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/scheduled-tasks",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/superpowers",
+              "broken_target": "/glossary/prompt-engineering"
+            },
+            {
+              "page": "/blog/superpowers",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/superpowers",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/trq212-2027463795355095314",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/trq212-2027463795355095314",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/trq212-coding-agents",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/trq212-coding-agents",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/tw-hitw93-2032091246588518683",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/web-search-tool",
+              "broken_target": "/glossary/claude-api"
+            },
+            {
+              "page": "/blog/web-search-tool",
+              "broken_target": "/glossary/claude-api"
+            },
+            {
+              "page": "/faq/is-claude-code-remote-control-available-on-all-anthropic-pla",
+              "broken_target": "/faq/what-is-the-difference-between-claude-code-and-cursor"
+            },
+            {
+              "page": "/faq/what-is-anthropics-position-on-providing-ai-to-the-departmen",
+              "broken_target": "/faq/what-are-autonomous-weapons-and-why-are-they-controversial"
+            },
+            {
+              "page": "/faq/what-is-anthropics-position-on-providing-ai-to-the-departmen",
+              "broken_target": "/faq/how-does-ai-regulation-affect-model-deployment"
+            }
+          ],
+          "cross_cluster_links": 159,
+          "reciprocal_rate": 0.01
+        },
+        {
+          "topic": "claude-code-skills",
+          "total_pages": 130,
+          "orphan_pages": [
+            "/glossary/figma",
+            "/glossary/github-copilot",
+            "/glossary/grammarly",
+            "/glossary/how-hooks-work",
+            "/glossary/hugging-face",
+            "/glossary/ltx",
+            "/glossary/meta",
+            "/glossary/model-context-protocol",
+            "/glossary/open-weight-models",
+            "/glossary/openclaw",
+            "/glossary/qualcomm",
+            "/glossary/sakana-ai",
+            "/glossary/triton",
+            "/glossary/vibe-coding",
+            "/glossary/whisper",
+            "/glossary/windsurf",
+            "/faq/can-i-approve-or-reject-code-changes-from-my-mobile-device-w",
+            "/faq/codex",
+            "/faq/how-did-anthropic-detect-the-distillation-attacks-from-deeps",
+            "/faq/how-do-consulting-firms-join-the-claude-partner-network",
+            "/faq/how-does-openais-model-spec-compare-to-anthropics-claude-cha",
+            "/faq/using-codex",
+            "/faq/what-funding-and-resources-does-anthropic-provide-for-claude",
+            "/faq/what-guardrails-does-anthropic-propose-for-military-ai-use",
+            "/faq/what-is-the-claude-partner-network",
+            "/compare/anthropic-developer-program-vs-vercel-community",
+            "/compare/anthropic-partner-network-vs-openai-partner-program",
+            "/compare/anthropic-vs-google-ai-partnerships",
+            "/compare/anthropic-vs-openai-enterprise-strategy",
+            "/compare/anthropic-vs-openai-open-source",
+            "/compare/claude-enterprise-vs-chatgpt-enterprise",
+            "/compare/claude-partner-network-vs-openai-partner-program",
+            "/compare/claude-vs-chatgpt-enterprise",
+            "/compare/openssf-scorecard-vs-slsa",
+            "/blog/1-add-an-explicit-threat-model-sync-step-per-repo",
+            "/blog/a-unified-identity-defense-layer-why-pam-with-itdr-is-the-foundation-for-2026-security",
+            "/blog/anthropic-claude-community-meetup-program",
+            "/blog/anthropic-department-of-war-dario-amodei-statement",
+            "/blog/claude-1-million-context-window-ga",
+            "/blog/claude-code-claude-ai-login-errors-performance",
+            "/blog/claude-code-memory",
+            "/blog/claude-code-remote-sessions-phone",
+            "/blog/claude-code-review-agents",
+            "/blog/claude-doubles-usage-off-peak",
+            "/blog/claude-interactive-charts-diagrams",
+            "/blog/coding-agent-gui-ux-overhaul",
+            "/blog/cursor-ai-speed-vs-quality-study",
+            "/blog/dispatch-launch-claude-code-sessions",
+            "/blog/effective-harnesses-for-long-running-agents",
+            "/blog/first-few-days-with-codex-cli",
+            "/blog/glm-ocr-open-source-image-to-text-model",
+            "/blog/headless-mode",
+            "/blog/intercom-claude-code-plugins-skills-hooks",
+            "/blog/ivanhzhao-notion-thoughts",
+            "/blog/juliandeangelis-ai-agents-future",
+            "/blog/obsidian-claude-code-life",
+            "/blog/red-green-refactor-claude-code",
+            "/blog/scheduled-tasks",
+            "/blog/superpowers",
+            "/blog/trq212-2027463795355095314",
+            "/blog/trq212-coding-agents",
+            "/blog/tw-hitw93-2032091246588518683",
+            "/blog/web-search-tool"
+          ],
+          "hub_link_coverage": 0,
+          "broken_links": [
+            {
+              "page": "/glossary/gpt-54",
+              "broken_target": "/glossary/gpt-5"
+            },
+            {
+              "page": "/glossary/gpt-54",
+              "broken_target": "/glossary/large-language-model"
+            },
+            {
+              "page": "/faq/is-claude-code-remote-control-available-on-all-anthropic-pla",
+              "broken_target": "/faq/what-is-the-difference-between-claude-code-and-cursor"
+            },
+            {
+              "page": "/faq/what-is-anthropics-position-on-providing-ai-to-the-departmen",
+              "broken_target": "/faq/what-are-autonomous-weapons-and-why-are-they-controversial"
+            },
+            {
+              "page": "/faq/what-is-anthropics-position-on-providing-ai-to-the-departmen",
+              "broken_target": "/faq/how-does-ai-regulation-affect-model-deployment"
+            },
+            {
+              "page": "/blog/agent-harnesses-2026",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/agent-harnesses-2026",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/agent-harnesses-2026",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/anthropic-claude-community-meetup-program",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/anthropic-claude-community-meetup-program",
+              "broken_target": "/glossary/claude-api"
+            },
+            {
+              "page": "/blog/anthropic-department-of-war-dario-amodei-statement",
+              "broken_target": "/glossary/frontier-model"
+            },
+            {
+              "page": "/blog/anthropic-department-of-war-dario-amodei-statement",
+              "broken_target": "/glossary/llm"
+            },
+            {
+              "page": "/blog/anthropic-department-of-war-dario-amodei-statement",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/anthropic-distillation-attacks-deepseek-moonshot-minimax",
+              "broken_target": "/glossary/distillation"
+            },
+            {
+              "page": "/blog/anthropic-distillation-attacks-deepseek-moonshot-minimax",
+              "broken_target": "/compare/claude-vs-deepseek"
+            },
+            {
+              "page": "/blog/anthropic-linux-foundation-open-source-security",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/anthropic-linux-foundation-open-source-security",
+              "broken_target": "/glossary/frontier-model"
+            },
+            {
+              "page": "/blog/anthropic-linux-foundation-open-source-security",
+              "broken_target": "/glossary/open-source-ai"
+            },
+            {
+              "page": "/blog/claude-1-million-context-window-ga",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/claude-code-btw-side-chain-conversations",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-enterprise-engineering-ramp-shopify-spotify",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-memory",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-remote-control-mobile",
+              "broken_target": "/glossary/mcp-server"
+            },
+            {
+              "page": "/blog/claude-code-remote-sessions-phone",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-security-vulnerability-scanning",
+              "broken_target": "/glossary/llm"
+            },
+            {
+              "page": "/blog/claude-code-security-vulnerability-scanning",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-simplify-batch-skills",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-simplify-batch-skills",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-simplify-batch-skills",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-voice-mode",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-voice-mode",
+              "broken_target": "/glossary/cli"
+            },
+            {
+              "page": "/blog/claude-doubles-usage-off-peak",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/claude-excel-powerpoint-skills-context",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-excel-powerpoint-skills-context",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-excel-powerpoint-sync",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/claude-interactive-charts-diagrams",
+              "broken_target": "/glossary/vega-lite"
+            },
+            {
+              "page": "/blog/claude-interactive-charts-diagrams",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/coding-agent-gui-ux-overhaul",
+              "broken_target": "/glossary/agentic-engineering"
+            },
+            {
+              "page": "/blog/coding-agents-reshaping-epd",
+              "broken_target": "/glossary/coding-agent"
+            },
+            {
+              "page": "/blog/coding-agents-reshaping-epd",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/cursor-ai-speed-vs-quality-study",
+              "broken_target": "/glossary/llm-agent"
+            },
+            {
+              "page": "/blog/effective-harnesses-for-long-running-agents",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/effective-harnesses-for-long-running-agents",
+              "broken_target": "/glossary/claude-agent-sdk"
+            },
+            {
+              "page": "/blog/effective-harnesses-for-long-running-agents",
+              "broken_target": "/glossary/claude-agent-sdk"
+            },
+            {
+              "page": "/blog/glm-ocr-open-source-image-to-text-model",
+              "broken_target": "/glossary/vision-language-model"
+            },
+            {
+              "page": "/blog/glm-ocr-open-source-image-to-text-model",
+              "broken_target": "/glossary/open-source-models"
+            },
+            {
+              "page": "/blog/glm-ocr-open-source-image-to-text-model",
+              "broken_target": "/glossary/vision-language-model"
+            },
+            {
+              "page": "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+              "broken_target": "/glossary/llm"
+            },
+            {
+              "page": "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+              "broken_target": "/glossary/extended-thinking"
+            },
+            {
+              "page": "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+              "broken_target": "/compare/claude-vs-gpt"
+            },
+            {
+              "page": "/blog/intercom-claude-code-plugins-skills-hooks",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/intercom-claude-code-plugins-skills-hooks",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/intercom-claude-code-plugins-skills-hooks",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/ivanhzhao-notion-thoughts",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/ivanhzhao-notion-thoughts",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/juliandeangelis-ai-agents-future",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/juliandeangelis-ai-agents-future",
+              "broken_target": "/glossary/prompt-engineering"
+            },
+            {
+              "page": "/blog/juliandeangelis-ai-agents-future",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/langchain-improving-deep-agents-harness-engineering",
+              "broken_target": "/glossary/ai-agents"
+            },
+            {
+              "page": "/blog/langchain-improving-deep-agents-harness-engineering",
+              "broken_target": "/glossary/ai-agents"
+            },
+            {
+              "page": "/blog/obsidian-claude-code-life",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/openai-chain-of-thought-controllability-evaluation",
+              "broken_target": "/glossary/chain-of-thought"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/agentic-ai"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/computer-use"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/computer-use"
+            },
+            {
+              "page": "/blog/openai-updated-model-spec-2026",
+              "broken_target": "/glossary/ai-alignment"
+            },
+            {
+              "page": "/blog/openai-updated-model-spec-2026",
+              "broken_target": "/glossary/ai-alignment"
+            },
+            {
+              "page": "/blog/openai-updated-model-spec-2026",
+              "broken_target": "/compare/openai-vs-anthropic"
+            },
+            {
+              "page": "/blog/opus-4-6-1m-default-claude-code",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/red-green-refactor-claude-code",
+              "broken_target": "/glossary/tdd"
+            },
+            {
+              "page": "/blog/red-green-refactor-claude-code",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+              "broken_target": "/glossary/voice-agent"
+            },
+            {
+              "page": "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+              "broken_target": "/glossary/gpt-realtime"
+            },
+            {
+              "page": "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+              "broken_target": "/glossary/voice-agent"
+            },
+            {
+              "page": "/blog/run-ai-coding-agents-locally",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/scheduled-tasks",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/superpowers",
+              "broken_target": "/glossary/prompt-engineering"
+            },
+            {
+              "page": "/blog/superpowers",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/superpowers",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/trq212-2027463795355095314",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/trq212-2027463795355095314",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/trq212-coding-agents",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/trq212-coding-agents",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/tw-hitw93-2032091246588518683",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/web-search-tool",
+              "broken_target": "/glossary/claude-api"
+            },
+            {
+              "page": "/blog/web-search-tool",
+              "broken_target": "/glossary/claude-api"
+            }
+          ],
+          "cross_cluster_links": 154,
+          "reciprocal_rate": 0.01
+        },
+        {
+          "topic": "codex",
+          "total_pages": 131,
+          "orphan_pages": [
+            "/glossary/figma",
+            "/glossary/github-copilot",
+            "/glossary/grammarly",
+            "/glossary/how-hooks-work",
+            "/glossary/hugging-face",
+            "/glossary/ltx",
+            "/glossary/meta",
+            "/glossary/model-context-protocol",
+            "/glossary/open-weight-models",
+            "/glossary/openclaw",
+            "/glossary/qualcomm",
+            "/glossary/sakana-ai",
+            "/glossary/triton",
+            "/glossary/vibe-coding",
+            "/glossary/whisper",
+            "/glossary/windsurf",
+            "/faq/can-i-approve-or-reject-code-changes-from-my-mobile-device-w",
+            "/faq/codex",
+            "/faq/how-did-anthropic-detect-the-distillation-attacks-from-deeps",
+            "/faq/how-do-consulting-firms-join-the-claude-partner-network",
+            "/faq/how-does-openais-model-spec-compare-to-anthropics-claude-cha",
+            "/faq/using-codex",
+            "/faq/what-funding-and-resources-does-anthropic-provide-for-claude",
+            "/faq/what-guardrails-does-anthropic-propose-for-military-ai-use",
+            "/faq/what-is-the-claude-partner-network",
+            "/blog/1-add-an-explicit-threat-model-sync-step-per-repo",
+            "/blog/a-unified-identity-defense-layer-why-pam-with-itdr-is-the-foundation-for-2026-security",
+            "/blog/anthropic-claude-community-meetup-program",
+            "/blog/anthropic-department-of-war-dario-amodei-statement",
+            "/blog/claude-1-million-context-window-ga",
+            "/blog/claude-code-claude-ai-login-errors-performance",
+            "/blog/claude-code-memory",
+            "/blog/claude-code-remote-sessions-phone",
+            "/blog/claude-code-review-agents",
+            "/blog/claude-doubles-usage-off-peak",
+            "/blog/claude-interactive-charts-diagrams",
+            "/blog/coding-agent-gui-ux-overhaul",
+            "/blog/cursor-ai-speed-vs-quality-study",
+            "/blog/dispatch-launch-claude-code-sessions",
+            "/blog/effective-harnesses-for-long-running-agents",
+            "/blog/first-few-days-with-codex-cli",
+            "/blog/glm-ocr-open-source-image-to-text-model",
+            "/blog/headless-mode",
+            "/blog/intercom-claude-code-plugins-skills-hooks",
+            "/blog/ivanhzhao-notion-thoughts",
+            "/blog/juliandeangelis-ai-agents-future",
+            "/blog/obsidian-claude-code-life",
+            "/blog/red-green-refactor-claude-code",
+            "/blog/scheduled-tasks",
+            "/blog/superpowers",
+            "/blog/trq212-2027463795355095314",
+            "/blog/trq212-coding-agents",
+            "/blog/tw-hitw93-2032091246588518683",
+            "/blog/web-search-tool",
+            "/compare/anthropic-developer-program-vs-vercel-community",
+            "/compare/anthropic-partner-network-vs-openai-partner-program",
+            "/compare/anthropic-vs-google-ai-partnerships",
+            "/compare/anthropic-vs-openai-enterprise-strategy",
+            "/compare/anthropic-vs-openai-open-source",
+            "/compare/claude-enterprise-vs-chatgpt-enterprise",
+            "/compare/claude-partner-network-vs-openai-partner-program",
+            "/compare/claude-vs-chatgpt-enterprise",
+            "/compare/openssf-scorecard-vs-slsa",
+            "/topics/codex"
+          ],
+          "hub_link_coverage": 0.02,
+          "broken_links": [
+            {
+              "page": "/glossary/gpt-54",
+              "broken_target": "/glossary/gpt-5"
+            },
+            {
+              "page": "/glossary/gpt-54",
+              "broken_target": "/glossary/large-language-model"
+            },
+            {
+              "page": "/faq/is-claude-code-remote-control-available-on-all-anthropic-pla",
+              "broken_target": "/faq/what-is-the-difference-between-claude-code-and-cursor"
+            },
+            {
+              "page": "/faq/what-is-anthropics-position-on-providing-ai-to-the-departmen",
+              "broken_target": "/faq/what-are-autonomous-weapons-and-why-are-they-controversial"
+            },
+            {
+              "page": "/faq/what-is-anthropics-position-on-providing-ai-to-the-departmen",
+              "broken_target": "/faq/how-does-ai-regulation-affect-model-deployment"
+            },
+            {
+              "page": "/blog/agent-harnesses-2026",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/agent-harnesses-2026",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/agent-harnesses-2026",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/anthropic-claude-community-meetup-program",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/anthropic-claude-community-meetup-program",
+              "broken_target": "/glossary/claude-api"
+            },
+            {
+              "page": "/blog/anthropic-department-of-war-dario-amodei-statement",
+              "broken_target": "/glossary/frontier-model"
+            },
+            {
+              "page": "/blog/anthropic-department-of-war-dario-amodei-statement",
+              "broken_target": "/glossary/llm"
+            },
+            {
+              "page": "/blog/anthropic-department-of-war-dario-amodei-statement",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/anthropic-distillation-attacks-deepseek-moonshot-minimax",
+              "broken_target": "/glossary/distillation"
+            },
+            {
+              "page": "/blog/anthropic-distillation-attacks-deepseek-moonshot-minimax",
+              "broken_target": "/compare/claude-vs-deepseek"
+            },
+            {
+              "page": "/blog/anthropic-linux-foundation-open-source-security",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/anthropic-linux-foundation-open-source-security",
+              "broken_target": "/glossary/frontier-model"
+            },
+            {
+              "page": "/blog/anthropic-linux-foundation-open-source-security",
+              "broken_target": "/glossary/open-source-ai"
+            },
+            {
+              "page": "/blog/claude-1-million-context-window-ga",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/claude-code-btw-side-chain-conversations",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-enterprise-engineering-ramp-shopify-spotify",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-memory",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-remote-control-mobile",
+              "broken_target": "/glossary/mcp-server"
+            },
+            {
+              "page": "/blog/claude-code-remote-sessions-phone",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-security-vulnerability-scanning",
+              "broken_target": "/glossary/llm"
+            },
+            {
+              "page": "/blog/claude-code-security-vulnerability-scanning",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-simplify-batch-skills",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-simplify-batch-skills",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-simplify-batch-skills",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-voice-mode",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-voice-mode",
+              "broken_target": "/glossary/cli"
+            },
+            {
+              "page": "/blog/claude-doubles-usage-off-peak",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/claude-excel-powerpoint-skills-context",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-excel-powerpoint-skills-context",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-excel-powerpoint-sync",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/claude-interactive-charts-diagrams",
+              "broken_target": "/glossary/vega-lite"
+            },
+            {
+              "page": "/blog/claude-interactive-charts-diagrams",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/coding-agent-gui-ux-overhaul",
+              "broken_target": "/glossary/agentic-engineering"
+            },
+            {
+              "page": "/blog/coding-agents-reshaping-epd",
+              "broken_target": "/glossary/coding-agent"
+            },
+            {
+              "page": "/blog/coding-agents-reshaping-epd",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/cursor-ai-speed-vs-quality-study",
+              "broken_target": "/glossary/llm-agent"
+            },
+            {
+              "page": "/blog/effective-harnesses-for-long-running-agents",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/effective-harnesses-for-long-running-agents",
+              "broken_target": "/glossary/claude-agent-sdk"
+            },
+            {
+              "page": "/blog/effective-harnesses-for-long-running-agents",
+              "broken_target": "/glossary/claude-agent-sdk"
+            },
+            {
+              "page": "/blog/glm-ocr-open-source-image-to-text-model",
+              "broken_target": "/glossary/vision-language-model"
+            },
+            {
+              "page": "/blog/glm-ocr-open-source-image-to-text-model",
+              "broken_target": "/glossary/open-source-models"
+            },
+            {
+              "page": "/blog/glm-ocr-open-source-image-to-text-model",
+              "broken_target": "/glossary/vision-language-model"
+            },
+            {
+              "page": "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+              "broken_target": "/glossary/llm"
+            },
+            {
+              "page": "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+              "broken_target": "/glossary/extended-thinking"
+            },
+            {
+              "page": "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+              "broken_target": "/compare/claude-vs-gpt"
+            },
+            {
+              "page": "/blog/intercom-claude-code-plugins-skills-hooks",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/intercom-claude-code-plugins-skills-hooks",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/intercom-claude-code-plugins-skills-hooks",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/ivanhzhao-notion-thoughts",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/ivanhzhao-notion-thoughts",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/juliandeangelis-ai-agents-future",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/juliandeangelis-ai-agents-future",
+              "broken_target": "/glossary/prompt-engineering"
+            },
+            {
+              "page": "/blog/juliandeangelis-ai-agents-future",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/langchain-improving-deep-agents-harness-engineering",
+              "broken_target": "/glossary/ai-agents"
+            },
+            {
+              "page": "/blog/langchain-improving-deep-agents-harness-engineering",
+              "broken_target": "/glossary/ai-agents"
+            },
+            {
+              "page": "/blog/obsidian-claude-code-life",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/openai-chain-of-thought-controllability-evaluation",
+              "broken_target": "/glossary/chain-of-thought"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/agentic-ai"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/computer-use"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/computer-use"
+            },
+            {
+              "page": "/blog/openai-updated-model-spec-2026",
+              "broken_target": "/glossary/ai-alignment"
+            },
+            {
+              "page": "/blog/openai-updated-model-spec-2026",
+              "broken_target": "/glossary/ai-alignment"
+            },
+            {
+              "page": "/blog/openai-updated-model-spec-2026",
+              "broken_target": "/compare/openai-vs-anthropic"
+            },
+            {
+              "page": "/blog/opus-4-6-1m-default-claude-code",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/red-green-refactor-claude-code",
+              "broken_target": "/glossary/tdd"
+            },
+            {
+              "page": "/blog/red-green-refactor-claude-code",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+              "broken_target": "/glossary/voice-agent"
+            },
+            {
+              "page": "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+              "broken_target": "/glossary/gpt-realtime"
+            },
+            {
+              "page": "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+              "broken_target": "/glossary/voice-agent"
+            },
+            {
+              "page": "/blog/run-ai-coding-agents-locally",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/scheduled-tasks",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/superpowers",
+              "broken_target": "/glossary/prompt-engineering"
+            },
+            {
+              "page": "/blog/superpowers",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/superpowers",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/trq212-2027463795355095314",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/trq212-2027463795355095314",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/trq212-coding-agents",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/trq212-coding-agents",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/tw-hitw93-2032091246588518683",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/web-search-tool",
+              "broken_target": "/glossary/claude-api"
+            },
+            {
+              "page": "/blog/web-search-tool",
+              "broken_target": "/glossary/claude-api"
+            }
+          ],
+          "cross_cluster_links": 154,
+          "reciprocal_rate": 0.01
+        },
+        {
+          "topic": "codex-cli",
+          "total_pages": 130,
+          "orphan_pages": [
+            "/faq/can-i-approve-or-reject-code-changes-from-my-mobile-device-w",
+            "/faq/codex",
+            "/faq/how-did-anthropic-detect-the-distillation-attacks-from-deeps",
+            "/faq/how-do-consulting-firms-join-the-claude-partner-network",
+            "/faq/how-does-openais-model-spec-compare-to-anthropics-claude-cha",
+            "/faq/using-codex",
+            "/faq/what-funding-and-resources-does-anthropic-provide-for-claude",
+            "/faq/what-guardrails-does-anthropic-propose-for-military-ai-use",
+            "/faq/what-is-the-claude-partner-network",
+            "/glossary/figma",
+            "/glossary/github-copilot",
+            "/glossary/grammarly",
+            "/glossary/how-hooks-work",
+            "/glossary/hugging-face",
+            "/glossary/ltx",
+            "/glossary/meta",
+            "/glossary/model-context-protocol",
+            "/glossary/open-weight-models",
+            "/glossary/openclaw",
+            "/glossary/qualcomm",
+            "/glossary/sakana-ai",
+            "/glossary/triton",
+            "/glossary/vibe-coding",
+            "/glossary/whisper",
+            "/glossary/windsurf",
+            "/blog/1-add-an-explicit-threat-model-sync-step-per-repo",
+            "/blog/a-unified-identity-defense-layer-why-pam-with-itdr-is-the-foundation-for-2026-security",
+            "/blog/anthropic-claude-community-meetup-program",
+            "/blog/anthropic-department-of-war-dario-amodei-statement",
+            "/blog/claude-1-million-context-window-ga",
+            "/blog/claude-code-claude-ai-login-errors-performance",
+            "/blog/claude-code-memory",
+            "/blog/claude-code-remote-sessions-phone",
+            "/blog/claude-code-review-agents",
+            "/blog/claude-doubles-usage-off-peak",
+            "/blog/claude-interactive-charts-diagrams",
+            "/blog/coding-agent-gui-ux-overhaul",
+            "/blog/cursor-ai-speed-vs-quality-study",
+            "/blog/dispatch-launch-claude-code-sessions",
+            "/blog/effective-harnesses-for-long-running-agents",
+            "/blog/first-few-days-with-codex-cli",
+            "/blog/glm-ocr-open-source-image-to-text-model",
+            "/blog/headless-mode",
+            "/blog/intercom-claude-code-plugins-skills-hooks",
+            "/blog/ivanhzhao-notion-thoughts",
+            "/blog/juliandeangelis-ai-agents-future",
+            "/blog/obsidian-claude-code-life",
+            "/blog/red-green-refactor-claude-code",
+            "/blog/scheduled-tasks",
+            "/blog/superpowers",
+            "/blog/trq212-2027463795355095314",
+            "/blog/trq212-coding-agents",
+            "/blog/tw-hitw93-2032091246588518683",
+            "/blog/web-search-tool",
+            "/compare/anthropic-developer-program-vs-vercel-community",
+            "/compare/anthropic-partner-network-vs-openai-partner-program",
+            "/compare/anthropic-vs-google-ai-partnerships",
+            "/compare/anthropic-vs-openai-enterprise-strategy",
+            "/compare/anthropic-vs-openai-open-source",
+            "/compare/claude-enterprise-vs-chatgpt-enterprise",
+            "/compare/claude-partner-network-vs-openai-partner-program",
+            "/compare/claude-vs-chatgpt-enterprise",
+            "/compare/openssf-scorecard-vs-slsa"
+          ],
+          "hub_link_coverage": 0,
+          "broken_links": [
+            {
+              "page": "/faq/is-claude-code-remote-control-available-on-all-anthropic-pla",
+              "broken_target": "/faq/what-is-the-difference-between-claude-code-and-cursor"
+            },
+            {
+              "page": "/faq/what-is-anthropics-position-on-providing-ai-to-the-departmen",
+              "broken_target": "/faq/what-are-autonomous-weapons-and-why-are-they-controversial"
+            },
+            {
+              "page": "/faq/what-is-anthropics-position-on-providing-ai-to-the-departmen",
+              "broken_target": "/faq/how-does-ai-regulation-affect-model-deployment"
+            },
+            {
+              "page": "/glossary/gpt-54",
+              "broken_target": "/glossary/gpt-5"
+            },
+            {
+              "page": "/glossary/gpt-54",
+              "broken_target": "/glossary/large-language-model"
+            },
+            {
+              "page": "/blog/agent-harnesses-2026",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/agent-harnesses-2026",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/agent-harnesses-2026",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/anthropic-claude-community-meetup-program",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/anthropic-claude-community-meetup-program",
+              "broken_target": "/glossary/claude-api"
+            },
+            {
+              "page": "/blog/anthropic-department-of-war-dario-amodei-statement",
+              "broken_target": "/glossary/frontier-model"
+            },
+            {
+              "page": "/blog/anthropic-department-of-war-dario-amodei-statement",
+              "broken_target": "/glossary/llm"
+            },
+            {
+              "page": "/blog/anthropic-department-of-war-dario-amodei-statement",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/anthropic-distillation-attacks-deepseek-moonshot-minimax",
+              "broken_target": "/glossary/distillation"
+            },
+            {
+              "page": "/blog/anthropic-distillation-attacks-deepseek-moonshot-minimax",
+              "broken_target": "/compare/claude-vs-deepseek"
+            },
+            {
+              "page": "/blog/anthropic-linux-foundation-open-source-security",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/anthropic-linux-foundation-open-source-security",
+              "broken_target": "/glossary/frontier-model"
+            },
+            {
+              "page": "/blog/anthropic-linux-foundation-open-source-security",
+              "broken_target": "/glossary/open-source-ai"
+            },
+            {
+              "page": "/blog/claude-1-million-context-window-ga",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/claude-code-btw-side-chain-conversations",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-enterprise-engineering-ramp-shopify-spotify",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-memory",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-remote-control-mobile",
+              "broken_target": "/glossary/mcp-server"
+            },
+            {
+              "page": "/blog/claude-code-remote-sessions-phone",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-security-vulnerability-scanning",
+              "broken_target": "/glossary/llm"
+            },
+            {
+              "page": "/blog/claude-code-security-vulnerability-scanning",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-simplify-batch-skills",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-simplify-batch-skills",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-simplify-batch-skills",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-voice-mode",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-voice-mode",
+              "broken_target": "/glossary/cli"
+            },
+            {
+              "page": "/blog/claude-doubles-usage-off-peak",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/claude-excel-powerpoint-skills-context",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-excel-powerpoint-skills-context",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-excel-powerpoint-sync",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/claude-interactive-charts-diagrams",
+              "broken_target": "/glossary/vega-lite"
+            },
+            {
+              "page": "/blog/claude-interactive-charts-diagrams",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/coding-agent-gui-ux-overhaul",
+              "broken_target": "/glossary/agentic-engineering"
+            },
+            {
+              "page": "/blog/coding-agents-reshaping-epd",
+              "broken_target": "/glossary/coding-agent"
+            },
+            {
+              "page": "/blog/coding-agents-reshaping-epd",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/cursor-ai-speed-vs-quality-study",
+              "broken_target": "/glossary/llm-agent"
+            },
+            {
+              "page": "/blog/effective-harnesses-for-long-running-agents",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/effective-harnesses-for-long-running-agents",
+              "broken_target": "/glossary/claude-agent-sdk"
+            },
+            {
+              "page": "/blog/effective-harnesses-for-long-running-agents",
+              "broken_target": "/glossary/claude-agent-sdk"
+            },
+            {
+              "page": "/blog/glm-ocr-open-source-image-to-text-model",
+              "broken_target": "/glossary/vision-language-model"
+            },
+            {
+              "page": "/blog/glm-ocr-open-source-image-to-text-model",
+              "broken_target": "/glossary/open-source-models"
+            },
+            {
+              "page": "/blog/glm-ocr-open-source-image-to-text-model",
+              "broken_target": "/glossary/vision-language-model"
+            },
+            {
+              "page": "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+              "broken_target": "/glossary/llm"
+            },
+            {
+              "page": "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+              "broken_target": "/glossary/extended-thinking"
+            },
+            {
+              "page": "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+              "broken_target": "/compare/claude-vs-gpt"
+            },
+            {
+              "page": "/blog/intercom-claude-code-plugins-skills-hooks",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/intercom-claude-code-plugins-skills-hooks",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/intercom-claude-code-plugins-skills-hooks",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/ivanhzhao-notion-thoughts",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/ivanhzhao-notion-thoughts",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/juliandeangelis-ai-agents-future",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/juliandeangelis-ai-agents-future",
+              "broken_target": "/glossary/prompt-engineering"
+            },
+            {
+              "page": "/blog/juliandeangelis-ai-agents-future",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/langchain-improving-deep-agents-harness-engineering",
+              "broken_target": "/glossary/ai-agents"
+            },
+            {
+              "page": "/blog/langchain-improving-deep-agents-harness-engineering",
+              "broken_target": "/glossary/ai-agents"
+            },
+            {
+              "page": "/blog/obsidian-claude-code-life",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/openai-chain-of-thought-controllability-evaluation",
+              "broken_target": "/glossary/chain-of-thought"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/agentic-ai"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/computer-use"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/computer-use"
+            },
+            {
+              "page": "/blog/openai-updated-model-spec-2026",
+              "broken_target": "/glossary/ai-alignment"
+            },
+            {
+              "page": "/blog/openai-updated-model-spec-2026",
+              "broken_target": "/glossary/ai-alignment"
+            },
+            {
+              "page": "/blog/openai-updated-model-spec-2026",
+              "broken_target": "/compare/openai-vs-anthropic"
+            },
+            {
+              "page": "/blog/opus-4-6-1m-default-claude-code",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/red-green-refactor-claude-code",
+              "broken_target": "/glossary/tdd"
+            },
+            {
+              "page": "/blog/red-green-refactor-claude-code",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+              "broken_target": "/glossary/voice-agent"
+            },
+            {
+              "page": "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+              "broken_target": "/glossary/gpt-realtime"
+            },
+            {
+              "page": "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+              "broken_target": "/glossary/voice-agent"
+            },
+            {
+              "page": "/blog/run-ai-coding-agents-locally",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/scheduled-tasks",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/superpowers",
+              "broken_target": "/glossary/prompt-engineering"
+            },
+            {
+              "page": "/blog/superpowers",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/superpowers",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/trq212-2027463795355095314",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/trq212-2027463795355095314",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/trq212-coding-agents",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/trq212-coding-agents",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/tw-hitw93-2032091246588518683",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/web-search-tool",
+              "broken_target": "/glossary/claude-api"
+            },
+            {
+              "page": "/blog/web-search-tool",
+              "broken_target": "/glossary/claude-api"
+            }
+          ],
+          "cross_cluster_links": 154,
+          "reciprocal_rate": 0.01
+        },
+        {
+          "topic": "codex-security",
+          "total_pages": 130,
+          "orphan_pages": [
+            "/blog/1-add-an-explicit-threat-model-sync-step-per-repo",
+            "/blog/a-unified-identity-defense-layer-why-pam-with-itdr-is-the-foundation-for-2026-security",
+            "/blog/anthropic-claude-community-meetup-program",
+            "/blog/anthropic-department-of-war-dario-amodei-statement",
+            "/blog/claude-1-million-context-window-ga",
+            "/blog/claude-code-claude-ai-login-errors-performance",
+            "/blog/claude-code-memory",
+            "/blog/claude-code-remote-sessions-phone",
+            "/blog/claude-code-review-agents",
+            "/blog/claude-doubles-usage-off-peak",
+            "/blog/claude-interactive-charts-diagrams",
+            "/blog/coding-agent-gui-ux-overhaul",
+            "/blog/cursor-ai-speed-vs-quality-study",
+            "/blog/dispatch-launch-claude-code-sessions",
+            "/blog/effective-harnesses-for-long-running-agents",
+            "/blog/first-few-days-with-codex-cli",
+            "/blog/glm-ocr-open-source-image-to-text-model",
+            "/blog/headless-mode",
+            "/blog/intercom-claude-code-plugins-skills-hooks",
+            "/blog/ivanhzhao-notion-thoughts",
+            "/blog/juliandeangelis-ai-agents-future",
+            "/blog/obsidian-claude-code-life",
+            "/blog/red-green-refactor-claude-code",
+            "/blog/scheduled-tasks",
+            "/blog/superpowers",
+            "/blog/trq212-2027463795355095314",
+            "/blog/trq212-coding-agents",
+            "/blog/tw-hitw93-2032091246588518683",
+            "/blog/web-search-tool",
+            "/faq/can-i-approve-or-reject-code-changes-from-my-mobile-device-w",
+            "/faq/codex",
+            "/faq/how-did-anthropic-detect-the-distillation-attacks-from-deeps",
+            "/faq/how-do-consulting-firms-join-the-claude-partner-network",
+            "/faq/how-does-openais-model-spec-compare-to-anthropics-claude-cha",
+            "/faq/using-codex",
+            "/faq/what-funding-and-resources-does-anthropic-provide-for-claude",
+            "/faq/what-guardrails-does-anthropic-propose-for-military-ai-use",
+            "/faq/what-is-the-claude-partner-network",
+            "/compare/anthropic-developer-program-vs-vercel-community",
+            "/compare/anthropic-partner-network-vs-openai-partner-program",
+            "/compare/anthropic-vs-google-ai-partnerships",
+            "/compare/anthropic-vs-openai-enterprise-strategy",
+            "/compare/anthropic-vs-openai-open-source",
+            "/compare/claude-enterprise-vs-chatgpt-enterprise",
+            "/compare/claude-partner-network-vs-openai-partner-program",
+            "/compare/claude-vs-chatgpt-enterprise",
+            "/compare/openssf-scorecard-vs-slsa",
+            "/glossary/figma",
+            "/glossary/github-copilot",
+            "/glossary/grammarly",
+            "/glossary/how-hooks-work",
+            "/glossary/hugging-face",
+            "/glossary/ltx",
+            "/glossary/meta",
+            "/glossary/model-context-protocol",
+            "/glossary/open-weight-models",
+            "/glossary/openclaw",
+            "/glossary/qualcomm",
+            "/glossary/sakana-ai",
+            "/glossary/triton",
+            "/glossary/vibe-coding",
+            "/glossary/whisper",
+            "/glossary/windsurf"
+          ],
+          "hub_link_coverage": 0,
+          "broken_links": [
+            {
+              "page": "/blog/agent-harnesses-2026",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/agent-harnesses-2026",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/agent-harnesses-2026",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/anthropic-claude-community-meetup-program",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/anthropic-claude-community-meetup-program",
+              "broken_target": "/glossary/claude-api"
+            },
+            {
+              "page": "/blog/anthropic-department-of-war-dario-amodei-statement",
+              "broken_target": "/glossary/frontier-model"
+            },
+            {
+              "page": "/blog/anthropic-department-of-war-dario-amodei-statement",
+              "broken_target": "/glossary/llm"
+            },
+            {
+              "page": "/blog/anthropic-department-of-war-dario-amodei-statement",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/anthropic-distillation-attacks-deepseek-moonshot-minimax",
+              "broken_target": "/glossary/distillation"
+            },
+            {
+              "page": "/blog/anthropic-distillation-attacks-deepseek-moonshot-minimax",
+              "broken_target": "/compare/claude-vs-deepseek"
+            },
+            {
+              "page": "/blog/anthropic-linux-foundation-open-source-security",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/anthropic-linux-foundation-open-source-security",
+              "broken_target": "/glossary/frontier-model"
+            },
+            {
+              "page": "/blog/anthropic-linux-foundation-open-source-security",
+              "broken_target": "/glossary/open-source-ai"
+            },
+            {
+              "page": "/blog/claude-1-million-context-window-ga",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/claude-code-btw-side-chain-conversations",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-enterprise-engineering-ramp-shopify-spotify",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-memory",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-remote-control-mobile",
+              "broken_target": "/glossary/mcp-server"
+            },
+            {
+              "page": "/blog/claude-code-remote-sessions-phone",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-security-vulnerability-scanning",
+              "broken_target": "/glossary/llm"
+            },
+            {
+              "page": "/blog/claude-code-security-vulnerability-scanning",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-simplify-batch-skills",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-simplify-batch-skills",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-simplify-batch-skills",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-code-voice-mode",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-code-voice-mode",
+              "broken_target": "/glossary/cli"
+            },
+            {
+              "page": "/blog/claude-doubles-usage-off-peak",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/claude-excel-powerpoint-skills-context",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/claude-excel-powerpoint-skills-context",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/claude-excel-powerpoint-sync",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/claude-interactive-charts-diagrams",
+              "broken_target": "/glossary/vega-lite"
+            },
+            {
+              "page": "/blog/claude-interactive-charts-diagrams",
+              "broken_target": "/compare/claude-vs-chatgpt"
+            },
+            {
+              "page": "/blog/coding-agent-gui-ux-overhaul",
+              "broken_target": "/glossary/agentic-engineering"
+            },
+            {
+              "page": "/blog/coding-agents-reshaping-epd",
+              "broken_target": "/glossary/coding-agent"
+            },
+            {
+              "page": "/blog/coding-agents-reshaping-epd",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/cursor-ai-speed-vs-quality-study",
+              "broken_target": "/glossary/llm-agent"
+            },
+            {
+              "page": "/blog/effective-harnesses-for-long-running-agents",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/effective-harnesses-for-long-running-agents",
+              "broken_target": "/glossary/claude-agent-sdk"
+            },
+            {
+              "page": "/blog/effective-harnesses-for-long-running-agents",
+              "broken_target": "/glossary/claude-agent-sdk"
+            },
+            {
+              "page": "/blog/glm-ocr-open-source-image-to-text-model",
+              "broken_target": "/glossary/vision-language-model"
+            },
+            {
+              "page": "/blog/glm-ocr-open-source-image-to-text-model",
+              "broken_target": "/glossary/open-source-models"
+            },
+            {
+              "page": "/blog/glm-ocr-open-source-image-to-text-model",
+              "broken_target": "/glossary/vision-language-model"
+            },
+            {
+              "page": "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+              "broken_target": "/glossary/llm"
+            },
+            {
+              "page": "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+              "broken_target": "/glossary/extended-thinking"
+            },
+            {
+              "page": "/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison",
+              "broken_target": "/compare/claude-vs-gpt"
+            },
+            {
+              "page": "/blog/intercom-claude-code-plugins-skills-hooks",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/intercom-claude-code-plugins-skills-hooks",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/intercom-claude-code-plugins-skills-hooks",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/ivanhzhao-notion-thoughts",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/ivanhzhao-notion-thoughts",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/juliandeangelis-ai-agents-future",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/juliandeangelis-ai-agents-future",
+              "broken_target": "/glossary/prompt-engineering"
+            },
+            {
+              "page": "/blog/juliandeangelis-ai-agents-future",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/langchain-improving-deep-agents-harness-engineering",
+              "broken_target": "/glossary/ai-agents"
+            },
+            {
+              "page": "/blog/langchain-improving-deep-agents-harness-engineering",
+              "broken_target": "/glossary/ai-agents"
+            },
+            {
+              "page": "/blog/obsidian-claude-code-life",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/openai-chain-of-thought-controllability-evaluation",
+              "broken_target": "/glossary/chain-of-thought"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/agentic-ai"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/computer-use"
+            },
+            {
+              "page": "/blog/openai-computer-access-agents-lessons",
+              "broken_target": "/glossary/computer-use"
+            },
+            {
+              "page": "/blog/openai-updated-model-spec-2026",
+              "broken_target": "/glossary/ai-alignment"
+            },
+            {
+              "page": "/blog/openai-updated-model-spec-2026",
+              "broken_target": "/glossary/ai-alignment"
+            },
+            {
+              "page": "/blog/openai-updated-model-spec-2026",
+              "broken_target": "/compare/openai-vs-anthropic"
+            },
+            {
+              "page": "/blog/opus-4-6-1m-default-claude-code",
+              "broken_target": "/glossary/context-window"
+            },
+            {
+              "page": "/blog/red-green-refactor-claude-code",
+              "broken_target": "/glossary/tdd"
+            },
+            {
+              "page": "/blog/red-green-refactor-claude-code",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+              "broken_target": "/glossary/voice-agent"
+            },
+            {
+              "page": "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+              "broken_target": "/glossary/gpt-realtime"
+            },
+            {
+              "page": "/blog/restaurant-voice-agent-gpt-realtime-tutorial",
+              "broken_target": "/glossary/voice-agent"
+            },
+            {
+              "page": "/blog/run-ai-coding-agents-locally",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/scheduled-tasks",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/superpowers",
+              "broken_target": "/glossary/prompt-engineering"
+            },
+            {
+              "page": "/blog/superpowers",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/superpowers",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/trq212-2027463795355095314",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/trq212-2027463795355095314",
+              "broken_target": "/glossary/ai-agent"
+            },
+            {
+              "page": "/blog/trq212-coding-agents",
+              "broken_target": "/glossary/skill-md"
+            },
+            {
+              "page": "/blog/trq212-coding-agents",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/tw-hitw93-2032091246588518683",
+              "broken_target": "/blog/claude-code-skills-guide"
+            },
+            {
+              "page": "/blog/web-search-tool",
+              "broken_target": "/glossary/claude-api"
+            },
+            {
+              "page": "/blog/web-search-tool",
+              "broken_target": "/glossary/claude-api"
+            },
+            {
+              "page": "/faq/is-claude-code-remote-control-available-on-all-anthropic-pla",
+              "broken_target": "/faq/what-is-the-difference-between-claude-code-and-cursor"
+            },
+            {
+              "page": "/faq/what-is-anthropics-position-on-providing-ai-to-the-departmen",
+              "broken_target": "/faq/what-are-autonomous-weapons-and-why-are-they-controversial"
+            },
+            {
+              "page": "/faq/what-is-anthropics-position-on-providing-ai-to-the-departmen",
+              "broken_target": "/faq/how-does-ai-regulation-affect-model-deployment"
+            },
+            {
+              "page": "/glossary/gpt-54",
+              "broken_target": "/glossary/gpt-5"
+            },
+            {
+              "page": "/glossary/gpt-54",
+              "broken_target": "/glossary/large-language-model"
+            }
+          ],
+          "cross_cluster_links": 154,
+          "reciprocal_rate": 0.01
+        }
+      ]
+    },
+    "refresh_pipeline": {
+      "status": "green",
+      "refresh_jobs_total": 0,
+      "refresh_jobs_completed": 0,
+      "completion_rate": 0,
+      "stale_jobs": 0,
+      "striking_conversions": 0,
+      "detail": "No GSC data yet — refresh pipeline not expected to run"
+    }
+  },
+  "llm_checks": {
+    "keyword_coherence": {
+      "status": "yellow",
+      "samples_scored": 10,
+      "average_score": 2.5,
+      "worst_groups": [
+        {
+          "group_id": 18,
+          "primary_keyword": "openai codex security scanned 1.2 million commits and found ...",
+          "score": 2,
+          "reason": "Most keywords cluster around OpenAI's Codex Security product (informational/review intent), but several are clearly navigational or unrelated (e.g., 'codex security printing house ltd', 'codex security download', 'codex security reddit', 'claude code security', 'claude security', 'codex web', 'codex cloud'), and a few target very different intents like SAST comparisons or WordPress/Drupal workflows."
+        },
+        {
+          "group_id": 90,
+          "primary_keyword": "why-is-claude-code-showing-login-errors",
+          "score": 2,
+          "reason": "The primary keyword targets a specific troubleshooting/error topic, but the group spans vastly different intents including comparisons, feature explanations, pricing, installation, remote control, voice mode, security scanning, and general overviews — requiring many different pages to satisfy."
+        },
+        {
+          "group_id": 95,
+          "primary_keyword": "claude code is not a coding tool",
+          "score": 2,
+          "reason": "The primary keyword suggests a philosophical/positioning piece about Claude Code's broader capabilities, but the secondary keywords span dozens of completely different intents: setup guides, comparisons, pricing, voice mode, security scanning, remote access, plugins, local agents, and commercial course listings — each requiring its own dedicated page."
+        },
+        {
+          "group_id": 126,
+          "primary_keyword": "conçu pour des workflows multi-agents",
+          "score": 2,
+          "reason": "The primary keyword is French and targets multi-agent workflow design, but the group mixes unrelated topics: ancient manuscripts (codex gigas, codex sinaiticus, codex vaticanus), gaming (codex lol), Christianity, books, and student tools — none of which belong on an OpenAI Codex product page."
+        },
+        {
+          "group_id": 75,
+          "primary_keyword": "cybersecurity webinars",
+          "score": 2,
+          "reason": "The cluster mixes navigational queries (codex security reddit, codex security download, openai developers), informational deep-dives (how it works, SAST mechanics), and completely unrelated terms (codex security printing house ltd, cybersecurity webinars, remotion, WordPress/Drupal workflows), making a single FAQ page unable to satisfy even a majority of these intents."
+        }
+      ],
+      "errors": []
+    },
+    "content_intent_match": {
+      "status": "green",
+      "samples_scored": 19,
+      "average_score": 4.53,
+      "by_type": {
+        "glossary": {
+          "average": 4,
+          "count": 5
+        },
+        "compare": {
+          "average": 5,
+          "count": 2
+        },
+        "blog": {
+          "average": 4.86,
+          "count": 7
+        },
+        "faq": {
+          "average": 4.4,
+          "count": 5
+        }
+      },
+      "worst_pieces": [
+        {
+          "slug": "how-hooks-work",
+          "type": "glossary",
+          "score": 2,
+          "reason": "The content explains React hooks but the keyword 'how hooks work' in this Claude Code/AI platform context most likely targets Claude Code hooks (shell commands triggered by AI events), not React hooks — a fundamental intent mismatch."
+        },
+        {
+          "slug": "qualcomm",
+          "type": "glossary",
+          "score": 3,
+          "reason": "The content explains Qualcomm's AI stack well for an informed reader, but the keyword 'qualcomm' likely attracts broad informational searchers who also want stock, news, products, or company overview — not just the AI/NPU angle."
+        },
+        {
+          "slug": "claude-code-hooks-reddit",
+          "type": "faq",
+          "score": 4,
+          "reason": "The content directly addresses what Claude Code hooks are with practical examples and community context (Reddit angle), satisfying most of the search intent for developers curious about this feature."
+        },
+        {
+          "slug": "con-u-pour-des-workflows-multi-agents",
+          "type": "blog",
+          "score": 4,
+          "reason": "The content directly explains what 'conçu pour des workflows multi-agents' means in the context of OpenAI Codex, covering parallel agents, Git worktrees, and orchestration — satisfying the search intent well."
+        },
+        {
+          "slug": "how-do-consulting-firms-join-the-claude-partner-network",
+          "type": "faq",
+          "score": 4,
+          "reason": "The content directly addresses the keyword with clear eligibility criteria, practical steps, and context about the partner network, satisfying the core search intent well."
+        }
+      ],
+      "errors": []
+    },
+    "content_aeo_readiness": {
+      "status": "green",
+      "samples_scored": 19,
+      "average_score": 4.37,
+      "by_type": {
+        "glossary": {
+          "average": 4.2,
+          "count": 5
+        },
+        "compare": {
+          "average": 5,
+          "count": 2
+        },
+        "blog": {
+          "average": 4.43,
+          "count": 7
+        },
+        "faq": {
+          "average": 4.2,
+          "count": 5
+        }
+      },
+      "common_issues": [
+        "A concise FAQ-style Q&A section (e.g. 'What are the rules of hooks?') would make it more directly extractable by answer engines.",
+        "A concise TL;DR summary box or FAQ-style Q&A (e.g. 'Does Cursor reduce code quality?') at the top would make it more directly quotable for answer engines.",
+        "A concise Q&A or FAQ section (e.g., 'What phones use Qualcomm AI?') would improve extractability for conversational queries.",
+        "Adding a concise FAQ-style Q&A block (e.g., 'How do you install a hook?') with a direct code example would push it to a 5.",
+        "A concise FAQ section (e.g., 'How does Claude Code remote launch work?') and a summary table comparing remote vs. local session capabilities would push this to a 5."
+      ],
+      "errors": []
+    },
+    "subtopic_discovery": {
+      "status": "yellow",
+      "samples_scored": 10,
+      "average_score": 2.5,
+      "worst_subtopics": [
+        {
+          "slug": "qwen",
+          "score": 1,
+          "reason": "Alibaba's model, unrelated to Anthropic — no meaningful search overlap."
+        },
+        {
+          "slug": "gemini",
+          "score": 1,
+          "reason": "Google's AI product — searchers for Gemini are not looking for Anthropic content."
+        },
+        {
+          "slug": "deepseek",
+          "score": 1,
+          "reason": "Competing Chinese AI lab with no connection to Anthropic — unrelated search demand."
+        },
+        {
+          "slug": "chatgpt",
+          "score": 1,
+          "reason": "OpenAI's product — searchers for ChatGPT are not looking for Anthropic and the brands are distinct."
+        },
+        {
+          "slug": "openai",
+          "score": 2,
+          "reason": "Major competitor brand, not a subtopic of Anthropic — searchers looking for OpenAI are not looking for Anthropic content."
+        }
+      ],
+      "errors": []
+    },
+    "keyword_quality": {
+      "status": "yellow",
+      "samples_scored": 20,
+      "average_score": 3.35,
+      "junk_rate": 0.25,
+      "junk_rate_by_source": {
+        "blog:anthropic-linux-foundation-open-source-security": 0,
+        "blog-compare:claude-code-remote-control-mobile": 0,
+        "blog-faq:glm-ocr-open-source-image-to-text-model": 0,
+        "serper-autocomplete": 0,
+        "blog:google-ai-open-source-security-tools": 0,
+        "exa-competitor": 1,
+        "blog:claude-code-btw-side-chain-conversations": 0,
+        "blog:restaurant-voice-agent-gpt-realtime-tutorial": 0,
+        "serper-related": 0,
+        "blog:claude-doubles-usage-off-peak": 0,
+        "blog-compare:claude-excel-powerpoint-sync": 0,
+        "blog-faq:claude-code-review-agents": 0,
+        "blog-compare:glm-ocr-open-source-image-to-text-model": 0
+      },
+      "worst_keywords": [
+        {
+          "keyword": "keep going in the terminal",
+          "score": 1,
+          "reason": "Ambiguous phrase that could mean anything; not a real search query with clear intent or targetable topic."
+        },
+        {
+          "keyword": "exit codes: the control mechanism",
+          "score": 1,
+          "reason": "Looks like an article title or internal document heading, not a search query anyone would type."
+        },
+        {
+          "keyword": "the codex app: a command center for agents",
+          "score": 1,
+          "reason": "This is a blog post title, not a search query; no one would type this verbatim into Google."
+        },
+        {
+          "keyword": "personal skill (global)",
+          "score": 1,
+          "reason": "Internal taxonomy label, not a search query; completely non-targetable as SEO content."
+        },
+        {
+          "keyword": "what actually changed​",
+          "score": 1,
+          "reason": "Completely generic phrase with zero SEO value; likely scraped article snippet or changelog heading."
+        }
+      ],
+      "errors": []
+    },
+    "llm_calls": 50
+  },
+  "overall_quality": "red",
+  "llm_calls": 50,
+  "llm_model": "sonnet",
+  "duration_ms": 339926,
+  "trends": {
+    "previous_report_date": null,
+    "deltas": {
+      "keyword_coherence": null,
+      "content_intent_match": null,
+      "content_aeo_readiness": null,
+      "keyword_quality_junk_rate": null
+    }
+  }
+}
