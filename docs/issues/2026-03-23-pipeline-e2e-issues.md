@@ -1,3 +1,11 @@
+---
+title: "Pipeline E2E Test Run — Issues Found"
+status: active
+category: issue
+last-updated: 2026-03-23
+depends-on: []
+---
+
 # Pipeline E2E Test Run — Issues Found (2026-03-23)
 
 Full pipeline run after the keyword engine merge. All 6 stages executed manually.
