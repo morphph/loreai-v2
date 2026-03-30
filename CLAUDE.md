@@ -2,7 +2,7 @@
 
 ## What This Is
 Bilingual (EN/ZH) AI news platform. Daily newsletter + deep blog + SEO pages.
-Stack: Next.js 15 + TypeScript + Tailwind v4 + SQLite. Vercel (frontend) + VPS (pipelines).
+Stack: Next.js 16 + TypeScript + Tailwind v4 + SQLite. Vercel (frontend) + VPS (pipelines).
 
 ## Commands — Build & Validate
 npm run dev          # Local dev server
@@ -37,5 +37,39 @@ Key rules: no stale news (>48h), no cross-day repeats, no attribution guessing, 
 ## Known Gotchas
 - ZH content 必须用 CJK word count，不能用英文空格分词
 - 不要在 pipeline 脚本里直接 import Next.js 模块（server-only）
-- Gemini Deep Research 需要 `google-genai>=1.55.0`（Interactions API）
+- Gemini Deep Research 需要 Python `google-genai>=1.55.0`（Interactions API）— JS SDK 不支持，走 Python worker
 - `upsertKeyword()` 必须传三个参数（keyword, source, clusterSlug）— 漏传 clusterSlug 会导致 SEO pipeline 看不到关键词
+
+## Documentation Rules
+
+### Auto-update on code changes
+When modifying any of the following, update the corresponding doc and bump its `last-updated` frontmatter field:
+- Pipeline scripts in `scripts/` → update `docs/specs/PIPELINE.md` and `docs/context/PIPELINE-STATUS.md`
+- Database schema or migrations → update `docs/context/SYSTEM-OVERVIEW.md`
+- API routes in `src/app/api/` or `server/` → update `docs/context/SYSTEM-OVERVIEW.md`
+- Skill files in `skills/*/SKILL.md` → update `docs/context/SKILLS-INDEX.md`
+- Cron jobs or scheduled tasks → update `docs/context/PIPELINE-STATUS.md`
+- Environment variables or config → update `docs/guides/DEPLOY.md`
+- Video pipeline scripts → update `docs/guides/VIDEO-PIPELINE.md`
+- E2E tests → update `docs/guides/TESTING.md`
+
+### New component = new doc entry
+When creating a new script, API endpoint, or significant module:
+1. Add it to the relevant doc (PIPELINE.md, SYSTEM-OVERVIEW.md, etc.)
+2. Add an entry to `docs/INDEX.md`
+3. If it doesn't fit any existing doc, flag in the commit message: "NOTE: New undocumented component created at [path]"
+
+### Context folder integrity
+The `docs/context/` folder must be self-contained. Never reference internal file paths or code symbols that only make sense with codebase access. Write as if the reader has zero access to the repo.
+
+### Frontmatter required
+Every new `.md` file under `docs/` must include:
+```yaml
+---
+title: "..."
+status: active | draft | archived
+category: spec | guide | log | decision | roadmap | context
+last-updated: YYYY-MM-DD
+depends-on: []
+---
+```
