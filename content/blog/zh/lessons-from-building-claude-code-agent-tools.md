@@ -27,6 +27,16 @@ Thariq 提出了一个框架：**Seeing like an Agent**——像 Agent 一样看
 
 差别在哪？填表格和自由写报告的区别。表格格式统一，自由发挥千奇百怪。结构化工具调用天然比非结构化输出更可控。
 
+```mermaid
+graph LR
+    subgraph "工具设计迭代循环"
+        Observe["观察模型<br/>使用工具"] --> Identify["识别失败<br/>模式"]
+        Identify --> Redesign["重新设计<br/>工具接口"]
+        Redesign --> Test["用真实任务<br/>测试"]
+        Test --> Observe
+    end
+```
+
 ## 为什么重要
 
 这套经验揭示了 Agent 工具设计的两个关键原则。

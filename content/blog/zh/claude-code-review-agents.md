@@ -37,6 +37,22 @@ Boris 本人已经用了几周，反馈是"它能捕获很多问题"。结合近
 
 对比现有方案：GitHub Copilot 有 PR 摘要功能但审查深度有限；[Cursor](/glossary/cursor) 专注编辑器内体验，不涉及 Review 流程；CodeRabbit 等第三方工具需要额外集成。Claude Code 的优势在于审查和编码用同一个工具链，Agent 理解你的项目上下文（通过 [CLAUDE.md](/glossary/claude-md) 和 Skills 系统），Review 标准可以跟着仓库走。
 
+## 多 Agent Review 架构
+
+```mermaid
+graph TD
+    PR[Pull Request 提交] --> Coord[协调 Agent]
+    Coord --> A1[逻辑审查 Agent]
+    Coord --> A2[安全审查 Agent]
+    Coord --> A3[性能审查 Agent]
+    Coord --> A4[规范审查 Agent]
+    A1 -->|发现| Synth[汇总 & 生成报告]
+    A2 -->|发现| Synth
+    A3 -->|发现| Synth
+    A4 -->|发现| Synth
+    Synth --> Review[统一 Review 评论]
+```
+
 ## 技术细节
 
 从已公开的信息和 Claude Code 的架构推断，这个多 Agent Review 系统大概率基于以下设计：

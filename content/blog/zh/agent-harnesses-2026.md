@@ -35,6 +35,36 @@ Aakash Gupta 的最新研究提出了一个颠覆行业认知的判断：模型�
 
 竞争格局已经变了。以前的护城河是模型质量，GPT-4、Claude、Gemini 谁强谁赢。但现在模型质量快速趋同，几周就能训出有竞争力的模型。新护城河是 harness 质量——Manus 花了半年、LangChain 花了一年积累的工程经验，没法从 Hugging Face 上下载。
 
+## Agent Harness 架构总览
+
+```mermaid
+graph TB
+    User[用户 / 开发者]
+    Harness[Agent Harness]
+    Model[LLM 模型]
+    
+    User -->|任务描述| Harness
+    Harness -->|Prompt + 上下文| Model
+    Model -->|原始输出| Harness
+    Harness -->|校验后的结果| User
+    
+    subgraph Harness 核心组件
+        HITL[人类审批]
+        FS[文件系统权限]
+        Tools[工具调用编排]
+        SubAgent[子 Agent 协调]
+        Context[上下文管理]
+        Plan[规划与执行循环]
+    end
+    
+    Harness --- HITL
+    Harness --- FS
+    Harness --- Tools
+    Harness --- SubAgent
+    Harness --- Context
+    Harness --- Plan
+```
+
 ## 技术细节
 
 Phil Schmid 的研究发现，简单的 harness 往往比复杂的脚手架表现更好。一个靠谱的 Agent harness 需要 **6 大核心组件**：

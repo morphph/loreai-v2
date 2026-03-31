@@ -68,6 +68,28 @@ LLM 本质上是非确定性的——同样的提示，不同时刻可能产生�
 
 ## Hooks 的共同本质
 
+```mermaid
+graph TD
+    subgraph "Hooks 统一范式"
+        direction TB
+        A[核心系统] -->|定义事件| B[事件 / 生命周期节点]
+        B -->|触发| C[Hook 处理函数]
+        C -->|返回控制权| A
+    end
+    
+    subgraph 各领域实现
+        W["Webhooks<br/>HTTP 回调"]
+        R["React Hooks<br/>useState, useEffect"]
+        P["PyTorch Hooks<br/>前向/反向传播"]
+        CC["Claude Code Hooks<br/>工具调用前后"]
+    end
+    
+    B --- W
+    B --- R
+    B --- P
+    B --- CC
+```
+
 回顾这几个场景，Hooks 的价值可以归结为三点：
 
 **1. 关注点分离**：核心逻辑不需要知道"谁在监听它"，监听者也不需要修改核心逻辑。

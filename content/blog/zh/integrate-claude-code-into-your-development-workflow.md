@@ -19,6 +19,17 @@ Claude Code 采用双系统架构：本地运行一个轻量 CLI 客户端，计
 
 它有一套四层记忆体系：
 
+```mermaid
+graph TD
+    subgraph "Claude Code 四层记忆体系"
+        A["CLAUDE.md<br/>项目级配置"] --> Session[Claude Code 会话]
+        B["SKILL.md<br/>可复用任务模板"] --> Session
+        C["Hooks<br/>确定性生命周期事件"] --> Session
+        D["Subagents<br/>并行任务执行"] --> Session
+    end
+    Session --> Output[代码变更、提交、PR]
+```
+
 - **`CLAUDE.md`**：项目级配置，定义编码规范、架构约束、禁止操作
 - **Skills（`SKILL.md`）**：可复用的任务指令文件，编码你的最佳实践
 - **Hooks**：触发式自动化，比如每次提交前自动运行 lint

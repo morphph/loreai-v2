@@ -29,6 +29,21 @@ Harrison Chase 画出了三个阶段的演进路径：第一阶段是传统瀑�
 
 他还提了一个大胆的预判：未来的 PRD，可能就是一组结构化的、有版本控制的 **Prompt**。
 
+## EPD 工作流的变迁
+
+```mermaid
+graph LR
+    subgraph "传统 EPD 流程"
+        direction LR
+        I1[想法] --> PRD1[PRD 文档] --> Mock[设计稿] --> Code[工程师写代码] --> Ship1[上线]
+    end
+    
+    subgraph "Agent 时代 EPD"
+        direction LR
+        I2[想法] --> Proto[用 Agent 搭原型] --> Rev[Review: 工程 + 产品 + 设计] --> Ship2[上线]
+    end
+```
+
 ## 为什么重要
 
 这场变化最深层的影响不在流程，在人。

@@ -29,6 +29,23 @@ date: 2026-03-30
 - **Client**：Host 内部管理 MCP 连接的组件
 - **Server**：你要创建的部分，暴露工具、资源或 Prompt 给 AI 使用
 
+```mermaid
+graph LR
+    subgraph Host["Host (如 Claude Code)"]
+        LLM[LLM 模型]
+        Client[MCP Client]
+    end
+    
+    LLM -->|工具调用请求| Client
+    Client -->|JSON-RPC 2.0| S1[MCP Server A<br/>如数据库]
+    Client -->|JSON-RPC 2.0| S2[MCP Server B<br/>如 Slack API]
+    Client -->|JSON-RPC 2.0| S3[MCP Server C<br/>如文件系统]
+    S1 -->|结构化结果| Client
+    S2 -->|结构化结果| Client
+    S3 -->|结构化结果| Client
+    Client -->|工具结果| LLM
+```
+
 通信层基于 **JSON-RPC 2.0**。传输方式有两种：
 - **stdio**：本地进程间通信，适合本地工具和开发调试
 - **Streamable HTTP**：网络传输，适合远程服务和生产部署
