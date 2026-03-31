@@ -96,6 +96,7 @@ depends-on: []
 | [C5 Implementation Guide](guides/GUIDE-C5-implementation.md)       | Claude Code execution blueprint for C5           | 2026-03-20 |
 | [D1+D2 Implementation Guide](guides/GUIDE-D1-D2-implementation.md) | Phase-by-phase D1+D2 implementation              | 2026-03-27 |
 | [Keyword Engine Usage](guides/KEYWORD-ENGINE-USAGE.md)             | Step-by-step migration execution workflow        | 2026-03-20 |
+| [Build Log](guides/build-log.md)                                   | /implement-spec skill + parallel batch script    | 2026-03-31 |
 
 
 ---
