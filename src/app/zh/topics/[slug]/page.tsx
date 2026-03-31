@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllTopics, getTopic, getRelatedContentForTopic, markdownToHtml } from '@/lib/content';
 import { topicMetadata } from '@/lib/metadata';
-import { collectionPageJsonLd, breadcrumbJsonLd, jsonLdScript } from '@/lib/seo';
+import { collectionPageJsonLd, jsonLdScript } from '@/lib/seo';
 import Breadcrumb from '@/components/Breadcrumb';
 import RelatedContent from '@/components/RelatedContent';
 import ShareButtons from '@/components/ShareButtons';
@@ -66,12 +66,6 @@ export default async function ZhTopicDetailPage({ params }: PageProps) {
     (topic.meta.description as string) || '',
     pageUrl
   );
-  const bcJsonLd = breadcrumbJsonLd([
-    { name: '首页', url: 'https://loreai.dev/zh' },
-    { name: '主题', url: 'https://loreai.dev/zh/topics' },
-    { name: pillarTopic, url: pageUrl },
-  ]);
-
   const hasAggregated = aggregated.blogs.length > 0 || aggregated.faqs.length > 0 ||
     aggregated.glossary.length > 0 || aggregated.comparisons.length > 0;
 
@@ -80,10 +74,6 @@ export default async function ZhTopicDetailPage({ params }: PageProps) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdScript(cpJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdScript(bcJsonLd) }}
       />
 
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">

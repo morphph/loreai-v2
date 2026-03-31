@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllGlossary, getGlossaryTerm, markdownToHtml } from '@/lib/content';
 import { glossaryMetadata } from '@/lib/metadata';
-import { definedTermJsonLd, breadcrumbJsonLd, jsonLdScript } from '@/lib/seo';
+import { definedTermJsonLd, jsonLdScript } from '@/lib/seo';
 import Breadcrumb from '@/components/Breadcrumb';
 import RelatedContent from '@/components/RelatedContent';
 import ShareButtons from '@/components/ShareButtons';
@@ -66,21 +66,11 @@ export default async function GlossaryTermPage({ params }: PageProps) {
     (entry.meta.description as string) || ''
   );
 
-  const bcJsonLd = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://loreai.dev/' },
-    { name: 'Glossary', url: 'https://loreai.dev/glossary' },
-    { name: displayTerm, url: pageUrl },
-  ]);
-
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdScript(termJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdScript(bcJsonLd) }}
       />
 
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
