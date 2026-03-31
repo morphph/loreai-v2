@@ -14,8 +14,6 @@ import { getDb } from './lib/db';
 import { isJunkGroup } from './lib/priority';
 
 const dryRun = process.argv.includes('--dry-run');
-const db = getDb();
-const client = new Anthropic();
 
 const BATCH_SIZE = 80;
 
@@ -27,6 +25,10 @@ interface PendingItem {
   cluster_slug: string | null;
   priority_score: number;
 }
+
+async function main() {
+const db = getDb();
+const client = new Anthropic();
 
 // ── Step 1: Load pending items, apply regex pass first ──
 
@@ -223,3 +225,6 @@ if (dryRun) {
   console.log(`  ✓ Cancelled ${regexJunk.length + llmDrops.length} items`);
   console.log(`  ✓ ${kept.length} items remain pending\n`);
 }
+} // end main
+
+main().catch(console.error);
