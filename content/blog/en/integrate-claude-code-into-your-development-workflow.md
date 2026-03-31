@@ -27,6 +27,17 @@ The practical implication: Claude Code works best when you have clear task bound
 
 ## The Four-Layer Memory Hierarchy
 
+```mermaid
+graph TD
+    subgraph "Claude Code Memory Hierarchy"
+        A["CLAUDE.md<br/>Project-level instructions"] --> Session[Claude Code Session]
+        B["SKILL.md files<br/>Reusable task templates"] --> Session
+        C["Hooks<br/>Deterministic lifecycle events"] --> Session
+        D["Subagents<br/>Parallel task execution"] --> Session
+    end
+    Session --> Output[Code changes, commits, PRs]
+```
+
 Effective integration means setting up the memory system, not just running commands ad-hoc. Claude Code's architecture uses four layers:
 
 1. **`CLAUDE.md`** — Project-level instructions. Architecture decisions, coding standards, forbidden patterns, deployment context. This file travels with your repo and trains every Claude Code session automatically.

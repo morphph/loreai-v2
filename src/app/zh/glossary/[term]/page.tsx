@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllGlossary, getGlossaryTerm, markdownToHtml } from '@/lib/content';
 import { glossaryMetadata } from '@/lib/metadata';
-import { definedTermJsonLd, breadcrumbJsonLd, jsonLdScript } from '@/lib/seo';
+import { definedTermJsonLd, jsonLdScript } from '@/lib/seo';
+import Breadcrumb from '@/components/Breadcrumb';
 import RelatedContent from '@/components/RelatedContent';
 import ShareButtons from '@/components/ShareButtons';
 import NewsletterSignup from '@/components/NewsletterSignup';
@@ -65,40 +66,30 @@ export default async function ZhGlossaryTermPage({ params }: PageProps) {
     (entry.meta.description as string) || ''
   );
 
-  const breadcrumb = breadcrumbJsonLd([
-    { name: '首页', url: 'https://loreai.dev/zh' },
-    { name: '词汇表', url: 'https://loreai.dev/zh/glossary' },
-    { name: displayTerm, url: pageUrl },
-  ]);
-
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdScript(termJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdScript(breadcrumb) }}
-      />
 
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Navigation */}
-        <nav className="mb-8 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-sm text-muted">
-            <Link href="/zh" className="transition-colors hover:text-foreground">首页</Link>
-            <span aria-hidden="true">/</span>
-            <Link href="/zh/glossary" className="transition-colors hover:text-foreground">词汇表</Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-foreground">{displayTerm}</span>
-          </div>
+        <div className="mb-8 flex items-center justify-between">
+          <Breadcrumb
+            items={[
+              { name: '首页', href: '/zh' },
+              { name: '词汇表', href: '/zh/glossary' },
+              { name: displayTerm, href: `/zh/glossary/${term}` },
+            ]}
+            className="flex items-center gap-2 text-sm text-muted"
+          />
           <Link
             href={`/glossary/${term}`}
-            className="text-sm text-muted transition-colors hover:text-foreground"
+            className="shrink-0 text-sm text-muted transition-colors hover:text-foreground"
           >
             English
           </Link>
-        </nav>
+        </div>
 
         <article className="mx-auto max-w-3xl">
           {/* Header */}

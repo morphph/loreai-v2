@@ -29,6 +29,21 @@ The traditional EPD process followed a predictable waterfall: someone (usually a
 
 Chase isn't just theorizing. He's describing what he sees happening at LangChain and across the companies in their ecosystem: more prototypes, faster iteration, and a fundamental shift in where bottlenecks sit.
 
+## The EPD Workflow Shift
+
+```mermaid
+graph LR
+    subgraph "Traditional EPD"
+        direction LR
+        I1[Idea] --> PRD1[PRD] --> Mock[Design Mock] --> Code[Engineering Builds Code] --> Ship1[Ship]
+    end
+    
+    subgraph "Agent-Era EPD"
+        direction LR
+        I2[Idea] --> Proto[Prototype via Agent] --> Rev[Review: Eng + Product + Design] --> Ship2[Ship]
+    end
+```
+
 ## Why It Matters
 
 The most significant structural change is the **bottleneck shift from implementation to review**. Previously, engineering capacity was the constraint. PMs and designers queued work, engineers implemented it, and the rate of shipping was gated by how fast code got written.

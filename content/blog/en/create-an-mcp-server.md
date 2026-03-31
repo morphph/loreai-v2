@@ -27,6 +27,23 @@ An MCP deployment has three components:
 - **Client**: The MCP client embedded in the host, managing connections to servers
 - **Server**: Your code — exposes tools, resources, and prompts to the AI model
 
+```mermaid
+graph LR
+    subgraph Host["Host (e.g. Claude Code)"]
+        LLM[LLM Model]
+        Client[MCP Client]
+    end
+    
+    LLM -->|Tool call request| Client
+    Client -->|JSON-RPC 2.0| S1[MCP Server A<br/>e.g. Database]
+    Client -->|JSON-RPC 2.0| S2[MCP Server B<br/>e.g. Slack API]
+    Client -->|JSON-RPC 2.0| S3[MCP Server C<br/>e.g. File System]
+    S1 -->|Structured result| Client
+    S2 -->|Structured result| Client
+    S3 -->|Structured result| Client
+    Client -->|Tool result| LLM
+```
+
 When a model needs to call an external tool, the host routes the request through the client to the appropriate MCP server. The server executes the operation and returns structured results. All communication uses **JSON-RPC 2.0** — a lightweight, well-specified remote procedure call protocol.
 
 This separation matters: your server doesn't need to know which AI model is calling it. A single MCP server you write today works with Claude, GPT-4, Gemini, and any future model that implements the client spec.

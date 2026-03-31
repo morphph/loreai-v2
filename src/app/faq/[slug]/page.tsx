@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllFaq, getFaq, markdownToHtml } from '@/lib/content';
 import { faqMetadata } from '@/lib/metadata';
-import { faqPageJsonLd, breadcrumbJsonLd, jsonLdScript } from '@/lib/seo';
+import { faqPageJsonLd, jsonLdScript } from '@/lib/seo';
+import Breadcrumb from '@/components/Breadcrumb';
 import RelatedContent from '@/components/RelatedContent';
 import ShareButtons from '@/components/ShareButtons';
 import NewsletterSignup from '@/components/NewsletterSignup';
@@ -69,32 +70,21 @@ export default async function FaqDetailPage({ params }: PageProps) {
     { q: faq.meta.title, a: directAnswer },
   ]);
 
-  const breadcrumb = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://loreai.dev' },
-    { name: 'FAQ', url: 'https://loreai.dev/faq' },
-    { name: faq.meta.title, url: pageUrl },
-  ]);
-
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdScript(faqJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdScript(breadcrumb) }}
-      />
 
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
-        <nav className="mb-8 flex items-center gap-2 text-sm text-muted">
-          <Link href="/" className="transition-colors hover:text-foreground">Home</Link>
-          <span aria-hidden="true">/</span>
-          <Link href="/faq" className="transition-colors hover:text-foreground">FAQ</Link>
-          <span aria-hidden="true">/</span>
-          <span className="text-foreground line-clamp-1">{faq.meta.title}</span>
-        </nav>
+        <Breadcrumb
+          items={[
+            { name: 'Home', href: '/' },
+            { name: 'FAQ', href: '/faq' },
+            { name: faq.meta.title, href: `/faq/${slug}` },
+          ]}
+        />
 
         <article className="mx-auto max-w-3xl">
           {/* Header */}

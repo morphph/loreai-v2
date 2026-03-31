@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllCompare, getCompare, markdownToHtml } from '@/lib/content';
 import { compareMetadata } from '@/lib/metadata';
-import { breadcrumbJsonLd, comparisonJsonLd, jsonLdScript } from '@/lib/seo';
+import { comparisonJsonLd, jsonLdScript } from '@/lib/seo';
+import Breadcrumb from '@/components/Breadcrumb';
 import RelatedContent from '@/components/RelatedContent';
 import ShareButtons from '@/components/ShareButtons';
 import NewsletterSignup from '@/components/NewsletterSignup';
@@ -59,12 +60,6 @@ export default async function ZhCompareDetailPage({ params }: PageProps) {
   const itemB = (item.meta.item_b as string) || '';
   const pageUrl = `https://loreai.dev/zh/compare/${slug}`;
 
-  const breadcrumb = breadcrumbJsonLd([
-    { name: '首页', url: 'https://loreai.dev/zh' },
-    { name: '对比', url: 'https://loreai.dev/zh/compare' },
-    { name: `${itemA} vs ${itemB}`, url: pageUrl },
-  ]);
-
   const article = comparisonJsonLd(
     item.meta.title,
     (item.meta.description as string) || `${itemA} vs ${itemB} 对比`,
@@ -78,30 +73,26 @@ export default async function ZhCompareDetailPage({ params }: PageProps) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdScript(breadcrumb) }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdScript(article) }}
       />
 
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Navigation */}
-        <nav className="mb-8 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-sm text-muted">
-            <Link href="/zh" className="transition-colors hover:text-foreground">首页</Link>
-            <span aria-hidden="true">/</span>
-            <Link href="/zh/compare" className="transition-colors hover:text-foreground">对比</Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-foreground">{itemA} vs {itemB}</span>
-          </div>
+        <div className="mb-8 flex items-center justify-between">
+          <Breadcrumb
+            items={[
+              { name: '首页', href: '/zh' },
+              { name: '对比', href: '/zh/compare' },
+              { name: `${itemA} vs ${itemB}`, href: `/zh/compare/${slug}` },
+            ]}
+            className="flex items-center gap-2 text-sm text-muted"
+          />
           <Link
             href={`/compare/${slug}`}
-            className="text-sm text-muted transition-colors hover:text-foreground"
+            className="shrink-0 text-sm text-muted transition-colors hover:text-foreground"
           >
             English
           </Link>
-        </nav>
+        </div>
 
         <article className="mx-auto max-w-3xl">
           {/* Header */}

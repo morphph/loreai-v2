@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllTopics, getTopic, markdownToHtml } from '@/lib/content';
 import { topicMetadata } from '@/lib/metadata';
-import { breadcrumbJsonLd, jsonLdScript } from '@/lib/seo';
+import Breadcrumb from '@/components/Breadcrumb';
 import RelatedContent from '@/components/RelatedContent';
 import ShareButtons from '@/components/ShareButtons';
 import NewsletterSignup from '@/components/NewsletterSignup';
@@ -58,28 +57,16 @@ export default async function TopicDetailPage({ params }: PageProps) {
   const pillarTopic = (topic.meta.pillar_topic as string) || topic.meta.title;
   const pageUrl = `https://loreai.dev/topics/${slug}`;
 
-  const breadcrumb = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://loreai.dev' },
-    { name: 'Topics', url: 'https://loreai.dev/topics' },
-    { name: pillarTopic, url: pageUrl },
-  ]);
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdScript(breadcrumb) }}
-      />
-
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
-        <nav className="mb-8 flex items-center gap-2 text-sm text-muted">
-          <Link href="/" className="transition-colors hover:text-foreground">Home</Link>
-          <span aria-hidden="true">/</span>
-          <Link href="/topics" className="transition-colors hover:text-foreground">Topics</Link>
-          <span aria-hidden="true">/</span>
-          <span className="text-foreground">{pillarTopic}</span>
-        </nav>
+        <Breadcrumb
+          items={[
+            { name: 'Home', href: '/' },
+            { name: 'Topics', href: '/topics' },
+            { name: pillarTopic, href: `/topics/${slug}` },
+          ]}
+        />
 
         <article className="mx-auto max-w-3xl">
           {/* Header */}

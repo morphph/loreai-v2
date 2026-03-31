@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { getAllBlogPosts, getBlogPost, markdownToHtml } from '@/lib/content';
 import { blogMetadata } from '@/lib/metadata';
 import { articleJsonLd, jsonLdScript } from '@/lib/seo';
+import Breadcrumb from '@/components/Breadcrumb';
 import TableOfContents from '@/components/TableOfContents';
 import RelatedContent from '@/components/RelatedContent';
 import ShareButtons from '@/components/ShareButtons';
@@ -76,15 +77,13 @@ export default async function BlogPostPage({ params }: PageProps) {
       />
 
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Back link */}
-        <nav className="mb-8">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-1 text-sm text-muted transition-colors hover:text-foreground"
-          >
-            <span aria-hidden="true">&larr;</span> All posts
-          </Link>
-        </nav>
+        <Breadcrumb
+          items={[
+            { name: 'Home', href: '/' },
+            { name: 'Blog', href: '/blog' },
+            { name: post.meta.title, href: `/blog/${slug}` },
+          ]}
+        />
 
         <div className="lg:grid lg:grid-cols-[1fr_220px] lg:gap-10">
           {/* Main content */}

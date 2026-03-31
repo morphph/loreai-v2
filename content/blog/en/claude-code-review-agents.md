@@ -41,6 +41,22 @@ For teams already using [Claude Code](/glossary/claude-code), this changes the e
 
 Compared to standalone AI review tools like CodeRabbit or Sourcery, the advantage is integration depth. Claude Code already understands your project context through [CLAUDE.md](/glossary/claude-md), your skills files, and your codebase structure. Reviews leverage that same context rather than analyzing diffs in isolation.
 
+## Multi-Agent Review Architecture
+
+```mermaid
+graph TD
+    PR[Pull Request Submitted] --> Coord[Coordinator Agent]
+    Coord --> A1[Logic Review Agent]
+    Coord --> A2[Security Review Agent]
+    Coord --> A3[Performance Review Agent]
+    Coord --> A4[Convention Review Agent]
+    A1 -->|findings| Synth[Synthesis & Report]
+    A2 -->|findings| Synth
+    A3 -->|findings| Synth
+    A4 -->|findings| Synth
+    Synth --> Review[Unified Review Comments on PR]
+```
+
 ## Technical Deep-Dive
 
 The multi-agent approach addresses a fundamental limitation of single-pass code review: attention allocation. When a human or AI reviews a 500-line diff, attention is finite. Early sections get more scrutiny. Complex logic gets skimmed when it follows straightforward changes. Subtle interactions between modified files get missed entirely.

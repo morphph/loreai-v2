@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllGlossary, getGlossaryTerm, markdownToHtml } from '@/lib/content';
 import { glossaryMetadata } from '@/lib/metadata';
-import { definedTermJsonLd, breadcrumbJsonLd, jsonLdScript } from '@/lib/seo';
+import { definedTermJsonLd, jsonLdScript } from '@/lib/seo';
+import Breadcrumb from '@/components/Breadcrumb';
 import RelatedContent from '@/components/RelatedContent';
 import ShareButtons from '@/components/ShareButtons';
 import NewsletterSignup from '@/components/NewsletterSignup';
@@ -65,32 +66,21 @@ export default async function GlossaryTermPage({ params }: PageProps) {
     (entry.meta.description as string) || ''
   );
 
-  const breadcrumb = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://loreai.dev' },
-    { name: 'Glossary', url: 'https://loreai.dev/glossary' },
-    { name: displayTerm, url: pageUrl },
-  ]);
-
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdScript(termJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdScript(breadcrumb) }}
-      />
 
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
-        <nav className="mb-8 flex items-center gap-2 text-sm text-muted">
-          <Link href="/" className="transition-colors hover:text-foreground">Home</Link>
-          <span aria-hidden="true">/</span>
-          <Link href="/glossary" className="transition-colors hover:text-foreground">Glossary</Link>
-          <span aria-hidden="true">/</span>
-          <span className="text-foreground">{displayTerm}</span>
-        </nav>
+        <Breadcrumb
+          items={[
+            { name: 'Home', href: '/' },
+            { name: 'Glossary', href: '/glossary' },
+            { name: displayTerm, href: `/glossary/${term}` },
+          ]}
+        />
 
         <article className="mx-auto max-w-3xl">
           {/* Header */}

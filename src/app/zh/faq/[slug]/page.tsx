@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllFaq, getFaq, markdownToHtml } from '@/lib/content';
 import { faqMetadata } from '@/lib/metadata';
-import { faqPageJsonLd, breadcrumbJsonLd, jsonLdScript } from '@/lib/seo';
+import { faqPageJsonLd, jsonLdScript } from '@/lib/seo';
+import Breadcrumb from '@/components/Breadcrumb';
 import RelatedContent from '@/components/RelatedContent';
 import ShareButtons from '@/components/ShareButtons';
 import NewsletterSignup from '@/components/NewsletterSignup';
@@ -68,40 +69,30 @@ export default async function ZhFaqDetailPage({ params }: PageProps) {
     { q: faq.meta.title, a: directAnswer },
   ]);
 
-  const breadcrumb = breadcrumbJsonLd([
-    { name: '首页', url: 'https://loreai.dev/zh' },
-    { name: '常见问题', url: 'https://loreai.dev/zh/faq' },
-    { name: faq.meta.title, url: pageUrl },
-  ]);
-
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdScript(faqJsonLd) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdScript(breadcrumb) }}
-      />
 
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Navigation */}
-        <nav className="mb-8 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-sm text-muted">
-            <Link href="/zh" className="transition-colors hover:text-foreground">首页</Link>
-            <span aria-hidden="true">/</span>
-            <Link href="/zh/faq" className="transition-colors hover:text-foreground">常见问题</Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-foreground line-clamp-1">{faq.meta.title}</span>
-          </div>
+        <div className="mb-8 flex items-center justify-between">
+          <Breadcrumb
+            items={[
+              { name: '首页', href: '/zh' },
+              { name: '常见问题', href: '/zh/faq' },
+              { name: faq.meta.title, href: `/zh/faq/${slug}` },
+            ]}
+            className="flex items-center gap-2 text-sm text-muted"
+          />
           <Link
             href={`/faq/${slug}`}
-            className="text-sm text-muted transition-colors hover:text-foreground"
+            className="shrink-0 text-sm text-muted transition-colors hover:text-foreground"
           >
             English
           </Link>
-        </nav>
+        </div>
 
         <article className="mx-auto max-w-3xl">
           {/* Header */}

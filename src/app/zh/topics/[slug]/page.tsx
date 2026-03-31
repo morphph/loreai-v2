@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllTopics, getTopic, markdownToHtml } from '@/lib/content';
 import { topicMetadata } from '@/lib/metadata';
-import { breadcrumbJsonLd, jsonLdScript } from '@/lib/seo';
+import Breadcrumb from '@/components/Breadcrumb';
 import RelatedContent from '@/components/RelatedContent';
 import ShareButtons from '@/components/ShareButtons';
 import NewsletterSignup from '@/components/NewsletterSignup';
@@ -58,36 +58,25 @@ export default async function ZhTopicDetailPage({ params }: PageProps) {
   const pillarTopic = (topic.meta.pillar_topic as string) || topic.meta.title;
   const pageUrl = `https://loreai.dev/zh/topics/${slug}`;
 
-  const breadcrumb = breadcrumbJsonLd([
-    { name: '首页', url: 'https://loreai.dev/zh' },
-    { name: '主题', url: 'https://loreai.dev/zh/topics' },
-    { name: pillarTopic, url: pageUrl },
-  ]);
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdScript(breadcrumb) }}
-      />
-
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Navigation */}
-        <nav className="mb-8 flex items-center justify-between">
-          <div className="flex items-center gap-2 text-sm text-muted">
-            <Link href="/zh" className="transition-colors hover:text-foreground">首页</Link>
-            <span aria-hidden="true">/</span>
-            <Link href="/zh/topics" className="transition-colors hover:text-foreground">主题</Link>
-            <span aria-hidden="true">/</span>
-            <span className="text-foreground">{pillarTopic}</span>
-          </div>
+        <div className="mb-8 flex items-center justify-between">
+          <Breadcrumb
+            items={[
+              { name: '首页', href: '/zh' },
+              { name: '主题', href: '/zh/topics' },
+              { name: pillarTopic, href: `/zh/topics/${slug}` },
+            ]}
+            className="flex items-center gap-2 text-sm text-muted"
+          />
           <Link
             href={`/topics/${slug}`}
-            className="text-sm text-muted transition-colors hover:text-foreground"
+            className="shrink-0 text-sm text-muted transition-colors hover:text-foreground"
           >
             English
           </Link>
-        </nav>
+        </div>
 
         <article className="mx-auto max-w-3xl">
           {/* Header */}

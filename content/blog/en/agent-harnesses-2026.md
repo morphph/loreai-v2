@@ -45,6 +45,36 @@ Harnesses don't swap that easily. A well-built orchestration layer encodes month
 
 For engineering teams building AI-powered products, this reframes the investment equation. Spending weeks evaluating model A versus model B yields diminishing returns. Spending that same time improving your orchestration layer — better error recovery, smarter tool selection, tighter approval flows — compounds.
 
+## Agent Harness Architecture
+
+```mermaid
+graph TB
+    User[User / Developer]
+    Harness[Agent Harness]
+    Model[LLM Model]
+    
+    User -->|Task description| Harness
+    Harness -->|Prompt + context| Model
+    Model -->|Raw response| Harness
+    Harness -->|Validated output| User
+    
+    subgraph Harness Components
+        HITL[Human-in-the-Loop Controls]
+        FS[Filesystem Access Mgmt]
+        Tools[Tool Call Orchestration]
+        SubAgent[Sub-Agent Coordination]
+        Context[Context & Memory Mgmt]
+        Plan[Planning & Execution Loop]
+    end
+    
+    Harness --- HITL
+    Harness --- FS
+    Harness --- Tools
+    Harness --- SubAgent
+    Harness --- Context
+    Harness --- Plan
+```
+
 ## Technical Deep-Dive
 
 A production agent harness typically comprises six core components:

@@ -19,6 +19,17 @@ The [airfocus FAB framework](https://airfocus.com/glossary/what-is-a-features-ad
 
 For Claude Code, this framework maps cleanly onto what separates it from lighter AI coding tools. Below are the key features — and more importantly, what each one actually means in practice.
 
+| Feature | What It Does | Benefit (Why It Matters) |
+|---------|-------------|--------------------------|
+| Agentic file editing | Reads entire project, executes multi-file edits | Eliminates mechanical execution of large-scale changes |
+| Smart testing | Generates test suites, runs them, iterates on failures | Test coverage becomes proactive, not deferred |
+| Git integration | Stages, commits, branches, PRs via natural language | Clean commit history without discipline tax |
+| CLAUDE.md / SKILL.md | Persistent project context loaded every session | AI stays on-pattern without re-explanation |
+| MCP servers | Connects to external tools (databases, Jira, Slack) | Agent accesses real data, not just code |
+| Hooks | Deterministic shell commands at lifecycle events | Safety guardrails that AI can't override |
+| Agent teams | Lead agent coordinates parallel sub-agents | Complex tasks decomposed and parallelized |
+| 1M context | Holds entire codebase in context at once | Accurate cross-codebase understanding |
+
 ## Key Features of Claude Code (And What They Mean For You)
 
 ### Agentic File Editing

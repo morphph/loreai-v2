@@ -3,7 +3,8 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllCompare, getCompare, markdownToHtml } from '@/lib/content';
 import { compareMetadata } from '@/lib/metadata';
-import { breadcrumbJsonLd, comparisonJsonLd, jsonLdScript } from '@/lib/seo';
+import { comparisonJsonLd, jsonLdScript } from '@/lib/seo';
+import Breadcrumb from '@/components/Breadcrumb';
 import RelatedContent from '@/components/RelatedContent';
 import ShareButtons from '@/components/ShareButtons';
 import NewsletterSignup from '@/components/NewsletterSignup';
@@ -59,12 +60,6 @@ export default async function CompareDetailPage({ params }: PageProps) {
   const itemB = (item.meta.item_b as string) || '';
   const pageUrl = `https://loreai.dev/compare/${slug}`;
 
-  const breadcrumb = breadcrumbJsonLd([
-    { name: 'Home', url: 'https://loreai.dev' },
-    { name: 'Compare', url: 'https://loreai.dev/compare' },
-    { name: `${itemA} vs ${itemB}`, url: pageUrl },
-  ]);
-
   const article = comparisonJsonLd(
     item.meta.title,
     (item.meta.description as string) || `${itemA} vs ${itemB} comparison`,
@@ -78,22 +73,17 @@ export default async function CompareDetailPage({ params }: PageProps) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLdScript(breadcrumb) }}
-      />
-      <script
-        type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdScript(article) }}
       />
 
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Breadcrumb */}
-        <nav className="mb-8 flex items-center gap-2 text-sm text-muted">
-          <Link href="/" className="transition-colors hover:text-foreground">Home</Link>
-          <span aria-hidden="true">/</span>
-          <Link href="/compare" className="transition-colors hover:text-foreground">Compare</Link>
-          <span aria-hidden="true">/</span>
-          <span className="text-foreground">{itemA} vs {itemB}</span>
-        </nav>
+        <Breadcrumb
+          items={[
+            { name: 'Home', href: '/' },
+            { name: 'Compare', href: '/compare' },
+            { name: `${itemA} vs ${itemB}`, href: `/compare/${slug}` },
+          ]}
+        />
 
         <article className="mx-auto max-w-3xl">
           {/* Header */}

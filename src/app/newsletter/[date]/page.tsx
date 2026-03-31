@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { getAllNewsletters, getNewsletter, getWeeklyNewsletters, getWeeklyNewsletter, markdownToHtml } from '@/lib/content';
 import { newsletterMetadata } from '@/lib/metadata';
 import { articleJsonLd, jsonLdScript } from '@/lib/seo';
+import Breadcrumb from '@/components/Breadcrumb';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 interface PageProps {
@@ -66,15 +67,13 @@ export default async function NewsletterPage({ params }: PageProps) {
       dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }}
     />
     <main className="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:px-8">
-      {/* Back to archive */}
-      <nav className="mb-8">
-        <Link
-          href="/newsletter"
-          className="inline-flex items-center gap-1 text-sm text-zinc-500 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-100"
-        >
-          <span aria-hidden="true">&larr;</span> All newsletters
-        </Link>
-      </nav>
+      <Breadcrumb
+        items={[
+          { name: 'Home', href: '/' },
+          { name: 'Newsletter', href: '/newsletter' },
+          { name: newsletter.meta.title, href: `/newsletter/${date}` },
+        ]}
+      />
 
       {/* Header */}
       <header className="mb-8">

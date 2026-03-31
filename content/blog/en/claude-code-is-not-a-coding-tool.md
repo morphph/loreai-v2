@@ -40,6 +40,15 @@ Yes, it writes functions and generates tests. But the use cases that create comp
 
 The pattern: any repetitive knowledge work that can be described precisely is a candidate for delegation. Code is just the domain where the tooling matured first.
 
+| Use Case | Traditional "Coding Tool" | Claude Code as Execution Layer |
+|-----------|--------------------------|-------------------------------|
+| Bug fix | Suggest a fix inline | Find the bug, fix it, write tests, commit |
+| Refactoring | Rename symbol in one file | Rename across codebase, update imports, fix tests |
+| Documentation | Autocomplete docstrings | Read code, generate accurate docs for entire module |
+| CI/CD | N/A | Chain build, test, lint, deploy with error recovery |
+| Content pipeline | N/A | Collect, generate, validate, publish |
+| Data migration | N/A | Read schema, plan migration, execute, verify |
+
 ## The Mindset Shift That Changes Everything
 
 Here's what separates developers who extract compounding value from Claude Code from those who treat it as a faster Stack Overflow:

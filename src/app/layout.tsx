@@ -85,6 +85,18 @@ export default function RootLayout({
                   Blog
                 </Link>
                 <Link
+                  href="/compare"
+                  className="text-sm text-muted transition-colors hover:text-foreground"
+                >
+                  Compare
+                </Link>
+                <Link
+                  href="/topics"
+                  className="text-sm text-muted transition-colors hover:text-foreground"
+                >
+                  Topics
+                </Link>
+                <Link
                   href="/glossary"
                   className="text-sm text-muted transition-colors hover:text-foreground"
                 >
@@ -103,7 +115,7 @@ export default function RootLayout({
             </div>
           </nav>
           {/* Mobile nav links */}
-          <div className="flex gap-4 border-t border-border px-6 py-2 sm:hidden">
+          <div className="flex flex-wrap gap-4 border-t border-border px-6 py-2 sm:hidden">
             <Link
               href="/newsletter"
               className="text-sm text-muted transition-colors hover:text-foreground"
@@ -115,6 +127,18 @@ export default function RootLayout({
               className="text-sm text-muted transition-colors hover:text-foreground"
             >
               Blog
+            </Link>
+            <Link
+              href="/compare"
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              Compare
+            </Link>
+            <Link
+              href="/topics"
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              Topics
             </Link>
             <Link
               href="/glossary"

@@ -26,9 +26,21 @@ The methodology is unusually strong for this kind of study. Instead of surveys o
 
 Key findings:
 
-- **Velocity increase**: Cursor adoption caused a statistically significant increase in development velocity (commits, PRs merged, lines changed). But the effect was **transient** — it diminished over time.
-- **Quality decrease**: Static analysis warnings and code complexity increased substantially. Unlike velocity, this effect was **persistent** — it didn't fade.
-- **Compounding damage**: Using panel generalized-method-of-moments estimation, the researchers showed that the accumulated quality debt (warnings + complexity) is a major driver of the long-term velocity slowdown.
+| Metric | Short-Term Effect | Long-Term Effect |
+|--------|------------------|------------------|
+| **Development velocity** (commits, PRs, lines changed) | Statistically significant increase | Diminishes over time |
+| **Static analysis warnings** | Substantial increase | Persistent — does not fade |
+| **Code complexity** (cyclomatic) | Substantial increase | Persistent and compounding |
+| **Net productivity** | Positive | Turns negative as debt accumulates |
+
+```mermaid
+graph LR
+    A[Cursor Adoption] -->|Short-term| B[Velocity Increase]
+    A -->|Persistent| C[Complexity Increase]
+    C -->|Over time| D[Velocity Slowdown]
+    D -->|Compensate| E[More AI-Generated Code]
+    E --> C
+```
 
 In other words, Cursor makes you faster at first, but the mess it creates eventually eats the speed gains.
 

@@ -27,6 +27,16 @@ The framing principle is an analogy: if you were given a hard math problem, the 
 
 Claude acts through the Claude API's tool calling primitives, which include bash, skills, and code execution. The question isn't "what tools exist?" but "what tools does this specific model use well?" The answer, Anthropic found, requires close observation of model behavior across iterations.
 
+```mermaid
+graph LR
+    subgraph "Tool Design Iteration Loop"
+        Observe["Observe model<br/>using tools"] --> Identify["Identify failure<br/>modes"]
+        Identify --> Redesign["Redesign tool<br/>interface"]
+        Redesign --> Test["Test with<br/>real tasks"]
+        Test --> Observe
+    end
+```
+
 ## Why It Matters
 
 This is one of the first detailed accounts of **agent tool design principles** from a team building a production-scale coding agent. Most agent frameworks focus on orchestration — chains, graphs, routing. Anthropic is arguing that the tool interface itself is the critical design surface.

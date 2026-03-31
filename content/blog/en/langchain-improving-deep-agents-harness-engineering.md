@@ -55,6 +55,16 @@ This is conceptually similar to boosting in machine learning — each iteration 
 
 ### Self-Verification: The Biggest Win
 
+```mermaid
+graph TD
+    A[Planning & Discovery] -->|Read task, scan codebase| B[Build]
+    B -->|Implement with tests| C[Verify]
+    C -->|Run tests, compare to spec| D{Tests pass?}
+    D -->|No| E[Fix: Analyze errors, revisit spec]
+    E --> B
+    D -->|Yes| F[Submit Solution]
+```
+
 The single largest improvement came from restructuring the agent's problem-solving approach around **self-verification**. Trace analysis revealed a consistent failure pattern: the agent would write a solution, re-read its own code, confirm it "looked correct," and stop. No testing. No comparison against the original specification.
 
 LangChain added explicit guidance to the system prompt enforcing a four-phase loop:

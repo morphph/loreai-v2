@@ -67,6 +67,28 @@ For [agentic coding](/glossary/agentic-coding) workflows specifically, hooks pro
 
 ## Why the Pattern Keeps Working
 
+```mermaid
+graph TD
+    subgraph "Hook Pattern Across Domains"
+        direction TB
+        A[Core System] -->|defines events| B[Event / Lifecycle Point]
+        B -->|triggers| C[Hook Handler]
+        C -->|returns control| A
+    end
+    
+    subgraph Examples
+        W["Webhooks<br/>HTTP POST on event"]
+        R["React Hooks<br/>useState, useEffect"]
+        P["PyTorch Hooks<br/>Forward/backward pass"]
+        CC["Claude Code Hooks<br/>Pre/post tool call"]
+    end
+    
+    B --- W
+    B --- R
+    B --- P
+    B --- CC
+```
+
 Hooks persist across such different domains because they encode a sound architectural principle: **separation of concerns through inversion of control**. The core system defines events; external code registers handlers; the system calls those handlers at the right moment. Neither side needs to know the other's internals.
 
 This produces systems that are:

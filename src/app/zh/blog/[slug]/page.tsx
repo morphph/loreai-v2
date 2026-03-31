@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { getAllBlogPosts, getBlogPost, markdownToHtml } from '@/lib/content';
 import { blogMetadata } from '@/lib/metadata';
 import { articleJsonLd, jsonLdScript } from '@/lib/seo';
+import Breadcrumb from '@/components/Breadcrumb';
 import TableOfContents from '@/components/TableOfContents';
 import RelatedContent from '@/components/RelatedContent';
 import ShareButtons from '@/components/ShareButtons';
@@ -76,21 +77,22 @@ export default async function ZhBlogPostPage({ params }: PageProps) {
       />
 
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
-        {/* Navigation */}
-        <nav className="mb-8 flex items-center justify-between">
-          <Link
-            href="/zh/blog"
-            className="inline-flex items-center gap-1 text-sm text-muted transition-colors hover:text-foreground"
-          >
-            <span aria-hidden="true">&larr;</span> 所有文章
-          </Link>
+        <div className="mb-8 flex items-center justify-between">
+          <Breadcrumb
+            items={[
+              { name: '首页', href: '/zh' },
+              { name: '博客', href: '/zh/blog' },
+              { name: post.meta.title, href: `/zh/blog/${slug}` },
+            ]}
+            className="flex items-center gap-2 text-sm text-muted"
+          />
           <Link
             href={`/blog/${slug}`}
-            className="text-sm text-muted transition-colors hover:text-foreground"
+            className="shrink-0 text-sm text-muted transition-colors hover:text-foreground"
           >
             English
           </Link>
-        </nav>
+        </div>
 
         <div className="lg:grid lg:grid-cols-[1fr_220px] lg:gap-10">
           {/* Main content */}
