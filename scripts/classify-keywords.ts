@@ -117,7 +117,7 @@ async function main() {
         { model: 'claude-sonnet-4-20250514', maxTokens: 4096 },
       );
 
-      const text = response.text;
+      const text = response.content;
 
       // Parse JSON from response (handle potential markdown wrapping)
       const jsonMatch = text.match(/\[[\s\S]*\]/);
