@@ -1,12 +1,14 @@
 ---
 title: "SPEC-C5 — Pipeline Review Cycle"
-status: active
+status: archived
 category: spec
-last-updated: 2026-03-20
+last-updated: 2026-03-31
 depends-on: ["SPEC-C1", "SPEC-C3"]
 ---
 
-# SPEC-C5 — Pipeline Review Cycle
+# SPEC-C5 — Pipeline Review Cycle (Archived)
+
+> **Archived 2026-03-31.** Removed from cron. Reports were passive with no automated consumers or feedback loops. Scripts preserved at `scripts/review-cycle.ts` for manual use.
 
 > **Files:**
 > - `scripts/review-cycle.ts` — CLI entry point

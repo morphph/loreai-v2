@@ -2,7 +2,7 @@
 title: "Pipeline Architecture"
 status: active
 category: spec
-last-updated: 2026-03-30
+last-updated: 2026-03-31
 depends-on: []
 ---
 
@@ -26,9 +26,6 @@ Each stage feeds the next. The **Keyword Engine** (B1→B4) is the core content 
 | 8:00am | Discovery | `discovery-cycle.ts` | Tue & Sat |
 | 10:00am | Performance | `performance-cycle.ts` | Sat |
 | 5:00am | Weekly Digest | `write-weekly.ts` | Sun |
-| 9:00pm | Review Health | `review-cycle.ts --mode=health` | Mon-Fri |
-| 9:30pm | Review Quality | `review-cycle.ts --mode=quality` | Mon-Fri |
-| 10:00pm | Review Strategic | `review-cycle.ts --mode=strategic` | Sun |
 
 **D1 Flagship steps (added 2026-03-27):** Freshness routes daily news signals to approved flagship subtopics and queues create/refresh jobs. Full Discovery runs weekly to re-synthesize subtopics from official docs + competitors (human approval required via `--approve`). See SPEC-D1.
 

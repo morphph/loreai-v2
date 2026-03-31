@@ -2,7 +2,7 @@
 title: "VPS Setup Instructions"
 status: active
 category: guide
-last-updated: 2026-03-30
+last-updated: 2026-03-31
 depends-on: ["DEPLOY"]
 ---
 
@@ -158,16 +158,11 @@ TZ=Asia/Singapore
 30 4  * * 1-5  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh flagship-freshness  >> /home/ubuntu/loreai-v2/logs/flagship-freshness.log 2>&1
 0  6  * * 1-5  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh generate            >> /home/ubuntu/loreai-v2/logs/generate.log 2>&1
 
-# -- Nightly Review (C5) --
-0  21 * * 1-5  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh review-health       >> /home/ubuntu/loreai-v2/logs/review-health.log 2>&1
-30 21 * * 1-5  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh review-quality      >> /home/ubuntu/loreai-v2/logs/review-quality.log 2>&1
-
 # -- Weekly --
 30 7  * * 6    /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh flagship-discovery  >> /home/ubuntu/loreai-v2/logs/flagship-discovery.log 2>&1
 0  8  * * 2,6  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh discovery           >> /home/ubuntu/loreai-v2/logs/discovery.log 2>&1
 0  10 * * 6    /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh performance         >> /home/ubuntu/loreai-v2/logs/performance.log 2>&1
 0  5  * * 0    /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh weekly              >> /home/ubuntu/loreai-v2/logs/weekly.log 2>&1
-0  22 * * 0    /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh review-strategic    >> /home/ubuntu/loreai-v2/logs/review-strategic.log 2>&1
 ```
 
 ## 11. Log Rotation

@@ -2,7 +2,7 @@
 title: "Current State"
 status: active
 category: guide
-last-updated: 2026-03-30
+last-updated: 2026-03-31
 depends-on: []
 ---
 
@@ -35,7 +35,23 @@ depends-on: []
 ### Operational Loops
 - **C1 Discovery Cycle**: Tue + Sat keyword expansion/grouping/scoring
 - **C3 Performance Cycle**: Weekly GSC import → segmentation → anomaly detection → refresh queue
-- **C5 Review Cycle**: Daily health + quality checks, Sunday strategic review
+
+### Cron Jobs (VPS, all times SGT)
+
+All jobs run via `scripts/daily-pipeline.sh <step>` with flock locking (no overlap).
+
+| Time | Days | Step | Script | What it does |
+|------|------|------|--------|-------------|
+| 12:00am | Mon–Fri | `collect` | `collect-news.ts` | Scrape 7 source tiers → ~300 items/day |
+| 2:00am | Mon–Fri | `newsletter` | `write-newsletter.ts` | EN+ZH newsletter → validate → commit → send via Buttondown |
+| 4:00am | Mon–Fri | `extract` | `extract-entities.ts` | Entity extraction from news items |
+| 4:30am | Mon–Fri | `flagship-freshness` | `flagship-freshness.ts` | Route news signals → approved flagship subtopics → queue |
+| 6:00am | Mon–Fri | `generate` | `process-queue.ts` | Generate content from priority queue (limit=5) |
+| 7:30am | Sat | `flagship-discovery` | `flagship-discovery.ts` | D1 weekly subtopic discovery (human-approved via CLI) |
+| 8:00am | Tue, Sat | `discovery` | `discovery-cycle.ts` | C1 keyword expansion/grouping/scoring |
+| 10:00am | Sat | `performance` | `performance-cycle.ts` | C3 GSC import → segmentation → refresh queue |
+| 5:00am | Sun | `weekly` | `write-weekly.ts` | "5 Things That Mattered" weekly digest |
+Legacy steps (`blog`, `seo`) preserved for manual fallback only — replaced by `generate`.
 
 ### Infrastructure
 - **VPS**: Ubuntu, cron-orchestrated via `daily-pipeline.sh` with flock locking
@@ -83,5 +99,5 @@ Per `docs/ROADMAP.md`:
 - **Flagship topics**: 2 active (Claude Code, Codex)
 - **Content types**: newsletter, blog, glossary, FAQ, compare, topic-hub, deep-dive, cornerstone
 - **Languages**: EN (primary authority layer), ZH (selective localized growth)
-- **Pipeline schedule**: 12 cron steps across Mon-Sun
+- **Pipeline schedule**: 9 cron steps across Mon-Sun
 - **Quality gates**: validate-pipeline.ts enforced after Collect and Newsletter steps

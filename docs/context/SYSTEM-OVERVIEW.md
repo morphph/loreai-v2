@@ -2,7 +2,7 @@
 title: "System Overview"
 status: active
 category: guide
-last-updated: 2026-03-30
+last-updated: 2026-03-31
 depends-on: []
 ---
 
@@ -48,7 +48,7 @@ VPS (Ubuntu, ssh loreai)                    Vercel (CDN)
 │  ├── process-queue.ts     │               │  ├── /compare    │
 │  ├── discovery-cycle.ts   │               │  ├── /topics     │
 │  ├── performance-cycle.ts │               │  └── /dashboard  │
-│  └── review-cycle.ts      │               │      (proxy→VPS) │
+│                            │               │      (proxy→VPS) │
 │                            │               └──────────────────┘
 │  Hono API server (pm2)    │
 │  └── port 3001             │
@@ -71,10 +71,8 @@ Content is Markdown with YAML frontmatter. Git push triggers Vercel SSG rebuild.
 | 4:00am | Extract entities | `extract-entities.ts` |
 | 4:30am | Flagship freshness routing | `flagship-freshness.ts` |
 | 6:00am | Generate content from queue | `process-queue.ts` |
-| 9:00pm | Review health check | `review-cycle.ts --mode=health` |
-| 9:30pm | Review quality check | `review-cycle.ts --mode=quality` |
 
-Weekly additions: Flagship Discovery (Sat 7:30am), Discovery Cycle (Tue+Sat 8am), Performance Cycle (Sat 10am), Weekly Digest (Sun 5am), Strategic Review (Sun 10pm).
+Weekly additions: Flagship Discovery (Sat 7:30am), Discovery Cycle (Tue+Sat 8am), Performance Cycle (Sat 10am), Weekly Digest (Sun 5am).
 
 ## Keyword Engine (Core Content Driver)
 

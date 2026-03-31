@@ -2,7 +2,7 @@
 title: "Pipeline Status"
 status: active
 category: guide
-last-updated: 2026-03-30
+last-updated: 2026-03-31
 depends-on: []
 ---
 
@@ -186,23 +186,9 @@ Collect  News   Entity  Fresh   Generate  D1     Disc    Perf   Weekly  Review
 
 ---
 
-## 10. Review Cycle
+## 10. Review Cycle (Removed)
 
-| Attribute | Value |
-|-----------|-------|
-| Script | `scripts/review-cycle.ts` |
-| Schedule | Mon-Fri 9pm (health), 9:30pm (quality), Sunday 10pm (strategic) |
-| Trigger | Cron via `daily-pipeline.sh review-{health,quality,strategic}` |
-| Status | **Operational** |
-
-**Modes**:
-- `--mode=health`: Pipeline stage health checks (6 stages, green/yellow/red)
-- `--mode=quality`: Content quality sampling
-- `--mode=full`: Both health + quality
-- `--mode=strategic`: Weekly strategic review (Sunday only)
-- `--fix`: Auto-fix detected issues
-
-**Output**: Health/quality reports in Markdown.
+Removed 2026-03-31. C5 review cycle produced passive reports with no automated consumers or feedback loops. Scripts preserved at `scripts/review-cycle.ts` for manual use if needed.
 
 ---
 

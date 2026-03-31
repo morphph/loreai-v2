@@ -2,7 +2,7 @@
 title: "Deploy & Operations Guide"
 status: active
 category: guide
-last-updated: 2026-03-30
+last-updated: 2026-03-31
 depends-on: ["PIPELINE"]
 ---
 
@@ -86,16 +86,11 @@ TZ=Asia/Singapore
 30 4  * * 1-5  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh flagship-freshness  >> /home/ubuntu/loreai-v2/logs/flagship-freshness.log 2>&1
 0  6  * * 1-5  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh generate            >> /home/ubuntu/loreai-v2/logs/generate.log 2>&1
 
-# -- Nightly Review (C5) --
-0  21 * * 1-5  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh review-health       >> /home/ubuntu/loreai-v2/logs/review-health.log 2>&1
-30 21 * * 1-5  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh review-quality      >> /home/ubuntu/loreai-v2/logs/review-quality.log 2>&1
-
 # -- Weekly --
 30 7  * * 6    /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh flagship-discovery  >> /home/ubuntu/loreai-v2/logs/flagship-discovery.log 2>&1
 0  8  * * 2,6  /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh discovery           >> /home/ubuntu/loreai-v2/logs/discovery.log 2>&1
 0  10 * * 6    /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh performance         >> /home/ubuntu/loreai-v2/logs/performance.log 2>&1
 0  5  * * 0    /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh weekly              >> /home/ubuntu/loreai-v2/logs/weekly.log 2>&1
-0  22 * * 0    /home/ubuntu/loreai-v2/scripts/daily-pipeline.sh review-strategic    >> /home/ubuntu/loreai-v2/logs/review-strategic.log 2>&1
 ```
 
 ### Log Rotation
@@ -158,9 +153,6 @@ npx tsx scripts/discovery-cycle.ts
 # Flagship discovery
 npx tsx scripts/flagship-discovery.ts --topic=claude-code
 
-# Review health check
-npx tsx scripts/review-cycle.ts --mode=health --format=md
-
 # Weekly (dry-run mode)
 npx tsx scripts/write-weekly.ts --dry-run --date=2026-02-28
 ```
@@ -174,11 +166,9 @@ Pipeline is active during these times (SGT, Mon-Fri unless noted):
 - **2:00-3:30am** — Newsletter generation + send
 - **4:00-5:00am** — Entity extraction + flagship freshness
 - **6:00-7:00am** — Content generation (process-queue)
-- **9:00-10:00pm** — C5 review (health + quality)
 - **Sat 7:30am** — Flagship discovery
 - **Sat 8:00am** — Discovery cycle
 - **Sat 10:00am** — Performance cycle
 - **Sun 5:00am** — Weekly digest
-- **Sun 10:00pm** — Strategic review
 
 Do NOT push to the repo during these windows.
