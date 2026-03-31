@@ -9,6 +9,7 @@
  *   npx tsx scripts/classify-keywords.ts --dry-run     # preview only
  */
 
+import 'dotenv/config';
 import Anthropic from '@anthropic-ai/sdk';
 import { getDb } from './lib/db';
 import { isJunkGroup } from './lib/priority';
