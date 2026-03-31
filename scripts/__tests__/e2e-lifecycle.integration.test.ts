@@ -824,7 +824,7 @@ describe('SERP override — long_form FAQ upgraded to blog', () => {
   beforeEach(() => { testDb = createTestDb(); });
   afterEach(() => { testDb.close(); });
 
-  it('routes informational FAQ to blog with deep_research when SERP says long_form', () => {
+  it('routes informational FAQ to blog with standard when SERP says long_form', () => {
     const result = routeKeywordGroup({
       intent: 'informational',
       b2_content_type: 'faq',
@@ -834,7 +834,7 @@ describe('SERP override — long_form FAQ upgraded to blog', () => {
     });
 
     expect(result.content_type).toBe('blog');
-    expect(result.research_pipeline).toBe('deep_research');
+    expect(result.research_pipeline).toBe('standard');
     expect(result.routing_reason).toContain('SERP depth override');
   });
 
@@ -943,12 +943,12 @@ describe('NULL volume — uses DEFAULT_VOLUME', () => {
       event_age_hours: null,
     });
 
-    // Assert: uses DEFAULT_VOLUME
-    expect(result.score_breakdown.volume).toBe(DEFAULT_VOLUME);
+    // Assert: uses volume proxy (2 keywords × 8 = 16)
+    expect(result.score_breakdown.volume).toBe(16);
     expect(result.priority_score).toBeGreaterThan(0);
 
     // With informational intent (1.5x) and default competition (0.5):
-    // base = 10 * (1/0.5) * 1.5 = 30
-    expect(result.priority_score).toBe(30);
+    // base = 16 * (1/0.5) * 1.5 = 48
+    expect(result.priority_score).toBe(48);
   });
 });

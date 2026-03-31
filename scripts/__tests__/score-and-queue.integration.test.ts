@@ -431,7 +431,7 @@ describe('score-and-queue integration', () => {
         { intent: 'informational', contentType: 'faq', expectedPipeline: 'standard' },
         { intent: 'definitional', contentType: 'glossary', expectedPipeline: 'standard' },
         { intent: 'navigational', contentType: 'topic-hub', expectedPipeline: 'standard' },
-        { intent: 'informational', contentType: 'blog', expectedPipeline: 'deep_research' },
+        { intent: 'informational', contentType: 'blog', expectedPipeline: 'standard' },
       ];
 
       for (const c of cases) {
@@ -457,7 +457,7 @@ describe('score-and-queue integration', () => {
       });
 
       expect(result.content_type).toBe('blog');
-      expect(result.research_pipeline).toBe('deep_research');
+      expect(result.research_pipeline).toBe('standard');
     });
   });
 });

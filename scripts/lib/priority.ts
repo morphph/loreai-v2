@@ -103,6 +103,84 @@ export const TIMELINESS_DECAY_HOURS = 168;
 
 export const TOPIC_HUB_MIN_PAGES = 15;
 
+// ── Volume Proxy (A) ──
+
+/** When no search_volume data exists, use group keyword count as proxy */
+export const VOLUME_PER_GROUP_KEYWORD = 8;
+
+// ── Junk Detection (B) ──
+
+export const JUNK_KEYWORD_PATTERNS: RegExp[] = [
+  /^#/,                                         // hashtag prefix
+  /^\d+\.\d+\s/,                               // doc section header "4.1 create..."
+  /trusted by.*(more than\s*)?\d/i,            // ad copy metrics
+  /\d{1,3},\d{3}.*businesses/i,               // "60,000 businesses"
+  /watch\s+(product\s+)?demo/i,                // CTA
+  /^(sign up|get started|download now|try free|start.*trial)$/i,
+  /^not just for/i,                            // marketing fluff
+  /^mac & ios$/i,                              // platform listing
+  /^desktop app download$/i,                   // generic CTA
+  /^git provider support$/i,                   // generic nav label
+];
+
+export const NON_ENGLISH_INDICATORS: RegExp[] = [
+  /\bcomo\s+(o|a|el|la|os|as)\b/i,            // Portuguese/Spanish
+  /\bfunciona\b/i,                             // Portuguese/Spanish
+  /\bwarum\b/i,                                // German
+  /\bcomment\s+\w+\s+fonctionne/i,            // French
+  /\bintroducing the gemini\b/i,               // competitor press release title
+];
+
+export const COMPETITOR_NAV_BRANDS: string[] = [
+  'teamviewer', 'realvnc', 'anydesk',
+  'databricks workflows', 'cybersecurity webinars',
+  'linear slack community', 'github copilot computer use',
+];
+
+/**
+ * Returns true if the keyword group is junk and should be pruned.
+ */
+export function isJunkGroup(primaryKeyword: string, intent: string): boolean {
+  const kw = primaryKeyword.toLowerCase().trim();
+
+  for (const pattern of JUNK_KEYWORD_PATTERNS) {
+    if (pattern.test(kw)) return true;
+  }
+
+  for (const pattern of NON_ENGLISH_INDICATORS) {
+    if (pattern.test(kw)) return true;
+  }
+
+  // Navigational to competitor brands
+  if (intent === 'navigational') {
+    for (const brand of COMPETITOR_NAV_BRANDS) {
+      if (kw.includes(brand)) return true;
+    }
+  }
+
+  return false;
+}
+
+// ── Cluster Diversity (D) ──
+
+export const CLUSTER_DIVERSITY_TIERS: { maxRank: number; multiplier: number }[] = [
+  { maxRank: 5, multiplier: 1.0 },
+  { maxRank: 10, multiplier: 0.7 },
+  { maxRank: 20, multiplier: 0.4 },
+  { maxRank: Infinity, multiplier: 0.2 },
+];
+
+/**
+ * Returns a multiplier (0..1) based on how many items from this cluster
+ * are already ahead in the queue. Rank 1 = first item, no penalty.
+ */
+export function getClusterDiversityMultiplier(rankInCluster: number): number {
+  for (const tier of CLUSTER_DIVERSITY_TIERS) {
+    if (rankInCluster <= tier.maxRank) return tier.multiplier;
+  }
+  return 0.2;
+}
+
 // ── Pure Functions ──
 
 /**
@@ -114,8 +192,9 @@ export function getGroupVolume(keywords: GroupKeyword[]): number {
   const volumes = keywords
     .map((kw) => kw.search_volume)
     .filter((v): v is number => v !== null && v > 0);
-  if (volumes.length === 0) return DEFAULT_VOLUME;
-  return Math.max(...volumes);
+  if (volumes.length > 0) return Math.max(...volumes);
+  // (A) Proxy: group size indicates breadth of search interest
+  return Math.max(DEFAULT_VOLUME, keywords.length * VOLUME_PER_GROUP_KEYWORD);
 }
 
 /**
@@ -192,8 +271,8 @@ export function routeKeywordGroup(input: RoutingInput): RoutingResult {
     if (input.serp_depth === 'long_form' && input.b2_content_type === 'faq') {
       return {
         content_type: 'blog',
-        research_pipeline: 'deep_research',
-        routing_reason: 'SERP depth override: top results are long-form, upgraded faq → blog (deep research)',
+        research_pipeline: 'standard',
+        routing_reason: 'SERP depth override: top results are long-form, upgraded faq → blog',
       };
     }
   }
@@ -240,8 +319,8 @@ function routeByContentType(contentType: string): RoutingResult {
     case 'blog':
       return {
         content_type: 'blog',
-        research_pipeline: 'deep_research',
-        routing_reason: 'informational blog → deep research pipeline',
+        research_pipeline: 'standard',
+        routing_reason: 'informational blog → standard pipeline (web search)',
       };
     default:
       return {

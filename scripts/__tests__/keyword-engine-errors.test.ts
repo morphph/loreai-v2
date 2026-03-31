@@ -278,7 +278,7 @@ describe('B3 scoring: edge cases that could crash', () => {
   });
 
   it('handles all-NULL-volume keywords gracefully', async () => {
-    const { calculatePriorityScore, DEFAULT_VOLUME } = await import('../lib/priority');
+    const { calculatePriorityScore, VOLUME_PER_GROUP_KEYWORD } = await import('../lib/priority');
 
     const result = calculatePriorityScore({
       group_id: 1,
@@ -293,7 +293,8 @@ describe('B3 scoring: edge cases that could crash', () => {
       event_age_hours: null,
     });
 
-    expect(result.score_breakdown.volume).toBe(DEFAULT_VOLUME);
+    // Volume proxy: 2 keywords × VOLUME_PER_GROUP_KEYWORD = 16
+    expect(result.score_breakdown.volume).toBe(2 * VOLUME_PER_GROUP_KEYWORD);
     expect(result.priority_score).toBeGreaterThan(0);
   });
 
@@ -352,7 +353,7 @@ describe('B3 routing: edge cases', () => {
     expect(result.research_pipeline).toBe('standard');
   });
 
-  it('overrides FAQ to blog+deep_research when SERP depth is long_form', async () => {
+  it('overrides FAQ to blog+standard when SERP depth is long_form', async () => {
     const { routeKeywordGroup } = await import('../lib/priority');
 
     const result = routeKeywordGroup({
@@ -364,7 +365,7 @@ describe('B3 routing: edge cases', () => {
     });
 
     expect(result.content_type).toBe('blog');
-    expect(result.research_pipeline).toBe('deep_research');
+    expect(result.research_pipeline).toBe('standard');
   });
 });
 

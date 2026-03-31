@@ -107,12 +107,13 @@ describe('getGroupVolume', () => {
     expect(getGroupVolume(keywords)).toBe(500);
   });
 
-  it('returns DEFAULT_VOLUME when all volumes are null', () => {
+  it('returns volume proxy when all volumes are null (group size × 8)', () => {
     const keywords: GroupKeyword[] = [
       { keyword: 'a', search_volume: null, competition: null },
       { keyword: 'b', search_volume: null, competition: null },
     ];
-    expect(getGroupVolume(keywords)).toBe(DEFAULT_VOLUME);
+    // 2 keywords × 8 = 16, which is > DEFAULT_VOLUME(10)
+    expect(getGroupVolume(keywords)).toBe(16);
   });
 
   it('ignores null volumes and returns max of non-null', () => {
@@ -124,12 +125,13 @@ describe('getGroupVolume', () => {
     expect(getGroupVolume(keywords)).toBe(100);
   });
 
-  it('returns DEFAULT_VOLUME when all volumes are zero', () => {
+  it('returns volume proxy when all volumes are zero (group size × 8)', () => {
     const keywords: GroupKeyword[] = [
       { keyword: 'a', search_volume: 0, competition: null },
       { keyword: 'b', search_volume: 0, competition: null },
     ];
-    expect(getGroupVolume(keywords)).toBe(DEFAULT_VOLUME);
+    // 2 keywords × 8 = 16, which is > DEFAULT_VOLUME(10)
+    expect(getGroupVolume(keywords)).toBe(16);
   });
 
   it('returns DEFAULT_VOLUME for empty keyword list', () => {
@@ -283,12 +285,12 @@ describe('calculatePriorityScore', () => {
     expect(result.score_breakdown.volume).toBe(10000);
   });
 
-  it('uses default values when no data available', () => {
+  it('uses volume proxy when no data available', () => {
     const result = calculatePriorityScore(MOCK_GROUP_NO_DATA);
-    // vol=DEFAULT(10), comp=null→DEFAULT(0.5), informational(1.5), no timeliness
-    // 10 * (1/0.5) * 1.5 = 30
-    expect(result.priority_score).toBe(30);
-    expect(result.score_breakdown.volume).toBe(DEFAULT_VOLUME);
+    // vol=proxy(2 keywords × 8 = 16), comp=null→DEFAULT(0.5), informational(1.5), no timeliness
+    // 16 * (1/0.5) * 1.5 = 48
+    expect(result.priority_score).toBe(48);
+    expect(result.score_breakdown.volume).toBe(16);
     expect(result.score_breakdown.competition_divisor).toBe(DEFAULT_COMPETITION);
   });
 
@@ -334,7 +336,7 @@ describe('calculatePriorityScore', () => {
       event_age_hours: 0,
     };
     const result = calculatePriorityScore(input);
-    // vol=10(default), comp=0.5(default), info(1.5), 0h event (full bonus)
+    // vol=max(10, 1*8)=10(default wins), comp=0.5(default), info(1.5), 0h event (full bonus)
     // 10 * 2.0 * 1.5 + 5000 = 30 + 5000 = 5030
     expect(result.priority_score).toBe(5030);
   });
@@ -434,7 +436,7 @@ describe('routeKeywordGroup', () => {
     expect(result.research_pipeline).toBe('standard');
   });
 
-  it('overrides faq → blog (deep_research) when SERP is long_form', () => {
+  it('overrides faq → blog (standard) when SERP is long_form', () => {
     const result = routeKeywordGroup({
       intent: 'informational',
       b2_content_type: 'faq',
@@ -443,11 +445,11 @@ describe('routeKeywordGroup', () => {
       cluster_page_count: 0,
     });
     expect(result.content_type).toBe('blog');
-    expect(result.research_pipeline).toBe('deep_research');
+    expect(result.research_pipeline).toBe('standard');
     expect(result.routing_reason).toContain('SERP depth override');
   });
 
-  it('routes blog → deep_research', () => {
+  it('routes blog → standard', () => {
     const result = routeKeywordGroup({
       intent: 'informational',
       b2_content_type: 'blog',
@@ -456,7 +458,7 @@ describe('routeKeywordGroup', () => {
       cluster_page_count: 0,
     });
     expect(result.content_type).toBe('blog');
-    expect(result.research_pipeline).toBe('deep_research');
+    expect(result.research_pipeline).toBe('standard');
   });
 
   it('routes glossary → standard', () => {

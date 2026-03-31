@@ -13,6 +13,8 @@ import {
   calculatePriorityScore,
   routeKeywordGroup,
   shouldDeferTopicHub,
+  isJunkGroup,
+  getClusterDiversityMultiplier,
 } from './priority';
 
 import type {
@@ -92,6 +94,37 @@ export async function scoreAndQueue(
     });
   }
 
+  // ── Stage 2b: Junk pruning (B) ──
+  const junkGroupIds: number[] = [];
+  const cleanInputs: ScoringInput[] = [];
+  for (const input of scoringInputs) {
+    if (isJunkGroup(input.primary_keyword, input.intent)) {
+      junkGroupIds.push(input.group_id);
+      console.log(`  ✗ JUNK: "${input.primary_keyword}" (${input.intent})`);
+    } else {
+      cleanInputs.push(input);
+    }
+  }
+  if (junkGroupIds.length > 0) {
+    console.log(`  Pruned ${junkGroupIds.length} junk groups`);
+    // Mark junk groups as cancelled in DB
+    const cancelGroup = db.prepare(
+      `UPDATE keyword_groups SET status = 'cancelled', updated_at = CURRENT_TIMESTAMP WHERE group_id = ?`,
+    );
+    for (const gid of junkGroupIds) cancelGroup.run(gid);
+  }
+
+  if (cleanInputs.length === 0) {
+    return {
+      groups_scored: 0,
+      groups_queued: 0,
+      groups_deferred: 0,
+      groups_already_queued: 0,
+      serp_api_calls: 0,
+      queue_entries: [],
+    };
+  }
+
   // ── Stage 3: SERP depth detection (optional) ──
   let serpApiCalls = 0;
   const serpDepthMap = new Map<number, { depth: SERPDepth; recommended: string | null }>();
@@ -109,9 +142,9 @@ export async function scoreAndQueue(
     }
 
     if (detectSERPDepth) {
-      const limit = Math.min(scoringInputs.length, opts.maxSerp);
+      const limit = Math.min(cleanInputs.length, opts.maxSerp);
       for (let i = 0; i < limit; i++) {
-        const input = scoringInputs[i];
+        const input = cleanInputs[i];
         try {
           const result = await detectSERPDepth(input.primary_keyword);
           serpDepthMap.set(input.group_id, {
@@ -137,7 +170,42 @@ export async function scoreAndQueue(
   // ── Stage 4: Score all groups ──
   console.log('\n📈 Stage 3: Priority Scoring');
 
-  const scored = scoringInputs.map((input) => calculatePriorityScore(input));
+  const scored = cleanInputs.map((input) => calculatePriorityScore(input));
+  scored.sort((a, b) => b.priority_score - a.priority_score);
+
+  // ── Stage 4b: Cluster diversity (D) ──
+  // Count existing pending items per cluster so new items start at the right rank
+  const existingPending = db.prepare(`
+    SELECT kg.cluster_slug, COUNT(*) as cnt
+    FROM create_queue cq
+    JOIN keyword_groups kg ON cq.keyword_group_id = kg.group_id
+    WHERE cq.status = 'pending'
+    GROUP BY kg.cluster_slug
+  `).all() as { cluster_slug: string; cnt: number }[];
+
+  const existingCounts: Record<string, number> = {};
+  for (const row of existingPending) {
+    existingCounts[row.cluster_slug] = row.cnt;
+  }
+
+  // Group scored items by cluster, rank within each, apply multiplier
+  const byCluster: Record<string, typeof scored> = {};
+  for (const s of scored) {
+    const input = cleanInputs.find((i) => i.group_id === s.group_id)!;
+    const slug = input.cluster_slug || 'uncategorized';
+    if (!byCluster[slug]) byCluster[slug] = [];
+    byCluster[slug].push(s);
+  }
+
+  for (const [slug, items] of Object.entries(byCluster)) {
+    items.sort((a, b) => b.priority_score - a.priority_score);
+    const offset = existingCounts[slug] ?? 0;
+    for (let i = 0; i < items.length; i++) {
+      const multiplier = getClusterDiversityMultiplier(offset + i + 1);
+      items[i].priority_score = Math.round(items[i].priority_score * multiplier * 100) / 100;
+    }
+  }
+
   scored.sort((a, b) => b.priority_score - a.priority_score);
 
   // Print top 5
@@ -167,7 +235,7 @@ export async function scoreAndQueue(
   let alreadyQueuedCount = 0;
 
   const queueEntries: QueueEntry[] = scored.map((scoringResult) => {
-    const input = scoringInputs.find((i) => i.group_id === scoringResult.group_id)!;
+    const input = cleanInputs.find((i) => i.group_id === scoringResult.group_id)!;
     const serpData = serpDepthMap.get(input.group_id);
 
     // Get cluster page count for topic-hub deferral check
