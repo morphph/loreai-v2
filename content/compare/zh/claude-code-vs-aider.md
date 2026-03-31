@@ -1,15 +1,21 @@
 ---
-title: "Claude Code vs Aider：终端 AI 编程工具怎么选？"
+title: Claude Code vs Aider：终端 AI 编程工具怎么选？
 slug: claude-code-vs-aider
-description: "Claude Code 与 Aider 功能、模型支持、工作流对比，帮你选对终端 AI 编程工具。"
+description: Claude Code 与 Aider 功能、模型支持、工作流对比，帮你选对终端 AI 编程工具。
 item_a: Claude Code
 item_b: Aider
 category: tools
-related_glossary: [claude-code, agentic]
-related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
-related_compare: [claude-code-vs-cursor]
+related_glossary:
+  - claude-code
+  - agentic
+related_blog:
+  - claude-code-extension-stack-skills-hooks-agents-mcp
+  - claude-code-agent-teams
+related_compare:
+  - claude-code-vs-cursor
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code vs Aider：终端 AI 编程工具怎么选？
@@ -18,16 +24,16 @@ related_topics: [claude-code]
 
 ## 功能对比
 
-| 功能 | Claude Code | Aider |
+| 功能 | [Claude Code](/zh/blog/9-principles-writing-claude-code-skills) | [Aider](/zh/glossary/aider) |
 |------|-------------|-------|
 | **定位** | 自主代理编程工具 | AI 结对编程工具 |
-| **模型支持** | Claude（支持第三方模型） | 多模型：Claude、GPT-4o、DeepSeek、本地模型等 |
-| **代码库理解** | CLAUDE.md 项目上下文系统 | 自动生成代码库地图（repo map） |
+| **模型支持** | Claude（支持第三方模型） | 多模型：Claude、GPT-4o、[DeepSeek](/zh/glossary/deepseek)、本地模型等 |
+| **代码库理解** | [CLAUDE.md](/zh/blog/claude-code-memory) 项目上下文系统 | 自动生成代码库地图（repo map） |
 | **多文件编辑** | 原生支持，规划并跨文件执行 | 支持，通过对话驱动 |
 | **Shell 访问** | 完整 shell 执行权限 | 有限 |
 | **Git 集成** | 提交、创建分支、开 PR | 自动提交，生成提交信息 |
 | **IDE 集成** | VS Code、JetBrains、桌面端、浏览器 | 通过代码注释触发，IDE 内可用 |
-| **扩展机制** | MCP 服务器、SKILL.md、Hooks | 图片/网页上下文、语音输入 |
+| **扩展机制** | MCP 服务器、SKILL.md、[Hooks](/zh/blog/claude-code-seven-programmable-layers) | 图片/网页上下文、语音输入 |
 | **开源** | 否 | 是（GitHub 41K+ Stars） |
 | **编程语言** | 多语言 | 100+ 语言 |
 

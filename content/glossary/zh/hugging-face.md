@@ -1,19 +1,22 @@
 ---
-title: "Hugging Face — AI 术语表"
+title: Hugging Face — AI 术语表
 slug: hugging-face
-description: "什么是 Hugging Face？全球最大的开源 AI 模型与数据集共享平台。"
+description: 什么是 Hugging Face？全球最大的开源 AI 模型与数据集共享平台。
 term: hugging-face
-display_term: "Hugging Face"
+display_term: Hugging Face
 category: frameworks
-related_glossary: [chatgpt, cursor]
-related_blog: [claude-code-enterprise-engineering-ramp-shopify-spotify]
+related_glossary:
+  - chatgpt
+  - cursor
+related_blog:
+  - claude-code-enterprise-engineering-ramp-shopify-spotify
 related_compare: []
 lang: zh
 ---
 
 # Hugging Face — AI 术语表
 
-**Hugging Face** 是全球最大的开源机器学习平台，提供模型托管、数据集共享和推理部署服务。开发者可以在 Hugging Face Hub 上发布、下载和使用数十万个预训练模型，涵盖自然语言处理、计算机视觉、语音识别等各领域。它同时也是 Transformers、Diffusers、Datasets 等核心开源库的维护方。
+**[Hugging Face](/zh/glossary/huggingface)** 是全球最大的开源机器学习平台，提供模型托管、数据集共享和推理部署服务。开发者可以在 Hugging Face Hub 上发布、下载和使用数十万个预训练模型，涵盖自然语言处理、计算机视觉、语音识别等各领域。它同时也是 [Transformers](/zh/glossary/transformers)、[Diffusers](/zh/glossary/diffusers)、Datasets 等核心开源库的维护方。
 
 ## 为什么 Hugging Face 重要
 

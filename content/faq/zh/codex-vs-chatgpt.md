@@ -1,17 +1,20 @@
 ---
-title: "Codex 和 ChatGPT 有什么区别？"
+title: Codex 和 ChatGPT 有什么区别？
 slug: codex-vs-chatgpt
-description: "Codex 是 ChatGPT 内置的专业编程 Agent，两者定位和能力完全不同。"
+description: Codex 是 ChatGPT 内置的专业编程 Agent，两者定位和能力完全不同。
 category: tools
-related_glossary: [codex]
-related_blog: [codex-complete-guide]
+related_glossary:
+  - codex
+related_blog:
+  - codex-complete-guide
 lang: zh
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # Codex 和 ChatGPT 有什么区别？
 
-**[Codex](/glossary/codex)** 是一个住在 ChatGPT *内部*的云端编程 Agent，专为软件工程任务设计。**ChatGPT** 是 OpenAI 的通用对话 AI。核心区别：ChatGPT 处理开放式对话，Codex 专注读代码、写代码、跑测试、提 PR。
+**[Codex](/glossary/codex)** 是一个住在 [ChatGPT](/zh/glossary/chatgpt) *内部*的云端编程 Agent，专为软件工程任务设计。**ChatGPT** 是 OpenAI 的通用对话 AI。核心区别：ChatGPT 处理开放式对话，[Codex](/zh/blog/codex-complete-guide) 专注读代码、写代码、跑测试、提 PR。
 
 ## 背景
 

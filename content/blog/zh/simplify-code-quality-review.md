@@ -1,10 +1,10 @@
 ---
-title: "/simplify：AI 辅助开发时代的代码质量守门人"
+title: /simplify：AI 辅助开发时代的代码质量守门人
 slug: simplify-code-quality-review
-description: "/simplify 命令让 Claude Code 自动完成代码审查，多 Agent 并行检测重用性、质量和效率问题。"
+description: /simplify 命令让 Claude Code 自动完成代码审查，多 Agent 并行检测重用性、质量和效率问题。
 category: tools
 lang: zh
-date: 2026-03-27
+date: 2026-03-27T00:00:00.000Z
 ---
 
 # /simplify：AI 辅助开发时代的代码质量守门人
@@ -35,11 +35,11 @@ AI 模型在生成代码时，天然优先考虑"跑通"而非"优雅"。长时�
 
 市场上的 AI 代码审查工具主要有三种路线：
 
-**Claude Code /simplify**：命令式、Agent 化。开发者主动触发，AI 作为自主执行者对整个代码库进行结构性审查。
+**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) /simplify**：命令式、Agent 化。开发者主动触发，AI 作为自主执行者对整个代码库进行结构性审查。
 
 **CodeRabbit**：集成在 Pull Request 流程中，自动对每个 PR 进行行级注释。优势是无缝嵌入 Git 工作流，缺点是反馈粒度较细，不擅长全局性的重构建议。
 
-**GitHub Copilot**：以自动补全为核心，辅以内联 Chat。它的审查能力依附于编辑器交互，属于被动响应型，而非主动执行型。
+**[GitHub Copilot](/zh/glossary/github-[copilot](/zh/glossary/copilot))**：以自动补全为核心，辅以内联 Chat。它的审查能力依附于编辑器交互，属于被动响应型，而非主动执行型。
 
 三种工具的核心哲学不同：Copilot 和 CodeRabbit 帮你"写更好的代码"，/simplify 帮你"把写完的代码变得更好"。
 

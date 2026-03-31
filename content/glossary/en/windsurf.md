@@ -1,23 +1,29 @@
 ---
-title: "Windsurf — AI Glossary"
+title: Windsurf — AI Glossary
 slug: windsurf
-description: "What is Windsurf? An AI-powered IDE by Codeium built for agentic coding workflows."
+description: >-
+  What is Windsurf? An AI-powered IDE by Codeium built for agentic coding
+  workflows.
 term: windsurf
-display_term: "Windsurf"
+display_term: Windsurf
 category: tools
-related_glossary: [agentic-coding, chatgpt, claude-desktop]
-related_blog: [openai-computer-access-agents-lessons]
+related_glossary:
+  - agentic-coding
+  - chatgpt
+  - claude-desktop
+related_blog:
+  - openai-computer-access-agents-lessons
 related_compare: []
 lang: en
 ---
 
 # Windsurf — AI Glossary
 
-**Windsurf** is an AI-powered integrated development environment (IDE) built by Codeium, designed around [agentic coding](/glossary/agentic-coding) workflows. It combines a VS Code-compatible editor with deep AI integration that goes beyond autocomplete — Windsurf's "Cascade" agent can reason across your codebase, suggest multi-file edits, and execute terminal commands, positioning it as a direct competitor to Cursor and GitHub Copilot.
+**Windsurf** is an AI-powered integrated development environment (IDE) built by Codeium, designed around [agentic coding](/glossary/agentic-coding) workflows. It combines a VS Code-compatible editor with deep AI integration that goes beyond autocomplete — Windsurf's "Cascade" agent can reason across your codebase, suggest multi-file edits, and execute terminal commands, positioning it as a direct competitor to [Cursor](/glossary/cursor) and [GitHub Copilot](/glossary/github-[copilot](/glossary/copilot)).
 
 ## Why Windsurf Matters
 
-Windsurf represents Codeium's bet that the future of coding tools is fully agentic — not just suggesting lines of code, but understanding intent and executing multi-step plans. Its Cascade feature maintains awareness of your recent actions and project context, allowing it to proactively suggest relevant changes rather than waiting for explicit prompts.
+Windsurf represents Codeium's bet that the future of coding tools is fully [agentic](/glossary/agentic) — not just suggesting lines of code, but understanding intent and executing multi-step plans. Its Cascade feature maintains awareness of your recent actions and project context, allowing it to proactively suggest relevant changes rather than waiting for explicit prompts.
 
 For developers evaluating AI coding tools, Windsurf offers a free tier with generous usage limits, making it one of the most accessible entry points into agent-assisted development. The tool has gained traction particularly among developers who want IDE-native AI capabilities without switching to a terminal-based workflow. Our coverage of [agent-based coding tools](/blog/openai-computer-access-agents-lessons) explores how these approaches are reshaping developer workflows.
 

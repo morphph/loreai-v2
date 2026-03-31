@@ -1,23 +1,35 @@
 ---
-title: "Claude Code Review: How Anthropic Solved Its Own AI Code Review Bottleneck"
-date: 2026-03-11
+title: 'Claude Code Review: How Anthropic Solved Its Own AI Code Review Bottleneck'
+date: 2026-03-11T00:00:00.000Z
 slug: claude-code-review-agents
-description: "Claude Code's new multi-agent code review feature runs deep PR analysis automatically, built to solve Anthropic's own 200% code output growth bottleneck."
-keywords: ["Claude Code review", "AI code review", "Claude Code PR review", "multi-agent code review"]
+description: >-
+  Claude Code's new multi-agent code review feature runs deep PR analysis
+  automatically, built to solve Anthropic's own 200% code output growth
+  bottleneck.
+keywords:
+  - Claude Code review
+  - AI code review
+  - Claude Code PR review
+  - multi-agent code review
 category: DEV
-related_newsletter: 2026-03-11
-related_glossary: [claude-code, multi-agent-systems]
+related_newsletter: 2026-03-11T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - multi-agent-systems
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: en
 video_ready: true
-video_hook: "Anthropic's engineers hit 200% more code output — then reviews became the bottleneck"
+video_hook: >-
+  Anthropic's engineers hit 200% more code output — then reviews became the
+  bottleneck
 video_status: none
 ---
 
 # Claude Code Review: How Anthropic Solved Its Own AI Code Review Bottleneck
 
-When your engineers produce 200% more code, the bottleneck shifts fast. For Anthropic, it moved straight to code review — the one step that still required a human to read every diff, check for edge cases, and approve merges. Their answer: a **multi-agent code review system** built directly into **Claude Code**. A team of AI agents now runs deep analysis on every PR, catching issues that slip past human reviewers fatigued by volume. This isn't a lint wrapper or a style checker. It's architectural review, logic validation, and security analysis running in parallel — and Anthropic built it for themselves before shipping it to everyone.
+When your engineers produce 200% more code, the bottleneck shifts fast. For Anthropic, it moved straight to code review — the one step that still required a human to read every diff, check for edge cases, and approve merges. Their answer: a **multi-agent code review system** built directly into **[Claude Code](/blog/claude-code-complete-guide)**. A team of AI agents now runs deep analysis on every PR, catching issues that slip past human reviewers fatigued by volume. This isn't a lint wrapper or a style checker. It's architectural review, logic validation, and security analysis running in parallel — and Anthropic built it for themselves before shipping it to everyone.
 
 ## What Happened
 
@@ -27,11 +39,11 @@ The feature emerged from internal necessity. Anthropic's engineering team saw co
 
 Rather than hiring more reviewers or accepting slower merge cycles, the team built a multi-agent review system and dogfooded it internally. Cherny noted he's been using it personally for several weeks, reporting that it catches issues human reviewers miss — particularly in large diffs where attention naturally degrades.
 
-This launch follows a rapid cadence of Claude Code features: [HTTP hooks](/glossary/claude-code) for secure integrations, voice mode for CLI interaction, and the `/simplify` and `/batch` skills announced just days earlier. The code review feature fits into Anthropic's broader strategy of making Claude Code handle the full development lifecycle, not just code generation.
+This launch follows a rapid cadence of [Claude Code features](/blog/claude-code-voice-mode): [HTTP hooks](/glossary/claude-code) for secure integrations, voice mode for CLI interaction, and the `/simplify` and `/batch` skills announced just days earlier. The code review feature fits into Anthropic's broader strategy of making Claude Code handle the full development lifecycle, not just code generation.
 
 ## Why It Matters
 
-Code review has been the stubborn manual step in an increasingly automated development pipeline. Tools like GitHub Copilot generate code. CI/CD systems test and deploy it. But the review step — understanding intent, catching subtle bugs, evaluating architectural decisions — remained a human bottleneck.
+Code review has been the stubborn manual step in an increasingly automated development pipeline. Tools like [GitHub Copilot](/glossary/github-[copilot](/glossary/copilot)) generate code. CI/CD systems test and deploy it. But the review step — understanding intent, catching subtle bugs, evaluating architectural decisions — remained a human bottleneck.
 
 The 200% productivity stat from Anthropic is revealing. It confirms what many teams are experiencing: AI coding tools dramatically increase code output, but the surrounding processes weren't designed for that throughput. Review, testing, and deployment infrastructure all need to scale proportionally. Anthropic hit this wall first because they're among the heaviest users of their own tools.
 
@@ -70,7 +82,7 @@ Key aspects of what the system catches, based on Cherny's description:
 - **Performance implications** of changes to hot paths or data structures
 - **Consistency violations** with existing codebase patterns and conventions
 
-The system integrates with Claude Code's existing project understanding. If your CLAUDE.md specifies "always use parameterized queries" or your skills define API response formats, the review agents enforce those standards automatically. This is context-aware review, not generic static analysis.
+The system integrates with Claude Code's existing project understanding. If your [CLAUDE.md](/blog/claude-code-memory) specifies "always use parameterized queries" or your skills define API response formats, the review agents enforce those standards automatically. This is context-aware review, not generic static analysis.
 
 One limitation worth noting: AI code review complements but doesn't replace human review for decisions involving product direction, user experience tradeoffs, or organizational priorities. The agents evaluate code quality and correctness — they don't evaluate whether the feature should exist in the first place.
 

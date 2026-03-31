@@ -1,19 +1,27 @@
 ---
-title: "Tool Use — AI Glossary"
+title: Tool Use — AI Glossary
 slug: tool-use
-description: "What is tool use? How AI models call external functions to take actions beyond text generation."
+description: >-
+  What is tool use? How AI models call external functions to take actions beyond
+  text generation.
 term: tool-use
-display_term: "Tool Use"
+display_term: Tool Use
 category: concepts
-related_glossary: [agentic, agent-teams, anthropic, claude]
-related_blog: [mcp-vs-cli-vs-skills-extend-claude-code, claude-code-agent-teams]
+related_glossary:
+  - agentic
+  - agent-teams
+  - anthropic
+  - claude
+related_blog:
+  - mcp-vs-cli-vs-skills-extend-claude-code
+  - claude-code-agent-teams
 related_compare: []
 lang: en
 ---
 
 # Tool Use — AI Glossary
 
-**Tool use** (also called function calling) is the capability that allows large language models to invoke external functions, APIs, and services rather than only generating text. Instead of answering "I can't check the weather," a model with tool use can call a weather API, receive structured data, and incorporate the live result into its response. This turns LLMs from passive text generators into active agents that interact with the real world.
+**Tool use** (also called function calling) is the capability that allows [large language models](/blog/gemini-3-1-pro-complex-tasks) to invoke external functions, APIs, and services rather than only generating text. Instead of answering "I can't check the weather," a model with tool use can call a weather API, receive structured data, and incorporate the live result into its response. This turns LLMs from passive text generators into active agents that interact with the real world.
 
 ## Why Tool Use Matters
 
@@ -36,7 +44,7 @@ Tool use follows a request-response loop: the model proposes an action, the syst
 
 ## Related Terms
 
-- **[Agentic](/glossary/agentic)**: The paradigm of AI systems that take autonomous actions — tool use is the mechanism that makes agentic behavior possible
+- **[Agentic](/glossary/agentic)**: The paradigm of AI systems that take autonomous actions — tool use is the mechanism that makes [agentic](/topics/agentic) behavior possible
 - **[Agent Teams](/glossary/agent-teams)**: Multi-agent architectures where each agent uses tools independently to parallelize complex tasks
 - **[Claude](/glossary/claude)**: Anthropic's model family with native tool use support across all tiers
 

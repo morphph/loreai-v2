@@ -1,13 +1,22 @@
 ---
-title: "Claude Enterprise vs ChatGPT Enterprise: Which AI Platform Fits Your Organization?"
+title: >-
+  Claude Enterprise vs ChatGPT Enterprise: Which AI Platform Fits Your
+  Organization?
 slug: claude-enterprise-vs-chatgpt-enterprise
-description: "Comparing Claude Enterprise and ChatGPT Enterprise across security, features, context, and pricing."
+description: >-
+  Comparing Claude Enterprise and ChatGPT Enterprise across security, features,
+  context, and pricing.
 item_a: Claude Enterprise
 item_b: ChatGPT Enterprise
 category: tools
-related_glossary: [chatgpt, ai-safety]
-related_blog: [opus-4-6-1m-default-claude-code]
-related_compare: [anthropic-vs-openai, openai-model-spec-vs-anthropic-claude-character]
+related_glossary:
+  - chatgpt
+  - ai-safety
+related_blog:
+  - opus-4-6-1m-default-claude-code
+related_compare:
+  - anthropic-vs-openai
+  - openai-model-spec-vs-anthropic-claude-character
 lang: en
 ---
 
@@ -17,7 +26,7 @@ lang: en
 
 ## Feature Comparison
 
-| Feature | Claude Enterprise | ChatGPT Enterprise |
+| Feature | Claude Enterprise | [ChatGPT](/topics/chatgpt) Enterprise |
 |---------|-------------------|---------------------|
 | **Provider** | Anthropic | OpenAI |
 | **Flagship model** | Claude (Opus, Sonnet, Haiku tiers) | GPT-4o, GPT-4 Turbo, o-series reasoning models |
@@ -26,10 +35,10 @@ lang: en
 | **SSO / SCIM** | Yes | Yes |
 | **Admin console** | Yes — usage analytics, seat management | Yes — usage analytics, seat management, custom GPTs |
 | **API access** | Separate (Anthropic API) | Included in some plans |
-| **Custom model fine-tuning** | Available via partnership | Available via API |
+| **Custom model [fine-tuning](/glossary/fine-tuning)** | Available via partnership | Available via API |
 | **File & document analysis** | Native — PDFs, code, long documents | Native — plus Code Interpreter, DALL·E, browsing |
 | **Compliance** | SOC 2 Type II, HIPAA eligible | SOC 2 Type II, HIPAA eligible |
-| **Plugin / GPT ecosystem** | MCP-based integrations | Custom GPTs, extensive plugin marketplace |
+| **Plugin / GPT ecosystem** | [MCP](/glossary/mcp)-based integrations | Custom GPTs, extensive plugin marketplace |
 
 ## When to Use Claude Enterprise
 

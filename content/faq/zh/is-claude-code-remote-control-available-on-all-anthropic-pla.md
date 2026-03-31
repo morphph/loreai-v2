@@ -1,12 +1,16 @@
 ---
-title: "Claude Code 远程控制功能是否在所有 Anthropic 套餐中可用？"
+title: Claude Code 远程控制功能是否在所有 Anthropic 套餐中可用？
 slug: is-claude-code-remote-control-available-on-all-anthropic-pla
-description: "Claude Code 的远程控制功能并非所有套餐都支持，需要 Max 或 API 付费计划。"
+description: Claude Code 的远程控制功能并非所有套餐都支持，需要 Max 或 API 付费计划。
 category: tools
-related_glossary: [claude-desktop, agentic-coding]
-related_blog: [claude-excel-powerpoint-skills-context]
+related_glossary:
+  - claude-desktop
+  - agentic-coding
+related_blog:
+  - claude-excel-powerpoint-skills-context
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code 远程控制功能是否在所有 Anthropic 套餐中可用？
@@ -15,9 +19,9 @@ related_topics: [claude-code]
 
 ## 背景
 
-Claude Code 本身是一个终端级 AI 编程代理，核心使用方式是通过 API 按量计费。Anthropic 在 2025-2026 年间逐步推出了多种订阅计划：
+[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 本身是一个终端级 AI 编程代理，核心使用方式是通过 API 按量计费。Anthropic 在 2025-2026 年间逐步推出了多种订阅计划：
 
-- **Free / Pro 套餐**：主要面向 Claude 对话功能，不包含 Claude Code 的完整 agentic 能力
+- **Free / Pro 套餐**：主要面向 Claude 对话功能，不包含 Claude Code 的完整 [agentic](/zh/glossary/agentic) 能力
 - **Max 套餐**：包含 Claude Code 使用额度，支持远程控制等高级功能
 - **API 直接调用**：按 token 计费，功能最完整，远程控制能力取决于你的集成方式
 
@@ -27,14 +31,14 @@ Claude Code 本身是一个终端级 AI 编程代理，核心使用方式是通�
 
 1. **确认你的套餐**：登录 Anthropic 控制台，查看当前订阅是否为 Max 或有 API 访问权限
 2. **API 用户**：如果你通过 API 使用 Claude Code，远程控制能力取决于你的部署架构，不受套餐类型限制
-3. **Max 用户**：直接在 Claude Desktop 中启用 Claude Code 集成，即可使用远程控制功能
+3. **Max 用户**：直接在 [Claude Desktop](/zh/blog/anthropic-cowork-claude-desktop-agent) 中启用 Claude Code 集成，即可使用远程控制功能
 4. **升级路径**：如需此功能，从 Pro 升级到 Max 是最直接的方式
 
 注意：Anthropic 的定价和功能分级可能随时调整，建议以官网最新信息为准。
 
 ## 相关问题
 
-- [什么是 agentic coding？](/glossary/agentic-coding)
+- [什么是 [agentic coding](/zh/glossary/agentic-coding)？](/glossary/agentic-coding)
 - [Claude Desktop 是什么？](/glossary/claude-desktop)
 
 ---

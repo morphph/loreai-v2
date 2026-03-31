@@ -1,11 +1,15 @@
 ---
-title: "DPO (Direct Preference Optimization) — AI Glossary"
+title: DPO (Direct Preference Optimization) — AI Glossary
 slug: dpo
-description: "What is DPO? A reinforcement learning alternative that aligns LLMs with human preferences using a simple classification loss."
+description: >-
+  What is DPO? A reinforcement learning alternative that aligns LLMs with human
+  preferences using a simple classification loss.
 term: dpo
-display_term: "DPO (Direct Preference Optimization)"
+display_term: DPO (Direct Preference Optimization)
 category: techniques
-related_glossary: [anthropic, claude]
+related_glossary:
+  - anthropic
+  - claude
 related_blog: []
 related_compare: []
 lang: en
@@ -13,7 +17,7 @@ lang: en
 
 # DPO (Direct Preference Optimization) — AI Glossary
 
-**DPO (Direct Preference Optimization)** is a technique for aligning large language models with human preferences without training a separate reward model. Introduced by Rafailov et al. in 2023, DPO reformulates the reinforcement learning from human feedback (RLHF) objective into a simple binary cross-entropy loss applied directly to the policy model — eliminating the reward modeling and PPO training stages that make traditional RLHF complex and unstable.
+**DPO (Direct Preference Optimization)** is a technique for aligning [large language models](/blog/gemini-3-1-pro-complex-tasks) with human preferences without training a separate reward model. Introduced by Rafailov et al. in 2023, DPO reformulates the [reinforcement learning](/glossary/reinforcement-learning) from human feedback ([RLHF](/glossary/rlhf)) objective into a simple binary cross-entropy loss applied directly to the policy model — eliminating the reward modeling and PPO training stages that make traditional RLHF complex and unstable.
 
 ## Why DPO Matters
 
@@ -35,7 +39,7 @@ The reference model is typically the supervised fine-tuned (SFT) checkpoint befo
 
 ## Related Terms
 
-- **[Anthropic](/glossary/anthropic)**: AI safety company whose alignment research builds on preference optimization techniques including RLHF and its variants
+- **[Anthropic](/glossary/anthropic)**: [AI safety](/glossary/ai-safety) company whose alignment research builds on preference optimization techniques including RLHF and its variants
 - **[Claude](/glossary/claude)**: Anthropic's model family, aligned using preference-based training methods to be helpful, harmless, and honest
 
 ---

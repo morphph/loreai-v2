@@ -1,15 +1,23 @@
 ---
-title: "Claude Code vs Codex: Which AI Coding Agent Should You Use?"
+title: 'Claude Code vs Codex: Which AI Coding Agent Should You Use?'
 slug: claude-code-vs-codex
-description: "Comparing Claude Code and Codex across features, pricing, and workflows."
+description: 'Comparing Claude Code and Codex across features, pricing, and workflows.'
 item_a: Claude Code
 item_b: Codex
 category: tools
-related_glossary: [claude-code, agentic, agent-teams]
-related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
-related_compare: [claude-code-vs-cursor]
+related_glossary:
+  - claude-code
+  - agentic
+  - agent-teams
+related_blog:
+  - claude-code-extension-stack-skills-hooks-agents-mcp
+  - claude-code-agent-teams
+related_compare:
+  - claude-code-vs-cursor
 lang: en
-related_topics: [claude-code, codex]
+related_topics:
+  - claude-code
+  - codex
 ---
 
 # Claude Code vs Codex: Which AI Coding Agent Should You Use?
@@ -18,11 +26,11 @@ related_topics: [claude-code, codex]
 
 ## Feature Comparison
 
-| Feature | Claude Code | Codex |
+| Feature | [Claude Code](/blog/lessons-from-building-claude-code-agent-tools) | [Codex](/blog/codex-complete-guide) |
 |---------|-------------|-------|
-| **Approach** | Autonomous agentic coding tool | Autonomous agentic coding tool |
+| **Approach** | Autonomous [agentic coding](/blog/claude-code-seven-programmable-layers) tool | Autonomous [agentic](/topics/agentic) coding tool |
 | **Interfaces** | Terminal CLI, VS Code, JetBrains, Desktop app, Web | App, IDE Extension, CLI, Web |
-| **Project instructions** | CLAUDE.md files + auto memory | AGENTS.md + config files |
+| **Project instructions** | CLAUDE.md files + [auto memory](/blog/claude-code-memory) | AGENTS.md + config files |
 | **Custom commands** | Skills (SKILL.md) | Skills |
 | **Sub-agents** | Agent teams with lead agent coordination | Subagents + workflows |
 | **External tool integration** | MCP servers | MCP and Connectors |

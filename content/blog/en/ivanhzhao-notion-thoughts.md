@@ -1,16 +1,28 @@
 ---
-title: "Ivan Zhao's Vision: Why AI Is the Steel of Knowledge Work"
-date: 2026-03-10
+title: 'Ivan Zhao''s Vision: Why AI Is the Steel of Knowledge Work'
+date: 2026-03-10T00:00:00.000Z
 slug: ivanhzhao-notion-thoughts
-description: "Notion CEO Ivan Zhao compares AI to steel and steam, arguing that consolidating context and making work verifiable are the keys to unlocking AI for billions of knowledge workers."
-keywords: ["Ivan Zhao AI vision", "Notion AI agents", "knowledge work AI", "AI organizational change"]
+description: >-
+  Notion CEO Ivan Zhao compares AI to steel and steam, arguing that
+  consolidating context and making work verifiable are the keys to unlocking AI
+  for billions of knowledge workers.
+keywords:
+  - Ivan Zhao AI vision
+  - Notion AI agents
+  - knowledge work AI
+  - AI organizational change
 category: PRODUCT
-related_newsletter: 2026-03-10
-related_glossary: [ai-agent, rag]
-related_compare: [notion-vs-confluence]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - ai-agent
+  - rag
+related_compare:
+  - notion-vs-confluence
 lang: en
 video_ready: true
-video_hook: "Notion's CEO thinks we're all still pedaling bicycles on the autobahn — here's his plan to change that"
+video_hook: >-
+  Notion's CEO thinks we're all still pedaling bicycles on the autobahn — here's
+  his plan to change that
 video_status: published
 source_type: video
 ---
@@ -23,7 +35,7 @@ Notion CEO **Ivan Zhao** just published one of the most compelling frameworks fo
 
 Zhao published "Steam, Steel, and Infinite Minds," a long-form essay drawing parallels between industrial revolutions and AI adoption. The piece opens with Andrew Carnegie running through 1850s Pittsburgh as a telegraph boy, then traces how miracle materials — steel, semiconductors — reshaped entire economies within two generations.
 
-The most revealing anecdote comes from inside Notion itself. Zhao describes his co-founder Simon Last, formerly a "10x programmer," who now rarely writes code directly. Instead, Simon orchestrates three or four **AI coding agents** simultaneously, effectively becoming a "30-40x engineer" who queues tasks before lunch and lets agents work while he's away. He's become, in Zhao's framing, "a manager of infinite minds."
+The most revealing anecdote comes from inside Notion itself. Zhao describes his co-founder Simon Last, formerly a "10x programmer," who now rarely writes code directly. Instead, Simon orchestrates three or four **[AI coding agents](/blog/effective-harnesses-for-long-running-agents)** simultaneously, effectively becoming a "30-40x engineer" who queues tasks before lunch and lets agents work while he's away. He's become, in Zhao's framing, "a manager of infinite minds."
 
 Zhao then riffs on Steve Jobs's famous "bicycle for the mind" metaphor. His update: we've been pedaling bicycles on the autobahn for decades. AI agents represent the upgrade from bicycle to car — but only for programmers so far. The essay asks when the other two billion knowledge workers get their cars, and identifies exactly what's blocking them.
 
@@ -33,7 +45,7 @@ The organizational section draws on architectural history — before steel, buil
 
 Zhao's framework matters because it names the two specific problems that separate "AI works for programmers" from "AI works for everyone."
 
-**Context fragmentation** is the first bottleneck. Coding agents thrive because their context lives in one place: the IDE, the repo, the terminal. But a product manager drafting a brief needs Slack threads, strategy docs, quarterly metrics from a dashboard, and institutional knowledge that exists only in someone's head. Humans currently serve as the glue — copy-pasting between browser tabs. Until that context is consolidated into something an [AI agent](/glossary/ai-agent) can access, agents remain stuck in narrow use cases.
+**Context fragmentation** is the first bottleneck. [Coding agents](/blog/9-principles-writing-claude-code-skills) thrive because their context lives in one place: the IDE, the repo, the terminal. But a product manager drafting a brief needs Slack threads, strategy docs, quarterly metrics from a dashboard, and institutional knowledge that exists only in someone's head. Humans currently serve as the glue — copy-pasting between browser tabs. Until that context is consolidated into something an [AI agent](/glossary/ai-agent) can access, agents remain stuck in narrow use cases.
 
 **Verifiability** is the second. Code has a "magical property" — you can verify it with tests and compiler errors. This is what enables [reinforcement learning](/glossary/reinforcement-learning) to improve coding models rapidly. But how do you verify if a project is managed well or a strategy memo is sound? Without clear signals of quality, models can't improve at general knowledge work through automated feedback loops.
 

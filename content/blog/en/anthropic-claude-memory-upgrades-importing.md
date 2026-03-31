@@ -1,16 +1,25 @@
 ---
-title: "Anthropic Upgrades Claude Memory to Win Over AI Switchers"
-date: 2026-03-04
+title: Anthropic Upgrades Claude Memory to Win Over AI Switchers
+date: 2026-03-04T00:00:00.000Z
 slug: anthropic-claude-memory-upgrades-importing
-description: "Anthropic expands Claude's memory to free users and adds a data importing tool to make switching from ChatGPT and Gemini frictionless."
-keywords: ["Claude memory", "Anthropic Claude", "AI chatbot switching", "Claude free plan"]
+description: >-
+  Anthropic expands Claude's memory to free users and adds a data importing tool
+  to make switching from ChatGPT and Gemini frictionless.
+keywords:
+  - Claude memory
+  - Anthropic Claude
+  - AI chatbot switching
+  - Claude free plan
 category: APP
-related_newsletter: 2026-03-04
-related_glossary: [claude, anthropic]
-related_compare: [claude-vs-chatgpt]
+related_newsletter: 2026-03-04T00:00:00.000Z
+related_glossary:
+  - claude
+  - anthropic
+related_compare:
+  - claude-vs-chatgpt
 lang: en
 video_ready: true
-video_hook: "Anthropic just made switching from ChatGPT to Claude a one-click affair"
+video_hook: Anthropic just made switching from ChatGPT to Claude a one-click affair
 video_status: none
 ---
 
@@ -22,7 +31,7 @@ video_status: none
 
 Anthropic rolled out a two-part update to Claude's memory system on March 2, 2026. First, **memory is now available on the free plan**. Previously, only Claude Pro and Team subscribers could access persistent memory — the feature that lets Claude remember your preferences, project context, and working patterns across sessions. Free users had to re-explain themselves every conversation.
 
-Second, Anthropic introduced a **dedicated data importing tool**. Users can export their data from other AI platforms (ChatGPT's export feature, Gemini's Google Takeout, etc.) and feed it into Claude. The importer parses conversation histories, extracts user preferences and recurring context, and populates Claude's memory with the relevant information. Anthropic describes it as giving Claude a "head start" on understanding who you are.
+Second, Anthropic introduced a **dedicated data importing tool**. Users can export their data from other AI platforms ([ChatGPT](/topics/chatgpt)'s export feature, Gemini's Google Takeout, etc.) and feed it into Claude. The importer parses conversation histories, extracts user preferences and recurring context, and populates Claude's memory with the relevant information. Anthropic describes it as giving Claude a "head start" on understanding who you are.
 
 The update also includes a refined **memory prompt** — the internal instructions that govern how Claude stores, retrieves, and applies memories. According to Anthropic, the new prompt makes Claude more selective about what it remembers (reducing noise) and better at surfacing relevant memories during conversations.
 

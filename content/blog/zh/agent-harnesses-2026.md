@@ -1,16 +1,23 @@
 ---
-title: "Agent Harness 才是 2026 年 AI 竞争的真正护城河"
-date: 2026-03-20
+title: Agent Harness 才是 2026 年 AI 竞争的真正护城河
+date: 2026-03-20T00:00:00.000Z
 slug: agent-harnesses-2026
-description: "Manus 半年重写 5 次架构，模型没换却越来越强。2026 年 AI Agent 的护城河不在模型，在 harness——包裹模型的基础设施才是胜负手。"
-keywords: ["Agent Harness", "AI Agent 架构", "Manus", "Claude Code", "LangChain"]
+description: Manus 半年重写 5 次架构，模型没换却越来越强。2026 年 AI Agent 的护城河不在模型，在 harness——包裹模型的基础设施才是胜负手。
+keywords:
+  - Agent Harness
+  - AI Agent 架构
+  - Manus
+  - Claude Code
+  - LangChain
 category: DEV
-related_newsletter: 2026-03-20
-related_glossary: [ai-agent, prompt-engineering]
+related_newsletter: 2026-03-20T00:00:00.000Z
+related_glossary:
+  - ai-agent
+  - prompt-engineering
 related_compare: []
 lang: zh
 video_ready: true
-video_hook: "Manus 半年改了五次架构，模型没换，每次都变强——秘密在哪？"
+video_hook: Manus 半年改了五次架构，模型没换，每次都变强——秘密在哪？
 video_status: published
 source_type: video
 ---
@@ -23,9 +30,9 @@ source_type: video
 
 Aakash Gupta 的最新研究提出了一个颠覆行业认知的判断：模型是发动机，harness 是整辆车。最好的发动机没有方向盘和刹车，哪儿也去不了。
 
-三家顶级公司的实践佐证了这个观点。**Manus** 半年内将 harness 架构改写了 5 次，模型未变，每次改写后任务完成率都在提升。**LangChain** 的 Deep Research 产品一年内迭代了 4 版架构，驱动改善的不是模型升级，而是更合理的工作流编排和上下文管理。最反直觉的是 **Vercel**：他们的 Agent 原本配了搜索、代码、文件、API 等一整套工具库，结果 Agent 反而被搞糊涂，乱调工具、多走弯路。砍掉 80% 的工具后，响应更快，成功率更高。
+三家顶级公司的实践佐证了这个观点。**Manus** 半年内将 harness 架构改写了 5 次，模型未变，每次改写后任务完成率都在提升。**[LangChain](/zh/blog/langchain-improving-deep-agents-harness-engineering)** 的 Deep Research 产品一年内迭代了 4 版架构，驱动改善的不是模型升级，而是更合理的工作流编排和上下文管理。最反直觉的是 **Vercel**：他们的 Agent 原本配了搜索、代码、文件、API 等一整套工具库，结果 Agent 反而被搞糊涂，乱调工具、多走弯路。砍掉 80% 的工具后，响应更快，成功率更高。
 
-**Claude Code** 同样验证了这一点——爆火的不是 Claude 模型本身，而是 Claude Code 这套 harness。同一个模型，换一套更好的基础设施，产品体验天差地别。
+**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 同样验证了这一点——爆火的不是 Claude 模型本身，而是 Claude Code 这套 harness。同一个模型，换一套更好的基础设施，产品体验天差地别。
 
 ## 为什么重要
 
@@ -33,7 +40,7 @@ Aakash Gupta 的最新研究提出了一个颠覆行业认知的判断：模型�
 
 原因有三。第一，更强的模型能力更多，但更多能力意味着更多的失败模式，需要更精密的错误处理。第二，强模型更贵，好的 harness 能把简单任务路由给便宜模型，显著降低成本。第三，生产环境要求 99.9% 的可用率，模型天生是概率性的，只有 harness 才能提供回退机制和结果校验。
 
-竞争格局已经变了。以前的护城河是模型质量，GPT-4、Claude、Gemini 谁强谁赢。但现在模型质量快速趋同，几周就能训出有竞争力的模型。新护城河是 harness 质量——Manus 花了半年、LangChain 花了一年积累的工程经验，没法从 Hugging Face 上下载。
+竞争格局已经变了。以前的护城河是模型质量，GPT-4、Claude、Gemini 谁强谁赢。但现在模型质量快速趋同，几周就能训出有竞争力的模型。新护城河是 harness 质量——Manus 花了半年、LangChain 花了一年积累的工程经验，没法从 [Hugging Face](/zh/glossary/hugging-face) 上下载。
 
 ## Agent Harness 架构总览
 

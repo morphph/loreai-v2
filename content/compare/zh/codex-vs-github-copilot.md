@@ -1,19 +1,24 @@
 ---
-title: "Codex vs GitHub Copilot：哪个 AI 编程工具更适合你？"
+title: Codex vs GitHub Copilot：哪个 AI 编程工具更适合你？
 slug: codex-vs-github-copilot
-description: "Codex 与 GitHub Copilot 功能、定位与适用场景全面对比。"
+description: Codex 与 GitHub Copilot 功能、定位与适用场景全面对比。
 item_a: Codex
 item_b: GitHub Copilot
 category: tools
-related_glossary: [codex, agent-teams, agentic]
-related_blog: [codex-complete-guide]
+related_glossary:
+  - codex
+  - agent-teams
+  - agentic
+related_blog:
+  - codex-complete-guide
 lang: zh
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # Codex vs GitHub Copilot：哪个 AI 编程工具更适合你？
 
-**[Codex](/glossary/codex)** 是 OpenAI 推出的编程智能体（coding agent），定位是端到端的软件开发助手——它能读懂整个代码库、自主规划任务、执行 shell 命令并提交代码。**GitHub Copilot** 则是 GitHub 推出的 AI 编程助手，核心场景是在 IDE 里实时补全代码和对话式辅助编辑。两者都用大模型帮开发者写代码，但交互模式截然不同：Codex 是自主执行的 agent，Copilot 是嵌入编辑器的辅助工具。
+**[Codex](/glossary/codex)** 是 OpenAI 推出的编程智能体（[coding agent](/zh/blog/coding-agents-reshaping-epd)），定位是端到端的软件开发助手——它能读懂整个代码库、自主规划任务、执行 shell 命令并提交代码。**[GitHub Copilot](/zh/glossary/github-[copilot](/zh/glossary/copilot))** 则是 GitHub 推出的 AI 编程助手，核心场景是在 IDE 里实时补全代码和对话式辅助编辑。两者都用大模型帮开发者写代码，但交互模式截然不同：[Codex](/zh/blog/codex-complete-guide) 是自主执行的 agent，Copilot 是嵌入编辑器的辅助工具。
 
 ## 功能对比
 
@@ -24,7 +29,7 @@ related_topics: [codex]
 | **代码生成** | 描述需求后自主生成，适配项目结构和规范 | 实时逐行补全 + 对话式生成 |
 | **代码审查** | 分析潜在 bug、逻辑错误和未处理的边界情况 | 生成 PR 描述，辅助 review |
 | **自主执行能力** | 支持 shell 执行、沙箱环境、子智能体（Subagents） | 仅 Pro+ / Business / Enterprise 支持自主创建 PR |
-| **外部集成** | GitHub、Slack、Linear、MCP | GitHub 生态深度集成 |
+| **外部集成** | GitHub、Slack、Linear、[MCP](/zh/blog/claude-code-seven-programmable-layers) | GitHub 生态深度集成 |
 | **项目上下文** | AGENTS.md 配置文件 + Skills 系统 | Copilot Spaces 组织和共享上下文 |
 | **付费方案** | 包含在 ChatGPT Plus / Pro / Business / Edu / Enterprise 中 | Free / Pro / Pro+ / Business / Enterprise 多档 |
 | **免费方案** | 随 ChatGPT Plus 等订阅提供 | Copilot Free 可用核心功能；学生和开源维护者可申请免费高级权限 |

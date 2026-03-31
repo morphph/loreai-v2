@@ -1,16 +1,25 @@
 ---
-title: "OpenAI 发布思维链可控性评估：AI 推理透明度的新标尺"
-date: 2026-03-09
+title: OpenAI 发布思维链可控性评估：AI 推理透明度的新标尺
+date: 2026-03-09T00:00:00.000Z
 slug: openai-chain-of-thought-controllability-evaluation
-description: "OpenAI 公开了 Chain-of-Thought Controllability 评估框架，衡量推理模型思维链的可控程度。这对 AI 安全和开发者调试意味着什么？"
-keywords: ["OpenAI 思维链", "Chain-of-Thought 可控性", "AI 推理评估", "CoT controllability"]
+description: >-
+  OpenAI 公开了 Chain-of-Thought Controllability 评估框架，衡量推理模型思维链的可控程度。这对 AI
+  安全和开发者调试意味着什么？
+keywords:
+  - OpenAI 思维链
+  - Chain-of-Thought 可控性
+  - AI 推理评估
+  - CoT controllability
 category: MODEL
-related_newsletter: 2026-03-09
-related_glossary: [chain-of-thought, openai]
-related_compare: [openai-vs-anthropic]
+related_newsletter: 2026-03-09T00:00:00.000Z
+related_glossary:
+  - chain-of-thought
+  - openai
+related_compare:
+  - openai-vs-anthropic
 lang: zh
 video_ready: true
-video_hook: "OpenAI 终于开始量化一个关键问题：你能控制 AI 的思考过程吗？"
+video_hook: OpenAI 终于开始量化一个关键问题：你能控制 AI 的思考过程吗？
 video_status: none
 ---
 
@@ -24,7 +33,7 @@ OpenAI 在社交媒体上宣布发布了 Chain-of-Thought Controllability 评估
 
 这个时间点并不意外。自从 o1、o3 系列模型引入显式[思维链](/glossary/chain-of-thought)推理以来，一个反复出现的问题是：模型的 CoT 有时候"自说自话"。你让它分步骤分析，它可能跳步；你让它考虑反面论据，它可能象征性地提一句就跳过。思维链可控性评估就是要量化这个问题的严重程度。
 
-这也是 [OpenAI](/glossary/openai) 近期在安全和可解释性方向上的持续投入之一。在 GPT-5.3-Codex 刚上线、Codex 应用扩展到 Windows 平台的同一周发布这个评估，信号很明确：推理能力和推理可控性要同步推进。
+这也是 [OpenAI](/glossary/openai) 近期在安全和可解释性方向上的持续投入之一。在 GPT-5.3-[Codex](/zh/blog/codex-complete-guide) 刚上线、Codex 应用扩展到 Windows 平台的同一周发布这个评估，信号很明确：推理能力和推理可控性要同步推进。
 
 ## 为什么重要
 
@@ -54,7 +63,7 @@ Chain-of-Thought Controllability 评估的核心维度预计包括几个方面�
 
 1. **如果你在生产中使用推理模型**，建立自己的 CoT 可控性测试集。不要只测最终输出，要测中间推理步骤是否符合你的预期。
 2. **关注 OpenAI 的完整评估报告**。推文只是预告，完整的方法论和数据会帮你理解当前模型的实际可控边界。
-3. **对比测试不同模型的 CoT 可控性**。在你的具体场景下，Claude 的 extended thinking、DeepSeek-R1 和 o3 的思维链，哪个更听话？这比通用跑分更有参考价值。
+3. **对比测试不同模型的 CoT 可控性**。在你的具体场景下，Claude 的 extended thinking、[DeepSeek](/zh/glossary/deepseek)-R1 和 o3 的思维链，哪个更听话？这比通用跑分更有参考价值。
 4. **在提示词中显式定义推理框架**，而不是让模型自由发挥。格式越具体，可控性越高。
 
 **相关阅读**：[今日简报](/newsletter/2026-03-09) 有更多 AI 动态。另见：[OpenAI 更新 Model Spec 解读](/blog/openai-updated-model-spec-2026)。

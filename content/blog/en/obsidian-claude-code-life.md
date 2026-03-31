@@ -1,24 +1,34 @@
 ---
-title: "Obsidian + Claude Code: Building a Second Brain That Actually Works"
-date: 2026-03-10
+title: 'Obsidian + Claude Code: Building a Second Brain That Actually Works'
+date: 2026-03-10T00:00:00.000Z
 slug: obsidian-claude-code-life
-description: "How pairing Obsidian's local markdown vault with Claude Code's file-aware agent creates a persistent, controllable context system that solves AI's biggest usability problem."
-keywords: ["Obsidian Claude Code", "Claude Code context", "second brain AI", "Obsidian AI workflow"]
+description: >-
+  How pairing Obsidian's local markdown vault with Claude Code's file-aware
+  agent creates a persistent, controllable context system that solves AI's
+  biggest usability problem.
+keywords:
+  - Obsidian Claude Code
+  - Claude Code context
+  - second brain AI
+  - Obsidian AI workflow
 category: TECHNIQUE
-related_newsletter: 2026-03-10
-related_glossary: [claude-code, context-window]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - context-window
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: en
 video_ready: true
-video_hook: "The real power of Claude Code isn't code generation — it's reading your files"
+video_hook: The real power of Claude Code isn't code generation — it's reading your files
 video_status: published
 source_type: video
 ---
 
 # Obsidian + Claude Code: Building a Second Brain That Actually Works
 
-The biggest complaint about AI coding agents isn't intelligence — it's amnesia. Every new session starts from zero. You re-explain your project, re-describe your preferences, re-establish context that existed five minutes ago in a different window. **Claude Code** solves this with file references, and **Obsidian** turns out to be the perfect companion for organizing those files. Together, they create something genuinely useful: a persistent thinking partner that knows your projects, your patterns, and your priorities — because you control exactly what it reads. A [recent walkthrough by Internet Vin](https://www.youtube.com/watch?v=6MBq1paspVU) demonstrates the practical setup, and the implications go well beyond note-taking.
+The biggest complaint about [AI coding agents](/blog/effective-harnesses-for-long-running-agents) isn't intelligence — it's amnesia. Every new session starts from zero. You re-explain your project, re-describe your preferences, re-establish context that existed five minutes ago in a different window. **[Claude Code](/blog/claude-code-complete-guide)** solves this with file references, and **Obsidian** turns out to be the perfect companion for organizing those files. Together, they create something genuinely useful: a persistent thinking partner that knows your projects, your patterns, and your priorities — because you control exactly what it reads. A [recent walkthrough by Internet Vin](https://www.youtube.com/watch?v=6MBq1paspVU) demonstrates the practical setup, and the implications go well beyond note-taking.
 
 ## What Happened
 
@@ -26,13 +36,13 @@ Developer and content creator Vin (Internet Vin) joined Greg Isenberg's podcast 
 
 The core idea: Obsidian serves as a structured vault of markdown files — project descriptions, personal preferences, meeting notes, decision logs — and Claude Code reads those files on demand. Instead of pasting context into a chat window or hoping an AI's opaque memory system captured the right details, you point Claude Code at specific files in your vault.
 
-The demo walked through practical examples: creating project description files, referencing them in new Claude Code sessions with a single command, and building increasingly complex context files over time. The key insight is that **Claude Code** operates on your local filesystem. It can read any file you point it to, which means your Obsidian vault — already organized as local markdown — becomes a natural context library.
+The demo walked through practical examples: creating project description files, referencing them in new [Claude Code sessions](/blog/dispatch-launch-claude-code-sessions) with a single command, and building increasingly complex context files over time. The key insight is that **Claude Code** operates on your local filesystem. It can read any file you point it to, which means your Obsidian vault — already organized as local markdown — becomes a natural context library.
 
 This isn't a plugin or integration. There's no API key to configure, no sync service to set up. Obsidian stores plain `.md` files in a folder. Claude Code reads files from folders. The connection is the filesystem itself.
 
 ## Why It Matters
 
-The context problem is the single biggest friction point in AI-assisted work. Models are smart enough to handle complex tasks, but only when they have the right information. Most people solve this by writing longer prompts, which is slow, or by relying on built-in memory features (like ChatGPT's memory), which are opaque — you don't know what the model remembers or forgot.
+The context problem is the single biggest friction point in AI-assisted work. Models are smart enough to handle complex tasks, but only when they have the right information. Most people solve this by writing longer prompts, which is slow, or by relying on built-in memory features (like [ChatGPT](/glossary/chatgpt)'s memory), which are opaque — you don't know what the model remembers or forgot.
 
 Obsidian + Claude Code flips the control model. Your context is visible, editable, version-controllable markdown. You decide what gets passed in and when. As Vin explains in the walkthrough: "You don't know what's in that memory. You don't know what it knows and what it doesn't know." File-based context eliminates that uncertainty.
 
@@ -72,7 +82,7 @@ This scales well. You can reference multiple files: "Read my project description
 
 One practical pattern from the demo: keep a `decisions.md` file per project. Every time you make an architectural choice with Claude Code's help, append it. Next session, Claude Code reads the file and doesn't suggest approaches you've already rejected.
 
-**Limitations to note:** Claude Code sessions still have context window limits. Very large vault files may need to be split or summarized. And there's no automatic "watch this folder" feature — you explicitly reference files per session. A `CLAUDE.md` file in your project root helps by auto-loading base context, but vault references are manual.
+**Limitations to note:** Claude Code sessions still have context window limits. Very large vault files may need to be split or summarized. And there's no automatic "watch this folder" feature — you explicitly reference files per session. A `[CLAUDE.md](/blog/claude-code-memory)` file in your project root helps by auto-loading base context, but vault references are manual.
 
 ## What You Should Do
 

@@ -1,12 +1,15 @@
 ---
-title: "Whisper — AI 术语表"
+title: Whisper — AI 术语表
 slug: whisper
-description: "什么是 Whisper？OpenAI 开源的自动语音识别模型，支持多语言转录与翻译。"
+description: 什么是 Whisper？OpenAI 开源的自动语音识别模型，支持多语言转录与翻译。
 term: whisper
-display_term: "Whisper"
+display_term: Whisper
 category: models
-related_glossary: [chatgpt, fine-tuning]
-related_blog: [openai-updated-model-spec-2026]
+related_glossary:
+  - chatgpt
+  - fine-tuning
+related_blog:
+  - openai-updated-model-spec-2026
 related_compare: []
 lang: zh
 ---
@@ -33,7 +36,7 @@ Whisper 采用 encoder-decoder Transformer 架构。音频输入首先被转换�
 
 - **[ChatGPT](/glossary/chatgpt)**：OpenAI 的对话式 AI 产品，语音模式底层使用 Whisper 进行语音识别
 - **[Fine-tuning](/glossary/fine-tuning)**：可对 Whisper 进行微调以提升特定领域（如医疗、法律）的转录准确率
-- **[Google DeepMind](/glossary/google-deepmind)**：其 USM 模型是 Whisper 在多语言语音识别领域的主要竞争者
+- **[Google DeepMind](/glossary/google-[deepmind](/zh/glossary/deepmind))**：其 USM 模型是 Whisper 在多语言语音识别领域的主要竞争者
 
 ---
 

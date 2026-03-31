@@ -1,16 +1,18 @@
 ---
-title: "Anthropic 在 Claude Partner Network 上投入了多少？"
+title: Anthropic 在 Claude Partner Network 上投入了多少？
 slug: how-much-is-anthropic-investing-in-the-claude-partner-networ
-description: "Anthropic 尚未公开 Claude Partner Network 的具体投资金额，但已通过多项举措大力扶持合作伙伴生态。"
+description: Anthropic 尚未公开 Claude Partner Network 的具体投资金额，但已通过多项举措大力扶持合作伙伴生态。
 category: frameworks
-related_glossary: [ai-safety]
-related_blog: [intercom-claude-code-plugins-skills-hooks]
+related_glossary:
+  - ai-safety
+related_blog:
+  - intercom-claude-code-plugins-skills-hooks
 lang: zh
 ---
 
 # Anthropic 在 Claude Partner Network 上投入了多少？
 
-Anthropic 并未公开披露在 **Claude Partner Network** 上的具体投资金额。不过，从该公司在合作伙伴生态方面的持续投入——包括技术支持、API 额度优惠、联合推广资源以及专属工程协助——来看，这是一项战略级别的长期投入，而非象征性的小额预算。
+Anthropic 并未公开披露在 **[Claude Partner Network](/zh/blog/anthropic-claude-partner-network-100-million)** 上的具体投资金额。不过，从该公司在合作伙伴生态方面的持续投入——包括技术支持、API 额度优惠、联合推广资源以及专属工程协助——来看，这是一项战略级别的长期投入，而非象征性的小额预算。
 
 ## 背景
 
@@ -26,7 +28,7 @@ Claude Partner Network 是 Anthropic 为系统集成商、咨询公司和技术�
 
 1. **对合作伙伴**：加入 Partner Network 意味着更低的技术接入门槛和更多的商业机会，尤其适合已有企业客户资源的服务商
 2. **对企业用户**：通过认证合作伙伴部署 Claude，通常能获得更成熟的集成方案和持续的技术保障
-3. **对开发者**：合作伙伴生态的壮大间接推动了 Claude 生态工具的丰富度，例如 [Intercom 等平台的 Claude 集成](/blog/intercom-claude-code-plugins-skills-hooks)
+3. **对开发者**：合作伙伴生态的壮大间接推动了 Claude 生态工具的丰富度，例如 [Intercom 等平台的 Claude 集成](/blog/intercom-claude-code-plugins-[skills](/zh/blog/9-principles-writing-claude-code-skills)-[hooks](/zh/blog/claude-code-seven-programmable-layers))
 
 ## 相关问题
 

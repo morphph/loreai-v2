@@ -1,11 +1,16 @@
 ---
-title: "Apple — AI Glossary"
+title: Apple — AI Glossary
 slug: apple
-description: "What is Apple's role in AI? Overview of Apple's machine learning strategy, on-device models, and Apple Intelligence."
+description: >-
+  What is Apple's role in AI? Overview of Apple's machine learning strategy,
+  on-device models, and Apple Intelligence.
 term: apple
-display_term: "Apple"
+display_term: Apple
 category: tools
-related_glossary: [anthropic, amazon, claude]
+related_glossary:
+  - anthropic
+  - amazon
+  - claude
 related_blog: []
 related_compare: []
 lang: en
@@ -26,7 +31,7 @@ Apple's partnership with OpenAI for Siri integration and its development of prop
 Apple's AI stack operates across several layers:
 
 - **Apple Silicon Neural Engine**: Dedicated hardware in M-series and A-series chips optimized for transformer inference, enabling on-device model execution without cloud round-trips
-- **Core ML**: Apple's framework for integrating trained models into apps, supporting conversion from PyTorch, TensorFlow, and ONNX formats
+- **Core ML**: Apple's framework for integrating trained models into apps, supporting conversion from PyTorch, [TensorFlow](/blog/tensorflow-trending-2026), and ONNX formats
 - **Apple Intelligence**: The user-facing AI layer handling text summarization, image generation (Image Playground), smart replies, and Siri enhancements
 - **Private Cloud Compute**: For tasks exceeding on-device capability, Apple routes requests to custom Apple Silicon servers with cryptographic guarantees that user data isn't retained
 
@@ -34,7 +39,7 @@ Apple's differentiation is architectural — by controlling hardware, OS, and mo
 
 ## Related Terms
 
-- **[Anthropic](/glossary/anthropic)**: AI safety company building Claude — takes a cloud-first API approach compared to Apple's on-device strategy
+- **[Anthropic](/glossary/anthropic)**: [AI safety](/glossary/ai-safety) company building Claude — takes a cloud-first API approach compared to Apple's on-device strategy
 - **[Amazon](/glossary/amazon)**: Competes with Apple in consumer AI through Alexa and AWS Bedrock model hosting
 - **[Claude](/glossary/claude)**: Anthropic's model family, available through Apple Intelligence via third-party integrations
 

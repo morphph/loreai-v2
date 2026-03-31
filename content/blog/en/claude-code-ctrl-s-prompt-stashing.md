@@ -1,23 +1,30 @@
 ---
-title: "Claude Code Ctrl+S Prompt Stashing: Queue Prompts While Claude Works"
-date: 2026-03-10
+title: 'Claude Code Ctrl+S Prompt Stashing: Queue Prompts While Claude Works'
+date: 2026-03-10T00:00:00.000Z
 slug: claude-code-ctrl-s-prompt-stashing
-description: "How Claude Code's Ctrl+S prompt stashing lets you queue up your next instruction while Claude is still working, eliminating idle waiting time."
-keywords: ["Claude Code prompt stashing", "Ctrl+S Claude Code", "Claude Code productivity tips"]
+description: >-
+  How Claude Code's Ctrl+S prompt stashing lets you queue up your next
+  instruction while Claude is still working, eliminating idle waiting time.
+keywords:
+  - Claude Code prompt stashing
+  - Ctrl+S Claude Code
+  - Claude Code productivity tips
 category: DEV
-related_newsletter: 2026-03-10
-related_glossary: [claude-code]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - claude-code
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: en
 video_ready: true
-video_hook: "Stop waiting for Claude Code to finish — queue your next prompt with Ctrl+S"
+video_hook: Stop waiting for Claude Code to finish — queue your next prompt with Ctrl+S
 video_status: none
 ---
 
 # Claude Code Ctrl+S Prompt Stashing: Queue Prompts While Claude Works
 
-Most **Claude Code** users sit idle while the agent processes a request, waiting for output to finish before typing their next instruction. There's a better way: **Ctrl+S prompt stashing** lets you compose and queue your next prompt while Claude is still working on the current one. It's a small keyboard shortcut that eliminates the dead time between tasks — and once you start using it, the old workflow feels broken. Here's how it works and why it matters for your development flow.
+Most **[Claude Code](/blog/claude-code-complete-guide)** users sit idle while the agent processes a request, waiting for output to finish before typing their next instruction. There's a better way: **Ctrl+S prompt stashing** lets you compose and queue your next prompt while Claude is still working on the current one. It's a small keyboard shortcut that eliminates the dead time between tasks — and once you start using it, the old workflow feels broken. Here's how it works and why it matters for your development flow.
 
 ## What Happened
 

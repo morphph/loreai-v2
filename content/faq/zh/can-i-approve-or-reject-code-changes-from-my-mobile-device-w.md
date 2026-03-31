@@ -1,17 +1,21 @@
 ---
-title: "手机上能审批 Claude Code 的代码改动吗？"
+title: 手机上能审批 Claude Code 的代码改动吗？
 slug: can-i-approve-or-reject-code-changes-from-my-mobile-device-w
-description: "可以。通过 Remote Control 和 Web 端，你能在手机上实时审批或拒绝 Claude Code 的代码变更。"
+description: 可以。通过 Remote Control 和 Web 端，你能在手机上实时审批或拒绝 Claude Code 的代码变更。
 category: tools
-related_glossary: [claude-code, agentic-coding]
-related_blog: [google-colab-mcp-server-cloud-gpu-ai-agents]
+related_glossary:
+  - claude-code
+  - agentic-coding
+related_blog:
+  - google-colab-mcp-server-cloud-gpu-ai-agents
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # 手机上能审批 Claude Code 的代码改动吗？
 
-**可以。** Claude Code 提供了 **Remote Control** 功能和 **Web 端**访问，让你在手机浏览器或 Claude iOS App 上查看、审批或拒绝代码变更。你不需要随身带着笔记本电脑，也能对正在运行的编码任务保持控制。
+**可以。** [Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 提供了 **Remote Control** 功能和 **Web 端**访问，让你在手机浏览器或 Claude iOS App 上查看、审批或拒绝代码变更。你不需要随身带着笔记本电脑，也能对正在运行的编码任务保持控制。
 
 ## 背景
 
@@ -32,7 +36,7 @@ Claude Code 的设计理念是**会话不绑定单一设备**。你可以在终�
 
 ## 相关问题
 
-- Claude Code 和 Cursor 有什么区别？
+- Claude Code 和 [Cursor](/zh/glossary/cursor) 有什么区别？
 - [Claude Code vs Cursor 对比](/compare/claude-code-vs-cursor)
 
 ---

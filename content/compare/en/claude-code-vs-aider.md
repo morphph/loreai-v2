@@ -1,15 +1,23 @@
 ---
-title: "Claude Code vs Aider: Which AI Coding Agent Fits Your Workflow?"
+title: 'Claude Code vs Aider: Which AI Coding Agent Fits Your Workflow?'
 slug: claude-code-vs-aider
-description: "Comparing Claude Code and Aider across features, model support, and workflows for AI-assisted development."
+description: >-
+  Comparing Claude Code and Aider across features, model support, and workflows
+  for AI-assisted development.
 item_a: Claude Code
 item_b: Aider
 category: tools
-related_glossary: [claude-code, agentic]
-related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
-related_compare: [claude-code-vs-cursor]
+related_glossary:
+  - claude-code
+  - agentic
+related_blog:
+  - claude-code-extension-stack-skills-hooks-agents-mcp
+  - claude-code-agent-teams
+related_compare:
+  - claude-code-vs-cursor
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code vs Aider: Which AI Coding Agent Fits Your Workflow?
@@ -18,11 +26,11 @@ related_topics: [claude-code]
 
 ## Feature Comparison
 
-| Feature | Claude Code | Aider |
+| Feature | [Claude Code](/blog/lessons-from-building-claude-code-agent-tools) | [Aider](/glossary/aider) |
 |---------|-------------|-------|
 | **Interface** | Terminal, VS Code, JetBrains, Desktop app, Web | Terminal, IDE integration via code comments |
-| **Model support** | Claude (Anthropic) | Claude, DeepSeek, OpenAI, local models, and more |
-| **Codebase awareness** | Full project context via CLAUDE.md + auto memory | Repository map of entire codebase |
+| **Model support** | Claude (Anthropic) | Claude, [DeepSeek](/glossary/deepseek), OpenAI, local models, and more |
+| **Codebase awareness** | Full project context via [CLAUDE.md](/glossary/claude-md) + [auto memory](/blog/claude-code-memory) | Repository map of entire codebase |
 | **Language support** | Not specified | 100+ programming languages |
 | **Git integration** | Stages, commits, branches, opens PRs | Auto-commits with generated messages |
 | **Multi-file editing** | Native — plans and executes across files | Supported across added files |

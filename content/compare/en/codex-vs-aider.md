@@ -1,14 +1,21 @@
 ---
-title: "Codex vs Aider: Which AI Coding Agent Fits Your Workflow?"
+title: 'Codex vs Aider: Which AI Coding Agent Fits Your Workflow?'
 slug: codex-vs-aider
-description: "Comparing Codex and Aider across features, model support, and workflows for AI-assisted coding."
+description: >-
+  Comparing Codex and Aider across features, model support, and workflows for
+  AI-assisted coding.
 item_a: Codex
 item_b: Aider
 category: tools
-related_glossary: [codex, agentic, agent-teams]
-related_blog: [codex-complete-guide]
+related_glossary:
+  - codex
+  - agentic
+  - agent-teams
+related_blog:
+  - codex-complete-guide
 lang: en
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # Codex vs Aider: Which AI Coding Agent Fits Your Workflow?
@@ -17,17 +24,17 @@ related_topics: [codex]
 
 ## Feature Comparison
 
-| Feature | Codex | Aider |
+| Feature | [Codex](/faq/codex) | [Aider](/glossary/aider) |
 |---------|-------|-------|
 | **Approach** | Managed cloud agent + local CLI/IDE | Open-source CLI pair programmer |
-| **Model support** | OpenAI models (GPT-5.4, o1, o3-mini) | Multi-provider: Claude, DeepSeek, OpenAI, local models |
+| **Model support** | OpenAI models ([GPT-5.4](/glossary/gpt-54), o1, o3-mini) | Multi-provider: Claude, [DeepSeek](/glossary/deepseek), OpenAI, local models |
 | **Codebase awareness** | AGENTS.md config, sandboxed environments | Repo map of entire codebase |
 | **Language support** | Not publicly documented | 100+ languages |
 | **Git integration** | GitHub integration, worktrees | Auto-commits with sensible messages |
 | **IDE support** | Dedicated IDE extension | Works inside any editor via code comments |
 | **Enterprise features** | Auth, agent approvals, managed config, governance | None — individual developer tool |
 | **Voice input** | Not publicly documented | Voice-to-code support |
-| **Integrations** | GitHub, Slack, Linear, MCP servers | Images, web pages, linter/test suite hooks |
+| **Integrations** | GitHub, Slack, Linear, [MCP](/glossary/mcp) servers | Images, web pages, linter/test suite hooks |
 | **Pricing** | Included with ChatGPT Plus/Pro/Business/Enterprise | Free and open source (bring your own API keys) |
 
 ## When to Use Codex

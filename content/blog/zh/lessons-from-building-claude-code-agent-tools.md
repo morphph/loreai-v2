@@ -1,23 +1,33 @@
 ---
-title: "Claude Code Agent 工具设计：为什么一个提问工具要迭代三版？"
-date: 2026-03-10
+title: Claude Code Agent 工具设计：为什么一个提问工具要迭代三版？
+date: 2026-03-10T00:00:00.000Z
 slug: lessons-from-building-claude-code-agent-tools
-description: "Claude Code 团队公开工具设计内幕：AskUserQuestion 迭代三版、TodoWrite 被替换、RAG 被砍掉换 Grep。工具不是越多越好，关键是模型愿不愿意用。"
-keywords: ["Claude Code", "Agent工具设计", "AskUserQuestion", "TodoWrite", "Progressive Disclosure", "AI Agent"]
+description: >-
+  Claude Code 团队公开工具设计内幕：AskUserQuestion 迭代三版、TodoWrite 被替换、RAG 被砍掉换
+  Grep。工具不是越多越好，关键是模型愿不愿意用。
+keywords:
+  - Claude Code
+  - Agent工具设计
+  - AskUserQuestion
+  - TodoWrite
+  - Progressive Disclosure
+  - AI Agent
 category: DEV
-related_newsletter: 2026-03-10
-related_glossary: [ai-agent, prompt-engineering]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - ai-agent
+  - prompt-engineering
 related_compare: []
 lang: zh
 video_ready: true
-video_hook: "一个提问工具迭代三版，Claude Code团队踩过的坑比你想的多"
+video_hook: 一个提问工具迭代三版，Claude Code团队踩过的坑比你想的多
 video_status: published
 source_type: video
 ---
 
 # Claude Code Agent 工具设计：为什么一个提问工具要迭代三版？
 
-Claude Code 团队成员 Thariq 最近公开了 Agent 工具设计的内部经验。核心观点反直觉：工具好不好，不是开发者说了算，是模型说了算。一个 AskUserQuestion 工具迭代了三版才稳定，TodoWrite 随模型进化被整个替换，RAG 被砍掉换成了 Grep。这些决策背后的设计哲学，值得每个做 [AI Agent](/glossary/zh/ai-agent) 的开发者认真理解。
+[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 团队成员 Thariq 最近公开了 Agent 工具设计的内部经验。核心观点反直觉：工具好不好，不是开发者说了算，是模型说了算。一个 AskUserQuestion 工具迭代了三版才稳定，TodoWrite 随模型进化被整个替换，[RAG](/zh/glossary/rag) 被砍掉换成了 Grep。这些决策背后的设计哲学，值得每个做 [AI Agent](/glossary/zh/ai-agent) 的开发者认真理解。
 
 ## 发生了什么
 
@@ -53,7 +63,7 @@ Claude Code 团队用三种策略在不加工具的情况下扩展能力。
 
 **渐进式信息发现（Progressive Disclosure）。** Claude Code 的 Skills 系统让模型读到一个文件后，按需展开引用的下一层文件，层层递进精准定位。类似维基百科的蓝色链接——你不需要一次性看完所有内容。一年前 Claude 完全不会自己构建上下文，现在已经能嵌套搜索好几层文件。
 
-**子 Agent 路由。** 用户问"怎么添加 MCP"时，团队没有把说明塞进系统 [prompt](/glossary/zh/prompt-engineering)，也没有加文档搜索工具，而是做了一个 Claude Code Guide 子 Agent。通过 Prompt 指令让模型在遇到特定问题时启动子 Agent。能力增加了，工具数量没变。
+**子 Agent 路由。** 用户问"怎么添加 [MCP](/zh/blog/claude-code-seven-programmable-layers)"时，团队没有把说明塞进系统 [prompt](/glossary/zh/prompt-engineering)，也没有加文档搜索工具，而是做了一个 Claude Code Guide 子 Agent。通过 Prompt 指令让模型在遇到特定问题时启动子 Agent。能力增加了，工具数量没变。
 
 ## 你现在该做什么
 

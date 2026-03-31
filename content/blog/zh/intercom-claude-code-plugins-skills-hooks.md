@@ -1,22 +1,31 @@
 ---
-title: "Intercom 内部搭建 Claude Code 插件系统：13 个插件、100+ Skills、Hooks 全上了"
-date: 2026-03-20
+title: Intercom 内部搭建 Claude Code 插件系统：13 个插件、100+ Skills、Hooks 全上了
+date: 2026-03-20T00:00:00.000Z
 slug: intercom-claude-code-plugins-skills-hooks
-description: "Intercom 工程团队围绕 Claude Code 构建了完整的内部插件系统，包含 13 个插件和 100 多个 Skills。这是企业级 AI 编码工具落地的最佳实践样本。"
-keywords: ["Claude Code plugins", "Claude Code skills", "Intercom AI", "Claude Code 企业落地"]
+description: >-
+  Intercom 工程团队围绕 Claude Code 构建了完整的内部插件系统，包含 13 个插件和 100 多个 Skills。这是企业级 AI
+  编码工具落地的最佳实践样本。
+keywords:
+  - Claude Code plugins
+  - Claude Code skills
+  - Intercom AI
+  - Claude Code 企业落地
 category: DEV
-related_newsletter: 2026-03-20
-related_glossary: [claude-code, skill-md]
-related_compare: [claude-code-vs-cursor]
+related_newsletter: 2026-03-20T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - skill-md
+related_compare:
+  - claude-code-vs-cursor
 lang: zh
 video_ready: true
-video_hook: "Intercom 把 Claude Code 玩到了什么程度？13 个插件、100 多个 Skills"
+video_hook: Intercom 把 Claude Code 玩到了什么程度？13 个插件、100 多个 Skills
 video_status: none
 ---
 
 # Intercom 内部搭建 Claude Code 插件系统：13 个插件、100+ Skills、Hooks 全上了
 
-Intercom 工程团队公开了他们围绕 **Claude Code** 构建的内部插件体系 — 13 个插件、超过 100 个 Skills、加上 Hooks 机制串联工作流。这不是个人开发者的小打小闹，而是一家千人规模 SaaS 公司把 AI 编码工具系统性嵌入工程流程的实战案例。如果你正在考虑团队级别的 Claude Code 落地方案，这是目前最值得参考的样本。
+Intercom 工程团队公开了他们围绕 **[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 构建的内部插件体系 — 13 个插件、超过 100 个 Skills、加上 [Hooks](/zh/blog/claude-code-seven-programmable-layers) 机制串联工作流。这不是个人开发者的小打小闹，而是一家千人规模 SaaS 公司把 AI 编码工具系统性嵌入工程流程的实战案例。如果你正在考虑团队级别的 Claude Code 落地方案，这是目前最值得参考的样本。
 
 ## 发生了什么
 
@@ -38,7 +47,7 @@ Intercom 的做法指向一个关键趋势：**AI 编码工具的价值不在模
 
 100 多个 Skills 意味着什么？意味着他们把团队的命名规范、测试策略、架构模式、文档标准全部编码成了可版本控制的 Markdown 文件。新人入职，Claude Code 自动加载这些 Skills，输出的代码天然符合团队标准。这比写 Wiki 管用 — Wiki 没人看，Skills 是强制执行的。
 
-对比来看，[Cursor](/glossary/cursor) 和 GitHub Copilot 也有自定义指令的能力，但都是全局设置层面的。Claude Code 的 Skills + Hooks 组合提供了更细粒度的控制：不同任务加载不同的 Skills，Hooks 在关键节点做校验和拦截。这套分层架构更接近企业级需求。
+对比来看，[Cursor](/glossary/cursor) 和 [GitHub Copilot](/zh/glossary/github-[copilot](/zh/glossary/copilot)) 也有自定义指令的能力，但都是全局设置层面的。Claude Code 的 Skills + Hooks 组合提供了更细粒度的控制：不同任务加载不同的 Skills，Hooks 在关键节点做校验和拦截。这套分层架构更接近企业级需求。
 
 ## 技术细节
 
@@ -59,7 +68,7 @@ skills/incident-response/SKILL.md # 故障响应流程
 
 值得注意的限制：Skills 本身是静态指令，不能调用 API 或查询数据库。动态行为需要通过 Hooks 或管线脚本实现。Intercom 的 Hooks 机制补上了这块短板。
 
-结合最近 Claude Code 的一系列更新 — **Opus 4.6** 默认支持 100 万 token 上下文、Code Review 支持手动触发 `@claude review`、远程会话管理、语音模式 — 企业级使用场景的基础设施已经相当完善。
+结合最近 Claude Code 的一系列更新 — **[Opus 4.6](/zh/blog/opus-4-6-1m-default-claude-code)** 默认支持 100 万 token 上下文、Code Review 支持手动触发 `@claude review`、远程会话管理、语音模式 — 企业级使用场景的基础设施已经相当完善。
 
 ## 你现在该做什么
 

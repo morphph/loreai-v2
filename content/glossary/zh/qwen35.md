@@ -1,11 +1,14 @@
 ---
-title: "Qwen 3.5 — AI 术语表"
+title: Qwen 3.5 — AI 术语表
 slug: qwen35
-description: "什么是 Qwen 3.5？阿里巴巴通义千问系列最新一代大语言模型。"
+description: 什么是 Qwen 3.5？阿里巴巴通义千问系列最新一代大语言模型。
 term: qwen35
-display_term: "Qwen 3.5"
+display_term: Qwen 3.5
 category: models
-related_glossary: [claude, anthropic, agentic]
+related_glossary:
+  - claude
+  - anthropic
+  - agentic
 related_blog: []
 related_compare: []
 lang: zh
@@ -13,7 +16,7 @@ lang: zh
 
 # Qwen 3.5 — AI 术语表
 
-**Qwen 3.5**（通义千问 3.5）是阿里巴巴推出的新一代大语言模型系列。作为 Qwen 系列的最新迭代，Qwen 3.5 在推理、代码生成和多语言能力上实现了显著提升，同时提供从轻量级到超大规模的多种参数版本，覆盖从边缘部署到云端推理的完整场景。
+**[Qwen](/zh/glossary/qwen) 3.5**（通义千问 3.5）是阿里巴巴推出的新一代大语言模型系列。作为 Qwen 系列的最新迭代，Qwen 3.5 在推理、代码生成和多语言能力上实现了显著提升，同时提供从轻量级到超大规模的多种参数版本，覆盖从边缘部署到云端推理的完整场景。
 
 ## 为什么 Qwen 3.5 值得关注
 
@@ -30,7 +33,7 @@ Qwen 3.5 基于 Transformer 架构，采用了多项工程优化：
 - **长上下文支持**：支持超长文本输入，适合文档分析和代码理解场景
 - **多模态扩展**：系列中包含视觉语言模型变体，可处理图文混合任务
 
-模型权重托管在 Hugging Face 和 ModelScope 上，配合 vLLM 等推理框架可快速部署。
+模型权重托管在 [Hugging Face](/zh/glossary/hugging-face) 和 ModelScope 上，配合 vLLM 等推理框架可快速部署。
 
 ## 相关术语
 

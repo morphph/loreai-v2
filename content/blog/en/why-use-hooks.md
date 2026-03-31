@@ -1,10 +1,12 @@
 ---
-title: "Why Use Hooks? The Engineering Pattern That Keeps Showing Up Everywhere"
+title: Why Use Hooks? The Engineering Pattern That Keeps Showing Up Everywhere
 slug: why-use-hooks
-description: "Hooks appear in React, PyTorch, webhooks, and AI agents. Here's why this pattern keeps solving the same core problem across software engineering."
+description: >-
+  Hooks appear in React, PyTorch, webhooks, and AI agents. Here's why this
+  pattern keeps solving the same core problem across software engineering.
 lang: en
 category: concepts
-date: 2026-03-23
+date: 2026-03-23T00:00:00.000Z
 ---
 
 # Why Use Hooks? The Engineering Pattern That Keeps Showing Up Everywhere
@@ -52,15 +54,15 @@ PyTorch hooks are widely used in practice but have earned a reputation for poor 
 
 ## Claude Code Hooks: Determinism in AI Agent Workflows
 
-The most recent application of hooks addresses a problem specific to AI systems: non-determinism. Large language models don't behave identically across runs. For production workflows, this is a problem — you need consistent security checks, context injection, and validation regardless of what the model decides to do.
+The most recent application of hooks addresses a problem specific to AI systems: non-determinism. [Large language models](/blog/gemini-3-1-pro-complex-tasks) don't behave identically across runs. For production workflows, this is a problem — you need consistent security checks, context injection, and validation regardless of what the model decides to do.
 
 [Claude Code hooks](/glossary/what-are-claude-code-hooks) impose deterministic rules on non-deterministic LLM behavior. They fire at specific points in an agent's workflow — before a tool call executes, after a file is modified, when a session starts — and run shell commands or scripts that the AI cannot override or skip.
 
-This is the same pattern as webhooks and React hooks, applied to AI agent lifecycle events. [How hooks work](/glossary/how-hooks-work) in Claude Code follows the same logic: register a handler, define the trigger event, execute outside the core system. The practical applications include:
+This is the same pattern as webhooks and React hooks, applied to AI agent lifecycle events. [How hooks work](/glossary/how-hooks-work) in [Claude Code](/blog/claude-code-complete-guide) follows the same logic: register a handler, define the trigger event, execute outside the core system. The practical applications include:
 
 - **Security enforcement**: block certain commands or file paths unconditionally
 - **Context injection**: automatically load project-specific context at session start
-- **Audit logging**: record every tool call regardless of model behavior
+- **Audit logging**: record every tool call regardless of [model behavior](/blog/openai-updated-model-spec-2026)
 - **Validation**: run tests or linters after every code change
 
 For [agentic coding](/glossary/agentic-coding) workflows specifically, hooks provide the control layer that makes AI automation trustworthy in production environments. See our [Claude Code hooks mastery guide](/blog/claude-code-hooks-mastery) for implementation patterns.
@@ -106,7 +108,7 @@ If you're evaluating where hooks add value in your own stack:
 - **Web integrations**: webhooks remain the right choice for service-to-service event notification — they're mature, well-understood, and avoid polling overhead
 - **Frontend state**: React Hooks are now the standard pattern for function components; class components are legacy
 - **ML debugging**: PyTorch hooks are the primary mechanism for activation visualization and gradient analysis — expect to read source code, not just docs
-- **AI agent automation**: Claude Code hooks are the mechanism for adding deterministic guardrails to LLM-driven workflows — essential for production use
+- **AI agent automation**: [Claude Code hooks](/blog/claude-code-extension-stack-skills-hooks-agents-[mcp](/glossary/mcp)) are the mechanism for adding deterministic guardrails to LLM-driven workflows — essential for production use
 
 The pattern is the same. The context determines which implementation you reach for.
 

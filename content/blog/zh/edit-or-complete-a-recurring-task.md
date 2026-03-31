@@ -1,17 +1,19 @@
 ---
-title: "重复任务的进化：从手动勾选到 AI 自主执行"
+title: 重复任务的进化：从手动勾选到 AI 自主执行
 slug: edit-or-complete-a-recurring-task
-description: "重复任务管理正在经历范式转变——从 Google Calendar 的手动勾选，到 AI Agent 的自主执行。这背后发生了什么？"
+description: 重复任务管理正在经历范式转变——从 Google Calendar 的手动勾选，到 AI Agent 的自主执行。这背后发生了什么？
 lang: zh
 category: concepts
-related_glossary: [agentic-coding]
-related_blog: [create-an-mcp-server]
-date: 2026-03-30
+related_glossary:
+  - agentic-coding
+related_blog:
+  - create-an-mcp-server
+date: 2026-03-30T00:00:00.000Z
 ---
 
 # 重复任务的进化：从手动勾选到 AI 自主执行
 
-**重复任务**这个概念正在被重新定义。它曾经意味着在 Google Calendar 里打一个勾，或者在 Notion 里更新一个日期。但到了 2026 年初，它的含义已经悄然变成：一个运行在后台的 AI Agent，在你睡觉的时候自动完成了这件事。
+**重复任务**这个概念正在被重新定义。它曾经意味着在 Google Calendar 里打一个勾，或者在 Notion 里更新一个日期。但到了 2026 年初，它的含义已经悄然变成：一个运行在后台的 [AI Agent](/zh/blog/effective-harnesses-for-long-running-agents)，在你睡觉的时候自动完成了这件事。
 
 这不是夸张。这是当前开发者社区正在经历的真实转变。
 
@@ -27,7 +29,7 @@ date: 2026-03-30
 
 ## 范式转变：从"提醒人"到"替代人"
 
-2026 年初，以 Anthropic 的 Claude Code 和 Claude Cowork 为代表的工具，开始让这个边界变得模糊。
+2026 年初，以 Anthropic 的 [Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 和 Claude [Cowork](/zh/blog/anthropic-cowork-claude-desktop-agent) 为代表的工具，开始让这个边界变得模糊。
 
 关键突破在于：**基于时间（cron）和基于事件的触发器，现在可以可靠地编排复杂的多步骤 LLM 工作流**，并且可以在本地桌面环境上运行。
 
@@ -55,7 +57,7 @@ date: 2026-03-30
 
 如果你正在构建或使用自动化工作流，以下是当前状态的诚实评估：
 
-**已经可用的：** 基于 cron 触发的 LLM 工作流编排，本地桌面 Agent 自主执行，MCP 协议连接外部工具。
+**已经可用的：** 基于 cron 触发的 LLM 工作流编排，本地桌面 Agent 自主执行，[MCP](/zh/blog/claude-code-seven-programmable-layers) 协议连接外部工具。
 
 **仍需谨慎的：** 给 Agent 写权限之前，评估提示注入风险。不要在未经审核的情况下让 Agent 访问敏感文件或执行不可逆操作。
 

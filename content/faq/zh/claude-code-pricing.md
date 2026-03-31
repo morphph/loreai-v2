@@ -1,17 +1,20 @@
 ---
-title: "Claude Code 的定价是多少？"
+title: Claude Code 的定价是多少？
 slug: claude-code-pricing
-description: "Claude Code 有 Free、Pro 和 Max 四个订阅等级，月费 $0-200。Max 比 API 按量计费便宜 18 倍以上。"
+description: Claude Code 有 Free、Pro 和 Max 四个订阅等级，月费 $0-200。Max 比 API 按量计费便宜 18 倍以上。
 category: tools
-related_glossary: [agentic-coding]
-related_blog: [integrate-claude-code-into-your-development-workflow]
+related_glossary:
+  - agentic-coding
+related_blog:
+  - integrate-claude-code-into-your-development-workflow
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code 的定价是多少？
 
-Claude Code 有四个订阅计划：**Free（$0）、Pro（$20/月）、Max 5x（$100/月）和 Max 20x（$200/月）**。每个等级的区别是使用额度——Free 和 Pro 有基础限制，Max 则按倍数提高可用额度。
+[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 有四个订阅计划：**Free（$0）、Pro（$20/月）、Max 5x（$100/月）和 Max 20x（$200/月）**。每个等级的区别是使用额度——Free 和 Pro 有基础限制，Max 则按倍数提高可用额度。
 
 ## 为什么这个问题这么普遍
 

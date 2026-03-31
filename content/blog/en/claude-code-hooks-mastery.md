@@ -1,21 +1,23 @@
 ---
-title: "Claude Code Hooks: The Deterministic Layer That Makes AI Coding Reliable"
+title: 'Claude Code Hooks: The Deterministic Layer That Makes AI Coding Reliable'
 slug: claude-code-hooks-mastery
-description: "Claude Code hooks enforce security, formatting, and logging automatically — adding deterministic control to AI-driven workflows. Here's how to use them."
+description: >-
+  Claude Code hooks enforce security, formatting, and logging automatically —
+  adding deterministic control to AI-driven workflows. Here's how to use them.
 lang: en
 category: tools
-date: 2026-03-21
+date: 2026-03-21T00:00:00.000Z
 ---
 
 # Claude Code Hooks: The Deterministic Layer That Makes AI Coding Reliable
 
-**Claude Code hooks** solve the core reliability problem with AI-assisted development: language models are non-deterministic. They generate excellent code but forget to run your linter, skip your test suite, or occasionally execute something destructive. Hooks are lifecycle triggers that fire at specific points during Claude Code's execution — before a tool call, after a file write, on session end — running predefined scripts or prompts regardless of what the model decides to do. They turn "usually follows conventions" into "always follows conventions."
+**[Claude Code hooks](/blog/claude-code-extension-stack-skills-hooks-agents-[mcp](/glossary/mcp))** solve the core reliability problem with AI-assisted development: language models are non-deterministic. They generate excellent code but forget to run your linter, skip your test suite, or occasionally execute something destructive. Hooks are lifecycle triggers that fire at specific points during [Claude Code](/blog/claude-code-complete-guide)'s execution — before a tool call, after a file write, on session end — running predefined scripts or prompts regardless of what the model decides to do. They turn "usually follows conventions" into "always follows conventions."
 
-Anthropic introduced hooks as Claude Code evolved from a smart autocomplete into a full autonomous agent. As agentic workflows get longer and more complex, the need for deterministic guardrails grows proportionally.
+Anthropic introduced hooks as Claude Code evolved from a smart autocomplete into a full autonomous agent. As [agentic workflows](/blog/openai-computer-access-agents-lessons) get longer and more complex, the need for deterministic guardrails grows proportionally.
 
 ## What Claude Code Hooks Actually Are
 
-A hook is a shell command or prompt that Claude Code executes at a defined lifecycle event. You configure them in your `settings.json` or project-level `CLAUDE.md`. When the trigger fires, the hook runs — no model judgment involved, no risk of it being skipped.
+A hook is a shell command or prompt that Claude Code executes at a defined lifecycle event. You configure them in your `settings.json` or project-level `[CLAUDE.md](/blog/claude-code-memory)`. When the trigger fires, the hook runs — no model judgment involved, no risk of it being skipped.
 
 The core lifecycle events include:
 

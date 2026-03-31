@@ -1,31 +1,43 @@
 ---
-title: "Lessons from Building Claude Code: How Anthropic Designs Agent Tools"
-date: 2026-03-10
+title: 'Lessons from Building Claude Code: How Anthropic Designs Agent Tools'
+date: 2026-03-10T00:00:00.000Z
 slug: lessons-from-building-claude-code-agent-tools
-description: "How Anthropic's Claude Code team designs agent tools by 'seeing like an agent' — lessons on elicitation, task management, and self-directed search."
-keywords: ["Claude Code", "agent tools", "tool design", "AskUserQuestion", "agent harness"]
+description: >-
+  How Anthropic's Claude Code team designs agent tools by 'seeing like an agent'
+  — lessons on elicitation, task management, and self-directed search.
+keywords:
+  - Claude Code
+  - agent tools
+  - tool design
+  - AskUserQuestion
+  - agent harness
 category: DEV
-related_newsletter: 2026-03-10
-related_glossary: [claude-code, ai-agent]
-related_compare: [claude-code-vs-cursor]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - ai-agent
+related_compare:
+  - claude-code-vs-cursor
 lang: en
 video_ready: true
-video_hook: "The hardest part of building an AI agent isn't the model — it's designing what it can do"
+video_hook: >-
+  The hardest part of building an AI agent isn't the model — it's designing what
+  it can do
 video_status: published
 source_type: video
 ---
 
 # Lessons from Building Claude Code: How Anthropic Designs Agent Tools
 
-The hardest part of building an **agent harness** isn't picking the right model — it's constructing the action space. Anthropic's Claude Code team just shared their internal playbook for designing agent tools, and the core insight is deceptively simple: you have to learn to *see like an agent*. That means understanding the model's actual capabilities, watching how it uses tools in practice, and iterating based on what you observe — not what you assume. Three specific lessons from Claude Code's evolution reveal patterns every developer building agentic systems should internalize.
+The hardest part of building an **[agent harness](/blog/agent-harnesses-2026)** isn't picking the right model — it's constructing the action space. Anthropic's [Claude Code](/blog/claude-code-complete-guide) team just shared their internal playbook for designing agent tools, and the core insight is deceptively simple: you have to learn to *see like an agent*. That means understanding the model's actual capabilities, watching how it uses tools in practice, and iterating based on what you observe — not what you assume. Three specific lessons from Claude Code's evolution reveal patterns every developer building [agentic](/glossary/agentic) systems should internalize.
 
 ## What Happened
 
-The Anthropic team published a detailed breakdown of how they design tools for **Claude Code**, their AI coding assistant that acts through [tool calling](/glossary/ai-agent). The post covers three case studies from Claude Code's development: building the AskUserQuestion elicitation tool, evolving from TodoWrite to the Task system, and replacing RAG with self-directed search via Grep.
+The Anthropic team published a detailed breakdown of how they design tools for **Claude Code**, their AI coding assistant that acts through [tool calling](/glossary/ai-agent). The post covers three case studies from Claude Code's development: building the AskUserQuestion elicitation tool, evolving from TodoWrite to the Task system, and replacing [RAG](/glossary/rag) with self-directed search via Grep.
 
 The framing principle is an analogy: if you were given a hard math problem, the best tool depends on your skill level. Paper for manual work, a calculator for assisted computation, a computer for full programmatic solutions. Agent tool design follows the same logic — you shape tools to match the model's actual abilities, not some theoretical ideal.
 
-Claude acts through the Claude API's tool calling primitives, which include bash, skills, and code execution. The question isn't "what tools exist?" but "what tools does this specific model use well?" The answer, Anthropic found, requires close observation of model behavior across iterations.
+Claude acts through the Claude API's tool calling primitives, which include bash, skills, and code execution. The question isn't "what tools exist?" but "what tools does this specific model use well?" The answer, Anthropic found, requires close observation of [model behavior](/blog/openai-updated-model-spec-2026) across iterations.
 
 ```mermaid
 graph LR

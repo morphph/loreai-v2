@@ -1,22 +1,32 @@
 ---
-title: "Why You Should Run AI Coding Agents Locally Instead of Cloud-Only"
-date: 2026-03-20
+title: Why You Should Run AI Coding Agents Locally Instead of Cloud-Only
+date: 2026-03-20T00:00:00.000Z
 slug: run-ai-coding-agents-locally
-description: "Cloud agents like Claude Code and Codex are powerful, but running AI agents locally with open-weight models gives you privacy, speed, and zero usage limits."
-keywords: ["local AI agents", "Claude Code alternative", "open-weight coding models", "Hugging Face agents"]
+description: >-
+  Cloud agents like Claude Code and Codex are powerful, but running AI agents
+  locally with open-weight models gives you privacy, speed, and zero usage
+  limits.
+keywords:
+  - local AI agents
+  - Claude Code alternative
+  - open-weight coding models
+  - Hugging Face agents
 category: DEV
-related_newsletter: 2026-03-20
-related_glossary: [claude-code, open-source-models]
-related_compare: [claude-code-vs-cursor]
+related_newsletter: 2026-03-20T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - open-source-models
+related_compare:
+  - claude-code-vs-cursor
 lang: en
 video_ready: true
-video_hook: "You're paying per-token for something you could run on your own hardware"
+video_hook: You're paying per-token for something you could run on your own hardware
 video_status: none
 ---
 
 # Why You Should Run AI Coding Agents Locally Instead of Cloud-Only
 
-**Hugging Face** just made a compelling case: if you're hooked on cloud-based coding agents like **Claude Code** or **Codex**, you're missing half the picture. Running agents locally on open-weight models gives you unlimited usage, complete data privacy, and zero latency to an API server — all on hardware you already own or can rent cheaply. The trade-off used to be capability, but with models like Qwen-Coder, DeepSeek-Coder-V3, and CodeLlama descendants now matching GPT-4-class output on many coding tasks, that gap is narrowing fast. Here's what the local-agent landscape looks like in March 2026 and whether it's ready for your workflow.
+**[Hugging Face](/glossary/hugging-face)** just made a compelling case: if you're hooked on cloud-based [coding agents](/blog/9-principles-writing-claude-code-skills) like **[Claude Code](/blog/claude-code-complete-guide)** or **Codex**, you're missing half the picture. Running agents locally on [open-weight models](/glossary/open-weight-models) gives you unlimited usage, complete data privacy, and zero latency to an API server — all on hardware you already own or can rent cheaply. The trade-off used to be capability, but with models like Qwen-Coder, [DeepSeek](/glossary/deepseek)-Coder-V3, and CodeLlama descendants now matching GPT-4-class output on many coding tasks, that gap is narrowing fast. Here's what the local-agent landscape looks like in March 2026 and whether it's ready for your workflow.
 
 ## What Happened
 

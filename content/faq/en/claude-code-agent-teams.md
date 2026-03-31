@@ -1,17 +1,25 @@
 ---
-title: "How to use Claude Code agent teams?"
+title: How to use Claude Code agent teams?
 slug: claude-code-agent-teams
-description: "Claude Code agent teams let a lead agent spawn parallel sub-agents that divide work across files, tests, or tasks and merge results."
+description: >-
+  Claude Code agent teams let a lead agent spawn parallel sub-agents that divide
+  work across files, tests, or tasks and merge results.
 category: tools
-related_glossary: [claude-code, agent-teams, multi-agent-systems]
-related_blog: [claude-code-agent-teams, claude-code-extension-stack-skills-hooks-agents-mcp]
+related_glossary:
+  - claude-code
+  - agent-teams
+  - multi-agent-systems
+related_blog:
+  - claude-code-agent-teams
+  - claude-code-extension-stack-skills-hooks-agents-mcp
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # How to use Claude Code agent teams?
 
-Claude Code agent teams allow a lead agent to spawn multiple sub-agents that work on different parts of a task in parallel. The lead agent coordinates the overall plan, assigns specific work to each sub-agent, and merges the results. This pattern is useful for large tasks like generating multiple files simultaneously, running parallel test suites, or refactoring code across an entire codebase.
+[Claude Code](/blog/lessons-from-building-claude-code-agent-tools) agent teams allow a lead agent to spawn multiple sub-agents that work on different parts of a task in parallel. The lead agent coordinates the overall plan, assigns specific work to each sub-agent, and merges the results. This pattern is useful for large tasks like generating multiple files simultaneously, running parallel test suites, or refactoring code across an entire codebase.
 
 ## Context
 
@@ -33,7 +41,7 @@ For guidance on building reliable harnesses around long-running agent teams, see
 
 ## Related Questions
 
-- [What are Claude Code skills?](/faq/claude-code-skills)
+- [What are [Claude Code skills](/blog/9-principles-writing-claude-code-skills)?](/faq/claude-code-skills)
 - [How to use Claude Code in CI/CD?](/faq/claude-code-ci-cd)
 - [What is Claude Code?](/faq/what-is-claude-code)
 

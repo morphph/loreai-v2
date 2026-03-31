@@ -1,11 +1,14 @@
 ---
-title: "Diffusers — AI Glossary"
+title: Diffusers — AI Glossary
 slug: diffusers
-description: "What is Diffusers? Hugging Face's open-source library for diffusion-based generative models."
+description: >-
+  What is Diffusers? Hugging Face's open-source library for diffusion-based
+  generative models.
 term: diffusers
-display_term: "Diffusers"
+display_term: Diffusers
 category: frameworks
-related_glossary: [agentic]
+related_glossary:
+  - agentic
 related_blog: []
 related_compare: []
 lang: en
@@ -13,7 +16,7 @@ lang: en
 
 # Diffusers — AI Glossary
 
-**Diffusers** is Hugging Face's open-source Python library for running, training, and fine-tuning diffusion models — the architecture behind image generators like Stable Diffusion, DALL-E, and Imagen. It provides a unified API for loading pretrained models from the Hugging Face Hub, running inference with just a few lines of code, and swapping between different schedulers, pipelines, and model checkpoints without rewriting your workflow.
+**Diffusers** is [Hugging Face](/glossary/hugging-face)'s open-source Python library for running, training, and [fine-tuning](/glossary/fine-tuning) diffusion models — the architecture behind image generators like Stable Diffusion, DALL-E, and Imagen. It provides a unified API for loading pretrained models from the Hugging Face Hub, running inference with just a few lines of code, and swapping between different schedulers, pipelines, and model checkpoints without rewriting your workflow.
 
 ## Why Diffusers Matters
 
@@ -33,8 +36,8 @@ The library integrates with PyTorch and supports `torch.compile`, Flash Attentio
 
 ## Related Terms
 
-- **[Agentic](/glossary/agentic)**: AI systems that take autonomous actions — diffusion models can serve as tool endpoints within agentic image-generation workflows
-- **[Anthropic](/glossary/anthropic)**: AI safety company behind Claude — focused on language models rather than diffusion-based generation
+- **[Agentic](/glossary/agentic)**: AI systems that take autonomous actions — diffusion models can serve as tool endpoints within [agentic](/topics/agentic) image-generation workflows
+- **[Anthropic](/glossary/anthropic)**: [AI safety](/glossary/ai-safety) company behind Claude — focused on language models rather than diffusion-based generation
 - **[Claude](/glossary/claude)**: Anthropic's LLM family — complementary to Diffusers, which targets visual and multimodal generation
 
 ---

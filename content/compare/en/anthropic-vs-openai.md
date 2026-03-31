@@ -1,12 +1,19 @@
 ---
-title: "Anthropic vs OpenAI: Which AI Lab Should You Bet On?"
+title: 'Anthropic vs OpenAI: Which AI Lab Should You Bet On?'
 slug: anthropic-vs-openai
-description: "Comparing Anthropic and OpenAI across models, safety approach, pricing, and developer tools."
+description: >-
+  Comparing Anthropic and OpenAI across models, safety approach, pricing, and
+  developer tools.
 item_a: Anthropic
 item_b: OpenAI
 category: models
-related_glossary: [claude-desktop, chatgpt, agentic-coding]
-related_blog: [claude-excel-powerpoint-skills-context, openai-computer-access-agents-lessons]
+related_glossary:
+  - claude-desktop
+  - chatgpt
+  - agentic-coding
+related_blog:
+  - claude-excel-powerpoint-skills-context
+  - openai-computer-access-agents-lessons
 lang: en
 ---
 
@@ -20,9 +27,9 @@ lang: en
 |---------|-----------|--------|
 | **Flagship model** | Claude (Opus, Sonnet, Haiku) | GPT-4o, o1, o3 |
 | **Context window** | Up to 200K tokens | Up to 128K tokens (GPT-4o) |
-| **Consumer product** | [Claude Desktop](/glossary/claude-desktop) | ChatGPT |
-| **Developer tools** | Claude API, Claude Code, MCP | OpenAI API, Codex, GPTs |
-| **Agentic coding** | Claude Code (terminal agent) | Codex (cloud-based agent) |
+| **Consumer product** | [Claude Desktop](/glossary/claude-desktop) | [ChatGPT](/topics/chatgpt) |
+| **Developer tools** | Claude API, [Claude Code](/blog/claude-code-complete-guide), [MCP](/glossary/mcp) | OpenAI API, [Codex](/blog/codex-complete-guide), GPTs |
+| **[Agentic coding](/blog/claude-code-seven-programmable-layers)** | Claude Code (terminal agent) | Codex (cloud-based agent) |
 | **Safety approach** | Constitutional AI, interpretability research | RLHF, red-teaming, safety board |
 | **Multimodal** | Vision, PDF, code | Vision, audio, video, image generation |
 | **Open-source models** | No | No (GPT line); limited open-weight via partners |

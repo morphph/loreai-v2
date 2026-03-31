@@ -1,25 +1,31 @@
 ---
-title: "Hugging Face — AI Glossary"
+title: Hugging Face — AI Glossary
 slug: hugging-face
-description: "What is Hugging Face? The open-source platform hosting ML models, datasets, and tools for the AI community."
+description: >-
+  What is Hugging Face? The open-source platform hosting ML models, datasets,
+  and tools for the AI community.
 term: hugging-face
-display_term: "Hugging Face"
+display_term: Hugging Face
 category: frameworks
-related_glossary: [chatgpt, cursor, agentic-coding]
-related_blog: [claude-code-enterprise-engineering-ramp-shopify-spotify]
+related_glossary:
+  - chatgpt
+  - cursor
+  - agentic-coding
+related_blog:
+  - claude-code-enterprise-engineering-ramp-shopify-spotify
 related_compare: []
 lang: en
 ---
 
 # Hugging Face — AI Glossary
 
-**Hugging Face** is an open-source platform and company that hosts machine learning models, datasets, and inference tools — functioning as the de facto hub where the AI community shares and collaborates on ML artifacts. Originally built around the Transformers library for NLP, it has expanded into the central repository for everything from large language models to image generators, with over 500,000 public models and 100,000 datasets available on its Hub.
+**[Hugging Face](/glossary/huggingface)** is an open-source platform and company that hosts machine learning models, datasets, and inference tools — functioning as the de facto hub where the AI community shares and collaborates on ML artifacts. Originally built around the [Transformers](/glossary/transformers) library for NLP, it has expanded into the central repository for everything from [large language models](/blog/gemini-3-1-pro-complex-tasks) to image generators, with over 500,000 public models and 100,000 datasets available on its Hub.
 
 ## Why Hugging Face Matters
 
 Hugging Face lowered the barrier to using state-of-the-art AI models from "read the paper and reimplement from scratch" to "three lines of Python." Its Model Hub lets researchers publish pretrained weights and developers download them instantly, creating a network effect where nearly every major AI lab — including Meta, Google, Microsoft, and Mistral — releases models through the platform.
 
-For engineering teams, this means standardized model loading, consistent APIs across architectures, and a single place to evaluate options before committing to a stack. The platform's Spaces feature also lets developers deploy model demos without managing infrastructure. Companies building AI-powered products often start their model selection process on Hugging Face before fine-tuning or deploying elsewhere. See how enterprises are integrating AI tooling into their workflows in our [coverage of Claude Code adoption at Shopify and Spotify](/blog/claude-code-enterprise-engineering-ramp-shopify-spotify).
+For engineering teams, this means standardized model loading, consistent APIs across architectures, and a single place to evaluate options before committing to a stack. The platform's Spaces feature also lets developers deploy model demos without managing infrastructure. Companies building AI-powered products often start their model selection process on Hugging Face before [fine-tuning](/glossary/fine-tuning) or deploying elsewhere. See how enterprises are integrating AI tooling into their workflows in our [coverage of [Claude Code](/blog/claude-code-complete-guide) adoption at Shopify and Spotify](/blog/claude-code-enterprise-engineering-ramp-shopify-spotify).
 
 ## How Hugging Face Works
 

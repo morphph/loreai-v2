@@ -1,11 +1,15 @@
 ---
-title: "Autonomous Weapons — AI Glossary"
+title: Autonomous Weapons — AI Glossary
 slug: autonomous-weapons
-description: "What are autonomous weapons? AI-powered military systems that select and engage targets without direct human control."
+description: >-
+  What are autonomous weapons? AI-powered military systems that select and
+  engage targets without direct human control.
 term: autonomous-weapons
-display_term: "Autonomous Weapons"
+display_term: Autonomous Weapons
 category: concepts
-related_glossary: [google-deepmind, fine-tuning]
+related_glossary:
+  - google-deepmind
+  - fine-tuning
 related_blog: []
 related_compare: []
 lang: en
@@ -33,7 +37,7 @@ The "autonomy spectrum" is critical. Most deployed systems today are **human-on-
 
 ## Related Terms
 
-- **[Google DeepMind](/glossary/google-deepmind)**: A leading AI lab whose research in reinforcement learning and robotics has dual-use implications for autonomous systems
+- **[Google DeepMind](/glossary/google-[deepmind](/glossary/deepmind))**: A leading AI lab whose research in reinforcement learning and robotics has dual-use implications for autonomous systems
 - **[Fine-Tuning](/glossary/fine-tuning)**: The process of adapting pre-trained models to specific tasks, including military target recognition
 - **[Agentic Coding](/glossary/agentic-coding)**: AI systems that act autonomously toward goals — the same agent architecture pattern underlying autonomous weapons decision-making
 

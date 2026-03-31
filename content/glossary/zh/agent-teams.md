@@ -1,15 +1,21 @@
 ---
-title: "Agent Teams — AI 术语表"
+title: Agent Teams — AI 术语表
 slug: agent-teams
-description: "什么是 Agent Teams？多智能体协作模式，让 AI 编码助手并行处理复杂任务。"
+description: 什么是 Agent Teams？多智能体协作模式，让 AI 编码助手并行处理复杂任务。
 term: agent-teams
-display_term: "Agent Teams"
+display_term: Agent Teams
 category: techniques
-related_glossary: [agentic, anthropic, claude]
-related_blog: [claude-code-agent-teams, claude-code-extension-stack-skills-hooks-agents-mcp]
+related_glossary:
+  - agentic
+  - anthropic
+  - claude
+related_blog:
+  - claude-code-agent-teams
+  - claude-code-extension-stack-skills-hooks-agents-mcp
 related_compare: []
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Agent Teams — AI 术语表
@@ -18,7 +24,7 @@ related_topics: [claude-code]
 
 ## 为什么 Agent Teams 重要
 
-单个 AI agent 处理大型代码库时面临两个瓶颈：上下文窗口有限，串行执行速度慢。Agent Teams 同时解决了这两个问题——每个子 agent 独立持有自己的上下文，多个子 agent 并行工作，整体吞吐量成倍提升。
+单个 [AI agent](/zh/blog/effective-harnesses-for-long-running-agents) 处理大型代码库时面临两个瓶颈：上下文窗口有限，串行执行速度慢。Agent Teams 同时解决了这两个问题——每个子 agent 独立持有自己的上下文，多个子 agent 并行工作，整体吞吐量成倍提升。
 
 对于 monorepo 级别的重构、跨模块测试生成、大规模代码审查等场景，这种模式尤为关键。我们在 [Claude Code Agent Teams 深度解析](/blog/claude-code-agent-teams) 中详细分析了实际应用案例。
 
@@ -35,7 +41,7 @@ related_topics: [claude-code]
 ## 相关术语
 
 - **[Agentic](/glossary/agentic)**：描述 AI 系统自主规划和执行任务的能力，Agent Teams 是其多体扩展
-- **[Anthropic](/glossary/anthropic)**：Claude 和 Claude Code 的开发公司，Agent Teams 架构的设计者
+- **[Anthropic](/glossary/anthropic)**：Claude 和 [Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 的开发公司，Agent Teams 架构的设计者
 - **[Claude](/glossary/claude)**：驱动 Agent Teams 中每个子 agent 的底层大语言模型
 
 ---

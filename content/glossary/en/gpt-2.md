@@ -1,11 +1,16 @@
 ---
-title: "GPT-2 — AI Glossary"
+title: GPT-2 — AI Glossary
 slug: gpt-2
-description: "What is GPT-2? OpenAI's 1.5B parameter language model that demonstrated the power of unsupervised text generation."
+description: >-
+  What is GPT-2? OpenAI's 1.5B parameter language model that demonstrated the
+  power of unsupervised text generation.
 term: gpt-2
-display_term: "GPT-2"
+display_term: GPT-2
 category: models
-related_glossary: [anthropic, claude, agentic]
+related_glossary:
+  - anthropic
+  - claude
+  - agentic
 related_blog: []
 related_compare: []
 lang: en
@@ -17,7 +22,7 @@ lang: en
 
 ## Why GPT-2 Matters
 
-GPT-2 was a turning point in AI research. It proved that **unsupervised pre-training** at sufficient scale could generalize across tasks — summarization, translation, and question answering — without explicit fine-tuning. OpenAI initially withheld the full model over concerns about misuse for generating disinformation, sparking one of the first major public debates about responsible AI release practices.
+GPT-2 was a turning point in AI research. It proved that **unsupervised pre-training** at sufficient scale could generalize across tasks — summarization, translation, and question answering — without explicit [fine-tuning](/glossary/fine-tuning). OpenAI initially withheld the full model over concerns about misuse for generating disinformation, sparking one of the first major public debates about responsible AI release practices.
 
 The model's architecture and training approach directly influenced every major language model that followed, including GPT-3, GPT-4, and competitors like [Claude](/glossary/claude) from [Anthropic](/glossary/anthropic). GPT-2 established the scaling hypothesis: bigger models trained on more data yield qualitatively better capabilities. That insight reshaped the entire AI industry's R&D strategy.
 
@@ -35,8 +40,8 @@ The model was released in four sizes: 124M, 355M, 774M, and the full 1.5B parame
 
 ## Related Terms
 
-- **[Claude](/glossary/claude)**: Anthropic's family of large language models, representing the next generation of transformer-based AI built with safety-focused training
-- **[Anthropic](/glossary/anthropic)**: AI safety company founded by former OpenAI researchers, whose work builds on foundations GPT-2 helped establish
+- **[Claude](/glossary/claude)**: Anthropic's family of [large language models](/blog/gemini-3-1-pro-complex-tasks), representing the next generation of transformer-based AI built with safety-focused training
+- **[Anthropic](/glossary/anthropic)**: [AI safety](/glossary/ai-safety) company founded by former OpenAI researchers, whose work builds on foundations GPT-2 helped establish
 - **[Agentic](/glossary/agentic)**: A paradigm for AI systems that act autonomously — a capability trajectory that GPT-2's generative abilities foreshadowed
 
 ---

@@ -1,22 +1,36 @@
 ---
-title: "Anthropic Launches Claude Community Meetup Program with Funding and API Credits"
-date: 2026-03-11
+title: >-
+  Anthropic Launches Claude Community Meetup Program with Funding and API
+  Credits
+date: 2026-03-11T00:00:00.000Z
 slug: anthropic-claude-community-meetup-program
-description: "Anthropic now funds local Claude meetups worldwide, providing swag, API credits, and support for community organizers building the Claude developer ecosystem."
-keywords: ["Claude meetups", "Anthropic developer community", "Claude API credits", "Claude Code community"]
+description: >-
+  Anthropic now funds local Claude meetups worldwide, providing swag, API
+  credits, and support for community organizers building the Claude developer
+  ecosystem.
+keywords:
+  - Claude meetups
+  - Anthropic developer community
+  - Claude API credits
+  - Claude Code community
 category: APP
-related_newsletter: 2026-03-11
-related_glossary: [claude-code, claude-api]
-related_compare: [claude-community-vs-openai-community, claude-code-vs-github-copilot, anthropic-developer-program-vs-vercel-community]
+related_newsletter: 2026-03-11T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - claude-api
+related_compare:
+  - claude-community-vs-openai-community
+  - claude-code-vs-github-copilot
+  - anthropic-developer-program-vs-vercel-community
 lang: en
 video_ready: true
-video_hook: "Anthropic will pay you to run Claude meetups in your city"
+video_hook: Anthropic will pay you to run Claude meetups in your city
 video_status: none
 ---
 
 # Anthropic Launches Claude Community Meetup Program with Funding and API Credits
 
-Anthropic is now actively funding local **Claude meetups** worldwide. The program covers event costs, ships swag to organizers, and provides monthly **Claude API** credits for demos and community projects. Announced by Anthropic's Lydia Hallie and amplified by Claude Code lead Boris Cherny, the initiative signals that Anthropic is serious about building a grassroots developer community — not just shipping models. For developers who've been using Claude in isolation, this is a direct invitation to connect with others building on the platform.
+Anthropic is now actively funding local **Claude meetups** worldwide. The program covers event costs, ships swag to organizers, and provides monthly **Claude API** credits for demos and community projects. Announced by Anthropic's Lydia Hallie and amplified by [Claude Code](/blog/claude-code-complete-guide) lead Boris Cherny, the initiative signals that Anthropic is serious about building a grassroots developer community — not just shipping models. For developers who've been using Claude in isolation, this is a direct invitation to connect with others building on the platform.
 
 ## What Happened
 
@@ -36,13 +50,13 @@ The meetup program addresses three strategic gaps simultaneously:
 
 **Feedback density.** Anthropic ships fast — HTTP hooks, `/simplify`, `/batch`, Remote mode all landed in recent weeks. But Twitter feedback is noisy and support tickets are narrow. In-person meetups generate the kind of detailed, contextual feedback that shapes product roadmaps. When an organizer watches 30 developers struggle with the same workflow, that signal is gold.
 
-**Competitive positioning.** Cursor has a passionate community but no formal program. GitHub Copilot relies on Microsoft's existing developer relations infrastructure. A funded, decentralized meetup network gives Anthropic grassroots presence that's hard to replicate quickly.
+**Competitive positioning.** [Cursor](/glossary/cursor) has a passionate community but no formal program. [GitHub Copilot](/glossary/github-[copilot](/glossary/copilot)) relies on Microsoft's existing developer relations infrastructure. A funded, decentralized meetup network gives Anthropic grassroots presence that's hard to replicate quickly.
 
 ## Technical Deep-Dive
 
 The API credits component is the most interesting part for builders. Monthly credits mean organizers can run recurring workshops without worrying about costs. Here's what that enables practically:
 
-**Live coding sessions.** Demonstrating Claude Code's [Skills system](/glossary/claude-code) requires real API calls. An organizer could walk through building a custom `SKILL.md`, showing how output quality changes with and without structured instructions — something that's hard to convey in a blog post but immediately compelling in person.
+**Live coding sessions.** Demonstrating Claude Code's [Skills system](/glossary/claude-code) requires real API calls. An organizer could walk through building a custom `[SKILL.md](/blog/9-principles-writing-claude-code-skills)`, showing how output quality changes with and without structured instructions — something that's hard to convey in a blog post but immediately compelling in person.
 
 **Local hackathons.** Give 20 developers API access for a weekend and you'll see creative applications that Anthropic's internal team would never build. These events are where novel use cases for tools like the [Claude API](/glossary/claude-api) surface — from specialized code review bots to domain-specific research agents.
 

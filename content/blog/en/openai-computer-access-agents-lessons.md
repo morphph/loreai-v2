@@ -1,16 +1,26 @@
 ---
-title: "OpenAI's Technical Lessons From Building Computer Access for Agents"
-date: 2026-03-13
+title: OpenAI's Technical Lessons From Building Computer Access for Agents
+date: 2026-03-13T00:00:00.000Z
 slug: openai-computer-access-agents-lessons
-description: "OpenAI shares key engineering lessons from building computer access for agents: tighter execution loops, file system context, and secure network access."
-keywords: ["computer use agents", "OpenAI agent infrastructure", "agentic workflows", "agent security"]
+description: >-
+  OpenAI shares key engineering lessons from building computer access for
+  agents: tighter execution loops, file system context, and secure network
+  access.
+keywords:
+  - computer use agents
+  - OpenAI agent infrastructure
+  - agentic workflows
+  - agent security
 category: DEV
-related_newsletter: 2026-03-13
-related_glossary: [computer-use, agentic-ai]
-related_compare: [openai-vs-anthropic]
+related_newsletter: 2026-03-13T00:00:00.000Z
+related_glossary:
+  - computer-use
+  - agentic-ai
+related_compare:
+  - openai-vs-anthropic
 lang: en
 video_ready: true
-video_hook: "OpenAI reveals why giving agents computer access is harder than it looks"
+video_hook: OpenAI reveals why giving agents computer access is harder than it looks
 video_status: none
 ---
 
@@ -42,7 +52,7 @@ The file-system-as-context insight is particularly significant. The industry spe
 
 The security guardrails point matters for enterprise adoption. Companies won't deploy agents that have unrestricted network access inside their infrastructure. OpenAI's approach — default-deny networking with explicit allowlists — is likely to become the standard pattern for agent sandboxes. This mirrors how container orchestration evolved: start locked down, open specific ports as needed.
 
-For the competitive landscape, these infrastructure investments create moats. Building reliable agent execution environments takes months of engineering. Teams like [Claude Code](/glossary/claude-code) and Codex that have already solved these problems have a significant head start over newcomers.
+For the competitive landscape, these infrastructure investments create moats. Building reliable agent execution environments takes months of engineering. Teams like [Claude Code](/glossary/claude-code) and [Codex](/blog/codex-complete-guide) that have already solved these problems have a significant head start over newcomers.
 
 ## Technical Deep-Dive
 

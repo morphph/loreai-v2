@@ -1,22 +1,37 @@
 ---
-title: "GPT-5.4 Pro vs Claude Opus vs Gemini DeepThink: What a Side-by-Side Test Reveals"
-date: 2026-03-10
+title: >-
+  GPT-5.4 Pro vs Claude Opus vs Gemini DeepThink: What a Side-by-Side Test
+  Reveals
+date: 2026-03-10T00:00:00.000Z
 slug: gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison
-description: "A side-by-side analysis of GPT-5.4 Pro, Claude Opus, and Gemini DeepThink on original analysis tasks reveals where each frontier model excels and struggles."
-keywords: ["GPT-5.4 Pro vs Claude Opus", "Gemini DeepThink", "frontier model comparison", "LLM benchmarks 2026"]
+description: >-
+  A side-by-side analysis of GPT-5.4 Pro, Claude Opus, and Gemini DeepThink on
+  original analysis tasks reveals where each frontier model excels and
+  struggles.
+keywords:
+  - GPT-5.4 Pro vs Claude Opus
+  - Gemini DeepThink
+  - frontier model comparison
+  - LLM benchmarks 2026
 category: MODEL
-related_newsletter: 2026-03-10
-related_glossary: [claude-opus, gpt-5]
-related_compare: [claude-vs-gpt, claude-vs-gemini]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - claude-opus
+  - gpt-5
+related_compare:
+  - claude-vs-gpt
+  - claude-vs-gemini
 lang: en
 video_ready: true
-video_hook: "Three frontier models, one analysis task — the results aren't what you'd expect"
+video_hook: >-
+  Three frontier models, one analysis task — the results aren't what you'd
+  expect
 video_status: none
 ---
 
 # GPT-5.4 Pro vs Claude Opus vs Gemini DeepThink: What a Side-by-Side Test Reveals
 
-The frontier model race has entered a new phase where raw benchmark scores matter less than *how* a model thinks. Wharton professor Ethan Mollick [ran a side-by-side comparison](https://x.com/emollick/status/2029689565846364444) of **GPT-5.4 Pro**, **Claude Opus**, and **Gemini DeepThink** on an original analysis task — not a canned benchmark, but the kind of messy, open-ended reasoning that knowledge workers actually do. The results highlight that these three models have developed genuinely different cognitive styles, and choosing the right one depends on what kind of thinking you need.
+The frontier model race has entered a new phase where raw benchmark scores matter less than *how* a model thinks. Wharton professor Ethan Mollick [ran a side-by-side comparison](https://x.com/emollick/status/2029689565846364444) of **[GPT-5.4](/glossary/gpt-54) Pro**, **Claude Opus**, and **Gemini DeepThink** on an original analysis task — not a canned benchmark, but the kind of messy, open-ended reasoning that knowledge workers actually do. The results highlight that these three models have developed genuinely different cognitive styles, and choosing the right one depends on what kind of thinking you need.
 
 ## What Happened
 

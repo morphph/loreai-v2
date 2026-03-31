@@ -1,24 +1,36 @@
 ---
-title: "Obsidian + Claude Code：一套让 AI 读懂你整个人生的知识管理系统"
-date: 2026-03-10
+title: Obsidian + Claude Code：一套让 AI 读懂你整个人生的知识管理系统
+date: 2026-03-10T00:00:00.000Z
 slug: obsidian-claude-code-life
-description: "Internet Vin 用 Obsidian 知识图谱 + Claude Code 自定义命令，让 AI 加载完整人生上下文、发现思维盲区、甚至主动设计工具。三层玩法完整拆解。"
-keywords: ["Obsidian", "Claude Code", "知识管理", "AI工作流", "自定义命令", "meta-prompting"]
+description: >-
+  Internet Vin 用 Obsidian 知识图谱 + Claude Code 自定义命令，让 AI
+  加载完整人生上下文、发现思维盲区、甚至主动设计工具。三层玩法完整拆解。
+keywords:
+  - Obsidian
+  - Claude Code
+  - 知识管理
+  - AI工作流
+  - 自定义命令
+  - meta-prompting
 category: DEV
-related_newsletter: 2026-03-10
-related_glossary: [claude-code, context-window, prompt-engineering]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - context-window
+  - prompt-engineering
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: zh
 video_ready: true
-video_hook: "一个命令让 AI 加载你的整个人生，项目、日记、工作流全部到位"
+video_hook: 一个命令让 AI 加载你的整个人生，项目、日记、工作流全部到位
 video_status: published
 source_type: video
 ---
 
 # Obsidian + Claude Code：一套让 AI 读懂你整个人生的知识管理系统
 
-每次打开新的 AI 对话，你是不是又要从头解释自己是谁、在做什么项目？有人只需要一个命令，AI 就能瞬间加载他的项目描述、播客上下文、个人工作流——一个字都不用解释。这套系统的核心不是什么黑科技，而是 **Obsidian** 的知识图谱加上 **Claude Code** 的自定义命令。拆解这套方案，你会发现 AI 的能力上限，取决于你喂给它的上下文质量。
+每次打开新的 AI 对话，你是不是又要从头解释自己是谁、在做什么项目？有人只需要一个命令，AI 就能瞬间加载他的项目描述、播客上下文、个人工作流——一个字都不用解释。这套系统的核心不是什么黑科技，而是 **Obsidian** 的知识图谱加上 **[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 的自定义命令。拆解这套方案，你会发现 AI 的能力上限，取决于你喂给它的上下文质量。
 
 ## 发生了什么
 
@@ -59,7 +71,7 @@ Internet Vin 在一期播客访谈中分享了他用 Obsidian + Claude Code 管�
 
 1. **你每次开新对话都在复制粘贴同样的背景信息。** 说明你缺的是持久化的上下文，不是更好的[提示词](/glossary/zh/prompt-engineering)。
 2. **你的笔记越来越多，但翻旧笔记的频率越来越低。** 散落的文件再多，AI 也只能一个一个读，有了链接才能看到全貌。
-3. **你感觉自己在忙，但说不清到底在忙什么。** 你需要的不是更大的 Context Window，而是更结构化的上下文。
+3. **你感觉自己在忙，但说不清到底在忙什么。** 你需要的不是更大的 [Context Window](/zh/blog/effective-harnesses-for-long-running-agents)，而是更结构化的上下文。
 
 **现在就可以做的一件事：** 下载 Obsidian（免费），创建一个 Vault，把你最重要的三个项目各写一个 markdown 文件，用双括号互相链接。然后用 Claude Code 创建你的第一个自定义命令——让它读取你过去一周的笔记，总结你最关心的三件事。看看 AI 的总结和你自己的感觉是否一致。
 

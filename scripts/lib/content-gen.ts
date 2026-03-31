@@ -726,23 +726,52 @@ Output the FULL markdown file including the --- frontmatter block ---.\n\n`;
   // Source material
   system += buildSourceMaterialSection(sourcePack);
 
-  // Context
+  // Context — available internal links + full link targets
+  const prefix = lang === 'en' ? '' : '/zh';
   system += `### Context
 - Primary keyword: ${job.primary_keyword}
 - Secondary keywords: ${job.secondary_keywords.join(', ') || 'none'}
 - Target intent: ${job.intent}
 - Cluster: ${job.cluster_slug || 'none'}
-- Available internal links:
-  - Glossary: ${relatedSlugs.glossary.map((s) => `/glossary/${s}`).join(', ') || 'none yet'}
-  - Blog: ${relatedSlugs.blog.map((s) => `/blog/${s}`).join(', ') || 'none yet'}
-  - Compare: ${relatedSlugs.compare.map((s) => `/compare/${s}`).join(', ') || 'none yet'}
-  - FAQ: ${relatedSlugs.faq.map((s) => `/faq/${s}`).join(', ') || 'none yet'}
+- Available internal links (from same cluster):
+  - Glossary: ${relatedSlugs.glossary.map((s) => `${prefix}/glossary/${s}`).join(', ') || 'none yet'}
+  - Blog: ${relatedSlugs.blog.map((s) => `${prefix}/blog/${s}`).join(', ') || 'none yet'}
+  - Compare: ${relatedSlugs.compare.map((s) => `${prefix}/compare/${s}`).join(', ') || 'none yet'}
+  - FAQ: ${relatedSlugs.faq.map((s) => `${prefix}/faq/${s}`).join(', ') || 'none yet'}
+`;
 
+  // Load full link targets for richer internal linking
+  const linkTargetsPath = path.join(process.cwd(), 'data', 'link-targets.json');
+  if (fs.existsSync(linkTargetsPath)) {
+    try {
+      const allTargets = JSON.parse(fs.readFileSync(linkTargetsPath, 'utf-8')) as Record<string, { title: string; keywords: string[]; type: string }>;
+      // Filter to same language, limit to 50 most relevant entries
+      const langTargets = Object.entries(allTargets)
+        .filter(([url]) => lang === 'en' ? !url.startsWith('/zh') : url.startsWith('/zh'))
+        .slice(0, 50)
+        .map(([url, t]) => `  - ${url} — "${t.title}"`)
+        .join('\n');
+      if (langTargets) {
+        system += `- Full link target list (use these URLs for internal links in body text):\n${langTargets}\n`;
+      }
+    } catch { /* ignore parse errors */ }
+  }
+
+  // Determine related_topics based on keyword
+  const kwLower = job.primary_keyword.toLowerCase();
+  const topicHints: string[] = [];
+  if (kwLower.includes('claude code') || kwLower.includes('claude-code')) topicHints.push('claude-code');
+  if (kwLower.includes('codex')) topicHints.push('codex');
+  const topicLine = topicHints.length > 0 ? `\n- Include in frontmatter: related_topics: [${topicHints.join(', ')}]` : '';
+
+  system += `
 ## Output Requirements
 - Output the FULL markdown file including the --- frontmatter block ---
 - Frontmatter must include: title, slug (${slug}), description (120-160 chars), lang (${lang}), category
+- Include related_glossary, related_blog, related_compare fields pointing to the most relevant links above
 - slug must be: ${slug}
-- lang must be: ${lang}
+- lang must be: ${lang}${topicLine}
+- Use 3-8 internal links in body text, selecting from the available links above
 `;
 
   // ZH addendum

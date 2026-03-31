@@ -58,6 +58,14 @@ function injectLinks(
   let added = 0;
   const details: string[] = [];
   const linkedUrls = new Set<string>();
+  const usedKeywords = new Set<string>(); // track keyword text to avoid same anchor for different URLs
+
+  // Generic terms that match too broadly — skip these
+  const STOPLIST = new Set([
+    'claude', 'anthropic', 'openai', 'google', 'meta', 'microsoft', 'amazon', 'nvidia',
+    'gpt', 'gemini', 'llama', 'model', 'models', 'agent', 'agents', 'api',
+    'configuration', 'setup', 'install', 'pricing', 'free', 'cost',
+  ]);
 
   // Extract already-existing internal links to avoid double-linking
   const existingLinks = result.match(/\[[^\]]*\]\(\/[^)]+\)/g) || [];
@@ -78,6 +86,7 @@ function injectLinks(
 
     for (const kw of target.keywords) {
       if (kw.length < 3) continue; // skip very short keywords
+      if (STOPLIST.has(kw.toLowerCase())) continue; // skip generic terms
       kwIndex.push({ keyword: kw, url, title: target.title });
     }
   }
@@ -110,6 +119,7 @@ function injectLinks(
     for (const { keyword, url } of kwIndex) {
       if (added >= MAX_LINKS_PER_FILE) break;
       if (linkedUrls.has(url)) continue;
+      if (usedKeywords.has(keyword.toLowerCase())) continue; // same anchor text already used
 
       // Match whole word/phrase, case insensitive, not already inside a link
       const pattern = new RegExp(
@@ -124,6 +134,7 @@ function injectLinks(
           `[${original}](${url})` +
           modified.slice(match.index + original.length);
         linkedUrls.add(url);
+        usedKeywords.add(keyword.toLowerCase());
         added++;
         details.push(`  + "${original}" → ${url}`);
       }

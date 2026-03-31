@@ -1,23 +1,29 @@
 ---
-title: "Claude Code /btw 命令：AI 编码时也能「插嘴」了"
-date: 2026-03-12
+title: Claude Code /btw 命令：AI 编码时也能「插嘴」了
+date: 2026-03-12T00:00:00.000Z
 slug: claude-code-btw-side-chain-conversations
-description: "Claude Code 新增 /btw 命令，支持在 AI 执行任务时发起侧链对话，不打断主流程。这对多任务开发工作流意味着什么？"
-keywords: ["Claude Code /btw", "side chain conversation", "Claude Code 新功能", "AI 编码工具"]
+description: Claude Code 新增 /btw 命令，支持在 AI 执行任务时发起侧链对话，不打断主流程。这对多任务开发工作流意味着什么？
+keywords:
+  - Claude Code /btw
+  - side chain conversation
+  - Claude Code 新功能
+  - AI 编码工具
 category: DEV
-related_newsletter: 2026-03-12
-related_glossary: [claude-code]
+related_newsletter: 2026-03-12T00:00:00.000Z
+related_glossary:
+  - claude-code
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: zh
 video_ready: true
-video_hook: "Claude Code 终于解决了 AI 干活时你只能干等的问题"
+video_hook: Claude Code 终于解决了 AI 干活时你只能干等的问题
 video_status: none
 ---
 
 # Claude Code /btw 命令：AI 编码时也能「插嘴」了
 
-**Claude Code** 新增了 `/btw` 命令，解决一个真实痛点：当 Claude 正在执行复杂任务时，你想问个不相关的问题，以前只能等它做完或者打断它。现在可以发起一条「侧链对话」，主任务继续跑，你的问题同步得到回答。这个看似简单的功能，实际上改变了人和 AI 编码助手的协作模式。
+**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 新增了 `/btw` 命令，解决一个真实痛点：当 Claude 正在执行复杂任务时，你想问个不相关的问题，以前只能等它做完或者打断它。现在可以发起一条「侧链对话」，主任务继续跑，你的问题同步得到回答。这个看似简单的功能，实际上改变了人和 AI 编码助手的协作模式。
 
 ## 发生了什么
 
@@ -25,7 +31,7 @@ Anthropic 工程师 [trq212 在推特上宣布](https://x.com/trq212/status/2031
 
 使用方式很直接：当 Claude 正在执行任务（比如重构一个模块、跑测试、生成代码）时，你输入 `/btw` 加上你的问题，Claude 会在不中断当前任务的情况下回答你。主任务的上下文不受影响，侧链对话独立运行。
 
-这是 Claude Code 近期密集更新的一部分。过去一周，团队还发布了 HTTP hooks（比现有的 command hooks 更安全易用）、语音模式编码、`/simplify` 和 `/batch` 两个新 Skill，以及 Claude Code Remote 对 Pro 用户的开放。产品迭代节奏非常快——根据 SemiAnalysis 的数据，GitHub 上 4% 的公开 commit 已经由 Claude Code 生成。
+这是 Claude Code 近期密集更新的一部分。过去一周，团队还发布了 HTTP [hooks](/zh/blog/claude-code-seven-programmable-layers)（比现有的 command hooks 更安全易用）、语音模式编码、`/simplify` 和 `/batch` 两个新 Skill，以及 [Claude Code Remote](/zh/blog/claude-code-remote-control-mobile) 对 Pro 用户的开放。产品迭代节奏非常快——根据 SemiAnalysis 的数据，GitHub 上 4% 的公开 commit 已经由 Claude Code 生成。
 
 ## 为什么重要
 
@@ -35,7 +41,7 @@ Anthropic 工程师 [trq212 在推特上宣布](https://x.com/trq212/status/2031
 
 `/btw` 本质上实现了**异步多任务对话**。这和操作系统从单任务进化到多任务是同一个逻辑——当 AI 助手足够强大、单次任务足够长时，阻塞式交互就成了瓶颈。
 
-对比 [Cursor](/glossary/cursor) 和 GitHub Copilot，目前都没有类似的侧链对话能力。Cursor 的 Composer 模式虽然支持多文件编辑，但交互仍然是单线程的。Claude Code 在这个方向上走在了前面。
+对比 [Cursor](/glossary/cursor) 和 [GitHub Copilot](/zh/glossary/github-[copilot](/zh/glossary/copilot))，目前都没有类似的侧链对话能力。Cursor 的 Composer 模式虽然支持多文件编辑，但交互仍然是单线程的。Claude Code 在这个方向上走在了前面。
 
 从更大的视角看，这反映了 AI 编码工具正在从「问答式」向「协作式」演进。你不再是在和一个聊天机器人对话，而是和一个正在干活的同事协作——你可以随时拍拍他肩膀问个问题，他不需要放下手里的活。
 

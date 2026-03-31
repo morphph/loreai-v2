@@ -1,17 +1,21 @@
 ---
-title: "Codex 支持企业团队使用吗？"
+title: Codex 支持企业团队使用吗？
 slug: codex-enterprise
-description: "支持。Codex 面向 ChatGPT Enterprise 和 Business 用户开放，提供安全隔离的执行环境。"
+description: 支持。Codex 面向 ChatGPT Enterprise 和 Business 用户开放，提供安全隔离的执行环境。
 category: tools
-related_glossary: [codex, agentic]
-related_blog: [codex-complete-guide]
+related_glossary:
+  - codex
+  - agentic
+related_blog:
+  - codex-complete-guide
 lang: zh
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # Codex 支持企业团队使用吗？
 
-支持。**[Codex](/glossary/codex)** 面向 ChatGPT Enterprise 和 Business 用户全面开放。OpenAI 在 2025 年 5 月首先向 Enterprise、Business、Pro 用户开放，随后扩展到 Plus 和 Edu。团队成员可直接在 ChatGPT 侧边栏向 Codex Agent 分配编码任务，每个任务在安全隔离的云端沙箱中执行。
+支持。**[Codex](/glossary/codex)** 面向 [ChatGPT](/zh/glossary/chatgpt) Enterprise 和 Business 用户全面开放。OpenAI 在 2025 年 5 月首先向 Enterprise、Business、Pro 用户开放，随后扩展到 Plus 和 Edu。团队成员可直接在 ChatGPT 侧边栏向 [Codex](/zh/blog/codex-complete-guide) Agent 分配编码任务，每个任务在安全隔离的云端沙箱中执行。
 
 ## 背景
 

@@ -1,17 +1,24 @@
 ---
-title: "Claude Code 是什么？"
+title: Claude Code 是什么？
 slug: what-is-claude-code
-description: "Claude Code 是 Anthropic 推出的终端 AI 编程工具，可以直接在命令行里读写代码、执行命令、管理整个开发流程。"
+description: Claude Code 是 Anthropic 推出的终端 AI 编程工具，可以直接在命令行里读写代码、执行命令、管理整个开发流程。
 category: tools
-related_glossary: [claude-code, anthropic, agentic-coding, claude-md]
-related_blog: [claude-code-complete-guide, claude-code-extension-stack-skills-hooks-agents-mcp]
+related_glossary:
+  - claude-code
+  - anthropic
+  - agentic-coding
+  - claude-md
+related_blog:
+  - claude-code-complete-guide
+  - claude-code-extension-stack-skills-hooks-agents-mcp
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code 是什么？
 
-Claude Code 是 Anthropic 做的一个终端编程工具，直接在命令行里跟 Claude 对话就能改代码、跑命令、搜代码库，整个开发流程不用离开终端。它不是普通的聊天机器人，而是一个真正能动手干活的 AI 编程助手。
+[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 是 Anthropic 做的一个终端编程工具，直接在命令行里跟 Claude 对话就能改代码、跑命令、搜代码库，整个开发流程不用离开终端。它不是普通的聊天机器人，而是一个真正能动手干活的 AI 编程助手。
 
 ## 背景
 
@@ -26,7 +33,7 @@ Claude Code 是 Anthropic 做的一个终端编程工具，直接在命令行里
 1. 全局安装：`npm install -g @anthropic-ai/claude-code`
 2. 在终端进入你的项目目录。
 3. 输入 `claude` 启动交互会话。
-4. 在项目根目录创建 `CLAUDE.md` 文件，写上项目的代码规范、工作流程等信息，Claude 会自动读取并遵守。
+4. 在项目根目录创建 `[CLAUDE.md](/zh/blog/claude-code-memory)` 文件，写上项目的代码规范、工作流程等信息，Claude 会自动读取并遵守。
 5. 更多进阶用法可以浏览 [Claude Code 专题页](/topics/claude-code)。
 
 ## 相关问题

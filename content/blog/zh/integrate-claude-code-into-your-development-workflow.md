@@ -1,17 +1,17 @@
 ---
-title: "如何将 Claude Code 融入你的开发工作流"
+title: 如何将 Claude Code 融入你的开发工作流
 slug: integrate-claude-code-into-your-development-workflow
-description: "Claude Code 不是代码补全工具——它是终端原生的自主 AI 工程师。本文教你如何真正把它用起来。"
+description: Claude Code 不是代码补全工具——它是终端原生的自主 AI 工程师。本文教你如何真正把它用起来。
 lang: zh
 category: tools
-date: 2026-03-25
+date: 2026-03-25T00:00:00.000Z
 ---
 
 # 如何将 Claude Code 融入你的开发工作流
 
-**Claude Code** 从 2025 年 2 月研究预览到 5 月正式发布，到 2025 年底据报道年化收入突破 10 亿美元——这个速度说明了一件事：它解决了开发者真实存在的痛点。
+**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 从 2025 年 2 月研究预览到 5 月正式发布，到 2025 年底据报道年化收入突破 10 亿美元——这个速度说明了一件事：它解决了开发者真实存在的痛点。
 
-但很多人用错了方向。把它当成更强的 Copilot，用完就扔。这篇文章讲的是如何把它真正嵌入你的工作流。
+但很多人用错了方向。把它当成更强的 [Copilot](/zh/glossary/copilot)，用完就扔。这篇文章讲的是如何把它真正嵌入你的工作流。
 
 ## Claude Code 的核心架构：你必须先理解这一点
 
@@ -30,9 +30,9 @@ graph TD
     Session --> Output[代码变更、提交、PR]
 ```
 
-- **`CLAUDE.md`**：项目级配置，定义编码规范、架构约束、禁止操作
+- **`[CLAUDE.md](/zh/blog/claude-code-memory)`**：项目级配置，定义编码规范、架构约束、禁止操作
 - **Skills（`SKILL.md`）**：可复用的任务指令文件，编码你的最佳实践
-- **Hooks**：触发式自动化，比如每次提交前自动运行 lint
+- **[Hooks](/zh/blog/claude-code-seven-programmable-layers)**：触发式自动化，比如每次提交前自动运行 lint
 - **Subagents**：子智能体，用于并行执行大型任务
 
 这四层的组合让 Claude Code 的行为变得**可预测、可控制**。没有这套体系，你得到的是随机性；有了它，你得到的是确定性。

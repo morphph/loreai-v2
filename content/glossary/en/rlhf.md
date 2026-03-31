@@ -1,19 +1,25 @@
 ---
-title: "RLHF — AI Glossary"
+title: RLHF — AI Glossary
 slug: rlhf
-description: "What is RLHF? Reinforcement Learning from Human Feedback aligns AI models with human preferences."
+description: >-
+  What is RLHF? Reinforcement Learning from Human Feedback aligns AI models with
+  human preferences.
 term: rlhf
-display_term: "RLHF"
+display_term: RLHF
 category: techniques
-related_glossary: [anthropic, claude, google]
-related_blog: [anthropic-claude-memory-upgrades-importing]
+related_glossary:
+  - anthropic
+  - claude
+  - google
+related_blog:
+  - anthropic-claude-memory-upgrades-importing
 related_compare: []
 lang: en
 ---
 
 # RLHF — AI Glossary
 
-**RLHF (Reinforcement Learning from Human Feedback)** is a training technique that fine-tunes large language models using human preference signals rather than static datasets. Human evaluators rank model outputs, and those rankings train a reward model that guides the LLM toward responses humans find more helpful, honest, and harmless.
+**RLHF ([Reinforcement Learning](/glossary/reinforcement-learning) from Human Feedback)** is a training technique that fine-tunes [large language models](/blog/gemini-3-1-pro-complex-tasks) using human preference signals rather than static datasets. Human evaluators rank model outputs, and those rankings train a reward model that guides the LLM toward responses humans find more helpful, honest, and harmless.
 
 ## Why RLHF Matters
 
@@ -25,7 +31,7 @@ RLHF is the core technique behind the behavioral alignment of models like [Claud
 
 The process follows three stages:
 
-1. **Supervised fine-tuning (SFT)**: A pretrained model is fine-tuned on high-quality demonstration data — human-written examples of ideal responses.
+1. **Supervised [fine-tuning](/glossary/fine-tuning) (SFT)**: A pretrained model is fine-tuned on high-quality demonstration data — human-written examples of ideal responses.
 2. **Reward model training**: Human annotators compare pairs of model outputs and select the better one. These preference pairs train a separate reward model that scores response quality.
 3. **Policy optimization**: The LLM is further trained using reinforcement learning (typically PPO — Proximal Policy Optimization) to maximize the reward model's score while staying close to the SFT baseline via a KL-divergence penalty.
 
@@ -33,7 +39,7 @@ The KL penalty prevents "reward hacking" — where the model exploits quirks in 
 
 ## Related Terms
 
-- **[Anthropic](/glossary/anthropic)**: AI safety company that advanced RLHF research with Constitutional AI and iterative preference learning
+- **[Anthropic](/glossary/anthropic)**: [AI safety](/glossary/ai-safety) company that advanced RLHF research with Constitutional AI and iterative preference learning
 - **[Claude](/glossary/claude)**: Anthropic's family of LLMs, trained using RLHF and Constitutional AI techniques
 - **[Google](/glossary/google)**: Applies RLHF across its Gemini model family for instruction following and safety alignment
 

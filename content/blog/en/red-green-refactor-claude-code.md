@@ -1,24 +1,35 @@
 ---
-title: "Red Green Refactor: Why TDD Is the Best Way to Control AI Coding Agents"
-date: 2026-03-10
+title: 'Red Green Refactor: Why TDD Is the Best Way to Control AI Coding Agents'
+date: 2026-03-10T00:00:00.000Z
 slug: red-green-refactor-claude-code
-description: "Red Green Refactor — a 20-year-old TDD practice — turns out to be the most effective way to get reliable, high-quality code from AI coding agents like Claude Code."
-keywords: ["Red Green Refactor", "TDD AI coding", "Claude Code TDD", "test-driven development AI", "AI coding agents"]
+description: >-
+  Red Green Refactor — a 20-year-old TDD practice — turns out to be the most
+  effective way to get reliable, high-quality code from AI coding agents like
+  Claude Code.
+keywords:
+  - Red Green Refactor
+  - TDD AI coding
+  - Claude Code TDD
+  - test-driven development AI
+  - AI coding agents
 category: TECHNIQUE
-related_newsletter: 2026-03-10
-related_glossary: [claude-code, tdd]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - tdd
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: en
 video_ready: true
-video_hook: "A 20-year-old practice is the secret to getting reliable code from AI agents"
+video_hook: A 20-year-old practice is the secret to getting reliable code from AI agents
 video_status: published
 source_type: video
 ---
 
 # Red Green Refactor: Why TDD Is the Best Way to Control AI Coding Agents
 
-The most effective technique for getting reliable code from AI agents isn't a new prompting trick or a fancy framework — it's **Red Green Refactor**, a practice that's been around for over two decades. Originally popularized by Kent Beck in *Extreme Programming Explained*, [test-driven development](/glossary/tdd) turns out to be a near-perfect fit for controlling AI coding agents. The tight feedback loop of write-a-failing-test, make-it-pass, then refactor gives you exactly the kind of back pressure that eager code-generating models need. Here's how to apply it with **Claude Code** and why it matters more now than ever.
+The most effective technique for getting reliable code from AI agents isn't a new prompting trick or a fancy framework — it's **Red Green Refactor**, a practice that's been around for over two decades. Originally popularized by Kent Beck in *Extreme Programming Explained*, [test-driven development](/glossary/tdd) turns out to be a near-perfect fit for controlling [AI coding agents](/blog/effective-harnesses-for-long-running-agents). The tight feedback loop of write-a-failing-test, make-it-pass, then refactor gives you exactly the kind of back pressure that eager code-generating models need. Here's how to apply it with **[Claude Code](/blog/claude-code-complete-guide)** and why it matters more now than ever.
 
 ## What Red Green Refactor Actually Means
 
@@ -42,7 +53,7 @@ Consider this sequence: Claude Code writes a test, you see it fail in the termin
 
 This changes your review workflow fundamentally. Instead of reading every implementation line, you can skim the test titles to understand *what* is being tested, trust that the red-to-green transition validates correctness, and then QA the completed chunk of work at the end to catch anything tests might have missed.
 
-As Simon Willison has noted, the most disciplined form of TDD — test-first development where you confirm failure before implementing — is a "fantastic fit for coding agents." The practice provides exactly the structured feedback loop that keeps AI-generated code honest.
+As Simon Willison has noted, the most disciplined form of TDD — test-first development where you confirm failure before implementing — is a "fantastic fit for [coding agents](/blog/9-principles-writing-claude-code-skills)." The practice provides exactly the structured feedback loop that keeps AI-generated code honest.
 
 ## The One-Test-at-a-Time Rule
 

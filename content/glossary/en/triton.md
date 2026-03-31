@@ -1,12 +1,17 @@
 ---
-title: "Triton — AI Glossary"
+title: Triton — AI Glossary
 slug: triton
-description: "What is Triton? An open-source language for writing GPU kernels without low-level CUDA expertise."
+description: >-
+  What is Triton? An open-source language for writing GPU kernels without
+  low-level CUDA expertise.
 term: triton
-display_term: "Triton"
+display_term: Triton
 category: frameworks
-related_glossary: [fine-tuning, google-deepmind]
-related_blog: [openai-chain-of-thought-controllability-evaluation]
+related_glossary:
+  - fine-tuning
+  - google-deepmind
+related_blog:
+  - openai-chain-of-thought-controllability-evaluation
 related_compare: []
 lang: en
 ---
@@ -35,8 +40,8 @@ A typical Triton kernel runs within 10-20% of hand-optimized CUDA for common ope
 ## Related Terms
 
 - **[Fine-Tuning](/glossary/fine-tuning)**: Custom training workflows often rely on Triton kernels for memory-efficient operations like LoRA and quantized training
-- **[Google DeepMind](/glossary/google-deepmind)**: Pursues similar GPU optimization goals through its own Pallas/JAX kernel ecosystem, an alternative approach to Triton's model
-- **[Agentic Coding](/glossary/agentic-coding)**: AI coding agents can generate Triton kernels from natural language descriptions, lowering the barrier further
+- **[Google DeepMind](/glossary/google-[deepmind](/glossary/deepmind))**: Pursues similar GPU optimization goals through its own Pallas/JAX kernel ecosystem, an alternative approach to Triton's model
+- **[Agentic Coding](/glossary/agentic-coding)**: [AI coding agents](/blog/effective-harnesses-for-long-running-agents) can generate Triton kernels from natural language descriptions, lowering the barrier further
 
 ---
 

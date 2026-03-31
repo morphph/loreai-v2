@@ -1,22 +1,35 @@
 ---
-title: "Claude's 1 Million Token Context Window Is Now Generally Available"
-date: 2026-03-16
+title: Claude's 1 Million Token Context Window Is Now Generally Available
+date: 2026-03-16T00:00:00.000Z
 slug: claude-1-million-context-window-ga
-description: "Claude Opus 4.6 and Sonnet 4.6 now offer 1 million token context windows in GA, dramatically expanding what's possible with long-document analysis and large codebase reasoning."
-keywords: ["Claude context window", "1 million tokens", "Claude Opus 4.6", "Claude Sonnet 4.6", "long context"]
+description: >-
+  Claude Opus 4.6 and Sonnet 4.6 now offer 1 million token context windows in
+  GA, dramatically expanding what's possible with long-document analysis and
+  large codebase reasoning.
+keywords:
+  - Claude context window
+  - 1 million tokens
+  - Claude Opus 4.6
+  - Claude Sonnet 4.6
+  - long context
 category: MODEL
-related_newsletter: 2026-03-16
-related_glossary: [claude-code, context-window]
-related_compare: [claude-vs-chatgpt]
+related_newsletter: 2026-03-16T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - context-window
+related_compare:
+  - claude-vs-chatgpt
 lang: en
 video_ready: true
-video_hook: "Claude just made its 1 million token context window available to everyone — here's what that unlocks"
+video_hook: >-
+  Claude just made its 1 million token context window available to everyone —
+  here's what that unlocks
 video_status: none
 ---
 
 # Claude's 1 Million Token Context Window Is Now Generally Available
 
-Anthropic has moved the **1 million token context window** from beta to general availability on both **Claude Opus 4.6** and **Claude Sonnet 4.6**. That's roughly 750,000 words — enough to fit entire codebases, full book manuscripts, or months of conversation history into a single prompt. For developers and teams already pushing against context limits, this removes one of the most persistent constraints in working with large language models. The upgrade is live now across all API tiers.
+Anthropic has moved the **1 million token context window** from beta to general availability on both **[Claude Opus 4.6](/blog/opus-4-6-1m-default-claude-code)** and **Claude Sonnet 4.6**. That's roughly 750,000 words — enough to fit entire codebases, full book manuscripts, or months of conversation history into a single prompt. For developers and teams already pushing against context limits, this removes one of the most persistent constraints in working with [large language models](/blog/gemini-3-1-pro-complex-tasks). The upgrade is live now across all API tiers.
 
 ## What Happened
 
@@ -30,7 +43,7 @@ This GA release lands alongside a string of Claude ecosystem updates: [code revi
 
 ## Why It Matters
 
-Context window size isn't just a spec sheet number — it fundamentally changes what tasks an LLM can handle without external tooling. At 1 million tokens, several workflows shift from "requires RAG pipeline" to "just paste it in":
+Context window size isn't just a spec sheet number — it fundamentally changes what tasks an LLM can handle without external tooling. At 1 million tokens, several workflows shift from "requires [RAG](/topics/rag) pipeline" to "just paste it in":
 
 **Codebase analysis**: A million tokens holds roughly 25,000–50,000 lines of code depending on language verbosity. That's enough to fit most mid-sized projects entirely in context. Instead of asking Claude to reason about one file at a time, you can feed it an entire service and ask architectural questions, find cross-cutting bugs, or plan refactors with full visibility.
 
@@ -52,7 +65,7 @@ Working with million-token contexts introduces engineering considerations that d
 
 **Prompt architecture**: With a million tokens available, prompt design shifts. Instead of carefully curating which context to include, you can be more generous — but organization still matters. Structured inputs with clear section markers and headers help the model navigate large contexts more effectively than dumping raw text.
 
-For **Claude Code** users specifically, the expanded context means the agent can hold more of your project in working memory during complex tasks. Multi-file refactors, cross-module debugging, and large-scale code reviews all benefit directly.
+For **[Claude Code](/blog/claude-code-complete-guide)** users specifically, the expanded context means the agent can hold more of your project in working memory during complex tasks. Multi-file refactors, cross-module debugging, and large-scale code reviews all benefit directly.
 
 ## What You Should Do
 
@@ -60,7 +73,7 @@ For **Claude Code** users specifically, the expanded context means the agent can
 
 2. **Benchmark your specific tasks**. Don't assume million-token context works uniformly. Test retrieval accuracy, synthesis quality, and latency at different context sizes for your actual use cases. Find your cost-quality sweet spot.
 
-3. **Update your Claude Code workflows**. If you've been manually managing context by splitting tasks or restarting sessions, try running longer sessions and loading more files. The experience improvement is immediate.
+3. **Update your [Claude Code workflows](/blog/claude-code-simplify-batch-skills)**. If you've been manually managing context by splitting tasks or restarting sessions, try running longer sessions and loading more files. The experience improvement is immediate.
 
 4. **Watch the pricing**. Large-context API calls add up fast. Implement token counting and budget alerts if you're building production applications that might routinely use 500K+ token inputs.
 

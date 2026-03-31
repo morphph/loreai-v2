@@ -1,14 +1,20 @@
 ---
-title: "Codex vs Windsurf: Terminal Agent or Agentic IDE?"
+title: 'Codex vs Windsurf: Terminal Agent or Agentic IDE?'
 slug: codex-vs-windsurf
-description: "Comparing Codex and Windsurf across features, workflows, and approach to AI-assisted coding."
+description: >-
+  Comparing Codex and Windsurf across features, workflows, and approach to
+  AI-assisted coding.
 item_a: Codex
 item_b: Windsurf
 category: tools
-related_glossary: [codex, agentic]
-related_blog: [codex-complete-guide]
+related_glossary:
+  - codex
+  - agentic
+related_blog:
+  - codex-complete-guide
 lang: en
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # Codex vs Windsurf: Terminal Agent or Agentic IDE?
@@ -17,15 +23,15 @@ related_topics: [codex]
 
 ## Feature Comparison
 
-| Feature | Codex | Windsurf |
+| Feature | [Codex](/faq/codex) | [Windsurf](/glossary/windsurf) |
 |---------|-------|----------|
 | **Approach** | Multi-surface coding agent (app, CLI, IDE extension, web) | AI-native IDE (VS Code fork) |
-| **AI engine** | OpenAI models (up to GPT-5.4) | Cascade (proprietary agentic engine) |
+| **AI engine** | OpenAI models (up to [GPT-5.4](/glossary/gpt-54)) | Cascade (proprietary [agentic](/topics/agentic) engine) |
 | **Autocomplete** | Available via IDE extension | Native Tab autocomplete + Supercomplete |
 | **Codebase understanding** | Reads project structure via AGENTS.md, skills, and context management | Deep contextual awareness via Cascade |
 | **Shell access** | Full shell and computer use capabilities | Terminal command integration (Cmd+I) |
 | **Multi-file editing** | Native — plans and executes across files via subagents and workflows | Cascade handles multi-file changes with real-time awareness |
-| **MCP support** | Yes — MCP and Connectors | Yes — Model Context Protocol |
+| **MCP support** | Yes — MCP and Connectors | Yes — [Model Context Protocol](/glossary/model-context-protocol) |
 | **Integrations** | GitHub, Slack, Linear | Not documented in source material |
 | **Live preview** | Not documented | Windsurf Previews — live site preview with click-to-edit |
 | **Sandboxing** | Built-in sandboxing for safe execution | Not documented in source material |

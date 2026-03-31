@@ -1,24 +1,33 @@
 ---
-title: "Red Green Refactor：用TDD拴住你的AI编程Agent"
-date: 2026-03-10
+title: Red Green Refactor：用TDD拴住你的AI编程Agent
+date: 2026-03-10T00:00:00.000Z
 slug: red-green-refactor-claude-code
-description: "AI Agent一口气写90个测试再一口气实现，结果全是垃圾。Red Green Refactor——这个二十年老方法，是约束AI编程质量的最佳牵引绳。"
-keywords: ["TDD", "Red Green Refactor", "AI编程", "Claude Code", "测试驱动开发"]
+description: AI Agent一口气写90个测试再一口气实现，结果全是垃圾。Red Green Refactor——这个二十年老方法，是约束AI编程质量的最佳牵引绳。
+keywords:
+  - TDD
+  - Red Green Refactor
+  - AI编程
+  - Claude Code
+  - 测试驱动开发
 category: DEV
-related_newsletter: 2026-03-10
-related_glossary: [claude-code, tdd, ai-agent]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - tdd
+  - ai-agent
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: zh
 video_ready: true
-video_hook: "AI越能写代码，你越需要用测试拴住它"
+video_hook: AI越能写代码，你越需要用测试拴住它
 video_status: published
 source_type: video
 ---
 
 # Red Green Refactor：用TDD拴住你的AI编程Agent
 
-你让 AI Agent 帮你写代码，它一口气生成90个测试，再一口气写完所有实现——跑完一看，全是垃圾。这不是个案，而是 LLM 编程的结构性缺陷。一个存在了二十多年的老方法——**TDD（测试驱动开发）**，正在成为约束 AI 代码质量的最有效手段。
+你让 [AI Agent](/zh/blog/effective-harnesses-for-long-running-agents) 帮你写代码，它一口气生成90个测试，再一口气写完所有实现——跑完一看，全是垃圾。这不是个案，而是 LLM 编程的结构性缺陷。一个存在了二十多年的老方法——**[TDD](/zh/blog/superpowers)（测试驱动开发）**，正在成为约束 AI 代码质量的最有效手段。
 
 ## 发生了什么
 
@@ -50,7 +59,7 @@ Simon Willison 对此有一句精准的判断：test-first 开发天然适配编
 
 ## 你现在该做什么
 
-1. **在你的 Agent 配置里加一条规则**：每次只写一个失败测试，再写实现。无论你用的是 Claude Code、Cursor 还是其他工具，这条约束都能立即生效。
+1. **在你的 Agent 配置里加一条规则**：每次只写一个失败测试，再写实现。无论你用的是 [Claude Code](/zh/blog/9-principles-writing-claude-code-skills)、[Cursor](/zh/glossary/cursor) 还是其他工具，这条约束都能立即生效。
 2. **审视你的代码库质量**：如果测试覆盖率低、类型定义不完善，先补基础设施再让 AI 上场。
 3. **养成检查节奏**：每完成一轮红绿循环，花10秒扫一眼测试标题和实现 diff，确认方向正确再继续。
 

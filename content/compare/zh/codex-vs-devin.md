@@ -1,14 +1,18 @@
 ---
-title: "Codex vs Devin：AI 编程代理该选哪个？"
+title: Codex vs Devin：AI 编程代理该选哪个？
 slug: codex-vs-devin
-description: "Codex 和 Devin 的全面对比：功能、集成、适用场景，帮你选对 AI 编程代理。"
+description: Codex 和 Devin 的全面对比：功能、集成、适用场景，帮你选对 AI 编程代理。
 item_a: Codex
 item_b: Devin
 category: tools
-related_glossary: [codex, agentic]
-related_blog: [codex-complete-guide]
+related_glossary:
+  - codex
+  - agentic
+related_blog:
+  - codex-complete-guide
 lang: zh
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # Codex vs Devin：AI 编程代理该选哪个？
@@ -17,16 +21,16 @@ related_topics: [codex]
 
 ## 功能对比
 
-| 功能 | Codex | Devin |
+| 功能 | [Codex](/zh/blog/codex-complete-guide) | [Devin](/zh/glossary/devin) |
 |------|-------|-------|
 | **产品形态** | App / IDE 插件 / CLI / Web | 独立 Web 平台 + 移动端 |
 | **代码编写** | 根据描述生成代码，适配项目结构 | 从工单出发，自主规划并编写代码 |
 | **代码审查** | 识别潜在 bug 和边界情况 | 可独立创建、回复、审查 PR |
 | **工单集成** | GitHub、Slack、Linear | Slack、Teams、Linear、Jira |
-| **MCP 支持** | 原生支持 MCP 和 Connectors | 支持连接 MCP 服务器 |
+| **[MCP](/zh/blog/claude-code-seven-programmable-layers) 支持** | 原生支持 MCP 和 Connectors | 支持连接 MCP 服务器 |
 | **沙箱与隔离** | Sandboxing、Worktrees、本地环境 | 内置编辑器、Shell 和浏览器环境 |
-| **可定制性** | AGENTS.md、Skills、Subagents 配置体系 | 学习代码库和团队知识（tribal knowledge） |
-| **企业方案** | ChatGPT Enterprise 计划包含 | Devin Enterprise（额外安全与管控） |
+| **可定制性** | AGENTS.md、[Skills](/zh/blog/9-principles-writing-claude-code-skills)、Subagents 配置体系 | 学习代码库和团队知识（tribal knowledge） |
+| **企业方案** | [ChatGPT](/zh/glossary/chatgpt) Enterprise 计划包含 | Devin Enterprise（额外安全与管控） |
 
 ## 什么时候选 Codex
 

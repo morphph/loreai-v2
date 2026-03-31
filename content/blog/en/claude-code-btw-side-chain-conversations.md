@@ -1,23 +1,34 @@
 ---
-title: "Claude Code /btw: Side Chain Conversations While Your Agent Works"
-date: 2026-03-12
+title: 'Claude Code /btw: Side Chain Conversations While Your Agent Works'
+date: 2026-03-12T00:00:00.000Z
 slug: claude-code-btw-side-chain-conversations
-description: "Claude Code's new /btw command lets you have side chain conversations while your agent keeps working — no more waiting to ask questions."
-keywords: ["Claude Code /btw", "side chain conversations", "Claude Code commands", "Claude Code multitasking"]
+description: >-
+  Claude Code's new /btw command lets you have side chain conversations while
+  your agent keeps working — no more waiting to ask questions.
+keywords:
+  - Claude Code /btw
+  - side chain conversations
+  - Claude Code commands
+  - Claude Code multitasking
 category: DEV
-related_newsletter: 2026-03-12
-related_glossary: [claude-code, agentic-coding]
+related_newsletter: 2026-03-12T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - agentic-coding
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: en
 video_ready: true
-video_hook: "You no longer have to wait for Claude Code to finish before asking it something else"
+video_hook: >-
+  You no longer have to wait for Claude Code to finish before asking it
+  something else
 video_status: none
 ---
 
 # Claude Code /btw: Side Chain Conversations While Your Agent Works
 
-**Claude Code** just shipped `/btw` — a command that lets you start a side conversation with Claude while it's in the middle of executing a task. Instead of waiting for a long-running operation to finish before asking a follow-up question or pivoting to a different topic, you can now interrupt with context that doesn't derail the main thread. It's a small UX addition that solves one of the most persistent friction points in agentic coding: the forced serialization of human thought.
+**[Claude Code](/blog/claude-code-complete-guide)** just shipped `/btw` — a command that lets you start a side conversation with Claude while it's in the middle of executing a task. Instead of waiting for a long-running operation to finish before asking a follow-up question or pivoting to a different topic, you can now interrupt with context that doesn't derail the main thread. It's a small UX addition that solves one of the most persistent friction points in [agentic coding](/blog/claude-code-seven-programmable-layers): the forced serialization of human thought.
 
 ## What Happened
 
@@ -31,7 +42,7 @@ The `/btw` command fits a pattern: removing artificial bottlenecks between human
 
 ## Why It Matters
 
-Agentic coding tools have a serialization problem. When Claude Code is running a 90-second build-and-test cycle, your brain doesn't stop. You notice a typo in a different file. You wonder if the API you're about to use has rate limits. You want to ask about a deployment config. But the current interaction model forces you to queue these thoughts mentally and hope you remember them later.
+[Agentic](/glossary/agentic) coding tools have a serialization problem. When Claude Code is running a 90-second build-and-test cycle, your brain doesn't stop. You notice a typo in a different file. You wonder if the API you're about to use has rate limits. You want to ask about a deployment config. But the current interaction model forces you to queue these thoughts mentally and hope you remember them later.
 
 `/btw` breaks that forced serialization. It acknowledges a fundamental asymmetry in human-AI collaboration: the human's context-switching cost is low (you can think about multiple things), but the tool's UX previously imposed an artificial single-thread constraint.
 
@@ -69,7 +80,7 @@ One consideration: side chain conversations share the same context window. Compl
 
 1. **Use `/btw` for knowledge queries** while Claude Code runs long tasks. "What does this error code mean?" or "What's the syntax for X?" are ideal candidates — they don't require file modifications.
 2. **Don't use `/btw` for task pivots**. If you need Claude to change direction entirely, it's better to let the current task finish or cancel it explicitly. Side chains are for tangential questions, not course corrections.
-3. **Pair with Claude Code Remote** for maximum benefit. If you're running Claude Code on a remote server with longer build times, side chains become even more valuable — those idle minutes are now usable.
+3. **Pair with [Claude Code Remote](/blog/claude-code-remote-control-mobile)** for maximum benefit. If you're running Claude Code on a remote server with longer build times, side chains become even more valuable — those idle minutes are now usable.
 4. **Combine with the new `/simplify` and `/batch` skills** to create efficient workflows: batch your changes, simplify the output, and ask clarifying questions via `/btw` — all without breaking flow.
 5. **Update Claude Code** to the latest version to access `/btw`. Check your version with `claude --version` and update if needed.
 

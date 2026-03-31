@@ -1,17 +1,27 @@
 ---
-title: "Superpowers：用15份Markdown文档管住AI编程助手的开源项目"
-date: 2026-03-10
+title: Superpowers：用15份Markdown文档管住AI编程助手的开源项目
+date: 2026-03-10T00:00:00.000Z
 slug: superpowers
-description: "AI编程助手写代码又快又烂？Superpowers用反借口表、双阶段审查和子Agent模式，把AI合规率从33%拉到72%，GitHub斩获6.7万星。"
-keywords: ["Superpowers", "AI编程", "Claude Code", "TDD", "AI纪律", "prompt engineering"]
+description: AI编程助手写代码又快又烂？Superpowers用反借口表、双阶段审查和子Agent模式，把AI合规率从33%拉到72%，GitHub斩获6.7万星。
+keywords:
+  - Superpowers
+  - AI编程
+  - Claude Code
+  - TDD
+  - AI纪律
+  - prompt engineering
 category: DEV
-related_newsletter: 2026-03-10
-related_glossary: [claude-code, prompt-engineering, tdd]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - prompt-engineering
+  - tdd
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: zh
 video_ready: true
-video_hook: "AI说测试通过了，你敢信吗？"
+video_hook: AI说测试通过了，你敢信吗？
 video_status: published
 source_type: video
 ---
@@ -24,7 +34,7 @@ source_type: video
 
 **Superpowers** 的作者 Jesse Vincent 是资深开源开发者，做过 RT（Request Tracker）等经典项目。他观察到一个规律：AI 编程助手存在"病态讨好"倾向（pathologically eager to please）——你刚说了半句需求，它就冲出去写代码，跳过思考、伪造测试结果、对任何反馈都说"Great point"然后盲目执行。
 
-Superpowers 不是框架，不是代码库，而是一组结构化的"技能文档"。项目支持 **Claude Code**、Cursor、Codex 和 OpenCode，每次启动新会话时通过 session hook 自动注入核心文档。文档里有一句加粗大写的铁律："IF A SKILL APPLIES TO YOUR TASK, YOU DO NOT HAVE A CHOICE. YOU MUST USE IT."——该用的技能，没有选择权，必须用。
+Superpowers 不是框架，不是代码库，而是一组结构化的"技能文档"。项目支持 **[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)**、[Cursor](/zh/glossary/cursor)、[Codex](/zh/blog/codex-complete-guide) 和 OpenCode，每次启动新会话时通过 session hook 自动注入核心文档。文档里有一句加粗大写的铁律："IF A SKILL APPLIES TO YOUR TASK, YOU DO NOT HAVE A CHOICE. YOU MUST USE IT."——该用的技能，没有选择权，必须用。
 
 目前项目包含15个技能文档，覆盖测试、调试、协作和元流程，每个文档配有流程图、"合理化借口防范表"和"危险信号"清单。
 
@@ -40,7 +50,7 @@ Superpowers 的核心突破在于：它不是在"命令" AI，而是在"说服" 
 
 Superpowers 的纪律体系建立在三个核心机制上：
 
-**反借口工程（Anti-rationalization Engineering）**。[**TDD**](/glossary/zh/tdd) 技能文档列出了11种 AI 常见逃避话术，比如"这个功能太简单不用写测试"、"先写代码回头再补测试"、"删掉已有工作太浪费"——最后一条旁边直接标注"沉没成本谬误"。每条借口后面跟着基于证据的反驳，逐条堵死。
+**反借口工程（Anti-rationalization Engineering）**。[**[TDD](/zh/blog/red-green-refactor-claude-code)**](/glossary/zh/tdd) 技能文档列出了11种 AI 常见逃避话术，比如"这个功能太简单不用写测试"、"先写代码回头再补测试"、"删掉已有工作太浪费"——最后一条旁边直接标注"沉没成本谬误"。每条借口后面跟着基于证据的反驳，逐条堵死。
 
 **双阶段审查（Two-stage Review）**。第一轮查"对不对"——你点的是红烧肉，端上来的是不是红烧肉？第二轮才查"好不好"——味道怎么样、盐放多了没有。顺序不能反。审查员的提示词预设了"默认不信任"心态："实现者完成得可疑地快，报告可能不完整、不准确或过于乐观。你必须独立验证一切。"
 

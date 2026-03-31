@@ -1,17 +1,25 @@
 ---
-title: "How to use Claude Code in CI/CD?"
+title: How to use Claude Code in CI/CD?
 slug: claude-code-ci-cd
-description: "Run Claude Code in CI/CD pipelines using headless mode or the SDK for automated code review, test generation, and documentation updates."
+description: >-
+  Run Claude Code in CI/CD pipelines using headless mode or the SDK for
+  automated code review, test generation, and documentation updates.
 category: tools
-related_glossary: [claude-code, agentic-coding, anthropic]
-related_blog: [headless-mode, claude-code-review-agents]
+related_glossary:
+  - claude-code
+  - agentic-coding
+  - anthropic
+related_blog:
+  - headless-mode
+  - claude-code-review-agents
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # How to use Claude Code in CI/CD?
 
-Claude Code integrates into CI/CD pipelines through headless mode, which runs non-interactively without a terminal UI. You can use the single-prompt flag for simple tasks or the Claude Code SDK for full programmatic control over automated workflows like code review, test generation, and documentation updates.
+[Claude Code](/blog/lessons-from-building-claude-code-agent-tools) integrates into CI/CD pipelines through headless mode, which runs non-interactively without a terminal UI. You can use the single-prompt flag for simple tasks or the Claude Code SDK for full programmatic control over automated workflows like code review, test generation, and documentation updates.
 
 ## Context
 
@@ -26,15 +34,15 @@ Common use cases include automated PR review (where Claude Code analyzes diffs a
 1. **Single-prompt mode**: Use `claude --print "Review this diff for bugs"` in your CI script — it runs one prompt and exits with the response on stdout
 2. **SDK integration**: Import the Claude Code SDK in a Node.js script for multi-step workflows — parse diffs, generate review comments, post them to your PR
 3. **Set up authentication**: Store your [Anthropic](/glossary/anthropic) API key as a CI secret and pass it via the `ANTHROPIC_API_KEY` environment variable
-4. **Define guardrails**: Place a `CLAUDE.md` in your repo root with coding standards so Claude Code enforces your team's conventions automatically
+4. **Define guardrails**: Place a `[CLAUDE.md](/blog/claude-code-memory)` in your repo root with coding standards so Claude Code enforces your team's conventions automatically
 5. **Scope permissions**: Use the `--allowedTools` flag to restrict which tools Claude Code can access in your pipeline for security
 
 For deeper patterns on building reliable long-running CI agents, see the guide on [effective harnesses for long-running agents](/blog/effective-harnesses-for-long-running-agents). The [Claude Code topics hub](/topics/claude-code) collects all related resources.
 
 ## Related Questions
 
-- [How to use Claude Code agent teams?](/faq/claude-code-agent-teams)
-- [What are Claude Code skills?](/faq/claude-code-skills)
+- [How to use [Claude Code agent teams](/blog/claude-code-agent-teams)?](/faq/claude-code-agent-teams)
+- [What are [Claude Code skills](/blog/9-principles-writing-claude-code-skills)?](/faq/claude-code-skills)
 - [What is Claude Code?](/faq/what-is-claude-code)
 
 ---

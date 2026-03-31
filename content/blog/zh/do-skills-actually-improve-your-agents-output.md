@@ -1,24 +1,28 @@
 ---
-title: "Skills 真的能提升 AI Agent 的输出质量吗？"
+title: Skills 真的能提升 AI Agent 的输出质量吗？
 slug: do-skills-actually-improve-your-agents-output
-description: "Skills 能让 AI Agent 更稳定、更专业——但前提是设计得当。本文拆解 Skills 的原理、收益与常见误区。"
+description: Skills 能让 AI Agent 更稳定、更专业——但前提是设计得当。本文拆解 Skills 的原理、收益与常见误区。
 lang: zh
 category: techniques
-related_glossary: [agentic-coding]
-related_blog: [how-skills-work, how-to-build-a-production-ready-claude-code-skill]
-related_faq: [claude-code-skills]
-date: 2026-03-24
+related_glossary:
+  - agentic-coding
+related_blog:
+  - how-skills-work
+  - how-to-build-a-production-ready-claude-code-skill
+related_faq:
+  - claude-code-skills
+date: 2026-03-24T00:00:00.000Z
 ---
 
 # Skills 真的能提升 AI Agent 的输出质量吗？
 
-**Skills** 能显著提升 Agent 的任务成功率——但只在一个前提下：人工精心设计、针对特定领域。根据 SkillsBench 专项评测，经过良好设计的 Skills 平均能将 Agent 的任务完成率提升 16.2 个百分点。问题是，大多数现成的 Skills 并不满足这个前提。
+**[Skills](/zh/blog/9-principles-writing-claude-code-skills)** 能显著提升 Agent 的任务成功率——但只在一个前提下：人工精心设计、针对特定领域。根据 SkillsBench 专项评测，经过良好设计的 Skills 平均能将 Agent 的任务完成率提升 16.2 个百分点。问题是，大多数现成的 Skills 并不满足这个前提。
 
 ---
 
 ## Skills 是什么，为什么会出现
 
-大型语言模型有广博的通用知识，但缺乏针对特定工作流的程序性能力。你让 Claude Code 按照公司代码规范写测试，它可以做到——但如果没有上下文，它只能靠猜。
+大型语言模型有广博的通用知识，但缺乏针对特定工作流的程序性能力。你让 [Claude Code](/zh/blog/agent-harnesses-2026) 按照公司代码规范写测试，它可以做到——但如果没有上下文，它只能靠猜。
 
 **Agent Skills** 就是用来填补这个缺口的。它不是工具（Tool），不是系统提示（System Prompt），而是一种轻量级的模块化指引——通常以 `SKILL.md` 文件的形式存在，Agent 可以按需加载。
 

@@ -1,19 +1,24 @@
 ---
-title: "Claude vs ChatGPT Enterprise：企业 AI 平台怎么选？"
+title: Claude vs ChatGPT Enterprise：企业 AI 平台怎么选？
 slug: claude-vs-chatgpt-enterprise
-description: "从能力、安全性、定价和企业适配角度对比 Claude 与 ChatGPT Enterprise。"
+description: 从能力、安全性、定价和企业适配角度对比 Claude 与 ChatGPT Enterprise。
 item_a: Claude
 item_b: ChatGPT Enterprise
 category: models
-related_glossary: [chatgpt, ai-safety]
-related_blog: [coding-agents-reshaping-epd]
-related_compare: [anthropic-vs-openai, openai-model-spec-vs-anthropic-claude-character]
+related_glossary:
+  - chatgpt
+  - ai-safety
+related_blog:
+  - coding-agents-reshaping-epd
+related_compare:
+  - anthropic-vs-openai
+  - openai-model-spec-vs-anthropic-claude-character
 lang: zh
 ---
 
 # Claude vs ChatGPT Enterprise：企业 AI 平台怎么选？
 
-**Claude** 是 Anthropic 推出的大语言模型系列，通过 API 和 claude.ai 提供服务。**[ChatGPT](/glossary/chatgpt) Enterprise** 是 OpenAI 的企业级产品——在 ChatGPT 基础上增加了 SSO、管理后台和无限量 GPT-4 访问。两者都面向需要生产级 AI 的团队，但在设计理念、核心能力和集成方式上差异明显。
+**Claude** 是 Anthropic 推出的大语言模型系列，通过 API 和 claude.ai 提供服务。**[ChatGPT](/glossary/chatgpt) Enterprise** 是 OpenAI 的企业级产品——在 [ChatGPT](/zh/glossary/chatgpt) 基础上增加了 SSO、管理后台和无限量 GPT-4 访问。两者都面向需要生产级 AI 的团队，但在设计理念、核心能力和集成方式上差异明显。
 
 企业选型不是小事。一旦基于某个平台构建了内部工具和自动化流程，迁移成本会随时间急剧增长。
 
@@ -21,10 +26,10 @@ lang: zh
 
 | 功能 | Claude | ChatGPT Enterprise |
 |------|--------|---------------------|
-| **顶级模型** | Claude Opus 4 | GPT-4o、o1、o3 |
+| **顶级模型** | [Claude Opus](/zh/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison) 4 | GPT-4o、o1、o3 |
 | **上下文窗口** | 200K tokens | 128K tokens (GPT-4o) |
 | **深度推理** | 原生 Extended Thinking | o1/o3 链式推理 |
-| **编程代理** | Claude Code（终端式） | Code Interpreter |
+| **编程代理** | [Claude Code](/zh/blog/9-principles-writing-claude-code-skills)（终端式） | Code Interpreter |
 | **API 访问** | 独立 API 产品 | 企业版内含 |
 | **管理控制** | Teams/Enterprise 方案 | 完整管理后台、SSO、SCIM |
 | **数据政策** | 默认不用输入数据训练 | 企业版数据不用于训练 |

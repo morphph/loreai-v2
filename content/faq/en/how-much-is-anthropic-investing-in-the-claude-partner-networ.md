@@ -1,16 +1,20 @@
 ---
-title: "How Much Is Anthropic Investing in the Claude Partner Network?"
+title: How Much Is Anthropic Investing in the Claude Partner Network?
 slug: how-much-is-anthropic-investing-in-the-claude-partner-networ
-description: "Anthropic has not disclosed a specific dollar figure for the Claude Partner Network investment."
+description: >-
+  Anthropic has not disclosed a specific dollar figure for the Claude Partner
+  Network investment.
 category: frameworks
-related_glossary: [ai-safety]
-related_blog: [intercom-claude-code-plugins-skills-hooks]
+related_glossary:
+  - ai-safety
+related_blog:
+  - intercom-claude-code-plugins-skills-hooks
 lang: en
 ---
 
 # How Much Is Anthropic Investing in the Claude Partner Network?
 
-[Anthropic](/topics/anthropic) has not publicly disclosed a specific dollar amount dedicated to the **Claude Partner Network**. The program is designed to expand Claude's ecosystem by enabling consulting firms, system integrators, and technology partners to build enterprise solutions on top of Claude — but Anthropic treats the financial details of the initiative as internal.
+[Anthropic](/topics/anthropic) has not publicly disclosed a specific dollar amount dedicated to the **[Claude Partner Network](/blog/anthropic-claude-partner-network-100-million)**. The program is designed to expand Claude's ecosystem by enabling consulting firms, system integrators, and technology partners to build enterprise solutions on top of Claude — but Anthropic treats the financial details of the initiative as internal.
 
 ## Context
 
@@ -33,7 +37,7 @@ For ongoing coverage of Anthropic's business strategy and partnerships, see the 
 
 - [What is Anthropic's position on providing AI to the Department of Defense?](/faq/what-is-anthropics-position-on-providing-ai-to-the-departmen)
 - [How does Anthropic's defense engagement differ from OpenAI's approach?](/faq/how-does-anthropics-defense-engagement-differ-from-openais-a)
-- [Is Claude Code remote control available on all Anthropic plans?](/faq/is-claude-code-remote-control-available-on-all-anthropic-pla)
+- [Is [Claude Code remote](/blog/claude-code-remote-control-mobile) control available on all Anthropic plans?](/faq/is-claude-code-remote-control-available-on-all-anthropic-pla)
 
 ---
 

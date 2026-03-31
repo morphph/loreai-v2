@@ -1,10 +1,12 @@
 ---
-title: "Do Skills Actually Improve Your Agent's Output? Here's What the Data Says"
+title: Do Skills Actually Improve Your Agent's Output? Here's What the Data Says
 slug: do-skills-actually-improve-your-agents-output
-description: "Skills can boost AI agent task success by 16+ percentage points — but only if well-designed. Here's what actually works and what hurts performance."
+description: >-
+  Skills can boost AI agent task success by 16+ percentage points — but only if
+  well-designed. Here's what actually works and what hurts performance.
 lang: en
 category: techniques
-date: 2026-03-24
+date: 2026-03-24T00:00:00.000Z
 ---
 
 # Do Skills Actually Improve Your Agent's Output? Here's What the Data Says
@@ -13,7 +15,7 @@ The short answer: yes, but not unconditionally. Specialized benchmark evaluation
 
 ## What Agent Skills Actually Are
 
-Foundation models like Claude know a lot, but they improvise on domain-specific workflows. **Agent Skills** bridge that gap. Rather than cramming instructions into a bloated system prompt, skills are lightweight, modular packages — typically `SKILL.md` files — that agents load on demand.
+Foundation models like Claude know a lot, but they improvise on domain-specific workflows. **Agent Skills** bridge that gap. Rather than cramming instructions into a bloated system prompt, skills are lightweight, modular packages — typically `[SKILL.md](/blog/9-principles-writing-claude-code-skills)` files — that agents load on demand.
 
 The architecture separates three distinct concerns:
 
@@ -23,7 +25,7 @@ The architecture separates three distinct concerns:
 
 This separation is the key architectural insight. When you mix all three into a single system prompt, you get interference effects. A constraint meant for one workflow bleeds into another. A procedural step for a code review task gets applied to content generation. Skills isolate these concerns so each can evolve independently.
 
-Anthropic introduced Claude Skills across Claude.ai, the Claude API, and [Claude Code](/glossary/agentic-coding) in October 2025, formalizing what many practitioners had been doing informally with instruction files.
+Anthropic introduced [Claude Skills](/blog/claude-excel-powerpoint-skills-context) across Claude.ai, the Claude API, and [Claude Code](/glossary/agentic-coding) in October 2025, formalizing what many practitioners had been doing informally with instruction files.
 
 ## The Performance Evidence
 
@@ -47,7 +49,7 @@ According to the research, effective skills share common properties:
 
 **Progressive disclosure.** Enterprise deployments benefit from loading skills only when relevant to the current task. A skill loaded for every session adds overhead; a skill loaded when the agent encounters a code review task provides targeted guidance at the right moment.
 
-For a practical breakdown of how to build skills that hold up in production, see [How to Build a Production-Ready Claude Code Skill](/blog/how-to-build-a-production-ready-claude-code-skill).
+For a practical breakdown of how to build skills that hold up in production, see [How to Build a Production-Ready [Claude Code](/blog/claude-code-complete-guide) Skill](/blog/how-to-build-a-production-ready-claude-code-skill).
 
 ## How Claude Code Implements Skills
 

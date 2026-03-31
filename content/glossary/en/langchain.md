@@ -1,19 +1,24 @@
 ---
-title: "LangChain — AI Glossary"
+title: LangChain — AI Glossary
 slug: langchain
-description: "What is LangChain? An open-source framework for building applications powered by large language models."
+description: >-
+  What is LangChain? An open-source framework for building applications powered
+  by large language models.
 term: langchain
-display_term: "LangChain"
+display_term: LangChain
 category: frameworks
-related_glossary: [fine-tuning, agentic-coding]
-related_blog: [restaurant-voice-agent-gpt-realtime-tutorial]
+related_glossary:
+  - fine-tuning
+  - agentic-coding
+related_blog:
+  - restaurant-voice-agent-gpt-realtime-tutorial
 related_compare: []
 lang: en
 ---
 
 # LangChain — AI Glossary
 
-**LangChain** is an open-source framework for building applications powered by large language models (LLMs). It provides a standardized interface for chaining together LLM calls, tool usage, memory, and retrieval — letting developers compose complex AI workflows without writing boilerplate integration code. Available in both Python and JavaScript/TypeScript, LangChain has become one of the most widely adopted frameworks for LLM application development.
+**[LangChain](/blog/coding-agents-reshaping-epd)** is an open-source framework for building applications powered by [large language models](/blog/gemini-3-1-pro-complex-tasks) (LLMs). It provides a standardized interface for chaining together LLM calls, tool usage, memory, and retrieval — letting developers compose complex AI workflows without writing boilerplate integration code. Available in both Python and JavaScript/TypeScript, LangChain has become one of the most widely adopted frameworks for LLM application development.
 
 ## Why LangChain Matters
 
@@ -36,7 +41,7 @@ The newer **LangGraph** extension adds support for stateful, multi-actor workflo
 
 - **[Agentic Coding](/glossary/agentic-coding)**: AI-driven development workflows where models autonomously plan and execute tasks — LangChain's agent module enables this pattern
 - **[Fine-Tuning](/glossary/fine-tuning)**: Customizing model weights on domain-specific data — an alternative to LangChain's prompt-based approach for specialization
-- **[ChatGPT](/glossary/chatgpt)**: OpenAI's conversational AI product — LangChain supports ChatGPT's underlying models as one of many LLM backends
+- **[ChatGPT](/glossary/chatgpt)**: OpenAI's conversational AI product — LangChain supports [ChatGPT](/topics/chatgpt)'s underlying models as one of many LLM backends
 
 ---
 

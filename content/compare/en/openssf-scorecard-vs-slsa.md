@@ -1,19 +1,25 @@
 ---
-title: "OpenSSF Scorecard vs SLSA: Which Supply Chain Security Framework Do You Need?"
+title: 'OpenSSF Scorecard vs SLSA: Which Supply Chain Security Framework Do You Need?'
 slug: openssf-scorecard-vs-slsa
-description: "Comparing OpenSSF Scorecard and SLSA across scope, automation, and supply chain security goals."
+description: >-
+  Comparing OpenSSF Scorecard and SLSA across scope, automation, and supply
+  chain security goals.
 item_a: OpenSSF Scorecard
 item_b: SLSA
 category: frameworks
-related_glossary: [ai-safety]
-related_blog: [run-ai-coding-agents-locally]
-related_compare: [anthropic-vs-openai, openai-model-spec-vs-anthropic-claude-character]
+related_glossary:
+  - ai-safety
+related_blog:
+  - run-ai-coding-agents-locally
+related_compare:
+  - anthropic-vs-openai
+  - openai-model-spec-vs-anthropic-claude-character
 lang: en
 ---
 
 # OpenSSF Scorecard vs SLSA: Which Supply Chain Security Framework Do You Need?
 
-**OpenSSF Scorecard** and **SLSA** (Supply-chain Levels for Software Artifacts) both live under the Open Source Security Foundation umbrella, but they attack software supply chain security from different angles. Scorecard is an automated tool that evaluates an open-source project's security posture right now — scanning for pinned dependencies, branch protection, code review practices, and more. SLSA is a specification framework that defines progressive levels of build integrity guarantees, ensuring that artifacts weren't tampered with between source and deployment. One diagnoses; the other prescribes. Most mature security programs need both.
+**OpenSSF Scorecard** and **SLSA** (Supply-chain Levels for Software Artifacts) both live under the Open Source Security Foundation umbrella, but they attack [software supply chain](/blog/anthropic-linux-foundation-open-source-security) security from different angles. Scorecard is an automated tool that evaluates an open-source project's security posture right now — scanning for pinned dependencies, branch protection, code review practices, and more. SLSA is a specification framework that defines progressive levels of build integrity guarantees, ensuring that artifacts weren't tampered with between source and deployment. One diagnoses; the other prescribes. Most mature security programs need both.
 
 ## Feature Comparison
 

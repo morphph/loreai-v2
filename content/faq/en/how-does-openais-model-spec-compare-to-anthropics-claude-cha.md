@@ -1,11 +1,18 @@
 ---
-title: "How Does OpenAI's Model Spec Compare to Anthropic's Claude Character?"
+title: How Does OpenAI's Model Spec Compare to Anthropic's Claude Character?
 slug: how-does-openais-model-spec-compare-to-anthropics-claude-cha
-description: "OpenAI's Model Spec and Anthropic's Claude Character both define AI behavior, but differ in structure, transparency, and safety philosophy."
+description: >-
+  OpenAI's Model Spec and Anthropic's Claude Character both define AI behavior,
+  but differ in structure, transparency, and safety philosophy.
 category: concepts
-related_glossary: [ai-safety, chatgpt]
-related_blog: [coding-agents-reshaping-epd]
-related_faq: [what-is-anthropics-position-on-providing-ai-to-the-departmen, how-does-anthropics-defense-engagement-differ-from-openais-a]
+related_glossary:
+  - ai-safety
+  - chatgpt
+related_blog:
+  - coding-agents-reshaping-epd
+related_faq:
+  - what-is-anthropics-position-on-providing-ai-to-the-departmen
+  - how-does-anthropics-defense-engagement-differ-from-openais-a
 lang: en
 ---
 
@@ -15,13 +22,13 @@ OpenAI's **Model Spec** and Anthropic's **Claude Character** (formally called th
 
 ## Context
 
-Both documents became public in 2024 and represent each company's attempt to make AI alignment legible and auditable. OpenAI published its Model Spec as a formal specification defining how GPT models should prioritize conflicting instructions across stakeholders. It reads like a policy document with explicit rules about defaults, overrides, and edge cases.
+Both documents became public in 2024 and represent each company's attempt to make [AI alignment](/blog/openai-updated-model-spec-2026) legible and auditable. OpenAI published its Model Spec as a formal specification defining how GPT models should prioritize conflicting instructions across stakeholders. It reads like a policy document with explicit rules about defaults, overrides, and edge cases.
 
 Anthropic's approach with Claude's Character is more dispositional. Rather than a strict rule hierarchy, it describes the kind of entity Claude should be — curious, honest, careful about [AI safety](/glossary/ai-safety) risks, and willing to express genuine uncertainty. Anthropic frames this as training Claude to have good judgment rather than following a decision tree.
 
 The practical differences show up in edge cases. When a user request conflicts with safety guidelines, the Model Spec routes through its authority hierarchy (platform > operator > user). Claude's Character encourages the model to reason through the situation using internalized principles, which can produce more nuanced but less predictable responses.
 
-A key structural difference: OpenAI's Model Spec is explicitly versioned and designed as an engineering artifact that developers integrate into system prompts. Anthropic's character training is baked deeper into the model through Constitutional AI and RLHF — it shapes behavior at the training level, not just the prompting level.
+A key structural difference: OpenAI's Model Spec is explicitly versioned and designed as an engineering artifact that developers integrate into system prompts. Anthropic's character training is baked deeper into the model through Constitutional AI and [RLHF](/glossary/rlhf) — it shapes behavior at the training level, not just the prompting level.
 
 Both companies have also diverged on transparency. Anthropic published Claude's Character partly to invite public scrutiny of its alignment approach. OpenAI's Model Spec serves a dual purpose as both a public accountability document and an internal engineering reference.
 

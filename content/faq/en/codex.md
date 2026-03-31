@@ -1,23 +1,30 @@
 ---
-title: "What Is Codex?"
+title: What Is Codex?
 slug: codex
-description: "What is Codex? OpenAI's agentic coding tool that runs in your terminal, IDE, and desktop app."
+description: >-
+  What is Codex? OpenAI's agentic coding tool that runs in your terminal, IDE,
+  and desktop app.
 category: tools
-related_glossary: [agentic-coding, chatgpt]
-related_blog: [codex-for-students, codex-for-open-source]
+related_glossary:
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - codex-for-students
+  - codex-for-open-source
 lang: en
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # What Is Codex?
 
-**Codex** is [OpenAI's](/glossary/chatgpt) agentic coding tool — a command center for software development that runs locally on your computer and in your editor. Unlike traditional code completion, Codex operates as an autonomous agent that understands your entire codebase, plans multi-step tasks, and executes them end-to-end: building features, refactoring code, running tests, and reviewing pull requests. It's available as a desktop app, CLI, IDE extension, and web interface.
+**[Codex](/blog/codex-complete-guide)** is [OpenAI's](/glossary/chatgpt) [agentic coding](/blog/claude-code-seven-programmable-layers) tool — a command center for software development that runs locally on your computer and in your editor. Unlike traditional code completion, Codex operates as an autonomous agent that understands your entire codebase, plans multi-step tasks, and executes them end-to-end: building features, refactoring code, running tests, and reviewing pull requests. It's available as a desktop app, CLI, IDE extension, and web interface.
 
 ## Context
 
-Codex represents a shift in how developers interact with AI — from line-by-line suggestions to full autonomous workflows. The tool runs across three main surfaces: the [Codex desktop app](https://openai.com/codex) (your command center), the terminal via CLI, and your code editor (VS Code, Cursor, Windsurf).
+Codex represents a shift in how developers interact with AI — from line-by-line suggestions to full autonomous workflows. The tool runs across three main surfaces: the [Codex desktop app](https://openai.com/codex) (your command center), the terminal via CLI, and your code editor (VS Code, [Cursor](/glossary/cursor), [Windsurf](/glossary/windsurf)).
 
-The platform is designed for multi-agent workflows. You can run multiple coding agents in parallel, each working on isolated tasks via built-in worktrees and cloud environments, so changes don't conflict. This means agents can complete weeks of work in days.
+The platform is designed for multi-agent workflows. You can run multiple [coding agents](/blog/9-principles-writing-claude-code-skills) in parallel, each working on isolated tasks via built-in worktrees and cloud environments, so changes don't conflict. This means agents can complete weeks of work in days.
 
 Codex also supports **Skills** — reusable instruction bundles that package your tools, scripts, and team conventions. This lets Codex adapt to your team's standards for code understanding, testing, documentation, and deployment. See our [blog on Codex for teams](/blog/con-u-pour-des-workflows-multi-agents) for how Skills scale across organizations.
 

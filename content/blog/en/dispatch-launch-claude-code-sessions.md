@@ -1,22 +1,35 @@
 ---
-title: "Dispatch Now Launches Claude Code Sessions: AI-Powered Task Orchestration Gets Real"
-date: 2026-03-20
+title: >-
+  Dispatch Now Launches Claude Code Sessions: AI-Powered Task Orchestration Gets
+  Real
+date: 2026-03-20T00:00:00.000Z
 slug: dispatch-launch-claude-code-sessions
-description: "Dispatch can now launch Claude Code sessions directly, enabling AI-powered task orchestration that bridges project management and autonomous coding workflows."
-keywords: ["Dispatch Claude Code", "Claude Code automation", "AI task orchestration", "Claude Code sessions"]
+description: >-
+  Dispatch can now launch Claude Code sessions directly, enabling AI-powered
+  task orchestration that bridges project management and autonomous coding
+  workflows.
+keywords:
+  - Dispatch Claude Code
+  - Claude Code automation
+  - AI task orchestration
+  - Claude Code sessions
 category: DEV
-related_newsletter: 2026-03-20
-related_glossary: [claude-code]
-related_compare: [dispatch-vs-devin, claude-code-vs-cursor, dispatch-vs-github-actions]
+related_newsletter: 2026-03-20T00:00:00.000Z
+related_glossary:
+  - claude-code
+related_compare:
+  - dispatch-vs-devin
+  - claude-code-vs-cursor
+  - dispatch-vs-github-actions
 lang: en
 video_ready: true
-video_hook: "What happens when your task manager can spin up AI coding agents on its own?"
+video_hook: What happens when your task manager can spin up AI coding agents on its own?
 video_status: none
 ---
 
 # Dispatch Now Launches Claude Code Sessions: AI-Powered Task Orchestration Gets Real
 
-**Dispatch**, the AI-native task orchestration tool, can now [launch Claude Code sessions directly](https://x.com/felixrieseberg/status/2034381385134399913). This means a task management layer can autonomously spin up **Claude Code** — Anthropic's agentic coding environment — to work on assignments without a developer manually opening a terminal. It's a concrete step toward the workflow many teams have been waiting for: describe what needs to happen, and an orchestrator figures out how to get it done using AI coding agents.
+**Dispatch**, the AI-native task orchestration tool, can now [launch [Claude Code](/blog/claude-code-complete-guide) sessions directly](https://x.com/felixrieseberg/status/2034381385134399913). This means a task management layer can autonomously spin up **Claude Code** — Anthropic's [agentic coding](/blog/claude-code-seven-programmable-layers) environment — to work on assignments without a developer manually opening a terminal. It's a concrete step toward the workflow many teams have been waiting for: describe what needs to happen, and an orchestrator figures out how to get it done using [AI coding agents](/blog/effective-harnesses-for-long-running-agents).
 
 ## What Happened
 
@@ -40,7 +53,7 @@ Dispatch's integration attacks this problem directly. When a task manager can la
 
 This pattern — an orchestrator dispatching AI agents to do focused work — is emerging as the dominant architecture for scaling AI-assisted development beyond individual productivity. Tools like [Claude Code](/glossary/claude-code) provide the execution engine; Dispatch provides the coordination layer.
 
-The competitive landscape is heating up. OpenAI's Codex targets a similar workflow with cloud-based sandboxed agents. Google's Jules operates in a comparable space. What differentiates the Dispatch approach is that it builds on Claude Code's existing terminal-native workflow rather than creating an entirely new runtime. Developers keep their local environment, their git setup, their existing CI/CD — Dispatch just decides when to invoke Claude Code and with what instructions.
+The competitive landscape is heating up. OpenAI's [Codex](/blog/codex-complete-guide) targets a similar workflow with cloud-based sandboxed agents. Google's Jules operates in a comparable space. What differentiates the Dispatch approach is that it builds on Claude Code's existing terminal-native workflow rather than creating an entirely new runtime. Developers keep their local environment, their git setup, their existing CI/CD — Dispatch just decides when to invoke Claude Code and with what instructions.
 
 ## Technical Deep-Dive
 
@@ -54,7 +67,7 @@ Claude Code already supports programmatic invocation. The `--print` flag enables
 
 The key technical challenge is **context management**. Each Claude Code session needs the right files, the right instructions, and the right scope. Too broad, and the agent wanders. Too narrow, and it can't solve the problem. Dispatch's role is to set that scope correctly based on the task definition.
 
-Claude Code's CLAUDE.md and Skills system plays well here. If your project already has well-defined skills — code review guidelines, test patterns, deployment constraints — every Dispatch-launched session inherits those standards automatically. The orchestrator doesn't need to encode engineering standards; the project configuration handles that.
+Claude Code's [CLAUDE.md](/blog/claude-code-memory) and Skills system plays well here. If your project already has well-defined skills — code review guidelines, test patterns, deployment constraints — every Dispatch-launched session inherits those standards automatically. The orchestrator doesn't need to encode engineering standards; the project configuration handles that.
 
 One consideration: **cost and rate limits**. Each Claude Code session consumes API tokens. An orchestrator that aggressively launches sessions could burn through quotas quickly. Anthropic's recent doubling of off-peak usage and the removal of the long-context price increase help, but teams will need to think about budgeting when moving from manual to orchestrated workflows.
 

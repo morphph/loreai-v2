@@ -1,22 +1,29 @@
 ---
-title: "Claude 登陆 Excel 和 PowerPoint：Skills 系统和跨应用上下文共享来了"
-date: 2026-03-13
+title: Claude 登陆 Excel 和 PowerPoint：Skills 系统和跨应用上下文共享来了
+date: 2026-03-13T00:00:00.000Z
 slug: claude-excel-powerpoint-skills-context
-description: "Claude 在 Excel 和 PowerPoint 中新增 Skills 支持和跨应用上下文共享，办公场景的 AI 集成从「能用」迈向「好用」。"
-keywords: ["Claude Excel", "Claude PowerPoint", "Claude Skills", "AI 办公"]
+description: Claude 在 Excel 和 PowerPoint 中新增 Skills 支持和跨应用上下文共享，办公场景的 AI 集成从「能用」迈向「好用」。
+keywords:
+  - Claude Excel
+  - Claude PowerPoint
+  - Claude Skills
+  - AI 办公
 category: APP
-related_newsletter: 2026-03-13
-related_glossary: [claude, skill-md]
-related_compare: [claude-vs-chatgpt]
+related_newsletter: 2026-03-13T00:00:00.000Z
+related_glossary:
+  - claude
+  - skill-md
+related_compare:
+  - claude-vs-chatgpt
 lang: zh
 video_ready: true
-video_hook: "Claude 在 Office 里终于不是孤岛了"
+video_hook: Claude 在 Office 里终于不是孤岛了
 video_status: none
 ---
 
 # Claude 登陆 Excel 和 PowerPoint：Skills 系统和跨应用上下文共享来了
 
-**Claude** 在 Excel 和 PowerPoint 中迎来两项关键更新：跨应用上下文共享和 **Skills** 系统支持。这意味着 Claude 在处理你的表格时，能同时理解你演示文稿里的内容；而 Skills 则让你把团队的工作规范注入 AI，确保输出一致。更新不大，但方向很对 — AI 办公集成正在从「每个文件里单独聊」走向「理解你整个工作流」。
+**Claude** 在 Excel 和 PowerPoint 中迎来两项关键更新：跨应用上下文共享和 **[Skills](/zh/blog/9-principles-writing-claude-code-skills)** 系统支持。这意味着 Claude 在处理你的表格时，能同时理解你演示文稿里的内容；而 Skills 则让你把团队的工作规范注入 AI，确保输出一致。更新不大，但方向很对 — AI 办公集成正在从「每个文件里单独聊」走向「理解你整个工作流」。
 
 ## 发生了什么
 
@@ -36,11 +43,11 @@ AI 办公插件最大的痛点不是"不够聪明"，而是**上下文割裂**�
 
 **Skills** 的意义同样重大。没有 Skills 时，同一个团队里 10 个人让 Claude 做周报，会得到 10 种不同的格式和风格。有了 Skills，你定义一次"周报应该长什么样"，所有人的输出自动对齐。这对企业用户来说是刚需 — 一致性比创意更重要。
 
-对比来看，微软 Copilot 在 Microsoft 365 中天然有跨应用上下文（毕竟是自家生态），但缺乏类似 Skills 的行为定制能力。Google Gemini 在 Workspace 中的集成也主要停留在单文件维度。Claude 的策略是用 Skills 这个差异化能力弥补生态劣势。
+对比来看，微软 [Copilot](/zh/glossary/copilot) 在 Microsoft 365 中天然有跨应用上下文（毕竟是自家生态），但缺乏类似 Skills 的行为定制能力。Google Gemini 在 Workspace 中的集成也主要停留在单文件维度。Claude 的策略是用 Skills 这个差异化能力弥补生态劣势。
 
 ## 技术细节
 
-**Skills 系统**的工作方式延续了 Claude Code 中的设计：用结构化的 Markdown 文件（[SKILL.md](/glossary/skill-md)）定义指令集，包含语气规范、输出模板、校验规则和标准示例。在办公场景下，一个典型的 Skill 可能这样定义：
+**Skills 系统**的工作方式延续了 [Claude Code](/zh/blog/agent-harnesses-2026) 中的设计：用结构化的 Markdown 文件（[SKILL.md](/glossary/skill-md)）定义指令集，包含语气规范、输出模板、校验规则和标准示例。在办公场景下，一个典型的 Skill 可能这样定义：
 
 ```markdown
 # 周报生成

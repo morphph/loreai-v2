@@ -1,15 +1,21 @@
 ---
-title: "Claude Code vs Cline: Which AI Coding Agent Should You Use?"
+title: 'Claude Code vs Cline: Which AI Coding Agent Should You Use?'
 slug: claude-code-vs-cline
-description: "Comparing Claude Code and Cline across features, pricing, and workflows."
+description: 'Comparing Claude Code and Cline across features, pricing, and workflows.'
 item_a: Claude Code
 item_b: Cline
 category: tools
-related_glossary: [claude-code, agentic]
-related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
-related_compare: [claude-code-vs-cursor]
+related_glossary:
+  - claude-code
+  - agentic
+related_blog:
+  - claude-code-extension-stack-skills-hooks-agents-mcp
+  - claude-code-agent-teams
+related_compare:
+  - claude-code-vs-cursor
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code vs Cline: Which AI Coding Agent Should You Use?
@@ -18,7 +24,7 @@ related_topics: [claude-code]
 
 ## Feature Comparison
 
-| Feature | Claude Code | Cline |
+| Feature | [Claude Code](/blog/lessons-from-building-claude-code-agent-tools) | Cline |
 |---------|-------------|-------|
 | **Interface** | Terminal CLI + VS Code + JetBrains + Desktop app + Web | VS Code extension |
 | **Approach** | Multi-surface autonomous agent | IDE-embedded autonomous agent |
@@ -26,8 +32,8 @@ related_topics: [claude-code]
 | **Multi-file edits** | Native — plans and executes across files | Native — creates/edits files with diff view |
 | **Shell access** | Full terminal execution | VS Code terminal integration (shell integration API) |
 | **Browser use** | Via Chrome extension (beta) | Built-in headless browser with click, type, scroll, screenshots |
-| **MCP support** | Yes — connects to external tools and data sources | Yes — can create and install custom MCP servers on the fly |
-| **Project context** | CLAUDE.md files + auto memory + SKILL.md | .clinerules + file structure analysis + AST parsing |
+| **[MCP](/glossary/mcp) support** | Yes — connects to external tools and data sources | Yes — can create and install custom MCP servers on the fly |
+| **Project context** | [CLAUDE.md](/glossary/claude-md) files + [auto memory](/blog/claude-code-memory) + [SKILL.md](/blog/9-principles-writing-claude-code-skills) | .clinerules + file structure analysis + AST parsing |
 | **Cost tracking** | Not publicly documented | Built-in token and cost tracking per request and per task |
 | **Agent teams** | Spawns sub-agents for parallel task execution | Not publicly documented |
 | **Checkpoints** | Not publicly documented | Workspace snapshots with compare and restore at each step |

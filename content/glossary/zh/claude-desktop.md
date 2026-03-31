@@ -1,19 +1,22 @@
 ---
-title: "Claude Desktop — AI 术语表"
+title: Claude Desktop — AI 术语表
 slug: claude-desktop
-description: "什么是 Claude Desktop？Anthropic 推出的桌面端 AI 助手应用，支持文件处理与多模态交互。"
+description: 什么是 Claude Desktop？Anthropic 推出的桌面端 AI 助手应用，支持文件处理与多模态交互。
 term: claude-desktop
-display_term: "Claude Desktop"
+display_term: Claude Desktop
 category: tools
-related_glossary: [claude-code, chatgpt]
-related_blog: [claude-excel-powerpoint-sync]
+related_glossary:
+  - claude-code
+  - chatgpt
+related_blog:
+  - claude-excel-powerpoint-sync
 related_compare: []
 lang: zh
 ---
 
 # Claude Desktop — AI 术语表
 
-**Claude Desktop** 是 Anthropic 推出的桌面端应用程序，让用户无需通过浏览器即可直接与 Claude 模型交互。它支持文件上传、图片识别、长文档处理等多模态能力，并通过 MCP（Model Context Protocol）协议连接外部工具和数据源，将 Claude 从一个对话窗口扩展为本地工作流的核心节点。
+**[Claude Desktop](/zh/blog/anthropic-cowork-claude-desktop-agent)** 是 Anthropic 推出的桌面端应用程序，让用户无需通过浏览器即可直接与 Claude 模型交互。它支持文件上传、图片识别、长文档处理等多模态能力，并通过 [MCP](/zh/blog/claude-code-seven-programmable-layers)（[Model Context Protocol](/zh/glossary/model-context-protocol)）协议连接外部工具和数据源，将 Claude 从一个对话窗口扩展为本地工作流的核心节点。
 
 ## 为什么 Claude Desktop 重要
 

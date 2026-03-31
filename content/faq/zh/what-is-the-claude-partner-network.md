@@ -1,17 +1,20 @@
 ---
-title: "什么是 Claude Partner Network？"
+title: 什么是 Claude Partner Network？
 slug: what-is-the-claude-partner-network
-description: "Claude Partner Network 是 Anthropic 的合作伙伴生态，帮助企业部署和集成 Claude。"
+description: Claude Partner Network 是 Anthropic 的合作伙伴生态，帮助企业部署和集成 Claude。
 category: frameworks
-related_glossary: [ai-safety]
-related_blog: [opus-4-6-1m-default-claude-code]
-related_faq: [what-is-anthropics-position-on-providing-ai-to-the-departmen]
+related_glossary:
+  - ai-safety
+related_blog:
+  - opus-4-6-1m-default-claude-code
+related_faq:
+  - what-is-anthropics-position-on-providing-ai-to-the-departmen
 lang: zh
 ---
 
 # 什么是 Claude Partner Network？
 
-**Claude Partner Network** 是 Anthropic 建立的合作伙伴生态系统，汇集咨询公司、系统集成商和技术服务商，帮助企业客户规模化部署和集成 Claude。该网络的核心目标是降低企业采用 AI 的门槛——让不具备内部 AI 团队的组织也能借助合作伙伴的专业能力，将 Claude 融入业务流程。
+**[Claude Partner Network](/zh/blog/anthropic-claude-partner-network-100-million)** 是 Anthropic 建立的合作伙伴生态系统，汇集咨询公司、系统集成商和技术服务商，帮助企业客户规模化部署和集成 Claude。该网络的核心目标是降低企业采用 AI 的门槛——让不具备内部 AI 团队的组织也能借助合作伙伴的专业能力，将 Claude 融入业务流程。
 
 ## 背景
 

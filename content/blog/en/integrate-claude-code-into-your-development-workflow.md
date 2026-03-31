@@ -1,19 +1,28 @@
 ---
-title: "How to Integrate Claude Code into Your Development Workflow"
+title: How to Integrate Claude Code into Your Development Workflow
 slug: integrate-claude-code-into-your-development-workflow
-description: "Claude Code shifts AI coding from autocomplete to autonomous agent. Here's how to integrate it into your real development workflow."
+description: >-
+  Claude Code shifts AI coding from autocomplete to autonomous agent. Here's how
+  to integrate it into your real development workflow.
 lang: en
 category: tools
-related_glossary: [agentic-coding, chatgpt]
-related_blog: [do-skills-actually-improve-your-agents-output, how-to-build-a-production-ready-claude-code-skill]
-related_compare: [claude-code-remote-vs-ssh]
-related_faq: [claude-code-install, how-do-i-set-up-claude-code-remote-control-on-my-phone]
-date: 2026-03-25
+related_glossary:
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - do-skills-actually-improve-your-agents-output
+  - how-to-build-a-production-ready-claude-code-skill
+related_compare:
+  - claude-code-remote-vs-ssh
+related_faq:
+  - claude-code-install
+  - how-do-i-set-up-claude-code-remote-control-on-my-phone
+date: 2026-03-25T00:00:00.000Z
 ---
 
 # How to Integrate Claude Code into Your Development Workflow
 
-**Claude Code** isn't an autocomplete tool. It's a terminal-native AI agent that reads your entire codebase, plans multi-step tasks, executes shell commands, and commits changes — all autonomously. Anthropic launched it in research preview in February 2025, hit general availability in May 2025, and by late 2025 it reportedly reached a $1 billion annualized revenue run rate. That trajectory reflects a genuine shift in how developers work — not just a new plugin to install.
+**[Claude Code](/blog/claude-code-complete-guide)** isn't an autocomplete tool. It's a terminal-native AI agent that reads your entire codebase, plans multi-step tasks, executes shell commands, and commits changes — all autonomously. Anthropic launched it in research preview in February 2025, hit general availability in May 2025, and by late 2025 it reportedly reached a $1 billion annualized revenue run rate. That trajectory reflects a genuine shift in how developers work — not just a new plugin to install.
 
 Here's how to actually integrate it, not just install it.
 
@@ -40,9 +49,9 @@ graph TD
 
 Effective integration means setting up the memory system, not just running commands ad-hoc. Claude Code's architecture uses four layers:
 
-1. **`CLAUDE.md`** — Project-level instructions. Architecture decisions, coding standards, forbidden patterns, deployment context. This file travels with your repo and trains every Claude Code session automatically.
+1. **`[CLAUDE.md](/blog/claude-code-memory)`** — Project-level instructions. Architecture decisions, coding standards, forbidden patterns, deployment context. This file travels with your repo and trains every Claude Code session automatically.
 
-2. **Skills (`SKILL.md` files)** — Reusable instruction sets for recurring tasks. A `skills/write-tests/SKILL.md` encodes exactly how you want test coverage written. A `skills/review-pr/SKILL.md` defines your PR review checklist. These are the difference between one-off prompting and consistent, repeatable AI behavior. See [how to build a production-ready Claude Code skill](/blog/how-to-build-a-production-ready-claude-code-skill) for specifics.
+2. **Skills (`[SKILL.md](/blog/9-principles-writing-claude-code-skills)` files)** — Reusable instruction sets for recurring tasks. A `skills/write-tests/SKILL.md` encodes exactly how you want test coverage written. A `skills/review-pr/SKILL.md` defines your PR review checklist. These are the difference between one-off prompting and consistent, repeatable AI behavior. See [how to build a production-ready Claude Code skill](/blog/how-to-build-a-production-ready-claude-code-skill) for specifics.
 
 3. **Hooks** — Shell commands that fire on events like tool calls. Use them to enforce deterministic safety controls — log every command executed, block destructive operations outside a sandbox, run linters before any commit.
 
@@ -54,7 +63,7 @@ Whether skills actually improve output quality is worth reading about — we ana
 
 **Terminal + CLAUDE.md as the anchor.** Set up your `CLAUDE.md` first, before any serious usage. Document your project's architecture, the test runner commands, the deployment flow, and any conventions Claude should follow. This is the highest-leverage setup step.
 
-**VS Code alongside, not instead.** Claude Code runs in your terminal — it doesn't replace your editor. Most developers keep Cursor or VS Code open for active editing and hand off larger tasks to Claude Code. Edit a file in your IDE, describe the follow-up refactor to Claude Code in the terminal, review the diff, approve. The workflows are complementary.
+**VS Code alongside, not instead.** Claude Code runs in your terminal — it doesn't replace your editor. Most developers keep [Cursor](/glossary/cursor) or VS Code open for active editing and hand off larger tasks to Claude Code. Edit a file in your IDE, describe the follow-up refactor to Claude Code in the terminal, review the diff, approve. The workflows are complementary.
 
 **Git integration as the trust boundary.** Claude Code stages, commits, and pushes with structured commit messages. Let it do this — but configure your `CLAUDE.md` to enforce commit message format and require human approval before pushing to main. The approval flow is where you maintain control without micromanaging every edit.
 

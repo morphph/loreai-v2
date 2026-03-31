@@ -1,17 +1,19 @@
 ---
-title: "我每天都在用的 5 个 Claude Code 技巧"
+title: 我每天都在用的 5 个 Claude Code 技巧
 slug: 5-claude-code-skills-i-use-every-single-day
-description: "从 SKILL.md 到 Hooks，这 5 个 Claude Code 技巧让我的开发效率翻倍，每天必用。"
+description: 从 SKILL.md 到 Hooks，这 5 个 Claude Code 技巧让我的开发效率翻倍，每天必用。
 lang: zh
 category: tools
-related_glossary: [agentic-coding]
-related_blog: [how-hooks-work]
-date: 2026-03-23
+related_glossary:
+  - agentic-coding
+related_blog:
+  - how-hooks-work
+date: 2026-03-23T00:00:00.000Z
 ---
 
 # 我每天都在用的 5 个 Claude Code 技巧
 
-Claude Code 上手容易，但大多数人只用到了 10% 的能力——在终端里问几个问题，改几行代码，仅此而已。真正的效率差距，在于你有没有把它当成一个**可编程的执行引擎**来用。
+[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 上手容易，但大多数人只用到了 10% 的能力——在终端里问几个问题，改几行代码，仅此而已。真正的效率差距，在于你有没有把它当成一个**可编程的执行引擎**来用。
 
 以下是我每天都在用的 5 个技巧，不是理论，是实际工作流。
 
@@ -34,7 +36,7 @@ skills/
 
 ## 2. CLAUDE.md：项目级别的长期记忆
 
-`CLAUDE.md` 放在项目根目录，是 Claude Code 每次启动都会读的文件。把以下内容放进去：
+`[CLAUDE.md](/zh/blog/claude-code-memory)` 放在项目根目录，是 Claude Code 每次启动都会读的文件。把以下内容放进去：
 
 - 技术栈和版本约束
 - 架构决策和它背后的原因
@@ -45,7 +47,7 @@ skills/
 
 ## 3. Hooks：在 AI 行动前后插入验证逻辑
 
-Hooks 是 Claude Code 最被低估的功能之一。你可以在特定事件（比如文件保存、命令执行前后）触发自定义脚本。
+[Hooks](/zh/blog/claude-code-seven-programmable-layers) 是 Claude Code 最被低估的功能之一。你可以在特定事件（比如文件保存、命令执行前后）触发自定义脚本。
 
 实际用法举例：
 

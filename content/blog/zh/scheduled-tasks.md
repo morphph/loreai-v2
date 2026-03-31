@@ -1,17 +1,27 @@
 ---
-title: "Claude Code 定时任务：不要再盯着 CI/CD 傻等了"
-date: 2026-03-10
+title: Claude Code 定时任务：不要再盯着 CI/CD 傻等了
+date: 2026-03-10T00:00:00.000Z
 slug: scheduled-tasks
-description: "Claude Code 内置定时任务功能，用 /loop 命令让 AI 自动轮询 CI/CD、监控脚本、检查 API 状态。深入解析 Cron 调度、抖动机制和会话生命周期。"
-keywords: ["Claude Code", "定时任务", "loop命令", "CI/CD自动化", "Cron调度"]
+description: >-
+  Claude Code 内置定时任务功能，用 /loop 命令让 AI 自动轮询 CI/CD、监控脚本、检查 API 状态。深入解析 Cron
+  调度、抖动机制和会话生命周期。
+keywords:
+  - Claude Code
+  - 定时任务
+  - loop命令
+  - CI/CD自动化
+  - Cron调度
 category: DEV
-related_newsletter: 2026-03-10
-related_glossary: [claude-code, cron]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - cron
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: zh
 video_ready: true
-video_hook: "代码提交了还在盯着 CI/CD 傻等？一条命令解放你。"
+video_hook: 代码提交了还在盯着 CI/CD 傻等？一条命令解放你。
 video_status: published
 source_type: video
 flow_source: manual-curate
@@ -19,7 +29,7 @@ flow_source: manual-curate
 
 # Claude Code 定时任务：不要再盯着 CI/CD 傻等了
 
-代码提交，CI/CD 启动，然后你盯着屏幕等结果——不敢切走，怕错过报错。这种场景每天都在发生。**Claude Code** 内置的定时任务功能可以终结这种低效等待：一条 `/loop` 命令，让 AI 在后台替你轮询，你去干真正有价值的事。
+代码提交，CI/CD 启动，然后你盯着屏幕等结果——不敢切走，怕错过报错。这种场景每天都在发生。**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 内置的定时任务功能可以终结这种低效等待：一条 `/loop` 命令，让 AI 在后台替你轮询，你去干真正有价值的事。
 
 ## 发生了什么
 

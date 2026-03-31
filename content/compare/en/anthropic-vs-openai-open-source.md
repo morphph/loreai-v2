@@ -1,13 +1,20 @@
 ---
-title: "Anthropic vs OpenAI Open Source: Closed Safety vs Open Weights"
+title: 'Anthropic vs OpenAI Open Source: Closed Safety vs Open Weights'
 slug: anthropic-vs-openai-open-source
-description: "Comparing Anthropic's closed API approach with OpenAI's open-source models across capabilities, access, and philosophy."
+description: >-
+  Comparing Anthropic's closed API approach with OpenAI's open-source models
+  across capabilities, access, and philosophy.
 item_a: Anthropic
 item_b: OpenAI Open Source
 category: models
-related_glossary: [ai-safety, chatgpt]
-related_blog: [run-ai-coding-agents-locally]
-related_compare: [anthropic-vs-openai, openai-model-spec-vs-anthropic-claude-character]
+related_glossary:
+  - ai-safety
+  - chatgpt
+related_blog:
+  - run-ai-coding-agents-locally
+related_compare:
+  - anthropic-vs-openai
+  - openai-model-spec-vs-anthropic-claude-character
 lang: en
 ---
 
@@ -15,16 +22,16 @@ lang: en
 
 **[Anthropic](/topics/anthropic)** and **OpenAI's open-source efforts** represent two fundamentally different bets on how advanced AI should reach developers. Anthropic keeps its Claude models behind an API, investing heavily in [AI safety](/glossary/ai-safety) research and controlled deployment. OpenAI, while primarily a closed-API company itself, has released open-weight models — most notably the GPT-2 family historically, and more recently open models that developers can self-host and fine-tune. The core tension: maximum safety guardrails vs. maximum developer freedom.
 
-This comparison matters because the choice between a managed API and self-hosted open weights shapes everything from your cost structure to your ability to customize model behavior.
+This comparison matters because the choice between a managed API and self-hosted open weights shapes everything from your cost structure to your ability to customize [model behavior](/blog/openai-updated-model-spec-2026).
 
 ## Feature Comparison
 
 | Feature | Anthropic (Claude API) | OpenAI Open Source Models |
 |---------|----------------------|--------------------------|
 | **Access model** | Closed API only | Open weights, self-hostable |
-| **Fine-tuning** | Limited (via API) | Full — LoRA, QLoRA, full fine-tune |
-| **Flagship models** | Claude Opus, Sonnet, Haiku | GPT-2, Whisper, CLIP, open checkpoints |
-| **Safety approach** | Constitutional AI, RLHF, controlled release | Community-driven, model card guidance |
+| **[Fine-tuning](/glossary/fine-tuning)** | Limited (via API) | Full — LoRA, QLoRA, full fine-tune |
+| **Flagship models** | Claude Opus, Sonnet, Haiku | [GPT-2](/glossary/gpt-2), [Whisper](/glossary/whisper), CLIP, open checkpoints |
+| **Safety approach** | Constitutional AI, [RLHF](/glossary/rlhf), controlled release | Community-driven, model card guidance |
 | **Deployment** | Anthropic-hosted or cloud partners | Any infrastructure — local GPU, cloud, edge |
 | **Data privacy** | Data stays with Anthropic's infrastructure | Full control — runs on your hardware |
 | **Customization depth** | System prompts, tool use | Unlimited — modify weights, architecture |

@@ -1,18 +1,21 @@
 ---
-title: "OpenAI Model Spec vs Anthropic Claude Character：AI 行为准则对比"
+title: OpenAI Model Spec vs Anthropic Claude Character：AI 行为准则对比
 slug: openai-model-spec-vs-anthropic-claude-character
-description: "对比 OpenAI Model Spec 与 Anthropic Claude Character 两大 AI 行为规范文档的设计理念、核心原则与实际影响。"
+description: 对比 OpenAI Model Spec 与 Anthropic Claude Character 两大 AI 行为规范文档的设计理念、核心原则与实际影响。
 item_a: OpenAI Model Spec
 item_b: Anthropic Claude Character
 category: concepts
-related_glossary: [chatgpt, claude-desktop]
-related_blog: [openai-computer-access-agents-lessons]
+related_glossary:
+  - chatgpt
+  - claude-desktop
+related_blog:
+  - openai-computer-access-agents-lessons
 lang: zh
 ---
 
 # OpenAI Model Spec vs Anthropic Claude Character：谁在定义 AI 的"性格"？
 
-大模型不只是技术产品，它们的行为边界由一套明确的规范文档来定义。**OpenAI Model Spec** 和 **Anthropic Claude Character** 是目前两份最重要的 AI 行为准则——前者规定了 [ChatGPT](/glossary/chatgpt) 系列模型的价值观与行为逻辑，后者塑造了 Claude 的人格特质与决策框架。两者都试图回答同一个根本问题：AI 应该如何行事？但它们给出的答案风格截然不同。
+大模型不只是技术产品，它们的行为边界由一套明确的规范文档来定义。**[OpenAI Model Spec](/zh/blog/openai-updated-model-spec-2026)** 和 **[Anthropic Claude](/zh/blog/anthropic-claude-memory-upgrades-importing) Character** 是目前两份最重要的 AI 行为准则——前者规定了 [ChatGPT](/glossary/chatgpt) 系列模型的价值观与行为逻辑，后者塑造了 Claude 的人格特质与决策框架。两者都试图回答同一个根本问题：AI 应该如何行事？但它们给出的答案风格截然不同。
 
 ## 核心对比
 
@@ -28,7 +31,7 @@ lang: zh
 
 ## OpenAI Model Spec 的设计逻辑
 
-Model Spec 采用的是一套**层级化的指令优先级体系**。OpenAI 作为平台方设定最高级别的安全规则，开发者在此框架内定义应用行为，用户请求的优先级最低。这种架构让 ChatGPT 在 API 场景下高度可定制——开发者可以大幅调整模型的语气、能力边界和输出格式。
+Model Spec 采用的是一套**层级化的指令优先级体系**。OpenAI 作为平台方设定最高级别的安全规则，开发者在此框架内定义应用行为，用户请求的优先级最低。这种架构让 [ChatGPT](/zh/glossary/chatgpt) 在 API 场景下高度可定制——开发者可以大幅调整模型的语气、能力边界和输出格式。
 
 这种设计的优势在于**可预测性**。开发者清楚地知道模型会遵循什么规则，哪些行为被硬性禁止。对于需要在生产环境中稳定运行的应用（客服机器人、内容生成工具），这种确定性至关重要。
 

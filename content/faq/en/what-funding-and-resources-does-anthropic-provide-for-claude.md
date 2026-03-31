@@ -1,11 +1,18 @@
 ---
-title: "What Funding and Resources Does Anthropic Provide for Claude?"
+title: What Funding and Resources Does Anthropic Provide for Claude?
 slug: anthropic-claude-funding-resources
-description: "Anthropic has raised over $10 billion to build Claude, funding compute, safety research, and product development."
+description: >-
+  Anthropic has raised over $10 billion to build Claude, funding compute, safety
+  research, and product development.
 category: models
-related_glossary: [ai-safety, chatgpt]
-related_blog: [opus-4-6-1m-default-claude-code]
-related_faq: [what-is-anthropics-position-on-providing-ai-to-the-departmen, how-does-anthropics-defense-engagement-differ-from-openais-a]
+related_glossary:
+  - ai-safety
+  - chatgpt
+related_blog:
+  - opus-4-6-1m-default-claude-code
+related_faq:
+  - what-is-anthropics-position-on-providing-ai-to-the-departmen
+  - how-does-anthropics-defense-engagement-differ-from-openais-a
 lang: en
 ---
 
@@ -25,7 +32,7 @@ These resources go toward three primary areas:
 
 **Product development.** Claude ships across multiple surfaces: the API (used by developers and enterprises), claude.ai (the consumer chat interface), Claude Code (the [agentic coding](/glossary/agentic-coding) tool), and enterprise deployments. Each requires dedicated engineering, infrastructure, and go-to-market investment. The recent release of [Claude Opus 4.6 with 1M token context](/blog/opus-4-6-1m-default-claude-code) illustrates the pace of product iteration these resources enable.
 
-Compared to competitors like OpenAI (backed by Microsoft) and Google DeepMind (funded internally by Alphabet), Anthropic operates as an independent company with strategic cloud partnerships rather than full acquisition — preserving research independence while securing the compute needed for frontier model training.
+Compared to competitors like OpenAI (backed by Microsoft) and [Google DeepMind](/blog/gemini-3-1-pro-complex-tasks) (funded internally by Alphabet), Anthropic operates as an independent company with strategic cloud partnerships rather than full acquisition — preserving research independence while securing the compute needed for frontier model training.
 
 ## Practical Steps
 

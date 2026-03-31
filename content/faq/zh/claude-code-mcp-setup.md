@@ -1,17 +1,23 @@
 ---
-title: "Claude Code 怎么配置 MCP？"
+title: Claude Code 怎么配置 MCP？
 slug: claude-code-mcp-setup
-description: "在 Claude Code 配置文件中添加 MCP 服务器，就能让 AI agent 通过标准化协议连接数据库、调用 API 和使用第三方工具。"
+description: 在 Claude Code 配置文件中添加 MCP 服务器，就能让 AI agent 通过标准化协议连接数据库、调用 API 和使用第三方工具。
 category: tools
-related_glossary: [model-context-protocol, claude-code, agentic-coding]
-related_blog: [mcp-vs-cli-vs-skills-extend-claude-code, claude-code-extension-stack-skills-hooks-agents-mcp]
+related_glossary:
+  - model-context-protocol
+  - claude-code
+  - agentic-coding
+related_blog:
+  - mcp-vs-cli-vs-skills-extend-claude-code
+  - claude-code-extension-stack-skills-hooks-agents-mcp
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code 怎么配置 MCP？
 
-MCP（Model Context Protocol）让 Claude Code 通过标准化的服务器接口连接外部工具和数据源。你只需要在配置文件里声明 MCP 服务器，agent 就能在编码过程中直接调用这些工具——查数据库、调 API、操作第三方服务，全程不用离开终端。
+[MCP](/zh/blog/claude-code-seven-programmable-layers)（[Model Context Protocol](/zh/glossary/model-context-protocol)）让 [Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 通过标准化的服务器接口连接外部工具和数据源。你只需要在配置文件里声明 MCP 服务器，agent 就能在编码过程中直接调用这些工具——查数据库、调 API、操作第三方服务，全程不用离开终端。
 
 ## 背景
 

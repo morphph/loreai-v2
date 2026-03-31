@@ -1,12 +1,15 @@
 ---
-title: "AI Safety — AI 术语表"
+title: AI Safety — AI 术语表
 slug: ai-safety
-description: "什么是 AI Safety？研究如何确保人工智能系统安全、可控、符合人类意图的技术领域。"
+description: 什么是 AI Safety？研究如何确保人工智能系统安全、可控、符合人类意图的技术领域。
 term: ai-safety
-display_term: "AI Safety"
+display_term: AI Safety
 category: concepts
-related_glossary: [ai-regulation, autonomous-weapons]
-related_blog: [run-ai-coding-agents-locally]
+related_glossary:
+  - ai-regulation
+  - autonomous-weapons
+related_blog:
+  - run-ai-coding-agents-locally
 related_compare: []
 lang: zh
 ---
@@ -25,7 +28,7 @@ Anthropic、OpenAI、DeepMind 等头部实验室均将安全研究作为核心�
 
 AI Safety 研究包含多个子方向：
 
-- **对齐（Alignment）**：让模型的行为与人类价值观和意图一致，常用方法包括 RLHF（基于人类反馈的强化学习）和 Constitutional AI
+- **对齐（Alignment）**：让模型的行为与人类价值观和意图一致，常用方法包括 [RLHF](/zh/glossary/rlhf)（基于人类反馈的强化学习）和 Constitutional AI
 - **可解释性（Interpretability）**：理解模型内部的决策过程，而不是将其视为黑箱
 - **红队测试（Red Teaming）**：主动寻找模型的漏洞和有害行为模式
 - **沙箱与权限控制**：限制 AI 代理的系统访问范围，防止未授权操作

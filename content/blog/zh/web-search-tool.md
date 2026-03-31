@@ -1,16 +1,24 @@
 ---
-title: "Claude Web Search 工具：动态过滤如何让 AI 搜索省 80% Token"
-date: 2026-03-10
+title: Claude Web Search 工具：动态过滤如何让 AI 搜索省 80% Token
+date: 2026-03-10T00:00:00.000Z
 slug: web-search-tool
-description: "Anthropic 发布 Claude Web Search 新版动态过滤功能，通过代码预处理搜索结果，大幅减少 Token 消耗。本文解析核心原理，并给出 max_uses、域名过滤、缓存等实操配置清单。"
-keywords: ["Claude Web Search", "动态过滤", "API 搜索配置", "Token 优化"]
+description: >-
+  Anthropic 发布 Claude Web Search 新版动态过滤功能，通过代码预处理搜索结果，大幅减少 Token 消耗。本文解析核心原理，并给出
+  max_uses、域名过滤、缓存等实操配置清单。
+keywords:
+  - Claude Web Search
+  - 动态过滤
+  - API 搜索配置
+  - Token 优化
 category: DEV
-related_newsletter: 2026-03-10
-related_glossary: [context-window, token]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - context-window
+  - token
 related_compare: []
 lang: zh
 video_ready: true
-video_hook: "AI 每搜一次网页，80% 的 Token 都在读垃圾信息——直到动态过滤出现。"
+video_hook: AI 每搜一次网页，80% 的 Token 都在读垃圾信息——直到动态过滤出现。
 video_status: published
 source_type: video
 ---
@@ -25,7 +33,7 @@ Anthropic 发布了 **Web Search 工具**新版本（web_search_20260209），�
 
 新版本引入的**动态过滤**改变了这个流程。Claude 不再直接吞入原始网页，而是先在服务端执行一段代码对搜索结果做预处理，只把筛选后的相关内容送入上下文。相当于从"把整个图书馆搬回来"变成了"只递给你划了重点的段落"。
 
-目前只有 **Claude Opus 4.6** 和 **Sonnet 4.6** 支持动态过滤，其他模型仍使用基础版搜索。定价方面，搜索本身每 1000 次 10 美元，但每次搜索拉回的网页内容按 input token 额外计费。
+目前只有 **[Claude Opus 4.6](/zh/blog/claude-1-million-context-window-ga)** 和 **Sonnet 4.6** 支持动态过滤，其他模型仍使用基础版搜索。定价方面，搜索本身每 1000 次 10 美元，但每次搜索拉回的网页内容按 input token 额外计费。
 
 ## 为什么重要
 

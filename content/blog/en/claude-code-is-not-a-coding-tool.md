@@ -1,19 +1,26 @@
 ---
-title: "Claude Code Is Not a Coding Tool"
+title: Claude Code Is Not a Coding Tool
 slug: claude-code-is-not-a-coding-tool
-description: "Claude Code started as a developer assistant. It's become something broader: a universal automation interface for generalized knowledge work."
+description: >-
+  Claude Code started as a developer assistant. It's become something broader: a
+  universal automation interface for generalized knowledge work.
 lang: en
 category: tools
-related_glossary: [agentic-coding]
-related_blog: [integrate-claude-code-into-your-development-workflow, key-benefits-and-features]
-related_compare: [claude-code-vs-cursor]
-related_faq: [claude-code-pricing]
-date: 2026-03-27
+related_glossary:
+  - agentic-coding
+related_blog:
+  - integrate-claude-code-into-your-development-workflow
+  - key-benefits-and-features
+related_compare:
+  - claude-code-vs-cursor
+related_faq:
+  - claude-code-pricing
+date: 2026-03-27T00:00:00.000Z
 ---
 
 # Claude Code Is Not a Coding Tool
 
-The name is misleading. **Claude Code** gets filed under "AI coding assistants" alongside Copilot and Cursor — but that classification misses what's actually happening. By early 2026, Claude Code had quietly become something categorically different: a generalized execution environment for knowledge work, not a smarter autocomplete.
+The name is misleading. **[Claude Code](/blog/claude-code-complete-guide)** gets filed under "AI coding assistants" alongside [Copilot](/glossary/copilot) and [Cursor](/glossary/cursor) — but that classification misses what's actually happening. By early 2026, Claude Code had quietly become something categorically different: a generalized execution environment for knowledge work, not a smarter autocomplete.
 
 The distinction matters. It changes how you use it, what you delegate to it, and what skills actually matter in an AI-augmented workflow.
 
@@ -75,13 +82,13 @@ The economic logic is straightforward: knowledge work scales when the overhead o
 
 Traditional software development doesn't scale well. Adding another feature means proportionally more engineering time. The constraint is human attention.
 
-Agentic systems like Claude Code break that constraint — not by replacing judgment, but by multiplying the throughput of judgment. One developer can now orchestrate workflows that previously required a team, as long as the specifications are clear and the audit layer is maintained.
+[Agentic](/glossary/agentic) systems like Claude Code break that constraint — not by replacing judgment, but by multiplying the throughput of judgment. One developer can now orchestrate workflows that previously required a team, as long as the specifications are clear and the audit layer is maintained.
 
 This is why the market disruption narrative that emerged in 2025-2026 around agentic tools isn't primarily about developer productivity. It's about what happens to SaaS businesses, services firms, and knowledge-work pipelines when their core output becomes substantially automatable. The coding assistant framing undersells the actual surface area.
 
 ## What This Means Practically
 
-If you're using Claude Code primarily as a tab-completion upgrade, you're leaving most of the value on the table. The leverage is in the agentic workflows — the tasks you hand off entirely, review the output of, and approve.
+If you're using Claude Code primarily as a tab-completion upgrade, you're leaving most of the value on the table. The leverage is in the [agentic workflows](/blog/openai-computer-access-agents-lessons) — the tasks you hand off entirely, review the output of, and approve.
 
 Start with what you'd delegate to a competent junior developer with full context: test generation, refactoring, documentation, boilerplate. Build the habit of specification-first thinking. Then expand the scope as you calibrate how much to trust and verify.
 

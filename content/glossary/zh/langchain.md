@@ -1,19 +1,23 @@
 ---
-title: "LangChain — AI 术语表"
+title: LangChain — AI 术语表
 slug: langchain
-description: "什么是 LangChain？用于构建大语言模型应用的开源框架，提供链式调用、RAG、Agent 等核心能力。"
+description: 什么是 LangChain？用于构建大语言模型应用的开源框架，提供链式调用、RAG、Agent 等核心能力。
 term: langchain
-display_term: "LangChain"
+display_term: LangChain
 category: frameworks
-related_glossary: [fine-tuning, agentic-coding, chatgpt]
-related_blog: [restaurant-voice-agent-gpt-realtime-tutorial]
+related_glossary:
+  - fine-tuning
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - restaurant-voice-agent-gpt-realtime-tutorial
 related_compare: []
 lang: zh
 ---
 
 # LangChain — AI 术语表
 
-**LangChain** 是一个用于构建大语言模型（LLM）应用的开源框架，由 Harrison Chase 于 2022 年发起。它将模型调用、数据检索、工具使用等步骤封装为可组合的模块，让开发者用几十行代码就能搭建出复杂的 AI 应用——从问答机器人到自主 Agent。
+**[LangChain](/zh/blog/agent-harnesses-2026)** 是一个用于构建大语言模型（LLM）应用的开源框架，由 Harrison Chase 于 2022 年发起。它将模型调用、数据检索、工具使用等步骤封装为可组合的模块，让开发者用几十行代码就能搭建出复杂的 AI 应用——从问答机器人到自主 Agent。
 
 ## 为什么 LangChain 重要
 
@@ -27,7 +31,7 @@ LangChain 的核心抽象包括几个层次：
 
 - **Model I/O**：统一封装各家 LLM 和 Embedding 模型的调用接口
 - **Chains**：将提示词模板、模型调用、输出解析串联成可复用的处理链
-- **Retrieval**：内置向量数据库集成（Chroma、Pinecone 等），支持 RAG 架构
+- **Retrieval**：内置向量数据库集成（Chroma、Pinecone 等），支持 [RAG](/zh/glossary/rag) 架构
 - **Agents**：让 LLM 自主决定调用哪些工具、按什么顺序执行，实现[智能体编程](/glossary/agentic-coding)范式
 
 2024 年后 LangChain 拆分为核心库 `langchain-core` 和生态包，并推出 LangGraph（用于构建有状态 Agent 工作流）和 LangSmith（用于可观测性和评估），形成完整工具链。

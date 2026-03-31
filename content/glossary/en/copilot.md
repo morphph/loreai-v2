@@ -1,19 +1,26 @@
 ---
-title: "Copilot — AI Glossary"
+title: Copilot — AI Glossary
 slug: copilot
-description: "What is a copilot? An AI assistant that works alongside developers to suggest code, answer questions, and accelerate workflows."
+description: >-
+  What is a copilot? An AI assistant that works alongside developers to suggest
+  code, answer questions, and accelerate workflows.
 term: copilot
-display_term: "Copilot"
+display_term: Copilot
 category: tools
-related_glossary: [claude-code, agentic, claude]
-related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, mcp-vs-cli-vs-skills-extend-claude-code]
+related_glossary:
+  - claude-code
+  - agentic
+  - claude
+related_blog:
+  - claude-code-extension-stack-skills-hooks-agents-mcp
+  - mcp-vs-cli-vs-skills-extend-claude-code
 related_compare: []
 lang: en
 ---
 
 # Copilot — AI Glossary
 
-**Copilot** is a category of AI-powered coding assistant that works alongside a developer in real time, suggesting code completions, generating functions from natural language descriptions, and answering questions about a codebase. The term was popularized by GitHub Copilot, launched in 2021, but now broadly describes any AI tool that augments — rather than replaces — a developer's workflow through inline suggestions and contextual assistance.
+**Copilot** is a category of AI-powered coding assistant that works alongside a developer in real time, suggesting code completions, generating functions from natural language descriptions, and answering questions about a codebase. The term was popularized by [GitHub Copilot](/glossary/github-copilot), launched in 2021, but now broadly describes any AI tool that augments — rather than replaces — a developer's workflow through inline suggestions and contextual assistance.
 
 ## Why Copilot Matters
 
@@ -23,7 +30,7 @@ The copilot model works well for line-by-line coding but has limitations for tas
 
 ## How Copilot Works
 
-Most copilots use large language models fine-tuned on code. The core mechanism: the tool captures the current file context — surrounding code, open tabs, sometimes project-level embeddings — and sends it to a model that predicts the most likely next tokens.
+Most copilots use [large language models](/blog/gemini-3-1-pro-complex-tasks) fine-tuned on code. The core mechanism: the tool captures the current file context — surrounding code, open tabs, sometimes project-level embeddings — and sends it to a model that predicts the most likely next tokens.
 
 Key patterns across copilot implementations:
 
@@ -38,7 +45,7 @@ The distinction between a copilot and an [agentic](/glossary/agentic) coding too
 
 - **[Claude Code](/glossary/claude-code)**: Anthropic's terminal-based AI agent that goes beyond copilot-style suggestions to execute full engineering workflows
 - **[Agentic](/glossary/agentic)**: The paradigm shift from passive AI suggestions to autonomous multi-step task execution
-- **[Claude](/glossary/claude)**: Anthropic's family of language models that powers Claude Code and can serve as the backend for copilot-style tools
+- **[Claude](/glossary/claude)**: Anthropic's family of language models that powers [Claude Code](/blog/claude-code-complete-guide) and can serve as the backend for copilot-style tools
 
 ---
 

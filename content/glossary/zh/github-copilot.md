@@ -1,19 +1,23 @@
 ---
-title: "GitHub Copilot — AI 术语表"
+title: GitHub Copilot — AI 术语表
 slug: github-copilot
-description: "什么是 GitHub Copilot？微软旗下基于大语言模型的 AI 编程助手，集成于主流 IDE 中。"
+description: 什么是 GitHub Copilot？微软旗下基于大语言模型的 AI 编程助手，集成于主流 IDE 中。
 term: github-copilot
-display_term: "GitHub Copilot"
+display_term: GitHub Copilot
 category: tools
-related_glossary: [cursor, agentic-coding, chatgpt]
-related_blog: [claude-code-enterprise-engineering-ramp-shopify-spotify]
+related_glossary:
+  - cursor
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - claude-code-enterprise-engineering-ramp-shopify-spotify
 related_compare: []
 lang: zh
 ---
 
 # GitHub Copilot — AI 术语表
 
-**GitHub Copilot** 是微软与 OpenAI 合作推出的 AI 编程助手，直接嵌入 VS Code、JetBrains 等主流 IDE，通过大语言模型实时生成代码补全、函数建议和整段代码片段。它是目前用户规模最大的 AI 辅助编程工具之一，覆盖了从个人开发者到企业团队的广泛场景。
+**GitHub [Copilot](/zh/glossary/copilot)** 是微软与 OpenAI 合作推出的 AI 编程助手，直接嵌入 VS Code、JetBrains 等主流 IDE，通过大语言模型实时生成代码补全、函数建议和整段代码片段。它是目前用户规模最大的 AI 辅助编程工具之一，覆盖了从个人开发者到企业团队的广泛场景。
 
 ## 为什么 GitHub Copilot 重要
 
@@ -23,7 +27,7 @@ GitHub Copilot 将 AI 代码生成能力从实验室带入了日常开发流程�
 
 ## GitHub Copilot 的工作原理
 
-Copilot 基于 OpenAI 的 Codex 系列模型（后续版本已升级为 GPT-4 系列），在海量开源代码上训练。核心机制包括：
+Copilot 基于 OpenAI 的 [Codex](/zh/blog/codex-complete-guide) 系列模型（后续版本已升级为 GPT-4 系列），在海量开源代码上训练。核心机制包括：
 
 - **上下文补全**：分析当前文件、光标位置和注释，生成后续代码建议
 - **Chat 模式**：通过 Copilot Chat 在 IDE 内进行自然语言对话，解释代码或生成修改方案

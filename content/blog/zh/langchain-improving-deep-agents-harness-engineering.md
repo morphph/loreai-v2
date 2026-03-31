@@ -1,23 +1,32 @@
 ---
-title: "LangChain Harness Engineering 实战：同一模型，排名从第30跳到第5"
-date: 2026-03-20
+title: LangChain Harness Engineering 实战：同一模型，排名从第30跳到第5
+date: 2026-03-20T00:00:00.000Z
 slug: langchain-improving-deep-agents-harness-engineering
-description: "LangChain 用 Harness Engineering 方法，不换模型把 coding agent 在 Terminal Bench 2.0 的分数从 52.8% 提升到 66.5%。三个中间件加一套推理三明治策略，拆解具体做法。"
-keywords: ["harness engineering", "coding agent", "LangChain", "推理预算分配", "agent中间件"]
+description: >-
+  LangChain 用 Harness Engineering 方法，不换模型把 coding agent 在 Terminal Bench 2.0
+  的分数从 52.8% 提升到 66.5%。三个中间件加一套推理三明治策略，拆解具体做法。
+keywords:
+  - harness engineering
+  - coding agent
+  - LangChain
+  - 推理预算分配
+  - agent中间件
 category: DEV
-related_newsletter: 2026-03-20
-related_glossary: [agent, prompt-engineering]
+related_newsletter: 2026-03-20T00:00:00.000Z
+related_glossary:
+  - agent
+  - prompt-engineering
 related_compare: []
 lang: zh
 video_ready: true
-video_hook: "模型一行代码没换，排名从第30跳到第5"
+video_hook: 模型一行代码没换，排名从第30跳到第5
 video_status: published
 source_type: video
 ---
 
 # LangChain Harness Engineering 实战：同一模型，排名从第30跳到第5
 
-模型一行代码没换，**LangChain** 的 coding agent 在 **Terminal Bench 2.0** 排行榜上从第30名冲到第5名，分数从 52.8% 涨到 66.5%，提升 13.7 个百分点。用的是同一个 **GPT-5.2-Codex**。秘密在模型外面那一圈系统——他们把这套方法叫 **Harness Engineering**。这篇文章拆解他们做了什么、为什么有效、你现在就能抄的具体做法。
+模型一行代码没换，**[LangChain](/zh/blog/agent-harnesses-2026)** 的 [coding agent](/zh/blog/coding-agents-reshaping-epd) 在 **Terminal Bench 2.0** 排行榜上从第30名冲到第5名，分数从 52.8% 涨到 66.5%，提升 13.7 个百分点。用的是同一个 **GPT-5.2-[Codex](/zh/blog/codex-complete-guide)**。秘密在模型外面那一圈系统——他们把这套方法叫 **Harness Engineering**。这篇文章拆解他们做了什么、为什么有效、你现在就能抄的具体做法。
 
 ## 发生了什么
 
@@ -71,7 +80,7 @@ graph TD
 2. **逼 Agent 自我验证**——模型天生相信自己的第一个方案，必须强制它跑测试、对照原始需求检查。
 3. **用 Trace 做反馈信号**——每次运行的 Trace 存进 LangSmith，用分析 Agent 批量诊断失败原因，看数据说话而非凭感觉调参。
 4. **短期打补丁，别追求完美**——循环检测、超时提醒这类 guardrail 现在有用，模型进化后可以拆掉。
-5. **每个模型需要不同的 harness**——LangChain 用早期为 Codex 优化的 harness 跑 Claude Opus 4.6，只拿到 59.6%。不是模型不行，是 harness 不匹配。
+5. **每个模型需要不同的 harness**——LangChain 用早期为 Codex 优化的 harness 跑 [Claude Opus 4.6](/zh/blog/claude-1-million-context-window-ga)，只拿到 59.6%。不是模型不行，是 harness 不匹配。
 
 ## 你现在该做什么
 

@@ -1,16 +1,29 @@
 ---
-title: "Claude in Excel and PowerPoint Now Supports Skills and Cross-App Context Sharing"
-date: 2026-03-13
+title: >-
+  Claude in Excel and PowerPoint Now Supports Skills and Cross-App Context
+  Sharing
+date: 2026-03-13T00:00:00.000Z
 slug: claude-excel-powerpoint-skills-context
-description: "Claude's Excel and PowerPoint integrations now support Skills and cross-app context sharing, bringing consistent AI behavior across Microsoft Office."
-keywords: ["Claude Excel", "Claude PowerPoint", "Claude Skills", "Microsoft Office AI"]
+description: >-
+  Claude's Excel and PowerPoint integrations now support Skills and cross-app
+  context sharing, bringing consistent AI behavior across Microsoft Office.
+keywords:
+  - Claude Excel
+  - Claude PowerPoint
+  - Claude Skills
+  - Microsoft Office AI
 category: APP
-related_newsletter: 2026-03-13
-related_glossary: [claude-code, skill-md]
-related_compare: [claude-excel-vs-copilot-excel, claude-code-vs-claude-office, claude-powerpoint-vs-copilot-powerpoint]
+related_newsletter: 2026-03-13T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - skill-md
+related_compare:
+  - claude-excel-vs-copilot-excel
+  - claude-code-vs-claude-office
+  - claude-powerpoint-vs-copilot-powerpoint
 lang: en
 video_ready: true
-video_hook: "Claude just made Microsoft Office integrations actually useful — here's how"
+video_hook: Claude just made Microsoft Office integrations actually useful — here's how
 video_status: none
 ---
 
@@ -30,13 +43,13 @@ This follows Anthropic's broader push to make Claude more useful in enterprise p
 
 ## Why It Matters
 
-The Office integrations have been Claude's quiet weak spot. While Claude Code gets the developer mindshare and the consumer chatbot gets the headlines, the Excel and PowerPoint plugins are where many enterprise users actually spend their time. And until now, they've been relatively simple wrappers — useful for one-off tasks but disconnected from each other and from any organizational standards.
+The Office integrations have been Claude's quiet weak spot. While [Claude Code](/blog/claude-code-complete-guide) gets the developer mindshare and the consumer chatbot gets the headlines, the Excel and PowerPoint plugins are where many enterprise users actually spend their time. And until now, they've been relatively simple wrappers — useful for one-off tasks but disconnected from each other and from any organizational standards.
 
 Cross-app context sharing addresses the most common complaint: **context fragmentation**. Knowledge workers don't operate in single applications. A financial analyst builds models in Excel, creates presentations in PowerPoint, and writes summaries in Word. An AI assistant that can't see across these boundaries forces users to manually copy-paste context, defeating much of the productivity gain.
 
 Skills support is arguably more significant long-term. It means an organization can define once how Claude should handle their data — using specific terminology, following brand guidelines, applying consistent formatting — and have that behavior apply everywhere Claude operates. A consulting firm can create a skill that enforces their slide template structure. A finance team can define how numbers should be formatted and which disclaimers to include.
 
-This also narrows the gap with competitors. Microsoft's own Copilot has had cross-app awareness through the Microsoft Graph since launch. Google's Gemini leverages Workspace integration for similar cross-app context. Claude's Office plugins needed this parity to be competitive in enterprise settings.
+This also narrows the gap with competitors. Microsoft's own [Copilot](/glossary/copilot) has had cross-app awareness through the Microsoft Graph since launch. Google's Gemini leverages Workspace integration for similar cross-app context. Claude's Office plugins needed this parity to be competitive in enterprise settings.
 
 ## Technical Deep-Dive
 
@@ -46,7 +59,7 @@ The context sharing mechanism works through a shared context layer between the E
 - **Slide content and structure** from open PowerPoint presentations
 - **Named ranges and table definitions** that provide semantic meaning to raw data
 
-The Skills integration follows the same `SKILL.md` convention used in Claude Code. You place skill files in a designated directory, and the Office plugins load them as system-level instructions. A typical Office-oriented skill might look like:
+The Skills integration follows the same `[SKILL.md](/blog/9-principles-writing-claude-code-skills)` convention used in Claude Code. You place skill files in a designated directory, and the Office plugins load them as system-level instructions. A typical Office-oriented skill might look like:
 
 ```markdown
 # Brand Presentation Standards

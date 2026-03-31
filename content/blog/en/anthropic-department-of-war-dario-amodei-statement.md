@@ -1,22 +1,33 @@
 ---
-title: "Anthropic and the Department of War: What Dario Amodei's Statement Means for AI in Defense"
-date: 2026-03-08
+title: >-
+  Anthropic and the Department of War: What Dario Amodei's Statement Means for
+  AI in Defense
+date: 2026-03-08T00:00:00.000Z
 slug: anthropic-department-of-war-dario-amodei-statement
-description: "Dario Amodei issued a statement on Anthropic's discussions with the Department of War, as AI companies navigate classified deployments and safety guardrails."
-keywords: ["Anthropic Department of War", "Dario Amodei AI defense", "AI military deployment", "Claude classified environments"]
+description: >-
+  Dario Amodei issued a statement on Anthropic's discussions with the Department
+  of War, as AI companies navigate classified deployments and safety guardrails.
+keywords:
+  - Anthropic Department of War
+  - Dario Amodei AI defense
+  - AI military deployment
+  - Claude classified environments
 category: PRODUCT
-related_newsletter: 2026-03-08
-related_glossary: [anthropic, claude]
-related_compare: [claude-vs-chatgpt]
+related_newsletter: 2026-03-08T00:00:00.000Z
+related_glossary:
+  - anthropic
+  - claude
+related_compare:
+  - claude-vs-chatgpt
 lang: en
 video_ready: true
-video_hook: "Anthropic just entered the defense AI race — but on very different terms"
+video_hook: Anthropic just entered the defense AI race — but on very different terms
 video_status: none
 ---
 
 # Anthropic and the Department of War: What Dario Amodei's Statement Means for AI in Defense
 
-**Anthropic** CEO Dario Amodei published a statement addressing the company's discussions with the **Department of War** (DoW), landing in the middle of a week where OpenAI also announced its own classified-environment deployment deal. The statement signals a pivotal shift: the AI safety-focused lab is engaging directly with defense — but framing it on its own terms. For anyone tracking how [frontier AI models](/glossary/frontier-model) intersect with government power, this is the week the landscape changed.
+**Anthropic** CEO Dario Amodei published a statement addressing the company's discussions with the **Department of War** (DoW), landing in the middle of a week where OpenAI also announced its own classified-environment deployment deal. The statement signals a pivotal shift: the [AI safety](/glossary/ai-safety)-focused lab is engaging directly with defense — but framing it on its own terms. For anyone tracking how [frontier AI models](/glossary/frontier-model) intersect with government power, this is the week the landscape changed.
 
 ## What Happened
 
@@ -46,9 +57,9 @@ For enterprise buyers and government agencies evaluating AI vendors, the week's 
 
 Deploying [large language models](/glossary/llm) in classified environments introduces constraints that don't exist in commercial settings.
 
-**Air-gapped infrastructure.** Classified networks (like SIPRNet or JWICS) are physically isolated from the internet. Models can't call home for updates, telemetry, or reinforcement learning feedback. This means deployments are essentially frozen snapshots — the version you deploy is the version that runs until the next manual update cycle.
+**Air-gapped infrastructure.** Classified networks (like SIPRNet or JWICS) are physically isolated from the internet. Models can't call home for updates, telemetry, or [reinforcement learning](/glossary/reinforcement-learning) feedback. This means deployments are essentially frozen snapshots — the version you deploy is the version that runs until the next manual update cycle.
 
-**Data handling and fine-tuning.** Classified data can't leave the secure environment. Any fine-tuning or retrieval-augmented generation (RAG) must happen entirely within the classified boundary. This favors models with strong base capabilities over those that rely heavily on external tool use or real-time retrieval.
+**Data handling and [fine-tuning](/glossary/fine-tuning).** Classified data can't leave the secure environment. Any fine-tuning or retrieval-augmented generation ([RAG](/glossary/rag)) must happen entirely within the classified boundary. This favors models with strong base capabilities over those that rely heavily on external [tool use](/glossary/tool-use) or real-time retrieval.
 
 **Guardrail enforcement.** In commercial settings, safety layers often include server-side classifiers, human review pipelines, and usage monitoring. In classified deployments, these mechanisms need to work offline. Anthropic's Constitutional AI approach — where safety behavior is baked into the model weights during training rather than enforced by external systems — may have a structural advantage here.
 

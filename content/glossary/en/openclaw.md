@@ -1,11 +1,15 @@
 ---
-title: "OpenClaw — AI Glossary"
+title: OpenClaw — AI Glossary
 slug: openclaw
-description: "What is OpenClaw? An open-source dexterous robot hand designed for affordable AI manipulation research."
+description: >-
+  What is OpenClaw? An open-source dexterous robot hand designed for affordable
+  AI manipulation research.
 term: openclaw
-display_term: "OpenClaw"
+display_term: OpenClaw
 category: frameworks
-related_glossary: [agentic-coding, ai-safety]
+related_glossary:
+  - agentic-coding
+  - ai-safety
 related_blog: []
 related_compare: []
 lang: en
@@ -17,7 +21,7 @@ lang: en
 
 ## Why OpenClaw Matters
 
-Dexterous manipulation is one of the hardest unsolved problems in robotics. Training an AI policy to control a five-fingered hand requires thousands of hours of real-world or simulated interaction, and until recently, the hardware alone cost tens of thousands of dollars. OpenClaw lowers that barrier dramatically by providing a reproducible, low-cost hand design paired with integration points for reinforcement learning frameworks.
+Dexterous manipulation is one of the hardest unsolved problems in robotics. Training an AI policy to control a five-fingered hand requires thousands of hours of real-world or simulated interaction, and until recently, the hardware alone cost tens of thousands of dollars. OpenClaw lowers that barrier dramatically by providing a reproducible, low-cost hand design paired with integration points for [reinforcement learning](/glossary/reinforcement-learning) frameworks.
 
 This matters beyond academia. As [AI safety](/glossary/ai-safety) research increasingly focuses on embodied agents, having open and inspectable hardware-software stacks becomes critical for understanding how learned policies behave in the physical world. OpenClaw gives the broader research community a shared platform to benchmark and compare manipulation approaches.
 
@@ -38,7 +42,7 @@ The open-source nature means researchers can modify finger geometry, sensor plac
 
 - **[AI Safety](/glossary/ai-safety)**: Understanding learned policies in physical systems is a growing focus of safety research
 - **[Agentic Coding](/glossary/agentic-coding)**: Autonomous AI agents that plan and execute tasks — OpenClaw applies this paradigm to physical manipulation
-- **[ChatGPT](/glossary/chatgpt)**: Large language models increasingly serve as high-level planners for robotic manipulation pipelines
+- **[ChatGPT](/glossary/chatgpt)**: [Large language models](/blog/gemini-3-1-pro-complex-tasks) increasingly serve as high-level planners for robotic manipulation pipelines
 
 ---
 

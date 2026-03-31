@@ -1,12 +1,17 @@
 ---
-title: "如何安装 Claude Code?"
+title: 如何安装 Claude Code?
 slug: claude-code-install
-description: "Claude Code 支持多种安装方式：macOS/Linux 推荐原生脚本，Windows 可用 PowerShell，或通过 Homebrew/WinGet 安装。"
+description: >-
+  Claude Code 支持多种安装方式：macOS/Linux 推荐原生脚本，Windows 可用 PowerShell，或通过
+  Homebrew/WinGet 安装。
 category: tools
-related_glossary: [agentic-coding]
-related_blog: [how-to-build-a-production-ready-claude-code-skill]
+related_glossary:
+  - agentic-coding
+related_blog:
+  - how-to-build-a-production-ready-claude-code-skill
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # 如何安装 Claude Code?
@@ -15,7 +20,7 @@ related_topics: [claude-code]
 
 ## 背景信息
 
-Claude Code 是 Anthropic 推出的 [代理编码工具](/glossary/agentic-coding)，直接在终端中运行。安装前需要准备：Claude 账户（Pro、Max、Teams 或 Enterprise 订阅，或 Claude Console 账户）、支持的操作系统（macOS 13.0+、Windows 10 1809+、Ubuntu 20.04+、Debian 10+ 等）和至少 4GB RAM。Windows 用户需提前安装 Git for Windows。安装完成后，在项目目录中运行 `claude` 命令启动，首次使用会提示登录。相比其他编码助手，Claude Code 的安装过程高效便捷，原生安装方式还支持自动后台更新，让你始终使用最新功能。
+[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 是 Anthropic 推出的 [代理编码工具](/glossary/agentic-coding)，直接在终端中运行。安装前需要准备：Claude 账户（Pro、Max、Teams 或 Enterprise 订阅，或 Claude Console 账户）、支持的操作系统（macOS 13.0+、Windows 10 1809+、Ubuntu 20.04+、Debian 10+ 等）和至少 4GB RAM。Windows 用户需提前安装 Git for Windows。安装完成后，在项目目录中运行 `claude` 命令启动，首次使用会提示登录。相比其他编码助手，Claude Code 的安装过程高效便捷，原生安装方式还支持自动后台更新，让你始终使用最新功能。
 
 ## 安装步骤
 

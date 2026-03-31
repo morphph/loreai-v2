@@ -1,12 +1,18 @@
 ---
-title: "AI Safety — AI Glossary"
+title: AI Safety — AI Glossary
 slug: ai-safety
-description: "What is AI safety? The field dedicated to ensuring AI systems behave reliably and align with human values."
+description: >-
+  What is AI safety? The field dedicated to ensuring AI systems behave reliably
+  and align with human values.
 term: ai-safety
-display_term: "AI Safety"
+display_term: AI Safety
 category: concepts
-related_glossary: [ai-regulation, autonomous-weapons, claude-desktop]
-related_blog: [anthropic-claude-partner-network-100-million]
+related_glossary:
+  - ai-regulation
+  - autonomous-weapons
+  - claude-desktop
+related_blog:
+  - anthropic-claude-partner-network-100-million
 related_compare: []
 lang: en
 ---
@@ -25,7 +31,7 @@ Companies like Anthropic have made safety a core business differentiator, buildi
 
 AI safety operates across multiple layers:
 
-- **Alignment research**: Training models to follow human intent rather than gaming reward signals. Techniques include RLHF, debate, and interpretability methods that let researchers understand why a model produces specific outputs.
+- **Alignment research**: Training models to follow human intent rather than gaming reward signals. Techniques include [RLHF](/glossary/rlhf), debate, and interpretability methods that let researchers understand why a model produces specific outputs.
 - **Red teaming**: Systematically probing models for dangerous capabilities or failure modes before release — jailbreaks, harmful content generation, and deceptive behavior.
 - **Deployment guardrails**: Runtime filters, usage policies, and monitoring systems that catch harmful outputs in production. Tools like [Claude Desktop](/glossary/claude-desktop) implement permission systems that keep humans in the loop for sensitive actions.
 - **Governance**: Establishing standards, audits, and accountability structures for organizations building and deploying AI.

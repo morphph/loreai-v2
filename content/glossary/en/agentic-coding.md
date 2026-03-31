@@ -1,20 +1,27 @@
 ---
-title: "Agentic Coding — AI Glossary"
+title: Agentic Coding — AI Glossary
 slug: agentic-coding
-description: "What is agentic coding? A development paradigm where AI agents autonomously plan and execute multi-step programming tasks."
+description: >-
+  What is agentic coding? A development paradigm where AI agents autonomously
+  plan and execute multi-step programming tasks.
 term: agentic-coding
-display_term: "Agentic Coding"
+display_term: Agentic Coding
 category: techniques
-related_glossary: [cursor, chatgpt, fine-tuning]
-related_blog: [claude-connectors-free-150-integrations]
+related_glossary:
+  - cursor
+  - chatgpt
+  - fine-tuning
+related_blog:
+  - claude-connectors-free-150-integrations
 related_compare: []
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Agentic Coding — AI Glossary
 
-**Agentic coding** is a software development paradigm where AI agents autonomously plan, execute, and iterate on programming tasks — reading codebases, running commands, editing files, and verifying results without step-by-step human direction. Unlike traditional AI code completion that suggests the next line, agentic coding systems operate as autonomous collaborators that take a high-level goal ("refactor the auth module and update all tests") and work through the entire implementation independently.
+**[Agentic coding](/blog/claude-code-seven-programmable-layers)** is a software development paradigm where AI agents autonomously plan, execute, and iterate on programming tasks — reading codebases, running commands, editing files, and verifying results without step-by-step human direction. Unlike traditional AI code completion that suggests the next line, [agentic](/glossary/agentic) coding systems operate as autonomous collaborators that take a high-level goal ("refactor the auth module and update all tests") and work through the entire implementation independently.
 
 ## Why Agentic Coding Matters
 
@@ -31,12 +38,12 @@ An agentic coding system combines a large language model with a tool-use loop. T
 3. **Self-correction**: When a test fails or a build breaks, the agent diagnoses the error and iterates — no human intervention required
 4. **Verification**: The agent confirms the task is complete by running validation checks
 
-Key enablers include extended context windows (so the agent can hold large codebases in memory), structured tool use (file read/write, shell execution), and project-level configuration files that encode coding standards and constraints. The agent operates in a sandboxed environment where developers can approve or reject proposed changes before they're finalized.
+Key enablers include extended context windows (so the agent can hold large codebases in memory), structured [tool use](/glossary/tool-use) (file read/write, shell execution), and project-level configuration files that encode coding standards and constraints. The agent operates in a sandboxed environment where developers can approve or reject proposed changes before they're finalized.
 
 ## Related Terms
 
 - **[Cursor](/glossary/cursor)**: An AI-enhanced IDE that supports agentic coding workflows through its built-in chat and multi-file editing capabilities
-- **[GPT](/glossary/gpt)**: The model family powering several agentic coding tools, including GitHub Copilot's agent mode
+- **[GPT](/glossary/gpt)**: The model family powering several agentic coding tools, including [GitHub Copilot](/glossary/github-[copilot](/glossary/copilot))'s agent mode
 - **[Fine-Tuning](/glossary/fine-tuning)**: A technique used to specialize foundation models for code-generation tasks that underpin agentic systems
 
 ---

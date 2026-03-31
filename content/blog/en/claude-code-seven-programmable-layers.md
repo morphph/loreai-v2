@@ -1,23 +1,36 @@
 ---
-title: "Claude Code's Seven Programmable Layers: From User to System Designer"
-date: 2026-03-13
+title: 'Claude Code''s Seven Programmable Layers: From User to System Designer'
+date: 2026-03-13T00:00:00.000Z
 slug: claude-code-seven-programmable-layers
-description: "How Claude Code's seven-layer architecture turns a terminal AI assistant into a programmable coding system — context, tools, skills, hooks, subagents, and verification."
-keywords: ["Claude Code architecture", "Claude Code hooks", "Claude Code skills", "agentic coding", "MCP tools"]
+description: >-
+  How Claude Code's seven-layer architecture turns a terminal AI assistant into
+  a programmable coding system — context, tools, skills, hooks, subagents, and
+  verification.
+keywords:
+  - Claude Code architecture
+  - Claude Code hooks
+  - Claude Code skills
+  - agentic coding
+  - MCP tools
 category: DEV
-related_newsletter: 2026-03-13
-related_glossary: [claude-code, mcp]
-related_compare: [claude-code-vs-cursor]
+related_newsletter: 2026-03-13T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - mcp
+related_compare:
+  - claude-code-vs-cursor
 lang: en
 video_ready: true
-video_hook: "Most people use Claude Code like a chatbot. Here's how to use it like an operating system."
+video_hook: >-
+  Most people use Claude Code like a chatbot. Here's how to use it like an
+  operating system.
 video_status: published
 source_type: video
 ---
 
 # Claude Code's Seven Programmable Layers: From User to System Designer
 
-Most developers treat **Claude Code** as a terminal chatbot — ask it to write code, copy the output, move on. That's using maybe 20% of what it actually is. Tw93's deep-dive analysis reframes Claude Code as a **seven-layer programmable architecture**, where each layer solves a different design problem: what Claude knows, what it can do, how it's constrained, and how its output gets verified. Understanding these layers is the difference between "AI that writes code" and "AI that operates as a reliable engineering system." Here's the full architectural breakdown and how to use each layer effectively.
+Most developers treat **[Claude Code](/blog/claude-code-complete-guide)** as a terminal chatbot — ask it to write code, copy the output, move on. That's using maybe 20% of what it actually is. Tw93's deep-dive analysis reframes Claude Code as a **seven-layer programmable architecture**, where each layer solves a different design problem: what Claude knows, what it can do, how it's constrained, and how its output gets verified. Understanding these layers is the difference between "AI that writes code" and "AI that operates as a reliable engineering system." Here's the full architectural breakdown and how to use each layer effectively.
 
 ## What Happened
 
@@ -25,8 +38,8 @@ Developer Tw93 ([@HiTw93](https://x.com/HiTw93/status/2032091246588518683)) publ
 
 | Layer | Responsibility |
 |-------|---------------|
-| **CLAUDE.md / rules / memory** | Long-term context — tells Claude *what it is* |
-| **Tools / MCP** | Action capabilities — tells Claude *what it can do* |
+| **[CLAUDE.md](/blog/claude-code-memory) / rules / memory** | Long-term context — tells Claude *what it is* |
+| **Tools / [MCP](/topics/mcp)** | Action capabilities — tells Claude *what it can do* |
 | **Skills** | On-demand methodology — tells Claude *how to do it* |
 | **Hooks** | Enforced behaviors — executes rules without relying on Claude's judgment |
 | **Subagents** | Isolated workers — controlled autonomy with separate contexts |
@@ -34,7 +47,7 @@ Developer Tw93 ([@HiTw93](https://x.com/HiTw93/status/2032091246588518683)) publ
 
 The key insight: these aren't a feature list. They're **design surfaces** — each solving a fundamentally different dimension of the human-AI collaboration problem. A [CLAUDE.md](/glossary/claude-md) file defines project-level contracts. [Skills](/glossary/claude-code) provide domain-specific methodology. Hooks enforce rules deterministically, without depending on the model's judgment. Subagents isolate context so parallel work doesn't pollute shared state.
 
-Tw93 also documents Claude Code's core runtime model: the **agentic loop** of gather context → take action → verify results, running continuously until the task completes. Users can intervene at any point — interrupting, redirecting, or adding context mid-loop.
+Tw93 also documents Claude Code's core runtime model: the **[agentic](/glossary/agentic) loop** of gather context → take action → verify results, running continuously until the task completes. Users can intervene at any point — interrupting, redirecting, or adding context mid-loop.
 
 ## Why It Matters
 
@@ -44,7 +57,7 @@ The gap between "Claude Code works" and "Claude Code works reliably at scale" is
 
 The **explore vs. execute** separation is equally critical. Tw93 advocates using PlanMode for design work (read-only, no side effects) before switching to execution (actual file changes, commands, commits). This isolates the cost of exploring wrong directions. Combined with `/clear` to cut context pollution from failed paths and `fork-session` for parallel exploration, you get systematic control over Claude's autonomy.
 
-For teams evaluating Claude Code against [Cursor](/glossary/cursor) or GitHub Copilot, this layered architecture is the differentiator. Neither competitor offers file-based, version-controlled configuration at this granularity.
+For teams evaluating Claude Code against [Cursor](/glossary/cursor) or [GitHub Copilot](/glossary/github-copilot), this layered architecture is the differentiator. Neither competitor offers file-based, version-controlled configuration at this granularity.
 
 ## Technical Deep-Dive
 

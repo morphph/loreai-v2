@@ -1,17 +1,28 @@
 ---
-title: "Claude Code Memory System: How CLAUDE.md and Auto Memory Work"
-date: 2026-03-10
+title: 'Claude Code Memory System: How CLAUDE.md and Auto Memory Work'
+date: 2026-03-10T00:00:00.000Z
 slug: claude-code-memory
-description: "How Claude Code's memory system works across sessions using CLAUDE.md files and auto memory, with practical setup guidance for engineering teams."
-keywords: ["Claude Code memory", "CLAUDE.md", "auto memory", "Claude Code configuration"]
+description: >-
+  How Claude Code's memory system works across sessions using CLAUDE.md files
+  and auto memory, with practical setup guidance for engineering teams.
+keywords:
+  - Claude Code memory
+  - CLAUDE.md
+  - auto memory
+  - Claude Code configuration
 category: DEV
-related_newsletter: 2026-03-10
-related_glossary: [claude-code, claude-md]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - claude-md
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: en
 video_ready: true
-video_hook: "Claude Code forgets everything between sessions — unless you set up its memory system"
+video_hook: >-
+  Claude Code forgets everything between sessions — unless you set up its memory
+  system
 video_status: published
 source_type: video
 flow_source: manual-curate
@@ -19,7 +30,7 @@ flow_source: manual-curate
 
 # Claude Code Memory System: How CLAUDE.md and Auto Memory Work
 
-Every **Claude Code** session starts with a blank slate — no memory of your project's architecture, your team's conventions, or the debugging session you had yesterday. Two mechanisms solve this: **CLAUDE.md** files you write yourself, and **auto memory** where Claude takes its own notes. Together, they turn Claude Code from a stateless tool into something that actually knows your codebase. Here's how to set them up properly and avoid the common pitfalls.
+Every **[Claude Code](/blog/claude-code-complete-guide)** session starts with a blank slate — no memory of your project's architecture, your team's conventions, or the debugging session you had yesterday. Two mechanisms solve this: **[CLAUDE.md](/glossary/claude-md)** files you write yourself, and **auto memory** where Claude takes its own notes. Together, they turn Claude Code from a stateless tool into something that actually knows your codebase. Here's how to set them up properly and avoid the common pitfalls.
 
 ## What Happened
 
@@ -39,7 +50,7 @@ CLAUDE.md files eliminate this repetition systematically. Write the rule once, a
 
 Auto memory addresses the long tail — the dozens of small preferences and project quirks that nobody bothers to document. When you correct Claude ("actually, use `pnpm` not `npm`"), it can note that preference automatically. Next session, the correction is already applied.
 
-The competitive angle is worth noting. [Cursor](/glossary/cursor) offers a system prompt field in settings. GitHub Copilot has instruction files. Neither has a tiered, file-based system that separates project rules from personal preferences from organization policies, all version-controlled and composable. Claude Code's approach — markdown files at known paths with clear precedence rules — is arguably the most engineer-friendly design in the space.
+The competitive angle is worth noting. [Cursor](/glossary/cursor) offers a system prompt field in settings. [GitHub Copilot](/glossary/github-[copilot](/glossary/copilot)) has instruction files. Neither has a tiered, file-based system that separates project rules from personal preferences from organization policies, all version-controlled and composable. Claude Code's approach — markdown files at known paths with clear precedence rules — is arguably the most engineer-friendly design in the space.
 
 For teams running AI-assisted workflows at scale — content pipelines, automated reviews, code generation — this memory system is the difference between "it works sometimes" and "it works consistently."
 

@@ -1,17 +1,22 @@
 ---
-title: "What Programming Languages Does Codex Support?"
+title: What Programming Languages Does Codex Support?
 slug: codex-supported-languages
-description: "Codex works with any language in your GitHub repo. Here's what that means in practice."
+description: >-
+  Codex works with any language in your GitHub repo. Here's what that means in
+  practice.
 category: tools
-related_glossary: [codex]
-related_blog: [codex-complete-guide]
+related_glossary:
+  - codex
+related_blog:
+  - codex-complete-guide
 lang: en
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # What Programming Languages Does Codex Support?
 
-**[Codex](/glossary/codex)** is not limited to a fixed list of programming languages. It operates on your full GitHub repository inside a cloud sandbox, reading and editing files and running commands — including test harnesses, linters, and type checkers — regardless of the language your project uses. Because codex-1 (the model powering Codex) was trained using reinforcement learning on real-world coding tasks across a variety of environments, it handles mainstream languages you'd find in production codebases.
+**[Codex](/glossary/codex)** is not limited to a fixed list of programming languages. It operates on your full GitHub repository inside a cloud sandbox, reading and editing files and running commands — including test harnesses, linters, and type checkers — regardless of the language your project uses. Because [codex](/faq/codex)-1 (the model powering Codex) was trained using [reinforcement learning](/glossary/reinforcement-learning) on real-world coding tasks across a variety of environments, it handles mainstream languages you'd find in production codebases.
 
 ## Context
 

@@ -1,16 +1,25 @@
 ---
-title: "Claude Connectors 免费开放：150+ 集成，Anthropic 在下什么棋"
-date: 2026-03-09
+title: Claude Connectors 免费开放：150+ 集成，Anthropic 在下什么棋
+date: 2026-03-09T00:00:00.000Z
 slug: claude-connectors-free-150-integrations
-description: "Anthropic 宣布 Claude Connectors 免费开放，提供超过 150 个第三方集成。这对企业 AI 工作流意味着什么？和竞品生态对比如何？"
-keywords: ["Claude Connectors", "Anthropic 集成", "Claude 企业功能", "AI 工作流"]
+description: >-
+  Anthropic 宣布 Claude Connectors 免费开放，提供超过 150 个第三方集成。这对企业 AI
+  工作流意味着什么？和竞品生态对比如何？
+keywords:
+  - Claude Connectors
+  - Anthropic 集成
+  - Claude 企业功能
+  - AI 工作流
 category: APP
-related_newsletter: 2026-03-09
-related_glossary: [claude, mcp]
-related_compare: [claude-vs-chatgpt]
+related_newsletter: 2026-03-09T00:00:00.000Z
+related_glossary:
+  - claude
+  - mcp
+related_compare:
+  - claude-vs-chatgpt
 lang: zh
 video_ready: true
-video_hook: "Claude 一口气免费开放 150 多个集成，这步棋很猛"
+video_hook: Claude 一口气免费开放 150 多个集成，这步棋很猛
 video_status: none
 ---
 
@@ -24,7 +33,7 @@ Anthropic [通过官方账号宣布](https://x.com/claudeai/status/2027082240833
 
 **Claude Connectors** 是 Anthropic 的集成框架，让 Claude 能够直接读取和操作外部服务中的数据。此前这类功能通常需要企业版订阅或额外付费，现在免费开放意味着门槛大幅降低。
 
-这个动作放在更大的背景下看更有意思。过去一周 Anthropic 动作频繁：Claude 记忆功能下放到免费用户、**Claude Code** Remote 向 Pro 用户开放、Cowork 新增定时任务功能、Claude 登上 App Store 第一名。Connectors 免费化是这一系列攻势的关键一环 — Anthropic 正在系统性地拆除使用门槛，把 Claude 从"最聪明的聊天机器人"变成"最好用的 AI 工作平台"。
+这个动作放在更大的背景下看更有意思。过去一周 Anthropic 动作频繁：Claude 记忆功能下放到免费用户、**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** Remote 向 Pro 用户开放、[Cowork](/zh/blog/anthropic-cowork-claude-desktop-agent) 新增定时任务功能、Claude 登上 App Store 第一名。Connectors 免费化是这一系列攻势的关键一环 — Anthropic 正在系统性地拆除使用门槛，把 Claude 从"最聪明的聊天机器人"变成"最好用的 AI 工作平台"。
 
 ## 为什么重要
 
@@ -40,7 +49,7 @@ AI 助手的核心瓶颈从来不是智商，而是连接性。模型再聪明�
 
 ## 技术细节
 
-Claude Connectors 的技术架构值得关注。它建立在 Anthropic 推动的 [MCP 协议](/glossary/mcp)（Model Context Protocol）基础之上。MCP 定义了模型与外部工具交互的标准化接口，Connectors 是这个协议的官方实现层。
+Claude Connectors 的技术架构值得关注。它建立在 Anthropic 推动的 [MCP 协议](/glossary/mcp)（[Model Context Protocol](/zh/glossary/model-context-protocol)）基础之上。[MCP](/zh/blog/claude-code-seven-programmable-layers) 定义了模型与外部工具交互的标准化接口，Connectors 是这个协议的官方实现层。
 
 从集成类别来看，150+ 的覆盖范围包括：
 
@@ -58,7 +67,7 @@ Claude Connectors 的技术架构值得关注。它建立在 Anthropic 推动的
 
 1. **盘点你的工具链。** 列出团队日常使用的 SaaS 工具，对照 Connectors 支持列表，找出可以立即接入的服务。
 2. **从一个高频场景切入。** 不要一次性接入所有工具。选一个痛点最大的场景 — 比如让 Claude 直接读 GitHub PR 做代码审查，或者连接 Notion 自动生成会议纪要。
-3. **关注 MCP 生态。** 如果你用的工具不在 Connectors 列表里，了解一下 [MCP 协议](/glossary/mcp)。社区已经有不少开源的 MCP Server 实现，自己写一个适配器的成本也不高。
+3. **关注 MCP 生态。** 如果你用的工具不在 Connectors 列表里，了解一下 [MCP 协议](/glossary/mcp)。社区已经有不少开源的 [MCP Server](/zh/blog/google-colab-mcp-server-cloud-gpu-ai-agents) 实现，自己写一个适配器的成本也不高。
 4. **对比竞品定价。** 如果你的团队正在用 ChatGPT Team 或其他付费 AI 工具，重新算一下账。Connectors 免费这一项可能就值得切换。
 
 **相关阅读**：[今日简报](/newsletter/2026-03-09) 有更多 Anthropic 生态动态。另见：[MCP 协议解析](/glossary/mcp)。

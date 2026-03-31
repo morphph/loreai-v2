@@ -1,10 +1,12 @@
 ---
-title: "Edit or Complete a Recurring Task: From Checkboxes to AI Agents"
+title: 'Edit or Complete a Recurring Task: From Checkboxes to AI Agents'
 slug: edit-or-complete-a-recurring-task
-description: "How recurring task management is evolving from manual calendar entries to autonomous AI agents — and what that means for developers."
+description: >-
+  How recurring task management is evolving from manual calendar entries to
+  autonomous AI agents — and what that means for developers.
 lang: en
 category: tools
-date: 2026-03-30
+date: 2026-03-30T00:00:00.000Z
 ---
 
 # Edit or Complete a Recurring Task: From Checkboxes to AI Agents
@@ -21,13 +23,13 @@ The end condition is equally important: recurrence stops after a fixed number of
 
 ## The Agentic Shift: When Tasks Execute Themselves
 
-What's changed in early 2026 is who — or what — completes the recurring task. Research into tools like Anthropic's **Claude Code** and **Claude Cowork** indicates that time-based (cron) triggers and event-based triggers can now reliably orchestrate complex, multi-step LLM workflows on local desktop environments. The recurring task doesn't wait for a human to check a box. It runs.
+What's changed in early 2026 is who — or what — completes the recurring task. Research into tools like Anthropic's **[Claude Code](/blog/claude-code-complete-guide)** and **Claude Cowork** indicates that time-based (cron) triggers and event-based triggers can now reliably orchestrate complex, multi-step LLM workflows on local desktop environments. The recurring task doesn't wait for a human to check a box. It runs.
 
 This is more than a UI change. It's a different execution model entirely. The task definition shifts from "remind me to do X" to "do X automatically when the schedule fires." For developers, this means recurring workflows — daily reports, weekly code reviews, automated data pulls — can be encoded once and delegated to an agent that handles execution autonomously.
 
 The pattern maps closely to what [agentic coding](/glossary/agentic-coding) tools already do for one-off tasks: the agent reads context, plans steps, executes shell commands, and produces output. Apply a cron schedule, and you have an autonomous recurring workflow.
 
-For a practical example of building this kind of infrastructure, see our guide to [creating an MCP server](/blog/create-an-mcp-server) — the Model Context Protocol is a key building block for connecting these agents to external tools and data sources.
+For a practical example of building this kind of infrastructure, see our guide to [creating an [MCP](/glossary/mcp) server](/blog/create-an-mcp-server) — the [Model Context Protocol](/glossary/model-context-protocol) is a key building block for connecting these agents to external tools and data sources.
 
 ## The "Super Individual" Model
 
@@ -56,7 +58,7 @@ The [AI safety](/glossary/ai-safety) considerations here aren't abstract. Indire
 
 The delete-tasks-in-a-series problem mirrors the edit problem: when you remove one instance from a recurring series, you're creating an exception in the recurrence chain. When you delete all future occurrences, you're terminating the series from that point forward.
 
-In agentic systems, the equivalent is deregistering a scheduled workflow. This is straightforward for cron-based triggers — remove the cron entry, the workflow stops firing. Event-based triggers are more complex: you need to remove the listener, not just the task definition, or the agent will keep executing when the triggering condition is met.
+In [agentic](/glossary/agentic) systems, the equivalent is deregistering a scheduled workflow. This is straightforward for cron-based triggers — remove the cron entry, the workflow stops firing. Event-based triggers are more complex: you need to remove the listener, not just the task definition, or the agent will keep executing when the triggering condition is met.
 
 The practical recommendation: treat agentic recurring tasks like database records, not like calendar events. They should have explicit lifecycle management — creation, modification, suspension, and deletion — with logging at each state transition.
 
@@ -75,7 +77,7 @@ For teams already using Claude Code, the [git worktree](/blog/git-worktree-add) 
 
 ## What's Next
 
-The convergence of reliable cron-triggered LLM execution and local desktop agent access is still early. The "Super Individual" model described in the research assumes a level of agent reliability and security hygiene that isn't fully established yet.
+The convergence of reliable cron-triggered LLM execution and local desktop agent access is still early. The "Super Individual" model described in the research assumes a level of [agent reliability](/blog/agent-harnesses-2026) and security hygiene that isn't fully established yet.
 
 The near-term reality: hybrid workflows, where agents handle the execution of recurring tasks but humans retain approval authority over anything that touches external systems or financial data. Full autonomy for high-stakes recurring workflows is a 2027 problem, not a 2026 deployment target.
 

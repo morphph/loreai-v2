@@ -1,23 +1,30 @@
 ---
-title: "Model Context Protocol — AI Glossary"
+title: Model Context Protocol — AI Glossary
 slug: model-context-protocol
-description: "Model Context Protocol (MCP) is an open standard for connecting AI applications to external data sources and tools securely."
+description: >-
+  Model Context Protocol (MCP) is an open standard for connecting AI
+  applications to external data sources and tools securely.
 term: model-context-protocol
-display_term: "Model Context Protocol"
+display_term: Model Context Protocol
 category: frameworks
-related_glossary: [agent-sdk, agentic-coding, ai-safety]
-related_blog: [first-few-days-with-codex-cli]
+related_glossary:
+  - agent-sdk
+  - agentic-coding
+  - ai-safety
+related_blog:
+  - first-few-days-with-codex-cli
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Model Context Protocol — AI Glossary
 
-**Model Context Protocol (MCP)** is an open standard for connecting AI applications to external systems—data sources, tools, and workflows. Introduced by Anthropic in November 2024, MCP provides a universal, standardized way for large language models like Claude and ChatGPT to access real-time information and take actions on external systems, replacing fragmented custom integrations with a single protocol.
+**Model Context Protocol ([MCP](/glossary/mcp))** is an open standard for connecting AI applications to external systems—data sources, tools, and workflows. Introduced by Anthropic in November 2024, MCP provides a universal, standardized way for [large language models](/blog/gemini-3-1-pro-complex-tasks) like Claude and [ChatGPT](/glossary/chatgpt) to access real-time information and take actions on external systems, replacing fragmented custom integrations with a single protocol.
 
 ## Why Model Context Protocol Matters
 
-MCP solves a fundamental limitation of LLMs: their isolation from live data and external systems. Before MCP, developers built custom connectors for each new data source or AI model—an "N×M" integration problem that didn't scale. With MCP, organizations can expose their data sources once and instantly make them accessible to any MCP-compatible AI application. This enables enterprise chatbots to query multiple databases through a single chat interface, agents to access Google Calendar and Notion autonomously, and AI-powered IDEs like Cursor to generate entire web apps from Figma designs. Early adopters from Block to Apollo report significant time savings on development and integration complexity.
+MCP solves a fundamental limitation of LLMs: their isolation from live data and external systems. Before MCP, developers built custom connectors for each new data source or AI model—an "N×M" integration problem that didn't scale. With MCP, organizations can expose their data sources once and instantly make them accessible to any MCP-compatible AI application. This enables enterprise chatbots to query multiple databases through a single chat interface, agents to access Google Calendar and Notion autonomously, and AI-powered IDEs like [Cursor](/glossary/cursor) to generate entire web apps from [Figma](/glossary/figma) designs. Early adopters from Block to Apollo report significant time savings on development and integration complexity.
 
 ## How Model Context Protocol Works
 

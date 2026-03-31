@@ -1,15 +1,15 @@
 ---
-title: "为什么要用 Hooks？从 Webhook 到 React、AI Agent 的统一范式"
+title: 为什么要用 Hooks？从 Webhook 到 React、AI Agent 的统一范式
 slug: why-use-hooks
-description: "Hooks 是现代软件工程的核心机制——从 Webhook 到 React Hooks 再到 Claude Code，一文讲清它的本质与价值。"
+description: Hooks 是现代软件工程的核心机制——从 Webhook 到 React Hooks 再到 Claude Code，一文讲清它的本质与价值。
 category: tools
 lang: zh
-date: 2026-03-23
+date: 2026-03-23T00:00:00.000Z
 ---
 
 # 为什么要用 Hooks？从 Webhook 到 React、AI Agent 的统一范式
 
-软件工程里有个词反复出现：**Hooks**。Webhook、React Hooks、PyTorch Hooks、Git Hooks、Claude Code Hooks——名字一样，场景各异，但背后逻辑惊人地一致：**在不修改核心结构的情况下，拦截、增强或响应特定事件**。
+软件工程里有个词反复出现：**[Hooks](/zh/blog/claude-code-seven-programmable-layers)**。Webhook、React Hooks、PyTorch Hooks、Git Hooks、[Claude Code Hooks](/zh/blog/claude-code-extension-stack-[skills](/zh/blog/9-principles-writing-claude-code-skills)-hooks-agents-[mcp](/zh/glossary/mcp))——名字一样，场景各异，但背后逻辑惊人地一致：**在不修改核心结构的情况下，拦截、增强或响应特定事件**。
 
 理解 Hooks 为什么重要，先要理解它解决了什么问题。
 
@@ -58,7 +58,7 @@ LLM 本质上是非确定性的——同样的提示，不同时刻可能产生�
 [Claude Code 的 Hooks](/glossary/how-hooks-work) 通过在特定事件点（如工具调用前、响应生成后）注入确定性逻辑来解决这个问题。它让开发者可以：
 
 - 在 AI 执行破坏性操作前强制确认
-- 自动注入项目上下文（如 CLAUDE.md 内容）
+- 自动注入项目上下文（如 [CLAUDE.md](/zh/blog/claude-code-memory) 内容）
 - 记录所有 AI 操作用于审计
 - 拦截违反安全策略的命令
 

@@ -1,22 +1,31 @@
 ---
-title: "Claude 记忆系统大升级：免费用户开放，支持从 ChatGPT 导入数据"
-date: 2026-03-04
+title: Claude 记忆系统大升级：免费用户开放，支持从 ChatGPT 导入数据
+date: 2026-03-04T00:00:00.000Z
 slug: anthropic-claude-memory-upgrades-importing
-description: "Anthropic 为 Claude 记忆功能带来重大更新：免费用户可用、新增数据导入工具，支持从 ChatGPT 等平台迁移。这对 AI 助手竞争格局意味着什么？"
-keywords: ["Claude 记忆功能", "Claude memory", "AI 助手迁移", "Anthropic Claude"]
+description: >-
+  Anthropic 为 Claude 记忆功能带来重大更新：免费用户可用、新增数据导入工具，支持从 ChatGPT 等平台迁移。这对 AI
+  助手竞争格局意味着什么？
+keywords:
+  - Claude 记忆功能
+  - Claude memory
+  - AI 助手迁移
+  - Anthropic Claude
 category: APP
-related_newsletter: 2026-03-04
-related_glossary: [claude, anthropic]
-related_compare: [claude-vs-chatgpt]
+related_newsletter: 2026-03-04T00:00:00.000Z
+related_glossary:
+  - claude
+  - anthropic
+related_compare:
+  - claude-vs-chatgpt
 lang: zh
 video_ready: true
-video_hook: "Claude 终于解决了 AI 助手最大的切换成本问题"
+video_hook: Claude 终于解决了 AI 助手最大的切换成本问题
 video_status: none
 ---
 
 # Claude 记忆系统大升级：免费用户开放，支持从 ChatGPT 导入数据
 
-**Anthropic** 刚刚给 [Claude](/glossary/claude) 的记忆功能做了一次关键升级：免费用户也能用了，同时新增了一个专门的数据导入工具，让你把在 ChatGPT 等平eting上积累的对话数据和偏好迁移过来。这不只是功能更新——这是 Anthropic 在抢用户上迈出的最激进一步。如果你一直在观望要不要从 ChatGPT 切换到 Claude，迁移成本刚刚被大幅降低。
+**Anthropic** 刚刚给 [Claude](/glossary/claude) 的记忆功能做了一次关键升级：免费用户也能用了，同时新增了一个专门的数据导入工具，让你把在 [ChatGPT](/zh/glossary/chatgpt) 等平eting上积累的对话数据和偏好迁移过来。这不只是功能更新——这是 Anthropic 在抢用户上迈出的最激进一步。如果你一直在观望要不要从 ChatGPT 切换到 Claude，迁移成本刚刚被大幅降低。
 
 ## 发生了什么
 
@@ -28,7 +37,7 @@ video_status: none
 
 **第三，优化了记忆提示词机制。** Claude 现在更智能地决定什么值得记住、什么应该忘记，减少信息噪音。
 
-这三项更新配合来看，Anthropic 的意图很明确：降低用户从竞品迁移到 Claude 的门槛。此前几周，Anthropic 刚刚收购了 [Vercept](https://x.com/AnthropicAI/status/2026705792033026465) 来增强 Claude 的计算机使用能力，还发布了关于 AI agent 自主性的研究报告。记忆升级是这一系列产品攻势的一部分。
+这三项更新配合来看，Anthropic 的意图很明确：降低用户从竞品迁移到 Claude 的门槛。此前几周，Anthropic 刚刚收购了 [Vercept](https://x.com/AnthropicAI/status/2026705792033026465) 来增强 Claude 的计算机使用能力，还发布了关于 [AI agent](/zh/blog/effective-harnesses-for-long-running-agents) 自主性的研究报告。记忆升级是这一系列产品攻势的一部分。
 
 ## 为什么重要
 

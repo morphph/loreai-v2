@@ -1,22 +1,33 @@
 ---
-title: "GPT-5.4 Pro vs Claude Opus vs Gemini DeepThink：三大旗舰模型原创分析能力实测"
-date: 2026-03-10
+title: GPT-5.4 Pro vs Claude Opus vs Gemini DeepThink：三大旗舰模型原创分析能力实测
+date: 2026-03-10T00:00:00.000Z
 slug: gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison
-description: "GPT-5.4 Pro、Claude Opus、Gemini DeepThink 三大旗舰模型在原创分析任务上表现如何？基于 Ethan Mollick 的横向实测，拆解三者在深度推理场景下的真实差异。"
-keywords: ["GPT-5.4 Pro", "Claude Opus", "Gemini DeepThink", "模型对比", "AI 推理能力"]
+description: >-
+  GPT-5.4 Pro、Claude Opus、Gemini DeepThink 三大旗舰模型在原创分析任务上表现如何？基于 Ethan Mollick
+  的横向实测，拆解三者在深度推理场景下的真实差异。
+keywords:
+  - GPT-5.4 Pro
+  - Claude Opus
+  - Gemini DeepThink
+  - 模型对比
+  - AI 推理能力
 category: MODEL
-related_newsletter: 2026-03-10
-related_glossary: [large-language-model, reasoning-model]
-related_compare: [gpt-5-vs-claude-opus, claude-vs-gemini]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - large-language-model
+  - reasoning-model
+related_compare:
+  - gpt-5-vs-claude-opus
+  - claude-vs-gemini
 lang: zh
 video_ready: true
-video_hook: "三大旗舰模型做同一道分析题，结果出乎意料"
+video_hook: 三大旗舰模型做同一道分析题，结果出乎意料
 video_status: none
 ---
 
 # GPT-5.4 Pro vs Claude Opus vs Gemini DeepThink：三大旗舰模型原创分析能力实测
 
-沃顿商学院教授 Ethan Mollick 做了一件简单但有价值的事：给 **GPT-5.4 Pro**、**Claude Opus**、**Gemini DeepThink** 同一道原创分析题，看谁答得好。不是标准化跑分，不是刷榜，而是真实的开放式分析任务。这类测试往往比 benchmark 更能反映模型在日常工作中的实际表现。三款旗舰模型目前定价都在顶级区间，选哪个用，值得认真比较。
+沃顿商学院教授 Ethan Mollick 做了一件简单但有价值的事：给 **[GPT-5.4](/zh/glossary/gpt-54) Pro**、**Claude Opus**、**Gemini DeepThink** 同一道原创分析题，看谁答得好。不是标准化跑分，不是刷榜，而是真实的开放式分析任务。这类测试往往比 benchmark 更能反映模型在日常工作中的实际表现。三款旗舰模型目前定价都在顶级区间，选哪个用，值得认真比较。
 
 ## 发生了什么
 
@@ -42,7 +53,7 @@ Mollick 这类"野生测试"的价值就在这里 — 它测的不是模型的�
 
 **GPT-5.4 Pro** 延续了 OpenAI 的思路 — 在推理链（chain-of-thought）上持续加码。Pro 版本相比标准版有更长的推理时间预算，允许模型在回答前进行更多步骤的内部推演。
 
-**Claude Opus** 的优势领域一直是长上下文理解和结构化输出。在需要处理大量背景材料并产出结构清晰的分析时，Opus 通常表现稳定。Anthropic 近期在 Claude Code 生态上的持续投入 — 包括 [HTTP hooks](https://x.com/bcherny/status/2029339111212126458)、Remote Control、/simplify 和 /batch 等新 Skills — 也说明他们在把模型能力向实际工程场景深度整合。
+**Claude Opus** 的优势领域一直是长上下文理解和结构化输出。在需要处理大量背景材料并产出结构清晰的分析时，Opus 通常表现稳定。Anthropic 近期在 [Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 生态上的持续投入 — 包括 [HTTP hooks](https://x.com/bcherny/status/2029339111212126458)、Remote Control、/simplify 和 /batch 等新 Skills — 也说明他们在把模型能力向实际工程场景深度整合。
 
 **Gemini DeepThink** 是 Google 的深度推理模式，利用更长的推理时间来提升复杂任务的表现。Google 的优势在于搜索和多模态整合，但在纯文本分析的深度上，与前两者的差距是关注焦点。
 

@@ -1,19 +1,23 @@
 ---
-title: "Hugging Face — AI 术语表"
+title: Hugging Face — AI 术语表
 slug: huggingface
-description: "什么是 Hugging Face？全球最大的开源 AI 模型与数据集共享平台。"
+description: 什么是 Hugging Face？全球最大的开源 AI 模型与数据集共享平台。
 term: huggingface
-display_term: "Hugging Face"
+display_term: Hugging Face
 category: frameworks
-related_glossary: [anthropic, claude, google]
-related_blog: [anthropic-claude-memory-upgrades-importing]
+related_glossary:
+  - anthropic
+  - claude
+  - google
+related_blog:
+  - anthropic-claude-memory-upgrades-importing
 related_compare: []
 lang: zh
 ---
 
 # Hugging Face — AI 术语表
 
-**Hugging Face** 是全球最大的开源机器学习平台，提供模型托管、数据集共享和推理部署的一站式服务。开发者可以在 Hugging Face Hub 上发布、发现和使用超过数十万个预训练模型，涵盖自然语言处理、计算机视觉、语音识别等领域。
+**[Hugging Face](/zh/glossary/hugging-face)** 是全球最大的开源机器学习平台，提供模型托管、数据集共享和推理部署的一站式服务。开发者可以在 Hugging Face Hub 上发布、发现和使用超过数十万个预训练模型，涵盖自然语言处理、计算机视觉、语音识别等领域。
 
 ## 为什么 Hugging Face 重要
 
@@ -25,7 +29,7 @@ Hugging Face 极大地降低了 AI 开发的门槛。过去训练或使用一个
 
 Hugging Face 生态围绕几个关键组件构建：
 
-- **Transformers 库**：最广泛使用的开源模型推理与微调框架，支持 PyTorch、TensorFlow 和 JAX 三大后端
+- **[Transformers](/zh/glossary/transformers) 库**：最广泛使用的开源模型推理与微调框架，支持 PyTorch、TensorFlow 和 JAX 三大后端
 - **Hub**：托管模型、数据集和 Spaces 应用的中央仓库，内置版本控制（基于 Git LFS）
 - **Tokenizers**：高性能分词库，用 Rust 编写，处理速度远超纯 Python 实现
 - **Spaces**：零配置的应用托管服务，支持 Gradio 和 Streamlit，常用于模型 demo 展示

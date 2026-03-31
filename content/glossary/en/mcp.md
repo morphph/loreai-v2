@@ -1,20 +1,27 @@
 ---
-title: "MCP (Model Context Protocol) — AI Glossary"
+title: MCP (Model Context Protocol) — AI Glossary
 slug: mcp
-description: "What is MCP? The Model Context Protocol is an open standard for connecting AI models to external tools and data sources."
+description: >-
+  What is MCP? The Model Context Protocol is an open standard for connecting AI
+  models to external tools and data sources.
 term: mcp
-display_term: "MCP (Model Context Protocol)"
+display_term: MCP (Model Context Protocol)
 category: frameworks
-related_glossary: [claude-code, claude, anthropic]
-related_blog: [anthropic-cowork-claude-desktop-agent]
+related_glossary:
+  - claude-code
+  - claude
+  - anthropic
+related_blog:
+  - anthropic-cowork-claude-desktop-agent
 related_compare: []
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # MCP (Model Context Protocol) — AI Glossary
 
-**MCP (Model Context Protocol)** is an open standard developed by [Anthropic](/glossary/anthropic) that defines how AI models connect to external tools, data sources, and services. It provides a universal interface — similar to what USB-C did for hardware — so that any AI application can interact with any compatible tool through a single, standardized protocol.
+**[MCP](/topics/model-context-protocol) ([Model Context Protocol](/glossary/model-context-protocol))** is an open standard developed by [Anthropic](/glossary/anthropic) that defines how AI models connect to external tools, data sources, and services. It provides a universal interface — similar to what USB-C did for hardware — so that any AI application can interact with any compatible tool through a single, standardized protocol.
 
 ## Why MCP Matters
 
@@ -37,8 +44,8 @@ Servers can run locally (as a subprocess) or remotely (over HTTP with SSE). The 
 ## Related Terms
 
 - **[Claude Code](/glossary/claude-code)**: Anthropic's terminal-based coding agent that uses MCP servers to connect to external tools and data sources
-- **[Claude](/glossary/claude)**: Anthropic's family of large language models that power MCP-compatible applications
-- **[Anthropic](/glossary/anthropic)**: The AI safety company that created MCP and maintains the open specification
+- **[Claude](/glossary/claude)**: Anthropic's family of [large language models](/blog/gemini-3-1-pro-complex-tasks) that power MCP-compatible applications
+- **[Anthropic](/glossary/anthropic)**: The [AI safety](/glossary/ai-safety) company that created MCP and maintains the open specification
 
 ---
 

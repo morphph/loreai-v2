@@ -1,19 +1,23 @@
 ---
-title: "RLHF — AI 术语表"
+title: RLHF — AI 术语表
 slug: rlhf
-description: "什么是 RLHF？通过人类反馈强化学习，让 AI 模型的输出更符合人类偏好的核心训练技术。"
+description: 什么是 RLHF？通过人类反馈强化学习，让 AI 模型的输出更符合人类偏好的核心训练技术。
 term: rlhf
-display_term: "RLHF"
+display_term: RLHF
 category: techniques
-related_glossary: [claude, anthropic, google]
-related_blog: [anthropic-claude-memory-upgrades-importing]
+related_glossary:
+  - claude
+  - anthropic
+  - google
+related_blog:
+  - anthropic-claude-memory-upgrades-importing
 related_compare: []
 lang: zh
 ---
 
 # RLHF — AI 术语表
 
-**RLHF**（Reinforcement Learning from Human Feedback，基于人类反馈的强化学习）是一种用人类偏好信号来微调大语言模型的训练技术。它的核心思路是：先让模型生成多个候选回答，再由人类标注员评判哪个更好，最后用强化学习算法让模型学会生成人类更满意的输出。
+**RLHF**（[Reinforcement Learning](/zh/glossary/reinforcement-learning) from Human Feedback，基于人类反馈的强化学习）是一种用人类偏好信号来微调大语言模型的训练技术。它的核心思路是：先让模型生成多个候选回答，再由人类标注员评判哪个更好，最后用强化学习算法让模型学会生成人类更满意的输出。
 
 ## 为什么 RLHF 重要
 
@@ -31,7 +35,7 @@ RLHF 通常分三步：
 
 3. **强化学习优化（PPO）**：用 PPO（Proximal Policy Optimization）等算法，以奖励模型的打分为信号，进一步优化语言模型的输出策略。同时通过 KL 散度约束防止模型偏离太远。
 
-近期业界也在探索 DPO（Direct Preference Optimization）等替代方案，跳过奖励模型直接从偏好数据优化，降低训练复杂度。
+近期业界也在探索 [DPO](/zh/glossary/dpo)（Direct Preference Optimization）等替代方案，跳过奖励模型直接从偏好数据优化，降低训练复杂度。
 
 ## 相关术语
 

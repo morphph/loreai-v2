@@ -1,15 +1,23 @@
 ---
-title: "Codex vs Claude Code：AI 编程 Agent 怎么选？"
+title: Codex vs Claude Code：AI 编程 Agent 怎么选？
 slug: codex-vs-claude-code
-description: "Codex 与 Claude Code 功能、定价、工作流全面对比，帮你选对 AI 编程 Agent。"
+description: Codex 与 Claude Code 功能、定价、工作流全面对比，帮你选对 AI 编程 Agent。
 item_a: Codex
 item_b: Claude Code
 category: tools
-related_glossary: [codex, claude-code, agentic, agent-teams]
-related_blog: [codex-complete-guide, claude-code-extension-stack-skills-hooks-agents-mcp]
+related_glossary:
+  - codex
+  - claude-code
+  - agentic
+  - agent-teams
+related_blog:
+  - codex-complete-guide
+  - claude-code-extension-stack-skills-hooks-agents-mcp
 lang: zh
-date: 2026-03-31
-related_topics: [claude-code, codex]
+date: 2026-03-31T00:00:00.000Z
+related_topics:
+  - claude-code
+  - codex
 ---
 
 # Codex vs Claude Code：AI 编程 Agent 怎么选？
@@ -18,7 +26,7 @@ related_topics: [claude-code, codex]
 
 **[Codex](/glossary/codex)** 和 **[Claude Code](/glossary/claude-code)** 都是 [agentic](/glossary/agentic) 编程工具——能自主读代码、规划多步任务、执行 shell 命令并提交变更。但"都是 Agent"这句话掩盖了很多细节差异。
 
-Codex 来自 OpenAI，集成在 ChatGPT 生态中，主打"零门槛上手 + 沙箱安全"；Claude Code 来自 Anthropic，主打"终端优先 + 可编程扩展"。两者的技术路径越来越像，但实际用起来手感差别很大。
+[Codex](/zh/blog/codex-complete-guide) 来自 OpenAI，集成在 [ChatGPT](/zh/glossary/chatgpt) 生态中，主打"零门槛上手 + 沙箱安全"；[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 来自 Anthropic，主打"终端优先 + 可编程扩展"。两者的技术路径越来越像，但实际用起来手感差别很大。
 
 ## 定价对比
 
@@ -28,7 +36,7 @@ Codex 来自 OpenAI，集成在 ChatGPT 生态中，主打"零门槛上手 + 沙
 | **进阶** | 包含在 ChatGPT Pro $200/月 | Max $100/月（5x）或 $200/月（20x） |
 | **团队** | Business $30/user/月 | Team $25/seat/月（年付） |
 | **企业** | Enterprise 定制 | Enterprise 定制 |
-| **API** | codex-mini: $1.50/$6/MTok | Sonnet 4.6: $3/$15/MTok; Opus 4.6: $5/$25/MTok |
+| **API** | codex-mini: $1.50/$6/MTok | Sonnet 4.6: $3/$15/MTok; [Opus 4.6](/zh/blog/opus-4-6-1m-default-claude-code): $5/$25/MTok |
 
 关键差异在定价模式：Codex 打包在 ChatGPT 订阅里，不用额外付费——如果你已经有 Plus 会员，Codex 就是"白嫖"的。Claude Code 是独立产品，需要单独订阅或走 API 计费。
 
@@ -40,7 +48,7 @@ Codex 来自 OpenAI，集成在 ChatGPT 生态中，主打"零门槛上手 + 沙
 |---------|-------|-------------|
 | **产品形态** | App、IDE 插件、CLI（Rust 开源）、Web | 终端 CLI、VS Code、JetBrains、桌面 App、Web、Mobile |
 | **上下文窗口** | 未公开具体数值 | 1M tokens（2026.3 GA） |
-| **项目配置** | `AGENTS.md` | `CLAUDE.md` |
+| **项目配置** | `AGENTS.md` | `[CLAUDE.md](/zh/blog/claude-code-memory)` |
 | **自定义命令** | Skills | Skills（自定义斜杠命令） |
 | **子 Agent** | Subagents + Workflows | Agent Teams（主 Agent 协调多子 Agent） |
 | **工具集成** | MCP、Web 搜索内置、GitHub/Slack/Linear 原生集成 | MCP 服务器、Hooks |

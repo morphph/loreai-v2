@@ -1,16 +1,25 @@
 ---
-title: "Claude Connectors Now Free: 150+ Integrations Available to All Users"
-date: 2026-03-09
+title: 'Claude Connectors Now Free: 150+ Integrations Available to All Users'
+date: 2026-03-09T00:00:00.000Z
 slug: claude-connectors-free-150-integrations
-description: "Anthropic makes Claude Connectors free for all users, unlocking 150+ integrations with enterprise tools like Slack, Google Drive, and Jira."
-keywords: ["Claude Connectors", "Claude integrations", "Anthropic free features", "Claude enterprise tools"]
+description: >-
+  Anthropic makes Claude Connectors free for all users, unlocking 150+
+  integrations with enterprise tools like Slack, Google Drive, and Jira.
+keywords:
+  - Claude Connectors
+  - Claude integrations
+  - Anthropic free features
+  - Claude enterprise tools
 category: APP
-related_newsletter: 2026-03-09
-related_glossary: [claude, mcp]
-related_compare: [claude-vs-chatgpt]
+related_newsletter: 2026-03-09T00:00:00.000Z
+related_glossary:
+  - claude
+  - mcp
+related_compare:
+  - claude-vs-chatgpt
 lang: en
 video_ready: true
-video_hook: "Claude just opened 150+ integrations to every user — for free"
+video_hook: Claude just opened 150+ integrations to every user — for free
 video_status: none
 ---
 
@@ -24,7 +33,7 @@ Anthropic [announced](https://x.com/claudeai/status/2027082240833052741) that **
 
 Connectors let Claude read from and interact with external data sources directly within a conversation. Instead of explaining your project's context manually, Claude can pull the relevant Jira ticket, read the associated Slack thread, and reference the design doc in Google Drive — all within a single interaction.
 
-This move fits a broader pattern from Anthropic in early 2026: aggressive feature democratization. In the past few weeks alone, the company has made [memory available on the free plan](https://x.com/bcherny/status/2028567040114713038), launched Claude Code Remote for Pro users, and introduced scheduled tasks in Cowork. The Connectors unlock follows the same playbook — remove friction, grow adoption, win the workflow.
+This move fits a broader pattern from Anthropic in early 2026: aggressive feature democratization. In the past few weeks alone, the company has made [memory available on the free plan](https://x.com/bcherny/status/2028567040114713038), launched [Claude Code Remote](/blog/claude-code-remote-control-mobile) for Pro users, and introduced [scheduled tasks](/blog/scheduled-tasks) in Cowork. The Connectors unlock follows the same playbook — remove friction, grow adoption, win the workflow.
 
 The timing is notable. With Claude currently [#1 in the App Store](https://x.com/bcherny/status/2027888681034649900) and Claude Code responsible for [4% of GitHub public commits](https://x.com/bcherny/status/2027458544493335008), Anthropic is doubling down while momentum is high.
 
@@ -32,11 +41,11 @@ The timing is notable. With Claude currently [#1 in the App Store](https://x.com
 
 The real bottleneck in AI assistant productivity has never been model intelligence — it's context. A brilliant model that doesn't know what your team is working on produces generic answers. Connectors solve this by giving Claude persistent access to your organization's knowledge layer.
 
-Making Connectors free shifts the competitive landscape significantly. OpenAI's ChatGPT Enterprise charges for comparable integration features. Google's Gemini has native Workspace integration but limited third-party connectors. By removing the price barrier, Anthropic is betting that adoption-driven network effects matter more than per-seat connector revenue.
+Making Connectors free shifts the competitive landscape significantly. OpenAI's [ChatGPT](/glossary/chatgpt) Enterprise charges for comparable integration features. Google's Gemini has native Workspace integration but limited third-party connectors. By removing the price barrier, Anthropic is betting that adoption-driven network effects matter more than per-seat connector revenue.
 
 For small teams and startups, this is especially impactful. A five-person engineering team can now connect Claude to their GitHub repos, Linear boards, Notion docs, and Slack workspace — getting enterprise-grade AI context without enterprise-grade pricing. The gap between what a well-resourced company and a bootstrapped startup can do with Claude just narrowed considerably.
 
-There's also a developer ecosystem angle. More users on Connectors means more demand for custom connectors, which strengthens the [**MCP** (Model Context Protocol)](/glossary/mcp) ecosystem. Anthropic's open connector standard already has community traction; free access accelerates the flywheel.
+There's also a developer ecosystem angle. More users on Connectors means more demand for custom connectors, which strengthens the [**[MCP](/topics/mcp)** ([Model Context Protocol](/glossary/model-context-protocol))](/glossary/mcp) ecosystem. Anthropic's open connector standard already has community traction; free access accelerates the flywheel.
 
 ## Technical Deep-Dive
 

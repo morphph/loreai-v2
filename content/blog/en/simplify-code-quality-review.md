@@ -1,19 +1,24 @@
 ---
-title: "/simplify: Claude Code's Answer to AI-Generated Technical Debt"
+title: '/simplify: Claude Code''s Answer to AI-Generated Technical Debt'
 slug: simplify-code-quality-review
-description: "How Claude Code's /simplify command uses multi-agent review to clean up AI-generated code across reuse, quality, and efficiency."
+description: >-
+  How Claude Code's /simplify command uses multi-agent review to clean up
+  AI-generated code across reuse, quality, and efficiency.
 lang: en
 category: tools
-related_glossary: [agentic-coding]
-related_blog: [how-skills-work, do-skills-actually-improve-your-agents-output]
-date: 2026-03-27
+related_glossary:
+  - agentic-coding
+related_blog:
+  - how-skills-work
+  - do-skills-actually-improve-your-agents-output
+date: 2026-03-27T00:00:00.000Z
 ---
 
 # /simplify: Claude Code's Answer to AI-Generated Technical Debt
 
-AI coding assistants generate code fast — but fast isn't the same as clean. **Claude Code's `/simplify` command** addresses the growing problem of AI-generated technical debt by running an automated, parallel code quality review immediately after implementation. It's a post-generation cleanup pass built directly into the agent workflow, targeting the exact failure modes that AI-generated code tends to produce: redundant logic, nested conditionals, inconsistent naming, and missing reuse opportunities.
+AI coding assistants generate code fast — but fast isn't the same as clean. **[Claude Code](/blog/claude-code-complete-guide)'s `/simplify` command** addresses the growing problem of AI-generated technical debt by running an automated, parallel code quality review immediately after implementation. It's a post-generation cleanup pass built directly into the agent workflow, targeting the exact failure modes that AI-generated code tends to produce: redundant logic, nested conditionals, inconsistent naming, and missing reuse opportunities.
 
-The command represents a shift in how AI tooling handles code quality — from "generate and hope" to a structured, agentic review loop.
+The command represents a shift in how AI tooling handles code quality — from "generate and hope" to a structured, [agentic](/glossary/agentic) review loop.
 
 ## Why AI-Generated Code Accumulates Debt
 
@@ -45,7 +50,7 @@ The developer community response to automated code review tools like `/simplify`
 
 ## /simplify in the Competitive Landscape
 
-Claude Code isn't the only tool in this space. **CodeRabbit** and **GitHub Copilot** are also competing to automate the PR review process. According to the research, these tools diverge significantly in execution philosophy:
+Claude Code isn't the only tool in this space. **CodeRabbit** and **[GitHub Copilot](/glossary/github-[copilot](/glossary/copilot))** are also competing to automate the PR review process. According to the research, these tools diverge significantly in execution philosophy:
 
 - **GitHub Copilot** integrates into the IDE editing loop, offering inline suggestions during active coding
 - **CodeRabbit** operates at the PR level, reviewing diffs after code is submitted

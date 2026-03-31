@@ -1,15 +1,17 @@
 ---
-title: "How Claude Code Skills Work: Modular Instructions for AI Agents"
+title: 'How Claude Code Skills Work: Modular Instructions for AI Agents'
 slug: how-skills-work
-description: "Claude Code skills are modular SKILL.md instruction packages that extend agent capabilities without bloating your context window. Here's how they work."
+description: >-
+  Claude Code skills are modular SKILL.md instruction packages that extend agent
+  capabilities without bloating your context window. Here's how they work.
 lang: en
 category: tools
-date: 2026-03-24
+date: 2026-03-24T00:00:00.000Z
 ---
 
 # How Claude Code Skills Work: Modular Instructions for AI Agents
 
-**Claude Code skills** are self-contained directories of structured Markdown and code that extend what an AI agent can do — without stuffing every instruction into a single monolithic system prompt. The idea is simple: instead of loading everything upfront, skills get loaded on demand, keeping the agent's context window clean and focused.
+**[Claude Code skills](/blog/9-principles-writing-claude-code-skills)** are self-contained directories of structured Markdown and code that extend what an AI agent can do — without stuffing every instruction into a single monolithic system prompt. The idea is simple: instead of loading everything upfront, skills get loaded on demand, keeping the agent's context window clean and focused.
 
 Originally introduced by Anthropic in October 2025, the framework was open-sourced in December 2025 at agentskills.io, triggering rapid cross-platform adoption that some are calling an "npm moment" for AI agents.
 
@@ -47,9 +49,9 @@ The alternative to skills is a single enormous system prompt that tries to cover
 - Updating one behavior risks breaking others that share the same prompt
 - No reuse across projects or team members
 
-Skills solve the reuse problem directly. If you encode your engineering standards or editorial voice into a `SKILL.md` file that lives in your repo, every team member running Claude Code gets consistent behavior — without anyone having to re-explain conventions in every session.
+Skills solve the reuse problem directly. If you encode your engineering standards or editorial voice into a `SKILL.md` file that lives in your repo, every team member running [Claude Code](/blog/claude-code-complete-guide) gets consistent behavior — without anyone having to re-explain conventions in every session.
 
-This is the same reason [agentic coding](/glossary/agentic-coding) workflows have gravitated toward project-level config files like `CLAUDE.md`: persistent, version-controlled instructions beat ephemeral chat prompts.
+This is the same reason [agentic coding](/glossary/agentic-coding) workflows have gravitated toward project-level config files like `[CLAUDE.md](/blog/claude-code-memory)`: persistent, version-controlled instructions beat ephemeral chat prompts.
 
 ## Skills vs. Tool Calling
 

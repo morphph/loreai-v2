@@ -1,18 +1,25 @@
 ---
-title: "How Much Does Claude Code Cost?"
+title: How Much Does Claude Code Cost?
 slug: claude-code-pricing
-description: "Claude Code pricing ranges from $20–$200/month. Pro is $20/month, Max 5x is $100, Max 20x is $200."
+description: >-
+  Claude Code pricing ranges from $20–$200/month. Pro is $20/month, Max 5x is
+  $100, Max 20x is $200.
 category: tools
-related_glossary: [agentic-coding, chatgpt]
-related_blog: [integrate-claude-code-into-your-development-workflow]
-related_faq: [claude-code-install]
+related_glossary:
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - integrate-claude-code-into-your-development-workflow
+related_faq:
+  - claude-code-install
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # How Much Does Claude Code Cost?
 
-**Claude Code** is included with your Claude subscription plan. [Pro](/glossary/claude) costs **$20/month** ($200/year), while **Max 5x** is **$100/month** and **Max 20x** is **$200/month**. Free accounts have limited access. Max subscriptions are dramatically cheaper than paying Claude API rates directly — users report up to 93% savings compared to equivalent API usage.
+**[Claude Code](/blog/claude-code-complete-guide)** is included with your Claude subscription plan. [Pro](/glossary/claude) costs **$20/month** ($200/year), while **Max 5x** is **$100/month** and **Max 20x** is **$200/month**. Free accounts have limited access. Max subscriptions are dramatically cheaper than paying Claude API rates directly — users report up to 93% savings compared to equivalent API usage.
 
 ## Context
 
@@ -24,8 +31,8 @@ Pro ($20/month) is suitable for light work — occasional code generation and sm
 
 ## Related Questions
 
-- What Is the Difference Between Claude Code and Cursor?
-- Is Claude Code Free to Use?
+- What Is the Difference Between Claude Code and [Cursor](/glossary/cursor)?
+- [Is Claude Code Free](/faq/is-claude-code-free) to Use?
 - [Can I Use Claude Code Without a Subscription?](/faq/how-do-i-set-up-claude-code-remote-control-on-my-phone)
 
 ---

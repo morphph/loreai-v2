@@ -1,17 +1,25 @@
 ---
-title: "Can Claude Code run on Windows?"
+title: Can Claude Code run on Windows?
 slug: claude-code-windows
-description: "Claude Code runs on Windows through WSL2, the Windows Subsystem for Linux. Native Windows support is not available, but WSL2 works seamlessly."
+description: >-
+  Claude Code runs on Windows through WSL2, the Windows Subsystem for Linux.
+  Native Windows support is not available, but WSL2 works seamlessly.
 category: tools
-related_glossary: [claude-code, anthropic, agentic-coding]
-related_blog: [claude-code-complete-guide, claude-code-remote-control-mobile]
+related_glossary:
+  - claude-code
+  - anthropic
+  - agentic-coding
+related_blog:
+  - claude-code-complete-guide
+  - claude-code-remote-control-mobile
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Can Claude Code run on Windows?
 
-Claude Code does not run natively on Windows. It requires a Unix-like environment, so Windows users need to install WSL2, the Windows Subsystem for Linux, to use it. Once WSL2 is set up, Claude Code runs exactly as it does on macOS or Linux with no limitations.
+[Claude Code](/blog/lessons-from-building-claude-code-agent-tools) does not run natively on Windows. It requires a Unix-like environment, so Windows users need to install WSL2, the Windows Subsystem for Linux, to use it. Once WSL2 is set up, Claude Code runs exactly as it does on macOS or Linux with no limitations.
 
 ## Context
 

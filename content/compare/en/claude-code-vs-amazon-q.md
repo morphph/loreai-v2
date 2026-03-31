@@ -1,15 +1,24 @@
 ---
-title: "Claude Code vs Amazon Q Developer: Which AI Coding Assistant Should You Use?"
+title: 'Claude Code vs Amazon Q Developer: Which AI Coding Assistant Should You Use?'
 slug: claude-code-vs-amazon-q
-description: "Comparing Claude Code and Amazon Q Developer across features, pricing, and workflows."
+description: >-
+  Comparing Claude Code and Amazon Q Developer across features, pricing, and
+  workflows.
 item_a: Claude Code
 item_b: Amazon Q Developer
 category: tools
-related_glossary: [claude-code, anthropic, amazon]
-related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
-related_compare: [claude-code-vs-cursor]
+related_glossary:
+  - claude-code
+  - anthropic
+  - amazon
+related_blog:
+  - claude-code-extension-stack-skills-hooks-agents-mcp
+  - claude-code-agent-teams
+related_compare:
+  - claude-code-vs-cursor
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code vs Amazon Q Developer: Which AI Coding Assistant Should You Use?
@@ -18,16 +27,16 @@ related_topics: [claude-code]
 
 ## Feature Comparison
 
-| Feature | Claude Code | Amazon Q Developer |
+| Feature | [Claude Code](/blog/lessons-from-building-claude-code-agent-tools) | Amazon Q Developer |
 |---------|-------------|-------------------|
 | **Approach** | Autonomous terminal agent | IDE plugin + AWS console assistant |
 | **Interface** | Terminal CLI, VS Code, JetBrains, Desktop app, Web | VS Code, JetBrains, Visual Studio, Eclipse, CLI, AWS Console |
-| **Multi-file edits** | Native — plans and executes across entire codebase | Agentic coding reads/writes files, generates diffs, runs shell commands |
+| **Multi-file edits** | Native — plans and executes across entire codebase | [Agentic coding](/blog/claude-code-seven-programmable-layers) reads/writes files, generates diffs, runs shell commands |
 | **Shell access** | Full shell execution with user approval | CLI completions and natural language-to-bash translation |
 | **Cloud operations** | Not built-in | AWS cost optimization, architectural guidance, incident investigation |
-| **Security scanning** | Not a core feature | Built-in vulnerability scanning with auto-remediation suggestions |
+| **Security scanning** | Not a core feature | Built-in [vulnerability scanning](/blog/claude-code-security-vulnerability-scanning) with auto-remediation suggestions |
 | **Code transformation** | General-purpose refactoring | Specialized .NET porting (Windows to Linux) and Java version upgrades |
-| **Customization** | CLAUDE.md files, SKILL.md, MCP servers, hooks | Connect to private repositories for tailored recommendations |
+| **Customization** | [CLAUDE.md](/blog/claude-code-memory) files, [SKILL.md](/blog/9-principles-writing-claude-code-skills), MCP servers, hooks | Connect to private repositories for tailored recommendations |
 | **Agent teams** | Spawns sub-agents for parallel task execution | Single-agent agentic coding experience |
 | **Pricing** | Usage-based API billing (Claude subscription or Anthropic Console account) | Perpetual Free Tier (50 agentic chats/month); Pro tier available |
 | **Platform** | macOS, Linux, Windows (via native install or WSL) | Cross-platform IDE plugins, AWS Console, Slack, Microsoft Teams |

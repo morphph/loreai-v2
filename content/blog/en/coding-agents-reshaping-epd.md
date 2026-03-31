@@ -1,27 +1,37 @@
 ---
-title: "How Coding Agents Are Reshaping Engineering, Product and Design"
-date: 2026-03-16
+title: 'How Coding Agents Are Reshaping Engineering, Product and Design'
+date: 2026-03-16T00:00:00.000Z
 slug: coding-agents-reshaping-epd
-description: "Harrison Chase argues coding agents are killing traditional PRDs and shifting EPD bottlenecks from implementation to review. Here's what changes for engineers, PMs, and designers."
-keywords: ["coding agents", "EPD workflow", "AI software development", "product engineering design", "LangChain"]
+description: >-
+  Harrison Chase argues coding agents are killing traditional PRDs and shifting
+  EPD bottlenecks from implementation to review. Here's what changes for
+  engineers, PMs, and designers.
+keywords:
+  - coding agents
+  - EPD workflow
+  - AI software development
+  - product engineering design
+  - LangChain
 category: DEV
-related_newsletter: 2026-03-16
-related_glossary: [coding-agent, langchain]
+related_newsletter: 2026-03-16T00:00:00.000Z
+related_glossary:
+  - coding-agent
+  - langchain
 related_compare: []
 lang: en
 video_ready: true
-video_hook: "PRDs are dead — but product requirements documents are more alive than ever"
+video_hook: PRDs are dead — but product requirements documents are more alive than ever
 video_status: published
 source_type: video
 ---
 
 # How Coding Agents Are Reshaping Engineering, Product and Design
 
-Harrison Chase, CEO of [LangChain](/glossary/langchain), just published a framework for thinking about what **coding agents** mean for EPD — Engineering, Product, and Design. His core argument: when the output of an entire EPD organization is code, and code is suddenly cheap to produce, the entire function restructures around review instead of implementation. The traditional PRD-to-mock-to-code waterfall is dead, generalists become the highest-leverage players, and every role on the team needs to rethink what "good" looks like. Whether you're an engineer, PM, or designer, the implications are concrete and immediate.
+Harrison Chase, CEO of [LangChain](/glossary/langchain), just published a framework for thinking about what **[coding agents](/blog/9-principles-writing-claude-code-skills)** mean for EPD — Engineering, Product, and Design. His core argument: when the output of an entire EPD organization is code, and code is suddenly cheap to produce, the entire function restructures around review instead of implementation. The traditional PRD-to-mock-to-code waterfall is dead, generalists become the highest-leverage players, and every role on the team needs to rethink what "good" looks like. Whether you're an engineer, PM, or designer, the implications are concrete and immediate.
 
 ## What Happened
 
-Chase published [a detailed analysis](https://blog.langchain.com/how-coding-agents-are-reshaping-engineering-product-and-design/) of how coding agents are transforming the EPD workflow at software companies. His argument starts from a deceptively simple observation: EPD's output is code. Software companies exist to create functional software that solves business problems — and that software is, at the end of the day, just code.
+Chase published [a detailed analysis](https://blog.[langchain](/topics/langchain).com/how-coding-agents-are-reshaping-engineering-product-and-design/) of how coding agents are transforming the EPD workflow at software companies. His argument starts from a deceptively simple observation: EPD's output is code. Software companies exist to create functional software that solves business problems — and that software is, at the end of the day, just code.
 
 The traditional EPD process followed a predictable waterfall: someone (usually a PM) has an idea, writes a **PRD** (Product Requirement Document), design creates mocks from the PRD, and engineering turns mocks into code. This process existed because implementation was expensive. Specialization developed around that expense, and PRDs became the coordination mechanism between specialists.
 
@@ -68,7 +78,7 @@ This is a meaningful architectural change in how teams communicate. A reviewer l
 
 Chase floats an intriguing idea: what if future PRDs are structured, versioned prompts? Instead of a Word doc describing requirements, you share the prompt chain that generated the prototype. The prompts *are* the specification — they encode both the intent and the constraints in a format that's reproducible and auditable.
 
-This maps to a broader pattern in AI-assisted development. Tools like [Claude Code](/glossary/claude-code) already support project-level configuration through `CLAUDE.md` files and skill systems that encode team standards in version-controlled markdown. The line between "prompt" and "specification" is blurring.
+This maps to a broader pattern in AI-assisted development. Tools like [Claude Code](/glossary/claude-code) already support project-level configuration through `[CLAUDE.md](/blog/claude-code-memory)` files and skill systems that encode team standards in version-controlled markdown. The line between "prompt" and "specification" is blurring.
 
 Chase also makes a pointed observation about role dynamics: coding agents are no longer optional tooling — they're a **requirement**. PMs who adopt agents validate ideas by building prototypes directly instead of writing specs and waiting. Designers who adopt agents can test interaction patterns in code rather than static mockups. Engineers who adopt agents handle broader scope and move faster on architecture decisions.
 

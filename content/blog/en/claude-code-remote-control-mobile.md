@@ -1,23 +1,32 @@
 ---
-title: "Claude Code Remote Control: Kick Off Tasks in Terminal, Control from Phone"
-date: 2026-03-07
+title: 'Claude Code Remote Control: Kick Off Tasks in Terminal, Control from Phone'
+date: 2026-03-07T00:00:00.000Z
 slug: claude-code-remote-control-mobile
-description: "Claude Code Remote lets you start coding tasks in your terminal and monitor or steer them from your phone. Here's how it works and why it matters."
-keywords: ["Claude Code Remote", "Claude Code mobile", "remote development", "Claude Code CLI"]
+description: >-
+  Claude Code Remote lets you start coding tasks in your terminal and monitor or
+  steer them from your phone. Here's how it works and why it matters.
+keywords:
+  - Claude Code Remote
+  - Claude Code mobile
+  - remote development
+  - Claude Code CLI
 category: DEV
-related_newsletter: 2026-03-07
-related_glossary: [claude-code, mcp-server]
+related_newsletter: 2026-03-07T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - mcp-server
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: en
 video_ready: true
-video_hook: "Start a coding task in your terminal, then control it from your phone"
+video_hook: 'Start a coding task in your terminal, then control it from your phone'
 video_status: none
 ---
 
 # Claude Code Remote Control: Kick Off Tasks in Terminal, Control from Phone
 
-**Claude Code Remote** decouples where you start work from where you manage it. Fire off a task in your terminal — a refactor, a test suite, a migration — then pick up your phone and approve diffs, answer clarifying questions, or redirect the agent mid-flight. The feature is rolling out now to Pro users and represents a meaningful shift in how developers interact with AI coding agents: the terminal becomes a launchpad, not a prison. For anyone who's ever walked away from a long-running Claude Code session and wished they could check in without returning to their laptop, this is the answer.
+**[Claude Code](/blog/claude-code-complete-guide) Remote** decouples where you start work from where you manage it. Fire off a task in your terminal — a refactor, a test suite, a migration — then pick up your phone and approve diffs, answer clarifying questions, or redirect the agent mid-flight. The feature is rolling out now to Pro users and represents a meaningful shift in how developers interact with [AI coding agents](/blog/effective-harnesses-for-long-running-agents): the terminal becomes a launchpad, not a prison. For anyone who's ever walked away from a long-running Claude Code session and wished they could check in without returning to their laptop, this is the answer.
 
 ## What Happened
 
@@ -27,7 +36,7 @@ The workflow is straightforward: you initiate a Claude Code session in your term
 
 Early adopters have already started using it in production. [@levelsio noted](https://x.com/bcherny/status/2028550226316050514) that he's editing production servers from his phone via Claude Remote, calling it "extremely nice" while acknowledging it's "a bit scary" — a fair summary of how powerful asynchronous agent control feels in practice.
 
-This launch arrives alongside several other Claude Code updates in the same week: [HTTP hooks](https://x.com/bcherny/status/2029339111212126458) for more secure integrations, new `/simplify` and `/batch` skills, and scheduled tasks in Cowork mode. Together, these features paint a picture of Claude Code evolving from a terminal tool into a full development platform.
+This launch arrives alongside several other Claude Code updates in the same week: [HTTP hooks](https://x.com/bcherny/status/2029339111212126458) for more secure integrations, new `/simplify` and `/batch` skills, and [scheduled tasks](/blog/scheduled-tasks) in Cowork mode. Together, these features paint a picture of Claude Code evolving from a terminal tool into a full development platform.
 
 ## Why It Matters
 
@@ -35,7 +44,7 @@ The bottleneck in AI-assisted coding has shifted. Model intelligence is no longe
 
 This matters most for long-running tasks. Database migrations, large refactors, multi-file test generation — these are jobs where the agent does 90% of the work autonomously but periodically needs human input. Previously, stepping away meant the session stalled. Now, those approval prompts arrive on your phone like messages, and you respond on your own schedule.
 
-The competitive landscape is worth noting. [Cursor](/glossary/cursor) operates as a desktop IDE extension — there's no mobile story. GitHub Copilot is tightly coupled to VS Code or JetBrains. Claude Code Remote is the first major AI coding tool to treat mobile as a first-class control surface, not just a notification channel.
+The competitive landscape is worth noting. [Cursor](/glossary/cursor) operates as a desktop IDE extension — there's no mobile story. [GitHub Copilot](/glossary/github-[copilot](/glossary/copilot)) is tightly coupled to VS Code or JetBrains. Claude Code Remote is the first major AI coding tool to treat mobile as a first-class control surface, not just a notification channel.
 
 For teams, the implications are practical. A senior engineer can kick off a task, hand off monitoring to a colleague, or review agent output during commute time. The development session becomes a shared, persistent artifact rather than something locked to one person's screen.
 

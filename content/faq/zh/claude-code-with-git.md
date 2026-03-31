@@ -1,17 +1,26 @@
 ---
-title: "Claude Code 怎么配合 Git 使用？"
+title: Claude Code 怎么配合 Git 使用？
 slug: claude-code-with-git
-description: "Claude Code 原生集成 Git，能自动暂存文件、写 commit message、建分支、解 merge conflict、开 pull request，全流程不用手动操作。"
+description: >-
+  Claude Code 原生集成 Git，能自动暂存文件、写 commit message、建分支、解 merge conflict、开 pull
+  request，全流程不用手动操作。
 category: tools
-related_glossary: [claude-code, agentic-coding, claude-md]
-related_blog: [claude-code-complete-guide, claude-code-review-agents, claude-code-agent-teams]
+related_glossary:
+  - claude-code
+  - agentic-coding
+  - claude-md
+related_blog:
+  - claude-code-complete-guide
+  - claude-code-review-agents
+  - claude-code-agent-teams
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code 怎么配合 Git 使用？
 
-Claude Code 内置了完整的 Git 集成，能处理整个 Git 工作流。它会根据实际代码改动自动 stage 文件、写 commit message、建分支切分支、解 merge conflict，甚至能直接用 GitHub CLI 帮你开 pull request。
+[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 内置了完整的 Git 集成，能处理整个 Git 工作流。它会根据实际代码改动自动 stage 文件、写 commit message、建分支切分支、解 merge conflict，甚至能直接用 GitHub CLI 帮你开 pull request。
 
 ## 背景
 
@@ -27,7 +36,7 @@ Claude Code 内置了完整的 Git 集成，能处理整个 Git 工作流。它�
 2. 让 Claude 帮你 commit：它会自动 review diff、stage 相关文件、写出描述准确的 commit message。
 3. 遇到 merge conflict 直接让 Claude 解，它会读取冲突双方和 base 版本来做判断。
 4. 要开 PR 也直接说，Claude 会用 `gh`（GitHub CLI）创建 PR 并自动生成摘要。
-5. 在项目的 `CLAUDE.md` 里写上你们团队的 Git 规范，Claude 会自动遵守。更多工作流模式可以浏览 [Claude Code 专题页](/topics/claude-code)。
+5. 在项目的 `[CLAUDE.md](/zh/blog/claude-code-memory)` 里写上你们团队的 Git 规范，Claude 会自动遵守。更多工作流模式可以浏览 [Claude Code 专题页](/topics/claude-code)。
 
 ## 相关问题
 

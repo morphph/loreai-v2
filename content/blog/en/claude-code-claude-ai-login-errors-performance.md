@@ -1,23 +1,30 @@
 ---
-title: "Claude Code and Claude.ai Hit With Login Errors and Performance Issues"
-date: 2026-03-12
+title: Claude Code and Claude.ai Hit With Login Errors and Performance Issues
+date: 2026-03-12T00:00:00.000Z
 slug: claude-code-claude-ai-login-errors-performance
-description: "Claude Code and claude.ai users report elevated login errors and slower performance amid surging demand. Here's what's happening and what to do."
-keywords: ["Claude Code outage", "claude.ai login errors", "Claude performance issues"]
+description: >-
+  Claude Code and claude.ai users report elevated login errors and slower
+  performance amid surging demand. Here's what's happening and what to do.
+keywords:
+  - Claude Code outage
+  - claude.ai login errors
+  - Claude performance issues
 category: APP
-related_newsletter: 2026-03-12
-related_glossary: [claude-code]
+related_newsletter: 2026-03-12T00:00:00.000Z
+related_glossary:
+  - claude-code
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: en
 video_ready: true
-video_hook: "Claude is down — again. Here's what's really going on behind the outages"
+video_hook: Claude is down — again. Here's what's really going on behind the outages
 video_status: none
 ---
 
 # Claude Code and Claude.ai Hit With Login Errors and Performance Issues
 
-**Claude Code** and **claude.ai** users are reporting elevated login failures and noticeably slower response times across both platforms. The timing is notable — Anthropic's developer tools have seen explosive adoption over the past month, with Claude reaching #1 in the App Store and [SemiAnalysis estimating](https://x.com/SemiAnalysis_/status/2027458544493335008) that 4% of all public GitHub commits now come from Claude Code. When your infrastructure becomes load-bearing for a meaningful slice of global software development, reliability stops being a feature and becomes the product.
+**[Claude Code](/blog/claude-code-complete-guide)** and **claude.ai** users are reporting elevated login failures and noticeably slower response times across both platforms. The timing is notable — Anthropic's developer tools have seen explosive adoption over the past month, with Claude reaching #1 in the App Store and [SemiAnalysis estimating](https://x.com/SemiAnalysis_/status/2027458544493335008) that 4% of all public GitHub commits now come from Claude Code. When your infrastructure becomes load-bearing for a meaningful slice of global software development, reliability stops being a feature and becomes the product.
 
 ## What Happened
 
@@ -27,7 +34,7 @@ The reports surfaced on X (formerly Twitter), with developer [@trq212 flagging t
 
 Anthropic hasn't issued a detailed post-mortem at the time of writing. The [Anthropic status page](https://status.anthropic.com) is the canonical source for real-time updates. These incidents typically resolve within hours, but the frequency matters — developers building production workflows on Claude Code need to plan around potential downtime.
 
-This isn't the first time Anthropic's services have buckled under load. Rapid feature expansion — Claude Code Remote for Pro users, HTTP hooks, scheduled Cowork tasks, memory on the free plan — all shipped in the past two weeks. Each feature brings new users and new traffic patterns that stress authentication and inference infrastructure differently.
+This isn't the first time Anthropic's services have buckled under load. Rapid feature expansion — [Claude Code Remote](/blog/claude-code-remote-control-mobile) for Pro users, HTTP hooks, scheduled Cowork tasks, memory on the free plan — all shipped in the past two weeks. Each feature brings new users and new traffic patterns that stress authentication and inference infrastructure differently.
 
 ## Why It Matters
 
@@ -35,7 +42,7 @@ The reliability question hits differently when **Claude Code** is embedded in pr
 
 Consider the context: companies like Ramp, Rakuten, Brex, Wiz, Shopify, and Spotify are [using Claude Code in production engineering workflows](https://x.com/bcherny/status/2028638679204577380). When login fails for these teams, it's not a minor inconvenience — it's blocked sprints and missed deadlines.
 
-The competitive landscape amplifies the stakes. [Cursor](/glossary/cursor), GitHub Copilot, and other AI coding tools are viable alternatives. Each outage gives teams a reason to evaluate whether their Claude Code dependency carries acceptable risk. Anthropic's technical moat — model quality — is real, but operational reliability is the price of admission for enterprise adoption.
+The competitive landscape amplifies the stakes. [Cursor](/glossary/cursor), [GitHub Copilot](/glossary/github-[copilot](/glossary/copilot)), and other AI coding tools are viable alternatives. Each outage gives teams a reason to evaluate whether their Claude Code dependency carries acceptable risk. Anthropic's technical moat — model quality — is real, but operational reliability is the price of admission for enterprise adoption.
 
 There's also a structural tension at play. Anthropic is simultaneously scaling consumer access (free-tier memory, App Store push) and developer infrastructure (Claude Code Remote, HTTP hooks). These audiences have different latency expectations and usage patterns. Consumer traffic is bursty and read-heavy; developer traffic is sustained and write-heavy. Serving both on shared infrastructure creates resource contention that's hard to manage without significant overprovisioning.
 
@@ -45,7 +52,7 @@ Login errors and performance degradation typically trace to a few root causes in
 
 **Authentication service saturation.** OAuth and session management services have finite connection pools. When new user signups spike — as they do after hitting #1 in the App Store — the auth layer can become the bottleneck. Every Claude Code session requires token validation, and expired tokens trigger re-authentication flows that multiply load.
 
-**Inference queue depth.** Claude's models run on dedicated GPU clusters. When demand exceeds provisioned capacity, requests queue. Longer queues mean higher latency, and eventually timeout errors that surface as failed requests. The challenge is compounded by Claude Code's agentic usage pattern — a single user session can trigger dozens of model calls as the agent reasons through a task, creating multiplicative load compared to single-turn chat.
+**Inference queue depth.** Claude's models run on dedicated GPU clusters. When demand exceeds provisioned capacity, requests queue. Longer queues mean higher latency, and eventually timeout errors that surface as failed requests. The challenge is compounded by Claude Code's [agentic](/glossary/agentic) usage pattern — a single user session can trigger dozens of model calls as the agent reasons through a task, creating multiplicative load compared to single-turn chat.
 
 **Rate limiting propagation.** When backend systems approach capacity, rate limiters activate. But rate limiting in a distributed system is imprecise — some users get throttled aggressively while others see no impact, creating inconsistent experiences that are hard to diagnose from the user side.
 

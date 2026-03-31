@@ -1,21 +1,27 @@
 ---
-title: "Claude Code 的核心功能与价值：你真正需要了解的是什么？"
+title: Claude Code 的核心功能与价值：你真正需要了解的是什么？
 slug: key-benefits-and-features
-description: "Claude Code 有哪些核心功能？这些功能能为开发者带来什么实际价值？本文拆解功能与收益的本质差异。"
+description: Claude Code 有哪些核心功能？这些功能能为开发者带来什么实际价值？本文拆解功能与收益的本质差异。
 lang: zh
 category: tools
-related_glossary: [agentic-coding, chatgpt]
-related_blog: [integrate-claude-code-into-your-development-workflow]
-related_compare: [claude-code-vs-cursor, claude-code-remote-vs-ssh]
-related_faq: [claude-code-pricing]
-date: 2026-03-27
+related_glossary:
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - integrate-claude-code-into-your-development-workflow
+related_compare:
+  - claude-code-vs-cursor
+  - claude-code-remote-vs-ssh
+related_faq:
+  - claude-code-pricing
+date: 2026-03-27T00:00:00.000Z
 ---
 
 # Claude Code 的核心功能与价值：你真正需要了解的是什么？
 
 产品功能（features）和实际收益（benefits）是两回事。功能描述的是"这个工具能做什么"，收益回答的是"这对我有什么用"。搞清楚这个区别，才能真正判断一个工具值不值得用。
 
-Claude Code 有很多功能点可以列举，但开发者真正关心的不是规格表——而是：用了之后，我的工作会变成什么样。
+[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 有很多功能点可以列举，但开发者真正关心的不是规格表——而是：用了之后，我的工作会变成什么样。
 
 ## 功能 vs 收益：为什么区分这两件事很重要
 
@@ -33,13 +39,13 @@ Claude Code 有很多功能点可以列举，但开发者真正关心的不是�
 
 | 功能 | 它做什么 | 收益（为什么重要） |
 |------|---------|-------------------|
-| Agentic 文件编辑 | 跨文件规划、编辑、执行 | 大规模变更不再需要手动逐文件操作 |
+| [Agentic](/zh/glossary/agentic) 文件编辑 | 跨文件规划、编辑、执行 | 大规模变更不再需要手动逐文件操作 |
 | 智能测试 | 生成测试套件、运行、修复失败 | 测试覆盖从"欠债"变成"主动投资" |
 | Git 集成 | 自动暂存、提交、开 PR | 干净的提交历史，无需纪律税 |
-| CLAUDE.md / SKILL.md | 持久化项目配置，每次会话自动加载 | AI 保持一致行为，无需重复解释 |
-| MCP 服务器 | 连接外部工具（数据库、Jira、Slack） | Agent 操作真实数据，不只是代码 |
+| [CLAUDE.md](/zh/blog/claude-code-memory) / SKILL.md | 持久化项目配置，每次会话自动加载 | AI 保持一致行为，无需重复解释 |
+| [MCP](/zh/blog/claude-code-seven-programmable-layers) 服务器 | 连接外部工具（数据库、Jira、Slack） | Agent 操作真实数据，不只是代码 |
 | Hooks | 生命周期事件触发确定性命令 | AI 无法绕过的安全护栏 |
-| Agent Teams | 主 Agent 协调多个并行子 Agent | 复杂任务自动分解和并行化 |
+| [Agent Teams](/zh/glossary/agent-teams) | 主 Agent 协调多个并行子 Agent | 复杂任务自动分解和并行化 |
 | 1M 上下文 | 一次性加载整个代码库 | 跨代码库的准确理解 |
 
 ## Claude Code 的核心功能，以及它们真正意味着什么

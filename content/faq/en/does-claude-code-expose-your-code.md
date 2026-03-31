@@ -1,18 +1,25 @@
 ---
-title: "Does Claude Code Expose Your Code?"
+title: Does Claude Code Expose Your Code?
 slug: does-claude-code-expose-your-code
-description: "Claude Code sends your code to Anthropic's servers for processing. Here's what data is transmitted and how to protect sensitive information."
+description: >-
+  Claude Code sends your code to Anthropic's servers for processing. Here's what
+  data is transmitted and how to protect sensitive information.
 category: tools
-related_glossary: [claude-code, agentic-coding]
-related_blog: [integrate-claude-code-into-your-development-workflow]
-related_compare: [claude-code-vs-cursor]
+related_glossary:
+  - claude-code
+  - agentic-coding
+related_blog:
+  - integrate-claude-code-into-your-development-workflow
+related_compare:
+  - claude-code-vs-cursor
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Does Claude Code Expose Your Code?
 
-**Yes — Claude Code sends your code to Anthropic's servers for processing.** Files that Claude Code reads are transmitted in their entirety to Anthropic's cloud infrastructure for analysis. Your prompts, responses, and conversation context are also processed on Anthropic's servers. However, only files you explicitly have Claude Code read are sent — the rest of your project stays local. The critical risk is sensitive data like API keys in `.env` files, which Claude Code automatically loads without notifying you.
+**Yes — [Claude Code](/blog/claude-code-complete-guide) sends your code to Anthropic's servers for processing.** Files that Claude Code reads are transmitted in their entirety to Anthropic's cloud infrastructure for analysis. Your prompts, responses, and conversation context are also processed on Anthropic's servers. However, only files you explicitly have Claude Code read are sent — the rest of your project stays local. The critical risk is sensitive data like API keys in `.env` files, which Claude Code automatically loads without notifying you.
 
 ## Context
 
@@ -33,9 +40,9 @@ Anthropic maintains a 30-day retention policy for deleted conversations, meaning
 
 ## Related Questions
 
-- What is the difference between Claude Code and Cursor?
-- Is Claude Code free to use?
-- [How do I set up Claude Code remote control on my phone?](/faq/how-do-i-set-up-claude-code-remote-control-on-my-phone)
+- What is the difference between Claude Code and [Cursor](/glossary/cursor)?
+- [Is Claude Code free](/faq/is-claude-code-free) to use?
+- [How do I set up [Claude Code remote](/blog/claude-code-remote-control-mobile) control on my phone?](/faq/how-do-i-set-up-claude-code-remote-control-on-my-phone)
 
 ---
 

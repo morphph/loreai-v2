@@ -1,21 +1,26 @@
 ---
-title: "What Is the Difference Between Codex and ChatGPT?"
+title: What Is the Difference Between Codex and ChatGPT?
 slug: codex-vs-chatgpt
-description: "Codex is OpenAI's cloud-based coding agent inside ChatGPT. Here's how they differ."
+description: >-
+  Codex is OpenAI's cloud-based coding agent inside ChatGPT. Here's how they
+  differ.
 category: tools
-related_glossary: [codex]
-related_blog: [codex-complete-guide]
+related_glossary:
+  - codex
+related_blog:
+  - codex-complete-guide
 lang: en
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # What Is the Difference Between Codex and ChatGPT?
 
-**[Codex](/glossary/codex)** is a cloud-based software engineering agent that lives *inside* ChatGPT — it's a specialized tool for coding tasks, not a separate product. **ChatGPT** is OpenAI's general-purpose conversational AI. The core difference: ChatGPT handles open-ended conversations across any topic, while Codex is purpose-built to read your codebase, write code, run tests, and propose pull requests in isolated cloud sandboxes.
+**[Codex](/glossary/codex)** is a cloud-based software engineering agent that lives *inside* [ChatGPT](/glossary/chatgpt) — it's a specialized tool for coding tasks, not a separate product. **ChatGPT** is OpenAI's general-purpose conversational AI. The core difference: ChatGPT handles open-ended conversations across any topic, while [Codex](/faq/codex) is purpose-built to read your codebase, write code, run tests, and propose pull requests in isolated cloud sandboxes.
 
 ## Context
 
-The confusion is understandable because Codex is accessed through ChatGPT's sidebar. But under the hood, they run different models optimized for different jobs. ChatGPT uses models like GPT-4o for general conversation, while Codex is powered by **codex-1**, a version of OpenAI o3 specifically trained with reinforcement learning on real-world coding tasks.
+The confusion is understandable because Codex is accessed through ChatGPT's sidebar. But under the hood, they run different models optimized for different jobs. ChatGPT uses models like GPT-4o for general conversation, while Codex is powered by **codex-1**, a version of OpenAI o3 specifically trained with [reinforcement learning](/glossary/reinforcement-learning) on real-world coding tasks.
 
 When you use ChatGPT, you're having a conversation — asking questions, generating text, analyzing documents. When you use Codex, you're delegating a software engineering task. Each Codex task spins up an independent sandbox environment preloaded with your GitHub repository. The agent can read and edit files, run terminal commands (test harnesses, linters, type checkers), and commit changes — all without internet access during execution for security.
 

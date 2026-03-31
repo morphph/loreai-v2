@@ -1,29 +1,38 @@
 ---
-title: "AI编程Agent正在重塑产品工程：从PRD驱动到原型驱动的范式转移"
-date: 2026-03-16
+title: AI编程Agent正在重塑产品工程：从PRD驱动到原型驱动的范式转移
+date: 2026-03-16T00:00:00.000Z
 slug: coding-agents-reshaping-epd
-description: "LangChain CEO Harrison Chase提出，AI编程Agent让代码成本趋近于零，软件开发流程正从PRD驱动转向原型驱动。PRD不再是起点，而是解释意图的说明书。产品团队的角色边界正在被彻底重画。"
-keywords: ["AI编程Agent", "产品开发流程", "PRD", "Coding Agent", "软件工程"]
+description: >-
+  LangChain CEO Harrison
+  Chase提出，AI编程Agent让代码成本趋近于零，软件开发流程正从PRD驱动转向原型驱动。PRD不再是起点，而是解释意图的说明书。产品团队的角色边界正在被彻底重画。
+keywords:
+  - AI编程Agent
+  - 产品开发流程
+  - PRD
+  - Coding Agent
+  - 软件工程
 category: DEV
-related_newsletter: 2026-03-16
-related_glossary: [coding-agent, prompt-engineering]
+related_newsletter: 2026-03-16T00:00:00.000Z
+related_glossary:
+  - coding-agent
+  - prompt-engineering
 related_compare: []
 lang: zh
 video_ready: true
-video_hook: "你写了三天的PRD，同事用AI一小时搞出可运行原型——文档还有人看吗？"
+video_hook: 你写了三天的PRD，同事用AI一小时搞出可运行原型——文档还有人看吗？
 video_status: published
 source_type: video
 ---
 
 # AI编程Agent正在重塑产品工程：从PRD驱动到原型驱动的范式转移
 
-**LangChain** CEO Harrison Chase 近期发文断言：PRD 作为软件开发起点的时代结束了。当**AI编程Agent**把代码生成成本压到趋近于零，整条产品开发流水线正在被倒过来重排——先出原型，再补文档。这篇文章拆解这场范式转移的底层逻辑，以及它对工程师、PM、设计师意味着什么。
+**[LangChain](/zh/blog/agent-harnesses-2026)** CEO Harrison Chase 近期发文断言：PRD 作为软件开发起点的时代结束了。当**[AI编程](/zh/blog/claude-code-seven-programmable-layers)Agent**把代码生成成本压到趋近于零，整条产品开发流水线正在被倒过来重排——先出原型，再补文档。这篇文章拆解这场范式转移的底层逻辑，以及它对工程师、PM、设计师意味着什么。
 
 ## 发生了什么
 
 传统软件开发遵循四步瀑布：Idea → PRD → Mock → Code。之所以这么走，是因为写代码太贵——一个功能动辄几周，必须先用文档对齐所有人，避免返工。PRD 是这条流水线的发令枪。
 
-**Coding Agent** 的出现打破了这个前提。Harrison Chase 的原话是："anyone can write code now"。代码成本暴跌后，越来越多团队的实际工作方式变成了 Idea 直接到 Code，三方围着可运行的原型给反馈。
+**[Coding Agent](/zh/blog/juliandeangelis-ai-agents-future)** 的出现打破了这个前提。Harrison Chase 的原话是："anyone can write code now"。代码成本暴跌后，越来越多团队的实际工作方式变成了 Idea 直接到 Code，三方围着可运行的原型给反馈。
 
 Harrison Chase 画出了三个阶段的演进路径：第一阶段是传统瀑布，瓶颈在代码实现；第二阶段是当前状态，瓶颈从实现转移到了审查——谁都能用 Agent 搞出原型，Review 队列直接爆了；第三阶段是他认为的终局，Idea 同时产出 Doc + Code 的捆绑包提交 Review，文档不再是起点，而是解释意图的说明书。
 
@@ -48,7 +57,7 @@ graph LR
 
 这场变化最深层的影响不在流程，在人。
 
-Harrison Chase 说得很直接：使用 AI 编程 Agent 不是建议，是要求。不用的人，会被用的人替代。原因在于 Agent 把三个角色的边界彻底模糊了——PM 可以直接搭原型，不用写完需求等排期；设计师可以在代码里迭代，不只在 Figma 里画图；工程师可以把时间从写代码转向系统架构思考。
+Harrison Chase 说得很直接：使用 AI 编程 Agent 不是建议，是要求。不用的人，会被用的人替代。原因在于 Agent 把三个角色的边界彻底模糊了——PM 可以直接搭原型，不用写完需求等排期；设计师可以在代码里迭代，不只在 [Figma](/zh/glossary/figma) 里画图；工程师可以把时间从写代码转向系统架构思考。
 
 这就像围棋 AI 出现后的人类棋手：执行力被 AI 碾压，剩下的只有大局观和判断力。**通才变得比以前更值钱了**，因为一个能同时理解产品、设计和工程的人，省掉了三个人之间的沟通成本。以前这种人虽然厉害，但实现还是得靠团队；现在他自己跟 Agent 就能干完。
 

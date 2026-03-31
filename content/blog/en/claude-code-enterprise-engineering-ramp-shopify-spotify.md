@@ -1,17 +1,27 @@
 ---
-title: "How Claude Code Is Reshaping Engineering at Ramp, Shopify, Spotify, and More"
-date: 2026-03-11
+title: 'How Claude Code Is Reshaping Engineering at Ramp, Shopify, Spotify, and More'
+date: 2026-03-11T00:00:00.000Z
 slug: claude-code-enterprise-engineering-ramp-shopify-spotify
-description: "How engineering teams at Ramp, Rakuten, Brex, Wiz, Shopify, and Spotify are using Claude Code to ship faster, reduce toil, and rethink developer workflows."
-keywords: ["Claude Code enterprise", "Claude Code engineering teams", "AI coding tools production", "Claude Code case studies"]
+description: >-
+  How engineering teams at Ramp, Rakuten, Brex, Wiz, Shopify, and Spotify are
+  using Claude Code to ship faster, reduce toil, and rethink developer
+  workflows.
+keywords:
+  - Claude Code enterprise
+  - Claude Code engineering teams
+  - AI coding tools production
+  - Claude Code case studies
 category: DEV
-related_newsletter: 2026-03-11
-related_glossary: [claude-code, agentic-coding]
+related_newsletter: 2026-03-11T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - agentic-coding
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: en
 video_ready: true
-video_hook: "Six major companies. One AI coding tool. Here's what actually changed."
+video_hook: Six major companies. One AI coding tool. Here's what actually changed.
 video_status: none
 ---
 
@@ -21,7 +31,7 @@ A year after launching as a research preview, **Claude Code** is no longer an ex
 
 ## What Happened
 
-The thread, compiled by [@_catwu](https://x.com/_catwu), aggregates public statements and engineering blog insights from six companies spanning fintech, e-commerce, security, and music streaming. Each company adopted **Claude Code** at different scales and for different use cases, but the through-line is clear: measurable acceleration of shipping velocity with fewer context switches for engineers.
+The thread, compiled by [@_catwu](https://x.com/_catwu), aggregates public statements and engineering blog insights from six companies spanning fintech, e-commerce, security, and music streaming. Each company adopted **[Claude Code](/blog/claude-code-complete-guide)** at different scales and for different use cases, but the through-line is clear: measurable acceleration of shipping velocity with fewer context switches for engineers.
 
 At **Ramp**, engineers report using Claude Code for everything from boilerplate generation to complex refactoring across their fintech codebase. **Brex**, operating in a similar financial infrastructure space, has integrated Claude Code into daily development workflows where compliance-sensitive code still requires human review but the scaffolding and test generation are largely automated.
 
@@ -49,7 +59,7 @@ For the competitive landscape, this enterprise adoption creates a flywheel. More
 
 What separates enterprise Claude Code usage from individual adoption is the configuration and customization layer. Teams at this scale rely heavily on three mechanisms:
 
-**CLAUDE.md project files.** Each repository gets a `CLAUDE.md` that defines build commands, environment constraints, coding standards, and workflow rules. This ensures every engineer on the team gets consistent Claude Code behavior without sharing prompt templates in Slack. The file lives in version control and goes through code review like any other code.
+**[CLAUDE.md](/blog/claude-code-memory) project files.** Each repository gets a `CLAUDE.md` that defines build commands, environment constraints, coding standards, and workflow rules. This ensures every engineer on the team gets consistent Claude Code behavior without sharing prompt templates in Slack. The file lives in version control and goes through code review like any other code.
 
 **Skills system.** The `skills/` directory pattern lets teams encode domain-specific knowledge — API design guidelines, test patterns, documentation standards — into reusable [SKILL.md](/glossary/skill-md) files. A fintech team at Ramp or Brex can have a `skills/compliance-review/SKILL.md` that enforces regulatory requirements every time Claude touches payment-related code.
 
@@ -69,7 +79,7 @@ Performance-wise, Claude Code's one-year anniversary [post](https://x.com/bchern
 
 4. **Measure before and after.** Track PR cycle time, not lines of code. The companies seeing the best results measure time-to-merge, review turnaround, and developer satisfaction — not raw output volume.
 
-5. **Try Claude Code Remote** if your team works across environments. The ability to edit production code from any device changes the on-call experience significantly.
+5. **Try [Claude Code Remote](/blog/claude-code-remote-control-mobile)** if your team works across environments. The ability to edit production code from any device changes the on-call experience significantly.
 
 **Related**: [Today's newsletter](/newsletter/2026-03-11) covers the broader AI news landscape. See also: [Claude Code vs Cursor](/compare/claude-code-vs-cursor) for a detailed feature comparison.
 

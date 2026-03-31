@@ -1,17 +1,27 @@
 ---
-title: "Claude Code 记忆系统详解：CLAUDE.md 规则手册 + Auto Memory 自动笔记"
-date: 2026-03-10
+title: Claude Code 记忆系统详解：CLAUDE.md 规则手册 + Auto Memory 自动笔记
+date: 2026-03-10T00:00:00.000Z
 slug: claude-code-memory
-description: "Claude Code 的记忆系统分两层：CLAUDE.md 是你写给 AI 的规则手册，Auto Memory 是它自己积累的工作笔记。本文详解三层作用域体系、200 行限制、实操配置要点。"
-keywords: ["Claude Code", "CLAUDE.md", "Auto Memory", "AI 编程", "AI 开发工具"]
+description: >-
+  Claude Code 的记忆系统分两层：CLAUDE.md 是你写给 AI 的规则手册，Auto Memory
+  是它自己积累的工作笔记。本文详解三层作用域体系、200 行限制、实操配置要点。
+keywords:
+  - Claude Code
+  - CLAUDE.md
+  - Auto Memory
+  - AI 编程
+  - AI 开发工具
 category: DEV
-related_newsletter: 2026-03-10
-related_glossary: [claude-code, ai-coding-assistant]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - ai-coding-assistant
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: zh
 video_ready: true
-video_hook: "每次新会话都要重复交代项目规范？CLAUDE.md 让你只说一次。"
+video_hook: 每次新会话都要重复交代项目规范？CLAUDE.md 让你只说一次。
 video_status: published
 source_type: video
 flow_source: manual-curate
@@ -19,7 +29,7 @@ flow_source: manual-curate
 
 # Claude Code 记忆系统详解：CLAUDE.md 规则手册 + Auto Memory 自动笔记
 
-每次开新会话都要重新交代一遍项目规范、代码风格、架构约定——这是大多数 **Claude Code** 用户的日常。问题不在 AI 不够聪明，而在它没有持久记忆。Claude Code 的记忆系统正是为此设计：**CLAUDE.md** 让你把规则写一次、永久生效；**Auto Memory** 让 Claude 自己积累工作经验。两套机制配合，彻底消除重复沟通。
+每次开新会话都要重新交代一遍项目规范、代码风格、架构约定——这是大多数 **[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 用户的日常。问题不在 AI 不够聪明，而在它没有持久记忆。Claude Code 的记忆系统正是为此设计：**[CLAUDE.md](/zh/glossary/claude-md)** 让你把规则写一次、永久生效；**Auto Memory** 让 Claude 自己积累工作经验。两套机制配合，彻底消除重复沟通。
 
 ## 发生了什么
 

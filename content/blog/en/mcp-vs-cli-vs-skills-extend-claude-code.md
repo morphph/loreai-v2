@@ -1,17 +1,27 @@
 ---
-title: "MCP vs CLI vs Skills: How to Extend Claude Code Without Over-Engineering"
-date: 2026-03-12
+title: 'MCP vs CLI vs Skills: How to Extend Claude Code Without Over-Engineering'
+date: 2026-03-12T00:00:00.000Z
 slug: mcp-vs-cli-vs-skills-extend-claude-code
-description: "Compare MCP servers, CLI tools, and Skills — the three ways to extend Claude Code. Learn when each fits and avoid the over-engineering trap."
-keywords: ["claude code extensions", "model context protocol mcp", "claude code skills", "claude code mcp server", "ai coding tool extensibility"]
+description: >-
+  Compare MCP servers, CLI tools, and Skills — the three ways to extend Claude
+  Code. Learn when each fits and avoid the over-engineering trap.
+keywords:
+  - claude code extensions
+  - model context protocol mcp
+  - claude code skills
+  - claude code mcp server
+  - ai coding tool extensibility
 category: DEV
-related_newsletter: 2026-03-12
-related_glossary: [claude-code, mcp]
+related_newsletter: 2026-03-12T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - mcp
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: en
 video_ready: true
-video_hook: "80% of MCP servers should be a 10-line markdown file"
+video_hook: 80% of MCP servers should be a 10-line markdown file
 video_status: none
 ---
 
@@ -21,7 +31,7 @@ video_status: none
 
 ## What Happened
 
-When Anthropic launched Claude Code in February 2025, it shipped with a powerful but opaque extensibility story. Three mechanisms — **MCP servers**, **CLI/Bash tools**, and **Skills** — each solve different problems, but the documentation treats them as separate features rather than a coherent decision framework. The community noticed: by early 2026, MCP had been adopted by OpenAI, Google DeepMind, and integrated into 20+ developer tools including VS Code, JetBrains, and [Cursor](/glossary/cursor).
+When Anthropic launched [Claude Code](/blog/claude-code-complete-guide) in February 2025, it shipped with a powerful but opaque extensibility story. Three mechanisms — **[MCP](/topics/mcp) servers**, **CLI/Bash tools**, and **Skills** — each solve different problems, but the documentation treats them as separate features rather than a coherent decision framework. The community noticed: by early 2026, MCP had been adopted by OpenAI, [Google DeepMind](/blog/gemini-3-1-pro-complex-tasks), and integrated into 20+ developer tools including VS Code, JetBrains, and [Cursor](/glossary/cursor).
 
 The attention imbalance is stark. MCP gets the conference talks, the blog posts, the YouTube tutorials. Skills — single markdown files in `.claude/commands/` with zero dependencies, zero runtime processes, invokable via `/slash-commands` — remain largely unknown. Most developers skip them entirely and jump straight to building MCP servers.
 
@@ -65,7 +75,7 @@ The critical architectural difference: Skills and CLI are stateless and ephemera
 1. **Audit your existing MCP servers.** For each one, ask: does this need persistent state or cross-tool compatibility? If no, decompose it into a Skill + shell script.
 2. **Start with Skills for prompt reuse.** Create `.claude/commands/` in your project. Every reusable prompt pattern — code review checklists, commit message formats, deployment procedures — belongs here first.
 3. **Use CLI for side effects.** API calls, file transformations, build commands — wrap them in shell scripts. Claude already has Bash access; you don't need a protocol layer.
-4. **Reserve MCP for genuine interop.** If the same tool must work in Claude Code, Cursor, VS Code Copilot, and custom agents, MCP earns its complexity. If it only runs in Claude Code, it probably doesn't.
+4. **Reserve MCP for genuine interop.** If the same tool must work in Claude Code, [Cursor](/topics/cursor), VS Code [Copilot](/glossary/copilot), and custom agents, MCP earns its complexity. If it only runs in Claude Code, it probably doesn't.
 5. **Watch for Skill sprawl.** As your `.claude/commands/` directory grows, organize by domain (`review/`, `deploy/`, `test/`) to keep the slash-command namespace discoverable.
 
 **Related**: See how [Claude Code Agent Teams](/blog/claude-code-agent-teams) leverage Skills for multi-agent workflows. For background on Claude Code's architecture, check [Claude Code](/glossary/claude-code) and [MCP](/glossary/mcp) in our glossary.

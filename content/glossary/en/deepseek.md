@@ -1,11 +1,16 @@
 ---
-title: "DeepSeek — AI Glossary"
+title: DeepSeek — AI Glossary
 slug: deepseek
-description: "What is DeepSeek? A Chinese AI lab building high-performance open-weight language models."
+description: >-
+  What is DeepSeek? A Chinese AI lab building high-performance open-weight
+  language models.
 term: deepseek
-display_term: "DeepSeek"
+display_term: DeepSeek
 category: models
-related_glossary: [anthropic, claude, agentic]
+related_glossary:
+  - anthropic
+  - claude
+  - agentic
 related_blog: []
 related_compare: []
 lang: en
@@ -13,7 +18,7 @@ lang: en
 
 # DeepSeek — AI Glossary
 
-**DeepSeek** is a Chinese artificial intelligence company that develops open-weight large language models. Founded in 2023 as a subsidiary of the quantitative hedge fund High-Flyer, DeepSeek gained widespread attention with its DeepSeek-V3 and DeepSeek-R1 models, which demonstrated performance competitive with leading closed-source models while being released under permissive licenses.
+**DeepSeek** is a Chinese artificial intelligence company that develops open-weight [large language models](/blog/gemini-3-1-pro-complex-tasks). Founded in 2023 as a subsidiary of the quantitative hedge fund High-Flyer, DeepSeek gained widespread attention with its DeepSeek-V3 and DeepSeek-R1 models, which demonstrated performance competitive with leading closed-source models while being released under permissive licenses.
 
 ## Why DeepSeek Matters
 
@@ -27,9 +32,9 @@ DeepSeek's architecture incorporates several efficiency-focused design choices:
 
 - **Mixture-of-Experts (MoE)**: DeepSeek-V3 uses an MoE architecture that activates only a subset of parameters per token, reducing inference cost while maintaining a large total parameter count
 - **Multi-head latent attention**: A modified attention mechanism that compresses key-value caches, lowering memory requirements during inference
-- **Reinforcement learning for reasoning**: DeepSeek-R1 applies RL techniques to improve chain-of-thought reasoning, producing step-by-step problem solving without relying solely on supervised fine-tuning
+- **[Reinforcement learning](/glossary/reinforcement-learning) for reasoning**: DeepSeek-R1 applies RL techniques to improve chain-of-thought reasoning, producing step-by-step problem solving without relying solely on supervised [fine-tuning](/glossary/fine-tuning)
 
-The models are available through DeepSeek's API and as downloadable weights on Hugging Face, supporting both cloud and on-premise deployment.
+The models are available through DeepSeek's API and as downloadable weights on [Hugging Face](/glossary/hugging-face), supporting both cloud and on-premise deployment.
 
 ## Related Terms
 

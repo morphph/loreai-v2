@@ -1,17 +1,25 @@
 ---
-title: "Claude Code Agent Teams 怎么用？"
+title: Claude Code Agent Teams 怎么用？
 slug: claude-code-agent-teams
-description: "Claude Code Agent Teams 让主 Agent 派发多个子 Agent 并行工作，适用于批量文件生成、跨模块重构、并行测试等大规模任务场景。"
+description: >-
+  Claude Code Agent Teams 让主 Agent 派发多个子 Agent
+  并行工作，适用于批量文件生成、跨模块重构、并行测试等大规模任务场景。
 category: tools
-related_glossary: [claude-code, agent-teams, multi-agent-systems]
-related_blog: [claude-code-agent-teams, claude-code-extension-stack-skills-hooks-agents-mcp]
+related_glossary:
+  - claude-code
+  - agent-teams
+  - multi-agent-systems
+related_blog:
+  - claude-code-agent-teams
+  - claude-code-extension-stack-skills-hooks-agents-mcp
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code Agent Teams 怎么用？
 
-Claude Code Agent Teams 是一种多 Agent 协作模式：一个主 Agent 负责拆解任务并分派给多个子 Agent，子 Agent 各自独立并行执行，完成后由主 Agent 汇总合并结果。这种模式特别适合需要同时处理多个文件、并行跑测试、或者对整个代码库做重构的大型任务。
+[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) [Agent Teams](/zh/glossary/agent-teams) 是一种多 Agent 协作模式：一个主 Agent 负责拆解任务并分派给多个子 Agent，子 Agent 各自独立并行执行，完成后由主 Agent 汇总合并结果。这种模式特别适合需要同时处理多个文件、并行跑测试、或者对整个代码库做重构的大型任务。
 
 ## 背景
 

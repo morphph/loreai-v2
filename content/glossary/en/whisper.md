@@ -1,12 +1,17 @@
 ---
-title: "Whisper — AI Glossary"
+title: Whisper — AI Glossary
 slug: whisper
-description: "What is Whisper? OpenAI's open-source speech recognition model for accurate transcription and translation."
+description: >-
+  What is Whisper? OpenAI's open-source speech recognition model for accurate
+  transcription and translation.
 term: whisper
-display_term: "Whisper"
+display_term: Whisper
 category: models
-related_glossary: [chatgpt, fine-tuning]
-related_blog: [openai-updated-model-spec-2026]
+related_glossary:
+  - chatgpt
+  - fine-tuning
+related_blog:
+  - openai-updated-model-spec-2026
 related_compare: []
 lang: en
 ---
@@ -37,7 +42,7 @@ The open-source release enabled community-built optimizations like **faster-whis
 
 - **[ChatGPT](/glossary/chatgpt)**: OpenAI's conversational AI product that uses Whisper for voice input processing
 - **[Fine-tuning](/glossary/fine-tuning)**: Technique for adapting Whisper to domain-specific vocabularies like medical or legal terminology
-- **[Google DeepMind](/glossary/google-deepmind)**: Develops competing speech models including USM (Universal Speech Model)
+- **[Google DeepMind](/glossary/google-[deepmind](/glossary/deepmind))**: Develops competing speech models including USM (Universal Speech Model)
 
 ---
 

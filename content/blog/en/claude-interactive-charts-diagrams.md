@@ -1,16 +1,30 @@
 ---
-title: "Claude's New Interactive Charts and Diagrams: Data Visualization Built Into the Chat"
-date: 2026-03-13
+title: >-
+  Claude's New Interactive Charts and Diagrams: Data Visualization Built Into
+  the Chat
+date: 2026-03-13T00:00:00.000Z
 slug: claude-interactive-charts-diagrams
-description: "Claude can now build interactive charts and diagrams directly in chat, available in beta on all plans including free. Here's what it means for data workflows."
-keywords: ["Claude charts", "Claude diagrams", "Claude data visualization", "Anthropic Claude features"]
+description: >-
+  Claude can now build interactive charts and diagrams directly in chat,
+  available in beta on all plans including free. Here's what it means for data
+  workflows.
+keywords:
+  - Claude charts
+  - Claude diagrams
+  - Claude data visualization
+  - Anthropic Claude features
 category: APP
-related_newsletter: 2026-03-13
-related_glossary: [claude, anthropic]
-related_compare: [claude-vs-chatgpt]
+related_newsletter: 2026-03-13T00:00:00.000Z
+related_glossary:
+  - claude
+  - anthropic
+related_compare:
+  - claude-vs-chatgpt
 lang: en
 video_ready: true
-video_hook: "Claude just turned every chat into a whiteboard — interactive charts and diagrams, no tools required"
+video_hook: >-
+  Claude just turned every chat into a whiteboard — interactive charts and
+  diagrams, no tools required
 video_status: none
 ---
 
@@ -30,7 +44,7 @@ The beta label suggests Anthropic is still iterating on the rendering engine, su
 
 ## Why It Matters
 
-Data visualization has been a persistent gap in LLM interfaces. **ChatGPT** added chart generation through its Code Interpreter (now Advanced Data Analysis), but that approach runs Python in a sandbox and returns static images. Google's **Gemini** has experimented with visual outputs but hasn't shipped a general-purpose interactive charting system across all tiers.
+Data visualization has been a persistent gap in LLM interfaces. **[ChatGPT](/glossary/chatgpt)** added chart generation through its Code Interpreter (now Advanced Data Analysis), but that approach runs Python in a sandbox and returns static images. Google's **Gemini** has experimented with visual outputs but hasn't shipped a general-purpose interactive charting system across all tiers.
 
 Claude's approach — interactive charts rendered natively in the chat — has several advantages. Interactive means you can hover for values, zoom into ranges, and manipulate the visualization without regenerating it. Native means no sandbox spin-up time, no file downloads, no context switching.
 

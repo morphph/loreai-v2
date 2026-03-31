@@ -1,14 +1,21 @@
 ---
-title: "Codex vs Cursor: Which AI Coding Agent Should You Use?"
+title: 'Codex vs Cursor: Which AI Coding Agent Should You Use?'
 slug: codex-vs-cursor
-description: "Comparing Codex and Cursor across features, pricing, and workflows for AI-assisted development."
+description: >-
+  Comparing Codex and Cursor across features, pricing, and workflows for
+  AI-assisted development.
 item_a: Codex
 item_b: Cursor
 category: tools
-related_glossary: [codex, agent-teams, agentic]
-related_blog: [codex-complete-guide]
+related_glossary:
+  - codex
+  - agent-teams
+  - agentic
+related_blog:
+  - codex-complete-guide
 lang: en
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # Codex vs Cursor: Which AI Coding Agent Should You Use?
@@ -17,7 +24,7 @@ related_topics: [codex]
 
 ## Feature Comparison
 
-| Feature | Codex | Cursor |
+| Feature | [Codex](/faq/codex) | [Cursor](/glossary/cursor) |
 |---------|-------|--------|
 | **Approach** | Multi-surface coding agent (app, IDE extension, CLI, web) | AI-native IDE (VS Code fork + JetBrains) |
 | **Agent execution** | Cloud sandboxed environments with shell access | Cloud agents that build, test, and demo autonomously |
@@ -25,9 +32,9 @@ related_topics: [codex]
 | **Codebase understanding** | Reads project via AGENTS.md config | Secure codebase indexing with semantic search |
 | **Multi-agent support** | Subagents and workflows | Multi-agent collaboration and [agent teams](/glossary/agent-teams) research |
 | **Integrations** | GitHub, Slack, Linear | GitHub (BugBot), Slack, plugin marketplace |
-| **Configuration** | AGENTS.md, MCP, Skills | Cursor Rules, MCP Apps, Automations |
-| **Models** | OpenAI models (GPT-5.4 latest) | OpenAI, Anthropic, Gemini, xAI, and Cursor models |
-| **Pricing** | Included with ChatGPT Plus, Pro, Business, Edu, and Enterprise | Subscription-based (Hobby, Pro, Business, Enterprise tiers) |
+| **Configuration** | AGENTS.md, [MCP](/glossary/mcp), Skills | Cursor Rules, MCP Apps, Automations |
+| **Models** | OpenAI models ([GPT-5.4](/glossary/gpt-54) latest) | OpenAI, Anthropic, Gemini, xAI, and Cursor models |
+| **Pricing** | Included with [ChatGPT](/glossary/chatgpt) Plus, Pro, Business, Edu, and Enterprise | Subscription-based (Hobby, Pro, Business, Enterprise tiers) |
 | **Platforms** | App, IDE extension, CLI, web | macOS, Windows, Linux (desktop); JetBrains IDEs |
 
 ## When to Use Codex

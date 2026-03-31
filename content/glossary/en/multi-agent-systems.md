@@ -1,12 +1,17 @@
 ---
-title: "Multi-Agent Systems — AI Glossary"
+title: Multi-Agent Systems — AI Glossary
 slug: multi-agent-systems
-description: "What are multi-agent systems? Architectures where multiple AI agents collaborate to solve complex tasks."
+description: >-
+  What are multi-agent systems? Architectures where multiple AI agents
+  collaborate to solve complex tasks.
 term: multi-agent-systems
-display_term: "Multi-Agent Systems"
+display_term: Multi-Agent Systems
 category: concepts
-related_glossary: [agentic-coding, claude-desktop]
-related_blog: [openai-computer-access-agents-lessons]
+related_glossary:
+  - agentic-coding
+  - claude-desktop
+related_blog:
+  - openai-computer-access-agents-lessons
 related_compare: []
 lang: en
 ---
@@ -27,14 +32,14 @@ A typical MAS architecture has three layers:
 
 - **Orchestrator**: Routes tasks, manages agent lifecycle, and aggregates results. This can be a fixed pipeline or a dynamic planner that decides which agents to invoke based on the task
 - **Specialized agents**: Each handles a narrow domain — code generation, web search, data analysis, file manipulation. Narrow scope means smaller context windows and more reliable outputs
-- **Communication protocol**: Agents exchange structured messages — task descriptions, intermediate results, and status updates. Frameworks like MCP and A2A (Agent-to-Agent) standardize these interactions
+- **Communication protocol**: Agents exchange structured messages — task descriptions, intermediate results, and status updates. Frameworks like [MCP](/glossary/mcp) and A2A (Agent-to-Agent) standardize these interactions
 
 The key design tradeoff is autonomy vs. control. Fully autonomous agents can deadlock or diverge; overly controlled agents lose the parallelism benefits. Most production systems use a hierarchical model where a supervisor agent maintains global state while worker agents execute independently within defined boundaries.
 
 ## Related Terms
 
 - **[Agentic Coding](/glossary/agentic-coding)**: Development workflows where AI agents autonomously write, test, and deploy code — often implemented as multi-agent systems
-- **[Claude Desktop](/glossary/claude-desktop)**: Anthropic's desktop application that enables agent-based interactions, including multi-agent coordination via tool use
+- **[Claude Desktop](/glossary/claude-desktop)**: Anthropic's desktop application that enables agent-based interactions, including multi-agent coordination via [tool use](/glossary/tool-use)
 
 ---
 

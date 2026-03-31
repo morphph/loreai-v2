@@ -1,24 +1,35 @@
 ---
-title: "Claude Code Headless Mode: Run AI Coding Agents Programmatically"
-date: 2026-03-11
+title: 'Claude Code Headless Mode: Run AI Coding Agents Programmatically'
+date: 2026-03-11T00:00:00.000Z
 slug: headless-mode
-description: "How to run Claude Code programmatically with the -p flag and Agent SDK CLI for CI/CD pipelines, automated reviews, and scripted workflows."
-keywords: ["Claude Code headless mode", "Agent SDK CLI", "claude -p", "programmatic Claude Code"]
+description: >-
+  How to run Claude Code programmatically with the -p flag and Agent SDK CLI for
+  CI/CD pipelines, automated reviews, and scripted workflows.
+keywords:
+  - Claude Code headless mode
+  - Agent SDK CLI
+  - claude -p
+  - programmatic Claude Code
 category: DEV
-related_newsletter: 2026-03-11
-related_glossary: [claude-code, agent-sdk]
+related_newsletter: 2026-03-11T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - agent-sdk
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: en
 video_ready: true
-video_hook: "Claude Code isn't just interactive — run it headless for CI/CD, batch ops, and automated workflows"
+video_hook: >-
+  Claude Code isn't just interactive — run it headless for CI/CD, batch ops, and
+  automated workflows
 video_status: published
 source_type: video
 ---
 
 # Claude Code Headless Mode: Run AI Coding Agents Programmatically
 
-Most developers use **Claude Code** interactively — chatting in the terminal, approving tool calls, watching it edit files in real-time. But the real power unlock comes when you remove the human from the loop entirely. The [Agent SDK](https://platform.claude.com/docs/en/agent-sdk/overview) CLI lets you run Claude Code programmatically with a single flag: `-p`. Same tools, same agent loop, same context management — just no interactive prompts. This turns Claude Code from a pair programmer into an automatable workhorse for CI/CD pipelines, batch code reviews, and scripted refactoring jobs.
+Most developers use **[Claude Code](/blog/claude-code-complete-guide)** interactively — chatting in the terminal, approving tool calls, watching it edit files in real-time. But the real power unlock comes when you remove the human from the loop entirely. The [Agent SDK](https://platform.claude.com/docs/en/agent-sdk/overview) CLI lets you run Claude Code programmatically with a single flag: `-p`. Same tools, same agent loop, same context management — just no interactive prompts. This turns Claude Code from a pair programmer into an automatable workhorse for CI/CD pipelines, batch code reviews, and scripted refactoring jobs.
 
 ## What Happened
 
@@ -54,7 +65,7 @@ claude -p "Extract the main function names from auth.py" \
   --json-schema '{"type":"object","properties":{"functions":{"type":"array","items":{"type":"string"}}},"required":["functions"]}'
 ```
 
-The competitive landscape matters here too. GitHub Copilot's CLI integration is limited to completions. [Cursor](/glossary/cursor) has no headless mode at all. Claude Code's `-p` flag gives it a unique position as both an interactive assistant and a scriptable agent — the same tool for both use cases, with identical behavior guarantees.
+The competitive landscape matters here too. [GitHub Copilot](/glossary/github-[copilot](/glossary/copilot))'s CLI integration is limited to completions. [Cursor](/glossary/cursor) has no headless mode at all. Claude Code's `-p` flag gives it a unique position as both an interactive assistant and a scriptable agent — the same tool for both use cases, with identical behavior guarantees.
 
 ## Technical Deep-Dive
 
@@ -100,7 +111,7 @@ This is the foundation for building custom UIs, logging dashboards, or progress 
 
 ### System Prompt Control
 
-Two flags shape Claude's behavior: `--append-system-prompt` adds instructions while preserving Claude Code's defaults (tool use, safety guidelines), while `--system-prompt` replaces the entire system prompt. The append variant is safer for most use cases:
+Two flags shape Claude's behavior: `--append-system-prompt` adds instructions while preserving Claude Code's defaults ([tool use](/glossary/tool-use), safety guidelines), while `--system-prompt` replaces the entire system prompt. The append variant is safer for most use cases:
 
 ```bash
 gh pr diff "$1" | claude -p \

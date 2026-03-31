@@ -1,12 +1,16 @@
 ---
-title: "Google — AI 术语表"
+title: Google — AI 术语表
 slug: google
-description: "什么是 Google？全球最大的搜索引擎公司，也是 AI 领域最重要的研究与应用力量之一。"
+description: 什么是 Google？全球最大的搜索引擎公司，也是 AI 领域最重要的研究与应用力量之一。
 term: google
-display_term: "Google"
+display_term: Google
 category: frameworks
-related_glossary: [anthropic, claude, amazon]
-related_blog: [anthropic-claude-memory-upgrades-importing]
+related_glossary:
+  - anthropic
+  - claude
+  - amazon
+related_blog:
+  - anthropic-claude-memory-upgrades-importing
 related_compare: []
 lang: zh
 ---
@@ -26,7 +30,7 @@ Google 在 AI 领域的影响力几乎无处不在。2017 年 Google Brain 团�
 Google 的 AI 布局覆盖基础研究到应用落地的完整链路：
 
 - **Gemini 系列模型**：多模态大模型，支持文本、图像、音频和视频的统一理解与生成，直接集成到 Google Search、Workspace 和 Android 中
-- **Google DeepMind**：合并 Google Brain 和 DeepMind 后的研究机构，负责 AlphaFold（蛋白质结构预测）、AlphaGo 等前沿项目
+- **[Google DeepMind](/zh/blog/gemini-3-1-pro-complex-tasks)**：合并 Google Brain 和 [DeepMind](/zh/glossary/deepmind) 后的研究机构，负责 AlphaFold（蛋白质结构预测）、AlphaGo 等前沿项目
 - **TPU（Tensor Processing Unit）**：Google 自研的 AI 加速芯片，为大规模模型训练提供算力支撑
 - **开源贡献**：TensorFlow、JAX、Keras 等框架，以及 BERT、T5、PaLM 等开放模型权重
 

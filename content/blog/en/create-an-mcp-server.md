@@ -1,23 +1,29 @@
 ---
-title: "How to Create an MCP Server: Architecture, Implementation, and Best Practices"
+title: 'How to Create an MCP Server: Architecture, Implementation, and Best Practices'
 slug: create-an-mcp-server
-description: "Learn how to create an MCP server using Anthropic's open standard. Covers Client-Host-Server architecture, JSON-RPC 2.0, stdio and HTTP transports."
+description: >-
+  Learn how to create an MCP server using Anthropic's open standard. Covers
+  Client-Host-Server architecture, JSON-RPC 2.0, stdio and HTTP transports.
 lang: en
 category: frameworks
-related_glossary: [agentic-coding, chatgpt]
-related_blog: [claude-code-is-not-a-coding-tool, key-benefits-and-features]
-date: 2026-03-30
+related_glossary:
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - claude-code-is-not-a-coding-tool
+  - key-benefits-and-features
+date: 2026-03-30T00:00:00.000Z
 ---
 
 # How to Create an MCP Server: Architecture, Implementation, and Best Practices
 
-The **Model Context Protocol (MCP)** — introduced by Anthropic in November 2024 — is an open-source standard for connecting AI models to external data sources and tools. If you're building an integration between an LLM and an external API, database, or service, creating an MCP server is now the canonical approach, backed by OpenAI, Google DeepMind, Microsoft, and Apple. This guide covers the architecture, transport options, and what you need to know before writing your first server.
+The **[Model Context Protocol](/glossary/model-context-protocol) ([MCP](/glossary/mcp))** — introduced by Anthropic in November 2024 — is an open-source standard for connecting AI models to external data sources and tools. If you're building an integration between an LLM and an external API, database, or service, creating an MCP server is now the canonical approach, backed by OpenAI, [Google DeepMind](/blog/gemini-3-1-pro-complex-tasks), Microsoft, and [Apple](/glossary/apple). This guide covers the architecture, transport options, and what you need to know before writing your first server.
 
 ## Why MCP Exists: The M×N Problem
 
 Before MCP, every AI integration was bespoke. If you had M AI models and N external tools, you needed M×N custom connectors — each with its own authentication logic, data format, and error handling. MCP collapses this into an **M+N architecture**: each model implements the MCP client spec once, each tool implements the MCP server spec once, and they interoperate automatically.
 
-The analogy Anthropic uses is "USB-C for AI" — a single port standard that works regardless of what's on either end. By December 2025, Anthropic had donated the project to the **Agentic AI Foundation (AAIF)** under the Linux Foundation, ensuring vendor-neutral governance. The protocol had reached over 97 million monthly SDK downloads by early 2026.
+The analogy Anthropic uses is "USB-C for AI" — a single port standard that works regardless of what's on either end. By December 2025, Anthropic had donated the project to the **[Agentic](/glossary/agentic) AI Foundation (AAIF)** under the Linux Foundation, ensuring vendor-neutral governance. The protocol had reached over 97 million monthly SDK downloads by early 2026.
 
 ## Core Architecture: Client-Host-Server
 

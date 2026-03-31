@@ -1,19 +1,22 @@
 ---
-title: "开放权重模型（Open-Weight Models） — AI 术语表"
+title: 开放权重模型（Open-Weight Models） — AI 术语表
 slug: open-weight-models
-description: "什么是开放权重模型？指公开发布模型权重、允许下载和部署的 AI 模型。"
+description: 什么是开放权重模型？指公开发布模型权重、允许下载和部署的 AI 模型。
 term: open-weight-models
-display_term: "开放权重模型（Open-Weight Models）"
+display_term: 开放权重模型（Open-Weight Models）
 category: models
-related_glossary: [chatgpt, claude-desktop]
-related_blog: [openai-computer-access-agents-lessons]
+related_glossary:
+  - chatgpt
+  - claude-desktop
+related_blog:
+  - openai-computer-access-agents-lessons
 related_compare: []
 lang: zh
 ---
 
 # 开放权重模型（Open-Weight Models） — AI 术语表
 
-**开放权重模型（Open-Weight Models）** 是指将训练完成的模型权重公开发布，允许开发者自由下载、部署和微调的 AI 模型。与完全闭源的 API 服务不同，开放权重模型让用户可以在自己的硬件上运行推理，拥有对模型行为更直接的控制权。代表项目包括 Meta 的 Llama 系列、Mistral 以及阿里的 Qwen 系列。
+**开放权重模型（Open-Weight Models）** 是指将训练完成的模型权重公开发布，允许开发者自由下载、部署和微调的 AI 模型。与完全闭源的 API 服务不同，开放权重模型让用户可以在自己的硬件上运行推理，拥有对模型行为更直接的控制权。代表项目包括 Meta 的 Llama 系列、Mistral 以及阿里的 [Qwen](/zh/glossary/qwen) 系列。
 
 ## 为什么开放权重模型重要
 
@@ -23,12 +26,12 @@ lang: zh
 
 ## 开放权重模型如何运作
 
-开放权重模型通常以标准格式（如 safetensors、GGUF）发布在 Hugging Face 等平台上。开发者下载权重后，通过 vLLM、llama.cpp 或 Ollama 等推理框架在本地 GPU 上加载运行。
+开放权重模型通常以标准格式（如 safetensors、GGUF）发布在 [Hugging Face](/zh/glossary/hugging-face) 等平台上。开发者下载权重后，通过 vLLM、llama.cpp 或 [Ollama](/zh/glossary/ollama) 等推理框架在本地 GPU 上加载运行。
 
 核心使用方式包括：
 
 - **直接推理**：加载原始权重，用于对话、代码生成、文本分析等任务
-- **微调（Fine-tuning）**：在特定领域数据上继续训练，让模型适配垂直场景——如法律文书、医疗问答
+- **微调（[Fine-tuning](/zh/glossary/fine-tuning)）**：在特定领域数据上继续训练，让模型适配垂直场景——如法律文书、医疗问答
 - **量化部署**：通过 INT4/INT8 量化压缩模型体积，使其能在消费级显卡甚至 CPU 上运行
 
 模型许可证各有不同——Llama 使用自定义商用许可，Mistral 采用 Apache 2.0，Qwen 则有自己的许可条款。部署前务必确认许可证的具体限制。

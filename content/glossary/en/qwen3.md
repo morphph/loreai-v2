@@ -1,11 +1,16 @@
 ---
-title: "Qwen3 — AI Glossary"
+title: Qwen3 — AI Glossary
 slug: qwen3
-description: "What is Qwen3? Alibaba Cloud's open-weight large language model series with dense and mixture-of-experts variants."
+description: >-
+  What is Qwen3? Alibaba Cloud's open-weight large language model series with
+  dense and mixture-of-experts variants.
 term: qwen3
-display_term: "Qwen3"
+display_term: Qwen3
 category: models
-related_glossary: [agentic, anthropic, claude]
+related_glossary:
+  - agentic
+  - anthropic
+  - claude
 related_blog: []
 related_compare: []
 lang: en
@@ -13,13 +18,13 @@ lang: en
 
 # Qwen3 — AI Glossary
 
-**Qwen3** is Alibaba Cloud's third-generation family of large language models, released as open-weight models under the Qwen series. The lineup includes both dense transformer models and **mixture-of-experts (MoE)** variants, spanning a wide range of parameter sizes to cover everything from edge deployment to frontier-class reasoning tasks. Qwen3 supports multilingual capabilities with particular strength in English and Chinese.
+**Qwen3** is Alibaba Cloud's third-generation family of [large language models](/blog/gemini-3-1-pro-complex-tasks), released as [open-weight models](/glossary/open-weight-models) under the [Qwen](/glossary/qwen) series. The lineup includes both dense transformer models and **mixture-of-experts (MoE)** variants, spanning a wide range of parameter sizes to cover everything from edge deployment to frontier-class reasoning tasks. Qwen3 supports multilingual capabilities with particular strength in English and Chinese.
 
 ## Why Qwen3 Matters
 
 Qwen3 is one of the most competitive open-weight model families available, giving developers an alternative to proprietary models from [Anthropic](/glossary/anthropic), OpenAI, and Google. Its open licensing means teams can self-host, fine-tune, and deploy without per-token API costs — a significant advantage for latency-sensitive or high-volume applications.
 
-The MoE architecture in Qwen3's larger variants keeps inference costs lower than equivalent dense models by activating only a subset of parameters per token. This makes frontier-scale performance accessible to organizations that can't justify the compute budget of fully dense models. Qwen3 has seen rapid adoption in the Chinese AI ecosystem and growing international use through platforms like Hugging Face and Ollama.
+The MoE architecture in Qwen3's larger variants keeps inference costs lower than equivalent dense models by activating only a subset of parameters per token. This makes frontier-scale performance accessible to organizations that can't justify the compute budget of fully dense models. Qwen3 has seen rapid adoption in the Chinese AI ecosystem and growing international use through platforms like [Hugging Face](/glossary/hugging-face) and [Ollama](/glossary/ollama).
 
 ## How Qwen3 Works
 

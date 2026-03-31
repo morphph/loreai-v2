@@ -1,17 +1,40 @@
 ---
-title: "OpenAI Codex: The Complete Guide to Cloud-Based AI Coding Agents"
-date: 2026-03-17
+title: 'OpenAI Codex: The Complete Guide to Cloud-Based AI Coding Agents'
+date: 2026-03-17T00:00:00.000Z
 slug: codex-complete-guide
-description: "Everything you need to know about OpenAI Codex — the cloud-based coding agent, Codex CLI, pricing, setup, and how it compares to alternatives."
-keywords: ["codex", "openai codex", "codex coding agent", "codex guide"]
+description: >-
+  Everything you need to know about OpenAI Codex — the cloud-based coding agent,
+  Codex CLI, pricing, setup, and how it compares to alternatives.
+keywords:
+  - codex
+  - openai codex
+  - codex coding agent
+  - codex guide
 category: DEV
 cornerstone: true
-related_newsletter: 2026-03-17
-related_glossary: [codex, openai, codex-cli, claude-code, cursor, github-copilot, windsurf, devin, aider]
-related_compare: [codex-vs-claude-code, codex-vs-cursor, codex-vs-github-copilot, codex-vs-windsurf, codex-vs-devin, codex-vs-aider]
+related_newsletter: 2026-03-17T00:00:00.000Z
+related_glossary:
+  - codex
+  - openai
+  - codex-cli
+  - claude-code
+  - cursor
+  - github-copilot
+  - windsurf
+  - devin
+  - aider
+related_compare:
+  - codex-vs-claude-code
+  - codex-vs-cursor
+  - codex-vs-github-copilot
+  - codex-vs-windsurf
+  - codex-vs-devin
+  - codex-vs-aider
 lang: en
 video_ready: true
-video_hook: "OpenAI's Codex isn't a copilot — it's a full software engineer that works while you sleep"
+video_hook: >-
+  OpenAI's Codex isn't a copilot — it's a full software engineer that works
+  while you sleep
 video_status: none
 ---
 
@@ -23,7 +46,7 @@ video_status: none
 
 **Codex** is a cloud-based software engineering agent accessible through the ChatGPT sidebar. Unlike inline code completion tools like [GitHub Copilot](/glossary/github-copilot) or [Cursor](/glossary/cursor), Codex doesn't sit inside your editor waiting for you to type. Instead, you assign it discrete tasks — writing features, fixing bugs, answering codebase questions, proposing pull requests — and each task runs independently in its own isolated cloud sandbox preloaded with your repository.
 
-The underlying model, **codex-1**, was trained using reinforcement learning on real-world coding tasks across diverse environments. OpenAI specifically optimized it to produce code that mirrors human style and PR conventions, follows instructions precisely, and iteratively runs tests until they pass. On SWE-Bench Verified, codex-1 demonstrates strong performance even without custom configuration files.
+The underlying model, **[codex](/faq/codex)-1**, was trained using [reinforcement learning](/glossary/reinforcement-learning) on real-world coding tasks across diverse environments. OpenAI specifically optimized it to produce code that mirrors human style and PR conventions, follows instructions precisely, and iteratively runs tests until they pass. On SWE-Bench Verified, codex-1 demonstrates strong performance even without custom configuration files.
 
 Codex also includes a terminal counterpart: [**Codex CLI**](/glossary/codex-cli), a lightweight open-source agent that runs locally in your terminal. While the cloud version handles complex, long-running tasks asynchronously, Codex CLI is optimized for fast, interactive workflows — code Q&A, quick edits, and real-time pairing. It's powered by **codex-mini-latest**, a smaller model based on o4-mini that's tuned for low-latency code editing.
 
@@ -33,7 +56,7 @@ The distinction matters: Codex (cloud) is for delegation — fire and forget. Co
 
 ### Access Requirements
 
-Codex is available to **ChatGPT Pro, Business, Enterprise, and Plus** users. Edu access is planned but not yet available. There is no standalone Codex subscription — it's bundled into existing ChatGPT tiers with generous rate-limited access.
+Codex is available to **[ChatGPT](/glossary/chatgpt) Pro, Business, Enterprise, and Plus** users. Edu access is planned but not yet available. There is no standalone Codex subscription — it's bundled into existing ChatGPT tiers with generous rate-limited access.
 
 ### Connecting Your Repository
 
@@ -154,7 +177,7 @@ The AI coding tool landscape is crowded. Here's where Codex fits relative to maj
 | **Codex** | codex-1 (o3-based) | Yes | Yes | Yes |
 | **[Claude Code](/glossary/claude-code)** | Claude | Interactive | No | Yes |
 | **[Cursor](/glossary/cursor)** | Multiple | No | No | Limited |
-| **[GitHub Copilot](/glossary/github-copilot)** | GPT-based | No | No | No |
+| **[GitHub Copilot](/glossary/github-[copilot](/glossary/copilot))** | GPT-based | No | No | No |
 | **[Windsurf](/glossary/windsurf)** | Multiple | No | No | Limited |
 | **[Devin](/glossary/devin)** | Proprietary | Yes | Yes | Yes |
 | **[Aider](/glossary/aider)** | Multiple | No | No | Yes |
@@ -165,7 +188,7 @@ For real-time coding assistance, [Claude Code](/glossary/claude-code) and [Curso
 
 Detailed comparisons:
 - [Codex vs Claude Code](/compare/codex-vs-claude-code)
-- [Codex vs Cursor](/compare/codex-vs-cursor)
+- [Codex vs Cursor](/compare/codex-vs-[cursor](/topics/cursor))
 - [Codex vs GitHub Copilot](/compare/codex-vs-github-copilot)
 - [Codex vs Windsurf](/compare/codex-vs-windsurf)
 - [Codex vs Devin](/compare/codex-vs-devin)

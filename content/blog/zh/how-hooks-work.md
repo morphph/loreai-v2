@@ -1,18 +1,22 @@
 ---
-title: "Hooks 是怎么工作的：从 React 到 Claude Code 的统一视角"
+title: Hooks 是怎么工作的：从 React 到 Claude Code 的统一视角
 slug: how-hooks-work
-description: "Hooks 是软件系统中的预定义扩展点，让开发者无需修改核心代码即可拦截和控制执行流程。"
+description: Hooks 是软件系统中的预定义扩展点，让开发者无需修改核心代码即可拦截和控制执行流程。
 lang: zh
 category: tools
-related_glossary: [what-are-claude-code-hooks, agentic-coding]
-related_blog: [claude-code-hooks-mastery]
-related_faq: [claude-code-hooks-reddit]
-date: 2026-03-23
+related_glossary:
+  - what-are-claude-code-hooks
+  - agentic-coding
+related_blog:
+  - claude-code-hooks-mastery
+related_faq:
+  - claude-code-hooks-reddit
+date: 2026-03-23T00:00:00.000Z
 ---
 
 # Hooks 是怎么工作的：从 React 到 Claude Code 的统一视角
 
-**Hooks** 这个词在不同技术栈里反复出现——React 有 hooks，PyTorch 有 hooks，Claude Code 也有 hooks。表面看是同一个词，底层逻辑却高度一致：**在系统执行流程的预定义节点插入自定义逻辑，而不需要改动核心代码本身**。
+**[Hooks](/zh/blog/claude-code-seven-programmable-layers)** 这个词在不同技术栈里反复出现——React 有 hooks，PyTorch 有 hooks，[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 也有 hooks。表面看是同一个词，底层逻辑却高度一致：**在系统执行流程的预定义节点插入自定义逻辑，而不需要改动核心代码本身**。
 
 理解这个共同机制，能让你在切换技术栈时少走很多弯路。
 
@@ -48,7 +52,7 @@ PyTorch 的 hooks 工作在完全不同的层面：`torch.autograd` 计算图。
 
 Claude Code 的 hooks 是 2026 年前后出现的新范式，解决的问题本质上是：**如何在概率性的 LLM 输出上叠加确定性的业务约束**。
 
-[什么是 Claude Code Hooks](/glossary/what-are-claude-code-hooks)？简单说，它们是 AI agent 执行流程中的中间件——在工具调用前后、文件修改前后、命令执行前后触发你的 shell 脚本或程序。
+[什么是 Claude Code Hooks](/glossary/what-are-claude-code-hooks)？简单说，它们是 [AI agent](/zh/blog/effective-harnesses-for-long-running-agents) 执行流程中的中间件——在工具调用前后、文件修改前后、命令执行前后触发你的 shell 脚本或程序。
 
 这个设计的价值在于：LLM 的输出永远是概率性的，你无法保证它 100% 遵循安全规范或格式要求。但 hooks 是确定性代码，它可以在 agent 执行任何动作之前强制检查——阻断危险命令、记录审计日志、触发通知。
 

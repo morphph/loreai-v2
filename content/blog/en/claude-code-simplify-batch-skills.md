@@ -1,17 +1,28 @@
 ---
-title: "Claude Code's New /simplify and /batch Skills: Automating PR Cleanup and Multi-Task Workflows"
-date: 2026-03-08
+title: >-
+  Claude Code's New /simplify and /batch Skills: Automating PR Cleanup and
+  Multi-Task Workflows
+date: 2026-03-08T00:00:00.000Z
 slug: claude-code-simplify-batch-skills
-description: "Claude Code introduces /simplify and /batch skills to automate pull request cleanup and parallel task execution, streamlining developer workflows."
-keywords: ["Claude Code skills", "/simplify", "/batch", "Claude Code workflows"]
+description: >-
+  Claude Code introduces /simplify and /batch skills to automate pull request
+  cleanup and parallel task execution, streamlining developer workflows.
+keywords:
+  - Claude Code skills
+  - /simplify
+  - /batch
+  - Claude Code workflows
 category: DEV
-related_newsletter: 2026-03-08
-related_glossary: [claude-code, skill-md]
+related_newsletter: 2026-03-08T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - skill-md
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: en
 video_ready: true
-video_hook: "Two new Claude Code skills that eliminate the tedious parts of shipping code"
+video_hook: Two new Claude Code skills that eliminate the tedious parts of shipping code
 video_status: none
 ---
 
@@ -21,13 +32,13 @@ video_status: none
 
 ## What Happened
 
-Boris Cherny, who works on Claude Code at Anthropic, announced that the next version of **Claude Code** will ship with two new built-in skills: `/simplify` and `/batch`. Cherny noted he's been using both daily, describing them as automating "much of the work it used to take to shepherd a pull request to production."
+Boris Cherny, who works on [Claude Code](/blog/claude-code-complete-guide) at Anthropic, announced that the next version of **Claude Code** will ship with two new built-in skills: `/simplify` and `/batch`. Cherny noted he's been using both daily, describing them as automating "much of the work it used to take to shepherd a pull request to production."
 
 `/simplify` reviews changed code and checks for opportunities to improve reuse, quality, and efficiency — then fixes any issues it finds. Think of it as an automated code review pass that doesn't just flag problems but resolves them. Instead of manually scanning your diff for redundant logic, missed abstractions, or quality gaps, you invoke `/simplify` and let Claude handle the cleanup.
 
 `/batch` enables running a prompt or slash command on a recurring interval or across multiple targets. This turns Claude Code into a task orchestrator — you can parallelize independent operations, poll for status changes, or apply the same transformation across multiple files.
 
-The announcement comes during a significant period for Claude Code. The tool recently hit a milestone where [4% of GitHub public commits are authored by Claude Code](https://x.com/SemiAnalysis_/status/2027458544493335008), and Anthropic just launched Claude Code Remote for Pro users, HTTP hooks for extensibility, and scheduled tasks in Cowork mode.
+The announcement comes during a significant period for Claude Code. The tool recently hit a milestone where [4% of GitHub public commits are authored by Claude Code](https://x.com/SemiAnalysis_/status/2027458544493335008), and Anthropic just launched [Claude Code Remote](/blog/claude-code-remote-control-mobile) for Pro users, HTTP hooks for extensibility, and [scheduled tasks](/blog/scheduled-tasks) in Cowork mode.
 
 ## Why It Matters
 

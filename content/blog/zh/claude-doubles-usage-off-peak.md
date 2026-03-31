@@ -1,16 +1,23 @@
 ---
-title: "Claude 非高峰时段用量翻倍：Anthropic 的容量策略与用户红利"
-date: 2026-03-16
+title: Claude 非高峰时段用量翻倍：Anthropic 的容量策略与用户红利
+date: 2026-03-16T00:00:00.000Z
 slug: claude-doubles-usage-off-peak
-description: "Anthropic 宣布 Claude 在非高峰时段用量限额翻倍，持续两周。这对开发者意味着什么？如何利用这波红利最大化 AI 生产力。"
-keywords: ["Claude 用量翻倍", "Claude 非高峰时段", "Anthropic Claude Pro", "Claude 使用限制"]
+description: Anthropic 宣布 Claude 在非高峰时段用量限额翻倍，持续两周。这对开发者意味着什么？如何利用这波红利最大化 AI 生产力。
+keywords:
+  - Claude 用量翻倍
+  - Claude 非高峰时段
+  - Anthropic Claude Pro
+  - Claude 使用限制
 category: APP
-related_newsletter: 2026-03-16
-related_glossary: [claude, anthropic]
-related_compare: [claude-vs-chatgpt]
+related_newsletter: 2026-03-16T00:00:00.000Z
+related_glossary:
+  - claude
+  - anthropic
+related_compare:
+  - claude-vs-chatgpt
 lang: zh
 video_ready: true
-video_hook: "Claude 悄悄给你加了一倍用量，但有个条件"
+video_hook: Claude 悄悄给你加了一倍用量，但有个条件
 video_status: none
 ---
 
@@ -28,7 +35,7 @@ Anthropic 通过 [Claude 官方 Twitter](https://x.com/claudeai/status/203291127
 
 ## 为什么重要
 
-AI 产品的用量限制一直是用户痛点。ChatGPT Plus 用户抱怨 GPT-4 的消息上限，Claude Pro 用户同样经常在工作到一半时被限速。这不只是体验问题 — 当你在用 **Claude Code** 做复杂重构、跑多轮对话调试 bug 的时候，突然撞到限额意味着工作流被强制打断。
+AI 产品的用量限制一直是用户痛点。[ChatGPT](/zh/glossary/chatgpt) Plus 用户抱怨 GPT-4 的消息上限，Claude Pro 用户同样经常在工作到一半时被限速。这不只是体验问题 — 当你在用 **[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 做复杂重构、跑多轮对话调试 bug 的时候，突然撞到限额意味着工作流被强制打断。
 
 Anthropic 选择了一个聪明的方案：不是简单地提高上限（会增加成本），而是用**时间差**来平滑负载。GPU 算力是固定的，但需求分布不均 — 美国工作时间是高峰，而亚太时区的白天恰好是美国的非高峰。对中国开发者来说，这可能意味着我们日常工作时段本身就落在"非高峰"窗口内，天然享受翻倍额度。
 

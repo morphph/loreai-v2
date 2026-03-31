@@ -1,21 +1,21 @@
 ---
-title: "如何构建生产级 Claude Code Skill：实战指南"
+title: 如何构建生产级 Claude Code Skill：实战指南
 slug: how-to-build-a-production-ready-claude-code-skill
-description: "SKILL.md 不只是提示词文件。本文拆解生产级 Claude Code Skill 的核心架构与实战要点。"
+description: SKILL.md 不只是提示词文件。本文拆解生产级 Claude Code Skill 的核心架构与实战要点。
 lang: zh
 category: tools
-date: 2026-03-24
+date: 2026-03-24T00:00:00.000Z
 ---
 
 # 如何构建生产级 Claude Code Skill：实战指南
 
-Claude Code 的 Skill 系统，本质上是一套把「工程经验」编码成 AI 可执行指令的机制。一个粗糙的 `SKILL.md` 和一个生产级的 `SKILL.md`，差距不在字数，在于结构是否能让模型稳定复现你想要的行为。
+[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 的 Skill 系统，本质上是一套把「工程经验」编码成 AI 可执行指令的机制。一个粗糙的 `SKILL.md` 和一个生产级的 `SKILL.md`，差距不在字数，在于结构是否能让模型稳定复现你想要的行为。
 
 ## 什么是 Skill，为什么值得认真对待
 
 **Skill** 是存放在 `skills/*/SKILL.md` 的指令文件。Claude Code 启动时会扫描项目结构，当你触发某个 Skill，模型会加载对应文件并按照其中的规则执行任务。
 
-这套架构的关键设计是**渐进式披露（progressive disclosure）**：Skill 文件通过 YAML frontmatter 携带元数据，模型只在需要时才完整加载指令内容，从而节省 context 窗口。这意味着你的 Skill 不是越详细越好，而是越精准越好。
+这套架构的关键设计是**渐进式披露（[progressive disclosure](/zh/blog/lessons-from-building-claude-code-agent-tools)）**：Skill 文件通过 YAML frontmatter 携带元数据，模型只在需要时才完整加载指令内容，从而节省 context 窗口。这意味着你的 Skill 不是越详细越好，而是越精准越好。
 
 根据 [我们对 Skill 系统的深度分析](/blog/how-skills-work)，一个生产级 Skill 需要解决三个层面的问题：触发条件明确、指令无歧义、输出可验证。
 
@@ -75,7 +75,7 @@ Skill 写完不等于完成。需要用真实输入跑几轮，对比输出是�
 
 ## 与 MCP 的配合
 
-Claude Code 通过 **MCP（Model Context Protocol）** 连接外部工具和数据源。如果你的 Skill 需要查询数据库、调用 API 或读取外部文件，需要在 Skill 文件中明确声明依赖的 MCP 工具，并在指令中描述何时、如何调用。
+Claude Code 通过 **[MCP](/zh/blog/claude-code-seven-programmable-layers)（[Model Context Protocol](/zh/glossary/model-context-protocol)）** 连接外部工具和数据源。如果你的 Skill 需要查询数据库、调用 API 或读取外部文件，需要在 Skill 文件中明确声明依赖的 MCP 工具，并在指令中描述何时、如何调用。
 
 MCP 让 [agentic coding](/glossary/agentic-coding) 真正落地：模型不再只是生成文本，而是可以读数据、写文件、触发流程。这也意味着 Skill 的错误代价更高——一个写错的约束，可能导致模型删掉错误的数据库记录。
 
@@ -86,7 +86,7 @@ MCP 让 [agentic coding](/glossary/agentic-coding) 真正落地：模型不再�
 1. 写最小可用版本（能跑通核心用例）
 2. 在真实数据上跑 5-10 次，记录所有偏差
 3. 每次迭代只修一个问题，避免改动相互干扰
-4. 把已知边界情况写进 `CLAUDE.md` 的 known issues 区域
+4. 把已知边界情况写进 `[CLAUDE.md](/zh/blog/claude-code-memory)` 的 known issues 区域
 
 Skill 文件本身也应该纳入版本控制。每次修改附上 commit message，说明改了什么规则、为什么改。三个月后你会感谢现在的自己。
 

@@ -1,11 +1,16 @@
 ---
-title: "Hugging Face — AI Glossary"
+title: Hugging Face — AI Glossary
 slug: huggingface
-description: "What is Hugging Face? The open-source platform for sharing and deploying ML models, datasets, and apps."
+description: >-
+  What is Hugging Face? The open-source platform for sharing and deploying ML
+  models, datasets, and apps.
 term: huggingface
-display_term: "Hugging Face"
+display_term: Hugging Face
 category: frameworks
-related_glossary: [openai, anthropic, nvidia]
+related_glossary:
+  - openai
+  - anthropic
+  - nvidia
 related_blog: []
 related_compare: []
 lang: en
@@ -13,7 +18,7 @@ lang: en
 
 # Hugging Face — AI Glossary
 
-**Hugging Face** is an open-source platform and company that hosts machine learning models, datasets, and interactive demo applications. Originally known for its NLP library Transformers, it has become the default hub where researchers and engineers publish, discover, and deploy AI models — functioning as a "GitHub for machine learning." The platform hosts over a million models and hundreds of thousands of datasets across modalities including text, image, audio, and video.
+**[Hugging Face](/glossary/hugging-face)** is an open-source platform and company that hosts machine learning models, datasets, and interactive demo applications. Originally known for its NLP library [Transformers](/glossary/transformers), it has become the default hub where researchers and engineers publish, discover, and deploy AI models — functioning as a "GitHub for machine learning." The platform hosts over a million models and hundreds of thousands of datasets across modalities including text, image, audio, and video.
 
 ## Why Hugging Face Matters
 
@@ -29,13 +34,13 @@ The ecosystem centers on three components:
 - **Hub**: A Git-based hosting platform for models, datasets, and Spaces — each artifact is a versioned repository with metadata, licensing info, and usage stats
 - **Inference API & Endpoints**: Managed infrastructure for serving models via REST APIs, from free serverless endpoints to dedicated GPU instances for production workloads
 
-Hugging Face also maintains libraries like Diffusers (image generation), Datasets (data loading), and Accelerate (distributed training), forming a full ML development toolkit.
+Hugging Face also maintains libraries like [Diffusers](/glossary/diffusers) (image generation), Datasets (data loading), and Accelerate (distributed training), forming a full ML development toolkit.
 
 ## Related Terms
 
-- **[OpenAI](/glossary/openai)**: Major AI lab whose open-weight models are frequently hosted on the Hugging Face Hub
+- **[OpenAI](/glossary/openai)**: Major AI lab whose [open-weight models](/glossary/open-weight-models) are frequently hosted on the Hugging Face Hub
 - **[NVIDIA](/glossary/nvidia)**: Hardware partner whose GPUs power Hugging Face's inference infrastructure and training workflows
-- **[Anthropic](/glossary/anthropic)**: AI safety company whose research intersects with the open-source model ecosystem Hugging Face enables
+- **[Anthropic](/glossary/anthropic)**: [AI safety](/glossary/ai-safety) company whose research intersects with the open-source model ecosystem Hugging Face enables
 
 ---
 

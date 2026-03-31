@@ -53,8 +53,15 @@ Every SEO page MUST include contextually relevant internal links:
 - Links to **related newsletters**: `[newsletter](/newsletter/YYYY-MM-DD)`
 - Links to **related FAQ entries**: `[question](/faq/slug)`
 - Links to **related comparisons**: `[comparison](/compare/slug)`
+- Links to **topic hubs**: `[topic](/topics/slug)` when content is clearly about a major topic
 
-Only include links that are contextually relevant. Do not force links.
+**Link density rules**:
+- 3-8 internal links per page (in body text, not counting frontmatter `related_*` fields)
+- Same target URL only linked once (first occurrence)
+- Use the target page's keyword as anchor text (e.g., link to hooks guide with "Claude Code hooks")
+- Do not force links — only link where the keyword naturally appears in text
+
+**`related_topics` field**: If the content is about a specific topic hub (e.g., claude-code, codex), include `related_topics: [slug]` in frontmatter. This enables auto-aggregation on topic hub pages.
 
 ## CTA (All Page Types)
 
@@ -115,6 +122,7 @@ category: {tools|models|concepts|techniques|frameworks}
 related_glossary: [{slug1}, {slug2}, {slug3}]
 related_blog: [{blog-slug-1}]
 related_compare: [{compare-slug-1}]
+related_topics: [{topic-slug}]  # if applicable (e.g., claude-code, codex)
 lang: {en|zh}
 ---
 ```
@@ -172,6 +180,7 @@ description: "{Direct 1-sentence answer in under 160 chars}."
 category: {tools|models|concepts|techniques|frameworks}
 related_glossary: [{glossary-slug}]
 related_blog: [{blog-slug}]
+related_topics: [{topic-slug}]  # if applicable
 lang: {en|zh}
 ---
 ```
@@ -232,6 +241,7 @@ item_b: {Item B}
 category: {tools|models|concepts|techniques|frameworks}
 related_glossary: [{item-a-slug}, {item-b-slug}]
 related_blog: [{blog-slug}]
+related_topics: [{topic-slug}]  # if applicable
 lang: {en|zh}
 ---
 ```

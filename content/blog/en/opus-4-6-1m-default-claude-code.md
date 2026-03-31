@@ -1,26 +1,37 @@
 ---
-title: "Claude Opus 4.6 1M Context Now Default for Claude Code on Max, Team, and Enterprise"
-date: 2026-03-18
+title: >-
+  Claude Opus 4.6 1M Context Now Default for Claude Code on Max, Team, and
+  Enterprise
+date: 2026-03-18T00:00:00.000Z
 slug: opus-4-6-1m-default-claude-code
-description: "Claude Opus 4.6 with 1M context window is now the default model for Claude Code users on Max, Team, and Enterprise plans — here's what changes."
-keywords: ["Claude Opus 4.6", "Claude Code 1M context", "Anthropic Claude Code", "Claude Code enterprise"]
+description: >-
+  Claude Opus 4.6 with 1M context window is now the default model for Claude
+  Code users on Max, Team, and Enterprise plans — here's what changes.
+keywords:
+  - Claude Opus 4.6
+  - Claude Code 1M context
+  - Anthropic Claude Code
+  - Claude Code enterprise
 category: DEV
-related_newsletter: 2026-03-18
-related_glossary: [claude-code, context-window]
-related_compare: [claude-code-vs-cursor]
+related_newsletter: 2026-03-18T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - context-window
+related_compare:
+  - claude-code-vs-cursor
 lang: en
 video_ready: true
-video_hook: "Claude Code just silently upgraded every paying user to a 1M context model"
+video_hook: Claude Code just silently upgraded every paying user to a 1M context model
 video_status: none
 ---
 
 # Claude Opus 4.6 1M Context Now Default for Claude Code on Max, Team, and Enterprise
 
-**Claude Opus 4.6** with its full **1 million token context window** is now the default Opus model for all [Claude Code](/glossary/claude-code) users on Max, Team, and Enterprise plans. No toggle, no opt-in — it's just there. For developers working on large codebases, this eliminates the single biggest friction point in AI-assisted development: running out of context mid-task. The upgrade rolled out to 100% of eligible users, making Opus 4.6 1M the baseline rather than the exception.
+**[Claude Opus 4.6](/blog/claude-1-million-context-window-ga)** with its full **1 million token context window** is now the default Opus model for all [Claude Code](/glossary/claude-code) users on Max, Team, and Enterprise plans. No toggle, no opt-in — it's just there. For developers working on large codebases, this eliminates the single biggest friction point in AI-assisted development: running out of context mid-task. The upgrade rolled out to 100% of eligible users, making Opus 4.6 1M the baseline rather than the exception.
 
 ## What Happened
 
-Anthropic quietly flipped the switch to make **Opus 4.6 1M** the default model selection for Claude Code across its paid tiers. Previously, users on Max, Team, and Enterprise plans had access to Opus 4.6 but with a shorter default [context window](/glossary/context-window). The 1M variant was available but required explicit selection.
+Anthropic quietly flipped the switch to make **Opus 4.6 1M** the default model selection for [Claude Code](/blog/claude-code-complete-guide) across its paid tiers. Previously, users on Max, Team, and Enterprise plans had access to Opus 4.6 but with a shorter default [context window](/glossary/context-window). The 1M variant was available but required explicit selection.
 
 The change was [confirmed by Boris Cherny](https://x.com/bcherny/status/2032514807388123255), who noted the rollout is now at 100% of users. This isn't a new model — Opus 4.6 has been available since its launch — but making the 1M context version the *default* signals Anthropic's confidence in both the model's stability at that context length and the infrastructure's ability to handle the load at scale.
 
@@ -40,7 +51,7 @@ The practical impact shows up in three places:
 
 **Enterprise adoption gets easier.** Teams evaluating AI coding tools care about consistency across long sessions. A model that degrades as context fills up is a hard sell for production workflows. Making 1M the default, not an upsell, removes a common objection.
 
-The competitive angle matters too. [Cursor](/glossary/cursor) and GitHub Copilot operate with significantly shorter context windows. Google's Gemini offers 1M+ context but lacks a dedicated CLI coding tool with Claude Code's depth of integration. By defaulting to 1M, Anthropic sets a new baseline that competitors must match.
+The competitive angle matters too. [Cursor](/glossary/cursor) and [GitHub Copilot](/glossary/github-[copilot](/glossary/copilot)) operate with significantly shorter context windows. Google's Gemini offers 1M+ context but lacks a dedicated CLI coding tool with Claude Code's depth of integration. By defaulting to 1M, Anthropic sets a new baseline that competitors must match.
 
 ## Technical Deep-Dive
 
@@ -48,7 +59,7 @@ The jump to 1M default raises legitimate questions about performance and cost tr
 
 **Latency**: Longer context windows mean more tokens to process on every turn. Opus 4.6 uses efficient attention mechanisms, but users should expect marginally higher latency on turns where the full context is active. In practice, Claude Code's context management — which compresses older messages and selectively loads file content — means most requests don't actually hit the 1M ceiling.
 
-**Quality at depth**: Not all context is created equal. Research consistently shows that LLMs attend more strongly to the beginning and end of their context window, with a "lost in the middle" effect for information buried deep in the sequence. Anthropic has invested heavily in mitigating this for Claude models, but developers should still front-load critical constraints (in `CLAUDE.md` or early in the conversation) rather than relying on the model to perfectly recall a detail from 800K tokens ago.
+**Quality at depth**: Not all context is created equal. Research consistently shows that LLMs attend more strongly to the beginning and end of their context window, with a "lost in the middle" effect for information buried deep in the sequence. Anthropic has invested heavily in mitigating this for Claude models, but developers should still front-load critical constraints (in `[CLAUDE.md](/blog/claude-code-memory)` or early in the conversation) rather than relying on the model to perfectly recall a detail from 800K tokens ago.
 
 **Cost implications**: For Max plan users ($100/month or $200/month tiers), the 1M context is included — no per-token billing. Team and Enterprise plans have their own rate structures, but the model itself is now the same across all paid tiers. This is a significant value increase for Max subscribers who were previously choosing between Opus quality and context length.
 

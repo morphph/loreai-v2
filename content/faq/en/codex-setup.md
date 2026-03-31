@@ -1,23 +1,28 @@
 ---
-title: "How to Set Up Codex?"
+title: How to Set Up Codex?
 slug: codex-setup
-description: "Set up OpenAI Codex by connecting your GitHub repo in ChatGPT and configuring AGENTS.md. Step-by-step guide."
+description: >-
+  Set up OpenAI Codex by connecting your GitHub repo in ChatGPT and configuring
+  AGENTS.md. Step-by-step guide.
 category: tools
-related_glossary: [codex]
-related_blog: [codex-complete-guide]
+related_glossary:
+  - codex
+related_blog:
+  - codex-complete-guide
 lang: en
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # How to Set Up Codex?
 
-**[Codex](/glossary/codex)** requires a ChatGPT Pro, Plus, Business, or Enterprise subscription and a connected GitHub repository. Setup takes minutes: link your repo in ChatGPT's sidebar, optionally configure an `AGENTS.md` file with project-specific instructions, and start assigning tasks.
+**[Codex](/glossary/codex)** requires a [ChatGPT](/glossary/chatgpt) Pro, Plus, Business, or Enterprise subscription and a connected GitHub repository. Setup takes minutes: link your repo in ChatGPT's sidebar, optionally configure an `AGENTS.md` file with project-specific instructions, and start assigning tasks.
 
 ## Context
 
-Codex runs each task in an isolated cloud sandbox preloaded with your codebase, so there's no local installation required for the cloud version. The setup process centers on giving Codex access to your repository and ensuring the sandbox environment mirrors your real development setup. By default, internet access is disabled during task execution to maintain security, though OpenAI added an option to enable it as of June 2025.
+[Codex](/faq/codex) runs each task in an isolated cloud sandbox preloaded with your codebase, so there's no local installation required for the cloud version. The setup process centers on giving Codex access to your repository and ensuring the sandbox environment mirrors your real development setup. By default, internet access is disabled during task execution to maintain security, though OpenAI added an option to enable it as of June 2025.
 
-There's also **Codex CLI**, a separate open-source tool that runs in your terminal for local workflows. It has its own setup path — you sign in with your ChatGPT account and it auto-configures your API key. See our [complete Codex guide](/blog/codex-complete-guide) for deeper coverage of both versions.
+There's also **[Codex CLI](/glossary/codex-cli)**, a separate open-source tool that runs in your terminal for local workflows. It has its own setup path — you sign in with your ChatGPT account and it auto-configures your API key. See our [complete Codex guide](/blog/codex-complete-guide) for deeper coverage of both versions.
 
 ## Practical Steps
 

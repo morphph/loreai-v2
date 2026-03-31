@@ -1,17 +1,30 @@
 ---
-title: "Effective Harnesses for Long-Running Agents: How to Keep AI Coding Across Sessions"
-date: 2026-03-10
+title: >-
+  Effective Harnesses for Long-Running Agents: How to Keep AI Coding Across
+  Sessions
+date: 2026-03-10T00:00:00.000Z
 slug: effective-harnesses-for-long-running-agents
-description: "How Anthropic solved the long-running agent problem with initializer agents, progress files, and incremental coding sessions that span hours or days."
-keywords: ["long-running agents", "Claude Agent SDK", "agent harness", "multi-session agents", "AI coding agents"]
+description: >-
+  How Anthropic solved the long-running agent problem with initializer agents,
+  progress files, and incremental coding sessions that span hours or days.
+keywords:
+  - long-running agents
+  - Claude Agent SDK
+  - agent harness
+  - multi-session agents
+  - AI coding agents
 category: DEV
-related_newsletter: 2026-03-10
-related_glossary: [claude-code, claude-agent-sdk, context-window]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - claude-agent-sdk
+  - context-window
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: en
 video_ready: true
-video_hook: "Your AI agent forgets everything between sessions — here's how to fix that"
+video_hook: Your AI agent forgets everything between sessions — here's how to fix that
 video_status: published
 source_type: video
 ---
@@ -32,7 +45,7 @@ Anthropic's solution splits the problem into two specialized agent roles:
 
 2. **Coding agent**: Runs on every subsequent session. Reads the progress file and git history to understand current state, makes incremental progress on one feature at a time, updates the progress log, and leaves the codebase in a clean, merge-ready state.
 
-The accompanying quickstart code is available alongside the Claude Agent SDK documentation.
+The accompanying quickstart code is available alongside the Claude [Agent SDK](/glossary/agent-sdk) documentation.
 
 ## Why It Matters
 
@@ -71,7 +84,7 @@ The initializer generates a structured feature list in JSON format:
 }
 ```
 
-Coding agents can only flip `passes` from `false` to `true` — they cannot remove or edit feature definitions. This constraint prevents a common failure mode where agents "pass" tests by weakening the criteria rather than implementing the feature. Strong prompt language enforces this boundary.
+[Coding agents](/blog/9-principles-writing-claude-code-skills) can only flip `passes` from `false` to `true` — they cannot remove or edit feature definitions. This constraint prevents a common failure mode where agents "pass" tests by weakening the criteria rather than implementing the feature. Strong prompt language enforces this boundary.
 
 ### Clean-state discipline
 

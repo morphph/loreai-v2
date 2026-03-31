@@ -1,14 +1,16 @@
 ---
-title: "OpenAI Codex VS Code Extension: What It Is and How It Works"
+title: 'OpenAI Codex VS Code Extension: What It Is and How It Works'
 slug: codex-vscode
-description: "OpenAI's Codex coding agent is now available as a VS Code extension. Here's what it does, who can use it, and how it fits into your workflow."
+description: >-
+  OpenAI's Codex coding agent is now available as a VS Code extension. Here's
+  what it does, who can use it, and how it fits into your workflow.
 lang: en
 category: tools
 ---
 
 # OpenAI Codex VS Code Extension: What It Is and How It Works
 
-OpenAI's **Codex** coding agent arrived in VS Code as a first-party extension, giving developers direct IDE access to the same agent available via ChatGPT. Available on the Visual Studio Marketplace with over 6 million installs, Codex lets you chat, edit code, and delegate larger tasks to the cloud — all without leaving your editor. It's included in ChatGPT Plus, Pro, Business, Edu, and Enterprise plans.
+OpenAI's **[Codex](/blog/codex-complete-guide)** coding agent arrived in VS Code as a first-party extension, giving developers direct IDE access to the same agent available via [ChatGPT](/topics/chatgpt). Available on the Visual Studio Marketplace with over 6 million installs, Codex lets you chat, edit code, and delegate larger tasks to the cloud — all without leaving your editor. It's included in ChatGPT Plus, Pro, Business, Edu, and Enterprise plans.
 
 ## What the Codex VS Code Extension Actually Does
 
@@ -25,8 +27,8 @@ There's also a macOS-specific feature: the extension connects to the ChatGPT mac
 The extension installs from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=openai.chatgpt) and works across several IDE environments:
 
 - Visual Studio Code (macOS and Linux; Windows support is experimental)
-- Cursor
-- Windsurf
+- [Cursor](/glossary/cursor)
+- [Windsurf](/glossary/windsurf)
 - VS Code Insiders
 - JetBrains IDEs (Rider, IntelliJ, PyCharm, WebStorm)
 
@@ -54,7 +56,7 @@ For students and learners, our [Codex for students guide](/blog/codex-for-studen
 
 OpenAI has shipped Codex as the unifying interface across its coding surfaces — the same agent available in ChatGPT, the API, and now directly in your editor. The cloud delegation feature points toward a workflow where developers handle focused edits locally and hand off longer-running tasks to a cloud agent running in parallel.
 
-The trajectory is clear: coding agents embedded directly in the development environment, with context shared across local and cloud execution. Whether Codex becomes the default for OpenAI's developer tooling depends on how well it handles the codebase discipline problem — giving developers control over the rules the agent follows, not just the tasks it executes.
+The trajectory is clear: [coding agents](/blog/9-principles-writing-claude-code-skills) embedded directly in the development environment, with context shared across local and cloud execution. Whether Codex becomes the default for OpenAI's developer tooling depends on how well it handles the codebase discipline problem — giving developers control over the rules the agent follows, not just the tasks it executes.
 
 ---
 

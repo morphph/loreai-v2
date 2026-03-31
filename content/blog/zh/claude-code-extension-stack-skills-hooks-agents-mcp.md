@@ -1,31 +1,41 @@
 ---
-title: "Claude Code 扩展栈拆解：Skills、Hooks、Agents、MCP 四层架构实战"
-date: 2026-03-13
+title: Claude Code 扩展栈拆解：Skills、Hooks、Agents、MCP 四层架构实战
+date: 2026-03-13T00:00:00.000Z
 slug: claude-code-extension-stack-skills-hooks-agents-mcp
-description: "Claude Code 内置四层扩展机制 — Skills 复用工作流、Hooks 拦截危险操作、Agents 并行执行、MCP 连接外部系统。实战拆解每层的用法、踩坑和决策规则。"
-keywords: ["Claude Code 扩展", "MCP 模型上下文协议", "Claude Code hooks", "Claude Code skills", "AI 编程助手平台"]
+description: >-
+  Claude Code 内置四层扩展机制 — Skills 复用工作流、Hooks 拦截危险操作、Agents 并行执行、MCP
+  连接外部系统。实战拆解每层的用法、踩坑和决策规则。
+keywords:
+  - Claude Code 扩展
+  - MCP 模型上下文协议
+  - Claude Code hooks
+  - Claude Code skills
+  - AI 编程助手平台
 category: DEV
-related_newsletter: 2026-03-13
-related_glossary: [claude-code, mcp-server]
+related_newsletter: 2026-03-13T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - mcp-server
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: zh
 video_ready: true
-video_hook: "Claude Code 有四层扩展机制 — 大多数开发者只用了一层"
+video_hook: Claude Code 有四层扩展机制 — 大多数开发者只用了一层
 video_status: none
 ---
 
 # Claude Code 扩展栈拆解：Skills、Hooks、Agents、MCP 四层架构实战
 
-**一句话总结：** Anthropic 在 **Claude Code** 里埋了四个扩展原语 — Skills、Hooks、Agents、MCP — 不是插件系统，是把 AI 编程助手变成**可编程开发平台**的完整架构层。搞懂这四层怎么组合，才是用好 Claude Code 的关键。
+**一句话总结：** Anthropic 在 **[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 里埋了四个扩展原语 — Skills、[Hooks](/zh/blog/claude-code-seven-programmable-layers)、Agents、[MCP](/zh/glossary/mcp) — 不是插件系统，是把 AI 编程助手变成**可编程开发平台**的完整架构层。搞懂这四层怎么组合，才是用好 Claude Code 的关键。
 
 ## 背景
 
-刚上手 Claude Code 的时候，我也当它是个更强的终端 ChatBot：问问题、改代码、跑命令。用了两三周开始撞墙 — **CLAUDE.md** 越写越长，上下文污染越来越严重；想让它"每次改完文件自动跑 lint"，只能在对话里反复提醒；团队里三个人各有一套 Prompt 习惯，没法统一。
+刚上手 Claude Code 的时候，我也当它是个更强的终端 ChatBot：问问题、改代码、跑命令。用了两三周开始撞墙 — **[CLAUDE.md](/zh/blog/claude-code-memory)** 越写越长，上下文污染越来越严重；想让它"每次改完文件自动跑 lint"，只能在对话里反复提醒；团队里三个人各有一套 Prompt 习惯，没法统一。
 
 这些问题的共同根因不是模型不够聪明，而是**没有把工作流固化到代码里**。
 
-AI 编程工具的演化路径很眼熟：自动补全 → 对话 → 工具集成。Cursor、Copilot、Windsurf 都在走同一条路。但集成层通常是后加的 — 一个 API 调用接口、一个插件市场、一堆 JSON 配置。Claude Code 2025 年 2 月发布时，Anthropic 做了一个不太一样的选择：**扩展机制和核心 Agent 同时设计**，不是事后补丁。
+AI 编程工具的演化路径很眼熟：自动补全 → 对话 → 工具集成。Cursor、Copilot、[Windsurf](/zh/glossary/windsurf) 都在走同一条路。但集成层通常是后加的 — 一个 API 调用接口、一个插件市场、一堆 JSON 配置。Claude Code 2025 年 2 月发布时，Anthropic 做了一个不太一样的选择：**扩展机制和核心 Agent 同时设计**，不是事后补丁。
 
 结果就是现在的四层栈：Skills、Hooks、Agents、[MCP](/glossary/mcp-server)。每层解决一类问题，组合起来能覆盖从个人习惯到团队规范再到外部系统集成的全部需求。
 

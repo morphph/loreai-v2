@@ -1,12 +1,15 @@
 ---
-title: "强化学习（Reinforcement Learning）— AI 术语表"
+title: 强化学习（Reinforcement Learning）— AI 术语表
 slug: reinforcement-learning
-description: "什么是强化学习？一种通过试错和奖励信号让智能体学会最优决策的机器学习方法。"
+description: 什么是强化学习？一种通过试错和奖励信号让智能体学会最优决策的机器学习方法。
 term: reinforcement-learning
-display_term: "强化学习（Reinforcement Learning）"
+display_term: 强化学习（Reinforcement Learning）
 category: concepts
-related_glossary: [agentic-coding, chatgpt]
-related_blog: [claude-code-enterprise-engineering-ramp-shopify-spotify]
+related_glossary:
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - claude-code-enterprise-engineering-ramp-shopify-spotify
 related_compare: []
 lang: zh
 ---
@@ -17,7 +20,7 @@ lang: zh
 
 ## 为什么强化学习重要
 
-RL 是当今大模型对齐的关键技术之一。OpenAI 用 RLHF（基于人类反馈的强化学习）训练 [ChatGPT](/glossary/chatgpt)，使模型输出更符合人类偏好；Anthropic 的 Claude 同样依赖 RL 技术实现安全对齐。除了 LLM，RL 在机器人控制、游戏 AI、自动驾驶和推荐系统等领域都有成熟应用。DeepMind 的 AlphaGo 和 AlphaFold 是 RL 的标志性成果。
+RL 是当今大模型对齐的关键技术之一。OpenAI 用 [RLHF](/zh/glossary/rlhf)（基于人类反馈的强化学习）训练 [ChatGPT](/glossary/chatgpt)，使模型输出更符合人类偏好；Anthropic 的 Claude 同样依赖 RL 技术实现安全对齐。除了 LLM，RL 在机器人控制、游戏 AI、自动驾驶和推荐系统等领域都有成熟应用。[DeepMind](/zh/glossary/deepmind) 的 AlphaGo 和 AlphaFold 是 RL 的标志性成果。
 
 在 [AI 编程工具](/glossary/agentic-coding)领域，RL 思想也在渗透——智能体通过执行代码、观察测试结果来迭代改进方案，本质上就是一个试错-反馈循环。我们在[企业级 AI 编程实践](/blog/claude-code-enterprise-engineering-ramp-shopify-spotify)中也观察到了类似模式。
 

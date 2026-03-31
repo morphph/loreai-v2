@@ -1,10 +1,12 @@
 ---
-title: "Add an Explicit Threat-Model Sync Step Per Repo"
+title: Add an Explicit Threat-Model Sync Step Per Repo
 slug: add-explicit-threat-model-sync-step-per-repo
-description: "Why every repo needs an explicit threat-model sync step in CI/CD — and how continuous threat modeling replaces static security docs."
+description: >-
+  Why every repo needs an explicit threat-model sync step in CI/CD — and how
+  continuous threat modeling replaces static security docs.
 lang: en
 category: techniques
-date: 2026-03-24
+date: 2026-03-24T00:00:00.000Z
 ---
 
 # Add an Explicit Threat-Model Sync Step Per Repo
@@ -31,7 +33,7 @@ Platforms like GitHub, SecureFlag, and IriusRisk have built tooling around this 
 
 ## The AI and Multi-Agent Angle
 
-AI-driven tooling is accelerating adoption of per-repo threat modeling, but it introduces its own risks worth being direct about. Multi-agent security workflows can analyze code changes at a speed no human team can match, but their non-deterministic behavior requires careful oversight.
+AI-driven tooling is accelerating adoption of per-repo threat modeling, but it introduces its own risks worth being direct about. Multi-[agent security](/blog/openai-computer-access-agents-lessons) workflows can analyze code changes at a speed no human team can match, but their non-deterministic behavior requires careful oversight.
 
 This matters for [agentic coding](/glossary/agentic-coding) workflows specifically. When an AI agent is autonomously opening PRs, modifying dependencies, or scaffolding new services, the threat surface can change faster than any manual review process. An automated threat-model sync step becomes the safety check that keeps security analysis synchronized with AI-driven development velocity.
 
@@ -64,11 +66,11 @@ Adoption of explicit per-repo sync commands is still early. Organizations are we
 
 That said, a few team profiles should prioritize this immediately:
 
-- **Teams using AI coding agents** for autonomous code generation or dependency management — the attack surface changes faster than humans can track manually
+- **Teams using [AI coding agents](/blog/effective-harnesses-for-long-running-agents)** for autonomous code generation or dependency management — the attack surface changes faster than humans can track manually
 - **Microservices architectures** where service proliferation means no single engineer has full visibility into the system's threat surface
 - **Regulated industries** where audit requirements demand documented, current threat analysis — automated sync provides the audit trail
 
-Teams building on agentic workflows should pay particular attention. The same [AI safety](/glossary/ai-safety) principles that apply to autonomous systems generally apply here: automated agents need explicit checkpoints where human judgment is required before consequential actions proceed.
+Teams building on [agentic](/glossary/agentic) workflows should pay particular attention. The same [AI safety](/glossary/ai-safety) principles that apply to autonomous systems generally apply here: automated agents need explicit checkpoints where human judgment is required before consequential actions proceed.
 
 ## What's Next
 

@@ -1,27 +1,34 @@
 ---
-title: "MCP、CLI、Skills：Claude Code 扩展的三条路，80% 的人选错了"
-date: 2026-03-12
+title: MCP、CLI、Skills：Claude Code 扩展的三条路，80% 的人选错了
+date: 2026-03-12T00:00:00.000Z
 slug: mcp-vs-cli-vs-skills-extend-claude-code
-description: "MCP 服务器、CLI 脚本、Skills 是 Claude Code 的三种扩展机制。搞清楚什么时候该用哪个，能帮你省掉 80% 的过度工程。"
-keywords: ["Claude Code 扩展", "MCP 模型上下文协议", "Claude Code Skills 技能", "AI 编程工具扩展性"]
+description: MCP 服务器、CLI 脚本、Skills 是 Claude Code 的三种扩展机制。搞清楚什么时候该用哪个，能帮你省掉 80% 的过度工程。
+keywords:
+  - Claude Code 扩展
+  - MCP 模型上下文协议
+  - Claude Code Skills 技能
+  - AI 编程工具扩展性
 category: DEV
-related_newsletter: 2026-03-12
-related_glossary: [mcp, claude-code]
+related_newsletter: 2026-03-12T00:00:00.000Z
+related_glossary:
+  - mcp
+  - claude-code
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: zh
 video_ready: true
-video_hook: "为什么你不需要写 MCP 服务器？因为一个 Markdown 文件就够了"
+video_hook: 为什么你不需要写 MCP 服务器？因为一个 Markdown 文件就够了
 video_status: none
 ---
 
 # MCP、CLI、Skills：Claude Code 扩展的三条路，80% 的人选错了
 
-**MCP**（Model Context Protocol，模型上下文协议）是 2025 年 AI 工具圈最火的关键词。但实际情况是：大多数开发者写了 200 行 MCP 服务器去做一件事——而这件事用一个 10 行的 Markdown 文件就能搞定。这很像当年微服务刚火的时候，有人给一个待办事项 App 拆了 12 个服务。**Claude Code** 有三种扩展机制，它们不是竞争关系，而是层级关系。搞清楚这个层级，是避免过度工程的关键。
+**[MCP](/zh/blog/claude-code-seven-programmable-layers)**（[Model Context Protocol](/zh/glossary/model-context-protocol)，模型上下文协议）是 2025 年 AI 工具圈最火的关键词。但实际情况是：大多数开发者写了 200 行 MCP 服务器去做一件事——而这件事用一个 10 行的 Markdown 文件就能搞定。这很像当年微服务刚火的时候，有人给一个待办事项 App 拆了 12 个服务。**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 有三种扩展机制，它们不是竞争关系，而是层级关系。搞清楚这个层级，是避免过度工程的关键。
 
 ## 发生了什么
 
-Anthropic 在 2024 年 11 月[开源了 MCP 协议](https://www.anthropic.com/news/model-context-protocol)，到 2026 年初已经被 OpenAI、Google DeepMind 采纳，集成到 VS Code、JetBrains、Cursor 等 20 多个开发工具中。MCP 确实解决了一个真实问题：让 AI 工具通过统一协议访问外部数据和服务。
+Anthropic 在 2024 年 11 月[开源了 MCP 协议](https://www.anthropic.com/news/model-context-protocol)，到 2026 年初已经被 OpenAI、[Google DeepMind](/zh/blog/gemini-3-1-pro-complex-tasks) 采纳，集成到 VS Code、JetBrains、[Cursor](/zh/glossary/cursor) 等 20 多个开发工具中。MCP 确实解决了一个真实问题：让 AI 工具通过统一协议访问外部数据和服务。
 
 但与此同时，**Claude Code** 自身的扩展体系其实有三层：
 

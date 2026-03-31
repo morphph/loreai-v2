@@ -1,15 +1,17 @@
 ---
-title: "OpenAI Codex for Students: $100 in Free Credits, Real Caveats"
+title: 'OpenAI Codex for Students: $100 in Free Credits, Real Caveats'
 slug: codex-for-students
-description: "OpenAI launched Codex for Students on March 20, 2026, giving US/Canada university students $100 in free credits for GPT-5.3-Codex."
+description: >-
+  OpenAI launched Codex for Students on March 20, 2026, giving US/Canada
+  university students $100 in free credits for GPT-5.3-Codex.
 lang: en
 category: tools
-date: 2026-03-23
+date: 2026-03-23T00:00:00.000Z
 ---
 
 # OpenAI Codex for Students: $100 in Free Credits, Real Caveats
 
-On March 20, 2026, OpenAI launched **Codex for Students** — a program giving verified university students in the United States and Canada $100 in free Codex credits. The announcement coincides with the deployment of GPT-5.3-Codex, a new model scoring 77.3% on Terminal-Bench 2.0. The play is clear: get the next generation of developers hooked on agentic coding before they graduate.
+On March 20, 2026, OpenAI launched **[Codex](/blog/codex-complete-guide) for Students** — a program giving verified university students in the United States and Canada $100 in free Codex credits. The announcement coincides with the deployment of GPT-5.3-Codex, a new model scoring 77.3% on Terminal-Bench 2.0. The play is clear: get the next generation of developers hooked on [agentic coding](/blog/claude-code-seven-programmable-layers) before they graduate.
 
 ## What the Program Actually Offers
 
@@ -33,12 +35,12 @@ For students coming from web development backgrounds, this architecture is instr
 
 ## Where Codex Sits in the 2026 Landscape
 
-The AI coding market in early 2026 is bifurcated, according to the research synthesis. On one side: OpenAI's Codex, characterized as autonomous and agentic. On the other: Anthropic's [Claude Code](/blog/claude-code-hooks-a-complete-guide-to-automating-your-ai-coding-workflow), powered by Claude Opus 4.6 and Sonnet 4.6, characterized as interactive and terminal-first.
+The AI coding market in early 2026 is bifurcated, according to the research synthesis. On one side: OpenAI's Codex, characterized as autonomous and [agentic](/glossary/agentic). On the other: Anthropic's [Claude Code](/blog/claude-code-hooks-a-complete-guide-to-automating-your-ai-coding-workflow), powered by [Claude Opus 4.6](/blog/claude-1-million-context-window-ga) and Sonnet 4.6, characterized as interactive and terminal-first.
 
 This framing matters for students choosing where to invest time:
 
 - **Codex's approach**: Delegate the task, get results — higher autonomy, less direct control
-- **Claude Code's approach**: Collaborative loop in the terminal — more interactive, you stay closer to the execution
+- **[Claude Code](/blog/claude-code-complete-guide)'s approach**: Collaborative loop in the terminal — more interactive, you stay closer to the execution
 
 Neither is universally better. The right choice depends on your workflow and how much you trust autonomous execution on your local environment. For students, that trust question deserves careful thought — more on this below.
 

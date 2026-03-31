@@ -1,17 +1,23 @@
 ---
-title: "Is Claude Code Remote Control Available on All Anthropic Plans?"
+title: Is Claude Code Remote Control Available on All Anthropic Plans?
 slug: is-claude-code-remote-control-available-on-all-anthropic-pla
-description: "Claude Code is available on Pro, Team, and Enterprise Anthropic plans, but not the free tier."
+description: >-
+  Claude Code is available on Pro, Team, and Enterprise Anthropic plans, but not
+  the free tier.
 category: tools
-related_glossary: [claude-desktop, agentic-coding]
-related_blog: [claude-excel-powerpoint-skills-context]
+related_glossary:
+  - claude-desktop
+  - agentic-coding
+related_blog:
+  - claude-excel-powerpoint-skills-context
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Is Claude Code Remote Control Available on All Anthropic Plans?
 
-**Claude Code** is not available on all Anthropic plans. It requires a paid subscription — either the Pro plan ($20/month), the Max plan ($100-200/month), a Team plan, or an Enterprise agreement. The free tier of [Claude](/glossary/claude-desktop) does not include Claude Code access. Usage is metered against your plan's token limits, with Max and Enterprise tiers offering substantially higher quotas for heavy agentic workloads.
+**[Claude Code](/blog/claude-code-complete-guide)** is not available on all Anthropic plans. It requires a paid subscription — either the Pro plan ($20/month), the Max plan ($100-200/month), a Team plan, or an Enterprise agreement. The free tier of [Claude](/glossary/claude-desktop) does not include Claude Code access. Usage is metered against your plan's token limits, with Max and Enterprise tiers offering substantially higher quotas for heavy [agentic](/glossary/agentic) workloads.
 
 ## Context
 
@@ -31,7 +37,7 @@ For organizations, **Team** and **Enterprise** plans include Claude Code access 
 
 ## Related Questions
 
-- [What is the difference between Claude Code and Cursor?](/faq/what-is-the-difference-between-claude-code-and-cursor)
+- [What is the difference between Claude Code and [Cursor](/glossary/cursor)?](/faq/what-is-the-difference-between-claude-code-and-cursor)
 
 ---
 

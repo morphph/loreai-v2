@@ -1,15 +1,21 @@
 ---
-title: "Claude Code vs Cline：AI 编程 Agent 怎么选？"
+title: Claude Code vs Cline：AI 编程 Agent 怎么选？
 slug: claude-code-vs-cline
-description: "从功能、模型支持到工作流，全面对比 Claude Code 和 Cline 两款 AI 编程工具。"
+description: 从功能、模型支持到工作流，全面对比 Claude Code 和 Cline 两款 AI 编程工具。
 item_a: Claude Code
 item_b: Cline
 category: tools
-related_glossary: [claude-code, agentic]
-related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
-related_compare: [claude-code-vs-cursor]
+related_glossary:
+  - claude-code
+  - agentic
+related_blog:
+  - claude-code-extension-stack-skills-hooks-agents-mcp
+  - claude-code-agent-teams
+related_compare:
+  - claude-code-vs-cursor
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code vs Cline：AI 编程 Agent 怎么选？
@@ -18,15 +24,15 @@ related_topics: [claude-code]
 
 ## 功能对比
 
-| 功能 | Claude Code | Cline |
+| 功能 | [Claude Code](/zh/blog/9-principles-writing-claude-code-skills) | Cline |
 |------|-------------|-------|
 | **运行环境** | 终端 + VS Code + JetBrains + 桌面应用 + 浏览器 | VS Code 插件 |
 | **模型支持** | Claude（Anthropic）；CLI 和 VS Code 支持第三方模型 | 全面支持：OpenRouter、OpenAI、Gemini、Bedrock、Azure、Vertex、本地模型（LM Studio/Ollama） |
 | **终端执行** | 完整 shell 权限，需用户审批 | 通过 VS Code shell 集成执行，需用户审批 |
 | **文件编辑** | 跨文件编辑，内联 diff | Diff 视图，支持直接编辑和回滚 |
 | **浏览器操作** | 源材料未提及 | 内置浏览器自动化——点击、输入、滚动、截图 + 控制台日志 |
-| **MCP** | 支持——连接外部工具和数据源 | 支持——可按需创建并安装自定义 MCP server |
-| **项目上下文** | CLAUDE.md + SKILL.md + 自动记忆 | .clinerules + @-mentions（@file、@folder、@url、@problems） |
+| **[MCP](/zh/blog/claude-code-seven-programmable-layers)** | 支持——连接外部工具和数据源 | 支持——可按需创建并安装自定义 [MCP server](/zh/blog/google-colab-mcp-server-cloud-gpu-ai-agents) |
+| **项目上下文** | [CLAUDE.md](/zh/blog/claude-code-memory) + SKILL.md + 自动记忆 | .clinerules + @-mentions（@file、@folder、@url、@problems） |
 | **Agent 编队** | 可派生子 Agent 并行执行 | 源材料未提及 |
 | **检查点回滚** | 源材料未提及 | 每步快照，可对比和回滚 |
 | **费用追踪** | 源材料未提及 | 按请求和任务追踪 token 用量及 API 开销 |
@@ -41,7 +47,7 @@ related_topics: [claude-code]
 
 ## 什么时候选 Cline
 
-如果你需要模型灵活性，Cline 的优势非常明显。它支持所有主流 API 提供商，也支持通过 LM Studio 和 Ollama 使用本地模型。在不同模型之间按成本、能力或合规需求灵活切换，Cline 做得最好。每次请求的 token 用量和 API 开销都清晰可见，方便控制预算。
+如果你需要模型灵活性，Cline 的优势非常明显。它支持所有主流 API 提供商，也支持通过 LM Studio 和 [Ollama](/zh/glossary/ollama) 使用本地模型。在不同模型之间按成本、能力或合规需求灵活切换，Cline 做得最好。每次请求的 token 用量和 API 开销都清晰可见，方便控制预算。
 
 Cline 的浏览器自动化是一大亮点。它能启动无头浏览器、与你的应用交互、捕获截图和控制台日志——调试前端 bug 和跑端到端测试不再需要手动操作。检查点系统在每一步都创建快照，可以随时回滚到任意节点，安全地尝试不同方案。对于需要开源透明度和企业级功能（SSO、审计日志、私有部署）的团队，Cline 两者兼备。
 

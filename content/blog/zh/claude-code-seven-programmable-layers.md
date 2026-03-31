@@ -1,31 +1,42 @@
 ---
-title: "Claude Code 七层架构深度解析：从工具使用者到系统设计者"
-date: 2026-03-13
+title: Claude Code 七层架构深度解析：从工具使用者到系统设计者
+date: 2026-03-13T00:00:00.000Z
 slug: claude-code-seven-programmable-layers
-description: "Claude Code 不只是终端助手，而是七层可编程系统。本文从架构分层、上下文经济学到 Hooks 强制执行，帮你真正理解如何设计人与 AI 的协作界面。"
-keywords: ["Claude Code", "Agentic Loop", "上下文窗口", "Hooks", "MCP", "AI编程"]
+description: >-
+  Claude Code 不只是终端助手，而是七层可编程系统。本文从架构分层、上下文经济学到 Hooks 强制执行，帮你真正理解如何设计人与 AI
+  的协作界面。
+keywords:
+  - Claude Code
+  - Agentic Loop
+  - 上下文窗口
+  - Hooks
+  - MCP
+  - AI编程
 category: DEV
-related_newsletter: 2026-03-13
-related_glossary: [claude-code, mcp, agentic-coding]
+related_newsletter: 2026-03-13T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - mcp
+  - agentic-coding
 related_compare: []
 lang: zh
 video_ready: true
-video_hook: "Claude Code 有七层，99%的人只用了第一层"
+video_hook: Claude Code 有七层，99%的人只用了第一层
 video_status: published
 source_type: video
 ---
 
 # Claude Code 七层架构深度解析：从工具使用者到系统设计者
 
-大多数人每天打开 **Claude Code**，问它写代码、改 Bug，以为这就是全部。但这只是最表面的第一层。真正的效率提升藏在后面六层里——其中有一层完全不依赖模型判断，Claude 想跳过都跳不过去。本文基于 Tw93 的 Claude Code 深度指南，拆解七层架构、上下文经济学和强制执行机制。
+大多数人每天打开 **[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)**，问它写代码、改 Bug，以为这就是全部。但这只是最表面的第一层。真正的效率提升藏在后面六层里——其中有一层完全不依赖模型判断，Claude 想跳过都跳不过去。本文基于 Tw93 的 Claude Code 深度指南，拆解七层架构、上下文经济学和强制执行机制。
 
 ## 发生了什么
 
 Claude Code 的能力不是铁板一块，而是分成了清晰的七层可编程系统。
 
-第一层，**CLAUDE.md** 和 rules，负责告诉 Claude"你是谁"。第二层，**Tools 和 [MCP](/glossary/zh/mcp)**，赋予它动作能力。第三层，**Skills**，按需加载的方法论。第四层，**Hooks**，强制执行规则的拦截器。第五层，**Subagents**，隔离上下文的独立工作者。第六层，**Verifiers**，验证闭环，确保结果可信。第七层则是将前六层组合成完整的系统设计。
+第一层，**[CLAUDE.md](/zh/blog/claude-code-memory)** 和 rules，负责告诉 Claude"你是谁"。第二层，**Tools 和 [MCP](/glossary/zh/mcp)**，赋予它动作能力。第三层，**Skills**，按需加载的方法论。第四层，**Hooks**，强制执行规则的拦截器。第五层，**Subagents**，隔离上下文的独立工作者。第六层，**Verifiers**，验证闭环，确保结果可信。第七层则是将前六层组合成完整的系统设计。
 
-核心运行模型是 **Agentic Loop**：收集线索（读文件、搜索代码、查看 git 历史）→ 采取行动（写代码、运行命令、调用工具）→ 验证结果（跑测试、检查输出）。三步不断循环，直到任务完成。你可以在任何时刻介入调整方向，它不是黑盒。
+核心运行模型是 **[Agentic](/zh/glossary/agentic) Loop**：收集线索（读文件、搜索代码、查看 git 历史）→ 采取行动（写代码、运行命令、调用工具）→ 验证结果（跑测试、检查输出）。三步不断循环，直到任务完成。你可以在任何时刻介入调整方向，它不是黑盒。
 
 官方将整套架构归纳为五大设计维面：**Context Surface** 决定信息的常驻与按需加载；**Action Surface** 决定能力边界；**Control Surface** 约束操作；**Isolation Surface** 隔离上下文；**Verification Surface** 判断任务是否真正完成。
 
@@ -58,7 +69,7 @@ Hooks 支持五种事件：`PreToolUse`、`PostToolUse`、`PostToolUseFailure`�
 别过度工程化。初学者和真正的高手都选择 Keep It Simple，只有中间层的人才会堆砌 20 个 Skills 和 1000 行 CLAUDE.md。对照以下清单自查：
 
 1. **敲 `/context` 命令**，看看你的窗口到底被什么占满了
-2. **检查 MCP Server 数量**，超过 3 个就该果断关掉不常用的
+2. **检查 [MCP Server](/zh/blog/google-colab-[mcp](/zh/glossary/mcp)-server-cloud-gpu-ai-agents) 数量**，超过 3 个就该果断关掉不常用的
 3. **精简 CLAUDE.md**，超过 500 行大概率在当百科全书用——只保留契约级规则，其余拆到 Skills
 4. **给最常出错的操作写一个 PreToolUse Hook**，比如每次文件编辑前自动检查项目规范
 5. **定期审查 `settings.json` 的 `allowedTools` 列表**，清理残留的危险权限

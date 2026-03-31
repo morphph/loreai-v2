@@ -1,14 +1,23 @@
 ---
-title: "Claude Code Terminal vs VS Code Extension: Which Workflow Fits You?"
+title: 'Claude Code Terminal vs VS Code Extension: Which Workflow Fits You?'
 slug: how-to-use-claude-code-with-vs-code
-description: "Comparing Claude Code's terminal CLI and VS Code extension — features, workflows, and which setup suits your development style."
+description: >-
+  Comparing Claude Code's terminal CLI and VS Code extension — features,
+  workflows, and which setup suits your development style.
 item_a: Claude Code Terminal (CLI)
 item_b: Claude Code VS Code Extension
 category: tools
-related_glossary: [claude-code, claude, anthropic]
-related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, mcp-vs-cli-vs-skills-extend-claude-code, claude-code-agent-teams]
+related_glossary:
+  - claude-code
+  - claude
+  - anthropic
+related_blog:
+  - claude-code-extension-stack-skills-hooks-agents-mcp
+  - mcp-vs-cli-vs-skills-extend-claude-code
+  - claude-code-agent-teams
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code Terminal vs VS Code Extension: Which Workflow Fits You?
@@ -21,20 +30,20 @@ related_topics: [claude-code]
 |---------|-------------|-------------------|
 | **Interface** | Command-line prompt | Side panel + inline editor integration |
 | **File editing** | Applies changes, shows text diffs | Inline diff viewer with accept/reject per change |
-| **Context system** | CLAUDE.md + SKILL.md | Same CLAUDE.md + SKILL.md support |
+| **Context system** | [CLAUDE.md](/blog/claude-code-memory) + [SKILL.md](/blog/9-principles-writing-claude-code-skills) | Same CLAUDE.md + SKILL.md support |
 | **Shell access** | Native — runs in your terminal directly | Integrated terminal, same capabilities |
 | **Multi-file edits** | Full support, text-based review | Full support, visual diff navigation |
 | **[MCP servers](/glossary/mcp-vs-cli-vs-skills-extend-claude-code)** | Configured via CLI settings | Configured via VS Code settings or CLI |
-| **Agent teams** | Spawns sub-agents in terminal | Same sub-agent support |
+| **[Agent teams](/glossary/agent-teams)** | Spawns sub-agents in terminal | Same sub-agent support |
 | **Keyboard-driven** | Fully keyboard-driven | Mouse + keyboard hybrid |
 | **Setup** | `npm install -g @anthropic-ai/claude-code` | Install from VS Code Marketplace |
 | **Platform** | macOS, Linux | macOS, Linux, Windows (via VS Code) |
 
 ## When to Use the Terminal CLI
 
-The terminal CLI is built for developers who live in the command line. If your workflow already revolves around tmux, vim, or shell scripts, Claude Code's CLI drops into that environment without friction. You describe a task — "refactor the auth module and update all tests" — and Claude Code plans, executes, and commits from inside your existing terminal session.
+The terminal CLI is built for developers who live in the command line. If your workflow already revolves around tmux, vim, or shell scripts, [Claude Code](/blog/claude-code-complete-guide)'s CLI drops into that environment without friction. You describe a task — "refactor the auth module and update all tests" — and Claude Code plans, executes, and commits from inside your existing terminal session.
 
-The CLI shines for **automation and scripting**. You can pipe output into Claude Code, chain it with other CLI tools, or invoke it from CI scripts. The [SKILL.md system](/blog/claude-code-extension-stack-skills-hooks-agents-mcp) works identically in both interfaces, but CLI users often find it faster to iterate on skills since they're already editing files in the terminal. For large-scale refactoring or batch operations across multiple repos, the CLI's scriptability is a clear advantage.
+The CLI shines for **automation and scripting**. You can pipe output into Claude Code, chain it with other CLI tools, or invoke it from CI scripts. The [SKILL.md system](/blog/claude-code-extension-stack-skills-hooks-agents-[mcp](/glossary/mcp)) works identically in both interfaces, but CLI users often find it faster to iterate on skills since they're already editing files in the terminal. For large-scale refactoring or batch operations across multiple repos, the CLI's scriptability is a clear advantage.
 
 Power users who prefer minimal UI overhead and maximum control over their environment will feel at home here.
 

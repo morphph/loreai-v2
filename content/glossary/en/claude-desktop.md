@@ -1,19 +1,25 @@
 ---
-title: "Claude Desktop — AI Glossary"
+title: Claude Desktop — AI Glossary
 slug: claude-desktop
-description: "What is Claude Desktop? Anthropic's desktop app for interacting with Claude across documents, images, and agentic workflows."
+description: >-
+  What is Claude Desktop? Anthropic's desktop app for interacting with Claude
+  across documents, images, and agentic workflows.
 term: claude-desktop
-display_term: "Claude Desktop"
+display_term: Claude Desktop
 category: tools
-related_glossary: [chatgpt, cursor, agentic-coding]
-related_blog: [claude-excel-powerpoint-sync]
+related_glossary:
+  - chatgpt
+  - cursor
+  - agentic-coding
+related_blog:
+  - claude-excel-powerpoint-sync
 related_compare: []
 lang: en
 ---
 
 # Claude Desktop — AI Glossary
 
-**Claude Desktop** is Anthropic's native desktop application for macOS and Windows that provides direct access to Claude outside the browser. It supports text conversations, image and document analysis, file uploads, and — with its **Computer Use** and **Cowork** capabilities — agentic workflows where Claude can observe and interact with your screen. Unlike the web interface at claude.ai, the desktop app integrates with your local environment and supports extended background tasks.
+**Claude Desktop** is Anthropic's native desktop application for macOS and Windows that provides direct access to Claude outside the browser. It supports text conversations, image and document analysis, file uploads, and — with its **Computer Use** and **Cowork** capabilities — [agentic workflows](/blog/openai-computer-access-agents-lessons) where Claude can observe and interact with your screen. Unlike the web interface at claude.ai, the desktop app integrates with your local environment and supports extended background tasks.
 
 ## Why Claude Desktop Matters
 
@@ -26,7 +32,7 @@ The addition of **agentic features** — where Claude can view your screen, clic
 Claude Desktop connects to Anthropic's API while adding a native application layer for local system integration. Key mechanisms:
 
 - **File handling**: Drag files directly into conversations — PDFs, images, spreadsheets, code files — for analysis without manual copy-paste
-- **MCP integration**: Connects to local and remote **Model Context Protocol** servers, giving Claude access to databases, APIs, and development tools from the desktop
+- **[MCP](/glossary/mcp) integration**: Connects to local and remote **[Model Context Protocol](/glossary/model-context-protocol)** servers, giving Claude access to databases, APIs, and development tools from the desktop
 - **Computer Use**: An opt-in mode where Claude receives screenshots of your display and can execute mouse clicks and keyboard input to operate applications autonomously
 - **Persistent projects**: Organize conversations by topic with attached files and custom instructions that carry across sessions
 

@@ -1,19 +1,24 @@
 ---
-title: "Anthropic — AI 术语表"
+title: Anthropic — AI 术语表
 slug: anthropic
-description: "什么是 Anthropic？专注 AI 安全的人工智能公司，Claude 系列模型的开发者。"
+description: 什么是 Anthropic？专注 AI 安全的人工智能公司，Claude 系列模型的开发者。
 term: anthropic
-display_term: "Anthropic"
+display_term: Anthropic
 category: models
-related_glossary: [claude, claude-code, google]
-related_blog: [anthropic-claude-memory-upgrades-importing, anthropic-cowork-claude-desktop-agent]
+related_glossary:
+  - claude
+  - claude-code
+  - google
+related_blog:
+  - anthropic-claude-memory-upgrades-importing
+  - anthropic-cowork-claude-desktop-agent
 related_compare: []
 lang: zh
 ---
 
 # Anthropic — AI 术语表
 
-**Anthropic** 是一家总部位于旧金山的人工智能安全公司，由前 OpenAI 研究副总裁 Dario Amodei 和 Daniela Amodei 于 2021 年联合创立。公司开发了 [Claude](/glossary/claude) 系列大语言模型，是当前 AI 行业最具影响力的实验室之一。
+**Anthropic** 是一家总部位于旧金山的人工智能安全公司，由前 OpenAI 研究副总裁 [Dario Amodei](/zh/blog/anthropic-department-of-war-dario-amodei-statement) 和 Daniela Amodei 于 2021 年联合创立。公司开发了 [Claude](/glossary/claude) 系列大语言模型，是当前 AI 行业最具影响力的实验室之一。
 
 ## 为什么 Anthropic 重要
 

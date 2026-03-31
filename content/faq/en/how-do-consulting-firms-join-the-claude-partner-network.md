@@ -1,16 +1,19 @@
 ---
-title: "How Do Consulting Firms Join the Claude Partner Network?"
+title: How Do Consulting Firms Join the Claude Partner Network?
 slug: how-do-consulting-firms-join-claude-partner-network
-description: "Consulting firms join the Claude Partner Network through Anthropic's application process, demonstrating AI deployment expertise."
+description: >-
+  Consulting firms join the Claude Partner Network through Anthropic's
+  application process, demonstrating AI deployment expertise.
 category: frameworks
-related_glossary: [ai-safety]
+related_glossary:
+  - ai-safety
 related_blog: []
 lang: en
 ---
 
 # How Do Consulting Firms Join the Claude Partner Network?
 
-Consulting firms join the **Claude Partner Network** by applying through Anthropic's official partner program. Anthropic evaluates firms based on their technical expertise with Claude, track record of enterprise AI deployments, and ability to help customers implement Claude responsibly across their organizations.
+Consulting firms join the **[Claude Partner Network](/blog/anthropic-claude-partner-network-100-million)** by applying through Anthropic's official partner program. Anthropic evaluates firms based on their technical expertise with Claude, track record of enterprise AI deployments, and ability to help customers implement Claude responsibly across their organizations.
 
 ## Context
 

@@ -61,6 +61,7 @@ interface BlogFrontmatter {
   related_newsletter: string;
   related_glossary: string[];
   related_compare: string[];
+  related_topics: string[];
   lang: string;
   video_ready: boolean;
   video_hook: string;
@@ -495,6 +496,7 @@ function parseFrontmatter(fmText: string, lang: string): BlogFrontmatter {
     related_newsletter: get('related_newsletter') || DATE,
     related_glossary: getArray('related_glossary'),
     related_compare: getArray('related_compare'),
+    related_topics: getArray('related_topics'),
     lang,
     video_ready: true,
     video_hook: get('video_hook'),
@@ -506,6 +508,7 @@ function buildFrontmatterYaml(fm: BlogFrontmatter): string {
   const kw = fm.keywords.map((k) => `"${k}"`).join(', ');
   const glossary = fm.related_glossary.join(', ');
   const compare = fm.related_compare.join(', ');
+  const topics = fm.related_topics.join(', ');
 
   return `---
 title: "${fm.title.replace(/"/g, '\\"')}"
@@ -516,7 +519,7 @@ keywords: [${kw}]
 category: ${fm.category}
 related_newsletter: ${fm.related_newsletter}
 related_glossary: [${glossary}]
-related_compare: [${compare}]
+related_compare: [${compare}]${topics ? `\nrelated_topics: [${topics}]` : ''}
 lang: ${fm.lang}
 video_ready: ${fm.video_ready}
 video_hook: "${fm.video_hook.replace(/"/g, '\\"')}"

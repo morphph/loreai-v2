@@ -1,15 +1,23 @@
 ---
-title: "Claude Code vs ChatGPT: Is Claude Code Better for Developers?"
+title: 'Claude Code vs ChatGPT: Is Claude Code Better for Developers?'
 slug: is-claude-code-better-than-chatgpt
-description: "Claude Code is built for autonomous coding tasks; ChatGPT is a general-purpose assistant. Here's how they compare for developers."
+description: >-
+  Claude Code is built for autonomous coding tasks; ChatGPT is a general-purpose
+  assistant. Here's how they compare for developers.
 item_a: Claude Code
 item_b: ChatGPT
 category: tools
-related_glossary: [agentic-coding, chatgpt]
-related_blog: [integrate-claude-code-into-your-development-workflow, key-benefits-and-features]
-related_compare: [claude-code-vs-cursor]
+related_glossary:
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - integrate-claude-code-into-your-development-workflow
+  - key-benefits-and-features
+related_compare:
+  - claude-code-vs-cursor
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code vs ChatGPT: Is Claude Code Better for Developers?
@@ -18,9 +26,9 @@ related_topics: [claude-code]
 
 ## Feature Comparison
 
-| Feature | Claude Code | ChatGPT |
+| Feature | [Claude Code](/blog/claude-code-complete-guide) | [ChatGPT](/topics/chatgpt) |
 |---------|-------------|---------|
-| **Primary use** | Autonomous agentic coding | General-purpose AI assistant |
+| **Primary use** | Autonomous [agentic coding](/blog/claude-code-seven-programmable-layers) | General-purpose AI assistant |
 | **Interface** | Terminal / CLI | Web, desktop, mobile |
 | **Coding approach** | Plans and executes multi-file tasks | Chat-driven code generation |
 | **Context window** | Up to 1M tokens | Up to 1M tokens |
@@ -28,8 +36,8 @@ related_topics: [claude-code]
 | **Video generation** | No | Yes (via Sora) |
 | **Web search** | Yes | Yes |
 | **Deep research** | Yes | Yes |
-| **Agentic features** | Full shell access, file editing, git | Browser-based automation |
-| **Model** | Claude Sonnet 4.6 / Opus 4.6 | GPT-5.4 / GPT-5.3 |
+| **[Agentic](/glossary/agentic) features** | Full shell access, file editing, git | Browser-based automation |
+| **Model** | [Claude Sonnet 4.6](/blog/claude-1-million-context-window-ga) / Opus 4.6 | GPT-5.4 / GPT-5.3 |
 
 ## When to Use Claude Code
 

@@ -1,16 +1,26 @@
 ---
-title: "TensorFlow Still Dominates: Why Google's ML Framework Keeps Trending in 2026"
-date: 2026-03-05
+title: 'TensorFlow Still Dominates: Why Google''s ML Framework Keeps Trending in 2026'
+date: 2026-03-05T00:00:00.000Z
 slug: tensorflow-trending-2026
-description: "TensorFlow hits 194k GitHub stars and nearly 191k commits, proving Google's open-source ML framework remains central to production AI despite rising competition."
-keywords: ["TensorFlow", "machine learning framework", "Google AI", "open source ML"]
+description: >-
+  TensorFlow hits 194k GitHub stars and nearly 191k commits, proving Google's
+  open-source ML framework remains central to production AI despite rising
+  competition.
+keywords:
+  - TensorFlow
+  - machine learning framework
+  - Google AI
+  - open source ML
 category: DEV
-related_newsletter: 2026-03-05
-related_glossary: [tensorflow, open-source-ai]
-related_compare: [tensorflow-vs-pytorch]
+related_newsletter: 2026-03-05T00:00:00.000Z
+related_glossary:
+  - tensorflow
+  - open-source-ai
+related_compare:
+  - tensorflow-vs-pytorch
 lang: en
 video_ready: true
-video_hook: "194k stars and still climbing — why TensorFlow refuses to fade"
+video_hook: 194k stars and still climbing — why TensorFlow refuses to fade
 video_status: none
 ---
 
@@ -26,7 +36,7 @@ This isn't a single flashy release driving the trend. It's cumulative momentum �
 
 The timing matters. As organizations move from AI experimentation to production deployment, TensorFlow's mature tooling for model optimization, quantization, and cross-platform serving becomes increasingly valuable. The framework's strength was never in research prototyping speed — it was in getting models into production at scale, and that's exactly what enterprises need right now.
 
-Google continues to maintain TensorFlow as a core part of its AI infrastructure strategy, even as it develops JAX for internal research workloads. The two frameworks serve different audiences, and TensorFlow's production focus keeps it relevant where business value gets delivered.
+Google continues to maintain TensorFlow as a core part of its [AI infrastructure](/blog/anthropic-linux-foundation-open-source-security) strategy, even as it develops JAX for internal research workloads. The two frameworks serve different audiences, and TensorFlow's production focus keeps it relevant where business value gets delivered.
 
 ## Why It Matters
 

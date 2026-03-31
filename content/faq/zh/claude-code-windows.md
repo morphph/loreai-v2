@@ -1,17 +1,25 @@
 ---
-title: "Claude Code 能在 Windows 上用吗？"
+title: Claude Code 能在 Windows 上用吗？
 slug: claude-code-windows
-description: "Claude Code 不支持原生 Windows，需要通过 WSL2（Windows 子系统 Linux）来运行，装好 WSL2 后体验跟 Mac/Linux 一样。"
+description: >-
+  Claude Code 不支持原生 Windows，需要通过 WSL2（Windows 子系统 Linux）来运行，装好 WSL2 后体验跟
+  Mac/Linux 一样。
 category: tools
-related_glossary: [claude-code, anthropic, agentic-coding]
-related_blog: [claude-code-complete-guide, claude-code-remote-control-mobile]
+related_glossary:
+  - claude-code
+  - anthropic
+  - agentic-coding
+related_blog:
+  - claude-code-complete-guide
+  - claude-code-remote-control-mobile
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code 能在 Windows 上用吗？
 
-Claude Code 不能直接在 Windows 上跑，它依赖 Unix 环境。Windows 用户需要先装 WSL2（Windows Subsystem for Linux），装好之后使用体验跟 macOS 和 Linux 完全一样，没有任何功能限制。
+[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 不能直接在 Windows 上跑，它依赖 Unix 环境。Windows 用户需要先装 WSL2（Windows Subsystem for Linux），装好之后使用体验跟 macOS 和 Linux 完全一样，没有任何功能限制。
 
 ## 背景
 

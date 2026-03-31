@@ -1,20 +1,27 @@
 ---
-title: "Claude Code Hooks — AI Glossary"
+title: Claude Code Hooks — AI Glossary
 slug: what-are-claude-code-hooks
-description: "What are Claude Code hooks? Automated shell commands that execute at specific points in Claude Code's lifecycle for workflow automation."
+description: >-
+  What are Claude Code hooks? Automated shell commands that execute at specific
+  points in Claude Code's lifecycle for workflow automation.
 term: what-are-claude-code-hooks
-display_term: "Claude Code Hooks"
+display_term: Claude Code Hooks
 category: tools
-related_glossary: [agentic-coding, claude-code]
-related_blog: [run-ai-coding-agents-locally]
-related_faq: [claude-code-hooks-reddit]
+related_glossary:
+  - agentic-coding
+  - claude-code
+related_blog:
+  - run-ai-coding-agents-locally
+related_faq:
+  - claude-code-hooks-reddit
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code Hooks — AI Glossary
 
-**Claude Code hooks** are user-defined shell commands, HTTP endpoints, or LLM prompts that execute automatically at specific points in Claude Code's lifecycle. They provide deterministic control over Claude Code's behavior, ensuring certain actions always happen without relying on the LLM to choose to run them. Hooks let you enforce project rules, automate repetitive tasks, and integrate Claude Code with your existing development tools.
+**[Claude Code hooks](/blog/claude-code-extension-stack-skills-hooks-agents-[mcp](/glossary/mcp))** are user-defined shell commands, HTTP endpoints, or LLM prompts that execute automatically at specific points in [Claude Code](/blog/claude-code-complete-guide)'s lifecycle. They provide deterministic control over Claude Code's behavior, ensuring certain actions always happen without relying on the LLM to choose to run them. Hooks let you enforce project rules, automate repetitive tasks, and integrate Claude Code with your existing development tools.
 
 ## Why Claude Code Hooks Matter
 

@@ -1,12 +1,18 @@
 ---
-title: "How Do I Install Claude Code?"
+title: How Do I Install Claude Code?
 slug: claude-code-install
-description: "Install Claude Code on macOS, Linux, or Windows with native install, Homebrew, or WinGet."
+description: >-
+  Install Claude Code on macOS, Linux, or Windows with native install, Homebrew,
+  or WinGet.
 category: tools
-related_glossary: [claude-code, agentic-coding]
-related_blog: [how-to-build-a-production-ready-claude-code-skill]
+related_glossary:
+  - claude-code
+  - agentic-coding
+related_blog:
+  - how-to-build-a-production-ready-claude-code-skill
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # How Do I Install Claude Code?
@@ -15,7 +21,7 @@ related_topics: [claude-code]
 
 ## Context
 
-Installation is your first step to using Claude Code as an agentic coding tool. Before installing, check your system requirements: **4GB+ RAM**, an internet connection, and one of these operating systems — macOS 13.0+, Windows 10 1809+, Ubuntu 20.04+, Debian 10+, or Alpine 3.19+. On Windows, you'll need Git for Windows installed first; **ripgrep** is an additional dependency (usually included automatically). Claude Code runs in your terminal with Bash, Zsh, PowerShell, or CMD.
+Installation is your first step to using [Claude Code](/blog/claude-code-complete-guide) as an [agentic coding](/blog/claude-code-seven-programmable-layers) tool. Before installing, check your system requirements: **4GB+ RAM**, an internet connection, and one of these operating systems — macOS 13.0+, Windows 10 1809+, Ubuntu 20.04+, Debian 10+, or Alpine 3.19+. On Windows, you'll need Git for Windows installed first; **ripgrep** is an additional dependency (usually included automatically). Claude Code runs in your terminal with Bash, Zsh, PowerShell, or CMD.
 
 The native installer is recommended because it automatically updates you to the latest version in the background. If you prefer package managers like Homebrew or WinGet, you'll need to manually run upgrade commands periodically. Note: NPM installation is deprecated — use one of the methods below instead.
 

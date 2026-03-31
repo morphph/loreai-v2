@@ -1,11 +1,14 @@
 ---
-title: "GPT-5.4 — AI Glossary"
+title: GPT-5.4 — AI Glossary
 slug: gpt-54
-description: "What is GPT-5.4? OpenAI's latest large language model in the GPT-5 series."
+description: What is GPT-5.4? OpenAI's latest large language model in the GPT-5 series.
 term: gpt-54
-display_term: "GPT-5.4"
+display_term: GPT-5.4
 category: models
-related_glossary: [gpt-5, openai, large-language-model]
+related_glossary:
+  - gpt-5
+  - openai
+  - large-language-model
 related_blog: []
 related_compare: []
 lang: en
@@ -13,21 +16,21 @@ lang: en
 
 # GPT-5.4 — AI Glossary
 
-**GPT-5.4** is a large language model from OpenAI, part of the GPT-5 generation of models. It builds on the GPT-5 architecture with iterative improvements to reasoning, instruction following, and multimodal capabilities, continuing OpenAI's pattern of releasing incremental point updates that refine a major model generation.
+**[GPT-5.4](/topics/gpt)** is a large language model from OpenAI, part of the GPT-5 generation of models. It builds on the GPT-5 architecture with iterative improvements to reasoning, instruction following, and multimodal capabilities, continuing OpenAI's pattern of releasing incremental point updates that refine a major model generation.
 
 ## Why GPT-5.4 Matters
 
 GPT-5.4 represents OpenAI's ongoing effort to maintain competitive positioning in the rapidly evolving foundation model landscape. Each point release in the GPT-5 series has targeted specific weaknesses identified in real-world usage — from coding accuracy to long-context reliability to tool-use consistency.
 
-For developers building on the OpenAI API, point releases like GPT-5.4 matter because they can change model behavior in subtle ways. Output formatting, reasoning chains, and edge-case handling may shift between versions, which is why pinning to specific model versions in production remains a best practice.
+For developers building on the OpenAI API, point releases like GPT-5.4 matter because they can change [model behavior](/blog/openai-updated-model-spec-2026) in subtle ways. Output formatting, reasoning chains, and edge-case handling may shift between versions, which is why pinning to specific model versions in production remains a best practice.
 
 ## How GPT-5.4 Works
 
-GPT-5.4 is a transformer-based autoregressive language model, following the same fundamental architecture that has defined the GPT series since GPT-2. Key technical characteristics of the GPT-5 generation include:
+GPT-5.4 is a transformer-based autoregressive language model, following the same fundamental architecture that has defined the GPT series since [GPT-2](/glossary/gpt-2). Key technical characteristics of the GPT-5 generation include:
 
 - **Multimodal input**: Processes text, images, and audio natively rather than through separate encoder pipelines
-- **Extended context**: Supports long context windows for processing large documents and codebases
-- **Tool use**: Structured function-calling interface for integrating with external APIs and services
+- **Extended context**: Supports [long context](/blog/claude-1-million-context-window-ga) windows for processing large documents and codebases
+- **[Tool use](/glossary/tool-use)**: Structured function-calling interface for integrating with external APIs and services
 - **Reasoning modes**: Configurable reasoning depth allowing users to trade latency for accuracy on complex tasks
 
 OpenAI typically does not disclose full architectural details such as parameter counts or training data composition for GPT-5 series models.

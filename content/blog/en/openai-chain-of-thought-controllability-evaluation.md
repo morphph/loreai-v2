@@ -1,22 +1,35 @@
 ---
-title: "OpenAI's Chain-of-Thought Controllability Eval: What It Measures and Why It Matters"
-date: 2026-03-09
+title: >-
+  OpenAI's Chain-of-Thought Controllability Eval: What It Measures and Why It
+  Matters
+date: 2026-03-09T00:00:00.000Z
 slug: openai-chain-of-thought-controllability-evaluation
-description: "OpenAI releases a Chain-of-Thought Controllability evaluation to measure how well reasoning models follow instructions within their thinking process."
-keywords: ["chain-of-thought controllability", "OpenAI evaluation", "reasoning model safety", "CoT monitoring"]
+description: >-
+  OpenAI releases a Chain-of-Thought Controllability evaluation to measure how
+  well reasoning models follow instructions within their thinking process.
+keywords:
+  - chain-of-thought controllability
+  - OpenAI evaluation
+  - reasoning model safety
+  - CoT monitoring
 category: MODEL
-related_newsletter: 2026-03-09
-related_glossary: [chain-of-thought, openai]
-related_compare: [openai-o3-vs-claude-sonnet]
+related_newsletter: 2026-03-09T00:00:00.000Z
+related_glossary:
+  - chain-of-thought
+  - openai
+related_compare:
+  - openai-o3-vs-claude-sonnet
 lang: en
 video_ready: true
-video_hook: "OpenAI just published the eval that measures whether reasoning models actually listen to you"
+video_hook: >-
+  OpenAI just published the eval that measures whether reasoning models actually
+  listen to you
 video_status: none
 ---
 
 # OpenAI's Chain-of-Thought Controllability Eval: What It Measures and Why It Matters
 
-OpenAI published a new evaluation benchmark focused on **chain-of-thought controllability** — measuring whether reasoning models actually follow developer and system-level instructions within their internal thinking process. This matters because as [chain-of-thought](/glossary/chain-of-thought) reasoning becomes the default mode for frontier models, the gap between "the model reasons well" and "the model reasons the way you told it to" is becoming a real engineering problem. If you're building agentic systems on top of reasoning models, this eval directly affects how much you can trust the pipeline.
+OpenAI published a new evaluation benchmark focused on **chain-of-thought controllability** — measuring whether reasoning models actually follow developer and system-level instructions within their internal thinking process. This matters because as [chain-of-thought](/glossary/chain-of-thought) reasoning becomes the default mode for frontier models, the gap between "the model reasons well" and "the model reasons the way you told it to" is becoming a real engineering problem. If you're building [agentic](/glossary/agentic) systems on top of reasoning models, this eval directly affects how much you can trust the pipeline.
 
 ## What Happened
 

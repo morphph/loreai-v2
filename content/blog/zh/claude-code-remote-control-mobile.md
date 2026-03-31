@@ -1,23 +1,30 @@
 ---
-title: "Claude Code Remote Control：用手机遥控终端里的 AI，工程师的新工作方式"
-date: 2026-03-07
+title: Claude Code Remote Control：用手机遥控终端里的 AI，工程师的新工作方式
+date: 2026-03-07T00:00:00.000Z
 slug: claude-code-remote-control-mobile
-description: "Claude Code 推出 Remote Control 功能，在终端启动任务后用手机实时监控和操作。Pro 用户已可使用，这会怎样改变开发者的工作节奏？"
-keywords: ["Claude Code Remote", "Claude Code 远程控制", "Claude Code 手机", "AI 编程工具"]
+description: Claude Code 推出 Remote Control 功能，在终端启动任务后用手机实时监控和操作。Pro 用户已可使用，这会怎样改变开发者的工作节奏？
+keywords:
+  - Claude Code Remote
+  - Claude Code 远程控制
+  - Claude Code 手机
+  - AI 编程工具
 category: DEV
-related_newsletter: 2026-03-07
-related_glossary: [claude-code, mcp]
+related_newsletter: 2026-03-07T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - mcp
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: zh
 video_ready: true
-video_hook: "终端里跑着 Claude Code，你在地铁上用手机批准 PR"
+video_hook: 终端里跑着 Claude Code，你在地铁上用手机批准 PR
 video_status: none
 ---
 
 # Claude Code Remote Control：用手机遥控终端里的 AI，工程师的新工作方式
 
-**Claude Code** 上线了 Remote Control 功能：在终端启动一个编码任务，然后拿起手机——在 Claude iOS/macOS 客户端里实时查看进度、回复确认、调整方向。这不是远程桌面，而是把 AI 编程助手的控制面板搬到了移动端。对于跑长任务、多项目并行的开发者来说，这意味着你不再需要盯着终端等 Claude 问你问题了。
+**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 上线了 Remote Control 功能：在终端启动一个编码任务，然后拿起手机——在 Claude iOS/macOS 客户端里实时查看进度、回复确认、调整方向。这不是远程桌面，而是把 AI 编程助手的控制面板搬到了移动端。对于跑长任务、多项目并行的开发者来说，这意味着你不再需要盯着终端等 Claude 问你问题了。
 
 ## 发生了什么
 
@@ -35,13 +42,13 @@ AI 编码助手的一个痛点是**等待成本**。你让 Claude Code 重构一
 
 Remote Control 把这个交互模型从"同步阻塞"变成了"异步通知"。你启动任务，去开会、去吃饭、去遛狗，手机震一下，花 10 秒做个决策，任务继续。这和 CI/CD 的理念一脉相承——减少人工等待，让自动化流程尽可能不间断地运行。
 
-从竞品角度看，[Cursor](/glossary/cursor) 和 GitHub Copilot 目前都没有类似的移动端控制能力。它们的交互模型仍然是"打开编辑器 → 使用 AI → 关闭编辑器"。Claude Code 正在把 AI 编程从"编辑器插件"推向"持续运行的开发代理"，Remote Control 是这个转变的关键基础设施。
+从竞品角度看，[Cursor](/glossary/cursor) 和 [GitHub Copilot](/zh/glossary/github-[copilot](/zh/glossary/copilot)) 目前都没有类似的移动端控制能力。它们的交互模型仍然是"打开编辑器 → 使用 AI → 关闭编辑器"。Claude Code 正在把 AI 编程从"编辑器插件"推向"持续运行的开发代理"，Remote Control 是这个转变的关键基础设施。
 
 再结合最近发布的 [Cowork 定时任务](https://x.com/bcherny/status/2026729993448169901)功能——Claude 可以在指定时间自动执行重复任务——一个更完整的图景出现了：Claude Code 正在变成一个 7×24 运行的开发助手，而你通过手机就能管理它。
 
 ## 技术细节
 
-Remote Control 的技术实现依赖于 Claude Code 最近上线的 **HTTP hooks** 机制。Claude Code 团队成员 @dickson_tsai [介绍](https://x.com/bcherny/status/2029339111212126458)，HTTP hooks 比此前的命令行 hooks 更易用、更安全，可以用来构建自定义的 webhook 集成、审批流程和监控系统。
+Remote Control 的技术实现依赖于 Claude Code 最近上线的 **HTTP [hooks](/zh/blog/claude-code-seven-programmable-layers)** 机制。Claude Code 团队成员 @dickson_tsai [介绍](https://x.com/bcherny/status/2029339111212126458)，HTTP hooks 比此前的命令行 hooks 更易用、更安全，可以用来构建自定义的 webhook 集成、审批流程和监控系统。
 
 架构上可以这样理解：
 

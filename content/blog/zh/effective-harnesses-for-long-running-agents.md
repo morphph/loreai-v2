@@ -1,17 +1,29 @@
 ---
-title: "AI Agent 长时间运行不翻车：Anthropic 双Agent架构与四大工程实践"
-date: 2026-03-10
+title: AI Agent 长时间运行不翻车：Anthropic 双Agent架构与四大工程实践
+date: 2026-03-10T00:00:00.000Z
 slug: effective-harnesses-for-long-running-agents
-description: "Anthropic 官方揭示 AI Agent 连续工作失败的根因是 Context Window 记忆清零，并给出双Agent架构、JSON功能清单、增量开发、端到端测试四大工程实践。"
-keywords: ["AI Agent", "长时间运行", "Context Window", "双Agent架构", "Anthropic", "Claude Agent SDK"]
+description: >-
+  Anthropic 官方揭示 AI Agent 连续工作失败的根因是 Context Window
+  记忆清零，并给出双Agent架构、JSON功能清单、增量开发、端到端测试四大工程实践。
+keywords:
+  - AI Agent
+  - 长时间运行
+  - Context Window
+  - 双Agent架构
+  - Anthropic
+  - Claude Agent SDK
 category: DEV
-related_newsletter: 2026-03-10
-related_glossary: [claude-code, context-window, ai-agent]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - context-window
+  - ai-agent
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: zh
 video_ready: true
-video_hook: "最强模型连续跑也会翻车，问题不在智力而在记忆"
+video_hook: 最强模型连续跑也会翻车，问题不在智力而在记忆
 video_status: published
 source_type: video
 ---
@@ -22,7 +34,7 @@ source_type: video
 
 ## 发生了什么
 
-Anthropic 用 **Claude Agent SDK** 做了一个实验：给 Agent 一个提示"克隆一个 claude.ai"，让它连续多轮运行。结果发现两种反复出现的失败模式。
+Anthropic 用 **Claude [Agent SDK](/zh/glossary/agent-sdk)** 做了一个实验：给 Agent 一个提示"克隆一个 claude.ai"，让它连续多轮运行。结果发现两种反复出现的失败模式。
 
 **贪心模式**：Agent 试图一口气写完整个应用，写到一半 [Context Window](/glossary/context-window) 爆了，功能只完成一半，没有文档、没有提交。下一个 Agent 接手时只能面对一堆半成品代码盲猜意图。
 
@@ -46,7 +58,7 @@ Anthropic 给出了四个具体工程实践：
 
 **2. 增量开发**。每个 Agent 只做一个功能，做完立刻 `git commit`，写好提交信息，更新 `claude-progress.txt`。代码库始终保持干净状态。
 
-**3. 端到端测试**。不依赖单元测试，而是用 **Puppeteer MCP** 启动浏览器，像真人用户一样点击、输入、翻页，确认功能可用后才标记通过。局限是 Claude 无法看到浏览器原生 alert 弹窗，依赖弹窗的功能仍需人工兜底。
+**3. 端到端测试**。不依赖单元测试，而是用 **Puppeteer [MCP](/zh/blog/claude-code-seven-programmable-layers)** 启动浏览器，像真人用户一样点击、输入、翻页，确认功能可用后才标记通过。局限是 Claude 无法看到浏览器原生 alert 弹窗，依赖弹窗的功能仍需人工兜底。
 
 **4. 标准化启动流程**。每个新 Agent 上线后执行五步固定操作：确认工作目录 → 读 `git log` 和进度文件 → 读功能清单选最高优先级任务 → 启动开发服务器 → 跑基础功能回归测试。如果回归测试不通过，先修 bug 再做新功能，避免问题滚雪球。
 

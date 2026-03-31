@@ -1,11 +1,13 @@
 ---
-title: "Apple — AI 术语表"
+title: Apple — AI 术语表
 slug: apple
-description: "Apple 是全球领先的科技公司，正将 AI 深度整合进 iPhone、Mac 等硬件生态，推出 Apple Intelligence 平台。"
+description: Apple 是全球领先的科技公司，正将 AI 深度整合进 iPhone、Mac 等硬件生态，推出 Apple Intelligence 平台。
 term: apple
-display_term: "Apple"
+display_term: Apple
 category: tools
-related_glossary: [anthropic, amazon]
+related_glossary:
+  - anthropic
+  - amazon
 related_blog: []
 related_compare: []
 lang: zh
@@ -27,7 +29,7 @@ Apple Intelligence 采用**混合架构**：轻量级请求由设备端模型处
 
 - **端侧模型**：约 30 亿参数的语言模型运行在设备芯片上，处理摘要、改写等任务
 - **Private Cloud Compute**：复杂推理任务发送到 Apple 专用服务器，使用定制芯片，数据不存储、不可被 Apple 访问
-- **第三方集成**：用户可选择将请求转发给 ChatGPT 等外部模型，但需明确授权
+- **第三方集成**：用户可选择将请求转发给 [ChatGPT](/zh/glossary/chatgpt) 等外部模型，但需明确授权
 
 ## 相关术语
 

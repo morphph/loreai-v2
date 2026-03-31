@@ -1,17 +1,24 @@
 ---
-title: "What Are Claude Code Hooks?"
+title: What Are Claude Code Hooks?
 slug: claude-code-hooks-reddit
-description: "Claude Code hooks let you run custom code at any point in Claude's workflow—blocking commands, protecting secrets, and enforcing policy."
+description: >-
+  Claude Code hooks let you run custom code at any point in Claude's
+  workflow—blocking commands, protecting secrets, and enforcing policy.
 category: tools
-related_glossary: [agentic-coding, ai-safety]
-related_blog: [run-ai-coding-agents-locally, agent-harnesses-2026]
+related_glossary:
+  - agentic-coding
+  - ai-safety
+related_blog:
+  - run-ai-coding-agents-locally
+  - agent-harnesses-2026
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # What Are Claude Code Hooks?
 
-**Claude Code hooks** let you run your own code at any point in Claude Code's workflow—before it writes a file, after it runs a command, or when it finishes a task. There are currently 23 different hook events available, and they're powerful enough to block dangerous commands, protect secrets, send notifications, and enforce team policies without patching Claude Code itself.
+**[Claude Code hooks](/blog/claude-code-extension-stack-skills-hooks-agents-[mcp](/glossary/mcp))** let you run your own code at any point in [Claude Code](/blog/claude-code-complete-guide)'s workflow—before it writes a file, after it runs a command, or when it finishes a task. There are currently 23 different hook events available, and they're powerful enough to block dangerous commands, protect secrets, send notifications, and enforce team policies without patching Claude Code itself.
 
 ## Context
 
@@ -19,7 +26,7 @@ Hooks are widely considered the most underrated feature in Claude Code, especial
 
 Once you start using hooks, the possibilities expand quickly. The community has built hooks that send Slack or phone notifications when Claude needs input, auto-format files after edits, prevent force pushes to main, block access to sensitive files, and enforce TDD by refusing to merge code until tests exist. Some developers use hooks to get audio cues—a chime sound when a tool finishes executing, a ting when Claude stops—so they can step away and come back when action is needed.
 
-Hooks are becoming a real differentiator for teams because they allow you to enforce policy and telemetry without modifying Claude Code's core behavior. Read more about [running AI coding agents locally](/blog/run-ai-coding-agents-locally) to understand the broader ecosystem.
+Hooks are becoming a real differentiator for teams because they allow you to enforce policy and telemetry without modifying Claude Code's core behavior. Read more about [running [AI coding agents](/blog/effective-harnesses-for-long-running-agents) locally](/blog/run-ai-coding-agents-locally) to understand the broader ecosystem.
 
 ## Common Hook Use Cases
 

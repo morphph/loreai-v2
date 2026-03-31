@@ -1,12 +1,16 @@
 ---
-title: "Cursor — AI Glossary"
+title: Cursor — AI Glossary
 slug: cursor
-description: "What is Cursor? An AI-powered code editor built as a VS Code fork with integrated LLM assistance."
+description: >-
+  What is Cursor? An AI-powered code editor built as a VS Code fork with
+  integrated LLM assistance.
 term: cursor
-display_term: "Cursor"
+display_term: Cursor
 category: tools
-related_glossary: [gpt-54]
-related_blog: [claude-code-voice-mode]
+related_glossary:
+  - gpt-54
+related_blog:
+  - claude-code-voice-mode
 related_compare: []
 lang: en
 ---
@@ -19,7 +23,7 @@ lang: en
 
 Cursor popularized the idea of embedding frontier LLMs directly into the editing loop rather than treating AI as a separate chat window. Its Tab autocomplete goes beyond single-token suggestions, predicting multi-line edits based on your recent changes and project context. The Composer feature handles multi-file modifications through natural language instructions, bridging the gap between chat-based AI and hands-on coding.
 
-For teams evaluating AI development tools, Cursor represents the IDE-integrated approach — in contrast to agentic terminal tools that operate autonomously. Our coverage of [AI coding tool developments](/blog/claude-code-voice-mode) tracks how these two paradigms are evolving.
+For teams evaluating AI development tools, Cursor represents the IDE-integrated approach — in contrast to [agentic](/glossary/agentic) terminal tools that operate autonomously. Our coverage of [AI coding tool developments](/blog/claude-code-voice-mode) tracks how these two paradigms are evolving.
 
 ## How Cursor Works
 

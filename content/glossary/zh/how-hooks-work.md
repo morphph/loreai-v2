@@ -1,18 +1,20 @@
 ---
-title: "Hooks 工作原理 — 术语表"
+title: Hooks 工作原理 — 术语表
 slug: how-hooks-work
-description: "Hooks 是什么？React 中让你在函数组件中使用状态和生命周期特性的函数，基于 JavaScript 闭包实现。"
+description: Hooks 是什么？React 中让你在函数组件中使用状态和生命周期特性的函数，基于 JavaScript 闭包实现。
 term: how-hooks-work
-display_term: "Hooks 工作原理"
+display_term: Hooks 工作原理
 category: concepts
-related_glossary: [agentic-coding]
-related_blog: [claude-code-hooks-mastery]
+related_glossary:
+  - agentic-coding
+related_blog:
+  - claude-code-hooks-mastery
 lang: zh
 ---
 
 # Hooks 工作原理 — 术语表
 
-**Hooks** 是 React 16.8 引入的函数，让你在函数组件中"接入"状态和其他 React 特性。它们解决了类组件的复杂性问题——无需编写复杂的类，你可以在简单的函数中直接使用状态、副作用和其他 React 功能。Hooks 基于 JavaScript 的闭包机制实现，让函数能够"记住"并访问其作用域中的变量。
+**[Hooks](/zh/blog/claude-code-seven-programmable-layers)** 是 React 16.8 引入的函数，让你在函数组件中"接入"状态和其他 React 特性。它们解决了类组件的复杂性问题——无需编写复杂的类，你可以在简单的函数中直接使用状态、副作用和其他 React 功能。Hooks 基于 JavaScript 的闭包机制实现，让函数能够"记住"并访问其作用域中的变量。
 
 ## 为什么 Hooks 很重要
 

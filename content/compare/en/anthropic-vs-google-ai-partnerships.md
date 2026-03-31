@@ -1,12 +1,18 @@
 ---
-title: "Anthropic vs Google AI Partnerships: Build In-House or Through an Ecosystem?"
+title: 'Anthropic vs Google AI Partnerships: Build In-House or Through an Ecosystem?'
 slug: anthropic-vs-google-ai-partnerships
-description: "Comparing Anthropic's direct AI platform with Google Cloud's partner-driven AI ecosystem across features, approach, and use cases."
+description: >-
+  Comparing Anthropic's direct AI platform with Google Cloud's partner-driven AI
+  ecosystem across features, approach, and use cases.
 item_a: Anthropic
 item_b: Google AI Partnerships
 category: frameworks
-related_glossary: [ai-safety, agentic-coding]
-related_blog: [anthropic-linux-foundation-open-source-security, google-ai-open-source-security-tools]
+related_glossary:
+  - ai-safety
+  - agentic-coding
+related_blog:
+  - anthropic-linux-foundation-open-source-security
+  - google-ai-open-source-security-tools
 lang: en
 ---
 
@@ -16,11 +22,11 @@ lang: en
 
 ## Feature Comparison
 
-| Feature | Anthropic (Direct Platform) | Google AI Partnerships |
+| Feature | Anthropic (Direct Platform) | [Google AI](/blog/tensorflow-trending-2026) Partnerships |
 |---------|----------------------------|----------------------|
-| **Core offering** | Claude API + Agent SDK + Claude Code | Partner-delivered AI solutions on Google Cloud |
-| **AI models** | Claude Opus 4.6, Sonnet 4.6, Haiku 4.5 | Gemini + partner models (including Claude via Vertex AI) |
-| **Developer tools** | Messages API, Agent SDK, MCP servers | Vertex AI, GKE, Cloud Run + partner tooling |
+| **Core offering** | Claude API + [Agent SDK](/glossary/agent-sdk) + [Claude Code](/blog/claude-code-complete-guide) | Partner-delivered AI solutions on Google Cloud |
+| **AI models** | [Claude Opus 4.6](/blog/claude-1-million-context-window-ga), Sonnet 4.6, Haiku 4.5 | Gemini + partner models (including Claude via Vertex AI) |
+| **Developer tools** | Messages API, Agent SDK, [MCP](/glossary/mcp) servers | Vertex AI, GKE, Cloud Run + partner tooling |
 | **Integration approach** | Direct API integration, self-built | Pre-built solutions from certified partners |
 | **Enterprise support** | Workspaces, Admin API, data residency | Full Google Cloud support + partner SLAs |
 | **Focus** | [AI safety](/glossary/ai-safety), model quality | Ecosystem breadth, industry-specific solutions |

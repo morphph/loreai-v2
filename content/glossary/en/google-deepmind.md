@@ -1,19 +1,25 @@
 ---
-title: "Google DeepMind — AI Glossary"
+title: Google DeepMind — AI Glossary
 slug: google-deepmind
-description: "What is Google DeepMind? Google's primary AI research lab behind Gemini, AlphaFold, and foundational advances in deep learning."
+description: >-
+  What is Google DeepMind? Google's primary AI research lab behind Gemini,
+  AlphaFold, and foundational advances in deep learning.
 term: google-deepmind
-display_term: "Google DeepMind"
+display_term: Google DeepMind
 category: models
-related_glossary: [gpt, fine-tuning, chatgpt]
-related_blog: [anthropic-distillation-attacks-deepseek-moonshot-minimax]
+related_glossary:
+  - gpt
+  - fine-tuning
+  - chatgpt
+related_blog:
+  - anthropic-distillation-attacks-deepseek-moonshot-minimax
 related_compare: []
 lang: en
 ---
 
 # Google DeepMind — AI Glossary
 
-**Google DeepMind** is Google's central AI research laboratory, formed in April 2023 by merging DeepMind (founded 2010, acquired by Google in 2014) and Google Brain. It develops frontier AI models — including the Gemini family — and conducts fundamental research across deep learning, reinforcement learning, and scientific AI applications like protein structure prediction.
+**[Google DeepMind](/blog/gemini-3-1-pro-complex-tasks)** is Google's central AI research laboratory, formed in April 2023 by merging [DeepMind](/glossary/deepmind) (founded 2010, acquired by Google in 2014) and Google Brain. It develops frontier AI models — including the Gemini family — and conducts fundamental research across deep learning, [reinforcement learning](/glossary/reinforcement-learning), and scientific AI applications like protein structure prediction.
 
 ## Why Google DeepMind Matters
 
@@ -28,7 +34,7 @@ Google DeepMind operates as a unified research-and-product organization under CE
 - **Frontier language models**: The Gemini series (Ultra, Pro, Flash) — multimodal models trained on text, image, audio, and video
 - **Scientific AI**: AlphaFold for protein folding, AlphaGeometry for mathematical reasoning, weather prediction models
 - **Reinforcement learning**: Pioneered deep RL with AlphaGo (2016), which defeated the world Go champion — a landmark moment for AI
-- **AI safety**: Research on alignment, interpretability, and responsible deployment, including structured evaluation frameworks for frontier models
+- **[AI safety](/glossary/ai-safety)**: Research on alignment, interpretability, and responsible deployment, including structured evaluation frameworks for frontier models
 
 The lab benefits from access to Google's massive compute infrastructure (TPU clusters) and proprietary data, giving it a scale advantage few organizations can match.
 

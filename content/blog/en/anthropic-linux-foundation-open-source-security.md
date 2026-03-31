@@ -1,16 +1,29 @@
 ---
-title: "Anthropic Donates to the Linux Foundation to Secure Open Source in the AI Era"
-date: 2026-03-19
+title: Anthropic Donates to the Linux Foundation to Secure Open Source in the AI Era
+date: 2026-03-19T00:00:00.000Z
 slug: anthropic-linux-foundation-open-source-security
-description: "Anthropic joins the Linux Foundation's funding effort to secure open source infrastructure as AI systems increasingly depend on community-maintained code."
-keywords: ["Anthropic Linux Foundation", "open source security", "AI infrastructure", "software supply chain"]
+description: >-
+  Anthropic joins the Linux Foundation's funding effort to secure open source
+  infrastructure as AI systems increasingly depend on community-maintained code.
+keywords:
+  - Anthropic Linux Foundation
+  - open source security
+  - AI infrastructure
+  - software supply chain
 category: PRODUCT
-related_newsletter: 2026-03-19
-related_glossary: [anthropic, open-source-ai]
-related_compare: [anthropic-vs-openai-open-source, openssf-scorecard-vs-slsa, open-source-security-vs-proprietary-security]
+related_newsletter: 2026-03-19T00:00:00.000Z
+related_glossary:
+  - anthropic
+  - open-source-ai
+related_compare:
+  - anthropic-vs-openai-open-source
+  - openssf-scorecard-vs-slsa
+  - open-source-security-vs-proprietary-security
 lang: en
 video_ready: true
-video_hook: "Every frontier AI model runs on open source code — and Anthropic just put money behind securing it"
+video_hook: >-
+  Every frontier AI model runs on open source code — and Anthropic just put
+  money behind securing it
 video_status: none
 ---
 
@@ -30,7 +43,7 @@ The timing coincides with a broader industry trend. OpenAI recently launched its
 
 ## Why It Matters
 
-The relationship between AI companies and open source is fundamentally asymmetric. Every major AI lab — Anthropic, OpenAI, Google DeepMind — builds on PyTorch or JAX, runs on Linux, deploys through NGINX or Envoy, and manages dependencies through thousands of open source packages. The value extracted is enormous. The value returned has historically been modest.
+The relationship between AI companies and open source is fundamentally asymmetric. Every major AI lab — Anthropic, OpenAI, [Google DeepMind](/blog/gemini-3-1-pro-complex-tasks) — builds on PyTorch or JAX, runs on Linux, deploys through NGINX or Envoy, and manages dependencies through thousands of open source packages. The value extracted is enormous. The value returned has historically been modest.
 
 Security is where this asymmetry gets dangerous. The [Log4Shell vulnerability](https://en.wikipedia.org/wiki/Log4Shell) in 2021 demonstrated what happens when a critical library maintained by two volunteers has a flaw. The [XZ Utils backdoor](https://en.wikipedia.org/wiki/XZ_Utils_backdoor) in 2024 showed that even sophisticated supply chain attacks can target small projects with outsized impact.
 

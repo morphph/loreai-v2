@@ -1,12 +1,15 @@
 ---
-title: "Cursor — AI 术语表"
+title: Cursor — AI 术语表
 slug: cursor
-description: "什么是 Cursor？基于 VS Code 的 AI 代码编辑器，深度集成大语言模型辅助开发。"
+description: 什么是 Cursor？基于 VS Code 的 AI 代码编辑器，深度集成大语言模型辅助开发。
 term: cursor
-display_term: "Cursor"
+display_term: Cursor
 category: tools
-related_glossary: [claude-code, gpt-54]
-related_blog: [claude-code-voice-mode]
+related_glossary:
+  - claude-code
+  - gpt-54
+related_blog:
+  - claude-code-voice-mode
 related_compare: []
 lang: zh
 ---
@@ -25,7 +28,7 @@ lang: zh
 
 Cursor 在 VS Code 的基础上增加了三层 AI 能力：
 
-- **Tab 补全**：基于当前文件和项目上下文，预测并补全多行代码，类似 GitHub Copilot 但上下文理解更深
+- **Tab 补全**：基于当前文件和项目上下文，预测并补全多行代码，类似 [GitHub Copilot](/zh/glossary/github-[copilot](/zh/glossary/copilot)) 但上下文理解更深
 - **Cmd+K 内联编辑**：选中代码段后输入指令，模型生成修改建议并以 diff 形式展示
 - **Chat 侧边栏**：对话式交互，可引用当前文件、符号或整个代码库回答问题
 

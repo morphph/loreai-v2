@@ -1,16 +1,17 @@
 ---
-title: "咨询公司如何加入 Claude Partner Network？"
+title: 咨询公司如何加入 Claude Partner Network？
 slug: how-do-consulting-firms-join-the-claude-partner-network
-description: "咨询公司可通过 Anthropic 官方合作伙伴计划申请加入 Claude Partner Network，获取技术支持与市场资源。"
+description: 咨询公司可通过 Anthropic 官方合作伙伴计划申请加入 Claude Partner Network，获取技术支持与市场资源。
 category: frameworks
-related_glossary: [ai-safety]
+related_glossary:
+  - ai-safety
 related_blog: []
 lang: zh
 ---
 
 # 咨询公司如何加入 Claude Partner Network？
 
-咨询公司需要通过 **Anthropic** 官方渠道提交合作申请，经过资质审核后加入 **Claude Partner Network**。该计划面向具备企业级 AI 落地能力的咨询与系统集成公司，帮助它们将 Claude 集成到客户的业务流程中。
+咨询公司需要通过 **Anthropic** 官方渠道提交合作申请，经过资质审核后加入 **[Claude Partner Network](/zh/blog/anthropic-claude-partner-network-100-million)**。该计划面向具备企业级 AI 落地能力的咨询与系统集成公司，帮助它们将 Claude 集成到客户的业务流程中。
 
 ## 背景
 

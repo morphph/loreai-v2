@@ -1,15 +1,17 @@
 ---
-title: "OpenAI Launches Codex for Open Source: Free Pro Tools for Maintainers"
+title: 'OpenAI Launches Codex for Open Source: Free Pro Tools for Maintainers'
 slug: codex-for-open-source
-description: "OpenAI's Codex for Open Source program gives maintainers free ChatGPT Pro, API credits, and Codex Security. Here's what it means."
+description: >-
+  OpenAI's Codex for Open Source program gives maintainers free ChatGPT Pro, API
+  credits, and Codex Security. Here's what it means.
 lang: en
 category: tools
-date: 2026-03-23
+date: 2026-03-23T00:00:00.000Z
 ---
 
 # OpenAI Launches Codex for Open Source: Free Pro Tools for Maintainers
 
-OpenAI launched **Codex for Open Source** in March 2026, a program providing free access to premium AI tooling — ChatGPT Pro, API credits, and **Codex Security** — for open-source maintainers. The move mirrors Anthropic's own "Claude for Open Source" initiative and signals that frontier AI labs now view the open-source ecosystem as a critical battleground for developer mindshare.
+OpenAI launched **[Codex](/blog/codex-complete-guide) for Open Source** in March 2026, a program providing free access to premium AI tooling — [ChatGPT](/glossary/chatgpt) Pro, API credits, and **Codex Security** — for open-source maintainers. The move mirrors Anthropic's own "Claude for Open Source" initiative and signals that frontier AI labs now view the open-source ecosystem as a critical battleground for developer mindshare.
 
 ## What Codex for Open Source Includes
 
@@ -29,7 +31,7 @@ This pattern — major AI vendors competing to sponsor critical open-source infr
 
 ## The Technical Stack Behind It
 
-Codex for Open Source sits on top of OpenAI's updated technical infrastructure. The **Codex App Server** uses a bidirectional JSON-RPC protocol to coordinate agentic workflows, and the underlying **GPT-5.4** model introduces several capabilities relevant to open-source work:
+Codex for Open Source sits on top of OpenAI's updated technical infrastructure. The **Codex App Server** uses a bidirectional JSON-RPC protocol to coordinate [agentic workflows](/blog/openai-computer-access-agents-lessons), and the underlying **[GPT-5.4](/glossary/gpt-54)** model introduces several capabilities relevant to open-source work:
 
 - **Native compaction**: Long repository context gets compressed intelligently rather than truncated
 - **Computer-use**: The model can interact with GUIs, not just text interfaces
@@ -39,7 +41,7 @@ This architecture reflects the industry's shift away from inline autocomplete to
 
 ## Is Codex Open Source Itself?
 
-This is where things get murkier. "Codex for Open Source" is a *program targeting* the open-source community — not an open-source release of the Codex model or tooling. The underlying models remain proprietary. OpenAI's original Codex model (which powered early GitHub Copilot) was never fully open-sourced, and the current generation of tooling follows the same pattern.
+This is where things get murkier. "Codex for Open Source" is a *program targeting* the open-source community — not an open-source release of the Codex model or tooling. The underlying models remain proprietary. OpenAI's original Codex model (which powered early [GitHub Copilot](/glossary/github-copilot)) was never fully open-sourced, and the current generation of tooling follows the same pattern.
 
 For maintainers looking for fully open-source alternatives, tools like **Aider**, **Tabby**, and **FauxPilot** exist in this space — though they operate at a different capability level than GPT-5.4-powered tooling.
 

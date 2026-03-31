@@ -1,15 +1,15 @@
 ---
-title: "深入解析 git worktree add：并行开发的底层架构"
+title: 深入解析 git worktree add：并行开发的底层架构
 slug: anatomy-of-git-worktree-add
-description: "git worktree add 如何在共享对象数据库的同时隔离工作目录？本文拆解其架构原理与 AI 编程工具中的实际应用。"
+description: git worktree add 如何在共享对象数据库的同时隔离工作目录？本文拆解其架构原理与 AI 编程工具中的实际应用。
 category: tools
 lang: zh
-date: 2026-03-30
+date: 2026-03-30T00:00:00.000Z
 ---
 
 # 深入解析 git worktree add：并行开发的底层架构
 
-**`git worktree add`** 是 Git 2.5（2015年7月）引入的命令，它解决了一个长期困扰开发者的问题：如何在同一个仓库里同时处理多个上下文，而不依赖 `git stash` 或克隆整个仓库。到了 2020 年代中期，随着 Claude Code、OpenAI Codex 等 Agentic AI 编程工具的兴起，这个曾经的小众功能突然成为并行 AI Agent 的基础设施标配。
+**`[git worktree add](/zh/blog/git-worktree-add)`** 是 Git 2.5（2015年7月）引入的命令，它解决了一个长期困扰开发者的问题：如何在同一个仓库里同时处理多个上下文，而不依赖 `git stash` 或克隆整个仓库。到了 2020 年代中期，随着 [Claude Code](/zh/blog/9-principles-writing-claude-code-skills)、[OpenAI Codex](/zh/blog/codex-complete-guide) 等 [Agentic](/zh/glossary/agentic) AI 编程工具的兴起，这个曾经的小众功能突然成为并行 [AI Agent](/zh/blog/effective-harnesses-for-long-running-agents) 的基础设施标配。
 
 ## 2015 年之前：`git-new-workdir` 的过渡时代
 

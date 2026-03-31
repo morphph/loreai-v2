@@ -1,17 +1,25 @@
 ---
-title: "How to use MCP with Claude Code?"
+title: How to use MCP with Claude Code?
 slug: claude-code-mcp-setup
-description: "Configure MCP servers in Claude Code's settings to connect the agent to external tools, databases, and APIs through a standardized protocol."
+description: >-
+  Configure MCP servers in Claude Code's settings to connect the agent to
+  external tools, databases, and APIs through a standardized protocol.
 category: tools
-related_glossary: [model-context-protocol, claude-code, agentic-coding]
-related_blog: [mcp-vs-cli-vs-skills-extend-claude-code, claude-code-extension-stack-skills-hooks-agents-mcp]
+related_glossary:
+  - model-context-protocol
+  - claude-code
+  - agentic-coding
+related_blog:
+  - mcp-vs-cli-vs-skills-extend-claude-code
+  - claude-code-extension-stack-skills-hooks-agents-mcp
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # How to use MCP with Claude Code?
 
-MCP, or Model Context Protocol, lets Claude Code connect to external tools and data sources through standardized servers. You configure MCP servers in Claude Code's settings file, and the agent can then invoke those tools during agentic sessions to read databases, call APIs, or interact with third-party services.
+[MCP](/glossary/mcp), or [Model Context Protocol](/topics/model-context-protocol), lets [Claude Code](/blog/lessons-from-building-claude-code-agent-tools) connect to external tools and data sources through standardized servers. You configure MCP servers in Claude Code's settings file, and the agent can then invoke those tools during [agentic](/glossary/agentic) sessions to read databases, call APIs, or interact with third-party services.
 
 ## Context
 
@@ -28,7 +36,7 @@ A common misconception is that MCP replaces other Claude Code extension mechanis
 3. Add the server configuration to your Claude Code settings (project-level `.mcp.json` or global config) specifying the server command, arguments, and any required environment variables
 4. Restart Claude Code so it discovers the new MCP server on startup
 5. Verify the connection by asking Claude Code to list its available tools — the MCP server's tools should appear
-6. Use the tools naturally in conversation; Claude Code will invoke MCP tools when they are relevant to your request
+6. Use the tools naturally in conversation; Claude Code will invoke [MCP tools](/blog/claude-code-seven-programmable-layers) when they are relevant to your request
 
 For the full picture on extending Claude Code, visit the [extension stack deep dive](/blog/claude-code-extension-stack-skills-hooks-agents-mcp), the [complete guide to Claude Code](/blog/claude-code-complete-guide), and the [Claude Code topic hub](/topics/claude-code).
 

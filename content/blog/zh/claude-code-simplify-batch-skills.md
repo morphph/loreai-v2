@@ -1,23 +1,31 @@
 ---
-title: "Claude Code 新技能 /simplify 和 /batch：代码审查和批量操作的效率飞跃"
-date: 2026-03-08
+title: Claude Code 新技能 /simplify 和 /batch：代码审查和批量操作的效率飞跃
+date: 2026-03-08T00:00:00.000Z
 slug: claude-code-simplify-batch-skills
-description: "Claude Code 即将上线 /simplify 和 /batch 两个内置 Skills，分别解决代码精简和批量文件操作的痛点。实测体验和使用建议。"
-keywords: ["Claude Code skills", "/simplify", "/batch", "Claude Code 新功能", "AI 编程工具"]
+description: Claude Code 即将上线 /simplify 和 /batch 两个内置 Skills，分别解决代码精简和批量文件操作的痛点。实测体验和使用建议。
+keywords:
+  - Claude Code skills
+  - /simplify
+  - /batch
+  - Claude Code 新功能
+  - AI 编程工具
 category: DEV
-related_newsletter: 2026-03-08
-related_glossary: [claude-code, skill-md]
+related_newsletter: 2026-03-08T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - skill-md
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: zh
 video_ready: true
-video_hook: "Claude Code 两个新 Skill，让 PR 从提交到合并快一倍"
+video_hook: Claude Code 两个新 Skill，让 PR 从提交到合并快一倍
 video_status: none
 ---
 
 # Claude Code 新技能 /simplify 和 /batch：代码审查和批量操作的效率飞跃
 
-**Claude Code** 团队宣布下一版本将内置两个新 Skills：**/simplify** 和 **/batch**。前者自动审查代码变更，精简冗余、提升质量；后者对多个文件批量执行同一操作。这两个功能直击日常开发中最耗时的两个环节 — 把 PR 打磨到可合并状态，以及在大量文件上重复执行相似操作。如果你每天都在用 Claude Code 写代码，这两个 Skill 会显著改变你的工作流。
+**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 团队宣布下一版本将内置两个新 Skills：**/simplify** 和 **/batch**。前者自动审查代码变更，精简冗余、提升质量；后者对多个文件批量执行同一操作。这两个功能直击日常开发中最耗时的两个环节 — 把 PR 打磨到可合并状态，以及在大量文件上重复执行相似操作。如果你每天都在用 Claude Code 写代码，这两个 Skill 会显著改变你的工作流。
 
 ## 发生了什么
 
@@ -37,7 +45,7 @@ Claude Code 工程负责人 Boris Cherny 在推特上[宣布](https://x.com/bche
 
 `/batch` 解决的则是另一个痛点：大规模重构。在一个几百个文件的项目里，把所有 `console.log` 换成结构化日志，或者给所有 API 路由加上统一的错误处理，传统做法要么写脚本，要么用 IDE 的查找替换再逐个检查。`/batch` 让你用自然语言描述意图，AI 理解语义后批量执行。
 
-从竞品角度看，[Cursor](/glossary/cursor) 和 GitHub Copilot 目前都没有类似的内置工作流 Skill。Cursor 的 Tab 补全和 Cmd+K 编辑聚焦在单点操作，没有"审查整个 PR 并优化"这个粒度的功能。`/simplify` 和 `/batch` 让 Claude Code 在工作流层面拉开了差距。
+从竞品角度看，[Cursor](/glossary/cursor) 和 [GitHub Copilot](/zh/glossary/github-[copilot](/zh/glossary/copilot)) 目前都没有类似的内置工作流 Skill。[Cursor](/zh/glossary/cursor) 的 Tab 补全和 Cmd+K 编辑聚焦在单点操作，没有"审查整个 PR 并优化"这个粒度的功能。`/simplify` 和 `/batch` 让 Claude Code 在工作流层面拉开了差距。
 
 更深层的意义在于，这证明了 Skills 系统的可扩展性。Anthropic 不只是把 Skills 作为用户自定义的配置机制，还在用它来交付官方的工作流功能。未来大概率会看到更多内置 Skill。
 

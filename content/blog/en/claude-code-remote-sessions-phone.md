@@ -1,22 +1,29 @@
 ---
-title: "Launch Claude Code on Your Laptop From Your Phone: Remote Sessions Are Here"
-date: 2026-03-17
+title: 'Launch Claude Code on Your Laptop From Your Phone: Remote Sessions Are Here'
+date: 2026-03-17T00:00:00.000Z
 slug: claude-code-remote-sessions-phone
-description: "Claude Code now lets you launch coding sessions on your laptop directly from your phone, enabling remote AI-powered development from anywhere."
-keywords: ["Claude Code remote sessions", "Claude Code mobile", "Claude Code phone control"]
+description: >-
+  Claude Code now lets you launch coding sessions on your laptop directly from
+  your phone, enabling remote AI-powered development from anywhere.
+keywords:
+  - Claude Code remote sessions
+  - Claude Code mobile
+  - Claude Code phone control
 category: DEV
-related_newsletter: 2026-03-17
-related_glossary: [claude-code]
-related_compare: [claude-code-vs-cursor]
+related_newsletter: 2026-03-17T00:00:00.000Z
+related_glossary:
+  - claude-code
+related_compare:
+  - claude-code-vs-cursor
 lang: en
 video_ready: true
-video_hook: "You can now start a Claude Code session on your laptop — from your phone"
+video_hook: You can now start a Claude Code session on your laptop — from your phone
 video_status: none
 ---
 
 # Launch Claude Code on Your Laptop From Your Phone: Remote Sessions Are Here
 
-**Claude Code** now supports launching sessions on your laptop directly from your phone. [Announced by Boris Cherny](https://x.com/bcherny/status/2032578639276159438), an engineer at Anthropic, this feature turns your mobile device into a remote trigger for your development environment. You're on the train, you think of a fix, you kick off a Claude Code session on your workstation — no laptop required. It's a small UX addition that changes when and where serious AI-assisted development can happen.
+**[Claude Code](/blog/claude-code-complete-guide)** now supports launching sessions on your laptop directly from your phone. [Announced by Boris Cherny](https://x.com/bcherny/status/2032578639276159438), an engineer at Anthropic, this feature turns your mobile device into a remote trigger for your development environment. You're on the train, you think of a fix, you kick off a Claude Code session on your workstation — no laptop required. It's a small UX addition that changes when and where serious AI-assisted development can happen.
 
 ## What Happened
 
@@ -34,7 +41,7 @@ Most developers already use Claude Code for tasks that take minutes to complete:
 
 Remote session launch removes that bottleneck. Combined with the new `/loop` scheduler, you can imagine a workflow where you kick off a Claude Code session from your phone during your morning commute, have it run a series of tasks on a schedule, and review the results when you sit down at your desk. The development machine becomes an always-available compute endpoint for AI-assisted work.
 
-This also matters competitively. [Cursor](/glossary/cursor) and GitHub Copilot are IDE-bound — they require you to be inside the editor. Microsoft's recently announced Copilot Cowork operates in a cloud sandbox. Claude Code's approach is different: it runs in *your* environment with *your* tools, and now you can trigger it remotely. For developers who've invested in local toolchains, custom scripts, and specific machine configurations, that's a meaningful advantage.
+This also matters competitively. [Cursor](/glossary/cursor) and [GitHub Copilot](/glossary/github-[copilot](/glossary/copilot)) are IDE-bound — they require you to be inside the editor. Microsoft's recently announced Copilot Cowork operates in a cloud sandbox. Claude Code's approach is different: it runs in *your* environment with *your* tools, and now you can trigger it remotely. For developers who've invested in local toolchains, custom scripts, and specific machine configurations, that's a meaningful advantage.
 
 The security model deserves attention here. Running an AI agent with full filesystem and terminal access, triggered remotely, requires robust authentication. Anthropic hasn't published detailed documentation on the security architecture yet, but any production use should carefully evaluate the authentication and authorization mechanisms before enabling remote access to development machines.
 

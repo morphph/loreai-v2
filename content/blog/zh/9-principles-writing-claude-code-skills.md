@@ -1,16 +1,25 @@
 ---
-title: "Claude Code Skills 最佳实践：从结构设计到生产级落地"
-date: 2026-03-18
+title: Claude Code Skills 最佳实践：从结构设计到生产级落地
+date: 2026-03-18T00:00:00.000Z
 slug: 9-principles-writing-claude-code-skills
-description: "Anthropic 工程师总结的 Claude Code Skills 设计指南：9 大类型、4 个结构原则、5 个生产级技巧，让 AI 编码助手不再重复犯错。"
-keywords: ["Claude Code", "Skills", "SKILL.md", "AI 编码", "Anthropic"]
+description: >-
+  Anthropic 工程师总结的 Claude Code Skills 设计指南：9 大类型、4 个结构原则、5 个生产级技巧，让 AI
+  编码助手不再重复犯错。
+keywords:
+  - Claude Code
+  - Skills
+  - SKILL.md
+  - AI 编码
+  - Anthropic
 category: DEV
-related_newsletter: 2026-03-18
-related_glossary: [claude-code, ai-coding-assistant]
+related_newsletter: 2026-03-18T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - ai-coding-assistant
 related_compare: []
 lang: zh
 video_ready: true
-video_hook: "一个 Markdown 文件，让 Claude 永远不再犯同样的错"
+video_hook: 一个 Markdown 文件，让 Claude 永远不再犯同样的错
 video_status: published
 source_type: video
 flow_source: manual-curate
@@ -18,7 +27,7 @@ flow_source: manual-curate
 
 # Claude Code Skills 最佳实践：从结构设计到生产级落地
 
-你用 **Claude Code** 写退款接口，它把 invoice ID 传进去了，你纠正了，第二天同样的错误又来。一个 Markdown 文件就能让它永远记住——这就是 SKILL.md。Anthropic 工程师 Thariq 发布了一份 Skills 设计指南，覆盖 9 大类型、4 个结构原则和 5 个生产级技巧。这篇文章帮你一次读透。
+你用 **[Claude Code](/zh/blog/agent-harnesses-2026)** 写退款接口，它把 invoice ID 传进去了，你纠正了，第二天同样的错误又来。一个 Markdown 文件就能让它永远记住——这就是 SKILL.md。Anthropic 工程师 Thariq 发布了一份 Skills 设计指南，覆盖 9 大类型、4 个结构原则和 5 个生产级技巧。这篇文章帮你一次读透。
 
 ## 发生了什么
 
@@ -52,7 +61,7 @@ SKILL.md 解决的是 **[AI 编码助手](/glossary/ai-coding-assistant)** 最�
 
 **Build a Gotchas Section**——这是最有价值的部分。以 billing Skill 为例：第 1 天 Gotchas 为空；第 2 周加了一条"退款向下取整，不是四舍五入"；到第 3 个月积累了 4 条，包括"幂等 key 过期是 24 小时不是 7 天""退款要用 charge ID 不是 invoice ID"。每次 Claude 犯错就加一行，清单越来越值钱。
 
-**Progressive Disclosure**——采用 hub-and-spoke 模式。SKILL.md 只有 30 行，像分诊台：任务 pending 去读 `stuck-jobs.md`，消息进死信队列去读 `dead-letters.md`。Claude 只加载需要的上下文。
+**[Progressive Disclosure](/zh/blog/lessons-from-building-claude-code-agent-tools)**——采用 hub-and-spoke 模式。SKILL.md 只有 30 行，像分诊台：任务 pending 去读 `stuck-jobs.md`，消息进死信队列去读 `dead-letters.md`。Claude 只加载需要的上下文。
 
 **Don't Railroad**——不要规定每一步。cherry-pick 的好写法只有一句话："挑到干净分支，保留意图，搞不定就说原因。"给目标，不给脚本。
 

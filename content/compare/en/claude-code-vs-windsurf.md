@@ -1,15 +1,24 @@
 ---
-title: "Claude Code vs Windsurf: Which AI Coding Tool Should You Use?"
+title: 'Claude Code vs Windsurf: Which AI Coding Tool Should You Use?'
 slug: claude-code-vs-windsurf
-description: "Comparing Claude Code and Windsurf across features, workflows, and architecture — terminal agent vs agentic IDE."
+description: >-
+  Comparing Claude Code and Windsurf across features, workflows, and
+  architecture — terminal agent vs agentic IDE.
 item_a: Claude Code
 item_b: Windsurf
 category: tools
-related_glossary: [claude-code, agentic, anthropic]
-related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
-related_compare: [claude-code-vs-cursor]
+related_glossary:
+  - claude-code
+  - agentic
+  - anthropic
+related_blog:
+  - claude-code-extension-stack-skills-hooks-agents-mcp
+  - claude-code-agent-teams
+related_compare:
+  - claude-code-vs-cursor
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code vs Windsurf: Which AI Coding Tool Should You Use?
@@ -18,17 +27,17 @@ related_topics: [claude-code]
 
 ## Feature Comparison
 
-| Feature | Claude Code | Windsurf |
+| Feature | [Claude Code](/blog/lessons-from-building-claude-code-agent-tools) | [Windsurf](/glossary/windsurf) |
 |---------|-------------|---------|
 | **Architecture** | Terminal-based autonomous agent | VS Code fork with AI layer |
 | **Primary interface** | CLI + IDE extensions + desktop app + web | Desktop IDE |
-| **Agentic capability** | Full: plans, edits, runs commands, commits | Cascade: contextual multi-step suggestions |
+| **[Agentic](/topics/agentic) capability** | Full: plans, edits, runs commands, commits | Cascade: contextual multi-step suggestions |
 | **Autocomplete** | Not the focus — operates at task level | Core feature with Tab and Supercomplete |
 | **Multi-file editing** | Native — plans and executes across entire codebase | Supported through Cascade |
 | **Shell access** | Full shell execution with user approval | Terminal command generation via Cmd+I |
 | **Live preview** | No built-in preview | Windsurf Previews — click-to-edit in IDE |
-| **MCP support** | Yes — connects to external tools and data sources | Yes — custom tools and services |
-| **Project context** | CLAUDE.md files + auto memory + skills | Deep codebase indexing |
+| **[MCP](/glossary/mcp) support** | Yes — connects to external tools and data sources | Yes — custom tools and services |
+| **Project context** | CLAUDE.md files + [auto memory](/blog/claude-code-memory) + skills | Deep codebase indexing |
 | **Linter integration** | Runs linters via shell | Auto-fixes linter errors in generated code |
 | **Agent teams** | Spawns sub-agents for parallel tasks | Not documented |
 | **Git integration** | Stages, commits, creates PRs, pushes | Not explicitly documented |

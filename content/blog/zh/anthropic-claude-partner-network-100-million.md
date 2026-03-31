@@ -1,16 +1,24 @@
 ---
-title: "Anthropic 砸 1 亿美元建 Claude 合作伙伴网络，企业 AI 落地进入加速期"
-date: 2026-03-17
+title: Anthropic 砸 1 亿美元建 Claude 合作伙伴网络，企业 AI 落地进入加速期
+date: 2026-03-17T00:00:00.000Z
 slug: anthropic-claude-partner-network-100-million
-description: "Anthropic 宣布投入 1 亿美元建设 Claude Partner Network，提供技术认证、专属工程师支持和联合市场开发，推动企业级 AI 大规模落地。"
-keywords: ["Claude Partner Network", "Anthropic 企业合作", "Claude 企业落地", "AI 咨询生态"]
+description: >-
+  Anthropic 宣布投入 1 亿美元建设 Claude Partner Network，提供技术认证、专属工程师支持和联合市场开发，推动企业级 AI
+  大规模落地。
+keywords:
+  - Claude Partner Network
+  - Anthropic 企业合作
+  - Claude 企业落地
+  - AI 咨询生态
 category: PRODUCT
-related_newsletter: 2026-03-17
-related_glossary: [claude, anthropic]
+related_newsletter: 2026-03-17T00:00:00.000Z
+related_glossary:
+  - claude
+  - anthropic
 related_compare: []
 lang: zh
 video_ready: true
-video_hook: "Anthropic 拿出 1 亿美元，不是投模型，是投人"
+video_hook: Anthropic 拿出 1 亿美元，不是投模型，是投人
 video_status: none
 ---
 
@@ -50,7 +58,7 @@ AI 模型的竞争正在从"谁更聪明"转向"谁能帮企业用起来"。
 
 **认证体系和 Partner Portal**——通过 Anthropic Academy 的标准化培训，确保合作伙伴团队对 Claude 的能力边界、[提示工程](/glossary/prompt-engineering)最佳实践和安全规范有一致的理解。认证也是面向客户的信任信号。
 
-值得一提的是，Anthropic 同步在强化 Claude 的产品生态。最近几周，Claude 上线了[交互式图表和图表功能](https://x.com/adocomplete/status/2032125588677542165)、Excel 和 PowerPoint 联动、**Claude Code** 的 Code Review 多 Agent 系统和内置定时任务。这些产品能力的提升，配合合作伙伴网络的落地支持，形成了"模型能力 + 产品工具 + 实施服务"的完整链条。
+值得一提的是，Anthropic 同步在强化 Claude 的产品生态。最近几周，Claude 上线了[交互式图表和图表功能](https://x.com/adocomplete/status/2032125588677542165)、Excel 和 PowerPoint 联动、**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 的 Code Review 多 Agent 系统和内置定时任务。这些产品能力的提升，配合合作伙伴网络的落地支持，形成了"模型能力 + 产品工具 + 实施服务"的完整链条。
 
 ## 你现在该做什么
 

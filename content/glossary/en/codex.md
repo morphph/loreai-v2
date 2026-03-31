@@ -1,20 +1,25 @@
 ---
-title: "Codex — AI Glossary"
+title: Codex — AI Glossary
 slug: codex
-description: "What is Codex? OpenAI's code-generation AI model powering GitHub Copilot and developer tools."
+description: >-
+  What is Codex? OpenAI's code-generation AI model powering GitHub Copilot and
+  developer tools.
 term: codex
-display_term: "Codex"
+display_term: Codex
 category: models
-related_glossary: [agentic, claude-code]
+related_glossary:
+  - agentic
+  - claude-code
 related_blog: []
 related_compare: []
 lang: en
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # Codex — AI Glossary
 
-**Codex** is OpenAI's AI model specialized for code generation and understanding. Originally released in 2021 as a descendant of GPT-3 fine-tuned on publicly available code, Codex became the backbone of GitHub Copilot and established the category of AI-powered coding assistants. It translates natural language prompts into functional code across dozens of programming languages, with particular strength in Python.
+**[Codex](/blog/codex-complete-guide)** is OpenAI's AI model specialized for code generation and understanding. Originally released in 2021 as a descendant of GPT-3 fine-tuned on publicly available code, Codex became the backbone of [GitHub Copilot](/glossary/github-[copilot](/glossary/copilot)) and established the category of AI-powered coding assistants. It translates natural language prompts into functional code across dozens of programming languages, with particular strength in Python.
 
 ## Why Codex Matters
 
@@ -24,7 +29,7 @@ The model demonstrated that fine-tuning large language models on domain-specific
 
 ## How Codex Works
 
-Codex was built by fine-tuning GPT-3 on a large corpus of publicly available source code from GitHub. The training data included code in Python, JavaScript, TypeScript, Go, Ruby, and dozens of other languages, weighted toward Python where it performed best.
+Codex was built by [fine-tuning](/glossary/fine-tuning) GPT-3 on a large corpus of publicly available source code from GitHub. The training data included code in Python, JavaScript, TypeScript, Go, Ruby, and dozens of other languages, weighted toward Python where it performed best.
 
 Key technical details:
 
@@ -38,7 +43,7 @@ OpenAI has since retired the standalone Codex API, folding code generation capab
 ## Related Terms
 
 - **[Agentic](/glossary/agentic)**: The autonomous AI paradigm that evolved beyond Codex's single-turn code generation into multi-step task execution
-- **[Claude Code](/glossary/claude-code)**: Anthropic's terminal-based agentic coding tool, representing the next generation of AI-assisted development beyond autocomplete
+- **[Claude Code](/glossary/claude-code)**: Anthropic's terminal-based [agentic coding](/blog/claude-code-seven-programmable-layers) tool, representing the next generation of AI-assisted development beyond autocomplete
 - **[Claude](/glossary/claude)**: Anthropic's family of large language models with strong code understanding capabilities
 
 ---

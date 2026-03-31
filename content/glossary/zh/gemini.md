@@ -1,25 +1,28 @@
 ---
-title: "Gemini — AI 术语表"
+title: Gemini — AI 术语表
 slug: gemini
-description: "什么是 Gemini？Google DeepMind 开发的多模态大语言模型系列。"
+description: 什么是 Gemini？Google DeepMind 开发的多模态大语言模型系列。
 term: gemini
-display_term: "Gemini"
+display_term: Gemini
 category: models
-related_glossary: [claude, anthropic]
-related_blog: [anthropic-cowork-claude-desktop-agent]
+related_glossary:
+  - claude
+  - anthropic
+related_blog:
+  - anthropic-cowork-claude-desktop-agent
 related_compare: []
 lang: zh
 ---
 
 # Gemini — AI 术语表
 
-**Gemini** 是 Google DeepMind 推出的多模态大语言模型系列，能够同时处理文本、图像、音频、视频和代码。它是 Google 在 AI 领域的核心产品，直接集成到 Google Search、Workspace、Android 等产品生态中，也通过 API 向开发者开放。
+**Gemini** 是 [Google DeepMind](/zh/blog/gemini-3-1-pro-complex-tasks) 推出的多模态大语言模型系列，能够同时处理文本、图像、音频、视频和代码。它是 Google 在 AI 领域的核心产品，直接集成到 Google Search、Workspace、Android 等产品生态中，也通过 API 向开发者开放。
 
 ## 为什么 Gemini 重要
 
 Gemini 是当前大模型竞争格局中的关键玩家。与 [Anthropic](/glossary/anthropic) 的 [Claude](/glossary/claude) 和 OpenAI 的 GPT 系列并列，Gemini 构成了 AI 模型"三足鼎立"的局面。
 
-它的独特优势在于与 Google 生态的深度绑定——搜索、Gmail、Google Docs 都内置了 Gemini 能力，这意味着数十亿用户可以零门槛使用 AI。对开发者而言，Gemini 提供了从轻量级到旗舰级的完整模型矩阵，配合 Google Cloud 的基础设施，在企业级应用中具备强竞争力。关于 Anthropic 在智能体方向的最新动作，可以参考我们的[深度分析](/blog/anthropic-cowork-claude-desktop-agent)。
+它的独特优势在于与 Google 生态的深度绑定——搜索、Gmail、Google Docs 都内置了 Gemini 能力，这意味着数十亿用户可以零门槛使用 AI。对开发者而言，Gemini 提供了从轻量级到旗舰级的完整模型矩阵，配合 Google Cloud 的基础设施，在企业级应用中具备强竞争力。关于 Anthropic 在智能体方向的最新动作，可以参考我们的[深度分析](/blog/anthropic-[cowork](/zh/blog/anthropic-cowork-claude-desktop-agent)-claude-desktop-agent)。
 
 ## Gemini 的工作原理
 

@@ -1,14 +1,18 @@
 ---
-title: "Codex vs Windsurf：终端智能体与 AI 原生 IDE 的对决"
+title: Codex vs Windsurf：终端智能体与 AI 原生 IDE 的对决
 slug: codex-vs-windsurf
-description: "Codex 和 Windsurf 全方位对比：功能、定位与适用场景，帮你选对 AI 编程工具。"
+description: Codex 和 Windsurf 全方位对比：功能、定位与适用场景，帮你选对 AI 编程工具。
 item_a: Codex
 item_b: Windsurf
 category: tools
-related_glossary: [codex, agentic]
-related_blog: [codex-complete-guide]
+related_glossary:
+  - codex
+  - agentic
+related_blog:
+  - codex-complete-guide
 lang: zh
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # Codex vs Windsurf：终端智能体与 AI 原生 IDE 的对决
@@ -17,19 +21,19 @@ related_topics: [codex]
 
 ## 功能对比
 
-| 功能 | Codex | Windsurf |
+| 功能 | [Codex](/zh/blog/codex-complete-guide) | [Windsurf](/zh/glossary/windsurf) |
 |------|-------|----------|
 | **产品形态** | App / IDE 插件 / CLI / Web | VS Code 分支 IDE + 编辑器插件 |
 | **核心交互** | 任务描述 → 智能体自主执行 | Cascade 对话 + Tab 自动补全 |
 | **代码理解** | 读取整个代码库，适配项目结构 | Cascade 深度上下文感知 |
 | **多文件编辑** | 原生支持，含 Worktrees 隔离 | Cascade 内支持跨文件操作 |
 | **终端能力** | Shell 工具，支持沙箱环境 | 终端内 Cmd+I 自然语言指令 |
-| **MCP 支持** | 支持 MCP 及 Connectors | 支持 MCP 连接自定义工具 |
+| **[MCP](/zh/blog/claude-code-seven-programmable-layers) 支持** | 支持 MCP 及 Connectors | 支持 MCP 连接自定义工具 |
 | **子智能体** | 支持 Subagents 并行执行 | 未在公开资料中提及 |
 | **实时预览** | 未在公开资料中提及 | Windsurf Previews，IDE 内实时查看网页 |
 | **代码审查** | 内置 Review 和 Automations 功能 | Linter 集成，自动修复错误 |
 | **集成** | GitHub、Slack、Linear | 未在公开资料中详细说明 |
-| **配置体系** | AGENTS.md + Config + Skills + Rules | 编辑器设置 |
+| **配置体系** | AGENTS.md + Config + [Skills](/zh/blog/9-principles-writing-claude-code-skills) + Rules | 编辑器设置 |
 
 ## 什么时候该选 Codex
 

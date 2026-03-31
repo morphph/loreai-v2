@@ -1,15 +1,25 @@
 ---
-title: "Codex vs Claude Code: Which AI Coding Agent Should You Use?"
+title: 'Codex vs Claude Code: Which AI Coding Agent Should You Use?'
 slug: codex-vs-claude-code
-description: "Comparing Codex and Claude Code across features, pricing, and workflows for AI-powered software development in 2026."
+description: >-
+  Comparing Codex and Claude Code across features, pricing, and workflows for
+  AI-powered software development in 2026.
 item_a: Codex
 item_b: Claude Code
 category: tools
-related_glossary: [codex, claude-code, agentic, agent-teams]
-related_blog: [codex-complete-guide, claude-code-extension-stack-skills-hooks-agents-mcp]
+related_glossary:
+  - codex
+  - claude-code
+  - agentic
+  - agent-teams
+related_blog:
+  - codex-complete-guide
+  - claude-code-extension-stack-skills-hooks-agents-mcp
 lang: en
-date: 2026-03-31
-related_topics: [claude-code, codex]
+date: 2026-03-31T00:00:00.000Z
+related_topics:
+  - claude-code
+  - codex
 ---
 
 # Codex vs Claude Code: Which AI Coding Agent Should You Use?
@@ -20,11 +30,11 @@ related_topics: [claude-code, codex]
 
 ## Feature Comparison
 
-| Feature | Codex | Claude Code |
+| Feature | [Codex](/faq/codex) | [Claude Code](/blog/claude-code-complete-guide) |
 |---------|-------|-------------|
-| **Approach** | Agentic coding tool with sandboxed environments | Agentic coding tool with full shell access |
+| **Approach** | [Agentic coding](/blog/claude-code-seven-programmable-layers) tool with sandboxed environments | [Agentic](/topics/agentic) coding tool with full shell access |
 | **Interfaces** | App, IDE extension, CLI, Web | Terminal CLI, VS Code, JetBrains, Desktop app, Web, Mobile |
-| **Project instructions** | `AGENTS.md` configuration file | `CLAUDE.md` configuration file |
+| **Project instructions** | `AGENTS.md` configuration file | `[CLAUDE.md](/blog/claude-code-memory)` configuration file |
 | **Custom commands** | Skills system | Skills (custom slash commands) |
 | **Sub-agents** | Subagents for parallel tasks | Agent teams with lead agent coordination |
 | **Tool integrations** | MCP, Connectors, Shell, Computer Use, File Search | MCP servers, Hooks, Shell commands, Computer Use |

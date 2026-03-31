@@ -1,12 +1,16 @@
 ---
-title: "Aider — AI 术语表"
+title: Aider — AI 术语表
 slug: aider
-description: "什么是 Aider？开源终端 AI 结对编程工具，连接多种大模型直接编辑本地代码。"
+description: 什么是 Aider？开源终端 AI 结对编程工具，连接多种大模型直接编辑本地代码。
 term: aider
-display_term: "Aider"
+display_term: Aider
 category: tools
-related_glossary: [codex-cli, agentic, agent-teams]
-related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp]
+related_glossary:
+  - codex-cli
+  - agentic
+  - agent-teams
+related_blog:
+  - claude-code-extension-stack-skills-hooks-agents-mcp
 related_compare: []
 lang: zh
 ---
@@ -30,7 +34,7 @@ Aider 启动后会扫描当前 git 仓库的文件结构，构建项目上下文
 - **仓库映射（repo map）**：自动分析代码依赖关系，帮助模型理解跨文件引用
 - **多文件编辑**：单次对话可同时修改多个文件，处理涉及多模块的重构任务
 - **Git 集成**：每次编辑自动生成描述性 commit，保留完整变更历史
-- **模型无关**：支持 OpenAI、Anthropic、Google、本地 Ollama 等多种后端，通过命令行参数切换
+- **模型无关**：支持 OpenAI、Anthropic、Google、本地 [Ollama](/zh/glossary/ollama) 等多种后端，通过命令行参数切换
 
 ## 相关术语
 

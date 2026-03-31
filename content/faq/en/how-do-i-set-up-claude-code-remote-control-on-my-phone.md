@@ -1,12 +1,17 @@
 ---
-title: "How Do I Set Up Claude Code Remote Control on My Phone?"
+title: How Do I Set Up Claude Code Remote Control on My Phone?
 slug: claude-code-remote-control-phone
-description: "Set up Claude Code Remote Control to continue terminal sessions from your phone or any browser."
+description: >-
+  Set up Claude Code Remote Control to continue terminal sessions from your
+  phone or any browser.
 category: tools
-related_glossary: [agentic-coding]
-related_blog: [google-colab-mcp-server-cloud-gpu-ai-agents]
+related_glossary:
+  - agentic-coding
+related_blog:
+  - google-colab-mcp-server-cloud-gpu-ai-agents
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # How Do I Set Up Claude Code Remote Control on My Phone?
@@ -15,9 +20,9 @@ related_topics: [claude-code]
 
 ## Context
 
-Remote Control solves a common workflow problem: you kick off a long-running Claude Code task on your laptop, need to step away, and want to monitor or guide it from your phone. Instead of abandoning the session or waiting until you're back, Remote Control bridges the gap between your local terminal and a mobile browser.
+Remote Control solves a common workflow problem: you kick off a long-running [Claude Code](/blog/claude-code-complete-guide) task on your laptop, need to step away, and want to monitor or guide it from your phone. Instead of abandoning the session or waiting until you're back, Remote Control bridges the gap between your local terminal and a mobile browser.
 
-This is separate from running Claude Code fully on the web (at claude.ai/code) or through the Claude iOS app, which are standalone cloud sessions. Remote Control specifically connects to an already-running local terminal session. The feature is part of Anthropic's broader push to make Claude Code accessible across surfaces — terminal, VS Code, desktop app, web, and mobile — all sharing the same underlying engine, CLAUDE.md files, and MCP server configurations.
+This is separate from running Claude Code fully on the web (at claude.ai/code) or through the Claude iOS app, which are standalone cloud sessions. Remote Control specifically connects to an already-running local terminal session. The feature is part of Anthropic's broader push to make Claude Code accessible across surfaces — terminal, VS Code, desktop app, web, and mobile — all sharing the same underlying engine, [CLAUDE.md](/blog/claude-code-memory) files, and [MCP](/glossary/mcp) server configurations.
 
 For more on Claude Code's full capabilities, see the [Claude Code topic hub](/topics/claude-code).
 
@@ -33,7 +38,7 @@ For tasks where you want to start on mobile and finish locally (or vice versa), 
 
 ## Related Questions
 
-- [Claude Code vs Cursor: Which AI coding tool fits your workflow?](/compare/claude-code-vs-cursor)
+- [Claude Code vs [Cursor](/glossary/cursor): Which AI coding tool fits your workflow?](/compare/claude-code-vs-cursor)
 - [What can you build with MCP servers and Claude Code?](/blog/google-colab-mcp-server-cloud-gpu-ai-agents)
 
 ---

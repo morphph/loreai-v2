@@ -1,19 +1,23 @@
 ---
-title: "OpenAI — AI 术语表"
+title: OpenAI — AI 术语表
 slug: openai
-description: "什么是 OpenAI？全球最具影响力的人工智能研究公司之一，GPT 系列模型的创造者。"
+description: 什么是 OpenAI？全球最具影响力的人工智能研究公司之一，GPT 系列模型的创造者。
 term: openai
-display_term: "OpenAI"
+display_term: OpenAI
 category: frameworks
-related_glossary: [anthropic, claude, google]
-related_blog: [anthropic-claude-memory-upgrades-importing]
+related_glossary:
+  - anthropic
+  - claude
+  - google
+related_blog:
+  - anthropic-claude-memory-upgrades-importing
 related_compare: []
 lang: zh
 ---
 
 # OpenAI — AI 术语表
 
-**OpenAI** 是一家总部位于旧金山的人工智能公司，创建了 GPT 系列大语言模型和 ChatGPT 产品。公司成立于 2015 年，最初定位为非营利研究机构，后转型为"有限盈利"结构，目前是全球估值最高的 AI 公司之一。
+**OpenAI** 是一家总部位于旧金山的人工智能公司，创建了 GPT 系列大语言模型和 [ChatGPT](/zh/glossary/chatgpt) 产品。公司成立于 2015 年，最初定位为非营利研究机构，后转型为"有限盈利"结构，目前是全球估值最高的 AI 公司之一。
 
 ## 为什么 OpenAI 重要
 
@@ -29,7 +33,7 @@ OpenAI 的产品线围绕几个核心方向展开：
 - **ChatGPT**：面向消费者的对话产品，拥有超过一亿周活跃用户
 - **API 平台**：为开发者提供模型调用接口，支持 function calling、embeddings、图像生成等能力
 - **DALL·E**：文本生成图像模型
-- **Codex / GPT 编程能力**：驱动了 GitHub Copilot 等代码辅助工具的早期版本
+- **[Codex](/zh/blog/codex-complete-guide) / GPT 编程能力**：驱动了 [GitHub Copilot](/zh/glossary/github-[copilot](/zh/glossary/copilot)) 等代码辅助工具的早期版本
 
 OpenAI 也在积极探索 AI 智能体（agent）方向，推出了 Operator 等产品尝试。
 

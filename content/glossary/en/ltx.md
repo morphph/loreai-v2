@@ -1,11 +1,14 @@
 ---
-title: "LTX-2.3 — AI Glossary"
+title: LTX-2.3 — AI Glossary
 slug: ltx
-description: "What is LTX-2.3? Lightricks' open-source video generation model for fast text-to-video and image-to-video synthesis."
+description: >-
+  What is LTX-2.3? Lightricks' open-source video generation model for fast
+  text-to-video and image-to-video synthesis.
 term: ltx
-display_term: "LTX-2.3"
+display_term: LTX-2.3
 category: models
-related_glossary: [fine-tuning]
+related_glossary:
+  - fine-tuning
 related_blog: []
 related_compare: []
 lang: en
@@ -19,7 +22,7 @@ lang: en
 
 Open-source video generation has lagged behind proprietary systems like Runway Gen-3 and Sora, but the LTX-Video series is closing that gap. LTX-2.3 matters because it gives developers and creators a locally runnable, modifiable video generation pipeline with no API costs or usage limits.
 
-For indie developers and researchers, this means full control over the generation process — including [fine-tuning](/glossary/fine-tuning) on custom datasets for specific visual styles or domains. The model's permissive licensing and active community have made it one of the most widely adopted open-source video models, with integrations across ComfyUI, Hugging Face Diffusers, and other popular toolchains.
+For indie developers and researchers, this means full control over the generation process — including [fine-tuning](/glossary/fine-tuning) on custom datasets for specific visual styles or domains. The model's permissive licensing and active community have made it one of the most widely adopted open-source video models, with integrations across ComfyUI, [Hugging Face](/glossary/hugging-face) [Diffusers](/glossary/diffusers), and other popular toolchains.
 
 ## How LTX-2.3 Works
 
@@ -36,7 +39,7 @@ Key technical details:
 
 - **[Fine-tuning](/glossary/fine-tuning)**: Training LTX-2.3 on custom video datasets to specialize its output for specific styles or domains
 - **[GPT](/glossary/gpt)**: OpenAI's language model family — a different architecture, but shares the transformer foundation that powers LTX-2.3's video generation
-- **[Google DeepMind](/glossary/google-deepmind)**: Research lab behind competing video generation approaches like Veo
+- **[Google DeepMind](/glossary/google-[deepmind](/glossary/deepmind))**: Research lab behind competing video generation approaches like Veo
 
 ---
 

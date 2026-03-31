@@ -1,11 +1,14 @@
 ---
-title: "Diffusers — AI 术语表"
+title: Diffusers — AI 术语表
 slug: diffusers
-description: "什么是 Diffusers？Hugging Face 开源的扩散模型推理与训练库，支持图像、视频、音频生成。"
+description: 什么是 Diffusers？Hugging Face 开源的扩散模型推理与训练库，支持图像、视频、音频生成。
 term: diffusers
-display_term: "Diffusers"
+display_term: Diffusers
 category: frameworks
-related_glossary: [stable-diffusion, hugging-face, transformers]
+related_glossary:
+  - stable-diffusion
+  - hugging-face
+  - transformers
 related_blog: []
 related_compare: []
 lang: zh
@@ -13,7 +16,7 @@ lang: zh
 
 # Diffusers — AI 术语表
 
-**Diffusers** 是 Hugging Face 推出的开源 Python 库，专门用于扩散模型（Diffusion Models）的推理、训练和微调。它提供了统一的 API 来加载和运行 Stable Diffusion、SDXL、Kandinsky、DeepFloyd IF 等主流图像生成模型，同时支持视频和音频生成。开发者只需几行代码就能调用预训练模型，完成文生图、图生图、修复（inpainting）等任务。
+**Diffusers** 是 [Hugging Face](/zh/glossary/hugging-face) 推出的开源 Python 库，专门用于扩散模型（Diffusion Models）的推理、训练和微调。它提供了统一的 API 来加载和运行 Stable Diffusion、SDXL、Kandinsky、DeepFloyd IF 等主流图像生成模型，同时支持视频和音频生成。开发者只需几行代码就能调用预训练模型，完成文生图、图生图、修复（inpainting）等任务。
 
 ## 为什么 Diffusers 重要
 
@@ -29,12 +32,12 @@ Diffusers 的架构围绕三个核心组件构建：
 - **Scheduler**：控制去噪过程的采样策略（如 DDPM、DDIM、Euler），不同调度器在速度和质量之间做取舍
 - **Model**：底层的 UNet、[Transformer](/glossary/transformers) 等神经网络模块，支持 FP16、量化等优化
 
-Diffusers 原生支持 PyTorch，同时兼容 ONNX Runtime 和 Apple Silicon（MPS），方便在不同硬件上部署。
+Diffusers 原生支持 PyTorch，同时兼容 ONNX Runtime 和 [Apple](/zh/glossary/apple) Silicon（MPS），方便在不同硬件上部署。
 
 ## 相关术语
 
 - **[Stable Diffusion](/glossary/stable-diffusion)**：最广泛使用的开源扩散模型，Diffusers 的核心支持对象
-- **[Hugging Face](/glossary/hugging-face)**：Diffusers 的开发方，同时维护 Transformers 等 AI 开源生态
+- **[Hugging Face](/glossary/hugging-face)**：Diffusers 的开发方，同时维护 [Transformers](/zh/glossary/transformers) 等 AI 开源生态
 - **[Transformers](/glossary/transformers)**：Hugging Face 的 NLP/多模态模型库，与 Diffusers 共享设计理念和模型加载机制
 
 ---

@@ -1,16 +1,23 @@
 ---
-title: "Claude 上线交互式图表功能：对话即可视化，免费用户也能用"
-date: 2026-03-13
+title: Claude 上线交互式图表功能：对话即可视化，免费用户也能用
+date: 2026-03-13T00:00:00.000Z
 slug: claude-interactive-charts-diagrams
-description: "Claude 新增交互式图表和流程图功能，直接在对话中生成可交互的可视化内容。所有套餐包括免费版均可使用，这对数据分析和技术沟通意味着什么？"
-keywords: ["Claude 图表", "Claude 可视化", "Claude 交互式图表", "Anthropic Claude"]
+description: Claude 新增交互式图表和流程图功能，直接在对话中生成可交互的可视化内容。所有套餐包括免费版均可使用，这对数据分析和技术沟通意味着什么？
+keywords:
+  - Claude 图表
+  - Claude 可视化
+  - Claude 交互式图表
+  - Anthropic Claude
 category: APP
-related_newsletter: 2026-03-13
-related_glossary: [claude, anthropic]
-related_compare: [claude-vs-chatgpt]
+related_newsletter: 2026-03-13T00:00:00.000Z
+related_glossary:
+  - claude
+  - anthropic
+related_compare:
+  - claude-vs-chatgpt
 lang: zh
 video_ready: true
-video_hook: "Claude 现在能直接在聊天里画交互式图表了"
+video_hook: Claude 现在能直接在聊天里画交互式图表了
 video_status: none
 ---
 
@@ -28,7 +35,7 @@ Anthropic [官方宣布](https://x.com/claudeai/status/2032124273587077133) Clau
 - **状态**：Beta 公测，已可使用
 - **交互方式**：在对话中直接生成，支持点击、缩放等交互操作
 
-这个功能的发布时间点值得注意。Anthropic 最近动作密集：每天有超过 100 万新用户注册 Claude，[Opus 4.6 在 Mozilla Firefox 中两周发现 22 个安全漏洞](https://x.com/AnthropicAI/status/2029978909207617634)（其中 14 个高危），Cowork 模式上线了定时任务功能。交互式图表是 Claude 从"文字助手"向"全能工作台"转型的又一步。
+这个功能的发布时间点值得注意。Anthropic 最近动作密集：每天有超过 100 万新用户注册 Claude，[Opus 4.6 在 Mozilla Firefox 中两周发现 22 个安全漏洞](https://x.com/AnthropicAI/status/2029978909207617634)（其中 14 个高危），[Cowork](/zh/blog/anthropic-cowork-claude-desktop-agent) 模式上线了定时任务功能。交互式图表是 Claude 从"文字助手"向"全能工作台"转型的又一步。
 
 ## 为什么重要
 
@@ -42,7 +49,7 @@ Claude 的方案是把可视化直接内嵌到对话流中，省掉了所有中�
 
 **技术决策者**：汇报时需要的对比图表，几句话就能生成，而且可以交互演示。
 
-和 **ChatGPT** 的代码解释器方案对比，Claude 的优势在于图表是原生交互组件而非静态图片。ChatGPT 生成的是 matplotlib 渲染的 PNG，不能缩放、不能点击数据点查看详情。Claude 走的是前端渲染路线，体验更接近 Tableau 而非截图。
+和 **[ChatGPT](/zh/glossary/chatgpt)** 的代码解释器方案对比，Claude 的优势在于图表是原生交互组件而非静态图片。ChatGPT 生成的是 matplotlib 渲染的 PNG，不能缩放、不能点击数据点查看详情。Claude 走的是前端渲染路线，体验更接近 Tableau 而非截图。
 
 更重要的是：**免费用户也能用**。这在 AI 工具领域不常见 — 大多数竞品把高级功能锁在付费墙后面。Anthropic 显然在用可视化功能做用户增长的杠杆，配合每天百万级的新增注册量，这个策略很清晰。
 

@@ -1,16 +1,22 @@
 ---
-title: "Claude Code vs GitHub Copilot：哪个 AI 编程工具更适合你？"
+title: Claude Code vs GitHub Copilot：哪个 AI 编程工具更适合你？
 slug: claude-code-vs-github-copilot
-description: "Claude Code 与 GitHub Copilot 全方位对比：功能、定价、工作流差异一文看清。"
+description: Claude Code 与 GitHub Copilot 全方位对比：功能、定价、工作流差异一文看清。
 item_a: Claude Code
 item_b: GitHub Copilot
 category: tools
-related_glossary: [claude-code, agentic]
-related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
-related_compare: [claude-code-vs-cursor]
+related_glossary:
+  - claude-code
+  - agentic
+related_blog:
+  - claude-code-extension-stack-skills-hooks-agents-mcp
+  - claude-code-agent-teams
+related_compare:
+  - claude-code-vs-cursor
 lang: zh
-date: 2026-03-31
-related_topics: [claude-code]
+date: 2026-03-31T00:00:00.000Z
+related_topics:
+  - claude-code
 ---
 
 # Claude Code vs GitHub Copilot：哪个 AI 编程工具更适合你？
@@ -19,7 +25,7 @@ related_topics: [claude-code]
 
 **[Claude Code](/glossary/claude-code)** 和 **GitHub Copilot** 是当下开发者讨论最多的两款 AI 编程工具，但它们的设计哲学截然不同。Claude Code 是 Anthropic 推出的[自主代理式](/glossary/agentic)编程工具，直接运行在终端里，能读取整个代码库、规划多步骤任务并自主执行。GitHub Copilot 是 GitHub 打造的 AI 编程助手，从代码补全起步，现在已经进化到了 Agent Mode 和 Coding Agent。
 
-一句话概括差异：**Claude Code 生来就是 Agent，GitHub Copilot 是从补全工具进化成 Agent 的。** 这个出发点的不同，决定了它们在功能深度、工作流和定价上的差异。
+一句话概括差异：**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 生来就是 Agent，[GitHub Copilot](/zh/glossary/github-[copilot](/zh/glossary/copilot)) 是从补全工具进化成 Agent 的。** 这个出发点的不同，决定了它们在功能深度、工作流和定价上的差异。
 
 ## 定价对比
 
@@ -31,7 +37,7 @@ related_topics: [claude-code]
 | **高级版** | Max $200/月（20x） | — |
 | **团队版** | Team $25/seat/月（年付） | Business $19/user/月 |
 | **企业版** | Enterprise 定制 | Enterprise $39/user/月 |
-| **API** | Sonnet 4.6: $3/$15/MTok; Opus 4.6: $5/$25/MTok | 按 premium request 计数 |
+| **API** | Sonnet 4.6: $3/$15/MTok; [Opus 4.6](/zh/blog/opus-4-6-1m-default-claude-code): $5/$25/MTok | 按 premium request 计数 |
 
 **价格这块，Copilot 赢得很明显。** Free 版就有 50 次 premium request，Pro 只要 $10/月——是 Claude Code 的一半。Business $19/user/月 也比 Claude Code Team $25/seat/月 便宜。对于预算敏感的团队，Copilot 的入门成本确实低。
 
@@ -41,7 +47,7 @@ related_topics: [claude-code]
 
 | 功能 | Claude Code | GitHub Copilot |
 |------|-------------|----------------|
-| **核心模式** | 自主代理——规划、执行、提交 | 内联补全 + Agent Mode + Coding Agent |
+| **核心模式** | 自主代理——规划、执行、提交 | 内联补全 + Agent Mode + [Coding Agent](/zh/blog/coding-agents-reshaping-epd) |
 | **主要界面** | 终端 CLI、VS Code、JetBrains、桌面 App、Web、Mobile | IDE 插件（VS Code/JetBrains GA）、GitHub 网站、Mobile、CLI |
 | **上下文窗口** | 1M tokens（2026.3 GA） | 依模型而定 |
 | **模型选择** | Claude Sonnet 4.6 / Opus 4.6 | GPT-5、Claude Sonnet/Opus、Gemini、Grok |

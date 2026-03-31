@@ -1,19 +1,19 @@
 ---
-title: "初识 Codex CLI：前几天你需要知道的一切"
+title: 初识 Codex CLI：前几天你需要知道的一切
 slug: first-few-days-with-codex-cli
-description: "OpenAI Codex CLI 上手指南：从安装到实际工作流，帮你度过最初几天的适应期。"
+description: OpenAI Codex CLI 上手指南：从安装到实际工作流，帮你度过最初几天的适应期。
 lang: zh
 category: tools
-date: 2026-03-24
+date: 2026-03-24T00:00:00.000Z
 ---
 
 # 初识 Codex CLI：前几天你需要知道的一切
 
-2025 年 4 月 16 日，OpenAI 发布了 Codex CLI——一个运行在终端里的开源 AI 编程助手。发布不到一年，GitHub star 数已超过 67,000。它不是 IDE 插件，不是自动补全，而是一个在你的命令行里自主运行的 AI agent。
+2025 年 4 月 16 日，OpenAI 发布了 [Codex CLI](/zh/glossary/codex-cli)——一个运行在终端里的开源 AI 编程助手。发布不到一年，GitHub star 数已超过 67,000。它不是 IDE 插件，不是自动补全，而是一个在你的命令行里自主运行的 [AI agent](/zh/blog/effective-harnesses-for-long-running-agents)。
 
 ## Codex CLI 是什么
 
-**Codex CLI** 是 OpenAI 推出的终端原生 AI 编程工具，底层调用 o3、o4-mini 或 GPT-5-Codex 等模型，在本地运行但依赖云端推理。它的设计思路和传统 IDE copilot 截然不同：不是等你写代码时给建议，而是接收任务描述后自主规划、执行、提交。
+**[Codex](/zh/blog/codex-complete-guide) CLI** 是 OpenAI 推出的终端原生 AI 编程工具，底层调用 o3、o4-mini 或 GPT-5-Codex 等模型，在本地运行但依赖云端推理。它的设计思路和传统 IDE [copilot](/zh/glossary/copilot) 截然不同：不是等你写代码时给建议，而是接收任务描述后自主规划、执行、提交。
 
 这种模式被称为 [agentic coding](/glossary/agentic-coding)——AI 作为 agent 独立完成多步骤工程任务，而不仅仅是辅助单行补全。
 
@@ -34,7 +34,7 @@ Codex CLI 内置沙箱环境，每次执行都在隔离上下文中运行。这�
 根据现有资料，Codex CLI 的主要能力包括：
 
 - **多文件编辑**：跨文件规划和执行修改，不局限于当前打开的文件
-- **MCP 集成**：通过 Model Context Protocol 连接外部工具和数据源，与 [ChatGPT](/glossary/chatgpt) 等 OpenAI 产品共享协议标准
+- **MCP 集成**：通过 [Model Context Protocol](/zh/glossary/model-context-protocol) 连接外部工具和数据源，与 [ChatGPT](/glossary/chatgpt) 等 OpenAI 产品共享协议标准
 - **自定义 proxy 支持**：面向企业场景，支持接入内部模型或代理层
 - **开源**：代码完全开放，社区可审计、可 fork、可贡献
 

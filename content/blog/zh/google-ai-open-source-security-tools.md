@@ -1,16 +1,22 @@
 ---
-title: "Google 加码 AI 开源安全：新工具如何改变代码安全格局"
-date: 2026-03-19
+title: Google 加码 AI 开源安全：新工具如何改变代码安全格局
+date: 2026-03-19T00:00:00.000Z
 slug: google-ai-open-source-security-tools
-description: "Google 发布新一轮 AI 驱动的开源安全投资，覆盖代码漏洞检测、供应链安全和自动修复。对开发者和安全团队意味着什么？"
-keywords: ["Google AI 安全", "开源安全工具", "AI 代码安全", "供应链安全"]
+description: Google 发布新一轮 AI 驱动的开源安全投资，覆盖代码漏洞检测、供应链安全和自动修复。对开发者和安全团队意味着什么？
+keywords:
+  - Google AI 安全
+  - 开源安全工具
+  - AI 代码安全
+  - 供应链安全
 category: DEV
-related_newsletter: 2026-03-19
-related_glossary: [open-source, code-security]
+related_newsletter: 2026-03-19T00:00:00.000Z
+related_glossary:
+  - open-source
+  - code-security
 related_compare: []
 lang: zh
 video_ready: true
-video_hook: "Google 正在用 AI 重新定义开源安全的标准"
+video_hook: Google 正在用 AI 重新定义开源安全的标准
 video_status: none
 ---
 
@@ -24,7 +30,7 @@ Google 通过官方博客发布了开源安全领域的最新投资计划，核�
 
 这次更新的核心是用 [Gemini](/glossary/gemini) 模型的能力来增强这些已有工具。具体包括：AI 辅助的漏洞发现（让模糊测试更智能地生成测试用例）、自动化的补丁建议（发现漏洞后直接生成修复代码）、以及更精准的依赖关系分析。
 
-时间节点值得注意：正值 AI 编程工具（Codex、Claude Code、Cursor 等）大幅降低代码生产门槛，代码总量激增的同时，安全审查的人力瓶颈越来越明显。Google 选择在这个时间点加码，既是对自身开源生态的保护，也是在安全基础设施层面抢占标准话语权。
+时间节点值得注意：正值 AI 编程工具（[Codex](/zh/blog/codex-complete-guide)、[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)、[Cursor](/zh/glossary/cursor) 等）大幅降低代码生产门槛，代码总量激增的同时，安全审查的人力瓶颈越来越明显。Google 选择在这个时间点加码，既是对自身开源生态的保护，也是在安全基础设施层面抢占标准话语权。
 
 ## 为什么重要
 

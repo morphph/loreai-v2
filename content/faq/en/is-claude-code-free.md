@@ -1,17 +1,25 @@
 ---
-title: "Is Claude Code free?"
+title: Is Claude Code free?
 slug: is-claude-code-free
-description: "Claude Code is not free. It requires either a paid Anthropic API key with per-token billing or a Claude Pro or Max subscription plan."
+description: >-
+  Claude Code is not free. It requires either a paid Anthropic API key with
+  per-token billing or a Claude Pro or Max subscription plan.
 category: tools
-related_glossary: [claude-code, anthropic, claude]
-related_blog: [claude-code-complete-guide, claude-code-enterprise-engineering-ramp-shopify-spotify]
+related_glossary:
+  - claude-code
+  - anthropic
+  - claude
+related_blog:
+  - claude-code-complete-guide
+  - claude-code-enterprise-engineering-ramp-shopify-spotify
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Is Claude Code free?
 
-Claude Code is not free to use. It requires either an Anthropic API key with pay-per-token billing or an active Claude Pro or Max subscription. The tool itself can be installed at no cost, but every interaction with Claude consumes tokens that are billed to your account.
+[Claude Code](/blog/lessons-from-building-claude-code-agent-tools) is not free to use. It requires either an Anthropic API key with pay-per-token billing or an active Claude Pro or Max subscription. The tool itself can be installed at no cost, but every interaction with Claude consumes tokens that are billed to your account.
 
 ## Context
 

@@ -1,17 +1,26 @@
 ---
-title: "Claude Code Scheduled Tasks: Automate Recurring Prompts with /loop and Cron"
-date: 2026-03-10
+title: 'Claude Code Scheduled Tasks: Automate Recurring Prompts with /loop and Cron'
+date: 2026-03-10T00:00:00.000Z
 slug: scheduled-tasks
-description: "How to use Claude Code's /loop command and cron scheduling tools to automate recurring prompts, poll deployments, and set reminders within a session."
-keywords: ["Claude Code scheduled tasks", "/loop command", "Claude Code cron", "Claude Code automation"]
+description: >-
+  How to use Claude Code's /loop command and cron scheduling tools to automate
+  recurring prompts, poll deployments, and set reminders within a session.
+keywords:
+  - Claude Code scheduled tasks
+  - /loop command
+  - Claude Code cron
+  - Claude Code automation
 category: DEV
-related_newsletter: 2026-03-10
-related_glossary: [claude-code, mcp-server]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - mcp-server
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: en
 video_ready: true
-video_hook: "Stop babysitting your builds — let Claude Code watch them for you"
+video_hook: Stop babysitting your builds — let Claude Code watch them for you
 video_status: published
 source_type: video
 flow_source: manual-curate
@@ -19,7 +28,7 @@ flow_source: manual-curate
 
 # Claude Code Scheduled Tasks: Automate Recurring Prompts with /loop and Cron
 
-**Claude Code** now lets you schedule prompts that run automatically on an interval — no terminal babysitting required. The `/loop` command and underlying **CronCreate** tool turn your coding session into a lightweight automation engine: poll a deployment, watch a PR's CI status, re-run a review workflow every 20 minutes, or set a one-shot reminder to push the release branch at 3pm. Tasks are session-scoped, fire between your turns, and clean themselves up after three days. If you've ever left a terminal open just to periodically check something, this feature replaces that workflow entirely.
+**[Claude Code](/blog/claude-code-complete-guide)** now lets you schedule prompts that run automatically on an interval — no terminal babysitting required. The `/loop` command and underlying **CronCreate** tool turn your coding session into a lightweight automation engine: poll a deployment, watch a PR's CI status, re-run a review workflow every 20 minutes, or set a one-shot reminder to push the release branch at 3pm. Tasks are session-scoped, fire between your turns, and clean themselves up after three days. If you've ever left a terminal open just to periodically check something, this feature replaces that workflow entirely.
 
 ## What Happened
 

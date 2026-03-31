@@ -1,20 +1,24 @@
 ---
-title: "Agentic Coding — AI 术语表"
+title: Agentic Coding — AI 术语表
 slug: agentic-coding
-description: "什么是 Agentic Coding？让 AI 自主规划、编写、测试代码的智能编程范式。"
+description: 什么是 Agentic Coding？让 AI 自主规划、编写、测试代码的智能编程范式。
 term: agentic-coding
-display_term: "Agentic Coding"
+display_term: Agentic Coding
 category: techniques
-related_glossary: [cursor, fine-tuning]
-related_blog: [claude-connectors-free-150-integrations]
+related_glossary:
+  - cursor
+  - fine-tuning
+related_blog:
+  - claude-connectors-free-150-integrations
 related_compare: []
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Agentic Coding — AI 术语表
 
-**Agentic Coding**（智能体编程）是一种让 AI 以自主代理（agent）身份参与软件开发的编程范式。与传统的代码补全或聊天式辅助不同，agentic coding 中的 AI 能够独立理解需求、规划实现路径、跨文件编辑代码、执行终端命令，并根据测试结果自我修正——整个过程只需开发者描述目标，无需逐行指导。
+**[Agentic](/zh/glossary/agentic) Coding**（智能体编程）是一种让 AI 以自主代理（agent）身份参与软件开发的编程范式。与传统的代码补全或聊天式辅助不同，agentic coding 中的 AI 能够独立理解需求、规划实现路径、跨文件编辑代码、执行终端命令，并根据测试结果自我修正——整个过程只需开发者描述目标，无需逐行指导。
 
 ## 为什么 Agentic Coding 重要
 

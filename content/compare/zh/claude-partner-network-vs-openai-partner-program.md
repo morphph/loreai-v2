@@ -1,19 +1,22 @@
 ---
-title: "Claude Partner Network vs OpenAI Partner Program：AI 生态合作怎么选？"
+title: Claude Partner Network vs OpenAI Partner Program：AI 生态合作怎么选？
 slug: claude-partner-network-vs-openai-partner-program
-description: "对比 Anthropic Claude Partner Network 与 OpenAI Partner Program 的合作模式、技术支持与生态优势。"
+description: 对比 Anthropic Claude Partner Network 与 OpenAI Partner Program 的合作模式、技术支持与生态优势。
 item_a: Claude Partner Network
 item_b: OpenAI Partner Program
 category: frameworks
-related_glossary: [ai-safety]
-related_blog: [anthropic-claude-partner-network-100-million]
-related_compare: [anthropic-vs-openai]
+related_glossary:
+  - ai-safety
+related_blog:
+  - anthropic-claude-partner-network-100-million
+related_compare:
+  - anthropic-vs-openai
 lang: zh
 ---
 
 # Claude Partner Network vs OpenAI Partner Program：AI 生态合作怎么选？
 
-两大头部 AI 公司都在用合作伙伴计划抢占企业市场。**Claude Partner Network** 是 Anthropic 于 2025 年推出的生态合作体系，主打安全导向的企业集成；**OpenAI Partner Program** 则依托 GPT 系列模型和 ChatGPT 的品牌效应，建立了更早、更大的合作网络。对于考虑加入某个 AI 生态的企业和开发者来说，选择哪一方将直接影响技术路线、客户定位和商业回报。
+两大头部 AI 公司都在用合作伙伴计划抢占企业市场。**[Claude Partner Network](/zh/blog/anthropic-claude-partner-network-100-million)** 是 Anthropic 于 2025 年推出的生态合作体系，主打安全导向的企业集成；**OpenAI Partner Program** 则依托 GPT 系列模型和 [ChatGPT](/zh/glossary/chatgpt) 的品牌效应，建立了更早、更大的合作网络。对于考虑加入某个 AI 生态的企业和开发者来说，选择哪一方将直接影响技术路线、客户定位和商业回报。
 
 ## 功能对比
 

@@ -1,17 +1,22 @@
 ---
-title: "What Are Claude Code Skills?"
+title: What Are Claude Code Skills?
 slug: claude-code-skills
-description: "Claude Code skills are SKILL.md instruction files that teach Claude Code how to handle specific tasks. Learn what they are and how to use them."
+description: >-
+  Claude Code skills are SKILL.md instruction files that teach Claude Code how
+  to handle specific tasks. Learn what they are and how to use them.
 category: tools
-related_glossary: [agentic-coding]
-related_blog: [5-claude-code-skills-i-use-every-single-day]
+related_glossary:
+  - agentic-coding
+related_blog:
+  - 5-claude-code-skills-i-use-every-single-day
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # What Are Claude Code Skills?
 
-**Claude Code skills** are SKILL.md files — instruction folders that teach Claude Code how to handle specific tasks and workflows. When you create a skill, you're encoding your team's processes, coding standards, and domain expertise into a structured format that Claude loads automatically. Unlike typing the same instructions repeatedly, skills let you teach Claude once and benefit every time.
+**[Claude Code skills](/blog/9-principles-writing-claude-code-skills)** are SKILL.md files — instruction folders that teach [Claude Code](/blog/claude-code-complete-guide) how to handle specific tasks and workflows. When you create a skill, you're encoding your team's processes, coding standards, and domain expertise into a structured format that Claude loads automatically. Unlike typing the same instructions repeatedly, skills let you teach Claude once and benefit every time.
 
 ## Context
 

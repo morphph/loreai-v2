@@ -1,29 +1,40 @@
 ---
-title: "Claude Web Search Tool: Dynamic Filtering, Pricing, and Implementation Guide"
-date: 2026-03-10
+title: 'Claude Web Search Tool: Dynamic Filtering, Pricing, and Implementation Guide'
+date: 2026-03-10T00:00:00.000Z
 slug: web-search-tool
-description: "How Claude's web search tool works, why dynamic filtering with Opus 4.6 cuts token costs, and how to implement it in your API calls today."
-keywords: ["Claude web search", "web search tool", "dynamic filtering", "Claude API tools"]
+description: >-
+  How Claude's web search tool works, why dynamic filtering with Opus 4.6 cuts
+  token costs, and how to implement it in your API calls today.
+keywords:
+  - Claude web search
+  - web search tool
+  - dynamic filtering
+  - Claude API tools
 category: DEV
-related_newsletter: 2026-03-10
-related_glossary: [claude-api, claude-opus]
-related_compare: [claude-vs-chatgpt]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - claude-api
+  - claude-opus
+related_compare:
+  - claude-vs-chatgpt
 lang: en
 video_ready: true
-video_hook: "Claude can now search the web AND filter results with code — before they hit your context window"
+video_hook: >-
+  Claude can now search the web AND filter results with code — before they hit
+  your context window
 video_status: published
 source_type: video
 ---
 
 # Claude Web Search Tool: Dynamic Filtering Changes Everything
 
-Anthropic's **web search tool** gives Claude direct access to live web content through the API — no external search integrations, no RAG pipelines, no middleware. The February 2026 update (`web_search_20260209`) introduced **dynamic filtering**: Claude writes and executes code to filter search results *before* they enter the context window, keeping only relevant content and discarding noise. The result is better answers at lower token cost. Here's how it works and how to use it.
+Anthropic's **web search tool** gives Claude direct access to live web content through the API — no external search integrations, no [RAG](/glossary/rag) pipelines, no middleware. The February 2026 update (`web_search_20260209`) introduced **dynamic filtering**: Claude writes and executes code to filter search results *before* they enter the context window, keeping only relevant content and discarding noise. The result is better answers at lower token cost. Here's how it works and how to use it.
 
 ## What Happened
 
 The web search tool has been available in the Claude API since early 2025, letting Claude autonomously decide when to search the web based on the user's prompt. The basic version (`web_search_20250305`) works across most Claude models — from Haiku 3.5 through Opus 4.5 — and remains the default for many use cases.
 
-The significant update came with `web_search_20260209`, which added dynamic filtering exclusively for **Claude Opus 4.6** and **Claude Sonnet 4.6**. Instead of pulling full HTML from multiple websites and reasoning over all of it, Claude now writes code to post-process search results programmatically. It extracts only the relevant data, discards boilerplate navigation and ads, and loads a clean, filtered result into context.
+The significant update came with `web_search_20260209`, which added dynamic filtering exclusively for **[Claude Opus 4.6](/blog/opus-4-6-1m-default-claude-code)** and **[Claude Sonnet 4.6](/blog/claude-1-million-context-window-ga)**. Instead of pulling full HTML from multiple websites and reasoning over all of it, Claude now writes code to post-process search results programmatically. It extracts only the relevant data, discards boilerplate navigation and ads, and loads a clean, filtered result into context.
 
 The tool supports domain filtering (`allowed_domains` and `blocked_domains`), usage caps via `max_uses`, and location-aware results through `user_location`. Subdomains and subpaths are handled automatically — `example.com` covers `docs.example.com`, and `example.com/blog` matches all posts under that path.
 
@@ -41,7 +52,7 @@ Dynamic filtering attacks this problem at the source. By letting Claude write co
 
 For teams building AI-powered research tools, customer support systems, or content pipelines, this is the difference between a prototype that works and a production system that scales. A financial analysis agent that needs current stock prices no longer loads entire financial news pages — it extracts the specific numbers it needs.
 
-The competitive context matters too. OpenAI's ChatGPT has had web browsing since 2023, but it operates as a black box — you can't control domains, cap search usage, or filter results programmatically. Google's Gemini has native Search grounding but similarly lacks fine-grained developer control. Anthropic's approach gives developers the building blocks rather than a fixed experience.
+The competitive context matters too. OpenAI's [ChatGPT](/glossary/chatgpt) has had web browsing since 2023, but it operates as a black box — you can't control domains, cap search usage, or filter results programmatically. Google's Gemini has native Search grounding but similarly lacks fine-grained developer control. Anthropic's approach gives developers the building blocks rather than a fixed experience.
 
 ## Technical Deep-Dive
 

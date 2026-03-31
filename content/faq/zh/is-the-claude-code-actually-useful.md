@@ -1,18 +1,23 @@
 ---
-title: "Claude Code 真的有用吗？"
+title: Claude Code 真的有用吗？
 slug: is-the-claude-code-actually-useful
-description: "Claude Code 确实有用。它能生成结构更好的代码，自动纠正错误，但关键是学会如何有效使用。"
+description: Claude Code 确实有用。它能生成结构更好的代码，自动纠正错误，但关键是学会如何有效使用。
 category: tools
-related_glossary: [agentic-coding, chatgpt]
-related_blog: [integrate-claude-code-into-your-development-workflow]
-related_compare: [claude-code-vs-cursor]
+related_glossary:
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - integrate-claude-code-into-your-development-workflow
+related_compare:
+  - claude-code-vs-cursor
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code 真的有用吗？
 
-**是的，Claude Code 确实有用。** 使用过它的开发者发现 Claude 生成的代码通常结构比平均水平更好、防御性更强，特别是在处理边界情况和遗留代码时。但它的价值不在于工具本身，而在于你如何使用它。
+**是的，[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 确实有用。** 使用过它的开发者发现 Claude 生成的代码通常结构比平均水平更好、防御性更强，特别是在处理边界情况和遗留代码时。但它的价值不在于工具本身，而在于你如何使用它。
 
 ## 背景
 
@@ -29,7 +34,7 @@ related_topics: [claude-code]
 
 ## 相关问题
 
-- Claude Code 和 Cursor 有什么区别？
+- Claude Code 和 [Cursor](/zh/glossary/cursor) 有什么区别？
 - [Claude Code 定价是多少？](/faq/claude-code-pricing)
 - [如何在工作流中集成 Claude Code？](/blog/integrate-claude-code-into-your-development-workflow)
 

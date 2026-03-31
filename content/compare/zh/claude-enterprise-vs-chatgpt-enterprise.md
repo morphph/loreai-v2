@@ -1,13 +1,17 @@
 ---
-title: "Claude Enterprise vs ChatGPT Enterprise：企业级 AI 平台怎么选？"
+title: Claude Enterprise vs ChatGPT Enterprise：企业级 AI 平台怎么选？
 slug: claude-enterprise-vs-chatgpt-enterprise
-description: "从安全性、上下文能力、功能生态等维度对比 Claude Enterprise 和 ChatGPT Enterprise。"
+description: 从安全性、上下文能力、功能生态等维度对比 Claude Enterprise 和 ChatGPT Enterprise。
 item_a: Claude Enterprise
 item_b: ChatGPT Enterprise
 category: tools
-related_glossary: [chatgpt, ai-safety]
-related_blog: [opus-4-6-1m-default-claude-code]
-related_compare: [anthropic-vs-openai]
+related_glossary:
+  - chatgpt
+  - ai-safety
+related_blog:
+  - opus-4-6-1m-default-claude-code
+related_compare:
+  - anthropic-vs-openai
 lang: zh
 ---
 
@@ -17,14 +21,14 @@ lang: zh
 
 ## 功能对比
 
-| 功能 | Claude Enterprise | ChatGPT Enterprise |
+| 功能 | Claude Enterprise | [ChatGPT](/zh/glossary/chatgpt) Enterprise |
 |------|-------------------|---------------------|
 | **旗舰模型** | Claude（Opus、Sonnet 系列） | GPT-4o、o1、o3 |
 | **上下文窗口** | 最高 500K tokens | 128K tokens（GPT-4o） |
 | **数据隐私** | 不使用客户数据训练 | 不使用客户数据训练 |
 | **安全合规** | SOC 2 Type II、SSO、SCIM | SOC 2 Type II、SSO、SCIM |
 | **网页浏览** | 有限支持 | 内置 Bing 搜索 |
-| **代码执行** | 通过 Claude Code（独立产品） | 内置 Code Interpreter |
+| **代码执行** | 通过 [Claude Code](/zh/blog/9-principles-writing-claude-code-skills)（独立产品） | 内置 Code Interpreter |
 | **图片生成** | 不支持 | 内置 DALL·E 3 |
 | **定制助手** | Projects 组织对话 | Custom GPTs + GPT Store |
 | **文件处理** | PDF、代码、长文档能力突出 | PDF、表格、图片、代码 |

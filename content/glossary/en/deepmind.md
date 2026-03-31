@@ -1,11 +1,16 @@
 ---
-title: "DeepMind — AI Glossary"
+title: DeepMind — AI Glossary
 slug: deepmind
-description: "What is DeepMind? Google's AI research lab behind AlphaGo, AlphaFold, and Gemini."
+description: >-
+  What is DeepMind? Google's AI research lab behind AlphaGo, AlphaFold, and
+  Gemini.
 term: deepmind
-display_term: "DeepMind"
+display_term: DeepMind
 category: models
-related_glossary: [anthropic, claude, agentic]
+related_glossary:
+  - anthropic
+  - claude
+  - agentic
 related_blog: []
 related_compare: []
 lang: en
@@ -13,7 +18,7 @@ lang: en
 
 # DeepMind — AI Glossary
 
-**DeepMind** is Google's artificial intelligence research laboratory, headquartered in London. Founded in 2010 by Demis Hassabis, Shane Legg, and Mustafa Suleiman, it was acquired by Google in 2014 and merged with Google Brain in 2023 to form Google DeepMind. The lab is responsible for some of the most significant AI breakthroughs of the past decade, including AlphaGo, AlphaFold, and the Gemini family of large language models.
+**DeepMind** is Google's artificial intelligence research laboratory, headquartered in London. Founded in 2010 by Demis Hassabis, Shane Legg, and Mustafa Suleiman, it was acquired by Google in 2014 and merged with Google Brain in 2023 to form [Google DeepMind](/glossary/google-deepmind). The lab is responsible for some of the most significant AI breakthroughs of the past decade, including AlphaGo, AlphaFold, and the Gemini family of [large language models](/blog/gemini-3-1-pro-complex-tasks).
 
 ## Why DeepMind Matters
 
@@ -23,7 +28,7 @@ As Google DeepMind, the lab now builds the Gemini models that power Google's AI 
 
 ## How DeepMind Works
 
-DeepMind's research approach combines deep learning with reinforcement learning and classical algorithmic techniques. Key contributions include:
+DeepMind's research approach combines deep learning with [reinforcement learning](/glossary/reinforcement-learning) and classical algorithmic techniques. Key contributions include:
 
 - **AlphaGo / AlphaZero**: Monte Carlo tree search combined with deep neural networks, later generalized to chess and shogi with zero human knowledge
 - **AlphaFold**: Attention-based architecture that predicts 3D protein structures from amino acid sequences with atomic-level accuracy
@@ -32,7 +37,7 @@ DeepMind's research approach combines deep learning with reinforcement learning 
 
 ## Related Terms
 
-- **[Anthropic](/glossary/anthropic)**: AI safety company founded by former OpenAI researchers, building Claude — DeepMind's primary competitor in frontier model development
+- **[Anthropic](/glossary/anthropic)**: [AI safety](/glossary/ai-safety) company founded by former OpenAI researchers, building Claude — DeepMind's primary competitor in frontier model development
 - **[Claude](/glossary/claude)**: Anthropic's family of large language models, competing directly with DeepMind's Gemini
 - **[Agentic](/glossary/agentic)**: The paradigm of AI systems that plan and execute multi-step tasks autonomously — a core focus of DeepMind's current research
 

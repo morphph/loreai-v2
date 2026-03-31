@@ -1,22 +1,37 @@
 ---
-title: "Google's New AI-Powered Open Source Security Tools: What Developers Need to Know"
-date: 2026-03-19
+title: >-
+  Google's New AI-Powered Open Source Security Tools: What Developers Need to
+  Know
+date: 2026-03-19T00:00:00.000Z
 slug: google-ai-open-source-security-tools
-description: "Google expands its investment in AI-powered open source security, bringing automated vulnerability detection and code analysis to the broader developer ecosystem."
-keywords: ["Google open source security", "AI code security", "AI vulnerability detection"]
+description: >-
+  Google expands its investment in AI-powered open source security, bringing
+  automated vulnerability detection and code analysis to the broader developer
+  ecosystem.
+keywords:
+  - Google open source security
+  - AI code security
+  - AI vulnerability detection
 category: DEV
-related_newsletter: 2026-03-19
-related_glossary: [open-source, google-deepmind]
-related_compare: [oss-fuzz-vs-snyk, slsa-vs-sbom, ai-fuzzing-vs-manual-code-review]
+related_newsletter: 2026-03-19T00:00:00.000Z
+related_glossary:
+  - open-source
+  - google-deepmind
+related_compare:
+  - oss-fuzz-vs-snyk
+  - slsa-vs-sbom
+  - ai-fuzzing-vs-manual-code-review
 lang: en
 video_ready: true
-video_hook: "Google is using AI to find vulnerabilities in open source code before attackers do"
+video_hook: >-
+  Google is using AI to find vulnerabilities in open source code before
+  attackers do
 video_status: none
 ---
 
 # Google's New AI-Powered Open Source Security Tools: What Developers Need to Know
 
-**Google** just announced a significant expansion of its investment in **AI-powered open source security** — applying large language models and automated analysis to find vulnerabilities in the software that underpins nearly every modern application. With open source components present in [over 90% of commercial codebases](https://www.synopsys.com/software-integrity/resources/analyst-reports/open-source-security-risk-analysis.html), the security of these shared libraries isn't just a community concern — it's an industry-wide infrastructure problem. Google's latest push aims to make AI-driven vulnerability detection a standard part of the open source maintenance lifecycle.
+**Google** just announced a significant expansion of its investment in **AI-powered [open source security](/blog/anthropic-linux-foundation-open-source-security)** — applying [large language models](/blog/gemini-3-1-pro-complex-tasks) and automated analysis to find vulnerabilities in the software that underpins nearly every modern application. With open source components present in [over 90% of commercial codebases](https://www.synopsys.com/software-integrity/resources/analyst-reports/open-source-security-risk-analysis.html), the security of these shared libraries isn't just a community concern — it's an industry-wide infrastructure problem. Google's latest push aims to make AI-driven vulnerability detection a standard part of the open source maintenance lifecycle.
 
 ## What Happened
 
@@ -28,7 +43,7 @@ Google is also scaling its **Supply-chain Levels for Software Artifacts (SLSA)**
 
 This sits alongside Google's broader security infrastructure contributions: **Sigstore** for code signing, **GUAC** (Graph for Understanding Artifact Composition) for software bill of materials analysis, and the **Secure Open Source Rewards** program that pays maintainers for security improvements.
 
-The timing matters. With AI-generated code flooding repositories via tools like [Gemini](/glossary/gemini), Copilot, and Claude Code, the attack surface of open source is expanding faster than human reviewers can keep up.
+The timing matters. With AI-generated code flooding repositories via tools like [Gemini](/glossary/gemini), [Copilot](/glossary/copilot), and [Claude Code](/blog/claude-code-complete-guide), the attack surface of open source is expanding faster than human reviewers can keep up.
 
 ## Why It Matters
 

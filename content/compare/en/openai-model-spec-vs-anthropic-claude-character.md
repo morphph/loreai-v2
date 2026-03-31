@@ -1,24 +1,32 @@
 ---
-title: "OpenAI Model Spec vs Anthropic Claude Character: How AI Giants Define Model Behavior"
+title: >-
+  OpenAI Model Spec vs Anthropic Claude Character: How AI Giants Define Model
+  Behavior
 slug: openai-model-spec-vs-anthropic-claude-character
-description: "Comparing OpenAI's Model Spec and Anthropic's Claude Character — two frameworks for defining AI model behavior, values, and safety boundaries."
+description: >-
+  Comparing OpenAI's Model Spec and Anthropic's Claude Character — two
+  frameworks for defining AI model behavior, values, and safety boundaries.
 item_a: OpenAI Model Spec
 item_b: Anthropic Claude Character
 category: concepts
-related_glossary: [chatgpt, claude-desktop, ai-regulation]
-related_blog: [openai-computer-access-agents-lessons]
+related_glossary:
+  - chatgpt
+  - claude-desktop
+  - ai-regulation
+related_blog:
+  - openai-computer-access-agents-lessons
 lang: en
 ---
 
 # OpenAI Model Spec vs Anthropic Claude Character: How AI Giants Define Model Behavior
 
-**OpenAI's Model Spec** and **Anthropic's Claude Character** are the two most influential documents shaping how frontier AI models behave. Both are public-facing specifications that define values, safety boundaries, and behavioral guidelines for their respective model families. The Model Spec governs ChatGPT and the GPT family; Claude Character defines how Claude operates. The key difference: OpenAI's spec emphasizes a hierarchical principal structure with explicit operator/user tiers, while Anthropic's document centers on character traits and ethical reasoning as intrinsic properties of the model.
+**OpenAI's Model Spec** and **Anthropic's Claude Character** are the two most influential documents shaping how frontier AI models behave. Both are public-facing specifications that define values, safety boundaries, and behavioral guidelines for their respective model families. The Model Spec governs [ChatGPT](/topics/chatgpt) and the GPT family; Claude Character defines how Claude operates. The key difference: OpenAI's spec emphasizes a hierarchical principal structure with explicit operator/user tiers, while Anthropic's document centers on character traits and ethical reasoning as intrinsic properties of the model.
 
 These documents matter because they determine what millions of users experience daily — what the model will refuse, how it handles edge cases, and what personality it projects.
 
 ## Feature Comparison
 
-| Feature | OpenAI Model Spec | Anthropic Claude Character |
+| Feature | [OpenAI Model Spec](/blog/openai-updated-model-spec-2026) | [Anthropic Claude](/blog/anthropic-claude-memory-upgrades-importing) Character |
 |---------|-------------------|---------------------------|
 | **Format** | Technical specification document | Character and values document |
 | **Authority model** | Hierarchical: OpenAI → Operators → Users | Trait-based: internalized values and principles |
@@ -49,7 +57,7 @@ For developers building on Claude through tools like [Claude Desktop](/glossary/
 
 If you're an **API developer** building products and need a clear, rule-based understanding of model boundaries, **OpenAI's Model Spec** is more immediately actionable — its operator/user hierarchy maps directly to product architecture decisions. If you're a **researcher, policymaker, or developer** trying to understand the philosophical underpinnings of model behavior and predict how the model handles novel edge cases, **Anthropic's Claude Character** offers deeper insight into the reasoning behind behavioral choices.
 
-Neither document is purely technical or purely philosophical — both blend engineering constraints with ethical frameworks. The real distinction is emphasis: OpenAI leans toward governance structure, Anthropic leans toward character formation. As AI models become more agentic, Anthropic's trait-based approach may prove more robust for scenarios that rule-based specs can't anticipate, but OpenAI's hierarchical model gives operators more explicit control today.
+Neither document is purely technical or purely philosophical — both blend engineering constraints with ethical frameworks. The real distinction is emphasis: OpenAI leans toward governance structure, Anthropic leans toward character formation. As AI models become more [agentic](/glossary/agentic), Anthropic's trait-based approach may prove more robust for scenarios that rule-based specs can't anticipate, but OpenAI's hierarchical model gives operators more explicit control today.
 
 ---
 

@@ -1,12 +1,18 @@
 ---
-title: "Amazon — AI Glossary"
+title: Amazon — AI Glossary
 slug: amazon
-description: "What is Amazon? The tech giant behind AWS, Bedrock, and major AI infrastructure investments."
+description: >-
+  What is Amazon? The tech giant behind AWS, Bedrock, and major AI
+  infrastructure investments.
 term: amazon
-display_term: "Amazon"
+display_term: Amazon
 category: frameworks
-related_glossary: [anthropic, claude, nvidia]
-related_blog: [anthropic-claude-memory-upgrades-importing]
+related_glossary:
+  - anthropic
+  - claude
+  - nvidia
+related_blog:
+  - anthropic-claude-memory-upgrades-importing
 related_compare: []
 lang: en
 ---
@@ -31,7 +37,7 @@ Amazon's AI strategy spans three layers:
 
 ## Related Terms
 
-- **[Anthropic](/glossary/anthropic)**: AI safety company and Claude's creator, backed by a major Amazon investment
+- **[Anthropic](/glossary/anthropic)**: [AI safety](/glossary/ai-safety) company and Claude's creator, backed by a major Amazon investment
 - **[Claude](/glossary/claude)**: Anthropic's flagship model, available on AWS Bedrock as a managed API
 - **[NVIDIA](/glossary/nvidia)**: Primary GPU supplier for AI training, competing with Amazon's custom Trainium chips
 

@@ -1,15 +1,20 @@
 ---
-title: "Agentic（智能体化）— AI 术语表"
+title: Agentic（智能体化）— AI 术语表
 slug: agentic
-description: "什么是 Agentic？指 AI 系统具备自主规划、决策和执行多步骤任务的能力。"
+description: 什么是 Agentic？指 AI 系统具备自主规划、决策和执行多步骤任务的能力。
 term: agentic
-display_term: "Agentic（智能体化）"
+display_term: Agentic（智能体化）
 category: concepts
-related_glossary: [claude-code, claude, anthropic]
-related_blog: [anthropic-cowork-claude-desktop-agent]
+related_glossary:
+  - claude-code
+  - claude
+  - anthropic
+related_blog:
+  - anthropic-cowork-claude-desktop-agent
 related_compare: []
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Agentic（智能体化）— AI 术语表
@@ -30,7 +35,7 @@ Agentic 系统的核心架构包含三个关键组件：
 - **工具调用**：通过函数调用、Shell 命令或 API 请求与外部环境交互
 - **反馈循环**：根据每步执行结果动态调整后续计划
 
-以 [Claude](/glossary/claude) 为例，它通过扩展上下文窗口理解项目全貌，利用 tool use 能力执行文件编辑、命令运行等操作，并在遇到错误时自动修正策略。这种「感知-规划-执行-反思」的循环是 agentic 行为的本质特征。
+以 [Claude](/glossary/claude) 为例，它通过扩展上下文窗口理解项目全貌，利用 [tool use](/zh/glossary/tool-use) 能力执行文件编辑、命令运行等操作，并在遇到错误时自动修正策略。这种「感知-规划-执行-反思」的循环是 agentic 行为的本质特征。
 
 ## 相关术语
 

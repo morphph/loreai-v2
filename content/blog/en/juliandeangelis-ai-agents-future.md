@@ -1,16 +1,26 @@
 ---
-title: "Spec-Driven Development: Why Specifications Are the New Code for AI Agents"
-date: 2026-03-18
+title: 'Spec-Driven Development: Why Specifications Are the New Code for AI Agents'
+date: 2026-03-18T00:00:00.000Z
 slug: juliandeangelis-ai-agents-future
-description: "Spec-Driven Development (SDD) front-loads thinking into detailed specifications so AI coding agents build the right thing first time. Here's how the three-level framework works."
-keywords: ["spec-driven development", "AI coding agents", "SDD methodology", "AI software engineering"]
+description: >-
+  Spec-Driven Development (SDD) front-loads thinking into detailed
+  specifications so AI coding agents build the right thing first time. Here's
+  how the three-level framework works.
+keywords:
+  - spec-driven development
+  - AI coding agents
+  - SDD methodology
+  - AI software engineering
 category: DEV
-related_newsletter: 2026-03-18
-related_glossary: [ai-agent, prompt-engineering]
-related_compare: [claude-code-vs-cursor]
+related_newsletter: 2026-03-18T00:00:00.000Z
+related_glossary:
+  - ai-agent
+  - prompt-engineering
+related_compare:
+  - claude-code-vs-cursor
 lang: en
 video_ready: true
-video_hook: "The spec is the new code — and vague prompts are the new technical debt"
+video_hook: The spec is the new code — and vague prompts are the new technical debt
 video_status: published
 source_type: video
 ---
@@ -21,7 +31,7 @@ The bottleneck in AI-assisted coding isn't the model — it's the prompt. Develo
 
 ## What Happened
 
-Julián published a detailed breakdown of SDD as a response to a growing pain point: developers using AI coding agents like **Claude Code**, **Cursor**, and **GitHub Copilot** keep getting mediocre output — not because the models are weak, but because the inputs are vague.
+Julián published a detailed breakdown of SDD as a response to a growing pain point: developers using [AI coding agents](/blog/effective-harnesses-for-long-running-agents) like **[Claude Code](/blog/claude-code-complete-guide)**, **[Cursor](/glossary/cursor)**, and **[GitHub Copilot](/glossary/github-[copilot](/glossary/copilot))** keep getting mediocre output — not because the models are weak, but because the inputs are vague.
 
 The SDD framework defines four sequential phases: **Specify** (define requirements, goals, scope), **Plan** (design architecture, choose technologies, set milestones), **Tasks** (break down into concrete, measurable implementation steps), and **Implement** (the agent executes: code, test, build, deploy). The critical insight is that ambiguity decreases at each phase. By the time the AI agent touches code, there should be near-zero guesswork left.
 

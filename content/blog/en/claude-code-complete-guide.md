@@ -1,24 +1,56 @@
 ---
-title: "Claude Code: The Complete Guide to Anthropic's AI Coding Agent"
+title: 'Claude Code: The Complete Guide to Anthropic''s AI Coding Agent'
 slug: claude-code-complete-guide
-date: 2026-03-16
-description: "Everything you need to know about Claude Code — Anthropic's terminal AI coding agent. Setup, features, pricing, comparisons, and best practices."
-keywords: [claude code, what is claude code, claude code guide, anthropic claude code]
+date: 2026-03-16T00:00:00.000Z
+description: >-
+  Everything you need to know about Claude Code — Anthropic's terminal AI coding
+  agent. Setup, features, pricing, comparisons, and best practices.
+keywords:
+  - claude code
+  - what is claude code
+  - claude code guide
+  - anthropic claude code
 category: tools
 cornerstone: true
-related_topics: [claude-code]
-related_glossary: [claude-code, anthropic, claude, model-context-protocol, agentic-coding, multi-agent-systems]
-related_compare: [claude-code-vs-cursor, claude-code-vs-github-copilot, claude-code-vs-codex, claude-code-vs-windsurf, claude-code-vs-aider, claude-code-vs-cline, claude-code-vs-amazon-q]
-related_faq: [how-much-does-claude-code-cost, how-to-install-claude-code, what-is-claude-code, is-claude-code-free, claude-code-windows, claude-code-with-git, what-is-claude-md, claude-code-mcp-setup, claude-code-pricing, claude-code-ci-cd, claude-code-skills, claude-code-agent-teams]
+related_topics:
+  - claude-code
+related_glossary:
+  - claude-code
+  - anthropic
+  - claude
+  - model-context-protocol
+  - agentic-coding
+  - multi-agent-systems
+related_compare:
+  - claude-code-vs-cursor
+  - claude-code-vs-github-copilot
+  - claude-code-vs-codex
+  - claude-code-vs-windsurf
+  - claude-code-vs-aider
+  - claude-code-vs-cline
+  - claude-code-vs-amazon-q
+related_faq:
+  - how-much-does-claude-code-cost
+  - how-to-install-claude-code
+  - what-is-claude-code
+  - is-claude-code-free
+  - claude-code-windows
+  - claude-code-with-git
+  - what-is-claude-md
+  - claude-code-mcp-setup
+  - claude-code-pricing
+  - claude-code-ci-cd
+  - claude-code-skills
+  - claude-code-agent-teams
 lang: en
 video_ready: true
-video_hook: "One page, everything you need to know about Claude Code"
+video_hook: 'One page, everything you need to know about Claude Code'
 video_status: none
 ---
 
 # Claude Code: The Complete Guide to Anthropic's AI Coding Agent
 
-**Claude Code** is [Anthropic's](/glossary/anthropic) terminal-native AI coding agent. You describe a task — fix a bug, refactor a module, scaffold a new feature — and Claude Code plans the approach, edits files across your project, runs tests, and commits the result. It operates directly in your shell with full access to your codebase, your build tools, and your git history. Unlike IDE copilots that suggest one line at a time, Claude Code handles multi-step engineering tasks end to end. Launched in February 2025, it's used by engineering teams at Ramp, Shopify, Spotify, and thousands of individual developers. This guide covers everything: how it works, what it costs, how it compares to alternatives, and the practices that make it most effective.
+**[Claude Code](/blog/lessons-from-building-claude-code-agent-tools)** is [Anthropic's](/glossary/anthropic) terminal-native AI coding agent. You describe a task — fix a bug, refactor a module, scaffold a new feature — and Claude Code plans the approach, edits files across your project, runs tests, and commits the result. It operates directly in your shell with full access to your codebase, your build tools, and your git history. Unlike IDE copilots that suggest one line at a time, Claude Code handles multi-step engineering tasks end to end. Launched in February 2025, it's used by engineering teams at Ramp, Shopify, Spotify, and thousands of individual developers. This guide covers everything: how it works, what it costs, how it compares to alternatives, and the practices that make it most effective.
 
 ## What Is Claude Code?
 
@@ -68,7 +100,7 @@ Claude Code's architecture has three layers that build on each other.
 
 **[Memory system](/blog/claude-code-memory)** — CLAUDE.md for deliberate project instructions, auto memory for emergent knowledge learned during sessions. Context compounds across conversations instead of resetting.
 
-**[Skills and hooks](/blog/claude-code-extension-stack-skills-hooks-agents-mcp)** — Skills are `SKILL.md` files stored in `.claude/skills/` directories that become slash commands and can also be invoked automatically by Claude when relevant. Legacy `.claude/commands/` files still work. Hooks are shell commands triggered on lifecycle events (PreToolUse, PostToolUse) that enforce deterministic guardrails. Together they make Claude Code programmable by your team.
+**[Skills and hooks](/blog/claude-code-extension-stack-skills-hooks-agents-[mcp](/glossary/mcp))** — Skills are `[SKILL.md](/blog/9-principles-writing-claude-code-skills)` files stored in `.claude/skills/` directories that become slash commands and can also be invoked automatically by Claude when relevant. Legacy `.claude/commands/` files still work. Hooks are shell commands triggered on lifecycle events (PreToolUse, PostToolUse) that enforce deterministic guardrails. Together they make Claude Code programmable by your team.
 
 **[Voice mode](/blog/claude-code-voice-mode)** — speak coding instructions naturally. The same agent loop, same tools, different input method. Useful for accessibility, mobile workflows, and thinking-out-loud development.
 
@@ -88,9 +120,9 @@ Claude Code's architecture has three layers that build on each other.
 
 The AI coding tool landscape in 2026 has distinct categories. Claude Code occupies the terminal-native agent space — it runs in your existing shell, works with any editor, and executes autonomously.
 
-**[Claude Code vs Cursor](/compare/claude-code-vs-cursor)**: Cursor embeds AI into a VS Code fork with inline editing, tab completion, and a composer for multi-file changes. Claude Code runs in terminal with full agent autonomy. Cursor is better for developers who want AI-enhanced editing within a GUI. Claude Code is better for developers who want autonomous task execution and work primarily in terminal. Many developers use both — Cursor for interactive editing, Claude Code for autonomous tasks.
+**[Claude Code vs Cursor](/compare/claude-code-vs-[cursor](/glossary/cursor))**: Cursor embeds AI into a VS Code fork with inline editing, tab completion, and a composer for multi-file changes. Claude Code runs in terminal with full agent autonomy. Cursor is better for developers who want AI-enhanced editing within a GUI. Claude Code is better for developers who want autonomous task execution and work primarily in terminal. Many developers use both — Cursor for interactive editing, Claude Code for autonomous tasks.
 
-**Claude Code vs GitHub Copilot**: Copilot focuses on inline suggestions and chat within VS Code or JetBrains. Its Copilot Workspace feature proposes multi-file plans but doesn't execute them autonomously. Claude Code's agent loop — plan, execute, validate, iterate — goes further for complex tasks.
+**Claude Code vs [GitHub Copilot](/glossary/github-copilot)**: Copilot focuses on inline suggestions and chat within VS Code or JetBrains. Its Copilot Workspace feature proposes multi-file plans but doesn't execute them autonomously. Claude Code's agent loop — plan, execute, validate, iterate — goes further for complex tasks.
 
 **[Claude Code vs OpenAI Codex](/compare/claude-code-vs-codex)**: Codex is OpenAI's coding agent available as a cloud-based platform and CLI. Both are agentic, both handle multi-step tasks autonomously. Key differences: Codex runs in sandboxed cloud containers (built-in isolation), while Claude Code runs locally with full shell access (maximum flexibility). See our [complete Codex guide](/blog/codex-complete-guide) for a deep dive on OpenAI's agent.
 

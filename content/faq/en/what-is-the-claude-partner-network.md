@@ -1,17 +1,23 @@
 ---
-title: "What Is the Claude Partner Network?"
+title: What Is the Claude Partner Network?
 slug: what-is-claude-partner-network
-description: "The Claude Partner Network is Anthropic's ecosystem of consulting firms, SIs, and tech companies that help enterprises deploy Claude."
+description: >-
+  The Claude Partner Network is Anthropic's ecosystem of consulting firms, SIs,
+  and tech companies that help enterprises deploy Claude.
 category: tools
-related_glossary: [ai-safety]
-related_blog: [opus-4-6-1m-default-claude-code]
-related_faq: [what-is-anthropics-position-on-providing-ai-to-the-departmen, how-does-anthropics-defense-engagement-differ-from-openais-a]
+related_glossary:
+  - ai-safety
+related_blog:
+  - opus-4-6-1m-default-claude-code
+related_faq:
+  - what-is-anthropics-position-on-providing-ai-to-the-departmen
+  - how-does-anthropics-defense-engagement-differ-from-openais-a
 lang: en
 ---
 
 # What Is the Claude Partner Network?
 
-The **Claude Partner Network** is Anthropic's formal ecosystem of consulting firms, system integrators, and technology partners that help enterprises adopt and deploy [Claude](/glossary/chatgpt)-family models at scale. It connects organizations that want to build with Claude to vetted partners who have deep experience implementing AI solutions — covering everything from initial strategy through production deployment and ongoing optimization.
+The **[Claude Partner Network](/blog/anthropic-claude-partner-network-100-million)** is Anthropic's formal ecosystem of consulting firms, system integrators, and technology partners that help enterprises adopt and deploy [Claude](/glossary/chatgpt)-family models at scale. It connects organizations that want to build with Claude to vetted partners who have deep experience implementing AI solutions — covering everything from initial strategy through production deployment and ongoing optimization.
 
 ## Context
 

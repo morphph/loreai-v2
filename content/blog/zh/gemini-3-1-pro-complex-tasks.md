@@ -1,30 +1,40 @@
 ---
-title: "Gemini 3.1 Pro 发布：Google 在复杂任务上的新答卷"
-date: 2026-03-05
+title: Gemini 3.1 Pro 发布：Google 在复杂任务上的新答卷
+date: 2026-03-05T00:00:00.000Z
 slug: gemini-3-1-pro-complex-tasks
-description: "Google DeepMind 发布 Gemini 3.1 Pro，主打复杂任务处理能力。和 Claude Opus 4.6、GPT-5 相比表现如何？开发者该怎么选？"
-keywords: ["Gemini 3.1 Pro", "Google DeepMind", "大语言模型对比", "Gemini API"]
+description: >-
+  Google DeepMind 发布 Gemini 3.1 Pro，主打复杂任务处理能力。和 Claude Opus 4.6、GPT-5
+  相比表现如何？开发者该怎么选？
+keywords:
+  - Gemini 3.1 Pro
+  - Google DeepMind
+  - 大语言模型对比
+  - Gemini API
 category: MODEL
-related_newsletter: 2026-03-05
-related_glossary: [gemini, google-deepmind]
-related_compare: [gemini-vs-claude, gemini-vs-gpt]
+related_newsletter: 2026-03-05T00:00:00.000Z
+related_glossary:
+  - gemini
+  - google-deepmind
+related_compare:
+  - gemini-vs-claude
+  - gemini-vs-gpt
 lang: zh
 video_ready: true
-video_hook: "Google 的新模型 Gemini 3.1 Pro 来了，复杂任务能力到底提升了多少？"
+video_hook: Google 的新模型 Gemini 3.1 Pro 来了，复杂任务能力到底提升了多少？
 video_status: none
 ---
 
 # Gemini 3.1 Pro 发布：Google 在复杂任务上的新答卷
 
-Google DeepMind 发布了 **Gemini 3.1 Pro**，定位是"处理最复杂任务的更智能模型"。在 Anthropic 刚推出 [Claude Opus 4.6](/glossary/claude-opus) 和 Sonnet 4.6 的一周内，Google 紧跟着交出了自己的新答卷。模型竞赛进入了密集交火期，开发者面临的选择比以往任何时候都多。
+[Google DeepMind](/zh/glossary/google-[deepmind](/zh/glossary/deepmind)) 发布了 **Gemini 3.1 Pro**，定位是"处理最复杂任务的更智能模型"。在 Anthropic 刚推出 [Claude Opus 4.6](/glossary/claude-opus) 和 Sonnet 4.6 的一周内，Google 紧跟着交出了自己的新答卷。模型竞赛进入了密集交火期，开发者面临的选择比以往任何时候都多。
 
 ## 发生了什么
 
 Google DeepMind 在[官方博客](https://deepmind.google/blog/gemini-3-1-pro-a-smarter-model-for-your-most-complex-tasks/)正式发布了 **Gemini 3.1 Pro**。从命名看，这是 Gemini 3 系列的迭代升级版，延续了 Google 在 Pro 级别模型上能力与成本平衡的路线。
 
-官方标语"a smarter model for your most complex tasks"明确把竞争焦点放在了复杂推理任务上 — 这正是当前[大语言模型](/glossary/large-language-model)（LLM）军备竞赛的核心战场。多步推理、长链条规划、跨领域知识整合，这些能力直接决定了模型在 agentic 场景下的实际表现。
+官方标语"a smarter model for your most complex tasks"明确把竞争焦点放在了复杂推理任务上 — 这正是当前[大语言模型](/glossary/large-language-model)（LLM）军备竞赛的核心战场。多步推理、长链条规划、跨领域知识整合，这些能力直接决定了模型在 [agentic](/zh/glossary/agentic) 场景下的实际表现。
 
-发布时间点值得注意。就在上周，Anthropic 发布了 Claude Opus 4.6 和 Sonnet 4.6，前者主打"更审慎的规划和更持久的 agentic 任务执行"，后者则号称"最强 Sonnet"。Google 选择紧随其后发布，竞争意味不言自明。
+发布时间点值得注意。就在上周，Anthropic 发布了 [Claude Opus 4.6](/zh/blog/claude-1-million-context-window-ga) 和 Sonnet 4.6，前者主打"更审慎的规划和更持久的 agentic 任务执行"，后者则号称"最强 Sonnet"。Google 选择紧随其后发布，竞争意味不言自明。
 
 ## 为什么重要
 
@@ -49,7 +59,7 @@ Google DeepMind 在[官方博客](https://deepmind.google/blog/gemini-3-1-pro-a-
 | 模型 | 定位 | 上下文窗口 | 特色 |
 |------|------|-----------|------|
 | Gemini 3.1 Pro | Pro 级，复杂任务 | 待确认 | Google 生态集成 |
-| Claude Opus 4.6 | 旗舰级 | 100 万 Token（Beta） | 长任务持久力、自纠错 |
+| [Claude Opus](/zh/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison) 4.6 | 旗舰级 | 100 万 Token（Beta） | 长任务持久力、自纠错 |
 | Claude Sonnet 4.6 | Pro 级 | 100 万 Token（Beta） | 编码、Agent、设计全面升级 |
 
 需要注意的是，Anthropic 最近指出[基础设施噪声可以让 agentic 编码评测结果波动数个百分点](https://x.com/AnthropicAI/status/2019501512200974686)，有时甚至超过排行榜上模型间的差距。所以跑分排名要理性看待，实际场景测试才是选型依据。

@@ -1,19 +1,25 @@
 ---
-title: "GitHub Copilot — AI Glossary"
+title: GitHub Copilot — AI Glossary
 slug: github-copilot
-description: "What is GitHub Copilot? GitHub's AI-powered coding assistant that suggests code inline across major IDEs."
+description: >-
+  What is GitHub Copilot? GitHub's AI-powered coding assistant that suggests
+  code inline across major IDEs.
 term: github-copilot
-display_term: "GitHub Copilot"
+display_term: GitHub Copilot
 category: tools
-related_glossary: [cursor, agentic-coding, chatgpt]
-related_blog: [claude-code-enterprise-engineering-ramp-shopify-spotify]
+related_glossary:
+  - cursor
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - claude-code-enterprise-engineering-ramp-shopify-spotify
 related_compare: []
 lang: en
 ---
 
 # GitHub Copilot — AI Glossary
 
-**GitHub Copilot** is GitHub's AI-powered code completion and assistance tool, built in partnership with OpenAI. It integrates directly into editors like VS Code, JetBrains IDEs, and Neovim, providing inline code suggestions, chat-based help, and multi-file editing capabilities. Copilot was one of the first widely adopted AI coding tools, launching in preview in 2021 and reaching general availability in 2022.
+**GitHub [Copilot](/glossary/copilot)** is GitHub's AI-powered code completion and assistance tool, built in partnership with OpenAI. It integrates directly into editors like VS Code, JetBrains IDEs, and Neovim, providing inline code suggestions, chat-based help, and multi-file editing capabilities. Copilot was one of the first widely adopted AI coding tools, launching in preview in 2021 and reaching general availability in 2022.
 
 ## Why GitHub Copilot Matters
 
@@ -23,11 +29,11 @@ Its deep integration with the GitHub ecosystem gives it a unique advantage: pull
 
 ## How GitHub Copilot Works
 
-Copilot uses OpenAI's Codex-derived models (and increasingly GPT-4-class models) fine-tuned on public code repositories. Key mechanisms:
+Copilot uses OpenAI's [Codex](/blog/codex-complete-guide)-derived models (and increasingly GPT-4-class models) fine-tuned on public code repositories. Key mechanisms:
 
 - **Inline completions**: Predicts the next lines of code based on your current file, open tabs, and recent edits
 - **Copilot Chat**: Conversational interface for explaining code, generating tests, and debugging — available in the IDE sidebar
-- **Copilot Workspace**: A newer agentic layer that plans and implements multi-file changes from issue descriptions
+- **Copilot Workspace**: A newer [agentic](/glossary/agentic) layer that plans and implements multi-file changes from issue descriptions
 - **Context awareness**: Uses neighboring files, imports, and function signatures to improve suggestion relevance
 
 The tool sends code snippets to cloud-hosted models and returns suggestions in real time, with enterprise plans offering data exclusion controls and IP indemnification.

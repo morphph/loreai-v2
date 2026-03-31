@@ -1,19 +1,22 @@
 ---
-title: "Sakana AI — AI 术语表"
+title: Sakana AI — AI 术语表
 slug: sakana-ai
-description: "Sakana AI 是什么？一家总部位于东京的 AI 研究公司，专注于自然启发的 AI 技术。"
+description: Sakana AI 是什么？一家总部位于东京的 AI 研究公司，专注于自然启发的 AI 技术。
 term: sakana-ai
-display_term: "Sakana AI"
+display_term: Sakana AI
 category: models
-related_glossary: [agentic-coding, chatgpt]
-related_blog: [openai-computer-access-agents-lessons]
+related_glossary:
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - openai-computer-access-agents-lessons
 related_compare: []
 lang: zh
 ---
 
 # Sakana AI — AI 术语表
 
-**Sakana AI** 是一家总部位于东京的人工智能研究公司，由前 Google Brain 研究员 David Ha 和前 Google DeepMind 研究员 Llion Jones（Transformer 论文共同作者）于 2023 年联合创立。公司名称源自日语"鱼"（さかな），核心理念是从自然界的集体智能中汲取灵感，探索轻量、高效的 AI 模型构建方法。
+**Sakana AI** 是一家总部位于东京的人工智能研究公司，由前 Google Brain 研究员 David Ha 和前 [Google DeepMind](/zh/blog/gemini-3-1-pro-complex-tasks) 研究员 Llion Jones（Transformer 论文共同作者）于 2023 年联合创立。公司名称源自日语"鱼"（さかな），核心理念是从自然界的集体智能中汲取灵感，探索轻量、高效的 AI 模型构建方法。
 
 ## 为什么 Sakana AI 值得关注
 

@@ -1,21 +1,23 @@
 ---
-title: "How to Build a Production-Ready Claude Code Skill"
+title: How to Build a Production-Ready Claude Code Skill
 slug: how-to-build-a-production-ready-claude-code-skill
-description: "A practical guide to building production-ready Claude Code skills with SKILL.md — from use case design to token-efficient architecture."
+description: >-
+  A practical guide to building production-ready Claude Code skills with
+  SKILL.md — from use case design to token-efficient architecture.
 lang: en
 category: tools
-date: 2026-03-24
+date: 2026-03-24T00:00:00.000Z
 ---
 
 # How to Build a Production-Ready Claude Code Skill
 
-**Claude Code Skills** are modular instruction packages that give Claude domain-specific expertise for repeatable tasks — writing newsletters, reviewing PRs, generating test suites, or running deployments. Defined in `SKILL.md` files and loaded on demand, they're the difference between a generic AI assistant and one that knows exactly how your team works.
+**[Claude Code Skills](/blog/9-principles-writing-claude-code-skills)** are modular instruction packages that give Claude domain-specific expertise for repeatable tasks — writing newsletters, reviewing PRs, generating test suites, or running deployments. Defined in `SKILL.md` files and loaded on demand, they're the difference between a generic AI assistant and one that knows exactly how your team works.
 
 This guide covers how to design, structure, and ship a skill that holds up in production.
 
 ## Why Skills Exist: The Context Problem
 
-Claude Code's biggest constraint is token budget. Every session has a context window, and loading your entire project's conventions, style guides, and workflow notes on every invocation is wasteful — and often impossible.
+[Claude Code](/blog/claude-code-complete-guide)'s biggest constraint is token budget. Every session has a context window, and loading your entire project's conventions, style guides, and workflow notes on every invocation is wasteful — and often impossible.
 
 The **SKILL.md architecture** solves this through progressive disclosure. Skills use YAML frontmatter to signal when they're relevant. Claude scans metadata first, then loads the full instruction content only when the task matches. A skill for "write newsletter" doesn't burn context during a refactoring session.
 

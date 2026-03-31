@@ -1,16 +1,29 @@
 ---
-title: "9 Principles for Writing Great Claude Code Skills That Actually Work"
-date: 2026-03-18
+title: 9 Principles for Writing Great Claude Code Skills That Actually Work
+date: 2026-03-18T00:00:00.000Z
 slug: 9-principles-writing-claude-code-skills
-description: "Battle-tested principles for writing durable, effective Claude Code SKILL.md files — from gotchas sections to progressive disclosure and trigger-optimized descriptions."
-keywords: ["Claude Code skills", "SKILL.md", "Claude Code configuration", "coding agents", "AI developer tools"]
+description: >-
+  Battle-tested principles for writing durable, effective Claude Code SKILL.md
+  files — from gotchas sections to progressive disclosure and trigger-optimized
+  descriptions.
+keywords:
+  - Claude Code skills
+  - SKILL.md
+  - Claude Code configuration
+  - coding agents
+  - AI developer tools
 category: DEV
-related_newsletter: 2026-03-18
-related_glossary: [claude-code, skill-md]
-related_compare: [claude-code-vs-cursor]
+related_newsletter: 2026-03-18T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - skill-md
+related_compare:
+  - claude-code-vs-cursor
 lang: en
 video_ready: true
-video_hook: "Most Claude Code skills are mediocre. Here are 9 principles that make them indispensable."
+video_hook: >-
+  Most Claude Code skills are mediocre. Here are 9 principles that make them
+  indispensable.
 video_status: published
 source_type: video
 flow_source: manual-curate
@@ -18,11 +31,11 @@ flow_source: manual-curate
 
 # 9 Principles for Writing Great Claude Code Skills That Actually Work
 
-**Claude Code** skills turn a general-purpose AI assistant into a specialized team member — but only if you write them well. After building dozens of **SKILL.md** files across billing, deployment, incident response, and business automation, engineer Thariq (@trq212) distilled what separates skills that become indispensable from ones that barely work. The difference isn't length or detail — it's knowing what to include, what to leave out, and how to structure information so Claude can actually use it.
+**[Claude Code](/blog/claude-code-complete-guide)** skills turn a general-purpose AI assistant into a specialized team member — but only if you write them well. After building dozens of **SKILL.md** files across billing, deployment, incident response, and business automation, engineer Thariq (@trq212) distilled what separates skills that become indispensable from ones that barely work. The difference isn't length or detail — it's knowing what to include, what to leave out, and how to structure information so Claude can actually use it.
 
 ## What Happened
 
-Thariq published a comprehensive guide covering nine principles for writing durable Claude Code skills, alongside a taxonomy of nine skill categories that cover most engineering workflows. The guide draws from real production experience — not toy examples — spanning billing libraries, queue debugging, CI/CD pipelines, and business automation.
+Thariq published a comprehensive guide covering nine principles for writing durable [Claude Code skills](/blog/claude-code-extension-stack-skills-hooks-agents-[mcp](/glossary/mcp)), alongside a taxonomy of nine skill categories that cover most engineering workflows. The guide draws from real production experience — not toy examples — spanning billing libraries, queue debugging, CI/CD pipelines, and business automation.
 
 The core insight: most developers write skills like documentation for humans. They restate things Claude already knows, over-specify every step, and bury the critical information in walls of text. Great skills do the opposite — they're concise, opinionated, and focused exclusively on information Claude can't figure out on its own.
 
@@ -34,7 +47,7 @@ The [SKILL.md](/glossary/skill-md) system is arguably [Claude Code](/glossary/cl
 
 Thariq's principles address the most common failure modes head-on. The "Skip the Obvious" principle alone would fix half the skills in the wild — developers routinely waste their context budget telling Claude how git works or how to format Python, when Claude already has strong defaults for all of that.
 
-The competitive angle matters too. Cursor and GitHub Copilot offer configuration options, but neither has a file-based, version-controlled, team-shareable skill system. Skills that travel in your repo, go through code review, and improve over time create a compounding advantage that settings panels can't replicate.
+The competitive angle matters too. Cursor and [GitHub Copilot](/glossary/github-[copilot](/glossary/copilot)) offer configuration options, but neither has a file-based, version-controlled, team-shareable skill system. Skills that travel in your repo, go through code review, and improve over time create a compounding advantage that settings panels can't replicate.
 
 ## Technical Deep-Dive
 

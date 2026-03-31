@@ -1,22 +1,31 @@
 ---
-title: "OpenAI's Updated Model Spec: What Changes for AI Alignment and Developer Trust"
-date: 2026-03-09
+title: 'OpenAI''s Updated Model Spec: What Changes for AI Alignment and Developer Trust'
+date: 2026-03-09T00:00:00.000Z
 slug: openai-updated-model-spec-2026
-description: "OpenAI publishes an updated Model Spec defining how its models should behave — here's what changed and why it matters for developers and the AI industry."
-keywords: ["OpenAI Model Spec", "AI alignment", "model behavior", "AI safety policy"]
+description: >-
+  OpenAI publishes an updated Model Spec defining how its models should behave —
+  here's what changed and why it matters for developers and the AI industry.
+keywords:
+  - OpenAI Model Spec
+  - AI alignment
+  - model behavior
+  - AI safety policy
 category: MODEL
-related_newsletter: 2026-03-09
-related_glossary: [model-spec, ai-alignment]
-related_compare: [openai-vs-anthropic]
+related_newsletter: 2026-03-09T00:00:00.000Z
+related_glossary:
+  - model-spec
+  - ai-alignment
+related_compare:
+  - openai-vs-anthropic
 lang: en
 video_ready: true
-video_hook: "OpenAI just rewrote the rulebook for how its models behave"
+video_hook: OpenAI just rewrote the rulebook for how its models behave
 video_status: none
 ---
 
 # OpenAI's Updated Model Spec: What Changes for AI Alignment and Developer Trust
 
-OpenAI just published an [updated Model Spec](https://openai.com/index/sharing-the-latest-model-spec/) — the internal document that defines how its models should think, respond, and handle edge cases. While most AI discourse focuses on capability benchmarks and context windows, the **Model Spec** is arguably more consequential: it's the behavioral constitution that governs every interaction across ChatGPT, the API, and downstream applications. For developers building on OpenAI's platform, understanding these changes isn't optional — it directly affects how your applications behave.
+OpenAI just published an [updated Model Spec](https://openai.com/index/sharing-the-latest-model-spec/) — the internal document that defines how its models should think, respond, and handle edge cases. While most AI discourse focuses on capability benchmarks and context windows, the **Model Spec** is arguably more consequential: it's the behavioral constitution that governs every interaction across [ChatGPT](/glossary/chatgpt), the API, and downstream applications. For developers building on OpenAI's platform, understanding these changes isn't optional — it directly affects how your applications behave.
 
 ## What Happened
 
@@ -59,7 +68,7 @@ Key behavioral principles in the spec include:
 
 The anti-sycophancy principle is particularly interesting given recent research showing that [RLHF-trained models tend toward agreement bias](https://arxiv.org/abs/2310.13548). Encoding "disagree when appropriate" as a behavioral spec is easier than training it out of the reward model — but also harder to verify consistently.
 
-One limitation worth noting: the Model Spec is a document, not a mechanism. Unlike Anthropic's Constitutional AI, which bakes principles into the training loop via AI-generated critiques, OpenAI's approach relies on instruction-following and RLHF to implement spec-level directives. This means behavioral adherence depends on the model's instruction-following capability, which varies across model sizes and fine-tuning configurations.
+One limitation worth noting: the Model Spec is a document, not a mechanism. Unlike Anthropic's Constitutional AI, which bakes principles into the training loop via AI-generated critiques, OpenAI's approach relies on instruction-following and [RLHF](/glossary/rlhf) to implement spec-level directives. This means behavioral adherence depends on the model's instruction-following capability, which varies across model sizes and [fine-tuning](/glossary/fine-tuning) configurations.
 
 ## What You Should Do
 

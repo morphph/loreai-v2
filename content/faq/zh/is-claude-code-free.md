@@ -1,17 +1,23 @@
 ---
-title: "Claude Code 免费吗？"
+title: Claude Code 免费吗？
 slug: is-claude-code-free
-description: "Claude Code 不免费，使用需要 Anthropic API 按量付费或订阅 Claude Pro/Max 计划，安装本身不收钱但调用模型要花钱。"
+description: Claude Code 不免费，使用需要 Anthropic API 按量付费或订阅 Claude Pro/Max 计划，安装本身不收钱但调用模型要花钱。
 category: tools
-related_glossary: [claude-code, anthropic, claude]
-related_blog: [claude-code-complete-guide, claude-code-enterprise-engineering-ramp-shopify-spotify]
+related_glossary:
+  - claude-code
+  - anthropic
+  - claude
+related_blog:
+  - claude-code-complete-guide
+  - claude-code-enterprise-engineering-ramp-shopify-spotify
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code 免费吗？
 
-Claude Code 不免费。虽然安装不花钱，但实际使用需要付费，要么走 Anthropic API 按 token 计费，要么开通 Claude Pro 或 Max 订阅。每次跟 Claude 交互都会消耗 token，最终体现在你的账单上。
+[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 不免费。虽然安装不花钱，但实际使用需要付费，要么走 Anthropic API 按 token 计费，要么开通 Claude Pro 或 Max 订阅。每次跟 Claude 交互都会消耗 token，最终体现在你的账单上。
 
 ## 背景
 

@@ -1,11 +1,13 @@
 ---
-title: "DPO（直接偏好优化）— AI 术语表"
+title: DPO（直接偏好优化）— AI 术语表
 slug: dpo
-description: "什么是 DPO？一种无需训练奖励模型、直接从人类偏好数据优化语言模型的对齐技术。"
+description: 什么是 DPO？一种无需训练奖励模型、直接从人类偏好数据优化语言模型的对齐技术。
 term: dpo
-display_term: "DPO（Direct Preference Optimization）"
+display_term: DPO（Direct Preference Optimization）
 category: techniques
-related_glossary: [anthropic, claude]
+related_glossary:
+  - anthropic
+  - claude
 related_blog: []
 related_compare: []
 lang: zh
@@ -13,7 +15,7 @@ lang: zh
 
 # DPO（直接偏好优化）— AI 术语表
 
-**DPO（Direct Preference Optimization）** 是一种语言模型对齐技术，通过直接在人类偏好数据上优化策略模型，跳过传统 RLHF 流程中训练奖励模型和运行强化学习的步骤。由斯坦福研究团队于 2023 年提出，DPO 将偏好学习问题重新定义为一个简单的分类损失函数，大幅降低了对齐训练的复杂度和计算成本。
+**DPO（Direct Preference Optimization）** 是一种语言模型对齐技术，通过直接在人类偏好数据上优化策略模型，跳过传统 [RLHF](/zh/glossary/rlhf) 流程中训练奖励模型和运行强化学习的步骤。由斯坦福研究团队于 2023 年提出，DPO 将偏好学习问题重新定义为一个简单的分类损失函数，大幅降低了对齐训练的复杂度和计算成本。
 
 ## 为什么 DPO 重要
 

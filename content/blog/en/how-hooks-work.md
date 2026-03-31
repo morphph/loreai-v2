@@ -1,15 +1,17 @@
 ---
-title: "How Hooks Work: React, PyTorch, and AI Agents Explained"
+title: 'How Hooks Work: React, PyTorch, and AI Agents Explained'
 slug: how-hooks-work
-description: "How hooks work across React, PyTorch, and Claude Code — intercepting execution flow without modifying core source code."
+description: >-
+  How hooks work across React, PyTorch, and Claude Code — intercepting execution
+  flow without modifying core source code.
 lang: en
 category: concepts
-date: 2026-03-23
+date: 2026-03-23T00:00:00.000Z
 ---
 
 # How Hooks Work: React, PyTorch, and AI Agents Explained
 
-**Hooks** are predefined extension points that let developers intercept, monitor, or modify a system's internal execution flow without touching its core source code. The concept appears across three major ecosystems — React frontend development, PyTorch machine learning, and Claude Code AI agent governance — and each implementation reveals something different about why the pattern keeps getting reinvented.
+**Hooks** are predefined extension points that let developers intercept, monitor, or modify a system's internal execution flow without touching its core source code. The concept appears across three major ecosystems — React frontend development, PyTorch machine learning, and [Claude Code](/blog/claude-code-complete-guide) AI agent governance — and each implementation reveals something different about why the pattern keeps getting reinvented.
 
 ## The Core Mechanic: Intercepting Without Modifying
 

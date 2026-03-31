@@ -1,13 +1,21 @@
 ---
-title: "Claude Partner Network vs OpenAI Partner Program: Which AI Partnership Matters?"
+title: >-
+  Claude Partner Network vs OpenAI Partner Program: Which AI Partnership
+  Matters?
 slug: claude-partner-network-vs-openai-partner-program
-description: "Comparing Anthropic's Claude Partner Network and OpenAI's partner program across funding, focus, and strategic value."
+description: >-
+  Comparing Anthropic's Claude Partner Network and OpenAI's partner program
+  across funding, focus, and strategic value.
 item_a: Claude Partner Network
 item_b: OpenAI Partner Program
 category: frameworks
-related_glossary: [ai-safety, chatgpt]
-related_blog: [anthropic-claude-partner-network-100-million]
-related_compare: [anthropic-vs-openai]
+related_glossary:
+  - ai-safety
+  - chatgpt
+related_blog:
+  - anthropic-claude-partner-network-100-million
+related_compare:
+  - anthropic-vs-openai
 lang: en
 ---
 
@@ -42,7 +50,7 @@ OpenAI's partner ecosystem is the pragmatic choice for organizations that need *
 
 The sheer size of OpenAI's developer community and partner network means more pre-built integrations, more reference architectures, and more talent familiar with the platform. For partners building products that need broad model selection — from lightweight [ChatGPT](/glossary/chatgpt)-tier models to frontier reasoning models — OpenAI's diverse model lineup offers flexibility.
 
-OpenAI also has a head start in consumer-facing AI, which matters for partners building B2C products or hybrid B2B2C solutions. The brand recognition of ChatGPT alone opens doors that newer platforms cannot yet match.
+OpenAI also has a head start in consumer-facing AI, which matters for partners building B2C products or hybrid B2B2C solutions. The brand recognition of [ChatGPT](/topics/chatgpt) alone opens doors that newer platforms cannot yet match.
 
 ## Verdict
 

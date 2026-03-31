@@ -1,17 +1,28 @@
 ---
-title: "Superpowers: Teaching AI Coding Agents to Think Before They Type"
-date: 2026-03-10
+title: 'Superpowers: Teaching AI Coding Agents to Think Before They Type'
+date: 2026-03-10T00:00:00.000Z
 slug: superpowers
-description: "Superpowers uses structured markdown skills to force AI coding agents like Claude Code and Cursor to plan before coding — 67K GitHub stars and growing."
-keywords: ["Superpowers AI coding", "Claude Code skills", "AI agent workflow", "structured AI development"]
+description: >-
+  Superpowers uses structured markdown skills to force AI coding agents like
+  Claude Code and Cursor to plan before coding — 67K GitHub stars and growing.
+keywords:
+  - Superpowers AI coding
+  - Claude Code skills
+  - AI agent workflow
+  - structured AI development
 category: DEV
-related_newsletter: 2026-03-10
-related_glossary: [claude-code, prompt-engineering]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - prompt-engineering
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: en
 video_ready: true
-video_hook: "67K stars for a repo with almost no code — just markdown files that make AI agents stop and think"
+video_hook: >-
+  67K stars for a repo with almost no code — just markdown files that make AI
+  agents stop and think
 video_status: published
 source_type: video
 ---
@@ -32,17 +43,17 @@ The 15 skills cover the entire development lifecycle — brainstorming, design, 
 
 ## Why It Matters
 
-The core insight behind Superpowers is that AI coding agents don't have a capability problem — they have a **discipline problem**. They're brilliant interns with zero impulse control. The solution isn't better models; it's structured workflows that force stop-and-think behavior.
+The core insight behind Superpowers is that [AI coding agents](/blog/effective-harnesses-for-long-running-agents) don't have a capability problem — they have a **discipline problem**. They're brilliant interns with zero impulse control. The solution isn't better models; it's structured workflows that force stop-and-think behavior.
 
 This matters for three reasons.
 
 **First**, it reframes the AI coding assistant value proposition. Raw code generation speed is table stakes. The real bottleneck is building the *right* thing. Superpowers trades speed for accuracy by inserting mandatory planning gates before any code gets written. A brainstorming skill enforces a hard rule: no implementation, no code, no scaffolding until a design has been presented and the user has explicitly approved it.
 
-**Second**, it validates the **SKILL.md** pattern that Claude Code pioneered. Superpowers proves that markdown-based behavioral configuration — version-controlled, reviewable, shareable — can fundamentally reshape how AI agents work. No fine-tuning, no API changes, no framework dependencies. Just well-structured text that travels with your repo.
+**Second**, it validates the **[SKILL.md](/blog/9-principles-writing-claude-code-skills)** pattern that [Claude Code](/blog/claude-code-complete-guide) pioneered. Superpowers proves that markdown-based behavioral configuration — version-controlled, reviewable, shareable — can fundamentally reshape how AI agents work. No [fine-tuning](/glossary/fine-tuning), no API changes, no framework dependencies. Just well-structured text that travels with your repo.
 
 **Third**, the 67K-star adoption curve signals massive demand for AI agent governance. Developers aren't asking for faster code generation. They're asking for agents that ask clarifying questions, propose trade-offs, and verify their work. Superpowers fills a gap that model providers haven't addressed at the model level.
 
-The competitive landscape is shifting accordingly. Projects like Superpowers, [Claude Code's built-in skills system](/blog/claude-code-skills-guide), and Cursor's rules files all point toward the same conclusion: the next frontier in AI-assisted development is behavioral engineering, not model scaling.
+The competitive landscape is shifting accordingly. Projects like Superpowers, [Claude Code's built-in skills system](/blog/claude-code-skills-guide), and [Cursor](/glossary/cursor)'s rules files all point toward the same conclusion: the next frontier in AI-assisted development is behavioral engineering, not model scaling.
 
 ## Technical Deep-Dive
 

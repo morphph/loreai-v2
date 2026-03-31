@@ -1,15 +1,22 @@
 ---
-title: "Claude Code vs Codex：两大 AI 编程 Agent 怎么选？"
+title: Claude Code vs Codex：两大 AI 编程 Agent 怎么选？
 slug: claude-code-vs-codex
-description: "Claude Code 与 Codex 全面对比：功能、平台、工作流差异一文看懂。"
+description: Claude Code 与 Codex 全面对比：功能、平台、工作流差异一文看懂。
 item_a: Claude Code
 item_b: Codex
 category: tools
-related_glossary: [claude-code, agentic]
-related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
-related_compare: [claude-code-vs-cursor]
+related_glossary:
+  - claude-code
+  - agentic
+related_blog:
+  - claude-code-extension-stack-skills-hooks-agents-mcp
+  - claude-code-agent-teams
+related_compare:
+  - claude-code-vs-cursor
 lang: zh
-related_topics: [claude-code, codex]
+related_topics:
+  - claude-code
+  - codex
 ---
 
 # Claude Code vs Codex：两大 AI 编程 Agent 怎么选？
@@ -18,13 +25,13 @@ related_topics: [claude-code, codex]
 
 ## 功能对比
 
-| 维度 | Claude Code | Codex |
+| 维度 | [Claude Code](/zh/blog/9-principles-writing-claude-code-skills) | [Codex](/zh/blog/codex-complete-guide) |
 |------|-------------|-------|
-| **定位** | 终端优先的自主编程 Agent | ChatGPT 生态内的编程 Agent |
+| **定位** | 终端优先的自主编程 Agent | [ChatGPT](/zh/glossary/chatgpt) 生态内的编程 Agent |
 | **可用平台** | 终端 CLI、VS Code、JetBrains、桌面应用、Web、Chrome 扩展 | ChatGPT App、IDE 插件、CLI、Web |
-| **项目配置** | CLAUDE.md（项目级指令文件） | AGENTS.md（项目级配置） |
+| **项目配置** | [CLAUDE.md](/zh/blog/claude-code-memory)（项目级指令文件） | AGENTS.md（项目级配置） |
 | **可复用指令** | Skills（SKILL.md 文件） | Skills |
-| **外部工具协议** | MCP（Model Context Protocol） | MCP |
+| **外部工具协议** | MCP（[Model Context Protocol](/zh/glossary/model-context-protocol)） | MCP |
 | **多 Agent 协作** | Agent Teams — 主 Agent 协调子 Agent 并行执行 | Subagents |
 | **Git 集成** | 原生支持 stage、commit、PR 创建 | GitHub 集成、GitHub Action |
 | **团队协作** | Slack 集成、Remote Control 跨设备接续 | GitHub、Slack、Linear 集成 |

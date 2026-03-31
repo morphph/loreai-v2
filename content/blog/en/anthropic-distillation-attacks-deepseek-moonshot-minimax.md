@@ -1,22 +1,33 @@
 ---
-title: "Anthropic Exposes Industrial-Scale Model Distillation Attacks by DeepSeek, Moonshot AI, and MiniMax"
-date: 2026-03-08
+title: >-
+  Anthropic Exposes Industrial-Scale Model Distillation Attacks by DeepSeek,
+  Moonshot AI, and MiniMax
+date: 2026-03-08T00:00:00.000Z
 slug: anthropic-distillation-attacks-deepseek-moonshot-minimax
-description: "Anthropic reveals that DeepSeek, Moonshot AI, and MiniMax ran 24,000+ fake accounts to distill Claude's capabilities across 16 million exchanges."
-keywords: ["model distillation attacks", "Anthropic DeepSeek", "AI model theft", "Claude distillation"]
+description: >-
+  Anthropic reveals that DeepSeek, Moonshot AI, and MiniMax ran 24,000+ fake
+  accounts to distill Claude's capabilities across 16 million exchanges.
+keywords:
+  - model distillation attacks
+  - Anthropic DeepSeek
+  - AI model theft
+  - Claude distillation
 category: PRODUCT
-related_newsletter: 2026-03-08
-related_glossary: [distillation, anthropic]
-related_compare: [claude-vs-deepseek]
+related_newsletter: 2026-03-08T00:00:00.000Z
+related_glossary:
+  - distillation
+  - anthropic
+related_compare:
+  - claude-vs-deepseek
 lang: en
 video_ready: true
-video_hook: "Three major AI labs ran 24,000 fake accounts to steal Claude's capabilities"
+video_hook: 'Three major AI labs ran 24,000 fake accounts to steal Claude''s capabilities'
 video_status: none
 ---
 
 # Anthropic Exposes Industrial-Scale Model Distillation Attacks by DeepSeek, Moonshot AI, and MiniMax
 
-**Anthropic** just dropped a bombshell: three AI labs — **DeepSeek**, **Moonshot AI**, and **MiniMax** — orchestrated a massive, coordinated effort to extract Claude's capabilities through [model distillation](/glossary/distillation). The operation involved over 24,000 fraudulent accounts and more than 16 million exchanges with Claude, all designed to systematically harvest its outputs for training competing models. This isn't casual API misuse — it's industrial-scale intellectual property extraction, and it raises urgent questions about how frontier AI labs protect their models in an increasingly competitive landscape.
+**Anthropic** just dropped a bombshell: three AI labs — **[DeepSeek](/glossary/deepseek)**, **Moonshot AI**, and **MiniMax** — orchestrated a massive, coordinated effort to extract Claude's capabilities through [model distillation](/glossary/distillation). The operation involved over 24,000 fraudulent accounts and more than 16 million exchanges with Claude, all designed to systematically harvest its outputs for training competing models. This isn't casual API misuse — it's industrial-scale intellectual property extraction, and it raises urgent questions about how frontier AI labs protect their models in an increasingly competitive landscape.
 
 ## What Happened
 

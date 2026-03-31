@@ -1,17 +1,20 @@
 ---
-title: "什么是 Claude Code Skills?"
+title: 什么是 Claude Code Skills?
 slug: claude-code-skills
-description: "Claude Code Skills 是教会 Claude 如何执行特定任务的指令文件，可通过 /skill-name 调用。"
+description: Claude Code Skills 是教会 Claude 如何执行特定任务的指令文件，可通过 /skill-name 调用。
 category: tools
-related_glossary: [claude-code]
-related_blog: [5-claude-code-skills-i-use-every-single-day]
+related_glossary:
+  - claude-code
+related_blog:
+  - 5-claude-code-skills-i-use-every-single-day
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # 什么是 Claude Code Skills?
 
-**Claude Code Skills** 是包含在 `SKILL.md` 文件中的指令集，教会 Claude 如何执行特定的重复工作。你可以通过 `/skill-name` 的方式调用任何技能，Claude 会根据你的工作流程、代码风格和业务规范来执行任务，一次编写，永久生效。
+**[Claude Code Skills](/zh/blog/claude-code-extension-stack-skills-[hooks](/zh/blog/claude-code-seven-programmable-layers)-agents-[mcp](/zh/glossary/mcp))** 是包含在 `[SKILL.md](/zh/blog/9-principles-writing-claude-code-skills)` 文件中的指令集，教会 Claude 如何执行特定的重复工作。你可以通过 `/skill-name` 的方式调用任何技能，Claude 会根据你的工作流程、代码风格和业务规范来执行任务，一次编写，永久生效。
 
 ## 背景
 
@@ -21,7 +24,7 @@ related_topics: [claude-code]
 
 Skills 采用渐进式加载设计：技能的名称和描述始终被加载（约 50 tokens），但完整指令和参考文件只在需要时才加载，不会占用额外的上下文空间。
 
-Claude Code 中包含多个内置技能，如 `/batch`（并行处理大规模代码变更）和 `/claude-api`（加载 Claude API 参考文档）。你也可以在 `.claude/skills/` 目录中创建自定义技能，跨会话自动加载。
+[Claude Code](/zh/blog/agent-harnesses-2026) 中包含多个内置技能，如 `/batch`（并行处理大规模代码变更）和 `/claude-api`（加载 Claude API 参考文档）。你也可以在 `.claude/skills/` 目录中创建自定义技能，跨会话自动加载。
 
 ## 实践步骤
 

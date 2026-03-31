@@ -1,26 +1,31 @@
 ---
-title: "Anthropic vs OpenAI：AI 双雄的路线之争"
+title: Anthropic vs OpenAI：AI 双雄的路线之争
 slug: anthropic-vs-openai
-description: "Anthropic 与 OpenAI 全面对比：模型能力、安全理念、开发者生态与定价策略。"
+description: Anthropic 与 OpenAI 全面对比：模型能力、安全理念、开发者生态与定价策略。
 item_a: Anthropic
 item_b: OpenAI
 category: models
-related_glossary: [claude-desktop, chatgpt, agentic-coding]
-related_blog: [openai-computer-access-agents-lessons, claude-excel-powerpoint-skills-context]
+related_glossary:
+  - claude-desktop
+  - chatgpt
+  - agentic-coding
+related_blog:
+  - openai-computer-access-agents-lessons
+  - claude-excel-powerpoint-skills-context
 lang: zh
 ---
 
 # Anthropic vs OpenAI：AI 双雄的路线之争
 
-**Anthropic** 和 **OpenAI** 是当前大语言模型赛道最具影响力的两家公司，但它们走的是截然不同的路。Anthropic 由前 OpenAI 研究副总裁 Dario Amodei 等人创立，以 AI 安全研究为核心叙事，旗舰产品是 Claude 系列模型。OpenAI 则从 GPT 系列起家，凭借 [ChatGPT](/glossary/chatgpt) 率先引爆消费级 AI 市场，并快速扩展到企业、搜索和多模态领域。两者的根本分歧在于：Anthropic 优先考虑可控性和安全对齐，OpenAI 追求产品广度和市场规模。
+**Anthropic** 和 **OpenAI** 是当前大语言模型赛道最具影响力的两家公司，但它们走的是截然不同的路。Anthropic 由前 OpenAI 研究副总裁 [Dario Amodei](/zh/blog/anthropic-department-of-war-dario-amodei-statement) 等人创立，以 AI 安全研究为核心叙事，旗舰产品是 Claude 系列模型。OpenAI 则从 GPT 系列起家，凭借 [ChatGPT](/glossary/chatgpt) 率先引爆消费级 AI 市场，并快速扩展到企业、搜索和多模态领域。两者的根本分歧在于：Anthropic 优先考虑可控性和安全对齐，OpenAI 追求产品广度和市场规模。
 
 ## 核心对比
 
 | 维度 | Anthropic | OpenAI |
 |------|-----------|--------|
-| **旗舰模型** | Claude Opus 4.6 / Sonnet 4.6 | GPT-4o / o3 |
-| **安全理念** | Constitutional AI、可解释性研究 | RLHF + 红队测试 |
-| **开发者工具** | Claude Code（终端 Agent）、MCP 协议 | ChatGPT API、Codex、Assistants API |
+| **旗舰模型** | [Claude Opus 4.6](/zh/blog/claude-1-million-context-window-ga) / Sonnet 4.6 | GPT-4o / o3 |
+| **安全理念** | Constitutional AI、可解释性研究 | [RLHF](/zh/glossary/rlhf) + 红队测试 |
+| **开发者工具** | [Claude Code](/zh/blog/9-principles-writing-claude-code-skills)（终端 Agent）、MCP 协议 | [ChatGPT](/zh/glossary/chatgpt) API、Codex、Assistants API |
 | **消费端产品** | [Claude Desktop](/glossary/claude-desktop)、claude.ai | ChatGPT、ChatGPT Plus、搜索 |
 | **多模态** | 文本 + 图像输入、PDF 解析 | 文本 + 图像 + 音频 + 视频生成 |
 | **企业部署** | AWS Bedrock、GCP Vertex | Azure OpenAI Service |

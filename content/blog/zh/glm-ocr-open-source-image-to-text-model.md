@@ -1,16 +1,24 @@
 ---
-title: "GLM-OCR 开源：智谱系高性能图文识别模型上线 HuggingFace"
-date: 2026-03-17
+title: GLM-OCR 开源：智谱系高性能图文识别模型上线 HuggingFace
+date: 2026-03-17T00:00:00.000Z
 slug: glm-ocr-open-source-image-to-text-model
-description: "GLM-OCR 是 zai-org 发布的开源图文识别模型，登上 HuggingFace 热榜。支持图片和视频输入，具备工具调用和推理能力，适合文档处理和 OCR 场景。"
-keywords: ["GLM-OCR", "开源 OCR 模型", "图文识别", "HuggingFace 热榜"]
+description: >-
+  GLM-OCR 是 zai-org 发布的开源图文识别模型，登上 HuggingFace 热榜。支持图片和视频输入，具备工具调用和推理能力，适合文档处理和
+  OCR 场景。
+keywords:
+  - GLM-OCR
+  - 开源 OCR 模型
+  - 图文识别
+  - HuggingFace 热榜
 category: MODEL
-related_newsletter: 2026-03-17
-related_glossary: [ocr, open-source-model]
+related_newsletter: 2026-03-17T00:00:00.000Z
+related_glossary:
+  - ocr
+  - open-source-model
 related_compare: []
 lang: zh
 video_ready: true
-video_hook: "开源 OCR 又有新选手，GLM-OCR 登上 HuggingFace 热榜"
+video_hook: 开源 OCR 又有新选手，GLM-OCR 登上 HuggingFace 热榜
 video_status: none
 ---
 
@@ -20,7 +28,7 @@ video_status: none
 
 ## 发生了什么
 
-zai-org 在 HuggingFace 上发布了 **GLM-OCR** 模型，迅速登上趋势榜。从模型配置来看，GLM-OCR 基于 GLM 系列架构（与智谱 **ChatGLM** 同源），专门针对 [OCR](/glossary/ocr) 场景进行了优化。
+zai-org 在 [HuggingFace](/zh/glossary/huggingface) 上发布了 **GLM-OCR** 模型，迅速登上趋势榜。从模型配置来看，GLM-OCR 基于 GLM 系列架构（与智谱 **ChatGLM** 同源），专门针对 [OCR](/glossary/ocr) 场景进行了优化。
 
 模型的核心能力包括：
 
@@ -50,7 +58,7 @@ GLM-OCR 的定位卡在一个实用的空档：专注 OCR 场景的[开源模型
 
 **工具调用格式**：采用 XML 风格的 `<tool_call>` 标签，支持在识别流程中调用外部函数。这让 GLM-OCR 可以作为 Agent 工作流的视觉感知模块，而不只是一个独立的识别引擎。
 
-部署方面，模型权重直接从 HuggingFace 下载，使用标准的 Transformers 推理管线即可加载。对于有 GPU 资源的团队，本地部署后可以实现零 API 成本的批量文档处理。
+部署方面，模型权重直接从 HuggingFace 下载，使用标准的 [Transformers](/zh/glossary/transformers) 推理管线即可加载。对于有 GPU 资源的团队，本地部署后可以实现零 API 成本的批量文档处理。
 
 需要注意的是，目前 HuggingFace 页面上尚未公开详细的跑分对比数据和参数量信息。在实际投入生产前，建议在自己的数据集上做充分的评估测试。
 

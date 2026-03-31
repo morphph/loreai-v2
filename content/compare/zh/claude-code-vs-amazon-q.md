@@ -1,15 +1,23 @@
 ---
-title: "Claude Code vs Amazon Q Developer：AI 编程助手怎么选？"
+title: Claude Code vs Amazon Q Developer：AI 编程助手怎么选？
 slug: claude-code-vs-amazon-q
-description: "Claude Code 与 Amazon Q Developer 功能、定价与适用场景全面对比。"
+description: Claude Code 与 Amazon Q Developer 功能、定价与适用场景全面对比。
 item_a: Claude Code
 item_b: Amazon Q Developer
 category: tools
-related_glossary: [claude-code, amazon, anthropic, agentic]
-related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
-related_compare: [claude-code-vs-cursor]
+related_glossary:
+  - claude-code
+  - amazon
+  - anthropic
+  - agentic
+related_blog:
+  - claude-code-extension-stack-skills-hooks-agents-mcp
+  - claude-code-agent-teams
+related_compare:
+  - claude-code-vs-cursor
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code vs Amazon Q Developer：AI 编程助手怎么选？
@@ -18,13 +26,13 @@ related_topics: [claude-code]
 
 ## 功能对比
 
-| 功能 | Claude Code | Amazon Q Developer |
+| 功能 | [Claude Code](/zh/blog/9-principles-writing-claude-code-skills) | Amazon Q Developer |
 |------|------------|-------------------|
 | **核心形态** | 终端 Agent + IDE 扩展 + 桌面应用 + 浏览器 | IDE 插件 + CLI + AWS 控制台 |
 | **IDE 支持** | VS Code、JetBrains | VS Code、JetBrains、Visual Studio、Eclipse（预览） |
-| **Agentic 能力** | 多文件编辑、Shell 执行、Git 操作、[Agent Teams](/blog/claude-code-agent-teams) 并行子任务 | 多步骤任务执行：实现功能、文档、测试、代码审查、重构 |
+| **[Agentic](/zh/glossary/agentic) 能力** | 多文件编辑、Shell 执行、Git 操作、[Agent Teams](/blog/claude-code-agent-teams) 并行子任务 | 多步骤任务执行：实现功能、文档、测试、代码审查、重构 |
 | **云平台集成** | 无原生云平台绑定 | AWS 控制台、IAM 权限、账单分析、架构建议 |
-| **项目上下文** | CLAUDE.md + SKILL.md + 自动记忆 | 可连接私有代码仓库生成定制化建议 |
+| **项目上下文** | [CLAUDE.md](/zh/blog/claude-code-memory) + SKILL.md + 自动记忆 | 可连接私有代码仓库生成定制化建议 |
 | **扩展协议** | [MCP](/blog/mcp-vs-cli-vs-skills-extend-claude-code) 开放标准，连接任意外部工具 | GitLab Duo 集成、GitHub 集成（预览）、Slack/Teams |
 | **安全扫描** | 无内置扫描 | 内置漏洞扫描，支持主流语言 |
 | **代码转换** | 通用重构能力 | 专项支持 .NET 迁移至 Linux、Java 版本升级 |
@@ -37,7 +45,7 @@ Claude Code 的核心优势在于**终端原生 + 高度可定制**。如果你�
 几个典型场景：
 
 - **大规模代码重构**：通过 [Agent Teams](/glossary/agent-teams) 并行处理多个子任务
-- **团队规范统一**：用 CLAUDE.md 定义编码标准和架构约束，用 [SKILL.md](/blog/claude-code-extension-stack-skills-hooks-agents-mcp) 封装可复用工作流
+- **团队规范统一**：用 CLAUDE.md 定义编码标准和架构约束，用 [SKILL.md](/blog/claude-code-extension-stack-skills-[hooks](/zh/blog/claude-code-seven-programmable-layers)-agents-[mcp](/zh/glossary/mcp)) 封装可复用工作流
 - **工具链集成**：通过 MCP 协议连接数据库、监控、文档等外部系统
 - **CI/CD 自动化**：支持管道式调用，可嵌入 GitHub Actions 做代码审查和 issue 分类
 

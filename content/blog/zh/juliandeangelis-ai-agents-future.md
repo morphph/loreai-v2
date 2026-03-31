@@ -1,23 +1,33 @@
 ---
-title: "Spec-Driven Development：AI编程时代，规格说明才是你真正的代码"
-date: 2026-03-18
+title: Spec-Driven Development：AI编程时代，规格说明才是你真正的代码
+date: 2026-03-18T00:00:00.000Z
 slug: juliandeangelis-ai-agents-future
-description: "AI Agent写代码总是返工？Julián提出的Spec-Driven Development（规格驱动开发）通过四步法消灭模糊性，让Agent一次写对。本文解析SDD三个层级和ROI计算。"
-keywords: ["Spec-Driven Development", "AI编程", "SDD", "Coding Agent", "规格驱动开发", "AI开发工作流"]
+description: >-
+  AI Agent写代码总是返工？Julián提出的Spec-Driven
+  Development（规格驱动开发）通过四步法消灭模糊性，让Agent一次写对。本文解析SDD三个层级和ROI计算。
+keywords:
+  - Spec-Driven Development
+  - AI编程
+  - SDD
+  - Coding Agent
+  - 规格驱动开发
+  - AI开发工作流
 category: DEV
-related_newsletter: 2026-03-18
-related_glossary: [ai-agent, prompt-engineering]
+related_newsletter: 2026-03-18T00:00:00.000Z
+related_glossary:
+  - ai-agent
+  - prompt-engineering
 related_compare: []
 lang: zh
 video_ready: true
-video_hook: "AI帮你写代码，返工三次才搞定？问题不在AI，在你的需求说明。"
+video_hook: AI帮你写代码，返工三次才搞定？问题不在AI，在你的需求说明。
 video_status: published
 source_type: video
 ---
 
 # Spec-Driven Development：AI编程时代，规格说明才是你真正的代码
 
-让 **Coding Agent** 帮你加个后台功能，结果它猜错数据库、猜错权限模型、猜错 API 接口，改了三轮还不如自己写。问题不在 AI 的能力，而在你给它的输入。Julián 提出的 **Spec-Driven Development**（规格驱动开发）给出了一套系统解法：把模糊性在写代码之前彻底消灭。
+让 **[Coding Agent](/zh/blog/coding-agents-reshaping-epd)** 帮你加个后台功能，结果它猜错数据库、猜错权限模型、猜错 API 接口，改了三轮还不如自己写。问题不在 AI 的能力，而在你给它的输入。Julián 提出的 **Spec-Driven Development**（规格驱动开发）给出了一套系统解法：把模糊性在写代码之前彻底消灭。
 
 ## 发生了什么
 
@@ -37,14 +47,14 @@ SDD 分四个阶段：**Specify**（定义需求和边界）、**Plan**（设计
 
 ## 技术细节
 
-具体操作上，每次用 AI Agent 写代码之前，需要检查四项关键信息是否已明确写入规格：
+具体操作上，每次用 [AI Agent](/zh/blog/effective-harnesses-for-long-running-agents) 写代码之前，需要检查四项关键信息是否已明确写入规格：
 
 1. **架构决策**：明确指定技术栈，例如使用 NextJS 的 App Router，而非让 Agent 自己猜
 2. **数据模型**：指定复用已有的 `UserEntity`，只需加一个 `provider` 字段
 3. **权限模式**：指定遵循项目中的 `auth-rules` 模式
 4. **性能约束**：量化要求，例如登录接口响应时间小于 100ms
 
-Julián 展示了一个对比：没有规格时，Agent 连"这到底是 NextJS 还是普通 React"都搞不清楚；有规格时，组件结构一致、权限模式集成成功、性能测试通过，甚至 **Figma MCP** 设计稿都能匹配。
+Julián 展示了一个对比：没有规格时，Agent 连"这到底是 NextJS 还是普通 React"都搞不清楚；有规格时，组件结构一致、权限模式集成成功、性能测试通过，甚至 **[Figma](/zh/glossary/figma) [MCP](/zh/blog/claude-code-seven-programmable-layers)** 设计稿都能匹配。
 
 成本方面，SDD 的 Token 消耗确实会增加 2-3 倍，前期规划时间也更长。但关键在于场景区分：小改动、修 Bug、改配置，直接用 Plan Mode 写一句 prompt 就行；复杂功能、多文件变更、跨领域逻辑（同时涉及权限验证、数据库、API 和前端），SDD 省下的返工成本远超多花的 Token。就像盖房子请建筑师画图纸，画图纸要多花钱，但比建了拆、拆了建便宜十倍。
 

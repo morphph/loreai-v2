@@ -1,21 +1,23 @@
 ---
-title: "Claude Code Hooks: A Complete Guide to Automating Your AI Coding Workflow"
+title: 'Claude Code Hooks: A Complete Guide to Automating Your AI Coding Workflow'
 slug: claude-code-hooks-a-complete-guide-to-automating-your-ai-coding-workflow
-description: "Claude Code hooks let you run shell commands automatically at every stage of your AI coding session. Here's how to set them up and use them."
+description: >-
+  Claude Code hooks let you run shell commands automatically at every stage of
+  your AI coding session. Here's how to set them up and use them.
 lang: en
 category: tools
-date: 2026-03-21
+date: 2026-03-21T00:00:00.000Z
 ---
 
 # Claude Code Hooks: A Complete Guide to Automating Your AI Coding Workflow
 
-**Claude Code hooks** are user-defined shell commands that execute automatically at specific points in Claude Code's lifecycle — before a tool runs, after a file gets edited, when the agent finishes, when it needs your input. They give you deterministic control over what your AI agent does, enforcing project rules and automating repetitive tasks without relying on the model to remember your preferences.
+**[Claude Code hooks](/blog/claude-code-extension-stack-skills-hooks-agents-[mcp](/glossary/mcp))** are user-defined shell commands that execute automatically at specific points in [Claude Code](/blog/claude-code-complete-guide)'s lifecycle — before a tool runs, after a file gets edited, when the agent finishes, when it needs your input. They give you deterministic control over what your AI agent does, enforcing project rules and automating repetitive tasks without relying on the model to remember your preferences.
 
 If you've used git hooks, the mental model is identical. The difference is you're hooking into an AI agent's execution cycle, not a version control workflow.
 
 ## Why Hooks Exist: The Problem with Prompt-Based Rules
 
-CLAUDE.md files and in-prompt instructions work most of the time. But "most of the time" isn't good enough when you're working on production codebases or in regulated environments.
+[CLAUDE.md](/blog/claude-code-memory) files and in-prompt instructions work most of the time. But "most of the time" isn't good enough when you're working on production codebases or in regulated environments.
 
 You can tell Claude Code in your CLAUDE.md not to modify `.env` files — it will probably listen. A PreToolUse hook that blocks writes to `.env` files will *always* block them. That distinction between "probably" and "always" is the entire value proposition of hooks.
 
@@ -66,7 +68,7 @@ Hooks live in `~/.claude/settings.json` under a `hooks` key. Here's a desktop no
 }
 ```
 
-On Linux, replace the `osascript` command with your preferred notification tool (`notify-send`, for example). After adding the hook, type `/hooks` in the Claude Code CLI to open the hooks browser and verify the configuration.
+On Linux, replace the `osascript` command with your preferred notification tool (`notify-send`, for example). After adding the hook, type `/hooks` in the [Claude Code CLI](/blog/claude-code-remote-control-mobile) to open the hooks browser and verify the configuration.
 
 ## Practical Hook Recipes
 

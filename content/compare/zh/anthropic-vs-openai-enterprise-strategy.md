@@ -1,13 +1,18 @@
 ---
-title: "Anthropic vs OpenAI：企业战略全面对比"
+title: Anthropic vs OpenAI：企业战略全面对比
 slug: anthropic-vs-openai-enterprise-strategy
-description: "从安全理念、云合作、定价模式到市场策略，对比 Anthropic 与 OpenAI 的企业级 AI 布局。"
+description: 从安全理念、云合作、定价模式到市场策略，对比 Anthropic 与 OpenAI 的企业级 AI 布局。
 item_a: Anthropic
 item_b: OpenAI
 category: models
-related_glossary: [ai-safety, chatgpt]
-related_blog: [coding-agents-reshaping-epd]
-related_compare: [anthropic-vs-openai, openai-model-spec-vs-anthropic-claude-character]
+related_glossary:
+  - ai-safety
+  - chatgpt
+related_blog:
+  - coding-agents-reshaping-epd
+related_compare:
+  - anthropic-vs-openai
+  - openai-model-spec-vs-anthropic-claude-character
 lang: zh
 ---
 
@@ -21,12 +26,12 @@ lang: zh
 
 | 维度 | Anthropic | OpenAI |
 |------|-----------|--------|
-| **主要渠道** | API 驱动，开发者自下而上采纳 | 产品驱动（ChatGPT）+ 企业销售 |
+| **主要渠道** | API 驱动，开发者自下而上采纳 | 产品驱动（[ChatGPT](/zh/glossary/chatgpt)）+ 企业销售 |
 | **企业产品** | Claude API、Claude for Enterprise | ChatGPT Enterprise、API 平台 |
 | **安全定位** | 核心品牌标签，Constitutional AI | 逐步加强，但次于能力宣传 |
 | **云合作伙伴** | Amazon（AWS Bedrock）、Google Cloud | Microsoft Azure（独家推理合作） |
 | **定价模式** | 按 token 计费，价格有竞争力 | 按 token 计费 + 按席位 SaaS 订阅 |
-| **Agent 生态** | Claude Code、MCP 协议、agentic 工具链 | GPTs、Assistants API、Operator |
+| **Agent 生态** | [Claude Code](/zh/blog/9-principles-writing-claude-code-skills)、[MCP](/zh/blog/claude-code-seven-programmable-layers) 协议、[agentic](/zh/glossary/agentic) 工具链 | GPTs、Assistants API、Operator |
 | **合规认证** | SOC 2、HIPAA 兼容、企业 SSO | SOC 2、HIPAA、FedRAMP（通过 Azure） |
 | **估值规模** | 约 600 亿美元+（2026），Google/Amazon 投资 | 约 3000 亿美元+（2026），Microsoft/SoftBank 投资 |
 

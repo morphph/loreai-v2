@@ -1,17 +1,25 @@
 ---
-title: "What is a CLAUDE.md file?"
+title: What is a CLAUDE.md file?
 slug: what-is-claude-md
-description: "CLAUDE.md is a markdown file in your project root that gives Claude Code persistent instructions, coding standards, and context every session."
+description: >-
+  CLAUDE.md is a markdown file in your project root that gives Claude Code
+  persistent instructions, coding standards, and context every session.
 category: tools
-related_glossary: [claude-md, claude-code, agentic-coding]
-related_blog: [claude-code-memory, claude-code-extension-stack-skills-hooks-agents-mcp]
+related_glossary:
+  - claude-md
+  - claude-code
+  - agentic-coding
+related_blog:
+  - claude-code-memory
+  - claude-code-extension-stack-skills-hooks-agents-mcp
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # What is a CLAUDE.md file?
 
-CLAUDE.md is a markdown file placed in your project root that Claude Code automatically reads at the start of every session. It serves as persistent memory, giving the AI agent your project-specific instructions, coding standards, build commands, and architectural context so you do not have to repeat yourself.
+CLAUDE.md is a markdown file placed in your project root that [Claude Code](/blog/lessons-from-building-claude-code-agent-tools) automatically reads at the start of every session. It serves as persistent memory, giving the AI agent your project-specific instructions, coding standards, build commands, and architectural context so you do not have to repeat yourself.
 
 ## Context
 
@@ -37,7 +45,7 @@ For more on extending Claude Code's capabilities beyond CLAUDE.md, see the full 
 ## Related Questions
 
 - [What is Claude Code?](/faq/what-is-claude-code)
-- [What are Claude Code skills?](/faq/claude-code-skills)
+- [What are [Claude Code skills](/blog/9-principles-writing-claude-code-skills)?](/faq/claude-code-skills)
 - [How to use Claude Code with Git?](/faq/claude-code-with-git)
 
 ---

@@ -1,15 +1,21 @@
 ---
-title: "Claude Code vs ChatGPT：编程任务哪个更强？"
+title: Claude Code vs ChatGPT：编程任务哪个更强？
 slug: is-claude-code-better-than-chatgpt
-description: "Claude Code 专为自主编程任务设计，ChatGPT 是全能 AI 工具箱。本文对比两者的核心差异。"
+description: Claude Code 专为自主编程任务设计，ChatGPT 是全能 AI 工具箱。本文对比两者的核心差异。
 item_a: Claude Code
 item_b: ChatGPT
 category: tools
-related_glossary: [agentic-coding, chatgpt]
-related_blog: [integrate-claude-code-into-your-development-workflow, key-benefits-and-features]
-related_compare: [claude-code-vs-cursor]
+related_glossary:
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - integrate-claude-code-into-your-development-workflow
+  - key-benefits-and-features
+related_compare:
+  - claude-code-vs-cursor
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code vs ChatGPT：编程任务哪个更强？
@@ -18,7 +24,7 @@ related_topics: [claude-code]
 
 ## 功能对比
 
-| 功能 | Claude Code | ChatGPT |
+| 功能 | [Claude Code](/zh/blog/9-principles-writing-claude-code-skills) | [ChatGPT](/zh/glossary/chatgpt) |
 |------|------------|---------|
 | **定位** | 自主编程 Agent | 全能 AI 工具箱 |
 | **交互方式** | 终端命令行 | 网页 / API |
@@ -26,7 +32,7 @@ related_topics: [claude-code]
 | **上下文窗口** | 最高 100 万 tokens | 最高 100 万 tokens |
 | **图像生成** | 不支持 | 支持（含 Sora 视频） |
 | **Plan 模式** | 支持，可 ultrathink 深度推理 | 不支持等效功能 |
-| **主力模型** | Claude Sonnet 4.6 / Opus 4.6 | GPT-5.4 / GPT-5.3 |
+| **主力模型** | Claude Sonnet 4.6 / [Opus 4.6](/zh/blog/opus-4-6-1m-default-claude-code) | [GPT-5.4](/zh/glossary/gpt-54) / GPT-5.3 |
 | **联网搜索** | 支持 | 支持 |
 | **文件分析** | 支持更多格式，分析更精准 | 支持，但长文一致性较弱 |
 
@@ -56,7 +62,7 @@ ChatGPT 的优势在于广度——它是一个真正的"全能工具箱"：
 
 编程任务上，**Claude Code 整体更强**，尤其是多文件自主执行、长上下文稳定性和文件分析能力。如果你是开发者，每天需要处理真实代码库，Claude Code 是更专业的选择。
 
-如果你需要的是一个覆盖图像生成、视频、快速问答的全能助手，ChatGPT 的广度无可替代。很多开发者的实际策略是：日常编辑用 Cursor，大型重构和自动化任务用 Claude Code，偶尔用 ChatGPT 处理多媒体或学习新领域。
+如果你需要的是一个覆盖图像生成、视频、快速问答的全能助手，ChatGPT 的广度无可替代。很多开发者的实际策略是：日常编辑用 [Cursor](/zh/glossary/cursor)，大型重构和自动化任务用 Claude Code，偶尔用 ChatGPT 处理多媒体或学习新领域。
 
 查看我们的 [Claude Code vs Cursor 对比](/compare/claude-code-vs-cursor) 了解 Agent 编程工具的完整格局，或阅读 [Claude Code 核心功能解析](/blog/key-benefits-and-features)。
 

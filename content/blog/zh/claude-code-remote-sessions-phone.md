@@ -1,22 +1,27 @@
 ---
-title: "Claude Code 远程会话：用手机启动笔记本上的编程任务"
-date: 2026-03-17
+title: Claude Code 远程会话：用手机启动笔记本上的编程任务
+date: 2026-03-17T00:00:00.000Z
 slug: claude-code-remote-sessions-phone
-description: "Claude Code 现在支持从手机远程启动笔记本电脑上的编程会话。这意味着什么？AI 编程工具正在突破桌面的边界。"
-keywords: ["Claude Code 远程会话", "Claude Code 手机", "AI 编程工具"]
+description: Claude Code 现在支持从手机远程启动笔记本电脑上的编程会话。这意味着什么？AI 编程工具正在突破桌面的边界。
+keywords:
+  - Claude Code 远程会话
+  - Claude Code 手机
+  - AI 编程工具
 category: DEV
-related_newsletter: 2026-03-17
-related_glossary: [claude-code]
-related_compare: [claude-code-vs-cursor]
+related_newsletter: 2026-03-17T00:00:00.000Z
+related_glossary:
+  - claude-code
+related_compare:
+  - claude-code-vs-cursor
 lang: zh
 video_ready: true
-video_hook: "躺在沙发上用手机就能让 AI 帮你写代码，Claude Code 做到了"
+video_hook: 躺在沙发上用手机就能让 AI 帮你写代码，Claude Code 做到了
 video_status: none
 ---
 
 # Claude Code 远程会话：用手机启动笔记本上的编程任务
 
-**Claude Code** 现在支持从手机远程启动笔记本电脑上的编程会话。Anthropic 工程师 Boris Cherny [在推特上宣布](https://x.com/bcherny/status/2032578639276159438)了这个功能。这不只是一个便利性更新 — 它意味着 AI 编程助手正在从"桌面工具"进化为"随时随地可调度的编程代理"。如果你正在用 Claude Code，这个功能会改变你和它的协作方式。
+**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 现在支持从手机远程启动笔记本电脑上的编程会话。Anthropic 工程师 Boris Cherny [在推特上宣布](https://x.com/bcherny/status/2032578639276159438)了这个功能。这不只是一个便利性更新 — 它意味着 AI 编程助手正在从"桌面工具"进化为"随时随地可调度的编程代理"。如果你正在用 Claude Code，这个功能会改变你和它的协作方式。
 
 ## 发生了什么
 
@@ -30,11 +35,11 @@ Anthropic 推出了 Claude Code 的远程会话功能，允许用户从手机端
 
 远程会话看起来是个小功能，但它触及了一个根本性的问题：**AI 编程代理的触发方式**。
 
-目前主流的 AI 编程工具 — 无论是 Cursor、GitHub Copilot 还是 Claude Code — 都要求你坐在电脑前，打开编辑器或终端，才能开始工作。这是桌面软件时代的思维。
+目前主流的 AI 编程工具 — 无论是 [Cursor](/zh/glossary/cursor)、[GitHub Copilot](/zh/glossary/github-[copilot](/zh/glossary/copilot)) 还是 Claude Code — 都要求你坐在电脑前，打开编辑器或终端，才能开始工作。这是桌面软件时代的思维。
 
 而远程会话打破了这个限制。通勤路上想到一个 bug 的修复思路？掏出手机，让 Claude Code 在你的开发机上跑起来。周末遛狗时突然想到 API 需要加个字段？一条消息搞定。等你回到电脑前，代码已经写好、测试已经跑完。
 
-这和 OpenAI 的 Codex 走的是类似的路线 — 异步、可调度的编程代理 — 但 Claude Code 的优势在于它直接运行在你的本地环境里，能访问真实的文件系统、数据库和工具链，而不是在云端沙箱里猜你的项目结构。
+这和 OpenAI 的 [Codex](/zh/blog/codex-complete-guide) 走的是类似的路线 — 异步、可调度的编程代理 — 但 Claude Code 的优势在于它直接运行在你的本地环境里，能访问真实的文件系统、数据库和工具链，而不是在云端沙箱里猜你的项目结构。
 
 对团队来说，这也意味着代码审查和任务分配的方式可能改变。Tech Lead 可以在手机上快速发起"帮我审一下这个 PR"，Claude Code 的[多代理审查系统](https://x.com/adocomplete/status/2031083611546591499)会在后台完成深度分析。
 

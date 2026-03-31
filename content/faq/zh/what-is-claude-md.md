@@ -1,17 +1,23 @@
 ---
-title: "CLAUDE.md 是什么？"
+title: CLAUDE.md 是什么？
 slug: what-is-claude-md
-description: "CLAUDE.md 是放在项目根目录的配置文件，让 Claude Code 每次启动时自动读取你的编码规范、构建命令和项目上下文，不用反复交代。"
+description: CLAUDE.md 是放在项目根目录的配置文件，让 Claude Code 每次启动时自动读取你的编码规范、构建命令和项目上下文，不用反复交代。
 category: tools
-related_glossary: [claude-md, claude-code, agentic-coding]
-related_blog: [claude-code-memory, claude-code-extension-stack-skills-hooks-agents-mcp]
+related_glossary:
+  - claude-md
+  - claude-code
+  - agentic-coding
+related_blog:
+  - claude-code-memory
+  - claude-code-extension-stack-skills-hooks-agents-mcp
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # CLAUDE.md 是什么？
 
-CLAUDE.md 是一个 Markdown 文件，放在项目根目录下，Claude Code 每次启动都会自动读取。它相当于给 AI 助手写的一份持久化指令集，包含你的编码规范、构建命令、架构约束和项目注意事项，省得每次开新会话都要重新解释一遍。
+[CLAUDE.md](/zh/blog/claude-code-memory) 是一个 Markdown 文件，放在项目根目录下，[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 每次启动都会自动读取。它相当于给 AI 助手写的一份持久化指令集，包含你的编码规范、构建命令、架构约束和项目注意事项，省得每次开新会话都要重新解释一遍。
 
 ## 背景
 
@@ -19,7 +25,7 @@ CLAUDE.md 是一个 Markdown 文件，放在项目根目录下，Claude Code 每
 
 你可以把它理解成给 AI 看的 README。一个典型的 CLAUDE.md 会包含：构建和测试命令、代码风格要求、架构决策、已知坑点、工作流规则。它还支持层级结构——全局的 `~/.claude/CLAUDE.md` 对所有项目生效，项目级的只对当前仓库生效。关于 Claude Code 记忆系统的完整机制，可以看我们的[深度解析](/blog/claude-code-memory)。
 
-这种"配置优先于逐次提示"的思路，是 agentic coding 领域的大趋势。更多关于 Claude Code 扩展能力的内容，参见[扩展体系完整指南](/blog/claude-code-extension-stack-skills-hooks-agents-mcp)。
+这种"配置优先于逐次提示"的思路，是 [agentic coding](/zh/glossary/agentic-coding) 领域的大趋势。更多关于 Claude Code 扩展能力的内容，参见[扩展体系完整指南](/blog/claude-code-extension-stack-skills-[hooks](/zh/blog/claude-code-seven-programmable-layers)-agents-[mcp](/zh/glossary/mcp))。
 
 ## 实用步骤
 

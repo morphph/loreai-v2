@@ -1,19 +1,25 @@
 ---
-title: "Codex vs Cursor：AI 编程工具怎么选？"
+title: Codex vs Cursor：AI 编程工具怎么选？
 slug: codex-vs-cursor
-description: "Codex 与 Cursor 功能、定位、工作流全面对比，帮你选对 AI 编程工具。"
+description: Codex 与 Cursor 功能、定位、工作流全面对比，帮你选对 AI 编程工具。
 item_a: Codex
 item_b: Cursor
 category: tools
-related_glossary: [codex, agent-teams, agentic]
-related_blog: [codex-complete-guide, claude-code-extension-stack-skills-hooks-agents-mcp]
+related_glossary:
+  - codex
+  - agent-teams
+  - agentic
+related_blog:
+  - codex-complete-guide
+  - claude-code-extension-stack-skills-hooks-agents-mcp
 lang: zh
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # Codex vs Cursor：AI 编程工具怎么选？
 
-**[Codex](/glossary/codex)** 是 OpenAI 推出的编程 Agent，覆盖 App、IDE 插件、CLI 和 Web 四种形态，定位是「一个 Agent，所有编码场景通用」。**Cursor** 是基于 VS Code 的 AI IDE，把自动补全、Agent 编排、云端并行执行全部整合进编辑器。两者核心分野在于：Codex 是一个可以嵌入任何环境的独立 Agent，Cursor 则把 AI 能力深度绑定到 IDE 体验中。对于需要做技术选型的开发者来说，这两个产品代表了 AI 编程工具的两条路线。
+**[Codex](/glossary/codex)** 是 OpenAI 推出的编程 Agent，覆盖 App、IDE 插件、CLI 和 Web 四种形态，定位是「一个 Agent，所有编码场景通用」。**[Cursor](/zh/glossary/cursor)** 是基于 VS Code 的 AI IDE，把自动补全、Agent 编排、云端并行执行全部整合进编辑器。两者核心分野在于：[Codex](/zh/blog/codex-complete-guide) 是一个可以嵌入任何环境的独立 Agent，Cursor 则把 AI 能力深度绑定到 IDE 体验中。对于需要做技术选型的开发者来说，这两个产品代表了 AI 编程工具的两条路线。
 
 ## 功能对比
 
@@ -23,8 +29,8 @@ related_topics: [codex]
 | **Agent 能力** | Shell 执行、Subagents、Workflows | Composer Agent、Cloud Agents（并行） |
 | **自动补全** | 未在文档中突出 | Tab 专用模型，实时预测 |
 | **代码理解** | 通过 AGENTS.md 配置上下文 | 全代码库索引 + 语义搜索 |
-| **模型选择** | OpenAI 模型（GPT-5.4 等） | 多厂商：GPT-5.2、Opus 4.6、Gemini 3 Pro、Grok |
-| **集成** | GitHub、Slack、Linear、MCP | GitHub（BugBot）、Slack、MCP Apps |
+| **模型选择** | OpenAI 模型（[GPT-5.4](/zh/glossary/gpt-54) 等） | 多厂商：GPT-5.2、[Opus 4.6](/zh/blog/opus-4-6-1m-default-claude-code)、Gemini 3 Pro、Grok |
+| **集成** | GitHub、Slack、Linear、[MCP](/zh/blog/claude-code-seven-programmable-layers) | GitHub（BugBot）、Slack、MCP Apps |
 | **自定义** | AGENTS.md、Skills、Config 文件 | Cursor Rules、Automations |
 | **付费方式** | 包含在 ChatGPT Plus/Pro/Business/Enterprise 中 | 独立订阅（Hobby / Pro / Business / Enterprise） |
 | **平台** | App、IDE 插件、CLI、Web | 桌面 IDE + Cloud Agent |

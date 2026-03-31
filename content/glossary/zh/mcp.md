@@ -1,24 +1,29 @@
 ---
-title: "MCP（Model Context Protocol）— AI 术语表"
+title: MCP（Model Context Protocol）— AI 术语表
 slug: mcp
-description: "什么是 MCP？Model Context Protocol 是连接 AI 模型与外部工具和数据源的开放协议标准。"
+description: 什么是 MCP？Model Context Protocol 是连接 AI 模型与外部工具和数据源的开放协议标准。
 term: mcp
-display_term: "MCP（Model Context Protocol）"
+display_term: MCP（Model Context Protocol）
 category: frameworks
-related_glossary: [claude-code, claude, anthropic]
-related_blog: [anthropic-cowork-claude-desktop-agent]
+related_glossary:
+  - claude-code
+  - claude
+  - anthropic
+related_blog:
+  - anthropic-cowork-claude-desktop-agent
 related_compare: []
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # MCP（Model Context Protocol）— AI 术语表
 
-**MCP（Model Context Protocol）** 是由 [Anthropic](/glossary/anthropic) 提出的开放协议标准，用于将大语言模型与外部工具、数据源和服务进行标准化连接。简单来说，MCP 为 AI 应用定义了一套通用的"插件接口"——任何遵循该协议的工具都能被 AI 模型直接调用，无需为每个工具单独编写集成代码。
+**[MCP](/zh/blog/claude-code-seven-programmable-layers)（[Model Context Protocol](/zh/glossary/model-context-protocol)）** 是由 [Anthropic](/glossary/anthropic) 提出的开放协议标准，用于将大语言模型与外部工具、数据源和服务进行标准化连接。简单来说，MCP 为 AI 应用定义了一套通用的"插件接口"——任何遵循该协议的工具都能被 AI 模型直接调用，无需为每个工具单独编写集成代码。
 
 ## 为什么 MCP 重要
 
-在 MCP 出现之前，每个 AI 应用都需要自行实现与外部服务的对接逻辑，导致大量重复开发和碎片化的集成方案。MCP 通过统一的协议规范解决了这个问题——工具开发者只需实现一次 MCP server，所有支持 MCP 的 AI 客户端都能直接使用。
+在 MCP 出现之前，每个 AI 应用都需要自行实现与外部服务的对接逻辑，导致大量重复开发和碎片化的集成方案。MCP 通过统一的协议规范解决了这个问题——工具开发者只需实现一次 [MCP server](/zh/blog/google-colab-mcp-server-cloud-gpu-ai-agents)，所有支持 MCP 的 AI 客户端都能直接使用。
 
 这对开发者生态意义重大。[Claude Code](/glossary/claude-code) 已原生支持 MCP，开发者可以通过 MCP server 让 AI 直接查询数据库、调用 API、访问监控系统。关于 Anthropic 在智能体方向的最新布局，可以参考我们的[深度报道](/blog/anthropic-cowork-claude-desktop-agent)。
 
@@ -26,7 +31,7 @@ related_topics: [claude-code]
 
 MCP 采用客户端-服务端架构，基于 JSON-RPC 2.0 协议通信：
 
-- **MCP Host**：运行 AI 模型的应用（如 [Claude](/glossary/claude) 桌面端、Claude Code）
+- **MCP Host**：运行 AI 模型的应用（如 [Claude](/glossary/claude) 桌面端、[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)）
 - **MCP Client**：Host 内部的协议客户端，负责与 Server 建立一对一连接
 - **MCP Server**：轻量级服务进程，暴露特定的工具能力（如读取文件系统、查询数据库、调用第三方 API）
 

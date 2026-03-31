@@ -1,27 +1,40 @@
 ---
-title: "Claude Code's Extension Stack: How Skills, Hooks, Agents, and MCP Turn a CLI Into a Programmable AI Platform"
-date: 2026-03-13
+title: >-
+  Claude Code's Extension Stack: How Skills, Hooks, Agents, and MCP Turn a CLI
+  Into a Programmable AI Platform
+date: 2026-03-13T00:00:00.000Z
 slug: claude-code-extension-stack-skills-hooks-agents-mcp
-description: "Claude Code ships 4 extension primitives — Skills, Hooks, Agents, MCP — turning a terminal AI coding assistant into a programmable development platform."
-keywords: ["Claude Code extensions", "MCP Model Context Protocol", "AI coding assistant platform", "Claude Code hooks", "Claude Code skills"]
+description: >-
+  Claude Code ships 4 extension primitives — Skills, Hooks, Agents, MCP —
+  turning a terminal AI coding assistant into a programmable development
+  platform.
+keywords:
+  - Claude Code extensions
+  - MCP Model Context Protocol
+  - AI coding assistant platform
+  - Claude Code hooks
+  - Claude Code skills
 category: DEV
-related_newsletter: 2026-03-13
-related_glossary: [claude-code, mcp-server]
+related_newsletter: 2026-03-13T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - mcp-server
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: en
 video_ready: true
-video_hook: "Claude Code has 4 extension layers — most developers only know one"
+video_hook: Claude Code has 4 extension layers — most developers only know one
 video_status: none
 ---
 
 # Claude Code's Extension Stack: How Skills, Hooks, Agents, and MCP Turn a CLI Into a Programmable AI Platform
 
-**TL;DR:** Anthropic shipped 4 extension primitives in **Claude Code** — **Skills**, **Hooks**, **Agents**, and **MCP** — that compose into a full platform layer. Skills encode workflows as slash commands, Hooks enforce deterministic guardrails over non-deterministic AI behavior, Agents spawn parallel sub-processes in isolated git worktrees, and **MCP servers** connect to 1,000+ external tools via an open protocol. Together, they solve the "last mile" problem that makes every other AI coding tool feel like a personal toy instead of a team-programmable platform.
+**TL;DR:** Anthropic shipped 4 extension primitives in **[Claude Code](/blog/claude-code-complete-guide)** — **Skills**, **Hooks**, **Agents**, and **[MCP](/glossary/mcp)** — that compose into a full platform layer. Skills encode workflows as slash commands, Hooks enforce deterministic guardrails over non-deterministic AI behavior, Agents spawn parallel sub-processes in isolated git worktrees, and **MCP servers** connect to 1,000+ external tools via an open protocol. Together, they solve the "last mile" problem that makes every other AI coding tool feel like a personal toy instead of a team-programmable platform.
 
 ## AI Coding Tools Have a Platform Problem
 
-AI coding assistants have followed a familiar arc: start as autocomplete, grow into chat, bolt on tool integrations as afterthoughts. GitHub Copilot added chat in 2023. Cursor shipped its composer in 2024. Every tool got smarter at generating code, but none solved the harder problem — how do you make the AI work *your* way?
+AI coding assistants have followed a familiar arc: start as autocomplete, grow into chat, bolt on tool integrations as afterthoughts. [GitHub Copilot](/glossary/github-[copilot](/glossary/copilot)) added chat in 2023. [Cursor](/topics/cursor) shipped its composer in 2024. Every tool got smarter at generating code, but none solved the harder problem — how do you make the AI work *your* way?
 
 The result is powerful but brittle. Every team reinvents the same guardrails in custom wrapper scripts. Workflow knowledge lives as tribal lore in Slack threads and onboarding docs nobody reads. When someone figures out the perfect prompt for debugging a flaky test suite, that insight dies in their terminal history.
 

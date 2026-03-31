@@ -1,27 +1,36 @@
 ---
-title: "Claude Code Agent Teams: Multi-Agent AI Coding with Parallel Sub-Agents"
-date: 2026-03-11
+title: 'Claude Code Agent Teams: Multi-Agent AI Coding with Parallel Sub-Agents'
+date: 2026-03-11T00:00:00.000Z
 slug: claude-code-agent-teams
-description: "Claude Code Agent Teams let developers spawn parallel AI sub-agents in isolated git worktrees. Here's how multi-agent orchestration actually works."
-keywords: ["claude code agent teams", "multi-agent coding", "claude code sub-agents", "agentic development"]
+description: >-
+  Claude Code Agent Teams let developers spawn parallel AI sub-agents in
+  isolated git worktrees. Here's how multi-agent orchestration actually works.
+keywords:
+  - claude code agent teams
+  - multi-agent coding
+  - claude code sub-agents
+  - agentic development
 category: DEV
-related_newsletter: 2026-03-11
-related_glossary: [claude-code, multi-agent-systems]
+related_newsletter: 2026-03-11T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - multi-agent-systems
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: en
 video_ready: true
-video_hook: "Your AI coding assistant can now hire its own team — and they work in parallel"
+video_hook: Your AI coding assistant can now hire its own team — and they work in parallel
 video_status: none
 ---
 
 # Claude Code Agent Teams: Multi-Agent AI Coding with Parallel Sub-Agents
 
-Your AI coding assistant can now spawn its own AI team. **Claude Code agent teams** let a parent agent decompose complex tasks, delegate to specialized sub-agents running in isolated **git worktrees**, and synthesize results — all while you review the output like an engineering manager, not a typist. This isn't running multiple chat windows. It's coordinated multi-agent orchestration built on real git workflows, with typed agents that have different permission scopes, different models, and different cost profiles. The single-threaded era of AI coding is over.
+Your AI coding assistant can now spawn its own AI team. **[Claude Code](/blog/claude-code-complete-guide) [agent teams](/glossary/agent-teams)** let a parent agent decompose complex tasks, delegate to specialized sub-agents running in isolated **git worktrees**, and synthesize results — all while you review the output like an engineering manager, not a typist. This isn't running multiple chat windows. It's coordinated multi-agent orchestration built on real git workflows, with typed agents that have different permission scopes, different models, and different cost profiles. The single-threaded era of AI coding is over.
 
 ## What Happened
 
-AI coding assistants have been fundamentally single-threaded. **GitHub Copilot** autocompletes one line at a time. **Cursor** handles inline chat in one file. Even agentic tools that could edit multiple files still operated sequentially — one conversation, one context window, one stream of changes. Complex multi-file refactoring meant the developer sat there orchestrating each step manually.
+AI coding assistants have been fundamentally single-threaded. **[GitHub Copilot](/glossary/github-[copilot](/glossary/copilot))** autocompletes one line at a time. **Cursor** handles inline chat in one file. Even [agentic](/glossary/agentic) tools that could edit multiple files still operated sequentially — one conversation, one context window, one stream of changes. Complex multi-file refactoring meant the developer sat there orchestrating each step manually.
 
 Anthropic shipped [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) as a CLI-based agentic coding tool in February 2025, and multi-agent orchestration became a core differentiator. The **Agent tool** allows a parent agent to spawn sub-agents that work concurrently in a single message. Each sub-agent gets its own context window, its own tool permissions, and optionally its own isolated git worktree on a temporary branch.
 

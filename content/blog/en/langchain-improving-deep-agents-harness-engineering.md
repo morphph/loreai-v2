@@ -1,31 +1,41 @@
 ---
-title: "Harness Engineering: How LangChain's Coding Agent Jumped from Top 30 to Top 5"
-date: 2026-03-20
+title: 'Harness Engineering: How LangChain''s Coding Agent Jumped from Top 30 to Top 5'
+date: 2026-03-20T00:00:00.000Z
 slug: langchain-improving-deep-agents-harness-engineering
-description: "LangChain improved their coding agent 13.7 points on Terminal Bench 2.0 by changing only the harness — not the model. Here's how self-verification, tracing, and prompt tuning made the difference."
-keywords: ["harness engineering", "coding agents", "Terminal Bench", "LangChain deep agents", "agent evaluation"]
+description: >-
+  LangChain improved their coding agent 13.7 points on Terminal Bench 2.0 by
+  changing only the harness — not the model. Here's how self-verification,
+  tracing, and prompt tuning made the difference.
+keywords:
+  - harness engineering
+  - coding agents
+  - Terminal Bench
+  - LangChain deep agents
+  - agent evaluation
 category: DEV
-related_newsletter: 2026-03-20
-related_glossary: [langchain, ai-agents]
+related_newsletter: 2026-03-20T00:00:00.000Z
+related_glossary:
+  - langchain
+  - ai-agents
 related_compare: []
 lang: en
 video_ready: true
-video_hook: "Same model, 13.7 points higher — LangChain only changed the harness"
+video_hook: 'Same model, 13.7 points higher — LangChain only changed the harness'
 video_status: published
 source_type: video
 ---
 
 # Harness Engineering: How LangChain's Coding Agent Jumped from Top 30 to Top 5
 
-LangChain just published a detailed breakdown of how they pushed their coding agent, **deepagents-cli**, from 52.8% to 66.5% on **Terminal Bench 2.0** — a 13.7-point improvement that moved them from outside the top 30 to the #5 spot on the leaderboard. The model stayed fixed at GPT-5.2-Codex the entire time. Every gain came from what they call **harness engineering**: changing the system prompt, tools, and middleware around the model rather than the model itself. For anyone building agentic systems, this is a masterclass in squeezing performance from what you already have.
+[LangChain](/blog/coding-agents-reshaping-epd) just published a detailed breakdown of how they pushed their coding agent, **deepagents-cli**, from 52.8% to 66.5% on **Terminal Bench 2.0** — a 13.7-point improvement that moved them from outside the top 30 to the #5 spot on the leaderboard. The model stayed fixed at GPT-5.2-[Codex](/blog/codex-complete-guide) the entire time. Every gain came from what they call **harness engineering**: changing the system prompt, tools, and middleware around the model rather than the model itself. For anyone building [agentic](/glossary/agentic) systems, this is a masterclass in squeezing performance from what you already have.
 
 ## What Happened
 
-LangChain's team ran a systematic series of experiments on Terminal Bench 2.0, the now-standard benchmark for evaluating agentic coding across 89 tasks spanning machine learning, debugging, and biology domains. They used [Harbor](https://github.com/av/harbor) to orchestrate runs — spinning up sandboxed environments via Daytona, executing the agent loop, and running verification and scoring.
+LangChain's team ran a systematic series of experiments on Terminal Bench 2.0, the now-standard benchmark for evaluating [agentic coding](/blog/claude-code-seven-programmable-layers) across 89 tasks spanning machine learning, debugging, and biology domains. They used [Harbor](https://github.com/av/harbor) to orchestrate runs — spinning up sandboxed environments via Daytona, executing the agent loop, and running verification and scoring.
 
 The baseline configuration — a generic coding prompt with standard file system tools and planning — scored 52.8% with GPT-5.2-Codex. Respectable, but unremarkable on a leaderboard where the top entry (Simple Codex on GPT-5.3-Codex) hits 75.1%.
 
-LangChain deliberately constrained their optimization to three variables: **system prompt**, **tools**, and **middleware** (hooks around model and tool calls). No model swaps, no fine-tuning, no exotic retrieval pipelines.
+LangChain deliberately constrained their optimization to three variables: **system prompt**, **tools**, and **middleware** (hooks around model and tool calls). No model swaps, no [fine-tuning](/glossary/fine-tuning), no exotic retrieval pipelines.
 
 The results came in two jumps. A custom prompt focused on build-verify loops, environment context injection, and loop/timeout protections pushed the score to 63.6%. Adding adaptive reasoning levels (switching between high and extra-high reasoning) brought the final score to 66.5%, placing them at #5 — just behind Mux (68.5%) and ahead of Factory's Droid on GPT-5.2 (64.9%).
 

@@ -1,29 +1,36 @@
 ---
-title: "Claude Code 登录异常与性能下降：发生了什么，开发者该怎么办"
-date: 2026-03-12
+title: Claude Code 登录异常与性能下降：发生了什么，开发者该怎么办
+date: 2026-03-12T00:00:00.000Z
 slug: claude-code-claude-ai-login-errors-performance
-description: "Claude Code 和 claude.ai 出现登录错误激增和响应变慢。分析背后原因、对开发者工作流的影响，以及应对建议。"
-keywords: ["Claude Code 故障", "claude.ai 登录错误", "Claude Code 性能", "Anthropic 服务状态"]
+description: Claude Code 和 claude.ai 出现登录错误激增和响应变慢。分析背后原因、对开发者工作流的影响，以及应对建议。
+keywords:
+  - Claude Code 故障
+  - claude.ai 登录错误
+  - Claude Code 性能
+  - Anthropic 服务状态
 category: DEV
-related_newsletter: 2026-03-12
-related_glossary: [claude-code, anthropic]
+related_newsletter: 2026-03-12T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - anthropic
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: zh
 video_ready: true
-video_hook: "Claude Code 挂了？别慌，先看这篇"
+video_hook: Claude Code 挂了？别慌，先看这篇
 video_status: none
 ---
 
 # Claude Code 登录异常与性能下降：发生了什么，开发者该怎么办
 
-**Claude Code** 和 **claude.ai** 正在经历登录错误激增和响应速度下降。对于已经把 Claude Code 深度集成到日常开发流程的团队来说，这不是小事 — GitHub 上 4% 的公开提交现在由 Claude Code 完成，任何服务中断都会直接影响生产力。这篇文章梳理已知情况，分析可能原因，给出实操应对方案。
+**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 和 **claude.ai** 正在经历登录错误激增和响应速度下降。对于已经把 Claude Code 深度集成到日常开发流程的团队来说，这不是小事 — GitHub 上 4% 的公开提交现在由 Claude Code 完成，任何服务中断都会直接影响生产力。这篇文章梳理已知情况，分析可能原因，给出实操应对方案。
 
 ## 发生了什么
 
 多位开发者在社交媒体上报告 Claude Code 和 claude.ai 出现异常：登录请求频繁失败，已登录用户的响应延迟明显增加。部分用户反映 Claude Code 的 CLI 会话中断后无法重新认证，需要多次重试才能恢复连接。
 
-这次问题的时间点值得注意。过去一周 Anthropic 密集发布了多项功能：**Claude Code Remote** 向 Pro 用户推送、新的 **/simplify** 和 **/batch** Skills 即将上线、**HTTP Hooks** 刚刚发布、claude.ai 免费版开放了 Memory 功能，App Store 排名冲到第一。用户量和功能复杂度同时激增，对后端基础设施的压力不言自明。
+这次问题的时间点值得注意。过去一周 Anthropic 密集发布了多项功能：**[Claude Code Remote](/zh/blog/claude-code-remote-control-mobile)** 向 Pro 用户推送、新的 **/simplify** 和 **/batch** Skills 即将上线、**HTTP [Hooks](/zh/blog/claude-code-seven-programmable-layers)** 刚刚发布、claude.ai 免费版开放了 Memory 功能，App Store 排名冲到第一。用户量和功能复杂度同时激增，对后端基础设施的压力不言自明。
 
 截至发稿时，Anthropic 尚未发布正式的事故报告或状态页更新。
 
@@ -33,7 +40,7 @@ video_status: none
 
 这意味着 Claude Code 的可用性已经不是"方便不方便"的问题，而是直接影响工程产出的基础设施问题。当你的 CI/CD 管线、代码审查流程、甚至日常编码都依赖 Claude Code 时，一次几小时的服务降级就可能让整个团队停摆。
 
-对比 [Cursor](/glossary/cursor) 和 GitHub Copilot，它们的认证和推理服务相对解耦 — 即使模型响应变慢，IDE 的基础功能不受影响。Claude Code 作为 CLI 工具，认证失败意味着完全不可用，没有优雅降级。
+对比 [Cursor](/glossary/cursor) 和 [GitHub Copilot](/zh/glossary/github-[copilot](/zh/glossary/copilot))，它们的认证和推理服务相对解耦 — 即使模型响应变慢，IDE 的基础功能不受影响。Claude Code 作为 CLI 工具，认证失败意味着完全不可用，没有优雅降级。
 
 这也给所有重度依赖单一 AI 编码工具的团队敲了个警钟：你的开发流程需要容错设计。
 

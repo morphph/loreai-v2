@@ -1,19 +1,23 @@
 ---
-title: "5 Claude Code Skills I Use Every Single Day"
+title: 5 Claude Code Skills I Use Every Single Day
 slug: 5-claude-code-skills-i-use-every-single-day
-description: "The SKILL.md patterns that transformed how I use Claude Code daily — from TDD workflows to codebase refactoring and git automation."
+description: >-
+  The SKILL.md patterns that transformed how I use Claude Code daily — from TDD
+  workflows to codebase refactoring and git automation.
 lang: en
 category: tools
-related_glossary: [agentic-coding]
-related_blog: [how-hooks-work]
-date: 2026-03-23
+related_glossary:
+  - agentic-coding
+related_blog:
+  - how-hooks-work
+date: 2026-03-23T00:00:00.000Z
 ---
 
 # 5 Claude Code Skills I Use Every Single Day
 
-The shift from "Copy-Paste AI" to "Execution AI" didn't happen gradually — it happened the week I started structuring my Claude Code workflows with `SKILL.md` files. According to a deep research analysis published in March 2026, the release of Claude Code marks a fundamental industry transition: AI systems are no longer conversational interfaces but **execution layers** embedded in your terminal, capable of autonomous multi-step planning, self-verification, and deterministic tool use.
+The shift from "Copy-Paste AI" to "Execution AI" didn't happen gradually — it happened the week I started structuring my [Claude Code workflows](/blog/claude-code-simplify-batch-skills) with `[SKILL.md](/blog/9-principles-writing-claude-code-skills)` files. According to a deep research analysis published in March 2026, the release of [Claude Code](/blog/claude-code-complete-guide) marks a fundamental industry transition: AI systems are no longer conversational interfaces but **execution layers** embedded in your terminal, capable of autonomous multi-step planning, self-verification, and deterministic [tool use](/glossary/tool-use).
 
-That research also documents something practitioners are discovering firsthand: the difference between mediocre Claude Code results and genuinely reliable ones comes down almost entirely to how you structure agentic instructions. Here are the five skill patterns I reach for every day.
+That research also documents something practitioners are discovering firsthand: the difference between mediocre Claude Code results and genuinely reliable ones comes down almost entirely to how you structure [agentic](/glossary/agentic) instructions. Here are the five skill patterns I reach for every day.
 
 ---
 

@@ -1,34 +1,45 @@
 ---
-title: "Agent Harnesses in 2026: Why the Wrapper Matters More Than the Model"
-date: 2026-03-20
+title: 'Agent Harnesses in 2026: Why the Wrapper Matters More Than the Model'
+date: 2026-03-20T00:00:00.000Z
 slug: agent-harnesses-2026
-description: "Agent harnesses — the orchestration layer around AI models — are emerging as the real competitive moat in 2026. Here's how they work and why they matter."
-keywords: ["agent harness", "AI agent orchestration", "Claude Code harness", "agent reliability"]
+description: >-
+  Agent harnesses — the orchestration layer around AI models — are emerging as
+  the real competitive moat in 2026. Here's how they work and why they matter.
+keywords:
+  - agent harness
+  - AI agent orchestration
+  - Claude Code harness
+  - agent reliability
 category: DEV
-related_newsletter: 2026-03-20
-related_glossary: [ai-agent, claude-code]
-related_compare: [claude-code-vs-cursor]
+related_newsletter: 2026-03-20T00:00:00.000Z
+related_glossary:
+  - ai-agent
+  - claude-code
+related_compare:
+  - claude-code-vs-cursor
 lang: en
 video_ready: true
-video_hook: "Everyone's optimizing AI models. The winners are optimizing what wraps around them."
+video_hook: >-
+  Everyone's optimizing AI models. The winners are optimizing what wraps around
+  them.
 video_status: published
 source_type: video
 ---
 
 # Agent Harnesses in 2026: Why the Wrapper Matters More Than the Model
 
-2025 was the year everyone built [AI agents](/glossary/ai-agent). 2026 is the year we figure out how to make them actually work. The difference isn't better models — it's better **agent harnesses**, the orchestration layer that wraps around a model to handle approvals, tool calls, filesystem access, and error recovery. **Claude Code** didn't break out because Claude got smarter. It broke out because Anthropic built a better harness. If you're still optimizing which model to use, you're solving the wrong problem.
+2025 was the year everyone built [AI agents](/glossary/ai-agent). 2026 is the year we figure out how to make them actually work. The difference isn't better models — it's better **agent harnesses**, the orchestration layer that wraps around a model to handle approvals, tool calls, filesystem access, and error recovery. **[Claude Code](/blog/claude-code-complete-guide)** didn't break out because Claude got smarter. It broke out because Anthropic built a better harness. If you're still optimizing which model to use, you're solving the wrong problem.
 
 ## What Happened
 
-The term **agent harness** has emerged as the industry's way of describing the scaffolding that turns a raw language model into a reliable autonomous system. Think of the model as an engine and the harness as the car — the best engine in the world goes nowhere useful without steering, brakes, and a chassis.
+The term **[agent harness](/blog/effective-harnesses-for-long-running-agents)** has emerged as the industry's way of describing the scaffolding that turns a raw language model into a reliable autonomous system. Think of the model as an engine and the harness as the car — the best engine in the world goes nowhere useful without steering, brakes, and a chassis.
 
 An agent harness manages everything the model can't: human-in-the-loop approvals, sub-agent coordination, filesystem permissions, prompt presets, lifecycle hooks, and planning/execution flow. The model generates responses. The harness decides what happens with them.
 
 This isn't theoretical. Three companies demonstrated the pattern in concrete terms during late 2025 and early 2026:
 
 - **Manus** rewrote their harness architecture five times in six months while using the same underlying models. Each rewrite improved reliability and task completion rates. The variable that changed was always the harness, never the model.
-- **LangChain** re-architected their Deep Research agent four times in one year. Better workflow structures and sub-task coordination drove improvements, not model upgrades.
+- **[LangChain](/blog/coding-agents-reshaping-epd)** re-architected their Deep Research agent four times in one year. Better workflow structures and sub-task coordination drove improvements, not model upgrades.
 - **Vercel** removed 80% of their agent's available tools and saw *better* results — fewer steps, fewer tokens, faster responses, higher success rates. Improvement through harness simplification.
 
 Anthropic's own [computer use](https://www.anthropic.com/news/3-5-models-and-computer-use) feature follows the same pattern: the model generates actions, but the harness controls what's allowed, validates outputs, and manages human intervention points.
@@ -41,7 +52,7 @@ Every major lab is converging on similar capability levels. The gap between Clau
 
 Harnesses don't swap that easily. A well-built orchestration layer encodes months of iteration on failure modes, edge cases, approval workflows, and domain-specific tool chains. That's institutional knowledge baked into architecture.
 
-[Claude Code](/glossary/claude-code) illustrates this perfectly. The model powering it (Claude Sonnet/Opus) is available to everyone via API. What makes Claude Code valuable is the harness: filesystem sandboxing, permission controls, sub-agent spawning, context management, and the `CLAUDE.md` / `SKILL.md` configuration system that lets teams encode their standards into the workflow.
+[Claude Code](/glossary/claude-code) illustrates this perfectly. The model powering it (Claude Sonnet/Opus) is available to everyone via API. What makes Claude Code valuable is the harness: filesystem sandboxing, permission controls, sub-agent spawning, context management, and the `[CLAUDE.md](/blog/claude-code-memory)` / `[SKILL.md](/blog/9-principles-writing-claude-code-skills)` configuration system that lets teams encode their standards into the workflow.
 
 For engineering teams building AI-powered products, this reframes the investment equation. Spending weeks evaluating model A versus model B yields diminishing returns. Spending that same time improving your orchestration layer — better error recovery, smarter tool selection, tighter approval flows — compounds.
 

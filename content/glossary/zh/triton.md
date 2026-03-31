@@ -1,12 +1,14 @@
 ---
-title: "Triton — AI 术语表"
+title: Triton — AI 术语表
 slug: triton
-description: "什么是 Triton？OpenAI 开源的 GPU 编程语言，用 Python 语法编写高性能 GPU 内核。"
+description: 什么是 Triton？OpenAI 开源的 GPU 编程语言，用 Python 语法编写高性能 GPU 内核。
 term: triton
-display_term: "Triton"
+display_term: Triton
 category: frameworks
-related_glossary: [fine-tuning]
-related_blog: [openai-updated-model-spec-2026]
+related_glossary:
+  - fine-tuning
+related_blog:
+  - openai-updated-model-spec-2026
 related_compare: []
 lang: zh
 ---
@@ -34,7 +36,7 @@ Triton 采用基于 block 的编程模型。开发者用 Python 装饰器 `@trit
 ## 相关术语
 
 - **[Fine-tuning](/glossary/fine-tuning)**：模型微调中常需自定义 GPU 内核，Triton 是编写这类内核的首选工具
-- **[Google DeepMind](/glossary/google-deepmind)**：作为 AI 研究机构，同样在探索替代 CUDA 的 GPU 编程方案
+- **[Google DeepMind](/glossary/google-[deepmind](/zh/glossary/deepmind))**：作为 AI 研究机构，同样在探索替代 CUDA 的 GPU 编程方案
 
 ---
 

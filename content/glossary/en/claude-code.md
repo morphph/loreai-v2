@@ -1,20 +1,26 @@
 ---
-title: "Claude Code — AI Glossary"
+title: Claude Code — AI Glossary
 slug: claude-code
-description: "What is Claude Code? Anthropic's agentic coding tool that operates directly in your terminal."
+description: >-
+  What is Claude Code? Anthropic's agentic coding tool that operates directly in
+  your terminal.
 term: claude-code
-display_term: "Claude Code"
+display_term: Claude Code
 category: tools
-related_glossary: [claude]
-related_blog: [anthropic-claude-memory-upgrades-importing, anthropic-cowork-claude-desktop-agent]
+related_glossary:
+  - claude
+related_blog:
+  - anthropic-claude-memory-upgrades-importing
+  - anthropic-cowork-claude-desktop-agent
 related_compare: []
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code — AI Glossary
 
-**Claude Code** is Anthropic's agentic coding assistant that runs directly in your terminal. It connects to your codebase, reads project context, and executes multi-step software engineering tasks — writing code, running tests, managing git workflows, and editing files across your project. Unlike IDE-embedded copilots, Claude Code operates as an autonomous agent with full shell access, powered by [Claude](/glossary/claude) models.
+**[Claude Code](/blog/claude-code-complete-guide)** is Anthropic's [agentic coding](/blog/claude-code-seven-programmable-layers) assistant that runs directly in your terminal. It connects to your codebase, reads project context, and executes multi-step software engineering tasks — writing code, running tests, managing git workflows, and editing files across your project. Unlike IDE-embedded copilots, Claude Code operates as an autonomous agent with full shell access, powered by [Claude](/glossary/claude) models.
 
 ## Why Claude Code Matters
 
@@ -28,8 +34,8 @@ Claude Code uses Anthropic's Claude model with extended context windows and tool
 
 Key mechanisms:
 
-- **Project context**: Reads `CLAUDE.md` for project-level instructions and constraints
-- **MCP servers**: Connects to external tools and data sources via the Model Context Protocol
+- **Project context**: Reads `[CLAUDE.md](/blog/claude-code-memory)` for project-level instructions and constraints
+- **[MCP](/glossary/mcp) servers**: Connects to external tools and data sources via the [Model Context Protocol](/glossary/model-context-protocol)
 - **Sub-agents**: Spawns parallel agents for large-scale tasks like codebase exploration or multi-file refactors
 - **Git integration**: Stages, commits, and creates pull requests with structured messages
 - **Permission modes**: Configurable approval levels from fully interactive to autonomous execution

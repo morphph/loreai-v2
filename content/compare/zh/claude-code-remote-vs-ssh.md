@@ -1,19 +1,22 @@
 ---
-title: "Claude Code Remote vs SSH：远程开发该怎么选？"
+title: Claude Code Remote vs SSH：远程开发该怎么选？
 slug: claude-code-remote-vs-ssh
-description: "Claude Code Remote 与 SSH 远程开发对比：功能、适用场景与选择建议。"
+description: Claude Code Remote 与 SSH 远程开发对比：功能、适用场景与选择建议。
 item_a: Claude Code Remote
 item_b: SSH
 category: tools
-related_glossary: [agentic-coding]
-related_blog: [google-colab-mcp-server-cloud-gpu-ai-agents]
+related_glossary:
+  - agentic-coding
+related_blog:
+  - google-colab-mcp-server-cloud-gpu-ai-agents
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code Remote vs SSH：远程开发该怎么选？
 
-**Claude Code Remote** 是 Anthropic 推出的云端远程开发方案——你可以在浏览器、手机或桌面端启动一个 Claude Code 会话，无需本地环境配置，直接对远程仓库进行编码、调试和提交。**SSH** 则是存在数十年的远程连接标准协议，开发者通过终端登录远程服务器，在服务器上运行编辑器和工具链。两者解决的核心问题相同：让你不在本地也能写代码。但实现路径截然不同——一个是 AI 原生的云端代理，一个是通用的远程 shell 通道。
+**[Claude Code Remote](/zh/blog/claude-code-remote-control-mobile)** 是 Anthropic 推出的云端远程开发方案——你可以在浏览器、手机或桌面端启动一个 [Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 会话，无需本地环境配置，直接对远程仓库进行编码、调试和提交。**SSH** 则是存在数十年的远程连接标准协议，开发者通过终端登录远程服务器，在服务器上运行编辑器和工具链。两者解决的核心问题相同：让你不在本地也能写代码。但实现路径截然不同——一个是 AI 原生的云端代理，一个是通用的远程 shell 通道。
 
 ## 功能对比
 
@@ -23,7 +26,7 @@ related_topics: [claude-code]
 | **环境配置** | 零配置，云端托管 | 需手动配置服务器环境 |
 | **AI 编码能力** | 内置 Claude 代理，自动读写代码、运行命令 | 无内置 AI，需额外安装工具 |
 | **跨设备切换** | 原生支持——手机开始、电脑接手 | 需 tmux/mosh 等工具辅助 |
-| **项目上下文** | 自动读取 CLAUDE.md、[MCP](/glossary/agentic-coding) 配置 | 依赖手动维护的配置文件 |
+| **项目上下文** | 自动读取 [CLAUDE.md](/zh/blog/claude-code-memory)、[MCP](/glossary/agentic-coding) 配置 | 依赖手动维护的配置文件 |
 | **协议开放性** | Anthropic 专有平台 | 开放标准，任何服务器都支持 |
 | **离线可用** | 否，依赖网络连接 | 可通过 mosh 保持断线重连 |
 | **适用范围** | 编码任务为主 | 任意远程操作（运维、部署、调试等） |
@@ -36,7 +39,7 @@ related_topics: [claude-code]
 - **长时间运行任务**：在网页端启动一个大规模重构任务，关掉浏览器去开会，回来查看结果。这是传统 SSH + 编辑器难以匹敌的体验。
 - **跨设备无缝切换**：用 `/teleport` 命令把终端会话转移到桌面应用，或反过来在手机上继续。无需 tmux attach、无需记住 session 名。
 
-Claude Code Remote 最大的优势在于**零配置**——你不需要在远程机器上安装任何东西，所有 AI 能力和项目上下文（CLAUDE.md、SKILL.md、MCP 服务器）都由平台托管。
+Claude Code Remote 最大的优势在于**零配置**——你不需要在远程机器上安装任何东西，所有 AI 能力和项目上下文（CLAUDE.md、SKILL.md、[MCP](/zh/blog/claude-code-seven-programmable-layers) 服务器）都由平台托管。
 
 ## 什么时候用 SSH
 

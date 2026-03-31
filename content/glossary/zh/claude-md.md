@@ -1,20 +1,27 @@
 ---
-title: "CLAUDE.md — AI 术语表"
+title: CLAUDE.md — AI 术语表
 slug: claude-md
-description: "什么是 CLAUDE.md？Claude Code 的项目级配置文件，用于定义 AI 编码助手的行为规则和项目上下文。"
+description: 什么是 CLAUDE.md？Claude Code 的项目级配置文件，用于定义 AI 编码助手的行为规则和项目上下文。
 term: claude-md
-display_term: "CLAUDE.md"
+display_term: CLAUDE.md
 category: tools
-related_glossary: [claude-code, skill-md, mcp-server]
-related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, mcp-vs-cli-vs-skills-extend-claude-code]
-related_compare: [claude-code-vs-cursor]
+related_glossary:
+  - claude-code
+  - skill-md
+  - mcp-server
+related_blog:
+  - claude-code-extension-stack-skills-hooks-agents-mcp
+  - mcp-vs-cli-vs-skills-extend-claude-code
+related_compare:
+  - claude-code-vs-cursor
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # CLAUDE.md — AI 术语表
 
-**CLAUDE.md** 是 [Anthropic](/glossary/anthropic) 旗下 AI 编码工具 Claude Code 的项目级配置文件。它以 Markdown 格式存放在项目根目录，向 Claude Code 提供项目背景、编码规范、构建命令和工作流约束等关键上下文。简单来说，CLAUDE.md 就是你写给 AI 的「项目说明书」——让它在第一次接触代码库时就知道该怎么做、不该做什么。
+**[CLAUDE.md](/zh/blog/claude-code-memory)** 是 [Anthropic](/glossary/anthropic) 旗下 AI 编码工具 [Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 的项目级配置文件。它以 Markdown 格式存放在项目根目录，向 Claude Code 提供项目背景、编码规范、构建命令和工作流约束等关键上下文。简单来说，CLAUDE.md 就是你写给 AI 的「项目说明书」——让它在第一次接触代码库时就知道该怎么做、不该做什么。
 
 ## 为什么 CLAUDE.md 重要
 

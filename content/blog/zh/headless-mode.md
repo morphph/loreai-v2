@@ -1,24 +1,32 @@
 ---
-title: "Claude Code -p 无头模式：一个参数让 AI 变成自动化引擎"
-date: 2026-03-11
+title: Claude Code -p 无头模式：一个参数让 AI 变成自动化引擎
+date: 2026-03-11T00:00:00.000Z
 slug: headless-mode
-description: "Claude Code 加上 -p 参数就能脱离交互终端，嵌入脚本、CI/CD 和 cron 任务。本文详解结构化输出、工具白名单、会话接续等核心能力。"
-keywords: ["Claude Code", "无头模式", "CLI自动化", "AI工程化", "-p参数"]
+description: Claude Code 加上 -p 参数就能脱离交互终端，嵌入脚本、CI/CD 和 cron 任务。本文详解结构化输出、工具白名单、会话接续等核心能力。
+keywords:
+  - Claude Code
+  - 无头模式
+  - CLI自动化
+  - AI工程化
+  - '-p参数'
 category: DEV
-related_newsletter: 2026-03-11
-related_glossary: [claude-code, ai-agent]
+related_newsletter: 2026-03-11T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - ai-agent
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: zh
 video_ready: true
-video_hook: "一个参数，把聊天工具变成自动化引擎"
+video_hook: 一个参数，把聊天工具变成自动化引擎
 video_status: published
 source_type: video
 ---
 
 # Claude Code -p 无头模式：一个参数让 AI 变成自动化引擎
 
-Claude Code 默认是交互式终端——改个 Bug 聊三轮，审个代码再聊五轮。但加上 `-p` 参数，整个聊天界面消失，AI 变成一个安静接单的命令行工具。这篇文章基于 Anthropic 官方文档，拆解无头模式的四个核心能力，帮你今晚就把 **Claude Code** 塞进自动化流水线。
+[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 默认是交互式终端——改个 Bug 聊三轮，审个代码再聊五轮。但加上 `-p` 参数，整个聊天界面消失，AI 变成一个安静接单的命令行工具。这篇文章基于 Anthropic 官方文档，拆解无头模式的四个核心能力，帮你今晚就把 **Claude Code** 塞进自动化流水线。
 
 ## 发生了什么
 

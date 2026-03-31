@@ -1,11 +1,16 @@
 ---
-title: "Transformers — AI Glossary"
+title: Transformers — AI Glossary
 slug: transformers
-description: "What are Transformers? The neural network architecture behind modern LLMs and AI systems."
+description: >-
+  What are Transformers? The neural network architecture behind modern LLMs and
+  AI systems.
 term: transformers
-display_term: "Transformers"
+display_term: Transformers
 category: concepts
-related_glossary: [google, anthropic, claude]
+related_glossary:
+  - google
+  - anthropic
+  - claude
 related_blog: []
 related_compare: []
 lang: en
@@ -19,7 +24,7 @@ lang: en
 
 Before transformers, sequence models like RNNs and LSTMs processed tokens one at a time, creating bottlenecks for long sequences. Transformers eliminated this constraint, unlocking the scaling laws that made modern AI possible — more data, more parameters, better performance.
 
-The architecture powers not just language models but also vision transformers (ViT), speech models, protein folding (AlphaFold), and multimodal systems. Every major AI lab — [Anthropic](/glossary/anthropic), OpenAI, Google DeepMind, Meta — builds on transformer variants. Understanding transformers is prerequisite knowledge for following any development in modern AI.
+The architecture powers not just language models but also vision transformers (ViT), speech models, protein folding (AlphaFold), and multimodal systems. Every major AI lab — [Anthropic](/glossary/anthropic), OpenAI, [Google DeepMind](/blog/gemini-3-1-pro-complex-tasks), Meta — builds on transformer variants. Understanding transformers is prerequisite knowledge for following any development in modern AI.
 
 ## How Transformers Work
 
@@ -33,7 +38,7 @@ Most modern LLMs like Claude use **decoder-only** architectures, where the model
 
 ## Related Terms
 
-- **[Google](/glossary/google)**: Origin of the transformer architecture, developed at Google Brain and Google DeepMind
+- **[Google](/glossary/google)**: Origin of the transformer architecture, developed at Google Brain and Google [DeepMind](/glossary/deepmind)
 - **[Anthropic](/glossary/anthropic)**: Builder of Claude, a frontier AI system built on transformer architecture
 - **[Claude](/glossary/claude)**: Anthropic's AI assistant, powered by a decoder-only transformer model
 

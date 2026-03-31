@@ -1,16 +1,25 @@
 ---
-title: "Claude Code vs GitHub Copilot: Which AI Coding Tool Should You Use?"
+title: 'Claude Code vs GitHub Copilot: Which AI Coding Tool Should You Use?'
 slug: claude-code-vs-github-copilot
-description: "Comparing Claude Code and GitHub Copilot across features, pricing, performance, and workflows in 2026."
+description: >-
+  Comparing Claude Code and GitHub Copilot across features, pricing,
+  performance, and workflows in 2026.
 item_a: Claude Code
 item_b: GitHub Copilot
 category: tools
-related_glossary: [claude-code, agentic]
-related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
-related_compare: [claude-code-vs-cursor, codex-vs-github-copilot]
+related_glossary:
+  - claude-code
+  - agentic
+related_blog:
+  - claude-code-extension-stack-skills-hooks-agents-mcp
+  - claude-code-agent-teams
+related_compare:
+  - claude-code-vs-cursor
+  - codex-vs-github-copilot
 lang: en
-date: 2026-03-31
-related_topics: [claude-code]
+date: 2026-03-31T00:00:00.000Z
+related_topics:
+  - claude-code
 ---
 
 # Claude Code vs GitHub Copilot: Which AI Coding Tool Should You Use?
@@ -21,14 +30,14 @@ related_topics: [claude-code]
 
 ## Feature Comparison
 
-| Feature | Claude Code | GitHub Copilot |
+| Feature | [Claude Code](/blog/lessons-from-building-claude-code-agent-tools) | [GitHub Copilot](/glossary/github-[copilot](/glossary/copilot)) |
 |---------|-------------|----------------|
 | **Approach** | Autonomous agent — plans, executes, verifies | Inline suggestions + chat + agent mode + coding agent |
 | **Interfaces** | Terminal CLI, VS Code, JetBrains, Desktop app, Web, Mobile | VS Code, JetBrains, Visual Studio, Xcode, Eclipse, Vim/Neovim, GitHub.com, GitHub Mobile, GitHub CLI, Windows Terminal |
 | **Multi-file edits** | Native — reads codebase, edits across files, runs commands | Copilot Edits in VS Code/JetBrains; Agent mode for autonomous changes |
 | **Shell access** | Full shell execution with user approval | Command line help via GitHub CLI |
 | **Git integration** | Stages, commits, creates branches, opens PRs directly | PR descriptions, automated code review, coding agent creates PRs from issues |
-| **Extensibility** | MCP servers, CLAUDE.md, custom skills, hooks | Copilot Spaces, MCP via GitHub MCP server |
+| **Extensibility** | [MCP](/glossary/mcp) servers, [CLAUDE.md](/blog/claude-code-memory), custom skills, hooks | Copilot Spaces, MCP via GitHub MCP server |
 | **Agent capabilities** | [Agent teams](/blog/claude-code-agent-teams) — spawns sub-agents for parallel tasks | Agent mode (GA in VS Code and JetBrains); Coding agent assigns issues and creates PRs |
 | **Code review** | Built-in multi-agent PR review | 60M+ AI code reviews; agentic architecture (March 2026) |
 | **Context window** | Up to 1M tokens (Opus 4.6 / Sonnet 4.6) | Varies by model (Copilot routes to multiple models) |

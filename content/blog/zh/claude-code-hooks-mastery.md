@@ -1,19 +1,19 @@
 ---
-title: "Claude Code Hooks 深度掌握：让 AI 编程真正可控"
+title: Claude Code Hooks 深度掌握：让 AI 编程真正可控
 slug: claude-code-hooks-mastery
-description: "Claude Code Hooks 让你在 AI 工作流中注入确定性逻辑，强制执行安全检查、格式化和日志记录。本文拆解核心用法与最佳实践。"
+description: Claude Code Hooks 让你在 AI 工作流中注入确定性逻辑，强制执行安全检查、格式化和日志记录。本文拆解核心用法与最佳实践。
 category: tools
 lang: zh
-date: 2026-03-23
+date: 2026-03-23T00:00:00.000Z
 ---
 
 # Claude Code Hooks 深度掌握：让 AI 编程真正可控
 
-AI 写代码最大的问题不是写不出来，而是不可预测——它会跳过 lint、忘记更新状态文件，有时甚至执行你根本不想要的 shell 命令。**Claude Code Hooks** 就是为了解决这个问题而生的：在 AI 工作流的特定生命周期节点，强制触发你预定义的脚本或提示词。
+AI 写代码最大的问题不是写不出来，而是不可预测——它会跳过 lint、忘记更新状态文件，有时甚至执行你根本不想要的 shell 命令。**[Claude Code Hooks](/zh/blog/claude-code-extension-stack-[skills](/zh/blog/9-principles-writing-claude-code-skills)-[hooks](/zh/blog/claude-code-seven-programmable-layers)-agents-[mcp](/zh/glossary/mcp))** 就是为了解决这个问题而生的：在 AI 工作流的特定生命周期节点，强制触发你预定义的脚本或提示词。
 
 ## 什么是 Claude Code Hooks
 
-Hooks 是 Claude Code 的钩子系统。当 AI agent 执行到特定事件时——比如即将写入文件、执行 shell 命令、完成一轮对话——你可以注入自己的逻辑。
+Hooks 是 [Claude Code](/zh/blog/agent-harnesses-2026) 的钩子系统。当 AI agent 执行到特定事件时——比如即将写入文件、执行 shell 命令、完成一轮对话——你可以注入自己的逻辑。
 
 关键点在于：**这是确定性的**。AI 本身是非确定的，它每次可能给出不同的答案；但 Hooks 是你写的脚本，它每次都会执行，没有例外。这让你可以把"必须做的事"从"希望 AI 记得做的事"里剥离出来。
 

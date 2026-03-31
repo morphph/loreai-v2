@@ -1,24 +1,34 @@
 ---
-title: "Claude Code vs Cursor: Which AI Coding Tool Should You Use?"
+title: 'Claude Code vs Cursor: Which AI Coding Tool Should You Use?'
 slug: claude-code-vs-cursor
-description: "Comparing Claude Code and Cursor across workflow, speed, pricing, UX, and use cases to help you pick the right AI coding tool in 2026."
+description: >-
+  Comparing Claude Code and Cursor across workflow, speed, pricing, UX, and use
+  cases to help you pick the right AI coding tool in 2026.
 item_a: Claude Code
 item_b: Cursor
 category: tools
-related_glossary: [agentic-coding, chatgpt]
-related_blog: [integrate-claude-code-into-your-development-workflow]
-related_compare: [claude-code-remote-vs-ssh, codex-vs-claude-code, codex-vs-cursor]
-related_faq: [claude-code-pricing]
+related_glossary:
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - integrate-claude-code-into-your-development-workflow
+related_compare:
+  - claude-code-remote-vs-ssh
+  - codex-vs-claude-code
+  - codex-vs-cursor
+related_faq:
+  - claude-code-pricing
 lang: en
-date: 2026-03-31
-related_topics: [claude-code]
+date: 2026-03-31T00:00:00.000Z
+related_topics:
+  - claude-code
 ---
 
 # Claude Code vs Cursor: Which AI Coding Tool Should You Use?
 
 *Last updated: March 2026*
 
-**[Claude Code](/glossary/agentic-coding)** and **Cursor** are the two most-discussed AI coding tools right now, but they're built around fundamentally different mental models. Claude Code is Anthropic's terminal-based CLI agent — you describe a task, it reads your codebase, executes changes autonomously, writes tests, and commits. Cursor is a VS Code fork with deeply integrated AI: autocomplete, inline edits, and an agent mode baked into the editor. The core distinction: Claude Code hands off work to an autonomous agent; Cursor keeps you in the driver's seat with AI assistance.
+**[Claude Code](/glossary/agentic-coding)** and **[Cursor](/glossary/cursor)** are the two most-discussed AI coding tools right now, but they're built around fundamentally different mental models. [Claude Code](/blog/claude-code-complete-guide) is Anthropic's terminal-based CLI agent — you describe a task, it reads your codebase, executes changes autonomously, writes tests, and commits. Cursor is a VS Code fork with deeply integrated AI: autocomplete, inline edits, and an agent mode baked into the editor. The core distinction: Claude Code hands off work to an autonomous agent; Cursor keeps you in the driver's seat with AI assistance.
 
 ## Feature Comparison
 
@@ -27,10 +37,10 @@ related_topics: [claude-code]
 | **Interface** | Terminal CLI, VS Code, JetBrains, Desktop app, Web, Mobile | VS Code fork (IDE), CLI, JetBrains (via Agent Client Protocol) |
 | **Interaction model** | Autonomous agent — describe, delegate, review | AI-enhanced editing — inline suggestions, chat, agent mode |
 | **Multi-file tasks** | Native — reads full codebase, executes across files | Supported via Agent mode with up to 8 parallel agents |
-| **Parallelism** | Agent teams — lead agent coordinates multiple sub-agents | Up to 8 simultaneous agents; cloud agents in isolated VMs |
-| **Model** | Claude Sonnet 4.6, Opus 4.6 (Anthropic) | Multi-model: Claude, GPT-5.3, Gemini 3 Pro, Grok, Composer 2 |
+| **Parallelism** | [Agent teams](/glossary/agent-teams) — lead agent coordinates multiple sub-agents | Up to 8 simultaneous agents; cloud agents in isolated VMs |
+| **Model** | [Claude Sonnet 4.6](/blog/claude-1-million-context-window-ga), Opus 4.6 (Anthropic) | Multi-model: Claude, GPT-5.3, Gemini 3 Pro, Grok, Composer 2 |
 | **Context window** | Up to 1M tokens (Opus 4.6 / Sonnet 4.6) | Up to 200K (Claude) or 1M+ (Gemini 3 Pro) via Max Mode |
-| **Extensibility** | MCP servers, CLAUDE.md, custom skills, hooks | MCP Apps, 30+ plugins, Automations, custom rules |
+| **Extensibility** | MCP servers, [CLAUDE.md](/blog/claude-code-memory), custom skills, hooks | MCP Apps, 30+ plugins, Automations, custom rules |
 | **Platform** | macOS, Linux, WSL, Windows | macOS, Windows, Linux |
 
 *Source: [code.claude.com](https://code.claude.com/docs/en/overview), [cursor.com/features](https://cursor.com/features)*

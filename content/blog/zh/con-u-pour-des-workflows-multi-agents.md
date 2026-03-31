@@ -1,21 +1,26 @@
 ---
-title: "为多智能体工作流而生：OpenAI Codex 的工程范式革命"
+title: 为多智能体工作流而生：OpenAI Codex 的工程范式革命
 slug: con-u-pour-des-workflows-multi-agents
-description: "OpenAI Codex 桌面应用于 2026 年 2 月上线，专为多智能体并行工程工作流设计。本文解析其核心能力与市场格局。"
+description: OpenAI Codex 桌面应用于 2026 年 2 月上线，专为多智能体并行工程工作流设计。本文解析其核心能力与市场格局。
 lang: zh
 category: tools
-related_glossary: [agentic-coding, chatgpt]
-related_blog: [codex-for-students, codex-for-open-source, integrate-claude-code-into-your-development-workflow]
-date: 2026-03-25
+related_glossary:
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - codex-for-students
+  - codex-for-open-source
+  - integrate-claude-code-into-your-development-workflow
+date: 2026-03-25T00:00:00.000Z
 ---
 
 # 为多智能体工作流而生：OpenAI Codex 的工程范式革命
 
-2026 年 2 月 2 日，OpenAI 正式发布 Codex 桌面应用。官方将其定位为 *conçu pour des workflows multi-agents*——专为多智能体工作流设计。这不是营销话术，而是一个架构上的明确声明：软件工程的主战场，正在从"补全下一行代码"转向"把一整个工程任务交给 AI 自主完成"。
+2026 年 2 月 2 日，OpenAI 正式发布 [Codex](/zh/blog/codex-complete-guide) 桌面应用。官方将其定位为 *conçu pour des workflows multi-agents*——专为多智能体工作流设计。这不是营销话术，而是一个架构上的明确声明：软件工程的主战场，正在从"补全下一行代码"转向"把一整个工程任务交给 AI 自主完成"。
 
 ## 什么是多智能体工程工作流
 
-传统 AI 编码工具（GitHub Copilot 是典型代表）的工作模式是逐键辅助——你写，它补。而 Codex 桌面应用走的是另一条路：允许多个 AI agent 并行运行，每个 agent 通过 Git worktree 操作独立的代码分支，互不干扰。
+传统 AI 编码工具（[GitHub Copilot](/zh/glossary/github-[copilot](/zh/glossary/copilot)) 是典型代表）的工作模式是逐键辅助——你写，它补。而 Codex 桌面应用走的是另一条路：允许多个 [AI agent](/zh/blog/effective-harnesses-for-long-running-agents) 并行运行，每个 agent 通过 Git worktree 操作独立的代码分支，互不干扰。
 
 你可以同时让一个 agent 重构认证模块、另一个 agent 补充测试用例、第三个 agent 修复一个已知 bug——三件事同时推进，最终合并结果。这就是"多智能体工作流"的实际含义：[Agentic Coding](/glossary/agentic-coding) 从概念变成了日常工程流水线。
 
@@ -29,7 +34,7 @@ date: 2026-03-25
 
 根据现有数据，当前 AI 编码工具市场呈现三强鼎立：
 
-- **Cursor**：IDE 原生路线，拥有 36 万付费用户，主打编辑器内的沉浸式体验
+- **[Cursor](/zh/glossary/cursor)**：IDE 原生路线，拥有 36 万付费用户，主打编辑器内的沉浸式体验
 - **Claude Code**：终端原生路线，Anthropic 的 [agentic coding](/glossary/agentic-coding) 代表产品，在需要全局代码理解的任务上表现突出（参见我们的[集成指南](/blog/integrate-claude-code-into-your-development-workflow)）
 - **OpenAI Codex**：OS 级编排路线，通过桌面应用抢占跨项目、跨工具的调度层
 

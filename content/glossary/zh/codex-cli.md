@@ -1,20 +1,25 @@
 ---
-title: "Codex CLI — AI 术语表"
+title: Codex CLI — AI 术语表
 slug: codex-cli
-description: "什么是 Codex CLI？OpenAI 开源的终端 AI 编程代理，可自主读写代码并执行命令。"
+description: 什么是 Codex CLI？OpenAI 开源的终端 AI 编程代理，可自主读写代码并执行命令。
 term: codex-cli
-display_term: "Codex CLI"
+display_term: Codex CLI
 category: tools
-related_glossary: [codex, agentic, agent-teams]
-related_blog: [codex-complete-guide]
+related_glossary:
+  - codex
+  - agentic
+  - agent-teams
+related_blog:
+  - codex-complete-guide
 related_compare: []
 lang: zh
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # Codex CLI — AI 术语表
 
-**Codex CLI** 是 OpenAI 推出的开源终端编程代理工具。它直接在命令行中运行，利用 OpenAI 的模型（默认 o4-mini）读取项目代码、规划修改方案、编写代码并执行 shell 命令——整个过程在沙箱环境中完成，兼顾自主性与安全性。项目以 Apache 2.0 协议开源，开发者可自由查看和修改源码。
+**[Codex](/zh/blog/codex-complete-guide) CLI** 是 OpenAI 推出的开源终端编程代理工具。它直接在命令行中运行，利用 OpenAI 的模型（默认 o4-mini）读取项目代码、规划修改方案、编写代码并执行 shell 命令——整个过程在沙箱环境中完成，兼顾自主性与安全性。项目以 Apache 2.0 协议开源，开发者可自由查看和修改源码。
 
 ## 为什么 Codex CLI 值得关注
 

@@ -1,12 +1,18 @@
 ---
-title: "Claude Code 多少钱？"
+title: Claude Code 多少钱？
 slug: how-much-does-claude-code-cost
-description: "Claude Code 定价方式详解：API 按量付费与 Pro/Max 订阅方案对比。"
+description: Claude Code 定价方式详解：API 按量付费与 Pro/Max 订阅方案对比。
 category: tools
-related_glossary: [claude-code, anthropic, claude]
-related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
+related_glossary:
+  - claude-code
+  - anthropic
+  - claude
+related_blog:
+  - claude-code-extension-stack-skills-hooks-agents-mcp
+  - claude-code-agent-teams
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code 多少钱？
@@ -17,7 +23,7 @@ related_topics: [claude-code]
 
 ### API 按量付费
 
-通过 Anthropic API 使用 Claude Code 时，费用按输入和输出 token 计算。不同模型价格不同——Claude Sonnet 成本较低，适合日常编码任务；Claude Opus 能力更强但价格更高。典型的编码会话（读取项目上下文、生成代码、运行命令）每次消耗数千到数万 token，日常中等强度使用每月费用通常在 $5–$50 之间，重度使用可能更高。
+通过 Anthropic API 使用 [Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 时，费用按输入和输出 token 计算。不同模型价格不同——Claude Sonnet 成本较低，适合日常编码任务；[Claude Opus](/zh/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison) 能力更强但价格更高。典型的编码会话（读取项目上下文、生成代码、运行命令）每次消耗数千到数万 token，日常中等强度使用每月费用通常在 $5–$50 之间，重度使用可能更高。
 
 API 模式的优势是完全按需付费，没有最低消费，适合用量波动大的开发者。
 
@@ -34,11 +40,11 @@ Claude Pro（$20/月）和 Claude Max（$100/月或 $200/月）订阅均包含 C
 3. **重度依赖**：Claude Max（$100/月起）适合把 Claude Code 当作核心开发工具、需要大量 [agentic](/glossary/agentic) 编码会话的开发者
 4. **团队使用**：关注 Anthropic 的团队计划，支持统一账单和用量管理
 
-具体选择取决于你的使用频率和对 Claude Code [扩展能力](/blog/claude-code-extension-stack-skills-hooks-agents-mcp)的需求深度。如果不确定，建议先用 API 模式试用一周，观察实际消耗再决定是否切换到订阅。
+具体选择取决于你的使用频率和对 Claude Code [扩展能力](/blog/claude-code-extension-stack-skills-[hooks](/zh/blog/claude-code-seven-programmable-layers)-agents-[mcp](/zh/glossary/mcp))的需求深度。如果不确定，建议先用 API 模式试用一周，观察实际消耗再决定是否切换到订阅。
 
 ## 相关问题
 
-- [Claude Code 和 Cursor 有什么区别？](/faq/what-is-the-difference-between-claude-code-and-cursor)
+- [Claude Code 和 [Cursor](/zh/glossary/cursor) 有什么区别？](/faq/what-is-the-difference-between-claude-code-and-cursor)
 
 ---
 

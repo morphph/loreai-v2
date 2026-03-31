@@ -1,19 +1,23 @@
 ---
-title: "Microsoft — AI 术语表"
+title: Microsoft — AI 术语表
 slug: microsoft
-description: "什么是 Microsoft？全球科技巨头，AI 领域最重要的基础设施与平台提供商之一。"
+description: 什么是 Microsoft？全球科技巨头，AI 领域最重要的基础设施与平台提供商之一。
 term: microsoft
-display_term: "Microsoft"
+display_term: Microsoft
 category: frameworks
-related_glossary: [anthropic, claude, amazon]
-related_blog: [anthropic-cowork-claude-desktop-agent]
+related_glossary:
+  - anthropic
+  - claude
+  - amazon
+related_blog:
+  - anthropic-cowork-claude-desktop-agent
 related_compare: []
 lang: zh
 ---
 
 # Microsoft — AI 术语表
 
-**Microsoft**（微软）是全球市值最高的科技公司之一，也是当前 AI 竞赛中最具影响力的玩家。通过对 OpenAI 超过 130 亿美元的投资，Microsoft 将 GPT 系列模型深度整合进 Azure 云平台、Microsoft 365 办公套件和 GitHub Copilot 等开发者工具，构建了覆盖云端到终端的 AI 生态。
+**Microsoft**（微软）是全球市值最高的科技公司之一，也是当前 AI 竞赛中最具影响力的玩家。通过对 OpenAI 超过 130 亿美元的投资，Microsoft 将 GPT 系列模型深度整合进 Azure 云平台、Microsoft 365 办公套件和 [GitHub Copilot](/zh/glossary/github-[copilot](/zh/glossary/copilot)) 等开发者工具，构建了覆盖云端到终端的 AI 生态。
 
 ## 为什么 Microsoft 重要
 

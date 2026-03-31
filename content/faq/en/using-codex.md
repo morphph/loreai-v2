@@ -1,17 +1,24 @@
 ---
-title: "How do I use Codex?"
+title: How do I use Codex?
 slug: using-codex
-description: "How to use Codex for coding tasks. Access through ChatGPT, assign tasks, and configure with AGENTS.md."
+description: >-
+  How to use Codex for coding tasks. Access through ChatGPT, assign tasks, and
+  configure with AGENTS.md.
 category: tools
-related_glossary: [agentic-coding, chatgpt]
-related_blog: [codex-for-students, codex-for-open-source]
+related_glossary:
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - codex-for-students
+  - codex-for-open-source
 lang: en
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # How do I use Codex?
 
-Access Codex through the ChatGPT sidebar — type a prompt describing your coding task and click "Code" to assign it. Codex runs the task in an isolated cloud sandbox environment preloaded with your codebase, reading and editing files, running tests and linters, and monitoring progress in real time. Once complete, it commits changes and shows you verifiable evidence (terminal logs, test outputs) of each step taken.
+Access [Codex](/blog/codex-complete-guide) through the [ChatGPT](/topics/chatgpt) sidebar — type a prompt describing your coding task and click "Code" to assign it. Codex runs the task in an isolated cloud sandbox environment preloaded with your codebase, reading and editing files, running tests and linters, and monitoring progress in real time. Once complete, it commits changes and shows you verifiable evidence (terminal logs, test outputs) of each step taken.
 
 ## Context
 

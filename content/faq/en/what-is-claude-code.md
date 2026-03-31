@@ -1,17 +1,26 @@
 ---
-title: "What is Claude Code?"
+title: What is Claude Code?
 slug: what-is-claude-code
-description: "Claude Code is Anthropic's agentic CLI tool that lets developers use Claude directly in the terminal to edit code, run commands, and manage projects."
+description: >-
+  Claude Code is Anthropic's agentic CLI tool that lets developers use Claude
+  directly in the terminal to edit code, run commands, and manage projects.
 category: tools
-related_glossary: [claude-code, anthropic, agentic-coding, claude-md]
-related_blog: [claude-code-complete-guide, claude-code-extension-stack-skills-hooks-agents-mcp]
+related_glossary:
+  - claude-code
+  - anthropic
+  - agentic-coding
+  - claude-md
+related_blog:
+  - claude-code-complete-guide
+  - claude-code-extension-stack-skills-hooks-agents-mcp
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # What is Claude Code?
 
-Claude Code is an agentic command-line coding tool built by Anthropic that lets developers interact with Claude directly inside the terminal. It can read and edit files, run shell commands, search codebases, and manage entire development workflows without leaving the command line.
+[Claude Code](/blog/lessons-from-building-claude-code-agent-tools) is an [agentic](/glossary/agentic) command-line coding tool built by Anthropic that lets developers interact with Claude directly inside the terminal. It can read and edit files, run shell commands, search codebases, and manage entire development workflows without leaving the command line.
 
 ## Context
 

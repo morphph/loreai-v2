@@ -1,11 +1,14 @@
 ---
-title: "DeepMind — AI 术语表"
+title: DeepMind — AI 术语表
 slug: deepmind
-description: "什么是 DeepMind？Google 旗下的人工智能研究实验室，AlphaGo 和 Gemini 的缔造者。"
+description: 什么是 DeepMind？Google 旗下的人工智能研究实验室，AlphaGo 和 Gemini 的缔造者。
 term: deepmind
-display_term: "DeepMind"
+display_term: DeepMind
 category: models
-related_glossary: [anthropic, claude, agentic]
+related_glossary:
+  - anthropic
+  - claude
+  - agentic
 related_blog: []
 related_compare: []
 lang: zh
@@ -13,7 +16,7 @@ lang: zh
 
 # DeepMind — AI 术语表
 
-**DeepMind** 是 Google 旗下的人工智能研究实验室，总部位于伦敦。它由 Demis Hassabis、Shane Legg 和 Mustafa Suleyman 于 2010 年创立，2014 年被 Google 收购。2023 年与 Google Brain 合并后，正式更名为 **Google DeepMind**，成为 Google 所有前沿 AI 研究的核心部门。
+**DeepMind** 是 Google 旗下的人工智能研究实验室，总部位于伦敦。它由 Demis Hassabis、Shane Legg 和 Mustafa Suleyman 于 2010 年创立，2014 年被 Google 收购。2023 年与 Google Brain 合并后，正式更名为 **[Google DeepMind](/zh/blog/gemini-3-1-pro-complex-tasks)**，成为 Google 所有前沿 AI 研究的核心部门。
 
 ## 为什么 DeepMind 重要
 
@@ -30,7 +33,7 @@ DeepMind 的核心技术路线围绕几个方向展开：
 - **大规模模型**：Gemini 系列提供从轻量级（Nano）到旗舰级（Ultra）的完整产品线，支持文本、图像、音频和视频的多模态理解
 - **[智能体架构](/glossary/agentic)**：通过 Project Mariner 等项目探索基于 AI 的自主执行能力
 
-DeepMind 与 [Anthropic](/glossary/anthropic) 有直接的渊源——Anthropic 的联合创始人 Dario Amodei 曾在 Google 的 AI 部门工作，两家公司在 AI 安全和大模型研发上有不同的技术哲学。
+DeepMind 与 [Anthropic](/glossary/anthropic) 有直接的渊源——Anthropic 的联合创始人 [Dario Amodei](/zh/blog/anthropic-department-of-war-dario-amodei-statement) 曾在 Google 的 AI 部门工作，两家公司在 AI 安全和大模型研发上有不同的技术哲学。
 
 ## 相关术语
 

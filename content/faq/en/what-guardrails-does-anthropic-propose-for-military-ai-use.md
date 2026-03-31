@@ -1,21 +1,27 @@
 ---
-title: "What Guardrails Does Anthropic Propose for Military AI Use?"
+title: What Guardrails Does Anthropic Propose for Military AI Use?
 slug: what-guardrails-does-anthropic-propose-for-military-ai-use
-description: "Anthropic proposes strict guardrails for military AI including human oversight, prohibited weapons applications, and use-case restrictions."
+description: >-
+  Anthropic proposes strict guardrails for military AI including human
+  oversight, prohibited weapons applications, and use-case restrictions.
 category: concepts
-related_glossary: [ai-safety, ai-regulation, autonomous-weapons]
-related_blog: [anthropic-claude-partner-network-100-million]
+related_glossary:
+  - ai-safety
+  - ai-regulation
+  - autonomous-weapons
+related_blog:
+  - anthropic-claude-partner-network-100-million
 related_compare: []
 lang: en
 ---
 
 # What Guardrails Does Anthropic Propose for Military AI Use?
 
-**Anthropic** advocates for a set of strict boundaries on military AI deployment centered on three principles: mandatory human oversight for all consequential decisions, an outright prohibition on autonomous weapons systems, and clear restrictions on which use cases are permissible. The company has publicly stated it will not allow Claude to be used for targeting, kill-chain decisions, or any application that removes human judgment from lethal force.
+**Anthropic** advocates for a set of strict boundaries on military AI deployment centered on three principles: mandatory human oversight for all consequential decisions, an outright prohibition on [autonomous weapons](/glossary/autonomous-weapons) systems, and clear restrictions on which use cases are permissible. The company has publicly stated it will not allow Claude to be used for targeting, kill-chain decisions, or any application that removes human judgment from lethal force.
 
 ## Context
 
-Anthropic's position on military AI emerged as US defense agencies began exploring large language models for logistics, intelligence analysis, and operational planning. Unlike some competitors that have pursued broad defense contracts, Anthropic has drawn explicit lines around what it considers acceptable.
+Anthropic's position on military AI emerged as US defense agencies began exploring [large language models](/blog/gemini-3-1-pro-complex-tasks) for logistics, intelligence analysis, and operational planning. Unlike some competitors that have pursued broad defense contracts, Anthropic has drawn explicit lines around what it considers acceptable.
 
 The company's [Acceptable Use Policy](https://www.anthropic.com) prohibits using Claude to develop weapons, plan attacks, or generate content intended to cause physical harm. For defense-adjacent work — such as cybersecurity analysis, logistics optimization, or document summarization — Anthropic evaluates engagements on a case-by-case basis through its Trust & Safety team.
 
@@ -34,7 +40,7 @@ The debate around [AI regulation](/glossary/ai-regulation) in military contexts 
 ## Related Questions
 
 - [What is Anthropic's position on providing AI to the Department of Defense?](/faq/what-is-anthropics-position-on-providing-ai-to-the-departmen)
-- [Is Claude Code remote control available on all Anthropic plans?](/faq/is-claude-code-remote-control-available-on-all-anthropic-pla)
+- [Is [Claude Code remote](/blog/claude-code-remote-control-mobile) control available on all Anthropic plans?](/faq/is-claude-code-remote-control-available-on-all-anthropic-pla)
 
 ---
 

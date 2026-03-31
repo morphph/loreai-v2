@@ -1,15 +1,21 @@
 ---
-title: "Claude Code vs Windsurf：终端 Agent 还是 AI 原生 IDE？"
+title: Claude Code vs Windsurf：终端 Agent 还是 AI 原生 IDE？
 slug: claude-code-vs-windsurf
-description: "Claude Code 与 Windsurf 全面对比：功能、工作流、适用场景，帮你选对 AI 编程工具。"
+description: Claude Code 与 Windsurf 全面对比：功能、工作流、适用场景，帮你选对 AI 编程工具。
 item_a: Claude Code
 item_b: Windsurf
 category: tools
-related_glossary: [claude-code, agentic]
-related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
-related_compare: [claude-code-vs-cursor]
+related_glossary:
+  - claude-code
+  - agentic
+related_blog:
+  - claude-code-extension-stack-skills-hooks-agents-mcp
+  - claude-code-agent-teams
+related_compare:
+  - claude-code-vs-cursor
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code vs Windsurf：终端 Agent 还是 AI 原生 IDE？
@@ -18,16 +24,16 @@ related_topics: [claude-code]
 
 ## 功能对比
 
-| 功能 | Claude Code | Windsurf |
+| 功能 | [Claude Code](/zh/blog/9-principles-writing-claude-code-skills) | [Windsurf](/zh/glossary/windsurf) |
 |------|------------|----------|
 | **交互方式** | 终端 Agent，自主规划执行 | AI 原生 IDE（VS Code 分支） |
-| **代码理解** | 通过 CLAUDE.md 和项目结构获取全局上下文 | Cascade 引擎提供深度代码库感知 |
+| **代码理解** | 通过 [CLAUDE.md](/zh/blog/claude-code-memory) 和项目结构获取全局上下文 | Cascade 引擎提供深度代码库感知 |
 | **多文件编辑** | 原生支持，跨文件规划并执行 | 通过 Cascade 支持，需逐步确认 |
 | **自动补全** | 非核心功能 | Tab 补全 + Supercomplete 预测下一步操作 |
 | **Shell 访问** | 完整 shell 权限，可执行任意命令 | 终端内 Cmd+I 自然语言指令 |
-| **MCP 支持** | 支持，连接外部工具和数据源 | 支持，连接自定义工具和服务 |
+| **[MCP](/zh/blog/claude-code-seven-programmable-layers) 支持** | 支持，连接外部工具和数据源 | 支持，连接自定义工具和服务 |
 | **可视化预览** | 不支持 | Windsurf Previews，IDE 内实时预览网页 |
-| **团队协作** | Agent Teams 多 Agent 并行、SKILL.md 共享 | 未在公开资料中详述 |
+| **团队协作** | [Agent Teams](/zh/glossary/agent-teams) 多 Agent 并行、SKILL.md 共享 | 未在公开资料中详述 |
 | **CI/CD 集成** | GitHub Actions、GitLab CI/CD、Slack | 未在公开资料中详述 |
 | **运行环境** | 终端、VS Code、JetBrains、桌面端、Web、iOS | Windsurf Editor 桌面端 |
 

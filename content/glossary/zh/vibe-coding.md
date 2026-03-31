@@ -1,12 +1,16 @@
 ---
-title: "Vibe Coding — AI 术语表"
+title: Vibe Coding — AI 术语表
 slug: vibe-coding
-description: "什么是 vibe coding？一种依赖 AI 自动生成代码、开发者只需描述意图的编程方式。"
+description: 什么是 vibe coding？一种依赖 AI 自动生成代码、开发者只需描述意图的编程方式。
 term: vibe-coding
-display_term: "Vibe Coding"
+display_term: Vibe Coding
 category: techniques
-related_glossary: [agentic-coding, chatgpt, claude-desktop]
-related_blog: [openai-computer-access-agents-lessons]
+related_glossary:
+  - agentic-coding
+  - chatgpt
+  - claude-desktop
+related_blog:
+  - openai-computer-access-agents-lessons
 related_compare: []
 lang: zh
 ---
@@ -19,7 +23,7 @@ lang: zh
 
 Vibe coding 降低了软件开发的门槛。过去需要数年编程经验才能实现的功能，现在产品经理、设计师甚至非技术人员都可以通过描述需求来快速搭建原型。对于专业开发者，vibe coding 则意味着可以跳过重复性的样板代码，把精力集中在架构设计和业务逻辑上。
 
-这种方式正在改变团队协作模式——更多人能参与到代码生产中，但同时也引发了关于代码质量、安全性和可维护性的讨论。我们在[近期的报道](/blog/openai-computer-access-agents-lessons)中分析了 AI agent 在实际开发中的表现和局限。
+这种方式正在改变团队协作模式——更多人能参与到代码生产中，但同时也引发了关于代码质量、安全性和可维护性的讨论。我们在[近期的报道](/blog/openai-computer-access-agents-lessons)中分析了 [AI agent](/zh/blog/effective-harnesses-for-long-running-agents) 在实际开发中的表现和局限。
 
 ## Vibe Coding 如何运作
 

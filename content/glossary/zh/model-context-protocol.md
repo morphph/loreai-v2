@@ -1,23 +1,27 @@
 ---
-title: "Model Context Protocol — AI 术语表"
+title: Model Context Protocol — AI 术语表
 slug: model-context-protocol
-description: "Model Context Protocol 是什么？Anthropic 推出的开放标准，用于连接 AI 应用与外部数据源和工具。"
+description: Model Context Protocol 是什么？Anthropic 推出的开放标准，用于连接 AI 应用与外部数据源和工具。
 term: model-context-protocol
-display_term: "Model Context Protocol"
+display_term: Model Context Protocol
 category: concepts
-related_glossary: [agent-sdk, agentic-coding]
-related_blog: [first-few-days-with-codex-cli]
+related_glossary:
+  - agent-sdk
+  - agentic-coding
+related_blog:
+  - first-few-days-with-codex-cli
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Model Context Protocol — AI 术语表
 
-**Model Context Protocol**（MCP）是 Anthropic 于 2024 年 11 月推出的开放标准。它为 AI 应用提供了一套标准化的方式，来连接外部数据源、工具和工作流程，使 AI 模型能够突破孤岛限制，访问实时数据并执行操作。
+**Model Context Protocol**（[MCP](/zh/blog/claude-code-seven-programmable-layers)）是 Anthropic 于 2024 年 11 月推出的开放标准。它为 AI 应用提供了一套标准化的方式，来连接外部数据源、工具和工作流程，使 AI 模型能够突破孤岛限制，访问实时数据并执行操作。
 
 ## 为什么 MCP 重要
 
-传统 AI 模型的知识被冻结在训练时间点，无法与外部世界交互。MCP 解决了这个根本问题——它让大语言模型能够动态访问数据库、日历、团队工具等系统。这种能力对企业至关重要：客服机器人可以查询多个数据库，编码助手能理解设计稿生成代码。MCP 还降低了开发复杂性，用一套标准替代了原来为每个数据源定制连接的繁琐做法。自推出以来，OpenAI、Google DeepMind 等已采纳这一标准。
+传统 AI 模型的知识被冻结在训练时间点，无法与外部世界交互。MCP 解决了这个根本问题——它让大语言模型能够动态访问数据库、日历、团队工具等系统。这种能力对企业至关重要：客服机器人可以查询多个数据库，编码助手能理解设计稿生成代码。MCP 还降低了开发复杂性，用一套标准替代了原来为每个数据源定制连接的繁琐做法。自推出以来，OpenAI、[Google DeepMind](/zh/blog/gemini-3-1-pro-complex-tasks) 等已采纳这一标准。
 
 ## MCP 工作原理
 

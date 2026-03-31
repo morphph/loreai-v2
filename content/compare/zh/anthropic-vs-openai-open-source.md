@@ -1,31 +1,36 @@
 ---
-title: "Anthropic vs OpenAI 开源：封闭安全路线与开放生态之争"
+title: Anthropic vs OpenAI 开源：封闭安全路线与开放生态之争
 slug: anthropic-vs-openai-open-source
-description: "Anthropic 走封闭安全路线，OpenAI 则逐步开源模型权重。两种策略各有什么优劣？"
+description: Anthropic 走封闭安全路线，OpenAI 则逐步开源模型权重。两种策略各有什么优劣？
 item_a: Anthropic
 item_b: OpenAI Open Source
 category: models
-related_glossary: [ai-safety, chatgpt]
-related_blog: [run-ai-coding-agents-locally]
-related_compare: [anthropic-vs-openai, openai-model-spec-vs-anthropic-claude-character]
+related_glossary:
+  - ai-safety
+  - chatgpt
+related_blog:
+  - run-ai-coding-agents-locally
+related_compare:
+  - anthropic-vs-openai
+  - openai-model-spec-vs-anthropic-claude-character
 lang: zh
 ---
 
 # Anthropic vs OpenAI 开源：封闭安全路线与开放生态之争
 
-**Anthropic** 和 **OpenAI** 代表了当前 AI 行业两种截然不同的发展哲学。Anthropic 坚持封闭模型路线，所有 Claude 系列模型仅通过 API 和产品界面提供服务，强调 [AI 安全](/glossary/ai-safety)研究驱动的可控部署。OpenAI 则在保持核心商业模型闭源的同时，逐步释放开源/开放权重模型——从早期的 GPT-2、Whisper、CLIP，到近期发布的开放权重模型系列。这场对比的核心问题是：你的团队更需要可控的商业 API，还是可自主部署的开放模型？
+**Anthropic** 和 **OpenAI** 代表了当前 AI 行业两种截然不同的发展哲学。Anthropic 坚持封闭模型路线，所有 Claude 系列模型仅通过 API 和产品界面提供服务，强调 [AI 安全](/glossary/ai-safety)研究驱动的可控部署。OpenAI 则在保持核心商业模型闭源的同时，逐步释放开源/开放权重模型——从早期的 [GPT-2](/zh/glossary/gpt-2)、[Whisper](/zh/glossary/whisper)、CLIP，到近期发布的开放权重模型系列。这场对比的核心问题是：你的团队更需要可控的商业 API，还是可自主部署的开放模型？
 
 ## 功能对比
 
 | 维度 | Anthropic | OpenAI 开源生态 |
 |------|-----------|----------------|
 | **模型获取方式** | 仅 API / 产品界面 | 开放权重下载，可本地部署 |
-| **代表模型** | Claude Opus、Sonnet、Haiku | GPT-2、Whisper、CLIP、开放权重模型 |
+| **代表模型** | [Claude Opus](/zh/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison)、Sonnet、Haiku | GPT-2、Whisper、CLIP、开放权重模型 |
 | **安全机制** | Constitutional AI，内置对齐 | 社区驱动，依赖部署者自行实施 |
 | **部署灵活性** | 云端调用，依赖 Anthropic 基础设施 | 本地 / 私有云 / 任意环境 |
 | **微调能力** | 有限（API 级别微调） | 完全自由，可全参数微调 |
 | **数据隐私** | 数据经 Anthropic 服务器 | 本地运行，数据不出域 |
-| **社区生态** | 官方工具链（Claude Code、MCP） | Hugging Face 生态，社区贡献活跃 |
+| **社区生态** | 官方工具链（[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)、MCP） | [Hugging Face](/zh/glossary/hugging-face) 生态，社区贡献活跃 |
 | **成本模式** | 按 token 计费 | 硬件成本 + 运维人力 |
 
 ## 什么时候选 Anthropic

@@ -1,23 +1,32 @@
 ---
-title: "Claude Code Agent Teams：你的 AI 编程助手，学会了自己招团队"
-date: 2026-03-11
+title: Claude Code Agent Teams：你的 AI 编程助手，学会了自己招团队
+date: 2026-03-11T00:00:00.000Z
 slug: claude-code-agent-teams
-description: "Claude Code 的 Agent Teams 让 AI 编程助手能并行派遣多个子智能体，各自在独立 git worktree 中工作。多智能体协作如何重塑开发流程？"
-keywords: ["Claude Code 多智能体", "AI 编程助手", "智能体团队协作", "代码智能体"]
+description: >-
+  Claude Code 的 Agent Teams 让 AI 编程助手能并行派遣多个子智能体，各自在独立 git worktree
+  中工作。多智能体协作如何重塑开发流程？
+keywords:
+  - Claude Code 多智能体
+  - AI 编程助手
+  - 智能体团队协作
+  - 代码智能体
 category: DEV
-related_newsletter: 2026-03-11
-related_glossary: [claude-code, agentic-coding]
+related_newsletter: 2026-03-11T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - agentic-coding
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: zh
 video_ready: true
-video_hook: "一个 AI 自己拉了五个 AI 同事，还用 git worktree 防止互相踩脚"
+video_hook: 一个 AI 自己拉了五个 AI 同事，还用 git worktree 防止互相踩脚
 video_status: none
 ---
 
 # Claude Code Agent Teams：你的 AI 编程助手，学会了自己招团队
 
-**Claude Code** 现在可以自己组建 AI 团队了——一个主智能体（Agent）同时派遣多个子智能体，每个子智能体在独立的 git worktree 里并行工作，互不干扰。这不是"多开几个终端窗口"那种伪并行，而是有分工、有协调、有隔离的多智能体协作系统。如果你还在一个对话窗口里让 AI 一个文件一个文件地改，是时候了解一下新的工作方式了。
+**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 现在可以自己组建 AI 团队了——一个主智能体（Agent）同时派遣多个子智能体，每个子智能体在独立的 git worktree 里并行工作，互不干扰。这不是"多开几个终端窗口"那种伪并行，而是有分工、有协调、有隔离的多智能体协作系统。如果你还在一个对话窗口里让 AI 一个文件一个文件地改，是时候了解一下新的工作方式了。
 
 ## 发生了什么
 
@@ -33,9 +42,9 @@ Anthropic 在 2025 年 2 月推出 **Claude Code** CLI 工具时，就把多智�
 
 ## 为什么重要
 
-AI 编程助手一直有个根本瓶颈：**单线程**。一个 AI、一个对话、一次改一个文件。Copilot 和 Cursor 把自动补全和内联对话做得很好，但一旦涉及跨多个文件的复杂任务——比如重构一个组件的接口，需要同时改定义、调用方、测试和文档——你还是得手动拆任务、切上下文、一步步指挥。
+AI 编程助手一直有个根本瓶颈：**单线程**。一个 AI、一个对话、一次改一个文件。[Copilot](/zh/glossary/copilot) 和 [Cursor](/zh/glossary/cursor) 把自动补全和内联对话做得很好，但一旦涉及跨多个文件的复杂任务——比如重构一个组件的接口，需要同时改定义、调用方、测试和文档——你还是得手动拆任务、切上下文、一步步指挥。
 
-Agent Teams 改变了开发者和 AI 的协作模式。你的角色从"和 AI 一起写代码"变成了"管理一个 AI 团队"——拆任务、分派、审查结果。这更像是一个技术主管带团队，而不是一个程序员用工具。
+[Agent Teams](/zh/glossary/agent-teams) 改变了开发者和 AI 的协作模式。你的角色从"和 AI 一起写代码"变成了"管理一个 AI 团队"——拆任务、分派、审查结果。这更像是一个技术主管带团队，而不是一个程序员用工具。
 
 实际效果是什么？一个涉及 10+ 个文件的重构任务，原来需要 30 分钟的顺序对话，现在分给几个子智能体并行执行，10 分钟内完成。一个 Explore 智能体在扫描代码库的同时，Plan 智能体已经在设计方案，通用智能体已经开始改那些显而易见的部分——全部同时进行。
 

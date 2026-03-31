@@ -1,24 +1,30 @@
 ---
-title: "Claude Code vs Cursor：哪个 AI 编程工具更适合你？"
+title: Claude Code vs Cursor：哪个 AI 编程工具更适合你？
 slug: claude-code-vs-cursor
-description: "Claude Code 是终端 AI 智能体，Cursor 是 AI 增强 IDE。本文对比两者的工作流、速度与适用场景。"
+description: Claude Code 是终端 AI 智能体，Cursor 是 AI 增强 IDE。本文对比两者的工作流、速度与适用场景。
 item_a: Claude Code
 item_b: Cursor
 category: tools
-related_glossary: [agentic-coding, chatgpt]
-related_blog: [integrate-claude-code-into-your-development-workflow]
-related_compare: [claude-code-remote-vs-ssh]
-related_faq: [claude-code-pricing]
+related_glossary:
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - integrate-claude-code-into-your-development-workflow
+related_compare:
+  - claude-code-remote-vs-ssh
+related_faq:
+  - claude-code-pricing
 lang: zh
-date: 2026-03-31
-related_topics: [claude-code]
+date: 2026-03-31T00:00:00.000Z
+related_topics:
+  - claude-code
 ---
 
 # Claude Code vs Cursor：哪个 AI 编程工具更适合你？
 
 最后更新：2026 年 3 月
 
-**Claude Code** 和 **Cursor** 是目前开发者讨论最多的两款 AI 编程工具，但它们解决的是完全不同的问题。Claude Code 是 Anthropic 推出的终端 AI 智能体——你描述任务，它自主读取代码库、执行操作、提交变更。Cursor 是基于 VS Code 的 AI 增强 IDE——内联补全、代码聊天、实时建议，全在编辑器里完成。
+**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 和 **[Cursor](/zh/glossary/cursor)** 是目前开发者讨论最多的两款 AI 编程工具，但它们解决的是完全不同的问题。Claude Code 是 Anthropic 推出的终端 AI 智能体——你描述任务，它自主读取代码库、执行操作、提交变更。Cursor 是基于 VS Code 的 AI 增强 IDE——内联补全、代码聊天、实时建议，全在编辑器里完成。
 
 核心区别只有一句话：**Claude Code 是自主执行的智能体，Cursor 是加速你写代码的工具。**
 
@@ -34,7 +40,7 @@ related_topics: [claude-code]
 | **高级版** | Max $200/月（20x 用量） | Ultra $200/月 |
 | **团队版** | Team $25/seat/月（年付） | Teams $40/seat/月 |
 | **企业版** | Enterprise 定制 | — |
-| **API 计费** | Sonnet 4.6: $3/$15/MTok; Opus 4.6: $5/$25/MTok | 按模型 credit 消耗 |
+| **API 计费** | Sonnet 4.6: $3/$15/MTok; [Opus 4.6](/zh/blog/opus-4-6-1m-default-claude-code): $5/$25/MTok | 按模型 credit 消耗 |
 
 说个关键点：Cursor 在付费计划里 Auto 模式无限使用，只有手动切模型才扣 credit。Claude Code 则是纯 token 计费，用多少扣多少，Max 计划给了固定额度上限。如果你日常写代码量大但任务不复杂，Cursor Pro 的性价比确实更高；如果你经常要搞大型重构，Claude Code Max 的 token 池更划算。
 
@@ -47,9 +53,9 @@ related_topics: [claude-code]
 | **上下文窗口** | 1M tokens（2026.3 GA） | 标准 48K，Max Mode 可达 200K–1M+ |
 | **多文件编辑** | 原生支持，全局规划 | 支持，Agent 模式可自主操作 |
 | **Shell 访问** | 完整 shell 执行权限 | 有限终端集成 |
-| **并行任务** | Agent Teams 多子智能体协同 | 最多 8 个并行 Agent + Cloud Agents |
+| **并行任务** | [Agent Teams](/zh/glossary/agent-teams) 多子智能体协同 | 最多 8 个并行 Agent + Cloud Agents |
 | **模型选择** | Claude Sonnet 4.6 / Opus 4.6 | Claude、GPT-5.3、Gemini 3 Pro、Grok、Composer 2 |
-| **扩展能力** | MCP、Hooks、Skills、Voice Mode、Computer Use | Automations 平台、CLI |
+| **扩展能力** | MCP、Hooks、Skills、Voice Mode、[Computer Use](/zh/blog/openai-computer-access-agents-lessons) | Automations 平台、CLI |
 | **平台** | macOS、Linux、Web、Mobile | macOS、Windows、Linux |
 
 这里有个容易被忽略的差异：**上下文窗口**。Claude Code 在 2026 年 3 月全量开放了 1M token 上下文，意味着它可以一次性"看到"整个中大型项目的代码。Cursor 标准模式只有 48K，需要开 Max Mode 才能到 200K 以上。对于大代码库的全局重构来说，这个差距是实打实的。

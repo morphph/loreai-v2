@@ -1,11 +1,16 @@
 ---
-title: "Open-Weight Models — AI Glossary"
+title: Open-Weight Models — AI Glossary
 slug: open-weight-models
-description: "What are open-weight models? AI models with publicly released weights that anyone can download, run, and fine-tune."
+description: >-
+  What are open-weight models? AI models with publicly released weights that
+  anyone can download, run, and fine-tune.
 term: open-weight-models
-display_term: "Open-Weight Models"
+display_term: Open-Weight Models
 category: models
-related_glossary: [fine-tuning, llama, mistral]
+related_glossary:
+  - fine-tuning
+  - llama
+  - mistral
 related_blog: []
 related_compare: []
 lang: en
@@ -19,11 +24,11 @@ lang: en
 
 Open-weight models have reshaped the AI landscape by breaking the API-only paradigm. Organizations can run these models on their own infrastructure, keeping sensitive data in-house — a critical requirement for healthcare, finance, and government applications where data cannot leave a controlled environment.
 
-They also democratize AI research. Independent researchers and smaller companies can experiment with state-of-the-art architectures without paying per-token API costs. The fine-tuning ecosystem built around open-weight models — with tools like LoRA and QLoRA — has produced thousands of specialized variants for coding, medical reasoning, and multilingual tasks. For a look at how [agentic coding](/glossary/agentic-coding) tools leverage both open and closed models, see our glossary entry on the topic.
+They also democratize AI research. Independent researchers and smaller companies can experiment with state-of-the-art architectures without paying per-token API costs. The [fine-tuning](/glossary/fine-tuning) ecosystem built around open-weight models — with tools like LoRA and QLoRA — has produced thousands of specialized variants for coding, medical reasoning, and multilingual tasks. For a look at how [agentic coding](/glossary/agentic-coding) tools leverage both open and closed models, see our glossary entry on the topic.
 
 ## How Open-Weight Models Work
 
-When a lab releases an open-weight model, they publish the model's parameter files (typically in formats like safetensors or GGUF) along with a model card describing architecture, training details, and intended use. Users download these weights and load them into inference frameworks such as vLLM, llama.cpp, or Hugging Face Transformers.
+When a lab releases an open-weight model, they publish the model's parameter files (typically in formats like safetensors or GGUF) along with a model card describing architecture, training details, and intended use. Users download these weights and load them into inference frameworks such as vLLM, llama.cpp, or [Hugging Face](/glossary/hugging-face) [Transformers](/glossary/transformers).
 
 Key deployment patterns:
 

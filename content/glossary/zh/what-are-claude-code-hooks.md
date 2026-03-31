@@ -1,19 +1,22 @@
 ---
-title: "Claude Code Hooks — AI 术语表"
+title: Claude Code Hooks — AI 术语表
 slug: what-are-claude-code-hooks
-description: "什么是 Claude Code Hooks？在特定时刻自动执行的指令，用于强制项目规则、自动化任务和工具集成。"
+description: 什么是 Claude Code Hooks？在特定时刻自动执行的指令，用于强制项目规则、自动化任务和工具集成。
 term: what-are-claude-code-hooks
-display_term: "Claude Code Hooks"
+display_term: Claude Code Hooks
 category: tools
-related_glossary: [agentic-coding]
-related_blog: [run-ai-coding-agents-locally]
+related_glossary:
+  - agentic-coding
+related_blog:
+  - run-ai-coding-agents-locally
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code Hooks — AI 术语表
 
-**Claude Code Hooks** 是在 Claude Code 生命周期特定时刻自动执行的用户定义指令，包括 shell 命令、HTTP 端点或 LLM 提示。不同于依赖 AI 自主判断，Hooks 提供确定性的流程控制，确保代码格式化、测试运行、安全检查等关键步骤总会被执行。
+**[Claude Code Hooks](/zh/blog/claude-code-extension-stack-skills-[hooks](/zh/blog/claude-code-seven-programmable-layers)-agents-[mcp](/zh/glossary/mcp))** 是在 [Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 生命周期特定时刻自动执行的用户定义指令，包括 shell 命令、HTTP 端点或 LLM 提示。不同于依赖 AI 自主判断，Hooks 提供确定性的流程控制，确保代码格式化、测试运行、安全检查等关键步骤总会被执行。
 
 ## 为什么 Claude Code Hooks 重要
 

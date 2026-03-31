@@ -1,27 +1,37 @@
 ---
-title: "Notion创始人谈AI Agent：从10x到40x，700个AI员工重新定义组织"
-date: 2026-03-10
+title: Notion创始人谈AI Agent：从10x到40x，700个AI员工重新定义组织
+date: 2026-03-10T00:00:00.000Z
 slug: ivanhzhao-notion-thoughts
-description: "Notion联合创始人从10x程序员变成40x，公司部署700个AI Agent。Ivan Zhao用钢铁和蒸汽机的比喻，揭示AI对个人和组织的真正变革路径。"
-keywords: ["Notion AI", "AI Agent", "Ivan Zhao", "10x程序员", "知识工作自动化", "组织变革"]
+description: >-
+  Notion联合创始人从10x程序员变成40x，公司部署700个AI Agent。Ivan
+  Zhao用钢铁和蒸汽机的比喻，揭示AI对个人和组织的真正变革路径。
+keywords:
+  - Notion AI
+  - AI Agent
+  - Ivan Zhao
+  - 10x程序员
+  - 知识工作自动化
+  - 组织变革
 category: DEV
-related_newsletter: 2026-03-10
-related_glossary: [ai-agent, copilot]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - ai-agent
+  - copilot
 related_compare: []
 lang: zh
 video_ready: true
-video_hook: "一个人顶40个工程师，Notion怎么做到的？"
+video_hook: 一个人顶40个工程师，Notion怎么做到的？
 video_status: published
 source_type: video
 ---
 
 # Notion创始人谈AI Agent：从10x到40x，700个AI员工重新定义组织
 
-Notion联合创始人Simon从标准的10x程序员变成了30-40x，靠的是同时操控多个**AI Agent**。与此同时，Notion的1000名真人员工旁边已经有700多个AI Agent在工作。Ivan Zhao在文章*Steam, Steel, and Infinite Minds*中，用三个历史比喻揭示了AI对个人效率和组织形态的根本性变革。
+Notion联合创始人Simon从标准的10x程序员变成了30-40x，靠的是同时操控多个**[AI Agent](/zh/blog/effective-harnesses-for-long-running-agents)**。与此同时，Notion的1000名真人员工旁边已经有700多个AI Agent在工作。Ivan Zhao在文章*Steam, Steel, and Infinite Minds*中，用三个历史比喻揭示了AI对个人效率和组织形态的根本性变革。
 
 ## 发生了什么
 
-Notion联合创始人Simon几乎不再亲手写代码。他同时指挥三四个**AI coding agent**，午饭前排好任务，睡觉时Agent继续运行，个人产出从10x飙到30-40x。
+Notion联合创始人Simon几乎不再亲手写代码。他同时指挥三四个**AI [coding agent](/zh/blog/coding-agents-reshaping-epd)**，午饭前排好任务，睡觉时Agent继续运行，个人产出从10x飙到30-40x。
 
 在组织层面，Notion已部署超过700个[AI Agent](/glossary/zh/ai-agent)。这些Agent承担了会议纪要、IT工单处理、客户反馈整理、新人入职培训、周报撰写等具体工作。Ivan Zhao强调，这仅仅是起步阶段。
 

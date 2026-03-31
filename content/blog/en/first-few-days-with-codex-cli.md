@@ -1,15 +1,17 @@
 ---
-title: "First Few Days with Codex CLI: What to Expect"
+title: 'First Few Days with Codex CLI: What to Expect'
 slug: first-few-days-with-codex-cli
-description: "A practical guide to starting with OpenAI's Codex CLI — the terminal-native AI coding agent that hit 67K GitHub stars in its first year."
+description: >-
+  A practical guide to starting with OpenAI's Codex CLI — the terminal-native AI
+  coding agent that hit 67K GitHub stars in its first year.
 lang: en
 category: tools
-date: 2026-03-24
+date: 2026-03-24T00:00:00.000Z
 ---
 
 # First Few Days with Codex CLI: What to Expect
 
-OpenAI launched **Codex CLI** on April 16, 2025 — an open-source, terminal-based AI coding agent that runs locally while leveraging cloud models including o3, o4-mini, and GPT-5-Codex. Within its first year, the project amassed over 67,000 GitHub stars, signaling rapid uptake from developers who wanted AI assistance without leaving the terminal. If you're starting out now, here's what the first few days actually look like.
+OpenAI launched **[Codex CLI](/glossary/codex-cli)** on April 16, 2025 — an open-source, terminal-based AI coding agent that runs locally while leveraging cloud models including o3, o4-mini, and GPT-5-[Codex](/blog/codex-complete-guide). Within its first year, the project amassed over 67,000 GitHub stars, signaling rapid uptake from developers who wanted AI assistance without leaving the terminal. If you're starting out now, here's what the first few days actually look like.
 
 ## What Codex CLI Actually Is
 
@@ -25,7 +27,7 @@ OpenAI designed Codex CLI with a quickstart flow meant to get developers to thei
 
 The first thing most developers notice: the interaction model is conversational but task-oriented. You don't ask it to complete a line — you describe what you want done. "Add error handling to the payment module and update the tests" is a valid prompt. The agent reads your project context, proposes a plan, and executes on approval.
 
-Early adopters, including developer Aman Mittal (documented in adoption write-ups), found themselves using Codex CLI for tasks well outside traditional coding — markdown note management, automated file workflows, and documentation generation. The terminal interface turns out to be a natural fit for any text-and-file task, not just software engineering.
+Early adopters, including developer Aman Mittal (documented in adoption write-ups), found themselves [using Codex](/faq/using-codex) CLI for tasks well outside traditional coding — markdown note management, automated file workflows, and documentation generation. The terminal interface turns out to be a natural fit for any text-and-file task, not just software engineering.
 
 ## What Changes by Day Three
 
@@ -33,7 +35,7 @@ The learning curve in the first few days is less about Codex CLI's capabilities 
 
 By day three, most developers have also run into the sandboxing layer. OpenAI built in process isolation early — the agent can't execute arbitrary commands without your awareness of what it's doing. This is [AI safety](/glossary/ai-safety) in practice at the developer tooling layer, and it affects how you structure tasks that involve shell commands or external API calls.
 
-**MCP (Model Context Protocol) integrations** are worth setting up early. Codex CLI supports connecting to external tools and data sources via MCP, which extends what the agent can work with beyond your local filesystem. If your workflow involves databases, APIs, or external services, configuring these connectors in the first few days pays off quickly.
+**[MCP](/glossary/mcp) ([Model Context Protocol](/glossary/model-context-protocol)) integrations** are worth setting up early. Codex CLI supports connecting to external tools and data sources via MCP, which extends what the agent can work with beyond your local filesystem. If your workflow involves databases, APIs, or external services, configuring these connectors in the first few days pays off quickly.
 
 ## The Codex CLI vs Claude Code Question
 

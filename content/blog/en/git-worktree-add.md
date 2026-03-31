@@ -1,10 +1,13 @@
 ---
-title: "git worktree add: Run Multiple Branches Without the Stash Trap"
+title: 'git worktree add: Run Multiple Branches Without the Stash Trap'
 slug: git-worktree-add
-description: "Learn how git worktree add lets you work on multiple branches simultaneously without stashing or cloning. A practical guide for developers and AI workflows."
+description: >-
+  Learn how git worktree add lets you work on multiple branches simultaneously
+  without stashing or cloning. A practical guide for developers and AI
+  workflows.
 lang: en
 category: tools
-date: 2026-03-30
+date: 2026-03-30T00:00:00.000Z
 ---
 
 # git worktree add: Run Multiple Branches Without the Stash Trap
@@ -58,11 +61,11 @@ The constraint is symmetrical: you can't check out the same branch in two worktr
 
 ## The AI Agent Use Case
 
-The recent resurgence of interest in `git worktree add` is driven largely by [agentic coding](/glossary/agentic-coding) platforms. According to the research, **OpenAI Codex** uses worktrees in detached HEAD states to run multiple autonomous coding agents simultaneously — each agent gets an isolated sandbox with its own working directory, but all agents share the same repository history without duplication overhead.
+The recent resurgence of interest in `git worktree add` is driven largely by [agentic coding](/glossary/agentic-coding) platforms. According to the research, **[OpenAI Codex](/blog/codex-complete-guide)** uses worktrees in detached HEAD states to run multiple autonomous [coding agents](/blog/9-principles-writing-claude-code-skills) simultaneously — each agent gets an isolated sandbox with its own working directory, but all agents share the same repository history without duplication overhead.
 
 This architecture makes sense: if you're running 10 parallel agents tackling 10 different tasks in the same codebase, cloning the repo 10 times is wasteful and slow. Worktrees give you the isolation you need (each agent can't step on another's working directory) with none of the overhead.
 
-Claude Code's [parallel sessions feature](/blog/claude-code-is-not-a-coding-tool) uses a similar model — spawning sub-agents that can work on isolated copies of the codebase without requiring full clones. The worktree becomes the unit of agent isolation.
+[Claude Code](/blog/claude-code-complete-guide)'s [parallel sessions feature](/blog/claude-code-is-not-a-coding-tool) uses a similar model — spawning sub-agents that can work on isolated copies of the codebase without requiring full clones. The worktree becomes the unit of agent isolation.
 
 The research also notes that scaling worktrees for AI agents has introduced new edge cases: **resource leaks** (worktrees not cleaned up after agent crashes) and **branch lock conflicts** (agents trying to check out branches already locked by another worktree). These aren't theoretical problems — they require explicit workflow management, including cleanup scripts and health checks on worktree state.
 
@@ -84,7 +87,7 @@ This matters for adoption: the historical barrier to worktree use was that most 
 
 ## What's Next for git worktree
 
-The feature is stable and well-maintained. The interesting development is on the tooling layer: as agentic coding workflows become more common, expect better built-in tooling for worktree lifecycle management — cleanup hooks, lock detection, and resource accounting. Platforms like [MCP servers](/blog/create-an-mcp-server) that orchestrate multi-agent workflows will likely expose worktree management as a first-class primitive.
+The feature is stable and well-maintained. The interesting development is on the tooling layer: as [agentic coding](/blog/claude-code-seven-programmable-layers) workflows become more common, expect better built-in tooling for worktree lifecycle management — cleanup hooks, lock detection, and resource accounting. Platforms like [MCP servers](/blog/create-an-[mcp](/glossary/mcp)-server) that orchestrate multi-agent workflows will likely expose worktree management as a first-class primitive.
 
 For individual developers, `git worktree add` is already the right answer to any situation where you'd otherwise reach for `git stash`. The workflow is simpler, safer, and more recoverable. For teams building AI coding infrastructure, it's a foundational building block — one that scales from two parallel branches to hundreds of concurrent agent sandboxes on the same hardware.
 

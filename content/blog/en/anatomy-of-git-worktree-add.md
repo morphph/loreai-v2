@@ -1,17 +1,19 @@
 ---
-title: "Anatomy of git worktree add: How Git's Linked Working Trees Work"
+title: 'Anatomy of git worktree add: How Git''s Linked Working Trees Work'
 slug: anatomy-of-git-worktree-add
-description: "How git worktree add works under the hood: shared object databases, isolated HEADs, and why AI agents love it."
+description: >-
+  How git worktree add works under the hood: shared object databases, isolated
+  HEADs, and why AI agents love it.
 lang: en
 category: tools
-date: 2026-03-30
+date: 2026-03-30T00:00:00.000Z
 ---
 
 # Anatomy of `git worktree add`: How Git's Linked Working Trees Work
 
-**`git worktree add`** provisions a linked working tree that shares your repository's core object database while maintaining a completely isolated filesystem path, branch checkout, staging area, and HEAD pointer. The result: two fully independent working directories from a single `.git` directory — no duplication of history, no second clone.
+**`[git worktree add](/blog/git-worktree-add)`** provisions a linked working tree that shares your repository's core object database while maintaining a completely isolated filesystem path, branch checkout, staging area, and HEAD pointer. The result: two fully independent working directories from a single `.git` directory — no duplication of history, no second clone.
 
-Introduced formally in Git 2.5 (July 2015), the feature solved a problem that had plagued developers for years. It recently found a second life as the foundational infrastructure for parallel AI coding agents like Claude Code.
+Introduced formally in Git 2.5 (July 2015), the feature solved a problem that had plagued developers for years. It recently found a second life as the foundational infrastructure for parallel [AI coding agents](/blog/effective-harnesses-for-long-running-agents) like [Claude Code](/blog/claude-code-complete-guide).
 
 ## The Architecture: What Gets Shared, What Gets Isolated
 
@@ -52,7 +54,7 @@ The pre-2015 workaround was a shell script called `git-new-workdir`, which attem
 
 ## Why Agentic AI Tools Rediscovered It
 
-`git worktree` remained a niche power-user feature for nearly a decade. The resurgence came with agentic AI coding tools in the mid-2020s.
+`git worktree` remained a niche power-user feature for nearly a decade. The resurgence came with [agentic](/glossary/agentic) AI coding tools in the mid-2020s.
 
 When an AI agent like [Claude Code](/glossary/agentic-coding) works on a task autonomously, it needs an isolated environment — it cannot share a working directory with a human developer or another agent without creating race conditions. Full clones are too expensive and slow to provision for every task. `git worktree add` threads the needle: fast to create, zero object-database duplication, fully isolated branch state.
 

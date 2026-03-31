@@ -1,16 +1,27 @@
 ---
-title: "Building a Restaurant Voice Agent with GPT-Realtime-1.5: A Practical Tutorial"
-date: 2026-03-10
+title: 'Building a Restaurant Voice Agent with GPT-Realtime-1.5: A Practical Tutorial'
+date: 2026-03-10T00:00:00.000Z
 slug: restaurant-voice-agent-gpt-realtime-tutorial
-description: "How OpenAI's gpt-realtime-1.5 powers a restaurant voice agent — architecture, implementation details, and lessons learned from building production voice AI."
-keywords: ["gpt-realtime-1.5", "voice agent", "restaurant AI", "OpenAI realtime API"]
+description: >-
+  How OpenAI's gpt-realtime-1.5 powers a restaurant voice agent — architecture,
+  implementation details, and lessons learned from building production voice AI.
+keywords:
+  - gpt-realtime-1.5
+  - voice agent
+  - restaurant AI
+  - OpenAI realtime API
 category: DEV
-related_newsletter: 2026-03-10
-related_glossary: [voice-agent, gpt-realtime]
-related_compare: [gpt-realtime-vs-whisper-tts]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - voice-agent
+  - gpt-realtime
+related_compare:
+  - gpt-realtime-vs-whisper-tts
 lang: en
 video_ready: true
-video_hook: "OpenAI just showed how to build a voice agent that takes restaurant orders — here's the full architecture"
+video_hook: >-
+  OpenAI just showed how to build a voice agent that takes restaurant orders —
+  here's the full architecture
 video_status: none
 ---
 
@@ -34,7 +45,7 @@ Voice ordering isn't new — IVR systems have existed for decades. What's new is
 
 The economics are compelling. A single restaurant location might spend $3,000-5,000/month on phone order staffing during peak hours. The Realtime API's pricing — roughly $0.06 per minute of conversation at current rates — means a busy restaurant handling 200 phone orders per day at 3 minutes each would spend about $36/day on API costs. That's a 90%+ cost reduction before factoring in 24/7 availability.
 
-But the bigger signal is architectural. The speech-to-speech approach eliminates an entire class of errors that plague transcription-based pipelines. Accents, background noise, and mumbled words that would torpedo a Whisper → GPT → TTS pipeline get handled more gracefully when the model processes audio natively. For restaurant ordering specifically — where proper nouns (menu item names), numbers (quantities, table numbers), and modifications ("no onions, extra cheese, light sauce") are the entire conversation — this accuracy improvement is the difference between a usable product and an expensive frustration machine.
+But the bigger signal is architectural. The speech-to-speech approach eliminates an entire class of errors that plague transcription-based pipelines. Accents, background noise, and mumbled words that would torpedo a [Whisper](/glossary/whisper) → GPT → TTS pipeline get handled more gracefully when the model processes audio natively. For restaurant ordering specifically — where proper nouns (menu item names), numbers (quantities, table numbers), and modifications ("no onions, extra cheese, light sauce") are the entire conversation — this accuracy improvement is the difference between a usable product and an expensive frustration machine.
 
 The competitive landscape is shifting too. Google's Gemini Live and Anthropic's voice capabilities are advancing, but OpenAI currently has the most mature real-time voice API. Startups building voice agents should note: this reference implementation essentially provides a production blueprint that previously required months of custom engineering.
 

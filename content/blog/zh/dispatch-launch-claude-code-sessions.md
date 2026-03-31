@@ -1,22 +1,31 @@
 ---
-title: "Dispatch 支持启动 Claude Code 会话：AI 编码工作流自动化再进一步"
-date: 2026-03-20
+title: Dispatch 支持启动 Claude Code 会话：AI 编码工作流自动化再进一步
+date: 2026-03-20T00:00:00.000Z
 slug: dispatch-launch-claude-code-sessions
-description: "Dispatch 现已支持直接启动 Claude Code 会话，将 AI 编码能力嵌入自动化工作流。结合近期 Opus 4.6 1M 上下文、语音模式等更新，Claude Code 生态正在快速成型。"
-keywords: ["Dispatch Claude Code", "Claude Code 自动化", "AI 编码工作流", "Claude Code sessions"]
+description: >-
+  Dispatch 现已支持直接启动 Claude Code 会话，将 AI 编码能力嵌入自动化工作流。结合近期 Opus 4.6 1M
+  上下文、语音模式等更新，Claude Code 生态正在快速成型。
+keywords:
+  - Dispatch Claude Code
+  - Claude Code 自动化
+  - AI 编码工作流
+  - Claude Code sessions
 category: DEV
-related_newsletter: 2026-03-20
-related_glossary: [claude-code, mcp]
-related_compare: [claude-code-vs-cursor]
+related_newsletter: 2026-03-20T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - mcp
+related_compare:
+  - claude-code-vs-cursor
 lang: zh
 video_ready: true
-video_hook: "Dispatch 能直接拉起 Claude Code 了，自动化工作流要变天"
+video_hook: Dispatch 能直接拉起 Claude Code 了，自动化工作流要变天
 video_status: none
 ---
 
 # Dispatch 支持启动 Claude Code 会话：AI 编码工作流自动化再进一步
 
-**Dispatch** 现在可以直接启动 **Claude Code** 会话了。这意味着你可以在自动化工作流中按需拉起 AI 编码环境，而不是手动打开终端、输入命令、等待响应。对于正在构建 AI 驱动开发管线的团队来说，这是把 Claude Code 从"个人工具"推向"基础设施组件"的关键一步。
+**Dispatch** 现在可以直接启动 **[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 会话了。这意味着你可以在自动化工作流中按需拉起 AI 编码环境，而不是手动打开终端、输入命令、等待响应。对于正在构建 AI 驱动开发管线的团队来说，这是把 Claude Code 从"个人工具"推向"基础设施组件"的关键一步。
 
 ## 发生了什么
 
@@ -24,8 +33,8 @@ Anthropic 工程师 Felix Rieseberg [在 X 上宣布](https://x.com/felixriesebe
 
 这个更新的时间点值得关注。过去一周 Claude Code 生态密集更新：
 
-- **Opus 4.6 1M 上下文**成为 Max、Team 和 Enterprise 用户的默认模型，不再需要额外付费
-- 新增 **语音模式**，支持在桌面端和 Cowork 中与 Claude Code 语音交互
+- **[Opus 4.6](/zh/blog/opus-4-6-1m-default-claude-code) 1M 上下文**成为 Max、Team 和 Enterprise 用户的默认模型，不再需要额外付费
+- 新增 **语音模式**，支持在桌面端和 [Cowork](/zh/blog/anthropic-cowork-claude-desktop-agent) 中与 Claude Code 语音交互
 - `/btw` 命令上线，允许在主任务运行时开启侧边对话
 - **Remote Control** 功能支持远程生成新的本地会话
 - GitHub PR 中可手动触发 `@claude review` 进行代码审查
@@ -43,7 +52,7 @@ Dispatch 补上了这块短板。想象几个场景：
 - **定时代码审计**：每天凌晨对指定仓库运行安全扫描，生成报告
 - **事件响应**：监控告警触发后，自动启动会话进行日志分析和根因定位
 
-这和 [Cursor](/glossary/cursor) 或 GitHub Copilot 走的是不同的路线。后两者专注于编辑器内的实时辅助，而 Claude Code + Dispatch 的组合指向的是无人值守的自动化编码。两种模式不冲突，但解决的是不同层面的问题。
+这和 [Cursor](/glossary/cursor) 或 [GitHub Copilot](/zh/glossary/github-[copilot](/zh/glossary/copilot)) 走的是不同的路线。后两者专注于编辑器内的实时辅助，而 Claude Code + Dispatch 的组合指向的是无人值守的自动化编码。两种模式不冲突，但解决的是不同层面的问题。
 
 结合 Remote Control 的远程会话生成能力，Anthropic 显然在构建一个完整的 Claude Code 编排层 — 不只是让你用 AI 写代码，而是让 AI 编码成为可调度的服务。
 

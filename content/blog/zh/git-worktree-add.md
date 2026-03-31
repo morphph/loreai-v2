@@ -1,12 +1,15 @@
 ---
-title: "git worktree add 完全指南：告别 stash，拥抱并行开发"
+title: git worktree add 完全指南：告别 stash，拥抱并行开发
 slug: git-worktree-add
-description: "git worktree add 让你从同一个仓库同时开多个工作目录，彻底解决频繁切换分支的痛苦。本文讲清楚怎么用。"
+description: git worktree add 让你从同一个仓库同时开多个工作目录，彻底解决频繁切换分支的痛苦。本文讲清楚怎么用。
 category: techniques
 lang: zh
-related_glossary: [agentic-coding]
-related_blog: [claude-code-is-not-a-coding-tool, create-an-mcp-server]
-date: 2026-03-30
+related_glossary:
+  - agentic-coding
+related_blog:
+  - claude-code-is-not-a-coding-tool
+  - create-an-mcp-server
+date: 2026-03-30T00:00:00.000Z
 ---
 
 # git worktree add 完全指南：告别 stash，拥抱并行开发
@@ -54,7 +57,7 @@ git worktree remove ../hotfix-workspace
 git worktree add -b hotfix/auth-bug ../hotfix-workspace origin/main
 ```
 
-**以 detached HEAD 状态检出特定 commit（AI agent 常用）：**
+**以 detached HEAD 状态检出特定 commit（[AI agent](/zh/blog/effective-harnesses-for-long-running-agents) 常用）：**
 
 ```bash
 git worktree add --detach ../agent-workspace abc1234
@@ -76,9 +79,9 @@ git worktree remove --force ../hotfix-workspace
 
 ## 为什么 AI 时代让 git worktree 重新火了
 
-`git worktree` 存在十年，却一直是"冷门命令"。真正让它进入主流视野的，是 **agentic coding**（[智能体编程](/glossary/agentic-coding)）的兴起。
+`git worktree` 存在十年，却一直是"冷门命令"。真正让它进入主流视野的，是 **[agentic coding](/zh/glossary/agentic-coding)**（[智能体编程](/glossary/agentic-coding)）的兴起。
 
-以 OpenAI Codex 为代表的 AI 编程平台，需要同时运行多个自主编码 agent，每个 agent 处理不同的任务。如果每个 agent 都 clone 一份仓库，存储和网络开销巨大；用 `git worktree` 则优雅得多——所有 agent 共享同一份 Git 历史，每个 agent 在自己的 worktree 里以 detached HEAD 状态独立工作，互不冲突。
+以 [OpenAI Codex](/zh/blog/codex-complete-guide) 为代表的 AI 编程平台，需要同时运行多个自主编码 agent，每个 agent 处理不同的任务。如果每个 agent 都 clone 一份仓库，存储和网络开销巨大；用 `git worktree` 则优雅得多——所有 agent 共享同一份 Git 历史，每个 agent 在自己的 worktree 里以 detached HEAD 状态独立工作，互不冲突。
 
 这也解释了为什么 JetBrains、VS Code 等主流 IDE 都已原生支持 `git worktree`——工具链在跟上 AI 工作流的节奏。
 

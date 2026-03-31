@@ -1,15 +1,17 @@
 ---
-title: "OpenAI Codex and the Multi-Agent Workflow Revolution"
+title: OpenAI Codex and the Multi-Agent Workflow Revolution
 slug: con-u-pour-des-workflows-multi-agents
-description: "OpenAI Codex desktop app is built for multi-agent workflows — parallel agents, Git worktrees, and OS-level orchestration explained."
+description: >-
+  OpenAI Codex desktop app is built for multi-agent workflows — parallel agents,
+  Git worktrees, and OS-level orchestration explained.
 lang: en
 category: tools
-date: 2026-03-25
+date: 2026-03-25T00:00:00.000Z
 ---
 
 # OpenAI Codex and the Multi-Agent Workflow Revolution
 
-OpenAI launched its Codex desktop application on February 2, 2026, with a specific design mandate: to be *conçu pour des workflows multi-agents* — built for multi-agent workflows. This isn't a tagline. It marks a deliberate architectural choice to move AI coding tools beyond single-session autocomplete and into orchestration-layer territory, where multiple autonomous agents run in parallel across your entire project.
+OpenAI launched its [Codex](/blog/codex-complete-guide) desktop application on February 2, 2026, with a specific design mandate: to be *conçu pour des workflows multi-agents* — built for multi-agent workflows. This isn't a tagline. It marks a deliberate architectural choice to move AI coding tools beyond single-session autocomplete and into orchestration-layer territory, where multiple autonomous agents run in parallel across your entire project.
 
 ## What "Multi-Agent" Actually Means Here
 
@@ -23,16 +25,16 @@ This design also aligns with OpenAI's broader push toward OS-level orchestration
 
 Multi-agent workflows only work if each agent is fast enough to not create a bottleneck. According to the research, OpenAI deployed GPT-5.3-Codex-Spark on Cerebras Wafer-Scale Engine 3 (WSE-3) chips, achieving over 1,000 tokens per second. That throughput is what makes real-time interactivity viable when you're running several agents in parallel — latency compounds quickly across concurrent sessions.
 
-This represents a deliberate infrastructure bet: rather than routing multi-agent workloads through standard GPU clusters, OpenAI invested in specialized compute to sustain the interactive speed that agentic workflows demand.
+This represents a deliberate infrastructure bet: rather than routing multi-agent workloads through standard GPU clusters, OpenAI invested in specialized compute to sustain the interactive speed that [agentic workflows](/blog/openai-computer-access-agents-lessons) demand.
 
 ## The Competitive Landscape
 
 Codex isn't entering an empty market. The research identifies two primary incumbents:
 
-- **Cursor** leads the IDE-native market with 360,000 paying users, focused on inline editing and autocomplete within a VS Code fork
+- **[Cursor](/glossary/cursor)** leads the IDE-native market with 360,000 paying users, focused on inline editing and autocomplete within a VS Code fork
 - **[Anthropic's Claude Code](/blog/integrate-claude-code-into-your-development-workflow)** dominates terminal-based workflows, with an agent model built around full shell access and project-level context
 
-OpenAI's angle is differentiated: OS-level orchestration rather than IDE integration or terminal operation. The Codex app sits above both — a workflow manager that can hand off work to editors, terminals, and other tools. This positions it as complementary to tools like Cursor and Claude Code rather than a direct replacement, though the competitive overlap is real.
+OpenAI's angle is differentiated: OS-level orchestration rather than IDE integration or terminal operation. The Codex app sits above both — a workflow manager that can hand off work to editors, terminals, and other tools. This positions it as complementary to tools like Cursor and [Claude Code](/blog/claude-code-complete-guide) rather than a direct replacement, though the competitive overlap is real.
 
 The [agentic coding](/glossary/agentic-coding) space is moving fast enough that these boundaries are actively being contested.
 
@@ -44,7 +46,7 @@ This extension follows the same logic as the core product: tasks that are tediou
 
 ## The Broader Shift: From Autocomplete to Agentic Engineering
 
-The research frames this entire category shift clearly. The industry has moved from keystroke-level AI (suggest the next token) to what it calls "agentic engineering" — autonomous agents managing long-horizon, multi-step tasks without continuous human supervision.
+The research frames this entire category shift clearly. The industry has moved from keystroke-level AI (suggest the next token) to what it calls "[agentic engineering](/blog/coding-agent-gui-ux-overhaul)" — autonomous agents managing long-horizon, multi-step tasks without continuous human supervision.
 
 GitHub Copilot represented the first wave: fast, helpful, but requiring a human to direct every action. Tools like Codex, [Claude Code](/blog/integrate-claude-code-into-your-development-workflow), and Cursor represent the second wave: agents that plan, execute, and commit without waiting for approval at each step.
 

@@ -1,21 +1,25 @@
 ---
-title: "OpenAI Codex VS Code 扩展：在 IDE 里用上编程 Agent"
+title: OpenAI Codex VS Code 扩展：在 IDE 里用上编程 Agent
 slug: codex-vscode
-description: "OpenAI Codex 现已登陆 VS Code、Cursor 和 JetBrains。本文带你了解如何安装、如何用好它，以及避免哪些坑。"
+description: OpenAI Codex 现已登陆 VS Code、Cursor 和 JetBrains。本文带你了解如何安装、如何用好它，以及避免哪些坑。
 lang: zh
 category: tools
-related_glossary: [chatgpt, agentic-coding]
-related_blog: [codex-for-students]
-related_faq: [codex]
+related_glossary:
+  - chatgpt
+  - agentic-coding
+related_blog:
+  - codex-for-students
+related_faq:
+  - codex
 ---
 
 # OpenAI Codex VS Code 扩展：在 IDE 里用上编程 Agent
 
-**OpenAI Codex** 不再只是 ChatGPT 网页上的聊天框——它现在是一个可以直接嵌入编辑器的[编程 Agent](/glossary/agentic-coding)，能读取、编辑、运行代码，也能把更大的任务扔到云端异步执行。VS Code 扩展已有 **638 万次安装**，支持 VS Code、Cursor、Windsurf 和 JetBrains 全系列 IDE。
+**[OpenAI Codex](/zh/blog/codex-complete-guide)** 不再只是 [ChatGPT](/zh/glossary/chatgpt) 网页上的聊天框——它现在是一个可以直接嵌入编辑器的[编程 Agent](/glossary/agentic-coding)，能读取、编辑、运行代码，也能把更大的任务扔到云端异步执行。VS Code 扩展已有 **638 万次安装**，支持 VS Code、[Cursor](/zh/glossary/cursor)、[Windsurf](/zh/glossary/windsurf) 和 JetBrains 全系列 IDE。
 
 ## Codex VS Code 扩展是什么
 
-Codex 扩展把 [ChatGPT](/glossary/chatgpt) 的编程能力带进编辑器侧边栏。你可以：
+[Codex](/zh/faq/codex) 扩展把 [ChatGPT](/glossary/chatgpt) 的编程能力带进编辑器侧边栏。你可以：
 
 - **Pair 模式**：在 IDE 里实时对话，Codex 能感知当前打开的文件和选中的代码，不用反复粘贴上下文
 - **Cloud 委托模式**：把大任务（比如重构整个模块）交给 Codex Cloud 在后台跑，你继续干别的，完成后在 IDE 里 review 结果

@@ -1,17 +1,21 @@
 ---
-title: "OpenAI Codex for Students：$100 免费额度背后，AI 编程教育的真正赌注"
+title: OpenAI Codex for Students：$100 免费额度背后，AI 编程教育的真正赌注
 slug: codex-for-students
-description: "OpenAI 向美加高校学生开放 $100 免费 Codex 额度。这不只是一个优惠活动——它在重新定义编程教育的边界。"
+description: OpenAI 向美加高校学生开放 $100 免费 Codex 额度。这不只是一个优惠活动——它在重新定义编程教育的边界。
 lang: zh
 category: tools
-related_glossary: [agentic-coding, chatgpt]
-related_blog: [codex-for-open-source, claude-code-hooks-a-complete-guide-to-automating-your-ai-coding-workflow]
-date: 2026-03-23
+related_glossary:
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - codex-for-open-source
+  - claude-code-hooks-a-complete-guide-to-automating-your-ai-coding-workflow
+date: 2026-03-23T00:00:00.000Z
 ---
 
 # OpenAI Codex for Students：$100 免费额度背后，AI 编程教育的真正赌注
 
-2026 年 3 月 20 日，OpenAI 宣布推出 "Codex for Students" 计划——向美国和加拿大经过认证的在校大学生提供价值 $100 的免费 Codex 使用额度。这不是一个简单的学生折扣，而是 OpenAI 在 AI 编程工具战场上的一次定向渗透：从校园开始，培养下一代开发者的工具习惯。
+2026 年 3 月 20 日，OpenAI 宣布推出 "[Codex](/zh/blog/codex-complete-guide) for Students" 计划——向美国和加拿大经过认证的在校大学生提供价值 $100 的免费 Codex 使用额度。这不是一个简单的学生折扣，而是 OpenAI 在 AI 编程工具战场上的一次定向渗透：从校园开始，培养下一代开发者的工具习惯。
 
 ## 发生了什么
 
@@ -29,7 +33,7 @@ Codex 的底层并不简单。它采用三层解耦架构：
 - **Node.js 主进程**：处理业务逻辑与 IPC 通信
 - **Rust CLI**：执行底层系统指令
 
-三层之间通过标准化的 JSON-RPC App Server 协议通信。这套设计意味着 Codex 并不只是一个"更聪明的 GitHub Copilot"——它是一个能够自主规划、执行、调试的代码代理。
+三层之间通过标准化的 JSON-RPC App Server 协议通信。这套设计意味着 Codex 并不只是一个"更聪明的 [GitHub Copilot](/zh/glossary/github-[copilot](/zh/glossary/copilot))"——它是一个能够自主规划、执行、调试的代码代理。
 
 对于学生来说，这意味着你可以用自然语言描述一个功能，然后让 Codex 去跨文件修改、运行测试、甚至处理依赖关系。代价是：如果你不理解它在做什么，它也可以把你的项目环境搞得一团糟。
 
@@ -39,7 +43,7 @@ Codex 的底层并不简单。它采用三层解耦架构：
 
 **OpenAI Codex** 主打自主、智能体优先——你给目标，它给执行。适合想要快速出产品原型的用户，但自主权让渡程度更高。
 
-**Anthropic Claude Code**（基于 Claude Opus 4.6 和 Sonnet 4.6）则采用终端优先、交互式路线。开发者保留更多控制权，适合需要精细调试和代码审查的场景。详见我们对 Claude Code Hooks 完整指南的深度分析。
+**[Anthropic Claude](/zh/blog/anthropic-claude-memory-upgrades-importing) Code**（基于 Claude Opus 4.6 和 Sonnet 4.6）则采用终端优先、交互式路线。开发者保留更多控制权，适合需要精细调试和代码审查的场景。详见我们对 [Claude Code Hooks](/zh/blog/claude-code-extension-stack-skills-hooks-agents-mcp) 完整指南的深度分析。
 
 这两种路线的差异不是技术细节上的，而是哲学层面的：你愿意让 AI 自主到什么程度？
 

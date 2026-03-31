@@ -1,19 +1,26 @@
 ---
-title: "Anthropic vs OpenAI: Enterprise Strategy Compared"
+title: 'Anthropic vs OpenAI: Enterprise Strategy Compared'
 slug: anthropic-vs-openai-enterprise-strategy
-description: "Comparing Anthropic and OpenAI enterprise strategies across safety, pricing, API design, and go-to-market approach."
+description: >-
+  Comparing Anthropic and OpenAI enterprise strategies across safety, pricing,
+  API design, and go-to-market approach.
 item_a: Anthropic
 item_b: OpenAI
 category: models
-related_glossary: [ai-safety, chatgpt]
-related_blog: [coding-agents-reshaping-epd]
-related_compare: [anthropic-vs-openai, openai-model-spec-vs-anthropic-claude-character]
+related_glossary:
+  - ai-safety
+  - chatgpt
+related_blog:
+  - coding-agents-reshaping-epd
+related_compare:
+  - anthropic-vs-openai
+  - openai-model-spec-vs-anthropic-claude-character
 lang: en
 ---
 
 # Anthropic vs OpenAI: Enterprise Strategy Compared
 
-**[Anthropic](/glossary/ai-safety)** and **OpenAI** are the two dominant foundation-model companies competing for enterprise AI budgets, but they're running fundamentally different playbooks. Anthropic leads with safety research credibility and developer-friendly API design. OpenAI leads with brand recognition, a massive consumer user base, and an expanding product surface area that includes ChatGPT Enterprise, custom GPTs, and a growing ecosystem of integrations. The strategic question for enterprises isn't just which model is better — it's which company's roadmap aligns with your organization's risk tolerance, deployment model, and AI maturity.
+**[Anthropic](/glossary/ai-safety)** and **OpenAI** are the two dominant foundation-model companies competing for enterprise AI budgets, but they're running fundamentally different playbooks. Anthropic leads with safety research credibility and developer-friendly API design. OpenAI leads with brand recognition, a massive consumer user base, and an expanding product surface area that includes [ChatGPT](/glossary/chatgpt) Enterprise, custom GPTs, and a growing ecosystem of integrations. The strategic question for enterprises isn't just which model is better — it's which company's roadmap aligns with your organization's risk tolerance, deployment model, and AI maturity.
 
 ## Feature Comparison
 
@@ -22,9 +29,9 @@ lang: en
 | **Flagship model** | Claude (Opus, Sonnet, Haiku) | GPT-4o, o1, o3 |
 | **Enterprise product** | API-first, Claude for Enterprise | ChatGPT Enterprise, API, Azure OpenAI |
 | **Distribution channel** | Direct API + Amazon Bedrock, Google Cloud | Direct API + Microsoft Azure |
-| **Safety approach** | Constitutional AI, published research | RLHF, safety team (restructured 2024) |
+| **Safety approach** | Constitutional AI, published research | [RLHF](/glossary/rlhf), safety team (restructured 2024) |
 | **Consumer product** | claude.ai (growing) | ChatGPT (100M+ users) |
-| **Agentic tools** | [Claude Code](/glossary/agentic-coding), computer use | GPT Actions, Assistants API, Codex |
+| **[Agentic](/glossary/agentic) tools** | [Claude Code](/glossary/agentic-coding), computer use | GPT Actions, Assistants API, [Codex](/blog/codex-complete-guide) |
 | **Context window** | Up to 200K tokens | Up to 128K tokens (GPT-4o) |
 | **Data residency** | AWS/GCP regions | Azure regions, dedicated instances |
 | **Compliance** | SOC 2, HIPAA eligible | SOC 2, HIPAA, FedRAMP (via Azure) |

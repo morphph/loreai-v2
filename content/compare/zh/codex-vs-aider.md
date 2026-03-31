@@ -1,15 +1,19 @@
 ---
-title: "Codex vs Aider：哪个 AI 编程工具更适合你？"
+title: Codex vs Aider：哪个 AI 编程工具更适合你？
 slug: codex-vs-aider
-description: "Codex 与 Aider 对比：从架构、模型支持到工作流，帮你选对 AI 编程助手。"
+description: Codex 与 Aider 对比：从架构、模型支持到工作流，帮你选对 AI 编程助手。
 item_a: Codex
 item_b: Aider
 category: tools
-related_glossary: [codex, agentic]
-related_blog: [codex-complete-guide]
+related_glossary:
+  - codex
+  - agentic
+related_blog:
+  - codex-complete-guide
 related_compare: []
 lang: zh
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # Codex vs Aider：哪个 AI 编程工具更适合你？
@@ -18,10 +22,10 @@ related_topics: [codex]
 
 ## 功能对比
 
-| 功能 | Codex | Aider |
+| 功能 | [Codex](/zh/blog/codex-complete-guide) | [Aider](/zh/glossary/aider) |
 |------|-------|-------|
 | **使用方式** | App / IDE 插件 / CLI / Web | 终端 CLI |
-| **模型支持** | OpenAI 模型（GPT-5.4 等） | 几乎所有 LLM：Claude、DeepSeek、OpenAI、本地模型等 |
+| **模型支持** | OpenAI 模型（[GPT-5.4](/zh/glossary/gpt-54) 等） | 几乎所有 LLM：Claude、[DeepSeek](/zh/glossary/deepseek)、OpenAI、本地模型等 |
 | **代码库理解** | AGENTS.md 配置 + 上下文管理 | 自动生成代码库 map，适配大型项目 |
 | **语言支持** | 未明确列出具体数量 | 100+ 编程语言 |
 | **Git 集成** | 支持 GitHub 集成、Worktree | 自动 commit，生成合理的 commit message |
@@ -29,7 +33,7 @@ related_topics: [codex]
 | **IDE 集成** | 官方 IDE 插件 | 通过代码注释触发，适配多种编辑器 |
 | **多模态输入** | 支持图片、语音、视频生成 | 支持图片和网页作为上下文 |
 | **开源** | 部分组件开源 | 完全开源 |
-| **定价** | ChatGPT Plus/Pro/Business/Enterprise 包含 | 免费开源，按 LLM API 用量付费 |
+| **定价** | [ChatGPT](/zh/glossary/chatgpt) Plus/Pro/Business/Enterprise 包含 | 免费开源，按 LLM API 用量付费 |
 
 ## 什么时候选 Codex
 

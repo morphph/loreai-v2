@@ -1,17 +1,31 @@
 ---
-title: "OpenAI Codex 完全指南：云端编程智能体深度解析"
-date: 2026-03-17
+title: OpenAI Codex 完全指南：云端编程智能体深度解析
+date: 2026-03-17T00:00:00.000Z
 slug: codex-complete-guide
-description: "OpenAI Codex 云端编程智能体完全指南：架构原理、核心功能、定价方案、实战工作流与最佳实践一文掌握。"
-keywords: ["Codex", "OpenAI Codex", "Codex 编程智能体", "Codex 指南", "codex-1"]
+description: OpenAI Codex 云端编程智能体完全指南：架构原理、核心功能、定价方案、实战工作流与最佳实践一文掌握。
+keywords:
+  - Codex
+  - OpenAI Codex
+  - Codex 编程智能体
+  - Codex 指南
+  - codex-1
 category: DEV
 cornerstone: true
-related_newsletter: 2026-03-17
-related_glossary: [codex, openai, codex-cli, claude-code, cursor, github-copilot]
-related_compare: [codex-vs-claude-code, codex-vs-cursor, codex-vs-github-copilot]
+related_newsletter: 2026-03-17T00:00:00.000Z
+related_glossary:
+  - codex
+  - openai
+  - codex-cli
+  - claude-code
+  - cursor
+  - github-copilot
+related_compare:
+  - codex-vs-claude-code
+  - codex-vs-cursor
+  - codex-vs-github-copilot
 lang: zh
 video_ready: true
-video_hook: "OpenAI 的异步编程智能体，一次并行处理几十个任务"
+video_hook: OpenAI 的异步编程智能体，一次并行处理几十个任务
 video_status: none
 ---
 
@@ -21,7 +35,7 @@ video_status: none
 
 ## Codex 是什么？
 
-Codex 是 OpenAI 推出的云端软件工程智能体（cloud-based software engineering agent）。它通过 ChatGPT 界面接入，核心能力包括：编写新功能、回答代码库相关问题、修复 Bug、以及生成 Pull Request 供人类审核。
+[Codex](/zh/faq/codex) 是 OpenAI 推出的云端软件工程智能体（cloud-based software engineering agent）。它通过 [ChatGPT](/zh/glossary/chatgpt) 界面接入，核心能力包括：编写新功能、回答代码库相关问题、修复 Bug、以及生成 Pull Request 供人类审核。
 
 驱动 Codex 的模型是 **codex-1** —— 基于 OpenAI o3 针对软件工程场景专门优化的版本。OpenAI 使用强化学习在真实编程任务上训练 codex-1，使其生成的代码更贴近人类风格和 PR 偏好，能严格遵循指令，并且可以反复运行测试直到通过。
 
@@ -41,7 +55,7 @@ Codex 是 OpenAI 推出的云端软件工程智能体（cloud-based software eng
 
 **AGENTS.md 配置**：这是 Codex 的核心配置机制。类似于 README.md，你可以在仓库中放置 AGENTS.md 文件，告诉 Codex 如何导航代码库、运行哪些测试命令、如何遵守项目规范。AGENTS.md 的作用范围是其所在目录的整个子树，嵌套更深的文件优先级更高。
 
-**[Codex CLI](/glossary/codex-cli)**：如果你更习惯终端工作流，OpenAI 还提供了开源的 Codex CLI，在本地终端中运行。默认模型是 codex-mini（基于 o4-mini 优化的低延迟版本）。现在可以直接用 ChatGPT 账号登录，无需手动配置 API key。Pro 用户可获得 $50 免费 API 额度，Plus 用户 $5。
+**[Codex CLI](/glossary/codex-cli)**：如果你更习惯终端工作流，OpenAI 还提供了开源的 [Codex CLI](/zh/glossary/codex-cli)，在本地终端中运行。默认模型是 codex-mini（基于 o4-mini 优化的低延迟版本）。现在可以直接用 ChatGPT 账号登录，无需手动配置 API key。Pro 用户可获得 $50 免费 API 额度，Plus 用户 $5。
 
 具体的环境搭建步骤可参考 [How to set up Codex?](/faq/codex-setup)。
 
@@ -130,8 +144,8 @@ Codex 仍处于 Research Preview 阶段，目前不支持图片输入（前端�
 
 **对比评测**：
 - [Codex vs Claude Code](/compare/codex-vs-claude-code) — 异步智能体 vs 交互式终端
-- [Codex vs Cursor](/compare/codex-vs-cursor) — 云端执行 vs IDE 内协作
-- [Codex vs GitHub Copilot](/compare/codex-vs-github-copilot) — 任务委派 vs 实时补全
+- [Codex vs Cursor](/compare/codex-vs-[cursor](/zh/glossary/cursor)) — 云端执行 vs IDE 内协作
+- [Codex vs GitHub Copilot](/compare/codex-vs-github-[copilot](/zh/glossary/copilot)) — 任务委派 vs 实时补全
 - [Codex vs Windsurf](/compare/codex-vs-windsurf)
 - [Codex vs Devin](/compare/codex-vs-devin) — 两种云端智能体的对比
 - [Codex vs Aider](/compare/codex-vs-aider)

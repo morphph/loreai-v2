@@ -1,14 +1,18 @@
 ---
-title: "Codex vs GitHub Copilot: Which AI Coding Tool Should You Use?"
+title: 'Codex vs GitHub Copilot: Which AI Coding Tool Should You Use?'
 slug: codex-vs-github-copilot
-description: "Comparing Codex and GitHub Copilot across features, pricing, and workflows."
+description: 'Comparing Codex and GitHub Copilot across features, pricing, and workflows.'
 item_a: Codex
 item_b: GitHub Copilot
 category: tools
-related_glossary: [codex, agentic]
-related_blog: [codex-complete-guide]
+related_glossary:
+  - codex
+  - agentic
+related_blog:
+  - codex-complete-guide
 lang: en
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # Codex vs GitHub Copilot: Which AI Coding Tool Should You Use?
@@ -17,7 +21,7 @@ related_topics: [codex]
 
 ## Feature Comparison
 
-| Feature | Codex | GitHub Copilot |
+| Feature | [Codex](/faq/codex) | [GitHub Copilot](/glossary/github-[copilot](/glossary/copilot)) |
 |---------|-------|----------------|
 | **Approach** | Autonomous coding agent | AI-enhanced pair programming |
 | **Interfaces** | App, IDE extension, CLI, Web | IDE, GitHub website, Mobile, CLI (GitHub CLI), Windows Terminal |
@@ -26,9 +30,9 @@ related_topics: [codex]
 | **Debugging** | Traces failures, diagnoses root causes, suggests fixes | Chat-based help with code issues |
 | **Codebase understanding** | Reads and explains complex or legacy codebases | Context via Copilot Spaces |
 | **Automation** | Sandboxed execution, subagents, long-horizon tasks, non-interactive mode | PR description generation, code change suggestions |
-| **Integrations** | GitHub, Slack, Linear, MCP | Deep GitHub ecosystem integration |
+| **Integrations** | GitHub, Slack, Linear, [MCP](/glossary/mcp) | Deep GitHub ecosystem integration |
 | **Configuration** | AGENTS.md, config files, skills, MCP | Organization and enterprise policy controls |
-| **Free tier** | Included with ChatGPT Plus, Pro, Business, Edu, Enterprise | Copilot Free available; free for students, teachers, and OSS maintainers |
+| **Free tier** | Included with [ChatGPT](/glossary/chatgpt) Plus, Pro, Business, Edu, Enterprise | Copilot Free available; free for students, teachers, and OSS maintainers |
 
 ## When to Use Codex
 

@@ -1,17 +1,22 @@
 ---
-title: "如何使用 Codex？"
+title: 如何使用 Codex？
 slug: using-codex
-description: "Codex 是 OpenAI 的云端 AI 编程助手。通过 ChatGPT 侧边栏或 CLI 即可开始使用。"
+description: Codex 是 OpenAI 的云端 AI 编程助手。通过 ChatGPT 侧边栏或 CLI 即可开始使用。
 category: tools
-related_glossary: [agentic-coding, chatgpt]
-related_blog: [codex-for-students, codex-for-open-source]
+related_glossary:
+  - agentic-coding
+  - chatgpt
+related_blog:
+  - codex-for-students
+  - codex-for-open-source
 lang: zh
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # 如何使用 Codex？
 
-**Codex** 是 OpenAI 推出的云端软件工程 AI 助手，由 codex-1（基于 OpenAI o3 优化）驱动。最直接的方式是通过 ChatGPT 侧边栏访问，选择你的代码库后，就可以分配编程任务给 Codex 处理——无论是写新功能、回答代码问题、修复 bug，还是生成拉取请求供审查。
+**[Codex](/zh/faq/codex)** 是 OpenAI 推出的云端软件工程 AI 助手，由 [codex-1](/zh/blog/codex-complete-guide)（基于 OpenAI o3 优化）驱动。最直接的方式是通过 [ChatGPT](/zh/glossary/chatgpt) 侧边栏访问，选择你的代码库后，就可以分配编程任务给 Codex 处理——无论是写新功能、回答代码问题、修复 bug，还是生成拉取请求供审查。
 
 ## 背景信息
 

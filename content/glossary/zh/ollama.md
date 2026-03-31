@@ -1,12 +1,16 @@
 ---
-title: "Ollama — AI 术语表"
+title: Ollama — AI 术语表
 slug: ollama
-description: "什么是 Ollama？一款在本地运行大语言模型的开源工具，支持 Llama、Mistral 等主流模型。"
+description: 什么是 Ollama？一款在本地运行大语言模型的开源工具，支持 Llama、Mistral 等主流模型。
 term: ollama
-display_term: "Ollama"
+display_term: Ollama
 category: tools
-related_glossary: [llama, anthropic, agent-teams]
-related_blog: [mcp-vs-cli-vs-skills-extend-claude-code]
+related_glossary:
+  - llama
+  - anthropic
+  - agent-teams
+related_blog:
+  - mcp-vs-cli-vs-skills-extend-claude-code
 related_compare: []
 lang: zh
 ---
@@ -23,7 +27,7 @@ lang: zh
 
 ## Ollama 的工作原理
 
-Ollama 基于 llama.cpp 构建推理引擎，支持 CPU 和 GPU（NVIDIA、Apple Silicon）加速。核心机制包括：
+Ollama 基于 llama.cpp 构建推理引擎，支持 CPU 和 GPU（NVIDIA、[Apple](/zh/glossary/apple) Silicon）加速。核心机制包括：
 
 - **Modelfile 系统**：类似 Dockerfile 的声明式格式，定义模型来源、系统提示词、温度等参数，实现可复现的模型配置
 - **模型仓库**：维护一个公开的模型库，支持 `ollama pull` 直接下载预量化模型（GGUF 格式）
@@ -34,7 +38,7 @@ Ollama 支持 macOS、Linux 和 Windows，对 Apple Silicon 的 Metal 加速支�
 
 ## 相关术语
 
-- **[Agentic](/glossary/agentic)**：Ollama 提供的本地推理能力是构建 agentic 工作流的基础组件之一
+- **[Agentic](/glossary/agentic)**：Ollama 提供的本地推理能力是构建 [agentic](/zh/glossary/agentic) 工作流的基础组件之一
 - **[Agent Teams](/glossary/agent-teams)**：本地模型可作为轻量级子 agent 运行，降低 API 调用成本
 - **[Anthropic](/glossary/anthropic)**：与 Ollama 运行的开源模型不同，Anthropic 的 Claude 系列通过云端 API 提供服务
 

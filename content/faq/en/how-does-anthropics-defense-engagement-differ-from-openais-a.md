@@ -1,11 +1,18 @@
 ---
-title: "How Does Anthropic's Defense Engagement Differ from OpenAI's Approach?"
+title: How Does Anthropic's Defense Engagement Differ from OpenAI's Approach?
 slug: how-does-anthropics-defense-engagement-differ-from-openais-a
-description: "Anthropic takes a cautious, safety-focused approach to defense work, while OpenAI removed its military use ban and partnered more aggressively."
+description: >-
+  Anthropic takes a cautious, safety-focused approach to defense work, while
+  OpenAI removed its military use ban and partnered more aggressively.
 category: concepts
-related_glossary: [ai-safety, ai-regulation, autonomous-weapons]
-related_blog: [anthropic-claude-partner-network-100-million]
-related_faq: [what-is-anthropics-position-on-providing-ai-to-the-departmen]
+related_glossary:
+  - ai-safety
+  - ai-regulation
+  - autonomous-weapons
+related_blog:
+  - anthropic-claude-partner-network-100-million
+related_faq:
+  - what-is-anthropics-position-on-providing-ai-to-the-departmen
 lang: en
 ---
 
@@ -33,7 +40,7 @@ Both companies face the same underlying tension: refusing defense work entirely 
 ## Related Questions
 
 - [What is Anthropic's position on providing AI to the Department of Defense?](/faq/what-is-anthropics-position-on-providing-ai-to-the-departmen)
-- [Is Claude Code remote control available on all Anthropic plans?](/faq/is-claude-code-remote-control-available-on-all-anthropic-pla)
+- [Is [Claude Code remote](/blog/claude-code-remote-control-mobile) control available on all Anthropic plans?](/faq/is-claude-code-remote-control-available-on-all-anthropic-pla)
 
 ---
 

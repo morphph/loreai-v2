@@ -1,12 +1,17 @@
 ---
-title: "Can I Approve or Reject Code Changes from My Mobile Device?"
+title: Can I Approve or Reject Code Changes from My Mobile Device?
 slug: approve-code-changes-mobile
-description: "Yes — Claude Code's Remote Control and web interface let you review and approve code changes from your phone."
+description: >-
+  Yes — Claude Code's Remote Control and web interface let you review and
+  approve code changes from your phone.
 category: tools
-related_glossary: [claude-code, agentic-coding]
+related_glossary:
+  - claude-code
+  - agentic-coding
 related_blog: []
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Can I Approve or Reject Code Changes from My Mobile Device?
@@ -15,9 +20,9 @@ related_topics: [claude-code]
 
 ## Context
 
-This comes up because [agentic coding](/glossary/agentic-coding) tools like Claude Code often propose multi-file changes that need human review before they're applied. If you kick off a long-running task — say, refactoring an authentication module — you might not want to stay tethered to your laptop waiting for the agent to ask for approval.
+This comes up because [agentic coding](/glossary/agentic-coding) tools like [Claude Code](/blog/claude-code-complete-guide) often propose multi-file changes that need human review before they're applied. If you kick off a long-running task — say, refactoring an authentication module — you might not want to stay tethered to your laptop waiting for the agent to ask for approval.
 
-Claude Code's architecture decouples the session from the surface you're using. A session started in your terminal can be picked up on your phone via Remote Control, or you can start a task on the web and check back later from any device. The underlying engine, your CLAUDE.md instructions, and MCP server connections remain consistent across surfaces.
+Claude Code's architecture decouples the session from the surface you're using. A session started in your terminal can be picked up on your phone via Remote Control, or you can start a task on the web and check back later from any device. The underlying engine, your [CLAUDE.md](/blog/claude-code-memory) instructions, and [MCP](/glossary/mcp) server connections remain consistent across surfaces.
 
 You can also start a session in the terminal and hand it off to the **Desktop app** using `/desktop` for visual diff review on a larger screen, or use `/teleport` to move a web session into your local terminal when you're back at your workstation. For a full overview of Claude Code's capabilities across environments, see the [Claude Code topic hub](/topics/claude-code).
 
@@ -30,8 +35,8 @@ You can also start a session in the terminal and hand it off to the **Desktop ap
 
 ## Related Questions
 
-- [How do I set up Claude Code Remote Control on my phone?](/faq/how-do-i-set-up-claude-code-remote-control-on-my-phone)
-- [Claude Code vs Cursor: Which AI Coding Tool Should You Use?](/compare/claude-code-vs-cursor)
+- [How do I set up [Claude Code Remote](/blog/claude-code-remote-control-mobile) Control on my phone?](/faq/how-do-i-set-up-claude-code-remote-control-on-my-phone)
+- [Claude Code vs [Cursor](/glossary/cursor): Which AI Coding Tool Should You Use?](/compare/claude-code-vs-cursor)
 
 ---
 

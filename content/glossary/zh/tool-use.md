@@ -1,12 +1,17 @@
 ---
-title: "Tool Use（工具使用） — AI 术语表"
+title: Tool Use（工具使用） — AI 术语表
 slug: tool-use
-description: "什么是 Tool Use？AI 模型调用外部工具完成任务的核心能力机制。"
+description: 什么是 Tool Use？AI 模型调用外部工具完成任务的核心能力机制。
 term: tool-use
-display_term: "Tool Use（工具使用）"
+display_term: Tool Use（工具使用）
 category: techniques
-related_glossary: [agentic, agent-teams, claude]
-related_blog: [mcp-vs-cli-vs-skills-extend-claude-code, claude-code-agent-teams]
+related_glossary:
+  - agentic
+  - agent-teams
+  - claude
+related_blog:
+  - mcp-vs-cli-vs-skills-extend-claude-code
+  - claude-code-agent-teams
 related_compare: []
 lang: zh
 ---
@@ -29,13 +34,13 @@ lang: zh
 2. **参数构造**：模型按照工具的 JSON Schema 定义生成结构化的调用参数
 3. **结果整合**：工具执行后返回结果，模型将其融入上下文继续推理或直接输出
 
-Anthropic 的 Claude API 通过在请求中声明 `tools` 数组来暴露可用工具，模型返回 `tool_use` 类型的 content block 来发起调用。MCP（Model Context Protocol）则进一步标准化了工具发现和调用协议，使 [agent teams](/glossary/agent-teams) 等多智能体架构能动态接入外部能力。
+Anthropic 的 Claude API 通过在请求中声明 `tools` 数组来暴露可用工具，模型返回 `tool_use` 类型的 content block 来发起调用。[MCP](/zh/blog/claude-code-seven-programmable-layers)（[Model Context Protocol](/zh/glossary/model-context-protocol)）则进一步标准化了工具发现和调用协议，使 [agent teams](/glossary/agent-teams) 等多智能体架构能动态接入外部能力。
 
 ## 相关术语
 
-- **[Agentic](/glossary/agentic)**：Tool use 是 agentic AI 的核心支撑——没有工具调用能力，agent 无法与真实环境交互
+- **[Agentic](/glossary/agentic)**：Tool use 是 [agentic](/zh/glossary/agentic) AI 的核心支撑——没有工具调用能力，agent 无法与真实环境交互
 - **[Agent Teams](/glossary/agent-teams)**：多个 agent 协作时，每个 agent 可拥有不同的工具集，实现并行任务分工
-- **[Claude](/glossary/claude)**：Anthropic 的大模型家族，原生支持 tool use，驱动 Claude Code 等 agentic 产品
+- **[Claude](/glossary/claude)**：Anthropic 的大模型家族，原生支持 tool use，驱动 [Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 等 agentic 产品
 
 ---
 

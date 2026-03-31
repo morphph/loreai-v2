@@ -1,23 +1,30 @@
 ---
-title: "Claude Code 隐藏技巧：Ctrl+S 暂存提示词，多任务工作流效率翻倍"
-date: 2026-03-10
+title: Claude Code 隐藏技巧：Ctrl+S 暂存提示词，多任务工作流效率翻倍
+date: 2026-03-10T00:00:00.000Z
 slug: claude-code-ctrl-s-prompt-stashing
-description: "Claude Code 的 Ctrl+S 提示词暂存功能让你在编写长提示词时随时保存草稿、切换任务，不丢失上下文。掌握这个技巧，多任务开发效率直接翻倍。"
-keywords: ["Claude Code 技巧", "Ctrl+S prompt stashing", "Claude Code 工作流", "提示词暂存"]
+description: Claude Code 的 Ctrl+S 提示词暂存功能让你在编写长提示词时随时保存草稿、切换任务，不丢失上下文。掌握这个技巧，多任务开发效率直接翻倍。
+keywords:
+  - Claude Code 技巧
+  - Ctrl+S prompt stashing
+  - Claude Code 工作流
+  - 提示词暂存
 category: DEV
-related_newsletter: 2026-03-10
-related_glossary: [claude-code, prompt-engineering]
+related_newsletter: 2026-03-10T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - prompt-engineering
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: zh
 video_ready: true
-video_hook: "Claude Code 里按 Ctrl+S 会发生什么？大多数人不知道这个功能"
+video_hook: Claude Code 里按 Ctrl+S 会发生什么？大多数人不知道这个功能
 video_status: none
 ---
 
 # Claude Code 隐藏技巧：Ctrl+S 暂存提示词，多任务工作流效率翻倍
 
-**Claude Code** 有一个大多数人不知道的快捷键：Ctrl+S 提示词暂存（Prompt Stashing）。当你正在输入一段复杂的提示词，突然需要切换去做另一件事时，Ctrl+S 把当前输入保存为草稿，让你随时回来继续。这个功能听起来简单，但在真实的多任务开发场景下，它解决的是一个每天都在发生的痛点。
+**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 有一个大多数人不知道的快捷键：Ctrl+S 提示词暂存（Prompt Stashing）。当你正在输入一段复杂的提示词，突然需要切换去做另一件事时，Ctrl+S 把当前输入保存为草稿，让你随时回来继续。这个功能听起来简单，但在真实的多任务开发场景下，它解决的是一个每天都在发生的痛点。
 
 ## 发生了什么
 

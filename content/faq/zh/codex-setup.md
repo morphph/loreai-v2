@@ -1,17 +1,20 @@
 ---
-title: "Codex 怎么设置？"
+title: Codex 怎么设置？
 slug: codex-setup
-description: "Codex 设置指南：从连接 GitHub 仓库到配置 AGENTS.md，快速上手 OpenAI 云端编程代理。"
+description: Codex 设置指南：从连接 GitHub 仓库到配置 AGENTS.md，快速上手 OpenAI 云端编程代理。
 category: tools
-related_glossary: [codex]
-related_blog: [codex-complete-guide]
+related_glossary:
+  - codex
+related_blog:
+  - codex-complete-guide
 lang: zh
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # Codex 怎么设置？
 
-设置 **[Codex](/glossary/codex)** 只需要一个支持的 ChatGPT 账号和一个 GitHub 仓库。Codex 是云端服务，不需要在本地安装任何软件——在 ChatGPT 侧边栏连接你的代码库，就可以开始分配任务。
+设置 **[Codex](/glossary/codex)** 只需要一个支持的 [ChatGPT](/zh/glossary/chatgpt) 账号和一个 GitHub 仓库。[Codex](/zh/blog/codex-complete-guide) 是云端服务，不需要在本地安装任何软件——在 ChatGPT 侧边栏连接你的代码库，就可以开始分配任务。
 
 ## 背景
 
@@ -28,7 +31,7 @@ Codex 是 OpenAI 推出的云端软件工程代理，每个任务在独立的沙
 5. **发起第一个任务**：输入提示词后点击 "Code"（编码任务）或 "Ask"（代码库问答），Codex 会在独立容器中执行
 6. **审查结果**：任务完成后，检查 Codex 提供的终端日志和测试输出，确认无误后可以直接创建 GitHub Pull Request
 
-如果你更偏好命令行工作流，OpenAI 还提供了开源的 **Codex CLI**。安装后可以直接用 ChatGPT 账号登录，无需手动配置 API Token——系统会自动生成并配置密钥。Pro 和 Plus 用户还可以领取免费 API 额度。
+如果你更偏好命令行工作流，OpenAI 还提供了开源的 **[Codex CLI](/zh/glossary/codex-cli)**。安装后可以直接用 ChatGPT 账号登录，无需手动配置 API Token——系统会自动生成并配置密钥。Pro 和 Plus 用户还可以领取免费 API 额度。
 
 ## 相关问题
 

@@ -1,16 +1,24 @@
 ---
-title: "Claude Code 终端模式 vs VS Code 扩展：哪种工作流更适合你？"
+title: Claude Code 终端模式 vs VS Code 扩展：哪种工作流更适合你？
 slug: how-to-use-claude-code-with-vs-code
-description: "对比 Claude Code 终端模式与 VS Code 扩展两种工作流，帮你选择最高效的 AI 编程方式。"
+description: 对比 Claude Code 终端模式与 VS Code 扩展两种工作流，帮你选择最高效的 AI 编程方式。
 item_a: Claude Code 终端模式
 item_b: Claude Code VS Code 扩展
 category: tools
-related_glossary: [claude-code, claude, anthropic, agentic]
-related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, mcp-vs-cli-vs-skills-extend-claude-code, claude-code-agent-teams]
+related_glossary:
+  - claude-code
+  - claude
+  - anthropic
+  - agentic
+related_blog:
+  - claude-code-extension-stack-skills-hooks-agents-mcp
+  - mcp-vs-cli-vs-skills-extend-claude-code
+  - claude-code-agent-teams
 related_compare: []
 related_faq: []
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code 终端模式 vs VS Code 扩展：哪种工作流更适合你？
@@ -22,7 +30,7 @@ related_topics: [claude-code]
 | 功能 | 终端模式 | VS Code 扩展 |
 |------|---------|-------------|
 | **交互界面** | 命令行 CLI | 编辑器内侧边栏 |
-| **项目上下文** | 通过 CLAUDE.md / SKILL.md 自动加载 | 同样支持，加上编辑器打开文件的上下文 |
+| **项目上下文** | 通过 [CLAUDE.md](/zh/blog/claude-code-memory) / [SKILL.md](/zh/blog/9-principles-writing-claude-code-skills) 自动加载 | 同样支持，加上编辑器打开文件的上下文 |
 | **文件编辑** | 自主跨文件修改，终端内 diff 审查 | 编辑器内 inline diff，可视化审查 |
 | **Shell 执行** | 完整 shell 访问，直接运行构建/测试 | 通过集成终端执行，需手动切换 |
 | **多文件重构** | 原生支持，一条指令规划+执行 | 支持，但更适合单文件或小范围修改 |
@@ -32,9 +40,9 @@ related_topics: [claude-code]
 
 ## 什么时候用终端模式
 
-终端模式是 Claude Code 最完整的形态。如果你的任务涉及跨多个文件的修改——重构一个模块、批量生成测试、或执行复杂的 [agentic](/glossary/agentic) 工作流——终端模式几乎总是更高效。
+终端模式是 [Claude Code](/zh/blog/agent-harnesses-2026) 最完整的形态。如果你的任务涉及跨多个文件的修改——重构一个模块、批量生成测试、或执行复杂的 [agentic](/glossary/agentic) 工作流——终端模式几乎总是更高效。
 
-核心优势在于**自主性**。你描述一个目标（"把所有 REST 接口迁移到 GraphQL"），Claude Code 会自己规划步骤、读取代码、执行修改、运行测试、最后提交。整个过程不需要你逐个文件审批。配合 [SKILL.md 和 MCP 扩展体系](/blog/claude-code-extension-stack-skills-hooks-agents-mcp)，你可以把团队的工程规范编码成可复用的指令文件，让 AI 在每次执行时自动遵循。
+核心优势在于**自主性**。你描述一个目标（"把所有 REST 接口迁移到 GraphQL"），Claude Code 会自己规划步骤、读取代码、执行修改、运行测试、最后提交。整个过程不需要你逐个文件审批。配合 [SKILL.md 和 [MCP](/zh/glossary/mcp) 扩展体系](/blog/claude-code-extension-stack-skills-[hooks](/zh/blog/claude-code-seven-programmable-layers)-agents-mcp)，你可以把团队的工程规范编码成可复用的指令文件，让 AI 在每次执行时自动遵循。
 
 终端模式也是唯一支持 **Agent Teams** 的方式——在大型 monorepo 中，主 agent 可以派生子 agent 并行处理不同模块，显著缩短大规模重构的耗时。
 

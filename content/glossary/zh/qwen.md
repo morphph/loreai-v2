@@ -1,11 +1,13 @@
 ---
-title: "Qwen — AI 术语表"
+title: Qwen — AI 术语表
 slug: qwen
-description: "什么是 Qwen？阿里巴巴开源的大语言模型系列，覆盖文本、视觉和代码生成。"
+description: 什么是 Qwen？阿里巴巴开源的大语言模型系列，覆盖文本、视觉和代码生成。
 term: qwen
-display_term: "Qwen"
+display_term: Qwen
 category: models
-related_glossary: [claude, anthropic]
+related_glossary:
+  - claude
+  - anthropic
 related_blog: []
 related_compare: []
 lang: zh
@@ -19,7 +21,7 @@ lang: zh
 
 Qwen 是目前中文能力最强的开源模型之一，同时在英文基准测试中也表现出色。对于需要部署私有化大模型的企业来说，Qwen 提供了一条成本可控的路径——无需依赖闭源 API，就能获得接近 [Claude](/glossary/claude) 等商业模型的效果。
 
-阿里巴巴通过 Hugging Face 和 ModelScope 同步发布模型权重，配合活跃的社区生态，Qwen 已成为国内外开发者微调和二次开发的热门基座模型。
+阿里巴巴通过 [Hugging Face](/zh/glossary/hugging-face) 和 ModelScope 同步发布模型权重，配合活跃的社区生态，Qwen 已成为国内外开发者微调和二次开发的热门基座模型。
 
 ## Qwen 的工作原理
 
@@ -30,7 +32,7 @@ Qwen 基于 Transformer 架构，采用 decoder-only 设计。Qwen2.5 系列在�
 - **多模态扩展**：Qwen-VL 系列支持图文混合输入，Qwen-Audio 支持语音理解
 - **代码能力**：Qwen2.5-Coder 专门针对代码任务优化，支持多种编程语言
 
-模型通过 SFT（监督微调）和 RLHF（人类反馈强化学习）完成对齐，提供 base 和 chat 两种版本。
+模型通过 SFT（监督微调）和 [RLHF](/zh/glossary/rlhf)（人类反馈强化学习）完成对齐，提供 base 和 chat 两种版本。
 
 ## 相关术语
 

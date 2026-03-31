@@ -1,17 +1,26 @@
 ---
-title: "How to use Claude Code with Git?"
+title: How to use Claude Code with Git?
 slug: claude-code-with-git
-description: "Claude Code integrates natively with Git. It can stage changes, write commit messages, create branches, resolve merge conflicts, and open pull requests."
+description: >-
+  Claude Code integrates natively with Git. It can stage changes, write commit
+  messages, create branches, resolve merge conflicts, and open pull requests.
 category: tools
-related_glossary: [claude-code, agentic-coding, claude-md]
-related_blog: [claude-code-complete-guide, claude-code-review-agents, claude-code-agent-teams]
+related_glossary:
+  - claude-code
+  - agentic-coding
+  - claude-md
+related_blog:
+  - claude-code-complete-guide
+  - claude-code-review-agents
+  - claude-code-agent-teams
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # How to use Claude Code with Git?
 
-Claude Code has built-in Git integration and can handle the full Git workflow. It stages files, writes commit messages based on actual changes, creates and switches branches, resolves merge conflicts, and can even create pull requests using the GitHub CLI.
+[Claude Code](/blog/lessons-from-building-claude-code-agent-tools) has built-in Git integration and can handle the full Git workflow. It stages files, writes commit messages based on actual changes, creates and switches branches, resolves merge conflicts, and can even create pull requests using the GitHub CLI.
 
 ## Context
 
@@ -27,7 +36,7 @@ For team workflows, Claude Code's [code review agents](/blog/claude-code-review-
 2. Ask Claude to commit: it will review the diff, stage relevant files, and write a descriptive commit message.
 3. For merge conflicts, ask Claude to resolve them. It reads both sides and the base version to make informed decisions.
 4. To create a pull request, ask Claude directly. It uses `gh` (GitHub CLI) to open the PR with a summary derived from your commits.
-5. Add Git conventions to your project's `CLAUDE.md` file, such as commit message format or branch naming rules, and Claude will follow them. See the [topics hub](/topics/claude-code) for more workflow patterns.
+5. Add Git conventions to your project's `[CLAUDE.md](/blog/claude-code-memory)` file, such as commit message format or branch naming rules, and Claude will follow them. See the [topics hub](/topics/claude-code) for more workflow patterns.
 
 ## Related Questions
 

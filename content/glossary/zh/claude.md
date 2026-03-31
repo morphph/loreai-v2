@@ -1,12 +1,17 @@
 ---
-title: "Claude — AI 术语表"
+title: Claude — AI 术语表
 slug: claude
-description: "什么是 Claude？Anthropic 开发的大语言模型系列，以安全性和长上下文能力著称。"
+description: 什么是 Claude？Anthropic 开发的大语言模型系列，以安全性和长上下文能力著称。
 term: claude
-display_term: "Claude"
+display_term: Claude
 category: models
-related_glossary: [anthropic, claude-code, google]
-related_blog: [anthropic-claude-memory-upgrades-importing, anthropic-cowork-claude-desktop-agent]
+related_glossary:
+  - anthropic
+  - claude-code
+  - google
+related_blog:
+  - anthropic-claude-memory-upgrades-importing
+  - anthropic-cowork-claude-desktop-agent
 related_compare: []
 lang: zh
 ---
@@ -23,7 +28,7 @@ Claude 是当前最具竞争力的通用大模型之一，与 GPT-4、Gemini 形
 
 ## Claude 的工作原理
 
-Claude 基于 Transformer 架构，通过大规模预训练和 RLHF（人类反馈强化学习）进行对齐。Anthropic 独创的 Constitutional AI 方法让模型在训练阶段就内化了一套行为准则，减少对人工标注的依赖。
+Claude 基于 Transformer 架构，通过大规模预训练和 [RLHF](/zh/glossary/rlhf)（人类反馈强化学习）进行对齐。Anthropic 独创的 Constitutional AI 方法让模型在训练阶段就内化了一套行为准则，减少对人工标注的依赖。
 
 Claude 当前模型家族包括多个层级：
 

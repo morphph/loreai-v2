@@ -1,18 +1,23 @@
 ---
-title: "Claude Code 是否会泄露你的代码？"
+title: Claude Code 是否会泄露你的代码？
 slug: does-claude-code-expose-your-code
-description: "Claude Code 会将代码发送到 Anthropic 服务器进行处理。了解数据风险、.env 文件安全和如何保护敏感信息。"
+description: Claude Code 会将代码发送到 Anthropic 服务器进行处理。了解数据风险、.env 文件安全和如何保护敏感信息。
 category: tools
-related_glossary: [agentic-coding, ai-safety]
-related_blog: [integrate-claude-code-into-your-development-workflow]
-related_faq: [how-do-i-set-up-claude-code-remote-control-on-my-phone]
+related_glossary:
+  - agentic-coding
+  - ai-safety
+related_blog:
+  - integrate-claude-code-into-your-development-workflow
+related_faq:
+  - how-do-i-set-up-claude-code-remote-control-on-my-phone
 lang: zh
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Claude Code 是否会泄露你的代码？
 
-**Claude Code 会将你的代码发送到 Anthropic 的服务器进行分析和处理**。任何 Claude Code 读取的文件都会完整地传输到服务器，包括文件名、目录结构和对话内容。这意味着你的代码安全取决于如何使用这个工具。
+**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 会将你的代码发送到 Anthropic 的服务器进行分析和处理**。任何 Claude Code 读取的文件都会完整地传输到服务器，包括文件名、目录结构和对话内容。这意味着你的代码安全取决于如何使用这个工具。
 
 ## 背景信息
 

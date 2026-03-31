@@ -1,17 +1,20 @@
 ---
-title: "如何创建 MCP Server：从零开始的完整指南"
+title: 如何创建 MCP Server：从零开始的完整指南
 slug: create-an-mcp-server
-description: "MCP Server 是连接 AI 模型与外部工具的标准接口。本文讲解 MCP 架构原理与基本实现方式。"
+description: MCP Server 是连接 AI 模型与外部工具的标准接口。本文讲解 MCP 架构原理与基本实现方式。
 lang: zh
 category: tools
-related_glossary: [agentic-coding]
-related_blog: [claude-code-is-not-a-coding-tool, key-benefits-and-features]
-date: 2026-03-30
+related_glossary:
+  - agentic-coding
+related_blog:
+  - claude-code-is-not-a-coding-tool
+  - key-benefits-and-features
+date: 2026-03-30T00:00:00.000Z
 ---
 
 # 如何创建 MCP Server：从零开始的完整指南
 
-**Model Context Protocol（MCP）** 是 Anthropic 于 2024 年 11 月发布的开源标准，专门解决 AI 模型与外部数据源、工具之间的集成问题。如果你想让 Claude、GPT-4 或其他大语言模型访问你的数据库、API 或自定义工具，创建一个 MCP Server 是目前最标准化的做法。
+**[Model Context Protocol](/zh/glossary/model-context-protocol)（[MCP](/zh/blog/claude-code-seven-programmable-layers)）** 是 Anthropic 于 2024 年 11 月发布的开源标准，专门解决 AI 模型与外部数据源、工具之间的集成问题。如果你想让 Claude、GPT-4 或其他大语言模型访问你的数据库、API 或自定义工具，创建一个 [MCP Server](/zh/blog/google-colab-mcp-server-cloud-gpu-ai-agents) 是目前最标准化的做法。
 
 ## MCP 解决了什么问题
 
@@ -19,7 +22,7 @@ date: 2026-03-30
 
 这就是为什么它被称为"AI 的 USB-C 接口"——标准化之后，任何符合规范的 AI 都能直接使用任何符合规范的工具，不需要额外的胶水代码。
 
-截至 2026 年初，OpenAI、Google DeepMind、Microsoft、Apple 均已接入 MCP，月 SDK 下载量超过 9700 万次。这个增长速度说明生态已经成型，现在是学习创建 MCP Server 的好时机。
+截至 2026 年初，OpenAI、[Google DeepMind](/zh/blog/gemini-3-1-pro-complex-tasks)、Microsoft、[Apple](/zh/glossary/apple) 均已接入 MCP，月 SDK 下载量超过 9700 万次。这个增长速度说明生态已经成型，现在是学习创建 MCP Server 的好时机。
 
 ## MCP 的技术架构
 

@@ -1,14 +1,21 @@
 ---
-title: "Codex vs Devin: Which AI Coding Agent Fits Your Team?"
+title: 'Codex vs Devin: Which AI Coding Agent Fits Your Team?'
 slug: codex-vs-devin
-description: "Comparing Codex and Devin across features, workflows, and use cases for AI-powered software development."
+description: >-
+  Comparing Codex and Devin across features, workflows, and use cases for
+  AI-powered software development.
 item_a: Codex
 item_b: Devin
 category: tools
-related_glossary: [codex, agentic, agent-teams]
-related_blog: [codex-complete-guide]
+related_glossary:
+  - codex
+  - agentic
+  - agent-teams
+related_blog:
+  - codex-complete-guide
 lang: en
-related_topics: [codex]
+related_topics:
+  - codex
 ---
 
 # Codex vs Devin: Which AI Coding Agent Fits Your Team?
@@ -17,18 +24,18 @@ related_topics: [codex]
 
 ## Feature Comparison
 
-| Feature | Codex | Devin |
+| Feature | [Codex](/faq/codex) | [Devin](/glossary/devin) |
 |---------|-------|-------|
 | **Approach** | Multi-surface coding agent (app, CLI, IDE, web) | Autonomous AI software engineer |
 | **Interface** | App, IDE extension, CLI, web | Web-based editor, shell, and browser |
 | **Task assignment** | Direct prompts, slash commands | Slack/Teams @mention, Linear/Jira tickets |
-| **Integrations** | GitHub, Slack, Linear, MCP servers | GitHub, Slack, Teams, Linear, Jira, MCP servers |
+| **Integrations** | GitHub, Slack, Linear, [MCP](/glossary/mcp) servers | GitHub, Slack, Teams, Linear, Jira, MCP servers |
 | **Subagents** | Native subagent spawning for parallel tasks | Parallel task execution (e.g., "army of Devins") |
-| **Configuration** | AGENTS.md, config files, Skills | Learns from codebase, supports fine-tuning |
+| **Configuration** | AGENTS.md, config files, Skills | Learns from codebase, supports [fine-tuning](/glossary/fine-tuning) |
 | **Code review** | Analyzes for bugs, logic errors, edge cases | Creates PRs, responds to PR comments, reviews PRs |
 | **Sandboxing** | Built-in sandboxed environments | Runs in isolated cloud environments |
 | **Mobile** | Not documented | Natural language coding on mobile |
-| **Pricing** | Included in ChatGPT Plus/Pro/Business/Edu/Enterprise | Enterprise tier available; per-seat pricing not publicly documented |
+| **Pricing** | Included in [ChatGPT](/glossary/chatgpt) Plus/Pro/Business/Edu/Enterprise | Enterprise tier available; per-seat pricing not publicly documented |
 
 ## When to Use Codex
 

@@ -1,21 +1,26 @@
 ---
-title: "Claude Code 不是一个编程工具"
+title: Claude Code 不是一个编程工具
 slug: claude-code-is-not-a-coding-tool
-description: "Claude Code 被归类为 AI 编程助手，但这个标签严重低估了它。它正在成为一种通用自动化接口。"
+description: Claude Code 被归类为 AI 编程助手，但这个标签严重低估了它。它正在成为一种通用自动化接口。
 lang: zh
 category: tools
-related_glossary: [agentic-coding]
-related_blog: [integrate-claude-code-into-your-development-workflow, key-benefits-and-features]
-related_compare: [claude-code-vs-cursor]
-related_faq: [claude-code-pricing]
-date: 2026-03-27
+related_glossary:
+  - agentic-coding
+related_blog:
+  - integrate-claude-code-into-your-development-workflow
+  - key-benefits-and-features
+related_compare:
+  - claude-code-vs-cursor
+related_faq:
+  - claude-code-pricing
+date: 2026-03-27T00:00:00.000Z
 ---
 
 # Claude Code 不是一个编程工具
 
 把 **[Claude Code](/glossary/agentic-coding)** 叫做"AI 编程助手"，就像把互联网叫做"发邮件的工具"——技术上没错，但完全误解了它的本质。
 
-2026 年初，一个越来越清晰的共识正在工程师圈子里形成：Claude Code 不是更快的代码补全，不是更聪明的 Copilot，它是一个**通用自动化运行时**。
+2026 年初，一个越来越清晰的共识正在工程师圈子里形成：[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 不是更快的代码补全，不是更聪明的 [Copilot](/zh/glossary/copilot)，它是一个**通用自动化运行时**。
 
 ## 编程只是入口，不是终点
 
@@ -54,7 +59,7 @@ date: 2026-03-27
 2. 审查 AI 的执行计划
 3. 验证结果是否符合预期
 
-[`CLAUDE.md` 和 `SKILL.md`](/blog/integrate-claude-code-into-your-development-workflow) 体系正是这种转变的产物——你不再反复告诉 AI 怎么做，而是一次性把项目规范、风格要求、质量门槛写清楚，它自动遵守。
+[`[CLAUDE.md](/zh/blog/claude-code-memory)` 和 `SKILL.md`](/blog/integrate-claude-code-into-your-development-workflow) 体系正是这种转变的产物——你不再反复告诉 AI 怎么做，而是一次性把项目规范、风格要求、质量门槛写清楚，它自动遵守。
 
 ## 对"非开发者"意味着什么
 
@@ -64,11 +69,11 @@ date: 2026-03-27
 
 技术门槛不再是"会不会写代码"，而是**会不会清晰地描述你想要什么**。
 
-这和 [Claude Code vs Cursor](/compare/claude-code-vs-cursor) 的本质区别也在这里：Cursor 是 IDE 增强，目标用户永远是开发者；Claude Code 的终态是知识工作的通用执行环境。
+这和 [Claude Code vs Cursor](/compare/claude-code-vs-[cursor](/zh/glossary/cursor)) 的本质区别也在这里：Cursor 是 IDE 增强，目标用户永远是开发者；Claude Code 的终态是知识工作的通用执行环境。
 
 ## 现在应该怎么做
 
-如果你还在把 Claude Code 当 GitHub Copilot 用，你可能只用到了 10% 的能力。几个值得尝试的方向：
+如果你还在把 Claude Code 当 [GitHub Copilot](/zh/glossary/github-copilot) 用，你可能只用到了 10% 的能力。几个值得尝试的方向：
 
 - **把重复性工作流交给它**：任何你每周要做超过一次的多步骤任务，都值得尝试让它自动化
 - **写好 `CLAUDE.md`**：把你的项目规范、质量要求写进去，减少每次重复说明的成本

@@ -1,12 +1,18 @@
 ---
-title: "Reinforcement Learning — AI Glossary"
+title: Reinforcement Learning — AI Glossary
 slug: reinforcement-learning
-description: "What is reinforcement learning? A training paradigm where AI agents learn optimal behavior through trial-and-error interactions with an environment."
+description: >-
+  What is reinforcement learning? A training paradigm where AI agents learn
+  optimal behavior through trial-and-error interactions with an environment.
 term: reinforcement-learning
-display_term: "Reinforcement Learning"
+display_term: Reinforcement Learning
 category: techniques
-related_glossary: [fine-tuning, google-deepmind, agentic-coding]
-related_blog: [gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison]
+related_glossary:
+  - fine-tuning
+  - google-deepmind
+  - agentic-coding
+related_blog:
+  - gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison
 related_compare: []
 lang: en
 ---
@@ -17,7 +23,7 @@ lang: en
 
 ## Why Reinforcement Learning Matters
 
-RL is the technique behind some of AI's most visible breakthroughs. [Google DeepMind's](/glossary/google-deepmind) AlphaGo used RL to defeat the world Go champion. More recently, **reinforcement learning from human feedback** (RLHF) became the standard method for aligning large language models — including ChatGPT and Claude — with human preferences, turning raw text predictors into useful assistants.
+RL is the technique behind some of AI's most visible breakthroughs. [Google [DeepMind](/glossary/deepmind)'s](/glossary/google-deepmind) AlphaGo used RL to defeat the world Go champion. More recently, **reinforcement learning from human feedback** ([RLHF](/glossary/rlhf)) became the standard method for aligning [large language models](/blog/gemini-3-1-pro-complex-tasks) — including [ChatGPT](/glossary/chatgpt) and Claude — with human preferences, turning raw text predictors into useful assistants.
 
 Beyond language models, RL powers robotics control, autonomous driving, game-playing agents, and resource optimization systems. Its ability to handle environments with delayed rewards and incomplete information makes it applicable where supervised approaches fall short. Our [model comparison coverage](/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison) explores how RLHF differences affect reasoning quality across frontier models.
 

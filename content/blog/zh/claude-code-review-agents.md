@@ -1,23 +1,32 @@
 ---
-title: "Claude Code 代码审查功能详解：多 Agent 协作的 PR Review 新范式"
-date: 2026-03-11
+title: Claude Code 代码审查功能详解：多 Agent 协作的 PR Review 新范式
+date: 2026-03-11T00:00:00.000Z
 slug: claude-code-review-agents
-description: "Claude Code 推出多 Agent 代码审查功能，自动对每个 PR 进行深度 Review。Anthropic 工程师代码产出增长 200%，审查成为瓶颈后内部先行打造的解决方案。"
-keywords: ["Claude Code review", "AI 代码审查", "Claude Code agents", "PR review"]
+description: >-
+  Claude Code 推出多 Agent 代码审查功能，自动对每个 PR 进行深度 Review。Anthropic 工程师代码产出增长
+  200%，审查成为瓶颈后内部先行打造的解决方案。
+keywords:
+  - Claude Code review
+  - AI 代码审查
+  - Claude Code agents
+  - PR review
 category: DEV
-related_newsletter: 2026-03-11
-related_glossary: [claude-code, code-review]
+related_newsletter: 2026-03-11T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - code-review
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: zh
 video_ready: true
-video_hook: "Anthropic 工程师产出涨了 200%，瓶颈不是写代码，是 Review"
+video_hook: Anthropic 工程师产出涨了 200%，瓶颈不是写代码，是 Review
 video_status: none
 ---
 
 # Claude Code 代码审查功能详解：多 Agent 协作的 PR Review 新范式
 
-**Claude Code** 上线了原生代码审查功能——一组 Agent 协同工作，对每个 PR 进行深度 Review。这不是实验性功能，而是 Anthropic 内部先用了几周、验证有效后才开放的工具。背景很直接：今年 Anthropic 工程师的代码产出增长了 200%，Review 成了最大瓶颈。当 AI 帮你写代码的速度远超人类审查的速度，审查环节本身就需要 AI 介入。
+**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 上线了原生代码审查功能——一组 Agent 协同工作，对每个 PR 进行深度 Review。这不是实验性功能，而是 Anthropic 内部先用了几周、验证有效后才开放的工具。背景很直接：今年 Anthropic 工程师的代码产出增长了 200%，Review 成了最大瓶颈。当 AI 帮你写代码的速度远超人类审查的速度，审查环节本身就需要 AI 介入。
 
 ## 发生了什么
 
@@ -59,9 +68,9 @@ graph TD
 
 **多 Agent 并行架构**：每个 PR 触发一组 Agent，分别负责不同审查维度。这和 Claude Code 最近推出的 `/batch` 技能理念一致——把大任务拆成多个并行子任务，各自独立执行后汇总。
 
-**项目上下文感知**：通过 CLAUDE.md 和 Skills 系统，Review Agent 能读取项目级别的编码规范、测试要求和架构约束。这意味着它不是通用的"这段代码看起来不对"，而是"这段代码违反了你们项目的 X 规范"。
+**项目上下文感知**：通过 [CLAUDE.md](/zh/blog/claude-code-memory) 和 Skills 系统，Review Agent 能读取项目级别的编码规范、测试要求和架构约束。这意味着它不是通用的"这段代码看起来不对"，而是"这段代码违反了你们项目的 X 规范"。
 
-**与 HTTP Hooks 集成**：近期上线的 [HTTP Hooks](https://x.com/bcherny/status/2029339111212126458) 功能让 Claude Code 可以安全地与外部服务交互。Code Review 功能很可能通过 Hooks 接入 GitHub/GitLab 的 PR 事件，实现自动触发。
+**与 HTTP [Hooks](/zh/blog/claude-code-seven-programmable-layers) 集成**：近期上线的 [HTTP Hooks](https://x.com/bcherny/status/2029339111212126458) 功能让 Claude Code 可以安全地与外部服务交互。Code Review 功能很可能通过 Hooks 接入 GitHub/GitLab 的 PR 事件，实现自动触发。
 
 需要注意的局限性：
 

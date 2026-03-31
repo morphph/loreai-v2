@@ -1,11 +1,14 @@
 ---
-title: "GPT-5.4 — AI 术语表"
+title: GPT-5.4 — AI 术语表
 slug: gpt-54
-description: "什么是 GPT-5.4？OpenAI 最新一代大语言模型，GPT 系列的迭代升级版本。"
+description: 什么是 GPT-5.4？OpenAI 最新一代大语言模型，GPT 系列的迭代升级版本。
 term: gpt-54
-display_term: "GPT-5.4"
+display_term: GPT-5.4
 category: models
-related_glossary: [gpt, fine-tuning, cursor]
+related_glossary:
+  - gpt
+  - fine-tuning
+  - cursor
 related_blog: []
 related_compare: []
 lang: zh
@@ -13,11 +16,11 @@ lang: zh
 
 # GPT-5.4 — AI 术语表
 
-**GPT-5.4** 是 OpenAI 在 GPT 系列基础上推出的新一代大语言模型，属于 [GPT](/glossary/gpt) 家族的最新迭代。该模型在推理能力、多模态理解和指令跟随等方面相较前代有所提升，延续了 OpenAI 通过持续迭代提高模型综合能力的路线。
+**[GPT-5.4](/zh/topics/gpt)** 是 OpenAI 在 GPT 系列基础上推出的新一代大语言模型，属于 [GPT](/glossary/gpt) 家族的最新迭代。该模型在推理能力、多模态理解和指令跟随等方面相较前代有所提升，延续了 OpenAI 通过持续迭代提高模型综合能力的路线。
 
 ## 为什么 GPT-5.4 值得关注
 
-GPT 系列是目前全球用户量最大的大语言模型家族之一，每一次版本更新都会直接影响数百万开发者和终端用户的工作流。GPT-5.4 的发布意味着 ChatGPT、API 调用以及依赖 OpenAI 模型的第三方工具（如 [Cursor](/glossary/cursor)）都可能获得能力升级。对于选择 AI 基础模型的技术团队来说，了解 GPT-5.4 相对于竞品（Claude、Gemini 等）的定位至关重要。
+GPT 系列是目前全球用户量最大的大语言模型家族之一，每一次版本更新都会直接影响数百万开发者和终端用户的工作流。GPT-5.4 的发布意味着 [ChatGPT](/zh/glossary/chatgpt)、API 调用以及依赖 OpenAI 模型的第三方工具（如 [Cursor](/glossary/cursor)）都可能获得能力升级。对于选择 AI 基础模型的技术团队来说，了解 GPT-5.4 相对于竞品（Claude、Gemini 等）的定位至关重要。
 
 ## GPT-5.4 的技术要点
 

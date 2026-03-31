@@ -1,15 +1,17 @@
 ---
-title: "OpenAI Codex for Open Source：战略慈善还是市场攻势？"
+title: OpenAI Codex for Open Source：战略慈善还是市场攻势？
 slug: codex-for-open-source
-description: "OpenAI 于 2026 年 3 月推出 Codex for Open Source 计划，为开源维护者提供免费 ChatGPT Pro 和 API 额度，直接对标 Anthropic 的同类计划。"
+description: >-
+  OpenAI 于 2026 年 3 月推出 Codex for Open Source 计划，为开源维护者提供免费 ChatGPT Pro 和 API
+  额度，直接对标 Anthropic 的同类计划。
 category: tools
 lang: zh
-date: 2026-03-23
+date: 2026-03-23T00:00:00.000Z
 ---
 
 # OpenAI Codex for Open Source：战略慈善还是市场攻势？
 
-2026 年 3 月，OpenAI 正式推出 **Codex for Open Source** 计划——向开源项目维护者免费开放 ChatGPT Pro 订阅、API 额度以及 Codex Security 工具。时机不偏不倚：Anthropic 的"Claude for Open Source"计划刚刚站稳脚跟，OpenAI 随即跟进，两家头部 AI 公司同时押注开源生态，背后的逻辑值得细看。
+2026 年 3 月，OpenAI 正式推出 **[Codex](/zh/blog/codex-complete-guide) for Open Source** 计划——向开源项目维护者免费开放 [ChatGPT](/zh/glossary/chatgpt) Pro 订阅、API 额度以及 Codex Security 工具。时机不偏不倚：Anthropic 的"Claude for Open Source"计划刚刚站稳脚跟，OpenAI 随即跟进，两家头部 AI 公司同时押注开源生态，背后的逻辑值得细看。
 
 ## 计划内容：给维护者的"工具包"
 
@@ -25,9 +27,9 @@ date: 2026-03-23
 
 Codex for Open Source 计划落地的背景，是整个 AI 编码工具市场的架构性转变——从内联代码补全转向自主多步骤 Agent 工作流。
 
-OpenAI 在这一转变中的技术支柱是 **Codex App Server**，采用双向 JSON-RPC 协议，以及支持原生上下文压缩、computer-use 能力和延迟工具搜索的 **GPT-5.4** 模型。这套组合让 AI 编码工具从"下一行建议"升级为"规划并执行跨文件任务"。
+OpenAI 在这一转变中的技术支柱是 **Codex App Server**，采用双向 JSON-RPC 协议，以及支持原生上下文压缩、computer-use 能力和延迟工具搜索的 **[GPT-5.4](/zh/glossary/gpt-54)** 模型。这套组合让 AI 编码工具从"下一行建议"升级为"规划并执行跨文件任务"。
 
-类似的技术路径也体现在竞品工具中。Claude Code 的 hooks 系统 和 [agentic coding](/glossary/agentic-coding) 模式代表了同一演进方向：AI 不再只是编辑器里的助手，而是能够读取代码库、执行命令、提交代码的自主 Agent。
+类似的技术路径也体现在竞品工具中。[Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 的 [hooks](/zh/blog/claude-code-seven-programmable-layers) 系统 和 [agentic coding](/glossary/agentic-coding) 模式代表了同一演进方向：AI 不再只是编辑器里的助手，而是能够读取代码库、执行命令、提交代码的自主 Agent。
 
 ## 为什么是开源？
 

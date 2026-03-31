@@ -1,15 +1,23 @@
 ---
-title: "Agent Teams — AI Glossary"
+title: Agent Teams — AI Glossary
 slug: agent-teams
-description: "What are agent teams? Multi-agent architectures where specialized AI agents collaborate on complex tasks."
+description: >-
+  What are agent teams? Multi-agent architectures where specialized AI agents
+  collaborate on complex tasks.
 term: agent-teams
-display_term: "Agent Teams"
+display_term: Agent Teams
 category: concepts
-related_glossary: [agentic, claude-code, claude]
-related_blog: [claude-code-agent-teams, claude-code-extension-stack-skills-hooks-agents-mcp]
+related_glossary:
+  - agentic
+  - claude-code
+  - claude
+related_blog:
+  - claude-code-agent-teams
+  - claude-code-extension-stack-skills-hooks-agents-mcp
 related_compare: []
 lang: en
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 ---
 
 # Agent Teams — AI Glossary
@@ -31,13 +39,13 @@ Key mechanisms:
 - **Task decomposition**: The coordinator breaks work into independent units that can run concurrently
 - **Isolated context**: Each sub-agent gets its own context window, preventing context pollution from unrelated subtasks
 - **Result aggregation**: The coordinator merges sub-agent outputs, resolving conflicts and ensuring consistency
-- **Skill specialization**: Sub-agents can be configured with different [instructions and capabilities](/blog/claude-code-extension-stack-skills-hooks-agents-mcp), optimizing each for its specific role
+- **Skill specialization**: Sub-agents can be configured with different [instructions and capabilities](/blog/claude-code-extension-stack-skills-hooks-agents-[mcp](/glossary/mcp)), optimizing each for its specific role
 
 ## Related Terms
 
 - **[Agentic](/glossary/agentic)**: The broader paradigm of AI systems that autonomously plan and execute multi-step tasks — agent teams extend this to multi-agent collaboration
 - **[Claude Code](/glossary/claude-code)**: Anthropic's terminal-based coding agent that supports native agent team spawning for parallel task execution
-- **[Claude](/glossary/claude)**: Anthropic's family of large language models that powers individual agents within a team
+- **[Claude](/glossary/claude)**: Anthropic's family of [large language models](/blog/gemini-3-1-pro-complex-tasks) that powers individual agents within a team
 
 ---
 

@@ -1,12 +1,18 @@
 ---
-title: "Gemini — AI Glossary"
+title: Gemini — AI Glossary
 slug: gemini
-description: "What is Gemini? Google's multimodal AI model family powering search, coding, and enterprise tools."
+description: >-
+  What is Gemini? Google's multimodal AI model family powering search, coding,
+  and enterprise tools.
 term: gemini
-display_term: "Gemini"
+display_term: Gemini
 category: models
-related_glossary: [google, claude, anthropic]
-related_blog: [anthropic-cowork-claude-desktop-agent]
+related_glossary:
+  - google
+  - claude
+  - anthropic
+related_blog:
+  - anthropic-cowork-claude-desktop-agent
 related_compare: []
 lang: en
 ---
@@ -27,14 +33,14 @@ Gemini uses a **transformer-based architecture** trained natively on multimodal 
 
 - **Mixture of Experts (MoE)**: Gemini Pro and Ultra variants use MoE architectures, activating only a subset of parameters per query to improve efficiency
 - **Native multimodality**: Text, images, audio, and video are processed through shared representations, enabling cross-modal reasoning without separate encoding pipelines
-- **Long context**: Supports context windows up to 1M tokens, enabling ingestion of entire codebases or lengthy documents in a single pass
-- **Tool use**: Supports function calling, grounding with Google Search, and code execution — similar to the agentic capabilities seen in tools like [Claude Code](/glossary/claude-code)
+- **[Long context](/blog/claude-1-million-context-window-ga)**: Supports context windows up to 1M tokens, enabling ingestion of entire codebases or lengthy documents in a single pass
+- **[Tool use](/glossary/tool-use)**: Supports function calling, grounding with Google Search, and code execution — similar to the [agentic](/glossary/agentic) capabilities seen in tools like [Claude Code](/glossary/claude-code)
 
 ## Related Terms
 
 - **[Google](/glossary/google)**: The parent company developing and deploying Gemini across its product ecosystem
 - **[Claude](/glossary/claude)**: Anthropic's competing model family, focused on safety and extended thinking capabilities
-- **[Anthropic](/glossary/anthropic)**: AI safety company whose Claude models are Gemini's primary competitor in the enterprise API market
+- **[Anthropic](/glossary/anthropic)**: [AI safety](/glossary/ai-safety) company whose Claude models are Gemini's primary competitor in the enterprise API market
 
 ---
 

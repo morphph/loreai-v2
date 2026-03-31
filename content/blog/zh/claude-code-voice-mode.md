@@ -1,23 +1,32 @@
 ---
-title: "Claude Code 语音模式来了：用嘴写代码的时代正式开启"
-date: 2026-03-07
+title: Claude Code 语音模式来了：用嘴写代码的时代正式开启
+date: 2026-03-07T00:00:00.000Z
 slug: claude-code-voice-mode
-description: "Claude Code 正式推出语音模式，开发者可以通过语音直接与 AI 编程助手交互。结合近期上线的 Remote Control 和 HTTP Hooks，Claude Code 正在重新定义 AI 辅助开发的交互方式。"
-keywords: ["Claude Code voice mode", "Claude Code 语音模式", "AI 编程助手", "Claude Code 新功能"]
+description: >-
+  Claude Code 正式推出语音模式，开发者可以通过语音直接与 AI 编程助手交互。结合近期上线的 Remote Control 和 HTTP
+  Hooks，Claude Code 正在重新定义 AI 辅助开发的交互方式。
+keywords:
+  - Claude Code voice mode
+  - Claude Code 语音模式
+  - AI 编程助手
+  - Claude Code 新功能
 category: DEV
-related_newsletter: 2026-03-07
-related_glossary: [claude-code, mcp]
+related_newsletter: 2026-03-07T00:00:00.000Z
+related_glossary:
+  - claude-code
+  - mcp
 related_compare: []
-related_topics: [claude-code]
+related_topics:
+  - claude-code
 lang: zh
 video_ready: true
-video_hook: "不用打字了，对着 Claude Code 说话就能写代码"
+video_hook: 不用打字了，对着 Claude Code 说话就能写代码
 video_status: none
 ---
 
 # Claude Code 语音模式来了：用嘴写代码的时代正式开启
 
-**Claude Code** 开始向用户推送语音模式（Voice Mode）。这意味着你可以直接对着终端说话来描述需求、调试问题、重构代码，而不用一行行敲提示词。结合最近密集上线的 Remote Control、HTTP Hooks 和新 Skills，Anthropic 正在把 Claude Code 从一个命令行工具打造成一个全方位的 AI 工程协作平台。这篇文章帮你搞清楚语音模式怎么用、适合什么场景，以及它在 Claude Code 产品路线图中的位置。
+**[Claude Code](/zh/blog/9-principles-writing-claude-code-skills)** 开始向用户推送语音模式（Voice Mode）。这意味着你可以直接对着终端说话来描述需求、调试问题、重构代码，而不用一行行敲提示词。结合最近密集上线的 Remote Control、HTTP [Hooks](/zh/blog/claude-code-seven-programmable-layers) 和新 Skills，Anthropic 正在把 Claude Code 从一个命令行工具打造成一个全方位的 AI 工程协作平台。这篇文章帮你搞清楚语音模式怎么用、适合什么场景，以及它在 Claude Code 产品路线图中的位置。
 
 ## 发生了什么
 
@@ -27,10 +36,10 @@ Anthropic 工程师 Boris Cherny [在 X 上确认](https://x.com/bcherny/status/
 
 这次更新发生在 Claude Code 产品密集迭代期。过去一周内，Anthropic 还推出了：
 
-- **Claude Code Remote**：Pro 用户可以从 macOS 或 iOS 的 Claude 应用远程操控服务器上的开发环境
+- **[Claude Code Remote](/zh/blog/claude-code-remote-control-mobile)**：Pro 用户可以从 macOS 或 iOS 的 Claude 应用远程操控服务器上的开发环境
 - **HTTP Hooks**：比之前的命令行 Hooks 更安全、更易用的事件钩子机制
 - **/simplify** 和 **/batch** 两个新内置 Skills
-- **Cowork 定时任务**：Claude 可以按计划自动执行重复性工作
+- **[Cowork](/zh/blog/anthropic-cowork-claude-desktop-agent) 定时任务**：Claude 可以按计划自动执行重复性工作
 
 这套组合拳的意图很明显：Claude Code 不再只是一个"问答式"编程工具，而是一个可以随时随地、用任何方式交互的开发伙伴。
 
@@ -42,7 +51,7 @@ Anthropic 工程师 Boris Cherny [在 X 上确认](https://x.com/bcherny/status/
 
 更关键的场景是调试。你盯着报错信息，脑子里同时在跑三条假设 — 这时候最自然的交互方式不是打字，而是说"帮我查一下这个 `TypeError` 是不是因为上游接口返回了 `null`，看看调用链上哪一步没做空值检查"。
 
-从竞品格局看，[Cursor](/glossary/cursor) 目前没有语音交互能力，GitHub Copilot 也没有。语音模式加上 Remote Control，意味着你可以在手机上用语音指挥服务器上的 Claude Code 工作 — 这个体验是目前其他 AI 编程工具做不到的。
+从竞品格局看，[Cursor](/glossary/cursor) 目前没有语音交互能力，[GitHub Copilot](/zh/glossary/github-copilot) 也没有。语音模式加上 Remote Control，意味着你可以在手机上用语音指挥服务器上的 Claude Code 工作 — 这个体验是目前其他 AI 编程工具做不到的。
 
 结合 [SemiAnalysis 的数据](https://x.com/SemiAnalysis_/)，目前 GitHub 公开提交中有 4% 来自 Claude Code。如果语音模式能进一步降低使用门槛，这个数字还会继续涨。Ramp、Shopify、Spotify 等公司已经在内部大规模使用 Claude Code，语音模式对这些团队的工程效率提升值得关注。
 
