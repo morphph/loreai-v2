@@ -113,6 +113,7 @@ export const VOLUME_PER_GROUP_KEYWORD = 8;
 export const JUNK_KEYWORD_PATTERNS: RegExp[] = [
   /^#/,                                         // hashtag prefix
   /^\d+\.\d+\s/,                               // doc section header "4.1 create..."
+  /^\d+\s*·\s/,                                // doc section "4 · file structure"
   /trusted by.*(more than\s*)?\d/i,            // ad copy metrics
   /\d{1,3},\d{3}.*businesses/i,               // "60,000 businesses"
   /watch\s+(product\s+)?demo/i,                // CTA
@@ -124,6 +125,8 @@ export const JUNK_KEYWORD_PATTERNS: RegExp[] = [
   // Ancient manuscripts (wrong "codex")
   /\b(vaticanus|sinaiticus|gigas|aztec|christianity|manuscript)\b/i,
   /^codex (books|definition)$/i,
+  /\bhistorical evolution\b/i,
+  /\bcodex vs book\b/i,
   // Other products entirely
   /\b(outlook 365?|outlook)\b.*\b(task|recurring|schedule)\b/i,
   /\brecurring task.*(planner|project|outlook)\b/i,
@@ -139,10 +142,21 @@ export const JUNK_KEYWORD_PATTERNS: RegExp[] = [
   /\bdelete login gov\b/i,
   /\bjira cloud\b/i,
   /\b6 figure\b/i,
+  /\bvirtual machines? \(vms?\)/i,
   // Scraped article titles / press release headlines
   /^openai (launches|introduces)\b/i,
   /\bprinting house ltd\b/i,
   /\bcomprendiendo las directrices\b/i,        // Spanish article title
+  /^written by\b/i,                            // author byline
+  /^recommended by linkedin\b/i,               // CTA
+  /^confirm your institution/i,                // CTA
+  /^members only pricing$/i,                   // paywall CTA
+  // Scraped doc section headings / navigation labels
+  /^(level \d+:|for skill authors|any platform|table of recipes|running the app locally)$/i,
+  /^(start a session|about interactive mode|configuration file structure)$/i,
+  /^what does this mean for admins$/i,
+  /^the babysitting tax$/i,                    // article title
+  /^stay in the loop$/i,                       // CTA/article title
 ];
 
 export const NON_ENGLISH_INDICATORS: RegExp[] = [
