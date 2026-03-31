@@ -1,0 +1,228 @@
+{
+  "date": "2026-03-31",
+  "headline_hook": "Claude Code Gets Eyes and Hands While OpenAI Ships a Plugin to Live Inside It",
+  "preview_topics": [
+    "Claude Code's computer use breakthrough",
+    "the AI tool interoperability era",
+    "why the enterprise replacement window is wide open"
+  ],
+  "pick_of_the_day": {
+    "item_id": 15981,
+    "thesis": "OpenAI shipping a plugin that runs inside Anthropic's CLI isn't generosity — it's a bet that the default AI workspace matters more than the model layer, and whoever owns the developer's terminal wins regardless of whose weights run underneath."
+  },
+  "model_literacy": {
+    "concept": "GUI Agents (Computer Use)",
+    "relevance": "Claude Code's computer use launch makes coding agents visual — they can now see screens, click buttons, and verify their own output. Understanding how GUI agents differ from API-only agents (pixel-level perception vs. structured DOM access, action grounding, visual verification loops) is key to knowing when this capability actually helps vs. when it's overhead."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 15619,
+          "title": "Claude Code Can Now See Your Screen, Click Your UI, and Test What It Built",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Coding agents just crossed the visual verification gap — Claude Code can now open apps, click through interfaces, and confirm its own work without you watching",
+          "key_fact": "40K likes in hours; available now on Pro and Max plans as research preview"
+        },
+        {
+          "id": 15618,
+          "title": "Claude Code Auto Mode Ships for Enterprise and API Users",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Multi-step execution without per-action approval turns Claude Code from an assistant into an autonomous agent — for teams that trust the loop",
+          "key_fact": "Available now via --enable-auto-mode flag for Enterprise and API users"
+        },
+        {
+          "id": 15827,
+          "title": "Qwen3.5-9B-Uncensored Is the Local Model Everyone's Downloading",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "An unfiltered 9B model gaining rapid traction for research and creative workloads where safety guardrails get in the way",
+          "key_fact": "2,570 likes — fastest-growing uncensored model on HuggingFace right now"
+        },
+        {
+          "id": 15461,
+          "title": "Mistral Unveils Voxtral TTS, Forge Platform, and Mistral 4 Roadmap",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Europe's only frontier lab drops TTS, a new platform play, and hints at Mistral 4 — signaling they're not ceding any modality to US labs",
+          "key_fact": "Detailed technical interview with Mistral co-founder Guillaume Lample on Latent Space"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 15981,
+          "title": "OpenAI's Codex Now Runs Inside Claude Code as a Plugin",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The walls are coming down: adversarial code reviews, rescue ops, and Codex intelligence — all running inside Anthropic's CLI via a single plugin install",
+          "key_fact": "Install with one command: /plugin marketplace add openai/codex-plugin-cc"
+        },
+        {
+          "id": 16079,
+          "title": "ARC Gives You a Browser Dashboard for Any Local AI Agent",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Start an agent on your workstation, monitor and steer it from your phone — solves the 'agent running while I'm away from my desk' problem",
+          "key_fact": "Open source with native Nous Hermes integration"
+        },
+        {
+          "id": 15363,
+          "title": "Unusual Whales Ships an MCP Server for Live Options and Equities Data",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Live market data — options flow, equities, prediction markets — now streamable to any AI agent via MCP, making financial analysis assistants actually useful",
+          "key_fact": "Covers options, equities, and prediction markets in real time"
+        },
+        {
+          "id": 15252,
+          "title": "Hugging Face Turns arXiv Into Agent-Readable Research Infrastructure",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "hf papers search and read commands turn academic papers into structured data your AI agent can actually parse — essential plumbing for research workflows",
+          "key_fact": "783 likes; search and read commands for agent-native paper retrieval"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 15542,
+          "title": "An Anthropic Engineer's Guide to the Claude Code Features You're Not Using",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "20K likes suggest most developers are using 30% of Claude Code — this insider walkthrough covers the features that change how you work, not just what you can do",
+          "key_fact": "19,827 likes — the most viral Claude Code content ever by an Anthropic engineer"
+        },
+        {
+          "id": 15718,
+          "title": "Perplexity Shares Production Lessons on Voice Agents at Scale",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Context management, audio pipeline architecture, and turn-taking patterns from a team running voice agents in production — not demos",
+          "key_fact": "Built on OpenAI's Realtime API; covers the operational gaps the docs don't mention"
+        },
+        {
+          "id": 16103,
+          "title": "200K Vibe-Coded Projects a Day, Almost None Find Users",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The vibe-coding era has a distribution crisis — 7 concrete strategies including MCP servers as distribution channels and programmatic SEO",
+          "key_fact": "200,000+ new vibe coding projects created daily"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 15173,
+          "title": "Two RCTs Confirm: AI as Tutor Helps Learning, AI as Shortcut Kills It",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Same technology, opposite outcomes — the difference is entirely in prompt design, not capability. Critical finding for anyone deploying AI in education or onboarding",
+          "key_fact": "Tutoring-prompted AI improved learning; unrestricted AI access hurt it"
+        },
+        {
+          "id": 16160,
+          "title": "How AI Is Reshaping Mathematical Reasoning and Human Cognition",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A serious academic treatment of what shifts when machines handle the computation layer — structured analysis, not hype",
+          "key_fact": "190 likes, 74 RTs on arXiv — unusually high engagement for a math-philosophy paper"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 15677,
+          "title": "Anthropic Acknowledges Claude Code Users Are Hitting Limits Faster Than Expected",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Computer use + auto mode + viral adoption = demand spike. If your workflow depends on Claude Code, plan for throttling this week",
+          "key_fact": "8,237 likes on the acknowledgment post; Anthropic says they're 'actively investigating'"
+        },
+        {
+          "id": 15854,
+          "title": "Redpoint Data: 46% of Enterprise CIOs Would Replace Incumbents With AI-Native Startups",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The enterprise replacement window isn't theoretical anymore — nearly half of CIOs are actively open to swapping incumbents for AI-native tools right now",
+          "key_fact": "46% of enterprise CIOs open to AI-native startups over incumbents"
+        },
+        {
+          "id": 16161,
+          "title": "The Engineering Career Ladder Is Missing Its Middle Rungs",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "When AI handles mid-level tasks, juniors can't learn by doing and seniors face a different skill profile — the traditional progression path breaks",
+          "key_fact": "The tasks that used to bridge junior-to-senior are exactly what AI automates first"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 15817,
+          "title": "The Definitive Local Model Guide: What to Run on 8GB Through 64GB Hardware",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A practical hardware-to-model mapping from HuggingFace — including Qwen3-coder for Claude Code and smaller models for constrained devices",
+          "key_fact": "3,131 likes; covers 64GB, 32GB, 16GB, and 8GB tiers with specific model picks"
+        },
+        {
+          "id": 15853,
+          "title": "Sebastian Raschka's 'Build a Reasoning Model From Scratch' Is Now Complete",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "From the author of 'Build an LLM From Scratch' — the definitive hands-on guide to understanding how chain-of-thought and reasoning actually work under the hood",
+          "key_fact": "All chapters now available in early access; 2,425 likes"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 15903,
+      "title": "Mollick: Why Financial Markets Will Feel Superhuman AI First",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The domain where raw intelligence converts to value fastest",
+      "key_fact": "1,544 likes"
+    },
+    {
+      "id": 16029,
+      "title": "Contrarian Take: MCP Is Dying, Teams Are Reverting to Plain OAuth + APIs",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Auth is broken, servers are unreliable — not everyone sees production-grade MCP results",
+      "key_fact": "528 likes on the provocation"
+    },
+    {
+      "id": 16158,
+      "title": "Learn Claude Code by Doing: Interactive Tutorial Launches",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Hands-on exercises for the week's massive feature drops",
+      "key_fact": "Interactive tutorial at claude.nagdy.me"
+    },
+    {
+      "id": 15421,
+      "title": "Could AI Agents Make Free Software Matter Again?",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "When maintenance costs hit zero, the economics of open-source flip",
+      "key_fact": "73 likes, 53 RTs on Hacker News"
+    }
+  ],
+  "total_items": 22
+}

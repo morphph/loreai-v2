@@ -1,0 +1,236 @@
+{
+  "date": "2026-03-30",
+  "headline_hook": "Karpathy Warns LLMs Argue Too Well While Meta Ships SAM 3.1 and LeCun Cracks World Models",
+  "preview_topics": [
+    "Karpathy's LLM persuasion trap",
+    "Meta's efficient video segmentation",
+    "collapse-proof world models"
+  ],
+  "pick_of_the_day": {
+    "item_id": 15107,
+    "thesis": "Karpathy's 4-hour experiment reveals the core danger of LLM-assisted thinking: these models don't seek truth, they seek coherence — and the better they get at writing, the harder it becomes for humans to distinguish a well-argued position from a correct one. This isn't a safety hypothetical; it's a workflow problem hitting every builder who uses AI for decision-making today."
+  },
+  "model_literacy": {
+    "concept": "Representation Collapse in World Models",
+    "relevance": "LeCun's team claims a formal guarantee against representation collapse — the failure mode where a model's internal representations converge to a single point, losing all useful information. Understanding this concept explains why previous world models failed and why this result, if it holds, is foundational."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 15047,
+          "title": "Meta's SAM 3.1 Makes Real-Time Video Segmentation Accessible",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Object multiplexing brings high-performance video segmentation to smaller hardware — democratizing a capability that previously required serious compute",
+          "key_fact": "Model checkpoint and full codebase released open-source"
+        },
+        {
+          "id": 15245,
+          "title": "Zhipu's GLM-5.1 Enters the Coding Agent Race",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Another frontier-class coding model goes generally available, intensifying the pricing pressure on incumbents",
+          "key_fact": "Now available to all GLM Coding Plan subscribers"
+        },
+        {
+          "id": 15389,
+          "title": "ChromaDB Ships Its Own RAG-Optimized Embedding Model",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The vector DB vendor building the embedding model means tighter integration — and a bet that retrieval quality improves when the store and encoder co-evolve",
+          "key_fact": "context-1 is purpose-built for RAG, not general-purpose embeddings"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 14993,
+          "title": "OpenAI's Voice Agent Books Real Clinic Appointments in Singapore",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Not a demo reel — gpt-realtime-1.5 handles actual patient intake and scheduling, making this the clearest production proof point for real-time voice agents",
+          "key_fact": "Full workflow: natural speech → collect patient details → book appointment"
+        },
+        {
+          "id": 14815,
+          "title": "Claude Code Hooks Get Conditional Filtering",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The new 'if' field lets you scope hooks to specific files, directories, or actions — turning a blunt instrument into a precise automation trigger",
+          "key_fact": "Uses permission rule syntax for filtering conditions"
+        },
+        {
+          "id": 14725,
+          "title": "Simon Willison Launches Pretext for Structured Prompt Composition",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Willison's track record of shipping practical dev tools makes this worth evaluating for anyone managing complex prompt pipelines",
+          "key_fact": "New approach to composing structured prompts programmatically"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 15276,
+          "title": "LeCun's Lab Builds the First Provably Collapse-Proof World Model",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "A formal guarantee against representation collapse would solve the failure mode that has killed every previous world model attempt — this is foundational if it replicates",
+          "key_fact": "Mathematical proof of collapse impossibility, not just empirical evidence"
+        },
+        {
+          "id": 15176,
+          "title": "Study: AI Conversations Push Users Toward the Political Center",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The opposite of social media's polarization effect — and it holds across political orientations, raising questions about whether AI's 'centrism' is a feature or a bias",
+          "key_fact": "Effect observed across political orientations, not just one side"
+        },
+        {
+          "id": 15174,
+          "title": "Victorian-Era LLM Trained on 28,000 19th-Century British Texts",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A modern LLM roleplaying Victorian produces fundamentally different output than one trained exclusively on the era's texts — a clean experiment in how training data shapes model cognition",
+          "key_fact": "28,000 British Library texts from 1837–1899, no modern data contamination"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 15107,
+          "title": "Karpathy Spent 4 Hours Polishing an Argument — Then the LLM Demolished It",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "LLMs optimize for persuasion, not truth — and Karpathy's visceral demonstration should make every builder rethink how they use AI for writing and decision-making",
+          "key_fact": "28.8K likes — the post clearly struck a nerve across the AI community"
+        },
+        {
+          "id": 14814,
+          "title": "Inside Anthropic: What Daily AI Messages Actually Look Like",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A rare glimpse into how the company building Claude uses AI internally — 6.8K likes suggests the industry is hungry for honest accounts of AI-native workflows",
+          "key_fact": "6,856 likes on a peek behind the curtain at Anthropic's internal AI use"
+        },
+        {
+          "id": 14735,
+          "title": "H100 Prices Are Climbing Again — The GPU Squeeze Reverses",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "After months of declining GPU prices, inference demand is outpacing supply additions — if you're planning infrastructure, your cost models may be stale",
+          "key_fact": "Rising inference workloads driving spot price increases after months of decline"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 14950,
+          "title": "The Figma MCP Workflow: Sketch Ugly, Let AI Refine, Then Code",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Inverts the typical design-to-code pipeline — rough sketch → Claude refines in Figma → polished design → code, keeping designers in the loop instead of bypassing them",
+          "key_fact": "Uses Figma MCP + Claude Code as a two-stage design refinement pipeline"
+        },
+        {
+          "id": 15156,
+          "title": "Vibe-Coding SwiftUI Apps Without Xcode",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Simon Willison confirms both Claude Opus 4.6 and GPT-5.4 are competent enough at Swift to build Mac apps from a terminal — the vibe-coding frontier keeps expanding beyond web",
+          "key_fact": "Built working Mac menu bar apps without ever opening Xcode"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 15423,
+          "title": "Miasma: The Tar Pit That Traps AI Scrapers in Infinite Fake Pages",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Generates plausible-looking garbage to waste scraper tokens and pollute training data — the web defense arms race just got a new open-source weapon",
+          "key_fact": "Creates infinite procedurally-generated fake pages that look real to crawlers"
+        },
+        {
+          "id": 15092,
+          "title": "Nous Hermes Agent Gains Real Traction as Self-Hosted Alternative",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "HuggingFace CEO highlighting community adoption signals this is beyond hype — for anyone evaluating open-source agent alternatives to closed APIs",
+          "key_fact": "747 likes with HuggingFace executive endorsement of genuine adoption"
+        },
+        {
+          "id": 15420,
+          "title": "Claude Code Reportedly Runs 'git reset --hard' Every 10 Minutes",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Whether misconfigured hook or actual bug, this is a cautionary tale about AI agents with filesystem access — and a reminder to commit early, commit often",
+          "key_fact": "Bug report claims periodic destructive git commands wiping uncommitted work"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 15010,
+      "title": "Google's Packed Week: Flash Live, Gemini Import, Lyria 3 Pro",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The preference-import feature is the sleeper hit — trivially easy competitor switching",
+      "key_fact": "Gemini can now import preferences from other AI apps"
+    },
+    {
+      "id": 15301,
+      "title": "AbacusAI Shifts 20% of Production to GPT-5.4, Hints at GPT-6 Scale",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Real production adoption signals, not benchmark theater",
+      "key_fact": "20% workload shift to GPT-5.4 starting Monday"
+    },
+    {
+      "id": 14748,
+      "title": "OpenClaw: Open-Source Robotic Manipulation Framework",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "HuggingFace's guide to hardware-in-the-loop training for robot arms",
+      "key_fact": "Full open-source framework for building and training manipulation systems"
+    },
+    {
+      "id": 15095,
+      "title": "HuggingFace CEO Calls for Open Agent Trace Datasets",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The missing training data for autonomous agents — a bottleneck HF wants to solve",
+      "key_fact": "Agent execution traces are the data gap the community hasn't addressed"
+    },
+    {
+      "id": 15354,
+      "title": "claude-howto: Visual Playbook for Advanced Claude Code Workflows",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Community-built guide covering the 80% of Claude Code features most users don't know about",
+      "key_fact": "Covers agents, hooks, skills, MCP servers with copy-paste examples"
+    },
+    {
+      "id": 15422,
+      "title": "AI Facial Recognition Leads to Wrongful Arrest in Tennessee",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Another false-positive identification with direct civil liberties consequences",
+      "key_fact": "Woman arrested for crimes in North Dakota based solely on AI match"
+    }
+  ],
+  "total_items": 23
+}
