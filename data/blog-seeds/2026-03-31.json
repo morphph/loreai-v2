@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Computer use is now in Claude Code.  Claude can open your apps, click through your UI, and test what it built, right from the CLI.  Now in research preview on Pro and Max plans.",
+    "url": "https://x.com/claudeai/status/2038663014098899416",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 43065,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 57.9195,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "We just gave Claude full access to the options, equities, and prediction markets. The Unusual Whales MCP Server plugs into any AI and streams live, structured market data on demand.",
+    "url": "https://x.com/unusual_whales/status/2038255103476396364",
+    "source": "twitter:search:\"MCP\" (implementation OR plugin OR server OR tool) min_faves:10 -crypto",
+    "x_engagement_24h": 340,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 10,
+    "composite_score": 49.102000000000004,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Introducing ARC — Agent Remote Control. Think Claude Code's web viewer, but for any local AI agent. Start a task on your workstation, then monitor and interact from any browser.",
+    "url": "https://x.com/winglian/status/2038680417125957865",
+    "source": "twitter:search:\"AI agent\" (framework OR tool OR SDK) -crypto -web3",
+    "x_engagement_24h": 88,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 12,
+    "composite_score": 48.0264,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Auto mode for Claude Code is now available on the Enterprise plan and for API users.  To try it out, update your install and run claude --enable-auto-mode.",
+    "url": "https://x.com/claudeai/status/2038693742094246032",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 2687,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 45.8061,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @lydiahallie: We're aware people are hitting usage limits in Claude Code way faster than expected. Actively investigating, will share more soon.",
+    "url": "https://x.com/trq212/status/2038686709517611309",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 8642,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 39.5926,
+    "suggested_angle": "news"
+  }
+]
