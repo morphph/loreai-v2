@@ -1,44 +1,32 @@
 ---
-title: "MCP (Model Context Protocol) — AI Glossary"
+title: "Model Context Protocol — AI Glossary"
 slug: model-context-protocol
-description: "What is MCP? An open protocol that connects AI models to external tools, data sources, and services."
+description: "Model Context Protocol (MCP) is an open standard for connecting AI applications to external data sources and tools securely."
 term: model-context-protocol
-display_term: "MCP (Model Context Protocol)"
+display_term: "Model Context Protocol"
 category: frameworks
-related_glossary: [cursor, chatgpt, gpt]
-related_blog: [claude-code-simplify-batch-skills]
-related_compare: []
+related_glossary: [agent-sdk, agentic-coding, ai-safety]
+related_blog: [first-few-days-with-codex-cli]
 lang: en
 ---
 
-# MCP (Model Context Protocol) — AI Glossary
+# Model Context Protocol — AI Glossary
 
-**MCP (Model Context Protocol)** is an open standard developed by Anthropic that defines how AI models connect to external tools, data sources, and services through a unified interface. Instead of building custom integrations for every tool an AI agent needs to access — databases, APIs, file systems, web browsers — MCP provides a single protocol that any compliant client and server can use to communicate. Think of it as USB-C for AI integrations: one standard connector replacing dozens of proprietary ones.
+**Model Context Protocol (MCP)** is an open standard for connecting AI applications to external systems—data sources, tools, and workflows. Introduced by Anthropic in November 2024, MCP provides a universal, standardized way for large language models like Claude and ChatGPT to access real-time information and take actions on external systems, replacing fragmented custom integrations with a single protocol.
 
-## Why MCP Matters
+## Why Model Context Protocol Matters
 
-Before MCP, every AI tool integration required bespoke code. A coding assistant that needed to query a database, read documentation, and post to Slack required three separate integration implementations with different authentication patterns, data formats, and error handling. MCP eliminates this fragmentation.
+MCP solves a fundamental limitation of LLMs: their isolation from live data and external systems. Before MCP, developers built custom connectors for each new data source or AI model—an "N×M" integration problem that didn't scale. With MCP, organizations can expose their data sources once and instantly make them accessible to any MCP-compatible AI application. This enables enterprise chatbots to query multiple databases through a single chat interface, agents to access Google Calendar and Notion autonomously, and AI-powered IDEs like Cursor to generate entire web apps from Figma designs. Early adopters from Block to Apollo report significant time savings on development and integration complexity.
 
-The protocol has gained rapid adoption across the AI tooling ecosystem. [Cursor](/glossary/cursor) and other AI-powered IDEs support MCP servers, letting developers extend their AI assistants with custom capabilities without modifying the underlying application. For teams building internal tools, MCP means writing one server that works with any compliant AI client. Our [guide to Claude Code skills](/blog/claude-code-simplify-batch-skills) covers how MCP servers integrate into practical development workflows.
+## How Model Context Protocol Works
 
-## How MCP Works
-
-MCP uses a client-server architecture over JSON-RPC. An **MCP server** exposes a set of capabilities — called tools, resources, and prompts — that any **MCP client** (like Claude Code or Cursor) can discover and invoke.
-
-Key components:
-
-- **Tools**: Executable functions the AI can call (e.g., `query_database`, `send_message`, `search_docs`)
-- **Resources**: Data the AI can read, similar to GET endpoints (files, database records, API responses)
-- **Prompts**: Reusable prompt templates the server provides to guide AI interactions
-- **Transport**: Supports stdio for local servers and HTTP with Server-Sent Events for remote connections
-
-Servers declare their capabilities on connection. The AI client inspects available tools and decides when to use them based on the user's request — no hardcoded logic required.
+MCP operates on a client-server architecture using JSON-RPC 2.0 messages. The protocol has three core components: the **MCP host** (the AI application or environment like Claude Desktop), the **MCP client** (within the host, translating requests between the LLM and servers), and **MCP servers** (external services exposing data or tools). Communication happens over two transport layers: stdio (local, fast) or SSE/HTTP (remote, real-time). Developers build MCP servers in TypeScript, Python, Java, Go, Rust, and other languages. When an LLM needs external information, it requests it through the MCP client, which locates the relevant server, fetches the data, and returns it in a format the model understands.
 
 ## Related Terms
 
-- **[Cursor](/glossary/cursor)**: AI-powered code editor that supports MCP servers for extending its capabilities beyond code completion
-- **[GPT](/glossary/gpt)**: OpenAI's model family; function calling in GPT models solves a similar problem to MCP but through a proprietary interface
-- **[Fine-tuning](/glossary/fine-tuning)**: An alternative approach to specializing AI behavior — baking knowledge into model weights rather than connecting to external tools at runtime
+- **[Agent SDK](/glossary/agent-sdk)**: Framework for building autonomous AI agents with tool use—MCP extends what agents can do by standardizing external integrations
+- **[Agentic Coding](/glossary/agentic-coding)**: AI systems that autonomously plan and execute multi-step engineering tasks—MCP enables agents to access codebases, databases, and deployment tools
+- **[AI Safety](/glossary/ai-safety)**: Ensuring AI systems behave predictably and securely—MCP's standardized connections reduce custom integration risks
 
 ---
 
