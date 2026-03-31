@@ -50,6 +50,27 @@ const nextConfig: NextConfig = {
       { source: '/en/topics/:slug', destination: '/topics/:slug', permanent: true },
       // Legacy feed URL
       { source: '/rss.xml', destination: '/feed.xml', permanent: true },
+
+      // ── Sunset topic pages (301) — flagship authority cleanup 2026-03-31 ──
+      // Duplicates → canonical kept page
+      { source: '/topics/model-context-protocol', destination: '/topics/mcp', permanent: true },
+      { source: '/zh/topics/model-context-protocol', destination: '/zh/topics/mcp', permanent: true },
+      // Company → kept product
+      { source: '/topics/anthropic', destination: '/topics/claude', permanent: true },
+      { source: '/zh/topics/anthropic', destination: '/zh/topics/claude', permanent: true },
+      // Related concept → kept concept
+      { source: '/topics/agentic', destination: '/topics/agentic-coding', permanent: true },
+      { source: '/zh/topics/agentic', destination: '/zh/topics/agentic-coding', permanent: true },
+      // Everything else → topics index
+      ...[
+        'openai', 'google', 'meta', 'microsoft', 'amazon', 'nvidia',
+        'huggingface', 'hugging-face', 'gpt-54', 'google-deepmind', 'qwen35',
+        'chatgpt', 'gemini', 'gpt', 'qwen', 'ltx', 'diffusers', 'gpt-2',
+        'rag', 'rlhf', 'transformers', 'langchain', 'deepmind',
+      ].flatMap(slug => [
+        { source: `/topics/${slug}`, destination: '/topics', permanent: true },
+        { source: `/zh/topics/${slug}`, destination: '/zh/topics', permanent: true },
+      ]),
     ];
   },
   async rewrites() {
