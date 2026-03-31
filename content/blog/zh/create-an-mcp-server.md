@@ -6,6 +6,7 @@ lang: zh
 category: tools
 related_glossary: [agentic-coding]
 related_blog: [claude-code-is-not-a-coding-tool, key-benefits-and-features]
+date: 2026-03-30
 ---
 
 # 如何创建 MCP Server：从零开始的完整指南

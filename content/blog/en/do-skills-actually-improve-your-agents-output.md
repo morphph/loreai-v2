@@ -4,6 +4,7 @@ slug: do-skills-actually-improve-your-agents-output
 description: "Skills can boost AI agent task success by 16+ percentage points — but only if well-designed. Here's what actually works and what hurts performance."
 lang: en
 category: techniques
+date: 2026-03-24
 ---
 
 # Do Skills Actually Improve Your Agent's Output? Here's What the Data Says

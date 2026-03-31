@@ -1,7 +1,7 @@
 ---
 title: "Lessons from Building Claude Code: How Anthropic Designs Agent Tools"
 date: 2026-03-10
-slug: trq212-2027463795355095314
+slug: lessons-from-building-claude-code-agent-tools
 description: "How Anthropic's Claude Code team designs agent tools by 'seeing like an agent' — lessons on elicitation, task management, and self-directed search."
 keywords: ["Claude Code", "agent tools", "tool design", "AskUserQuestion", "agent harness"]
 category: DEV

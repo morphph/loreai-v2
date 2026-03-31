@@ -4,6 +4,7 @@ slug: how-hooks-work
 description: "How hooks work across React, PyTorch, and Claude Code — intercepting execution flow without modifying core source code."
 lang: en
 category: concepts
+date: 2026-03-23
 ---
 
 # How Hooks Work: React, PyTorch, and AI Agents Explained

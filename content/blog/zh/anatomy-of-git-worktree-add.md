@@ -4,6 +4,7 @@ slug: anatomy-of-git-worktree-add
 description: "git worktree add 如何在共享对象数据库的同时隔离工作目录？本文拆解其架构原理与 AI 编程工具中的实际应用。"
 category: tools
 lang: zh
+date: 2026-03-30
 ---
 
 # 深入解析 git worktree add：并行开发的底层架构

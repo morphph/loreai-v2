@@ -6,6 +6,7 @@ lang: zh
 category: tools
 related_glossary: [agentic-coding, chatgpt]
 related_blog: [codex-for-open-source, claude-code-hooks-a-complete-guide-to-automating-your-ai-coding-workflow]
+date: 2026-03-23
 ---
 
 # OpenAI Codex for Students：$100 免费额度背后，AI 编程教育的真正赌注

@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Agent 工具设计：为什么一个提问工具要迭代三版？"
 date: 2026-03-10
-slug: trq212-2027463795355095314
+slug: lessons-from-building-claude-code-agent-tools
 description: "Claude Code 团队公开工具设计内幕：AskUserQuestion 迭代三版、TodoWrite 被替换、RAG 被砍掉换 Grep。工具不是越多越好，关键是模型愿不愿意用。"
 keywords: ["Claude Code", "Agent工具设计", "AskUserQuestion", "TodoWrite", "Progressive Disclosure", "AI Agent"]
 category: DEV

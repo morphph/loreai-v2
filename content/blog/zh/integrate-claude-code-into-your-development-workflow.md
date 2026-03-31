@@ -4,6 +4,7 @@ slug: integrate-claude-code-into-your-development-workflow
 description: "Claude Code 不是代码补全工具——它是终端原生的自主 AI 工程师。本文教你如何真正把它用起来。"
 lang: zh
 category: tools
+date: 2026-03-25
 ---
 
 # 如何将 Claude Code 融入你的开发工作流
@@ -62,7 +63,7 @@ Andrej Karpathy 等行业老将警告过"认知萎缩"的问题——开发者�
 2. 对跨越核心模块的变更，自己做一遍 code review
 3. 定期手动做一些你通常交给它的任务，保持手感
 
-关于[自主 AI 编程的风险边界](/blog/1-add-an-explicit-threat-model-sync-step-per-repo)，我们有更深入的分析。
+关于[自主 AI 编程的风险边界](/blog/add-explicit-threat-model-sync-step-per-repo)，我们有更深入的分析。
 
 ## 第四步：在 VS Code 中使用
 

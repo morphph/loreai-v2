@@ -9,12 +9,22 @@ const nextConfig: NextConfig = {
       { source: '/en/blog/gpt-5-3-codex-swe-bench-pro-performance', destination: '/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison', permanent: true },
       { source: '/en/blog/claude-cowork-scheduled-tasks', destination: '/blog/scheduled-tasks', permanent: true },
       { source: '/en/blog/claude-mem-persistent-memory-claude-code', destination: '/blog/anthropic-claude-memory-upgrades-importing', permanent: true },
-      { source: '/en/blog/openai-responses-api-websockets', destination: '/blog/trq212-2027463795355095314', permanent: true },
+      { source: '/en/blog/openai-responses-api-websockets', destination: '/blog/lessons-from-building-claude-code-agent-tools', permanent: true },
       // Same slugs without /en/ prefix (direct access)
       { source: '/blog/gpt-5-3-codex-swe-bench-pro-performance', destination: '/blog/gpt-54-pro-vs-claude-opus-vs-gemini-deepthink-comparison', permanent: true },
       { source: '/blog/claude-cowork-scheduled-tasks', destination: '/blog/scheduled-tasks', permanent: true },
       { source: '/blog/claude-mem-persistent-memory-claude-code', destination: '/blog/anthropic-claude-memory-upgrades-importing', permanent: true },
-      { source: '/blog/openai-responses-api-websockets', destination: '/blog/trq212-2027463795355095314', permanent: true },
+      { source: '/blog/openai-responses-api-websockets', destination: '/blog/lessons-from-building-claude-code-agent-tools', permanent: true },
+
+      // ── Renamed non-semantic slugs (301) ──
+      { source: '/blog/trq212-2027463795355095314', destination: '/blog/lessons-from-building-claude-code-agent-tools', permanent: true },
+      { source: '/zh/blog/trq212-2027463795355095314', destination: '/zh/blog/lessons-from-building-claude-code-agent-tools', permanent: true },
+      { source: '/blog/trq212-coding-agents', destination: '/blog/9-principles-writing-claude-code-skills', permanent: true },
+      { source: '/zh/blog/trq212-coding-agents', destination: '/zh/blog/9-principles-writing-claude-code-skills', permanent: true },
+      { source: '/blog/tw-hitw93-2032091246588518683', destination: '/blog/claude-code-seven-programmable-layers', permanent: true },
+      { source: '/zh/blog/tw-hitw93-2032091246588518683', destination: '/zh/blog/claude-code-seven-programmable-layers', permanent: true },
+      { source: '/blog/1-add-an-explicit-threat-model-sync-step-per-repo', destination: '/blog/add-explicit-threat-model-sync-step-per-repo', permanent: true },
+      { source: '/zh/blog/1-add-an-explicit-threat-model-sync-step-per-repo', destination: '/zh/blog/add-explicit-threat-model-sync-step-per-repo', permanent: true },
 
       // ── Renamed glossary slugs (301) ──
       { source: '/glossary/transformer', destination: '/glossary/transformers', permanent: true },

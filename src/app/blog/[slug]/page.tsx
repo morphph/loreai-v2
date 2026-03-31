@@ -95,17 +95,19 @@ export default async function BlogPostPage({ params }: PageProps) {
             </div>
             {/* Header */}
             <header className="mb-8">
-              <time
-                dateTime={post.meta.date}
-                className="text-sm font-medium text-muted"
-              >
-                {new Date(post.meta.date + 'T00:00:00').toLocaleDateString('en-US', {
-                  weekday: 'long',
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </time>
+              {post.meta.date && (
+                <time
+                  dateTime={post.meta.date}
+                  className="text-sm font-medium text-muted"
+                >
+                  {new Date(post.meta.date + 'T00:00:00').toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric',
+                  })}
+                </time>
+              )}
 
               <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
                 {post.meta.title}

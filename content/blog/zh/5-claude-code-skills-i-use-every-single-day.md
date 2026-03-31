@@ -6,6 +6,7 @@ lang: zh
 category: tools
 related_glossary: [agentic-coding]
 related_blog: [how-hooks-work]
+date: 2026-03-23
 ---
 
 # 我每天都在用的 5 个 Claude Code 技巧

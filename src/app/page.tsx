@@ -1,7 +1,20 @@
+import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllNewsletters, getAllBlogPosts, getAllCompare, getAllFaq, getAllTopics } from '@/lib/content';
+import { websiteJsonLd } from '@/lib/seo';
 import NewsletterSignup from '@/components/NewsletterSignup';
 import NewsletterCard from '@/components/NewsletterCard';
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: 'https://loreai.dev/',
+    languages: {
+      en: 'https://loreai.dev/',
+      zh: 'https://loreai.dev/zh/',
+      'x-default': 'https://loreai.dev/',
+    },
+  },
+};
 
 export default async function Home() {
   const newsletters = getAllNewsletters('en');
@@ -20,7 +33,12 @@ export default async function Home() {
     .slice(0, 3);
 
   return (
-    <div className="mx-auto max-w-3xl px-6">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd()) }}
+      />
+      <div className="mx-auto max-w-3xl px-6">
       {/* Hero Section */}
       <section className="py-16 sm:py-24">
         <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl">
@@ -86,13 +104,15 @@ export default async function Home() {
                 href={`/blog/${post.meta.slug}`}
                 className="group block rounded-xl border border-border p-5 transition-colors hover:border-accent/40 hover:bg-surface"
               >
-                <time className="text-xs font-medium uppercase tracking-wide text-muted">
-                  {new Date(post.meta.date + 'T00:00:00').toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </time>
+                {post.meta.date && (
+                  <time className="text-xs font-medium uppercase tracking-wide text-muted">
+                    {new Date(post.meta.date + 'T00:00:00').toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </time>
+                )}
                 <h3 className="mt-1.5 text-lg font-semibold leading-snug group-hover:text-accent">
                   {post.meta.title}
                 </h3>
@@ -212,5 +232,6 @@ export default async function Home() {
         </div>
       </section>
     </div>
+    </>
   );
 }

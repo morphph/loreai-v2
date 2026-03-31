@@ -6,6 +6,7 @@ lang: zh
 category: tools
 related_glossary: [agentic-coding, chatgpt]
 related_blog: [codex-for-students, codex-for-open-source, integrate-claude-code-into-your-development-workflow]
+date: 2026-03-25
 ---
 
 # 为多智能体工作流而生：OpenAI Codex 的工程范式革命

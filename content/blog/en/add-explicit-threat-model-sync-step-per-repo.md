@@ -1,9 +1,10 @@
 ---
 title: "Add an Explicit Threat-Model Sync Step Per Repo"
-slug: 1-add-an-explicit-threat-model-sync-step-per-repo
+slug: add-explicit-threat-model-sync-step-per-repo
 description: "Why every repo needs an explicit threat-model sync step in CI/CD — and how continuous threat modeling replaces static security docs."
 lang: en
 category: techniques
+date: 2026-03-24
 ---
 
 # Add an Explicit Threat-Model Sync Step Per Repo

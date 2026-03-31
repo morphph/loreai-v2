@@ -4,6 +4,7 @@ slug: anatomy-of-git-worktree-add
 description: "How git worktree add works under the hood: shared object databases, isolated HEADs, and why AI agents love it."
 lang: en
 category: tools
+date: 2026-03-30
 ---
 
 # Anatomy of `git worktree add`: How Git's Linked Working Trees Work

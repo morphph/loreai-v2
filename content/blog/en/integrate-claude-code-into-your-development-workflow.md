@@ -8,6 +8,7 @@ related_glossary: [agentic-coding, chatgpt]
 related_blog: [do-skills-actually-improve-your-agents-output, how-to-build-a-production-ready-claude-code-skill]
 related_compare: [claude-code-remote-vs-ssh]
 related_faq: [claude-code-install, how-do-i-set-up-claude-code-remote-control-on-my-phone]
+date: 2026-03-25
 ---
 
 # How to Integrate Claude Code into Your Development Workflow

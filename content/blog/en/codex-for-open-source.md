@@ -4,6 +4,7 @@ slug: codex-for-open-source
 description: "OpenAI's Codex for Open Source program gives maintainers free ChatGPT Pro, API credits, and Codex Security. Here's what it means."
 lang: en
 category: tools
+date: 2026-03-23
 ---
 
 # OpenAI Launches Codex for Open Source: Free Pro Tools for Maintainers

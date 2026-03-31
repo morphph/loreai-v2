@@ -4,6 +4,7 @@ slug: how-skills-work
 description: "Claude Code 的 Skills 系统让你把可复用的指令打包成模块，按需加载到 AI 的上下文中。本文拆解其工作原理。"
 category: tools
 lang: zh
+date: 2026-03-24
 ---
 
 # Claude Code Skills 是怎么工作的？

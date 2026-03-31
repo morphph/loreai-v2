@@ -8,6 +8,7 @@ related_glossary: [agentic-coding]
 related_blog: [integrate-claude-code-into-your-development-workflow, key-benefits-and-features]
 related_compare: [claude-code-vs-cursor]
 related_faq: [claude-code-pricing]
+date: 2026-03-27
 ---
 
 # Claude Code Is Not a Coding Tool

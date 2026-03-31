@@ -4,6 +4,7 @@ slug: how-skills-work
 description: "Claude Code skills are modular SKILL.md instruction packages that extend agent capabilities without bloating your context window. Here's how they work."
 lang: en
 category: tools
+date: 2026-03-24
 ---
 
 # How Claude Code Skills Work: Modular Instructions for AI Agents

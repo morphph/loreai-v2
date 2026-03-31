@@ -6,6 +6,7 @@ lang: zh
 category: concepts
 related_glossary: [agentic-coding]
 related_blog: [create-an-mcp-server]
+date: 2026-03-30
 ---
 
 # 重复任务的进化：从手动勾选到 AI 自主执行

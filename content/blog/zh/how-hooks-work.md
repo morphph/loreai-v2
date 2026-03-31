@@ -7,6 +7,7 @@ category: tools
 related_glossary: [what-are-claude-code-hooks, agentic-coding]
 related_blog: [claude-code-hooks-mastery]
 related_faq: [claude-code-hooks-reddit]
+date: 2026-03-23
 ---
 
 # Hooks 是怎么工作的：从 React 到 Claude Code 的统一视角

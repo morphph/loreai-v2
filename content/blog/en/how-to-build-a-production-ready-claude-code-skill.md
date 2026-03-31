@@ -4,6 +4,7 @@ slug: how-to-build-a-production-ready-claude-code-skill
 description: "A practical guide to building production-ready Claude Code skills with SKILL.md — from use case design to token-efficient architecture."
 lang: en
 category: tools
+date: 2026-03-24
 ---
 
 # How to Build a Production-Ready Claude Code Skill

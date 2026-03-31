@@ -4,6 +4,7 @@ slug: claude-code-hooks-mastery
 description: "Claude Code Hooks 让你在 AI 工作流中注入确定性逻辑，强制执行安全检查、格式化和日志记录。本文拆解核心用法与最佳实践。"
 category: tools
 lang: zh
+date: 2026-03-23
 ---
 
 # Claude Code Hooks 深度掌握：让 AI 编程真正可控

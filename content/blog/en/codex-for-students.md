@@ -4,6 +4,7 @@ slug: codex-for-students
 description: "OpenAI launched Codex for Students on March 20, 2026, giving US/Canada university students $100 in free credits for GPT-5.3-Codex."
 lang: en
 category: tools
+date: 2026-03-23
 ---
 
 # OpenAI Codex for Students: $100 in Free Credits, Real Caveats

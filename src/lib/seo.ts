@@ -1,21 +1,35 @@
 const SITE_URL = 'https://loreai.dev';
 const SITE_NAME = 'LoreAI';
 
-// ── WebSite schema for homepage ────────────────────────────────────────
+// ── WebSite + Organization schema for homepage ───────────────────────
 export function websiteJsonLd() {
   return {
     '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: SITE_NAME,
-    url: SITE_URL,
-    description:
-      'Daily AI briefing covering models, tools, code, and trends.',
-    publisher: {
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: SITE_URL,
-      // TODO: add public/logo.png and uncomment: logo: { '@type': 'ImageObject', url: `${SITE_URL}/logo.png` }
-    },
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${SITE_URL}/#website`,
+        url: SITE_URL,
+        name: SITE_NAME,
+        description: 'Your Daily AI Briefing - Models, Tools, Code, Trends',
+        inLanguage: ['en', 'zh'],
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: `${SITE_URL}/search?q={search_term_string}`,
+          'query-input': 'required name=search_term_string',
+        },
+      },
+      {
+        '@type': 'Organization',
+        '@id': `${SITE_URL}/#organization`,
+        name: SITE_NAME,
+        url: SITE_URL,
+        sameAs: [
+          'https://twitter.com/loreai_dev',
+          'https://github.com/loreai-dev',
+        ],
+      },
+    ],
   };
 }
 

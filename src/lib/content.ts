@@ -34,6 +34,22 @@ export function readMarkdownFile(filePath: string): ContentItem | null {
     }
   }
 
+  // Fallback: if no date field, use file modification time
+  if (!data.date) {
+    const stat = fs.statSync(filePath);
+    data.date = stat.mtime.toISOString().split('T')[0];
+  }
+
+  // Auto-compute word_count if not set
+  if (typeof data.word_count !== 'number') {
+    // Strip markdown syntax for cleaner count
+    const plain = content.replace(/```[\s\S]*?```/g, '').replace(/[#*_`\[\]()>|~-]/g, '');
+    // CJK characters count as 1 word each; English words split by whitespace
+    const cjk = (plain.match(/[\u4e00-\u9fff\u3400-\u4dbf]/g) || []).length;
+    const english = plain.replace(/[\u4e00-\u9fff\u3400-\u4dbf]/g, '').split(/\s+/).filter(Boolean).length;
+    data.word_count = cjk + english;
+  }
+
   return {
     meta: data as ContentMeta,
     content,

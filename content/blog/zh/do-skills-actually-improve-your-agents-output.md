@@ -7,6 +7,7 @@ category: techniques
 related_glossary: [agentic-coding]
 related_blog: [how-skills-work, how-to-build-a-production-ready-claude-code-skill]
 related_faq: [claude-code-skills]
+date: 2026-03-24
 ---
 
 # Skills 真的能提升 AI Agent 的输出质量吗？

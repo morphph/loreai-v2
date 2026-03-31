@@ -1,7 +1,7 @@
 ---
 title: "9 Principles for Writing Great Claude Code Skills That Actually Work"
 date: 2026-03-18
-slug: trq212-coding-agents
+slug: 9-principles-writing-claude-code-skills
 description: "Battle-tested principles for writing durable, effective Claude Code SKILL.md files — from gotchas sections to progressive disclosure and trigger-optimized descriptions."
 keywords: ["Claude Code skills", "SKILL.md", "Claude Code configuration", "coding agents", "AI developer tools"]
 category: DEV

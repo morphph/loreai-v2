@@ -1,7 +1,7 @@
 ---
 title: "Claude Code 七层架构深度解析：从工具使用者到系统设计者"
 date: 2026-03-13
-slug: tw-hitw93-2032091246588518683
+slug: claude-code-seven-programmable-layers
 description: "Claude Code 不只是终端助手，而是七层可编程系统。本文从架构分层、上下文经济学到 Hooks 强制执行，帮你真正理解如何设计人与 AI 的协作界面。"
 keywords: ["Claude Code", "Agentic Loop", "上下文窗口", "Hooks", "MCP", "AI编程"]
 category: DEV

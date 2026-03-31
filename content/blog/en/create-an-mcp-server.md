@@ -6,6 +6,7 @@ lang: en
 category: frameworks
 related_glossary: [agentic-coding, chatgpt]
 related_blog: [claude-code-is-not-a-coding-tool, key-benefits-and-features]
+date: 2026-03-30
 ---
 
 # How to Create an MCP Server: Architecture, Implementation, and Best Practices

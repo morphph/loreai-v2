@@ -6,6 +6,7 @@ lang: en
 category: tools
 related_glossary: [agentic-coding]
 related_blog: [how-skills-work, do-skills-actually-improve-your-agents-output]
+date: 2026-03-27
 ---
 
 # /simplify: Claude Code's Answer to AI-Generated Technical Debt

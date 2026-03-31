@@ -4,6 +4,7 @@ slug: first-few-days-with-codex-cli
 description: "A practical guide to starting with OpenAI's Codex CLI — the terminal-native AI coding agent that hit 67K GitHub stars in its first year."
 lang: en
 category: tools
+date: 2026-03-24
 ---
 
 # First Few Days with Codex CLI: What to Expect

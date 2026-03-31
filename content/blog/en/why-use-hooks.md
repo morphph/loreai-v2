@@ -4,6 +4,7 @@ slug: why-use-hooks
 description: "Hooks appear in React, PyTorch, webhooks, and AI agents. Here's why this pattern keeps solving the same core problem across software engineering."
 lang: en
 category: concepts
+date: 2026-03-23
 ---
 
 # Why Use Hooks? The Engineering Pattern That Keeps Showing Up Everywhere

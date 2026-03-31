@@ -4,6 +4,7 @@ slug: first-few-days-with-codex-cli
 description: "OpenAI Codex CLI 上手指南：从安装到实际工作流，帮你度过最初几天的适应期。"
 lang: zh
 category: tools
+date: 2026-03-24
 ---
 
 # 初识 Codex CLI：前几天你需要知道的一切

@@ -15,10 +15,13 @@ export default function BlogCard({ meta, lang = 'en' }: BlogCardProps) {
   const prefix = lang === 'zh' ? '/zh' : '';
   const slug = meta.slug;
 
-  const formattedDate = new Date(meta.date + 'T00:00:00').toLocaleDateString(
-    lang === 'zh' ? 'zh-CN' : 'en-US',
-    { year: 'numeric', month: 'long', day: 'numeric' }
-  );
+  const parsedDate = meta.date ? new Date(meta.date + 'T00:00:00') : null;
+  const formattedDate = parsedDate && !isNaN(parsedDate.getTime())
+    ? parsedDate.toLocaleDateString(
+        lang === 'zh' ? 'zh-CN' : 'en-US',
+        { year: 'numeric', month: 'long', day: 'numeric' }
+      )
+    : null;
 
   // Estimate reading time from word count in description or fall back to a default
   const wordCount = typeof meta.word_count === 'number' ? (meta.word_count as number) : 800;
@@ -32,8 +35,12 @@ export default function BlogCard({ meta, lang = 'en' }: BlogCardProps) {
       className="group flex flex-col rounded-xl border border-border p-5 transition-colors hover:border-accent/40 hover:bg-surface"
     >
       <div className="flex items-center gap-3 text-xs text-muted">
-        <time dateTime={meta.date}>{formattedDate}</time>
-        <span aria-hidden="true">&middot;</span>
+        {formattedDate && (
+          <>
+            <time dateTime={meta.date}>{formattedDate}</time>
+            <span aria-hidden="true">&middot;</span>
+          </>
+        )}
         <span>{readingTime}</span>
       </div>
 

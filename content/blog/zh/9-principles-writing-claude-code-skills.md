@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Skills 最佳实践：从结构设计到生产级落地"
 date: 2026-03-18
-slug: trq212-coding-agents
+slug: 9-principles-writing-claude-code-skills
 description: "Anthropic 工程师总结的 Claude Code Skills 设计指南：9 大类型、4 个结构原则、5 个生产级技巧，让 AI 编码助手不再重复犯错。"
 keywords: ["Claude Code", "Skills", "SKILL.md", "AI 编码", "Anthropic"]
 category: DEV

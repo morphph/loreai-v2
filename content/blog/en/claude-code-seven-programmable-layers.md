@@ -1,7 +1,7 @@
 ---
 title: "Claude Code's Seven Programmable Layers: From User to System Designer"
 date: 2026-03-13
-slug: tw-hitw93-2032091246588518683
+slug: claude-code-seven-programmable-layers
 description: "How Claude Code's seven-layer architecture turns a terminal AI assistant into a programmable coding system — context, tools, skills, hooks, subagents, and verification."
 keywords: ["Claude Code architecture", "Claude Code hooks", "Claude Code skills", "agentic coding", "MCP tools"]
 category: DEV

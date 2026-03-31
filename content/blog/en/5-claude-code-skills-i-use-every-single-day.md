@@ -6,6 +6,7 @@ lang: en
 category: tools
 related_glossary: [agentic-coding]
 related_blog: [how-hooks-work]
+date: 2026-03-23
 ---
 
 # 5 Claude Code Skills I Use Every Single Day

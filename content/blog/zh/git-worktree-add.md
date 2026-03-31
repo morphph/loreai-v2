@@ -6,6 +6,7 @@ category: techniques
 lang: zh
 related_glossary: [agentic-coding]
 related_blog: [claude-code-is-not-a-coding-tool, create-an-mcp-server]
+date: 2026-03-30
 ---
 
 # git worktree add 完全指南：告别 stash，拥抱并行开发

@@ -4,6 +4,7 @@ slug: con-u-pour-des-workflows-multi-agents
 description: "OpenAI Codex desktop app is built for multi-agent workflows — parallel agents, Git worktrees, and OS-level orchestration explained."
 lang: en
 category: tools
+date: 2026-03-25
 ---
 
 # OpenAI Codex and the Multi-Agent Workflow Revolution

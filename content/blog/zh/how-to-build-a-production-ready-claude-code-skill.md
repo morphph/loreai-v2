@@ -4,6 +4,7 @@ slug: how-to-build-a-production-ready-claude-code-skill
 description: "SKILL.md 不只是提示词文件。本文拆解生产级 Claude Code Skill 的核心架构与实战要点。"
 lang: zh
 category: tools
+date: 2026-03-24
 ---
 
 # 如何构建生产级 Claude Code Skill：实战指南

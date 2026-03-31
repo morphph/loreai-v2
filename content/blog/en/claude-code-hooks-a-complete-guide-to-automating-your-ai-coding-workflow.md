@@ -4,6 +4,7 @@ slug: claude-code-hooks-a-complete-guide-to-automating-your-ai-coding-workflow
 description: "Claude Code hooks let you run shell commands automatically at every stage of your AI coding session. Here's how to set them up and use them."
 lang: en
 category: tools
+date: 2026-03-21
 ---
 
 # Claude Code Hooks: A Complete Guide to Automating Your AI Coding Workflow

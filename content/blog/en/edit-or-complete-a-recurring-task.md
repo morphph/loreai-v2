@@ -4,6 +4,7 @@ slug: edit-or-complete-a-recurring-task
 description: "How recurring task management is evolving from manual calendar entries to autonomous AI agents — and what that means for developers."
 lang: en
 category: tools
+date: 2026-03-30
 ---
 
 # Edit or Complete a Recurring Task: From Checkboxes to AI Agents

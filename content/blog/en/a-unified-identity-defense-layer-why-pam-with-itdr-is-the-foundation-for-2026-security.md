@@ -4,6 +4,7 @@ slug: a-unified-identity-defense-layer-why-pam-with-itdr-is-the-foundation-for-2
 description: "Identity-based attacks now drive up to 30% of breaches. Here's why combining PAM with ITDR is the security architecture that matters in 2026."
 lang: en
 category: concepts
+date: 2026-03-23
 ---
 
 # A Unified Identity Defense Layer: Why PAM with ITDR Is the Foundation for 2026 Security

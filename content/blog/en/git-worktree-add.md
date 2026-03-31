@@ -4,6 +4,7 @@ slug: git-worktree-add
 description: "Learn how git worktree add lets you work on multiple branches simultaneously without stashing or cloning. A practical guide for developers and AI workflows."
 lang: en
 category: tools
+date: 2026-03-30
 ---
 
 # git worktree add: Run Multiple Branches Without the Stash Trap

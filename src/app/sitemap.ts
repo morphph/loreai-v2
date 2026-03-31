@@ -17,245 +17,142 @@ function safeDate(date: string | undefined): Date {
   return isNaN(d.getTime()) ? new Date() : d;
 }
 
+/** Build a pair of EN + ZH sitemap entries with hreflang alternates */
+function bilingualPair(
+  enPath: string,
+  zhPath: string,
+  lastmod: Date,
+  freq: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never',
+  priority: number
+): MetadataRoute.Sitemap {
+  const alternates = {
+    languages: {
+      en: `${SITE_URL}${enPath}`,
+      zh: `${SITE_URL}${zhPath}`,
+    },
+  };
+  return [
+    { url: `${SITE_URL}${enPath}`, lastModified: lastmod, changeFrequency: freq, priority, alternates },
+    { url: `${SITE_URL}${zhPath}`, lastModified: lastmod, changeFrequency: freq, priority: Math.max(0.1, priority - 0.1), alternates },
+  ];
+}
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
   // ── Static pages ──────────────────────────────────────────────────────
   const staticPages: MetadataRoute.Sitemap = [
-    {
-      url: SITE_URL,
-      lastModified: now,
-      changeFrequency: 'daily',
-      priority: 1.0,
-    },
-    {
-      url: `${SITE_URL}/newsletter`,
-      lastModified: now,
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/blog`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/glossary`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/faq`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/compare`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/topics`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/subscribe`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    // ZH static index pages
-    {
-      url: `${SITE_URL}/zh`,
-      lastModified: now,
-      changeFrequency: 'daily',
-      priority: 0.9,
-    },
-    {
-      url: `${SITE_URL}/zh/newsletter`,
-      lastModified: now,
-      changeFrequency: 'daily',
-      priority: 0.8,
-    },
-    {
-      url: `${SITE_URL}/zh/blog`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${SITE_URL}/zh/glossary`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/zh/faq`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/zh/compare`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/zh/topics`,
-      lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.6,
-    },
-    {
-      url: `${SITE_URL}/zh/subscribe`,
-      lastModified: now,
-      changeFrequency: 'monthly',
-      priority: 0.5,
-    },
+    ...bilingualPair('/', '/zh/', now, 'daily', 1.0),
+    ...bilingualPair('/newsletter', '/zh/newsletter', now, 'daily', 0.9),
+    ...bilingualPair('/blog', '/zh/blog', now, 'weekly', 0.8),
+    ...bilingualPair('/glossary', '/zh/glossary', now, 'weekly', 0.7),
+    ...bilingualPair('/faq', '/zh/faq', now, 'weekly', 0.7),
+    ...bilingualPair('/compare', '/zh/compare', now, 'weekly', 0.7),
+    ...bilingualPair('/topics', '/zh/topics', now, 'weekly', 0.7),
+    ...bilingualPair('/subscribe', '/zh/subscribe', now, 'monthly', 0.6),
   ];
 
-  // ── EN Newsletters (daily) ────────────────────────────────────────────
-  const enNewsletters: MetadataRoute.Sitemap = getAllNewsletters('en').map(
-    (item) => ({
-      url: `${SITE_URL}/newsletter/${item.meta.slug}`,
-      lastModified: safeDate(item.meta.date),
-      changeFrequency: 'never' as const,
-      priority: 0.8,
-    })
+  // ── Helper: build content entries with hreflang ───────────────────────
+  function contentEntries(
+    enItems: { meta: { slug: string; date: string } }[],
+    zhItems: { meta: { slug: string; date: string } }[],
+    enPrefix: string,
+    zhPrefix: string,
+    freq: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never',
+    enPriority: number
+  ): MetadataRoute.Sitemap {
+    const zhSlugs = new Set(zhItems.map((i) => i.meta.slug));
+    const result: MetadataRoute.Sitemap = [];
+
+    for (const item of enItems) {
+      const slug = item.meta.slug;
+      const enUrl = `${SITE_URL}${enPrefix}/${slug}`;
+      const zhUrl = `${SITE_URL}${zhPrefix}/${slug}`;
+      const hasZh = zhSlugs.has(slug);
+      const lastmod = safeDate(item.meta.date);
+
+      const alternates = hasZh
+        ? { languages: { en: enUrl, zh: zhUrl } }
+        : undefined;
+
+      result.push({
+        url: enUrl,
+        lastModified: lastmod,
+        changeFrequency: freq,
+        priority: enPriority,
+        ...(alternates ? { alternates } : {}),
+      });
+
+      if (hasZh) {
+        result.push({
+          url: zhUrl,
+          lastModified: lastmod,
+          changeFrequency: freq,
+          priority: Math.max(0.1, enPriority - 0.1),
+          alternates,
+        });
+        zhSlugs.delete(slug);
+      }
+    }
+
+    // ZH-only items (no EN counterpart)
+    for (const item of zhItems) {
+      if (!zhSlugs.has(item.meta.slug)) continue;
+      result.push({
+        url: `${SITE_URL}${zhPrefix}/${item.meta.slug}`,
+        lastModified: safeDate(item.meta.date),
+        changeFrequency: freq,
+        priority: Math.max(0.1, enPriority - 0.1),
+      });
+    }
+
+    return result;
+  }
+
+  // ── Content entries ───────────────────────────────────────────────────
+  const newsletters = contentEntries(
+    getAllNewsletters('en'), getAllNewsletters('zh'),
+    '/newsletter', '/zh/newsletter', 'never', 0.8
   );
 
-  // ── ZH Newsletters ───────────────────────────────────────────────────
-  const zhNewsletters: MetadataRoute.Sitemap = getAllNewsletters('zh').map(
-    (item) => ({
-      url: `${SITE_URL}/zh/newsletter/${item.meta.slug}`,
-      lastModified: safeDate(item.meta.date),
-      changeFrequency: 'never' as const,
-      priority: 0.7,
-    })
+  const weeklyNewsletters = contentEntries(
+    getWeeklyNewsletters('en'), getWeeklyNewsletters('zh'),
+    '/newsletter', '/zh/newsletter', 'never', 0.8
   );
 
-  // ── EN Weekly newsletters ─────────────────────────────────────────────
-  const enWeekly: MetadataRoute.Sitemap = getWeeklyNewsletters('en').map(
-    (item) => ({
-      url: `${SITE_URL}/newsletter/${item.meta.slug}`,
-      lastModified: safeDate(item.meta.date),
-      changeFrequency: 'never' as const,
-      priority: 0.8,
-    })
+  const blogs = contentEntries(
+    getAllBlogPosts('en'), getAllBlogPosts('zh'),
+    '/blog', '/zh/blog', 'monthly', 0.8
   );
 
-  // ── ZH Weekly newsletters ─────────────────────────────────────────────
-  const zhWeekly: MetadataRoute.Sitemap = getWeeklyNewsletters('zh').map(
-    (item) => ({
-      url: `${SITE_URL}/zh/newsletter/${item.meta.slug}`,
-      lastModified: safeDate(item.meta.date),
-      changeFrequency: 'never' as const,
-      priority: 0.7,
-    })
+  const glossary = contentEntries(
+    getAllGlossary('en'), getAllGlossary('zh'),
+    '/glossary', '/zh/glossary', 'monthly', 0.6
   );
 
-  // ── EN Blog posts ────────────────────────────────────────────────────
-  const enBlog: MetadataRoute.Sitemap = getAllBlogPosts('en').map((item) => ({
-    url: `${SITE_URL}/blog/${item.meta.slug}`,
-    lastModified: safeDate(item.meta.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.8,
-  }));
-
-  // ── ZH Blog posts ────────────────────────────────────────────────────
-  const zhBlog: MetadataRoute.Sitemap = getAllBlogPosts('zh').map((item) => ({
-    url: `${SITE_URL}/zh/blog/${item.meta.slug}`,
-    lastModified: safeDate(item.meta.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.7,
-  }));
-
-  // ── Glossary ─────────────────────────────────────────────────────────
-  const enGlossary: MetadataRoute.Sitemap = getAllGlossary('en').map(
-    (item) => ({
-      url: `${SITE_URL}/glossary/${item.meta.slug}`,
-      lastModified: safeDate(item.meta.date),
-      changeFrequency: 'monthly' as const,
-      priority: 0.6,
-    })
+  const faq = contentEntries(
+    getAllFaq('en'), getAllFaq('zh'),
+    '/faq', '/zh/faq', 'monthly', 0.6
   );
 
-  const zhGlossary: MetadataRoute.Sitemap = getAllGlossary('zh').map(
-    (item) => ({
-      url: `${SITE_URL}/zh/glossary/${item.meta.slug}`,
-      lastModified: safeDate(item.meta.date),
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
-    })
+  const compare = contentEntries(
+    getAllCompare('en'), getAllCompare('zh'),
+    '/compare', '/zh/compare', 'monthly', 0.6
   );
 
-  // ── FAQ ──────────────────────────────────────────────────────────────
-  const enFaq: MetadataRoute.Sitemap = getAllFaq('en').map((item) => ({
-    url: `${SITE_URL}/faq/${item.meta.slug}`,
-    lastModified: safeDate(item.meta.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }));
-
-  const zhFaq: MetadataRoute.Sitemap = getAllFaq('zh').map((item) => ({
-    url: `${SITE_URL}/zh/faq/${item.meta.slug}`,
-    lastModified: safeDate(item.meta.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.5,
-  }));
-
-  // ── Compare ──────────────────────────────────────────────────────────
-  const enCompare: MetadataRoute.Sitemap = getAllCompare('en').map((item) => ({
-    url: `${SITE_URL}/compare/${item.meta.slug}`,
-    lastModified: safeDate(item.meta.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }));
-
-  const zhCompare: MetadataRoute.Sitemap = getAllCompare('zh').map((item) => ({
-    url: `${SITE_URL}/zh/compare/${item.meta.slug}`,
-    lastModified: safeDate(item.meta.date),
-    changeFrequency: 'monthly' as const,
-    priority: 0.5,
-  }));
-
-  // ── Topics ───────────────────────────────────────────────────────────
-  const enTopics: MetadataRoute.Sitemap = getAllTopics('en').map((item) => ({
-    url: `${SITE_URL}/topics/${item.meta.slug}`,
-    lastModified: safeDate(item.meta.date),
-    changeFrequency: 'weekly' as const,
-    priority: 0.7,
-  }));
-
-  const zhTopics: MetadataRoute.Sitemap = getAllTopics('zh').map((item) => ({
-    url: `${SITE_URL}/zh/topics/${item.meta.slug}`,
-    lastModified: safeDate(item.meta.date),
-    changeFrequency: 'weekly' as const,
-    priority: 0.6,
-  }));
+  const topics = contentEntries(
+    getAllTopics('en'), getAllTopics('zh'),
+    '/topics', '/zh/topics', 'weekly', 0.7
+  );
 
   return [
     ...staticPages,
-    ...enNewsletters,
-    ...zhNewsletters,
-    ...enWeekly,
-    ...zhWeekly,
-    ...enBlog,
-    ...zhBlog,
-    ...enGlossary,
-    ...zhGlossary,
-    ...enFaq,
-    ...zhFaq,
-    ...enCompare,
-    ...zhCompare,
-    ...enTopics,
-    ...zhTopics,
+    ...newsletters,
+    ...weeklyNewsletters,
+    ...blogs,
+    ...glossary,
+    ...faq,
+    ...compare,
+    ...topics,
   ];
 }

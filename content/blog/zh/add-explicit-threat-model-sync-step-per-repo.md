@@ -1,9 +1,10 @@
 ---
 title: "每个代码仓库都需要一个显式威胁模型同步步骤"
-slug: 1-add-an-explicit-threat-model-sync-step-per-repo
+slug: add-explicit-threat-model-sync-step-per-repo
 description: "持续威胁建模正在取代静态安全文档。为什么每个 repo 都需要一个显式的威胁模型同步步骤？"
 lang: zh
 category: techniques
+date: 2026-03-24
 ---
 
 # 每个代码仓库都需要一个显式威胁模型同步步骤

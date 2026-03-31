@@ -10,22 +10,29 @@ import {
 } from '../seo';
 
 describe('websiteJsonLd', () => {
-  it('returns valid WebSite schema', () => {
+  it('returns valid @graph with WebSite and Organization', () => {
     const ld = websiteJsonLd();
     expect(ld['@context']).toBe('https://schema.org');
-    expect(ld['@type']).toBe('WebSite');
-    expect(ld.name).toBe('LoreAI');
-    expect(ld.url).toBe('https://loreai.dev');
+    expect(ld['@graph']).toHaveLength(2);
+    const website = ld['@graph'][0];
+    expect(website['@type']).toBe('WebSite');
+    expect(website.name).toBe('LoreAI');
+    expect(website.url).toBe('https://loreai.dev');
+    expect(website.inLanguage).toEqual(['en', 'zh']);
   });
 
-  it('does not include SearchAction (no /search route)', () => {
+  it('includes SearchAction for site search', () => {
     const ld = websiteJsonLd();
-    expect(ld).not.toHaveProperty('potentialAction');
+    const website = ld['@graph'][0];
+    expect(website.potentialAction['@type']).toBe('SearchAction');
   });
 
-  it('does not include logo (no logo.png in public)', () => {
+  it('includes Organization with sameAs links', () => {
     const ld = websiteJsonLd();
-    expect(ld.publisher).not.toHaveProperty('logo');
+    const org = ld['@graph'][1];
+    expect(org['@type']).toBe('Organization');
+    expect(org.name).toBe('LoreAI');
+    expect(org.sameAs).toContain('https://twitter.com/loreai_dev');
   });
 });
 
@@ -134,6 +141,6 @@ describe('jsonLdScript', () => {
     const output = jsonLdScript(data);
     const parsed = JSON.parse(output);
     expect(parsed['@context']).toBe('https://schema.org');
-    expect(parsed['@type']).toBe('WebSite');
+    expect(parsed['@graph'][0]['@type']).toBe('WebSite');
   });
 });

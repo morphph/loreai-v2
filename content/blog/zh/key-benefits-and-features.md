@@ -8,6 +8,7 @@ related_glossary: [agentic-coding, chatgpt]
 related_blog: [integrate-claude-code-into-your-development-workflow]
 related_compare: [claude-code-vs-cursor, claude-code-remote-vs-ssh]
 related_faq: [claude-code-pricing]
+date: 2026-03-27
 ---
 
 # Claude Code 的核心功能与价值：你真正需要了解的是什么？

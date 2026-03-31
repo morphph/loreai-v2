@@ -4,6 +4,7 @@ slug: a-unified-identity-defense-layer-why-pam-with-itdr-is-the-foundation-for-2
 description: "身份攻击占入侵事件三成，传统边界防御已失效。PAM 与 ITDR 的融合正成为 2026 年企业安全的核心架构。"
 lang: zh
 category: concepts
+date: 2026-03-23
 ---
 
 # 统一身份防御层：为什么 PAM + ITDR 是 2026 年安全的基石

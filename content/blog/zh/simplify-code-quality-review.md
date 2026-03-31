@@ -4,6 +4,7 @@ slug: simplify-code-quality-review
 description: "/simplify 命令让 Claude Code 自动完成代码审查，多 Agent 并行检测重用性、质量和效率问题。"
 category: tools
 lang: zh
+date: 2026-03-27
 ---
 
 # /simplify：AI 辅助开发时代的代码质量守门人

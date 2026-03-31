@@ -4,6 +4,7 @@ slug: codex-for-open-source
 description: "OpenAI 于 2026 年 3 月推出 Codex for Open Source 计划，为开源维护者提供免费 ChatGPT Pro 和 API 额度，直接对标 Anthropic 的同类计划。"
 category: tools
 lang: zh
+date: 2026-03-23
 ---
 
 # OpenAI Codex for Open Source：战略慈善还是市场攻势？

@@ -4,6 +4,7 @@ slug: claude-code-hooks-mastery
 description: "Claude Code hooks enforce security, formatting, and logging automatically — adding deterministic control to AI-driven workflows. Here's how to use them."
 lang: en
 category: tools
+date: 2026-03-21
 ---
 
 # Claude Code Hooks: The Deterministic Layer That Makes AI Coding Reliable

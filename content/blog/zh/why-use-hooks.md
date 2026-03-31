@@ -4,6 +4,7 @@ slug: why-use-hooks
 description: "Hooks 是现代软件工程的核心机制——从 Webhook 到 React Hooks 再到 Claude Code，一文讲清它的本质与价值。"
 category: tools
 lang: zh
+date: 2026-03-23
 ---
 
 # 为什么要用 Hooks？从 Webhook 到 React、AI Agent 的统一范式
