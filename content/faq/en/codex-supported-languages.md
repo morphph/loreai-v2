@@ -6,6 +6,7 @@ category: tools
 related_glossary: [codex]
 related_blog: [codex-complete-guide]
 lang: en
+related_topics: [codex]
 ---
 
 # What Programming Languages Does Codex Support?

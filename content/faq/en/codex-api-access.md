@@ -6,6 +6,7 @@ category: tools
 related_glossary: [codex, agentic]
 related_blog: [codex-complete-guide]
 lang: en
+related_topics: [codex]
 ---
 
 # How to Use the Codex API?

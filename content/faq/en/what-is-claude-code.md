@@ -6,6 +6,7 @@ category: tools
 related_glossary: [claude-code, anthropic, agentic-coding, claude-md]
 related_blog: [claude-code-complete-guide, claude-code-extension-stack-skills-hooks-agents-mcp]
 lang: en
+related_topics: [claude-code]
 ---
 
 # What is Claude Code?

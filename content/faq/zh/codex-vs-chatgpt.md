@@ -6,6 +6,7 @@ category: tools
 related_glossary: [codex]
 related_blog: [codex-complete-guide]
 lang: zh
+related_topics: [codex]
 ---
 
 # Codex 和 ChatGPT 有什么区别？

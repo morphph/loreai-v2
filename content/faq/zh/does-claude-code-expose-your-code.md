@@ -7,6 +7,7 @@ related_glossary: [agentic-coding, ai-safety]
 related_blog: [integrate-claude-code-into-your-development-workflow]
 related_faq: [how-do-i-set-up-claude-code-remote-control-on-my-phone]
 lang: zh
+related_topics: [claude-code]
 ---
 
 # Claude Code 是否会泄露你的代码？

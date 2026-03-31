@@ -8,6 +8,7 @@ category: tools
 related_glossary: [codex, agentic]
 related_blog: [codex-complete-guide]
 lang: en
+related_topics: [codex]
 ---
 
 # Codex vs Windsurf: Terminal Agent or Agentic IDE?

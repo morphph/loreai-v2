@@ -10,6 +10,7 @@ related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, mcp-vs-cli-v
 related_compare: []
 related_faq: []
 lang: zh
+related_topics: [claude-code]
 ---
 
 # Claude Code 终端模式 vs VS Code 扩展：哪种工作流更适合你？

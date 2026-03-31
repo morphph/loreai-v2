@@ -8,6 +8,7 @@ category: tools
 related_glossary: [codex, agentic]
 related_blog: [codex-complete-guide]
 lang: zh
+related_topics: [codex]
 ---
 
 # Codex vs Devin：AI 编程代理该选哪个？

@@ -9,6 +9,7 @@ related_glossary: [agentic-coding, chatgpt]
 related_blog: [integrate-claude-code-into-your-development-workflow, key-benefits-and-features]
 related_compare: [claude-code-vs-cursor]
 lang: zh
+related_topics: [claude-code]
 ---
 
 # Claude Code vs ChatGPT：编程任务哪个更强？

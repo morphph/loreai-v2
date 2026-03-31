@@ -36,7 +36,7 @@ function getArg(name: string): string | undefined {
 
 const DATE = getArg('date') || todaySGT();
 const STEP = getArg('step') || 'all';
-const VALID_STEPS = ['all', 'collect', 'newsletter', 'blog', 'seo', 'generate', 'discovery', 'performance'];
+const VALID_STEPS = ['all', 'collect', 'newsletter', 'blog', 'seo', 'generate', 'discovery', 'performance', 'links'];
 
 if (!VALID_STEPS.includes(STEP)) {
   console.error(`Invalid step: ${STEP}. Must be one of: ${VALID_STEPS.join(', ')}`);
@@ -701,6 +701,109 @@ function checkPerformance(): CheckResult {
 }
 
 // ---------------------------------------------------------------------------
+// Dead link check — validates internal markdown links across all content
+// ---------------------------------------------------------------------------
+
+function checkDeadLinks(): CheckResult {
+  const errors: string[] = [];
+  const warnings: string[] = [];
+  const contentTypes = ['blog', 'faq', 'glossary', 'compare', 'topics'];
+  const langs = ['en', 'zh'];
+
+  // Build set of known slugs per type
+  const knownSlugs: Record<string, Set<string>> = {};
+  for (const ct of contentTypes) {
+    for (const lang of langs) {
+      const dir = path.join(ROOT, 'content', ct, lang);
+      if (!fs.existsSync(dir)) continue;
+      const key = `${ct}/${lang}`;
+      knownSlugs[key] = new Set(
+        fs.readdirSync(dir)
+          .filter((f) => f.endsWith('.md') && !f.startsWith('.'))
+          .map((f) => f.replace(/\.md$/, ''))
+      );
+    }
+  }
+
+  // Also include newsletters
+  for (const lang of langs) {
+    const dir = path.join(ROOT, 'content', 'newsletters', lang);
+    if (!fs.existsSync(dir)) continue;
+    knownSlugs[`newsletters/${lang}`] = new Set(
+      fs.readdirSync(dir)
+        .filter((f) => f.endsWith('.md'))
+        .map((f) => f.replace(/\.md$/, ''))
+    );
+  }
+
+  let filesChecked = 0;
+  let deadCount = 0;
+
+  // Map URL path prefixes to content dirs
+  const urlToDir: Record<string, string> = {
+    '/blog/': 'blog',
+    '/faq/': 'faq',
+    '/glossary/': 'glossary',
+    '/compare/': 'compare',
+    '/topics/': 'topics',
+    '/newsletter/': 'newsletters',
+  };
+
+  for (const ct of contentTypes) {
+    for (const lang of langs) {
+      const dir = path.join(ROOT, 'content', ct, lang);
+      if (!fs.existsSync(dir)) continue;
+
+      const files = fs.readdirSync(dir).filter((f) => f.endsWith('.md'));
+      for (const file of files) {
+        filesChecked++;
+        const content = fs.readFileSync(path.join(dir, file), 'utf-8');
+        const internalLinks = content.match(/\[[^\]]*\]\((\/[^)#\s]+)\)/g) || [];
+
+        for (const link of internalLinks) {
+          const urlMatch = link.match(/\((\/[^)#\s]+)\)/);
+          if (!urlMatch) continue;
+          let urlPath = urlMatch[1];
+
+          // Determine language from the URL
+          let linkLang = 'en';
+          if (urlPath.startsWith('/zh/')) {
+            linkLang = 'zh';
+            urlPath = urlPath.slice(3); // remove /zh prefix
+          }
+
+          // Match against known content types
+          let found = false;
+          for (const [prefix, dirType] of Object.entries(urlToDir)) {
+            if (urlPath.startsWith(prefix)) {
+              const slug = urlPath.slice(prefix.length).replace(/\/$/, '');
+              const key = `${dirType}/${linkLang}`;
+              if (knownSlugs[key]?.has(slug)) {
+                found = true;
+              } else {
+                deadCount++;
+                warnings.push(`[${ct}/${lang}/${file}] dead link: ${urlMatch[1]} → ${dirType}/${slug} not found`);
+              }
+              found = true; // already reported, don't check other prefixes
+              break;
+            }
+          }
+          // Skip links to non-content pages (/, /subscribe, /dashboard, etc.)
+        }
+      }
+    }
+  }
+
+  return {
+    name: 'Dead Links',
+    pass: true, // dead links are warnings, not fatal
+    summary: `${filesChecked} files, ${deadCount} dead link(s)`,
+    errors,
+    warnings,
+  };
+}
+
+// ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 
@@ -727,6 +830,9 @@ function run(): void {
   }
   if (STEP === 'all' || STEP === 'performance') {
     allResults.push(checkPerformance());
+  }
+  if (STEP === 'all' || STEP === 'links') {
+    allResults.push(checkDeadLinks());
   }
 
   // Close DB after all checks

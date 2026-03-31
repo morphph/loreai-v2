@@ -6,6 +6,7 @@ category: tools
 related_glossary: [claude-code, agentic-coding]
 related_blog: [how-to-build-a-production-ready-claude-code-skill]
 lang: en
+related_topics: [claude-code]
 ---
 
 # How Do I Install Claude Code?

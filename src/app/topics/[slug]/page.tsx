@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getAllTopics, getTopic, markdownToHtml } from '@/lib/content';
+import { getAllTopics, getTopic, getRelatedContentForTopic, markdownToHtml } from '@/lib/content';
 import { topicMetadata } from '@/lib/metadata';
+import { collectionPageJsonLd, breadcrumbJsonLd, jsonLdScript } from '@/lib/seo';
 import Breadcrumb from '@/components/Breadcrumb';
 import RelatedContent from '@/components/RelatedContent';
 import ShareButtons from '@/components/ShareButtons';
@@ -57,8 +59,33 @@ export default async function TopicDetailPage({ params }: PageProps) {
   const pillarTopic = (topic.meta.pillar_topic as string) || topic.meta.title;
   const pageUrl = `https://loreai.dev/topics/${slug}`;
 
+  const aggregated = getRelatedContentForTopic(slug, 'en');
+
+  const cpJsonLd = collectionPageJsonLd(
+    pillarTopic,
+    (topic.meta.description as string) || '',
+    pageUrl
+  );
+  const bcJsonLd = breadcrumbJsonLd([
+    { name: 'Home', url: 'https://loreai.dev/' },
+    { name: 'Topics', url: 'https://loreai.dev/topics' },
+    { name: pillarTopic, url: pageUrl },
+  ]);
+
+  const hasAggregated = aggregated.blogs.length > 0 || aggregated.faqs.length > 0 ||
+    aggregated.glossary.length > 0 || aggregated.comparisons.length > 0;
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(cpJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(bcJsonLd) }}
+      />
+
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
         <Breadcrumb
           items={[
@@ -93,7 +120,67 @@ export default async function TopicDetailPage({ params }: PageProps) {
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
 
-          {/* Related content — topic hubs link to everything */}
+          {/* Auto-aggregated content sections */}
+          {hasAggregated && (
+            <div className="mt-12 space-y-8 border-t border-border pt-8">
+              <h2 className="text-2xl font-bold">All {pillarTopic} Resources</h2>
+
+              {aggregated.blogs.length > 0 && (
+                <section>
+                  <h3 className="mb-3 text-lg font-semibold">Blog Posts</h3>
+                  <div className="space-y-2">
+                    {aggregated.blogs.map((b) => (
+                      <Link key={b.slug} href={`/blog/${b.slug}`} className="group block rounded-lg border border-border p-3 transition-colors hover:border-accent/40 hover:bg-surface">
+                        <div className="font-medium group-hover:text-accent">{b.title}</div>
+                        {b.description && <p className="mt-0.5 line-clamp-1 text-sm text-muted">{b.description}</p>}
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {aggregated.comparisons.length > 0 && (
+                <section>
+                  <h3 className="mb-3 text-lg font-semibold">Comparisons</h3>
+                  <div className="space-y-2">
+                    {aggregated.comparisons.map((c) => (
+                      <Link key={c.slug} href={`/compare/${c.slug}`} className="group block rounded-lg border border-border p-3 transition-colors hover:border-accent/40 hover:bg-surface">
+                        <div className="font-medium group-hover:text-accent">{c.title}</div>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {aggregated.faqs.length > 0 && (
+                <section>
+                  <h3 className="mb-3 text-lg font-semibold">FAQ</h3>
+                  <div className="space-y-2">
+                    {aggregated.faqs.map((f) => (
+                      <Link key={f.slug} href={`/faq/${f.slug}`} className="group block rounded-lg border border-border p-3 transition-colors hover:border-accent/40 hover:bg-surface">
+                        <div className="font-medium group-hover:text-accent">{f.title}</div>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {aggregated.glossary.length > 0 && (
+                <section>
+                  <h3 className="mb-3 text-lg font-semibold">Glossary</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {aggregated.glossary.map((g) => (
+                      <Link key={g.slug} href={`/glossary/${g.slug}`} className="rounded-full border border-border px-3 py-1 text-sm font-medium transition-colors hover:border-accent/40 hover:text-accent">
+                        {g.title}
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
+            </div>
+          )}
+
+          {/* Manually curated related content (pinned) */}
           <RelatedContent
             relatedGlossary={topic.meta.related_glossary as string | string[] | undefined}
             relatedBlog={topic.meta.related_blog as string | string[] | undefined}

@@ -8,6 +8,7 @@ category: tools
 related_glossary: [agentic-coding]
 related_blog: [google-colab-mcp-server-cloud-gpu-ai-agents]
 lang: en
+related_topics: [claude-code]
 ---
 
 # Claude Code Remote vs SSH: Which Remote Development Approach Fits Your Workflow?

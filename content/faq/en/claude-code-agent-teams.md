@@ -6,6 +6,7 @@ category: tools
 related_glossary: [claude-code, agent-teams, multi-agent-systems]
 related_blog: [claude-code-agent-teams, claude-code-extension-stack-skills-hooks-agents-mcp]
 lang: en
+related_topics: [claude-code]
 ---
 
 # How to use Claude Code agent teams?

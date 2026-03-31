@@ -9,6 +9,7 @@ related_glossary: [claude-code, agentic, agent-teams]
 related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
 related_compare: [claude-code-vs-cursor]
 lang: en
+related_topics: [claude-code, codex]
 ---
 
 # Claude Code vs Codex: Which AI Coding Agent Should You Use?

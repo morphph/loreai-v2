@@ -8,6 +8,7 @@ category: concepts
 related_glossary: [agent-sdk, agentic-coding]
 related_blog: [first-few-days-with-codex-cli]
 lang: zh
+related_topics: [claude-code]
 ---
 
 # Model Context Protocol — AI 术语表

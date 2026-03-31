@@ -8,6 +8,7 @@ category: tools
 related_glossary: [agentic-coding, claude-code, mcp-server]
 related_blog: []
 lang: en
+related_topics: [claude-code]
 ---
 
 # Agent SDK — AI Glossary

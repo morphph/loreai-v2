@@ -6,6 +6,7 @@ category: tools
 related_glossary: [claude-code, agentic-coding, anthropic]
 related_blog: [headless-mode, claude-code-review-agents]
 lang: en
+related_topics: [claude-code]
 ---
 
 # How to use Claude Code in CI/CD?

@@ -11,6 +11,7 @@ related_compare: [claude-code-remote-vs-ssh, codex-vs-claude-code, codex-vs-curs
 related_faq: [claude-code-pricing]
 lang: en
 date: 2026-03-31
+related_topics: [claude-code]
 ---
 
 # Claude Code vs Cursor: Which AI Coding Tool Should You Use?

@@ -8,6 +8,7 @@ category: tools
 related_glossary: [codex, agent-teams, agentic]
 related_blog: [codex-complete-guide]
 lang: en
+related_topics: [codex]
 ---
 
 # Codex vs Cursor: Which AI Coding Agent Should You Use?

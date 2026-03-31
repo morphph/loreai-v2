@@ -8,6 +8,7 @@ category: tools
 related_glossary: [codex, agentic]
 related_blog: [codex-complete-guide]
 lang: zh
+related_topics: [codex]
 ---
 
 # Codex vs Windsurf：终端智能体与 AI 原生 IDE 的对决

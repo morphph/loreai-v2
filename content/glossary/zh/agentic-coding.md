@@ -9,6 +9,7 @@ related_glossary: [cursor, fine-tuning]
 related_blog: [claude-connectors-free-150-integrations]
 related_compare: []
 lang: zh
+related_topics: [claude-code]
 ---
 
 # Agentic Coding — AI 术语表

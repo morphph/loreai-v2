@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllFaq, getFaq, markdownToHtml } from '@/lib/content';
 import { faqMetadata } from '@/lib/metadata';
-import { faqPageJsonLd, jsonLdScript } from '@/lib/seo';
+import { faqPageJsonLd, breadcrumbJsonLd, jsonLdScript } from '@/lib/seo';
 import Breadcrumb from '@/components/Breadcrumb';
 import RelatedContent from '@/components/RelatedContent';
 import ShareButtons from '@/components/ShareButtons';
@@ -69,11 +69,21 @@ export default async function ZhFaqDetailPage({ params }: PageProps) {
     { q: faq.meta.title, a: directAnswer },
   ]);
 
+  const bcJsonLd = breadcrumbJsonLd([
+    { name: '首页', url: 'https://loreai.dev/zh' },
+    { name: '常见问题', url: 'https://loreai.dev/zh/faq' },
+    { name: faq.meta.title, url: pageUrl },
+  ]);
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLdScript(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(bcJsonLd) }}
       />
 
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">

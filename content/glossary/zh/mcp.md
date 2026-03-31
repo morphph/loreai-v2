@@ -9,6 +9,7 @@ related_glossary: [claude-code, claude, anthropic]
 related_blog: [anthropic-cowork-claude-desktop-agent]
 related_compare: []
 lang: zh
+related_topics: [claude-code]
 ---
 
 # MCP（Model Context Protocol）— AI 术语表

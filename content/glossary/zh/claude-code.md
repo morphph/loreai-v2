@@ -9,6 +9,7 @@ related_glossary: [anthropic, claude]
 related_blog: [anthropic-cowork-claude-desktop-agent]
 related_compare: []
 lang: zh
+related_topics: [claude-code]
 ---
 
 # Claude Code — AI 术语表

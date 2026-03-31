@@ -6,6 +6,7 @@ category: tools
 related_glossary: [codex, agentic]
 related_blog: [codex-complete-guide]
 lang: en
+related_topics: [codex]
 ---
 
 # Is Codex Available for Enterprise Teams?

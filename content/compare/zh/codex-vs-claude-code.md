@@ -9,6 +9,7 @@ related_glossary: [codex, claude-code, agentic, agent-teams]
 related_blog: [codex-complete-guide, claude-code-extension-stack-skills-hooks-agents-mcp]
 lang: zh
 date: 2026-03-31
+related_topics: [claude-code, codex]
 ---
 
 # Codex vs Claude Code：AI 编程 Agent 怎么选？

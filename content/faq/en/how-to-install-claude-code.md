@@ -6,6 +6,7 @@ category: tools
 related_glossary: [claude-code, anthropic, claude]
 related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp]
 lang: en
+related_topics: [claude-code]
 ---
 
 # How to Install Claude Code?

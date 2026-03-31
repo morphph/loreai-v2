@@ -9,6 +9,7 @@ related_glossary: [claude-code, agentic]
 related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
 related_compare: [claude-code-vs-cursor]
 lang: zh
+related_topics: [claude-code]
 ---
 
 # Claude Code vs Cline：AI 编程 Agent 怎么选？

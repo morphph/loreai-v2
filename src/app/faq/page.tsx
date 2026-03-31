@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getAllFaq } from '@/lib/content';
+import { faqPageJsonLd, jsonLdScript } from '@/lib/seo';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 export const metadata: Metadata = {
@@ -11,6 +12,15 @@ export const metadata: Metadata = {
 
 export default function FaqIndexPage() {
   const allFaqs = getAllFaq('en');
+
+  // Aggregate FAQPage JSON-LD for top 20 questions
+  const topFaqs = allFaqs.slice(0, 20);
+  const faqJsonLd = faqPageJsonLd(
+    topFaqs.map((faq) => ({
+      q: faq.meta.title,
+      a: (faq.meta.description as string) || '',
+    }))
+  );
 
   // Group by category
   const grouped: Record<string, typeof allFaqs> = {};
@@ -25,6 +35,11 @@ export default function FaqIndexPage() {
   const sortedCategories = Object.keys(grouped).sort();
 
   return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(faqJsonLd) }}
+      />
     <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
       <header className="mb-10">
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
@@ -75,5 +90,6 @@ export default function FaqIndexPage() {
         <NewsletterSignup variant="inline" />
       </div>
     </div>
+    </>
   );
 }

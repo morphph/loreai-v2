@@ -6,6 +6,7 @@ category: tools
 related_glossary: [agentic-coding]
 related_blog: [run-ai-coding-agents-locally, agent-harnesses-2026]
 lang: zh
+related_topics: [claude-code]
 ---
 
 # Claude Code Hooks 是什么？

@@ -6,6 +6,7 @@ category: tools
 related_glossary: [claude-code, anthropic, claude]
 related_blog: [claude-code-complete-guide, claude-code-enterprise-engineering-ramp-shopify-spotify]
 lang: zh
+related_topics: [claude-code]
 ---
 
 # Claude Code 免费吗？

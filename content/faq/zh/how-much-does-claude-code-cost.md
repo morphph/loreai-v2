@@ -6,6 +6,7 @@ category: tools
 related_glossary: [claude-code, anthropic, claude]
 related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
 lang: zh
+related_topics: [claude-code]
 ---
 
 # Claude Code 多少钱？

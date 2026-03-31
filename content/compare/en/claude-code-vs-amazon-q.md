@@ -9,6 +9,7 @@ related_glossary: [claude-code, anthropic, amazon]
 related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
 related_compare: [claude-code-vs-cursor]
 lang: en
+related_topics: [claude-code]
 ---
 
 # Claude Code vs Amazon Q Developer: Which AI Coding Assistant Should You Use?

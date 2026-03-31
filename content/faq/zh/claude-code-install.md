@@ -6,6 +6,7 @@ category: tools
 related_glossary: [agentic-coding]
 related_blog: [how-to-build-a-production-ready-claude-code-skill]
 lang: zh
+related_topics: [claude-code]
 ---
 
 # 如何安装 Claude Code?

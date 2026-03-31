@@ -6,6 +6,7 @@ category: tools
 related_glossary: [model-context-protocol, claude-code, agentic-coding]
 related_blog: [mcp-vs-cli-vs-skills-extend-claude-code, claude-code-extension-stack-skills-hooks-agents-mcp]
 lang: en
+related_topics: [claude-code]
 ---
 
 # How to use MCP with Claude Code?

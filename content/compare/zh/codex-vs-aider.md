@@ -9,6 +9,7 @@ related_glossary: [codex, agentic]
 related_blog: [codex-complete-guide]
 related_compare: []
 lang: zh
+related_topics: [codex]
 ---
 
 # Codex vs Aider：哪个 AI 编程工具更适合你？

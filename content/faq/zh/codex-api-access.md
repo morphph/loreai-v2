@@ -6,6 +6,7 @@ category: tools
 related_glossary: [codex]
 related_blog: [codex-complete-guide]
 lang: zh
+related_topics: [codex]
 ---
 
 # 如何使用 Codex API？

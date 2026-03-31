@@ -9,6 +9,7 @@ related_glossary: [claude-code, skill-md, mcp-server]
 related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, mcp-vs-cli-vs-skills-extend-claude-code]
 related_compare: [claude-code-vs-cursor]
 lang: zh
+related_topics: [claude-code]
 ---
 
 # CLAUDE.md — AI 术语表

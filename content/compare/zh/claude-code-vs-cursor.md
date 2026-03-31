@@ -11,6 +11,7 @@ related_compare: [claude-code-remote-vs-ssh]
 related_faq: [claude-code-pricing]
 lang: zh
 date: 2026-03-31
+related_topics: [claude-code]
 ---
 
 # Claude Code vs Cursor：哪个 AI 编程工具更适合你？

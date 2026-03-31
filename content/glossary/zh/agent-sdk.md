@@ -8,6 +8,7 @@ category: frameworks
 related_glossary: [agentic-coding, ai-safety]
 related_blog: [codex-vscode]
 lang: zh
+related_topics: [claude-code]
 ---
 
 # Agent SDK — AI术语表

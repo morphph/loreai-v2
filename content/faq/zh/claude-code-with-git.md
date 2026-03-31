@@ -6,6 +6,7 @@ category: tools
 related_glossary: [claude-code, agentic-coding, claude-md]
 related_blog: [claude-code-complete-guide, claude-code-review-agents, claude-code-agent-teams]
 lang: zh
+related_topics: [claude-code]
 ---
 
 # Claude Code 怎么配合 Git 使用？

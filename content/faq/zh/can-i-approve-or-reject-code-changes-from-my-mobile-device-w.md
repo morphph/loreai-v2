@@ -6,6 +6,7 @@ category: tools
 related_glossary: [claude-code, agentic-coding]
 related_blog: [google-colab-mcp-server-cloud-gpu-ai-agents]
 lang: zh
+related_topics: [claude-code]
 ---
 
 # 手机上能审批 Claude Code 的代码改动吗？

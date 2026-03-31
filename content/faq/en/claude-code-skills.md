@@ -6,6 +6,7 @@ category: tools
 related_glossary: [agentic-coding]
 related_blog: [5-claude-code-skills-i-use-every-single-day]
 lang: en
+related_topics: [claude-code]
 ---
 
 # What Are Claude Code Skills?

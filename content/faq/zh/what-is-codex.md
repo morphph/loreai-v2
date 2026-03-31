@@ -6,6 +6,7 @@ category: tools
 related_glossary: [codex, agentic]
 related_blog: [codex-complete-guide]
 lang: zh
+related_topics: [codex]
 ---
 
 # 什么是 OpenAI Codex？

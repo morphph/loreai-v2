@@ -6,6 +6,7 @@ category: tools
 related_glossary: [claude-code]
 related_blog: [5-claude-code-skills-i-use-every-single-day]
 lang: zh
+related_topics: [claude-code]
 ---
 
 # 什么是 Claude Code Skills?

@@ -9,6 +9,7 @@ related_glossary: [agentic, anthropic, claude]
 related_blog: [claude-code-agent-teams, claude-code-extension-stack-skills-hooks-agents-mcp]
 related_compare: []
 lang: zh
+related_topics: [claude-code]
 ---
 
 # Agent Teams — AI 术语表

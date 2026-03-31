@@ -8,6 +8,7 @@ category: tools
 related_glossary: [codex, agent-teams, agentic]
 related_blog: [codex-complete-guide]
 lang: zh
+related_topics: [codex]
 ---
 
 # Codex vs GitHub Copilot：哪个 AI 编程工具更适合你？

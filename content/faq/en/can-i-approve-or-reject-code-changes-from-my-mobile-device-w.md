@@ -6,6 +6,7 @@ category: tools
 related_glossary: [claude-code, agentic-coding]
 related_blog: []
 lang: en
+related_topics: [claude-code]
 ---
 
 # Can I Approve or Reject Code Changes from My Mobile Device?

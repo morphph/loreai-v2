@@ -7,6 +7,7 @@ related_glossary: [agentic-coding, chatgpt]
 related_blog: [integrate-claude-code-into-your-development-workflow]
 related_faq: [claude-code-install]
 lang: en
+related_topics: [claude-code]
 ---
 
 # How Much Does Claude Code Cost?

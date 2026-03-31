@@ -9,6 +9,7 @@ related_glossary: [agentic-coding, claude-code]
 related_blog: [run-ai-coding-agents-locally]
 related_faq: [claude-code-hooks-reddit]
 lang: en
+related_topics: [claude-code]
 ---
 
 # Claude Code Hooks — AI Glossary

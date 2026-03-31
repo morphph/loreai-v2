@@ -7,6 +7,7 @@ related_glossary: [claude-code, agentic-coding]
 related_blog: [integrate-claude-code-into-your-development-workflow]
 related_compare: [claude-code-vs-cursor]
 lang: en
+related_topics: [claude-code]
 ---
 
 # Does Claude Code Expose Your Code?

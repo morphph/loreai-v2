@@ -8,6 +8,7 @@ category: tools
 related_glossary: [claude-code, claude, anthropic]
 related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, mcp-vs-cli-vs-skills-extend-claude-code, claude-code-agent-teams]
 lang: en
+related_topics: [claude-code]
 ---
 
 # Claude Code Terminal vs VS Code Extension: Which Workflow Fits You?

@@ -9,6 +9,7 @@ related_glossary: [claude-code, agentic, anthropic]
 related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
 related_compare: [claude-code-vs-cursor]
 lang: en
+related_topics: [claude-code]
 ---
 
 # Claude Code vs Windsurf: Which AI Coding Tool Should You Use?

@@ -10,6 +10,7 @@ related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-
 related_compare: [claude-code-vs-cursor]
 lang: zh
 date: 2026-03-31
+related_topics: [claude-code]
 ---
 
 # Claude Code vs GitHub Copilot：哪个 AI 编程工具更适合你？

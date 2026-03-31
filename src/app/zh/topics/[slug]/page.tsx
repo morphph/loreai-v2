@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getAllTopics, getTopic, markdownToHtml } from '@/lib/content';
+import { getAllTopics, getTopic, getRelatedContentForTopic, markdownToHtml } from '@/lib/content';
 import { topicMetadata } from '@/lib/metadata';
+import { collectionPageJsonLd, breadcrumbJsonLd, jsonLdScript } from '@/lib/seo';
 import Breadcrumb from '@/components/Breadcrumb';
 import RelatedContent from '@/components/RelatedContent';
 import ShareButtons from '@/components/ShareButtons';
@@ -58,8 +59,33 @@ export default async function ZhTopicDetailPage({ params }: PageProps) {
   const pillarTopic = (topic.meta.pillar_topic as string) || topic.meta.title;
   const pageUrl = `https://loreai.dev/zh/topics/${slug}`;
 
+  const aggregated = getRelatedContentForTopic(slug, 'zh');
+
+  const cpJsonLd = collectionPageJsonLd(
+    pillarTopic,
+    (topic.meta.description as string) || '',
+    pageUrl
+  );
+  const bcJsonLd = breadcrumbJsonLd([
+    { name: '首页', url: 'https://loreai.dev/zh' },
+    { name: '主题', url: 'https://loreai.dev/zh/topics' },
+    { name: pillarTopic, url: pageUrl },
+  ]);
+
+  const hasAggregated = aggregated.blogs.length > 0 || aggregated.faqs.length > 0 ||
+    aggregated.glossary.length > 0 || aggregated.comparisons.length > 0;
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(cpJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(bcJsonLd) }}
+      />
+
       <div className="mx-auto max-w-5xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="mb-8 flex items-center justify-between">
           <Breadcrumb
@@ -107,7 +133,67 @@ export default async function ZhTopicDetailPage({ params }: PageProps) {
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
 
-          {/* Related content */}
+          {/* Auto-aggregated content sections */}
+          {hasAggregated && (
+            <div className="mt-12 space-y-8 border-t border-border pt-8">
+              <h2 className="text-2xl font-bold">{pillarTopic} 全部资源</h2>
+
+              {aggregated.blogs.length > 0 && (
+                <section>
+                  <h3 className="mb-3 text-lg font-semibold">博客文章</h3>
+                  <div className="space-y-2">
+                    {aggregated.blogs.map((b) => (
+                      <Link key={b.slug} href={`/zh/blog/${b.slug}`} className="group block rounded-lg border border-border p-3 transition-colors hover:border-accent/40 hover:bg-surface">
+                        <div className="font-medium group-hover:text-accent">{b.title}</div>
+                        {b.description && <p className="mt-0.5 line-clamp-1 text-sm text-muted">{b.description}</p>}
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {aggregated.comparisons.length > 0 && (
+                <section>
+                  <h3 className="mb-3 text-lg font-semibold">对比文章</h3>
+                  <div className="space-y-2">
+                    {aggregated.comparisons.map((c) => (
+                      <Link key={c.slug} href={`/zh/compare/${c.slug}`} className="group block rounded-lg border border-border p-3 transition-colors hover:border-accent/40 hover:bg-surface">
+                        <div className="font-medium group-hover:text-accent">{c.title}</div>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {aggregated.faqs.length > 0 && (
+                <section>
+                  <h3 className="mb-3 text-lg font-semibold">常见问题</h3>
+                  <div className="space-y-2">
+                    {aggregated.faqs.map((f) => (
+                      <Link key={f.slug} href={`/zh/faq/${f.slug}`} className="group block rounded-lg border border-border p-3 transition-colors hover:border-accent/40 hover:bg-surface">
+                        <div className="font-medium group-hover:text-accent">{f.title}</div>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
+
+              {aggregated.glossary.length > 0 && (
+                <section>
+                  <h3 className="mb-3 text-lg font-semibold">词汇表</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {aggregated.glossary.map((g) => (
+                      <Link key={g.slug} href={`/zh/glossary/${g.slug}`} className="rounded-full border border-border px-3 py-1 text-sm font-medium transition-colors hover:border-accent/40 hover:text-accent">
+                        {g.title}
+                      </Link>
+                    ))}
+                  </div>
+                </section>
+              )}
+            </div>
+          )}
+
+          {/* Manually curated related content (pinned) */}
           <RelatedContent
             relatedGlossary={topic.meta.related_glossary as string | string[] | undefined}
             relatedBlog={topic.meta.related_blog as string | string[] | undefined}

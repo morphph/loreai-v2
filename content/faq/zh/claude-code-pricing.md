@@ -6,6 +6,7 @@ category: tools
 related_glossary: [agentic-coding]
 related_blog: [integrate-claude-code-into-your-development-workflow]
 lang: zh
+related_topics: [claude-code]
 ---
 
 # Claude Code 的定价是多少？

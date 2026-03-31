@@ -6,6 +6,7 @@ category: tools
 related_glossary: [agentic-coding]
 related_blog: [google-colab-mcp-server-cloud-gpu-ai-agents]
 lang: en
+related_topics: [claude-code]
 ---
 
 # How Do I Set Up Claude Code Remote Control on My Phone?

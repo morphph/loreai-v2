@@ -6,6 +6,7 @@ category: tools
 related_glossary: [claude-code, anthropic, agentic-coding]
 related_blog: [claude-code-complete-guide, claude-code-remote-control-mobile]
 lang: en
+related_topics: [claude-code]
 ---
 
 # Can Claude Code run on Windows?

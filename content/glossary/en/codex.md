@@ -9,6 +9,7 @@ related_glossary: [agentic, claude-code]
 related_blog: []
 related_compare: []
 lang: en
+related_topics: [codex]
 ---
 
 # Codex — AI Glossary

@@ -9,6 +9,7 @@ related_glossary: [anthropic, agentic, agent-teams]
 related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, mcp-vs-cli-vs-skills-extend-claude-code]
 related_compare: [claude-code-vs-cursor]
 lang: en
+related_topics: [claude-code]
 ---
 
 # CLAUDE.md — AI Glossary

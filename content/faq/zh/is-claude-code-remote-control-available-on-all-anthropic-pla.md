@@ -6,6 +6,7 @@ category: tools
 related_glossary: [claude-desktop, agentic-coding]
 related_blog: [claude-excel-powerpoint-skills-context]
 lang: zh
+related_topics: [claude-code]
 ---
 
 # Claude Code 远程控制功能是否在所有 Anthropic 套餐中可用？

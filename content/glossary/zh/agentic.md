@@ -9,6 +9,7 @@ related_glossary: [claude-code, claude, anthropic]
 related_blog: [anthropic-cowork-claude-desktop-agent]
 related_compare: []
 lang: zh
+related_topics: [claude-code]
 ---
 
 # Agentic（智能体化）— AI 术语表

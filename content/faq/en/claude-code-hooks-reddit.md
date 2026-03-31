@@ -6,6 +6,7 @@ category: tools
 related_glossary: [agentic-coding, ai-safety]
 related_blog: [run-ai-coding-agents-locally, agent-harnesses-2026]
 lang: en
+related_topics: [claude-code]
 ---
 
 # What Are Claude Code Hooks?

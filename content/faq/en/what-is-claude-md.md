@@ -6,6 +6,7 @@ category: tools
 related_glossary: [claude-md, claude-code, agentic-coding]
 related_blog: [claude-code-memory, claude-code-extension-stack-skills-hooks-agents-mcp]
 lang: en
+related_topics: [claude-code]
 ---
 
 # What is a CLAUDE.md file?

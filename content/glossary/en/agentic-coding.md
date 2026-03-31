@@ -9,6 +9,7 @@ related_glossary: [cursor, chatgpt, fine-tuning]
 related_blog: [claude-connectors-free-150-integrations]
 related_compare: []
 lang: en
+related_topics: [claude-code]
 ---
 
 # Agentic Coding — AI Glossary

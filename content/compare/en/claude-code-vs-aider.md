@@ -9,6 +9,7 @@ related_glossary: [claude-code, agentic]
 related_blog: [claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-agent-teams]
 related_compare: [claude-code-vs-cursor]
 lang: en
+related_topics: [claude-code]
 ---
 
 # Claude Code vs Aider: Which AI Coding Agent Fits Your Workflow?

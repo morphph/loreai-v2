@@ -144,6 +144,39 @@ export function getWeeklyNewsletter(slug: string, lang: string = 'en'): ContentI
   return readMarkdownFile(path.join(CONTENT_DIR, `newsletters/weekly/${lang}/${slug}.md`));
 }
 
+export interface AggregatedTopicContent {
+  blogs: { title: string; slug: string; description: string }[];
+  faqs: { title: string; slug: string; description: string }[];
+  glossary: { title: string; slug: string; description: string }[];
+  comparisons: { title: string; slug: string; description: string }[];
+}
+
+export function getRelatedContentForTopic(
+  topicSlug: string,
+  lang: string = 'en'
+): AggregatedTopicContent {
+  const hasTopicRef = (item: ContentItem) => {
+    const topics = item.meta.related_topics;
+    if (!topics) return false;
+    if (typeof topics === 'string') return topics === topicSlug;
+    if (Array.isArray(topics)) return topics.includes(topicSlug);
+    return false;
+  };
+
+  const toEntry = (item: ContentItem) => ({
+    title: item.meta.title,
+    slug: item.meta.slug,
+    description: (item.meta.description as string) || '',
+  });
+
+  return {
+    blogs: getAllBlogPosts(lang).filter(hasTopicRef).map(toEntry),
+    faqs: getAllFaq(lang).filter(hasTopicRef).map(toEntry),
+    glossary: getAllGlossary(lang).filter(hasTopicRef).map(toEntry),
+    comparisons: getAllCompare(lang).filter(hasTopicRef).map(toEntry),
+  };
+}
+
 export async function markdownToHtml(md: string): Promise<string> {
   const result = await remark().use(remarkGfm).use(html, { sanitize: false }).process(md);
   return result.toString();

@@ -6,6 +6,7 @@ category: tools
 related_glossary: [claude-desktop, agentic-coding]
 related_blog: [claude-excel-powerpoint-skills-context]
 lang: en
+related_topics: [claude-code]
 ---
 
 # Is Claude Code Remote Control Available on All Anthropic Plans?

@@ -9,6 +9,7 @@ related_glossary: [claude-code, agentic]
 related_blog: [anthropic-cowork-claude-desktop-agent]
 related_compare: []
 lang: zh
+related_topics: [codex]
 ---
 
 # Codex — AI 术语表

@@ -9,6 +9,7 @@ related_glossary: [claude]
 related_blog: [anthropic-claude-memory-upgrades-importing, anthropic-cowork-claude-desktop-agent]
 related_compare: []
 lang: en
+related_topics: [claude-code]
 ---
 
 # Claude Code — AI Glossary

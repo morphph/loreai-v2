@@ -9,6 +9,7 @@ related_glossary: [codex, agentic, agent-teams]
 related_blog: [codex-complete-guide]
 related_compare: []
 lang: zh
+related_topics: [codex]
 ---
 
 # Codex CLI — AI 术语表

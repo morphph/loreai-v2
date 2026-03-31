@@ -8,6 +8,7 @@ category: tools
 related_glossary: [codex, agentic, agent-teams]
 related_blog: [codex-complete-guide]
 lang: en
+related_topics: [codex]
 ---
 
 # Codex vs Aider: Which AI Coding Agent Fits Your Workflow?

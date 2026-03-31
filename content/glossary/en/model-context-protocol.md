@@ -8,6 +8,7 @@ category: frameworks
 related_glossary: [agent-sdk, agentic-coding, ai-safety]
 related_blog: [first-few-days-with-codex-cli]
 lang: en
+related_topics: [claude-code]
 ---
 
 # Model Context Protocol — AI Glossary

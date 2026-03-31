@@ -8,6 +8,7 @@ category: tools
 related_glossary: [agentic-coding]
 related_blog: [run-ai-coding-agents-locally]
 lang: zh
+related_topics: [claude-code]
 ---
 
 # Claude Code Hooks — AI 术语表

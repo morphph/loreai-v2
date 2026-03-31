@@ -8,6 +8,7 @@ category: tools
 related_glossary: [codex, agent-teams, agentic]
 related_blog: [codex-complete-guide, claude-code-extension-stack-skills-hooks-agents-mcp]
 lang: zh
+related_topics: [codex]
 ---
 
 # Codex vs Cursor：AI 编程工具怎么选？

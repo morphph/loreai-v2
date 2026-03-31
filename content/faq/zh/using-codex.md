@@ -6,6 +6,7 @@ category: tools
 related_glossary: [agentic-coding, chatgpt]
 related_blog: [codex-for-students, codex-for-open-source]
 lang: zh
+related_topics: [codex]
 ---
 
 # 如何使用 Codex？

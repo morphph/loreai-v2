@@ -8,6 +8,7 @@ related_blog: [integrate-claude-code-into-your-development-workflow, key-benefit
 related_compare: [claude-code-vs-cursor]
 related_faq: [how-do-i-set-up-claude-code-remote-control-on-my-phone, claude-code-pricing]
 lang: en
+related_topics: [claude-code]
 ---
 
 # Is the Claude Code Actually Useful?

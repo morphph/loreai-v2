@@ -6,6 +6,7 @@ category: tools
 related_glossary: [claude-code, agentic-coding, anthropic]
 related_blog: [headless-mode, claude-code-review-agents]
 lang: zh
+related_topics: [claude-code]
 ---
 
 # Claude Code 怎么接入 CI/CD？

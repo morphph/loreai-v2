@@ -150,6 +150,48 @@ export function comparisonJsonLd(
   };
 }
 
+// ── DefinedTermSet schema for glossary index page ─────────────────────
+export function definedTermSetJsonLd(
+  terms: { name: string; description: string; url: string }[]
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'DefinedTermSet',
+    name: 'AI Glossary',
+    url: `${SITE_URL}/glossary`,
+    hasDefinedTerm: terms.map((t) => ({
+      '@type': 'DefinedTerm',
+      name: t.name,
+      description: t.description,
+      url: t.url,
+    })),
+  };
+}
+
+// ── CollectionPage schema for topic hub pages ─────────────────────────
+export function collectionPageJsonLd(
+  title: string,
+  description: string,
+  url: string
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: title,
+    description,
+    url,
+    isPartOf: {
+      '@type': 'WebSite',
+      '@id': `${SITE_URL}/#website`,
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+  };
+}
+
 // ── Helper to render JSON-LD as a script tag string ────────────────────
 export function jsonLdScript(data: Record<string, unknown>): string {
   return JSON.stringify(data);
