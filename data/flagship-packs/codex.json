@@ -1,0 +1,894 @@
+{
+  "topic_slug": "codex",
+  "topic_name": "OpenAI Codex",
+  "version": 1,
+  "status": "approved",
+  "created_at": "2026-03-31T02:25:23.879Z",
+  "approved_at": "2026-03-31T02:38:06.565Z",
+  "subtopics": [
+    {
+      "slug": "codex-overview-and-capabilities",
+      "name": "Overview & Core Capabilities",
+      "description": "What Codex is, what it can do (write features, debug, review, refactor, answer codebase questions), and how it fits into software engineering workflows. The entry point for evaluating Codex.",
+      "aliases": [
+        "what is codex",
+        "openai codex features",
+        "codex ai coding agent",
+        "codex capabilities"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "topic-hub",
+        "faq",
+        "blog"
+      ],
+      "seed_keywords": [
+        "openai codex",
+        "what is openai codex",
+        "openai codex features",
+        "openai codex capabilities",
+        "openai codex ai coding agent",
+        "openai codex vs github copilot",
+        "openai codex software engineering agent",
+        "codex code generation",
+        "codex code review",
+        "codex debugging assistant",
+        "openai codex how it works"
+      ]
+    },
+    {
+      "slug": "codex-setup-and-installation",
+      "name": "Setup & Installation",
+      "description": "How to get Codex running across all surfaces: desktop app download, IDE extension install, CLI install via npm or Homebrew, and signing in with a ChatGPT account or API key.",
+      "aliases": [
+        "codex install",
+        "codex getting started",
+        "codex quickstart",
+        "codex download",
+        "codex sign in"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "faq"
+      ],
+      "seed_keywords": [
+        "how to install openai codex",
+        "openai codex quickstart",
+        "codex app download mac",
+        "codex app download windows",
+        "codex cli install npm",
+        "codex cli install homebrew",
+        "codex ide extension install",
+        "codex vscode extension setup",
+        "openai codex sign in",
+        "codex api key setup",
+        "codex chatgpt account login",
+        "get started with codex openai"
+      ]
+    },
+    {
+      "slug": "codex-app",
+      "name": "Codex Desktop App",
+      "description": "The dedicated macOS and Windows desktop application for managing Codex projects, including parallel thread management, built-in Git tools, worktree support, and integrated terminal.",
+      "aliases": [
+        "codex desktop",
+        "codex macos app",
+        "codex windows app",
+        "codex app features"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "faq",
+        "topic-hub"
+      ],
+      "seed_keywords": [
+        "openai codex app",
+        "codex desktop app features",
+        "codex app macos",
+        "codex app parallel tasks",
+        "codex worktree management",
+        "codex built-in git tools",
+        "codex app vs cli",
+        "codex app diff review",
+        "codex app automation",
+        "codex app multiple projects"
+      ]
+    },
+    {
+      "slug": "codex-cli",
+      "name": "Codex CLI",
+      "description": "The terminal-based coding agent built in Rust, supporting macOS, Linux, and experimental Windows/WSL. Covers interactive mode, model selection, subagents, scripting, and approval modes.",
+      "aliases": [
+        "codex command line",
+        "codex terminal",
+        "codex-cli",
+        "openai codex cli tool"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "faq",
+        "blog"
+      ],
+      "seed_keywords": [
+        "openai codex cli",
+        "codex cli tutorial",
+        "codex cli features",
+        "codex cli interactive mode",
+        "codex cli model selection",
+        "codex cli subagents",
+        "codex cli approval modes",
+        "codex cli vs codex app",
+        "codex cli scripting automation",
+        "how to use codex cli",
+        "codex cli resume conversation",
+        "codex cli web search",
+        "codex cli windows wsl"
+      ]
+    },
+    {
+      "slug": "codex-ide-extension",
+      "name": "IDE Extension",
+      "description": "Codex's integrations with Visual Studio Code and other IDEs, enabling agent mode directly inside the editor to read, modify, and run commands within project directories.",
+      "aliases": [
+        "codex vscode",
+        "codex ide plugin",
+        "codex editor extension",
+        "codex vs code agent mode"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "faq"
+      ],
+      "seed_keywords": [
+        "openai codex vscode extension",
+        "codex ide extension",
+        "codex visual studio code",
+        "codex agent mode ide",
+        "codex ide setup",
+        "codex vscode vs copilot",
+        "how to install codex vscode extension",
+        "codex ide extension features",
+        "codex editor integration"
+      ]
+    },
+    {
+      "slug": "codex-web-cloud",
+      "name": "Codex Web & Cloud Tasks",
+      "description": "Running Codex tasks in the cloud via browser or GitHub integration, with isolated environments preloaded with repositories. Covers connecting GitHub, cloud task monitoring, and internet access controls.",
+      "aliases": [
+        "codex cloud",
+        "codex web interface",
+        "codex github integration",
+        "codex remote tasks",
+        "codex cloud environment"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "faq",
+        "topic-hub"
+      ],
+      "seed_keywords": [
+        "openai codex web",
+        "codex cloud tasks",
+        "codex github integration",
+        "codex connect github repository",
+        "codex cloud environment setup",
+        "codex remote task monitoring",
+        "codex pull request creation",
+        "codex internet access control",
+        "codex cloud vs local",
+        "codex web task delegation"
+      ]
+    },
+    {
+      "slug": "codex-models",
+      "name": "Models & Model Selection",
+      "description": "The AI models powering Codex — primary gpt-5.4, lightweight gpt-5.4-mini, and research preview variants — including how to configure, switch, and compare them for different coding tasks.",
+      "aliases": [
+        "codex model options",
+        "gpt-5.4 codex",
+        "codex model config",
+        "codex model comparison",
+        "codex gpt model"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "high",
+      "page_type_hints": [
+        "compare",
+        "faq",
+        "blog"
+      ],
+      "seed_keywords": [
+        "openai codex models",
+        "codex gpt-5.4",
+        "codex model selection",
+        "codex model comparison",
+        "codex gpt-5.4-mini",
+        "codex model config.toml",
+        "how to switch codex model",
+        "codex best model for coding",
+        "codex model vs gpt-5",
+        "codex model pricing",
+        "codex model capabilities",
+        "codex research preview model"
+      ]
+    },
+    {
+      "slug": "codex-prompting",
+      "name": "Prompting Guide & Best Practices",
+      "description": "How to write effective prompts for Codex: providing goal, relevant files, constraints, and completion criteria. Covers prompting strategies for CLI, IDE, app, and API contexts, plus AGENTS.md usage.",
+      "aliases": [
+        "codex prompt engineering",
+        "codex prompting tips",
+        "how to prompt codex",
+        "codex prompt examples",
+        "codex prompt strategy"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "low",
+      "page_type_hints": [
+        "tutorial",
+        "blog",
+        "faq"
+      ],
+      "seed_keywords": [
+        "openai codex prompting guide",
+        "how to prompt codex",
+        "codex best practices",
+        "codex prompt examples",
+        "codex effective prompts",
+        "codex AGENTS.md",
+        "codex prompt for debugging",
+        "codex prompt for code review",
+        "codex plan mode prompting",
+        "codex prompting strategy api",
+        "codex prompt context files",
+        "codex prompt long task"
+      ]
+    },
+    {
+      "slug": "codex-agents-md",
+      "name": "AGENTS.md Configuration",
+      "description": "The AGENTS.md file used to give Codex persistent, repo-level instructions: repository structure, workflows, coding standards, verification methods, and navigation hints for autonomous operation.",
+      "aliases": [
+        "AGENTS.md",
+        "codex agents file",
+        "codex repo instructions",
+        "codex custom instructions",
+        "codex agents config"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "low",
+      "page_type_hints": [
+        "tutorial",
+        "faq",
+        "glossary"
+      ],
+      "seed_keywords": [
+        "codex AGENTS.md",
+        "how to write AGENTS.md",
+        "codex agents.md example",
+        "codex repo-level instructions",
+        "codex custom workflow config",
+        "codex agents.md vs .cursorrules",
+        "AGENTS.md best practices",
+        "codex codebase navigation config",
+        "codex agents.md template"
+      ]
+    },
+    {
+      "slug": "codex-configuration",
+      "name": "Configuration (config.toml)",
+      "description": "Basic and advanced configuration of Codex via config.toml files — model selection, profiles, provider endpoints, authentication, and project-specific overrides using directory hierarchy.",
+      "aliases": [
+        "codex config",
+        "codex config.toml",
+        "codex settings",
+        "codex profiles",
+        "codex advanced config"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "faq"
+      ],
+      "seed_keywords": [
+        "openai codex config.toml",
+        "codex configuration file",
+        "codex config profiles",
+        "codex advanced configuration",
+        "codex project-specific config",
+        "codex provider endpoint config",
+        "codex ~/.codex directory",
+        "codex config override cli",
+        "how to configure codex",
+        "codex settings file location"
+      ]
+    },
+    {
+      "slug": "codex-plugins",
+      "name": "Plugins & Extensions",
+      "description": "How to browse, install, and manage Codex plugins — reusable workflows that bundle skills, app integrations (Gmail, Google Drive, Slack), and MCP servers to extend Codex's capabilities.",
+      "aliases": [
+        "codex plugins",
+        "codex extensions",
+        "codex plugin install",
+        "codex custom plugins",
+        "codex plugin development"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "high",
+      "page_type_hints": [
+        "tutorial",
+        "topic-hub",
+        "faq"
+      ],
+      "seed_keywords": [
+        "openai codex plugins",
+        "codex plugin install",
+        "codex plugin development",
+        "codex build custom plugin",
+        "codex plugin github",
+        "codex plugin slack integration",
+        "codex plugin google drive",
+        "how to create codex plugin",
+        "codex plugin vs skill",
+        "codex plugin distribution"
+      ]
+    },
+    {
+      "slug": "codex-skills",
+      "name": "Agent Skills",
+      "description": "Task-specific workflow packages (SKILL.md + optional scripts) that teach Codex to reliably follow complex, repeatable procedures. Covers creation, invocation, storage locations, and packaging as plugins.",
+      "aliases": [
+        "codex skills",
+        "codex agent skills",
+        "SKILL.md",
+        "codex reusable workflows",
+        "codex skill files"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "faq",
+        "glossary"
+      ],
+      "seed_keywords": [
+        "openai codex agent skills",
+        "codex skills how to create",
+        "codex SKILL.md",
+        "codex reusable workflows",
+        "codex skill invocation",
+        "codex skill vs plugin",
+        "codex skill examples",
+        "codex skill storage locations",
+        "how to use codex skills",
+        "codex skill packaging"
+      ]
+    },
+    {
+      "slug": "codex-mcp-servers",
+      "name": "MCP Server Integration",
+      "description": "Connecting Codex to external services and tools via the Model Context Protocol (MCP), enabling enhanced context sharing and access to external APIs within coding workflows.",
+      "aliases": [
+        "codex mcp",
+        "model context protocol codex",
+        "codex mcp integration",
+        "codex external tools"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "high",
+      "page_type_hints": [
+        "tutorial",
+        "faq",
+        "blog"
+      ],
+      "seed_keywords": [
+        "openai codex mcp",
+        "codex model context protocol",
+        "codex mcp server setup",
+        "codex mcp integration",
+        "how to connect mcp to codex",
+        "codex mcp vs plugins",
+        "codex external services mcp",
+        "codex mcp examples",
+        "codex context sharing mcp"
+      ]
+    },
+    {
+      "slug": "codex-github-integration",
+      "name": "GitHub Integration",
+      "description": "Deep integration between Codex and GitHub — connecting repositories, initiating tasks from GitHub, creating pull requests, code review workflows, and GitHub Actions automation.",
+      "aliases": [
+        "codex github",
+        "codex pull requests",
+        "codex github actions",
+        "codex repo connect",
+        "codex github workflow"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "blog",
+        "faq"
+      ],
+      "seed_keywords": [
+        "openai codex github integration",
+        "codex connect github repository",
+        "codex create pull request",
+        "codex github actions",
+        "codex code review github",
+        "codex github workflow automation",
+        "codex initiate task from github",
+        "codex vs github copilot",
+        "codex github pull request review",
+        "codex github enterprise"
+      ]
+    },
+    {
+      "slug": "codex-subagents",
+      "name": "Subagents & Parallel Tasks",
+      "description": "How Codex spawns subagents to execute larger tasks in parallel, enabling multi-threaded workflows for complex or long-running coding jobs across the CLI and app.",
+      "aliases": [
+        "codex subagents",
+        "codex parallel tasks",
+        "codex multi-agent",
+        "codex parallel execution"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "faq",
+        "blog"
+      ],
+      "seed_keywords": [
+        "openai codex subagents",
+        "codex parallel task execution",
+        "codex multi-threaded workflows",
+        "codex subagent how to use",
+        "codex parallel coding tasks",
+        "codex spawn subagent",
+        "codex complex task parallelism",
+        "codex subagents cli",
+        "how codex subagents work"
+      ]
+    },
+    {
+      "slug": "codex-security-and-sandboxing",
+      "name": "Security, Sandboxing & Cyber Safety",
+      "description": "Codex's security model: isolated execution environments, sandboxing (including native Windows sandboxing), internet access controls, approval modes, and cyber safety guidelines for enterprise use.",
+      "aliases": [
+        "codex security",
+        "codex sandbox",
+        "codex approval modes",
+        "codex safe execution",
+        "codex cyber safety"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "faq",
+        "blog",
+        "topic-hub"
+      ],
+      "seed_keywords": [
+        "openai codex security",
+        "codex sandboxing",
+        "codex isolated environment",
+        "codex approval modes",
+        "codex internet access control",
+        "codex cyber safety",
+        "codex safe code execution",
+        "codex enterprise security",
+        "codex windows sandbox",
+        "is openai codex safe",
+        "codex security model"
+      ]
+    },
+    {
+      "slug": "codex-pricing-and-plans",
+      "name": "Pricing & Access Plans",
+      "description": "How to access Codex — free trial tiers, ChatGPT Plus/Pro/Business/Enterprise/Edu plans with rate limits, API credit access, and the open-source maintainer program.",
+      "aliases": [
+        "codex pricing",
+        "codex plans",
+        "codex free tier",
+        "codex enterprise plan",
+        "codex rate limits"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "high",
+      "page_type_hints": [
+        "compare",
+        "faq"
+      ],
+      "seed_keywords": [
+        "openai codex pricing",
+        "codex free trial",
+        "codex chatgpt plus plan",
+        "codex pro plan",
+        "codex enterprise pricing",
+        "codex api credits",
+        "codex rate limits",
+        "how much does codex cost",
+        "codex vs copilot pricing",
+        "codex open source program",
+        "codex edu plan",
+        "codex business plan features"
+      ]
+    },
+    {
+      "slug": "codex-enterprise-administration",
+      "name": "Enterprise Administration",
+      "description": "Enterprise-specific setup, administration, access controls, and security configurations for deploying Codex at scale within organizations on Business and Enterprise plans.",
+      "aliases": [
+        "codex enterprise",
+        "codex enterprise admin",
+        "codex business setup",
+        "codex org management"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "faq"
+      ],
+      "seed_keywords": [
+        "openai codex enterprise",
+        "codex enterprise admin setup",
+        "codex business plan configuration",
+        "codex enterprise security controls",
+        "codex org access management",
+        "codex enterprise vs business",
+        "codex enterprise github setup",
+        "codex enterprise compliance",
+        "managing codex enterprise users"
+      ]
+    },
+    {
+      "slug": "codex-automation-and-scripting",
+      "name": "Automation, Scripting & GitHub Actions",
+      "description": "Using Codex for automated workflows — scripting via CLI, GitHub Actions integration, and app-level automation features for routine development tasks like refactoring and testing.",
+      "aliases": [
+        "codex automation",
+        "codex github actions",
+        "codex scripting",
+        "codex ci automation",
+        "codex workflow automation"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "blog",
+        "faq"
+      ],
+      "seed_keywords": [
+        "openai codex automation",
+        "codex github actions integration",
+        "codex scripting workflows",
+        "codex cli scripting",
+        "codex automated code review",
+        "codex refactoring automation",
+        "codex test automation",
+        "codex ci cd pipeline",
+        "codex scheduled tasks",
+        "how to automate with codex"
+      ]
+    },
+    {
+      "slug": "codex-changelog",
+      "name": "Changelog & Release Notes",
+      "description": "Version history, feature releases, model updates, and deprecation notices for Codex. High-freshness content tracking what's new and what changed across app, CLI, and API surfaces.",
+      "aliases": [
+        "codex updates",
+        "codex release notes",
+        "codex new features",
+        "codex version history",
+        "codex deprecations"
+      ],
+      "evidence_type": "official_doc",
+      "freshness_sensitivity": "high",
+      "page_type_hints": [
+        "blog",
+        "faq"
+      ],
+      "seed_keywords": [
+        "openai codex changelog",
+        "codex latest updates",
+        "codex new features 2025",
+        "codex release notes",
+        "codex version history",
+        "what's new in codex",
+        "codex model updates",
+        "codex deprecation notices",
+        "codex api changes",
+        "openai codex update log"
+      ]
+    },
+    {
+      "slug": "codex-vs-competitors",
+      "name": "Codex vs Competitors",
+      "description": "Direct comparisons between Codex and competing AI coding agents — Claude Code, GitHub Copilot, Cursor, Devin, and others. Covers speed, interactivity, ecosystem integration, pricing, and daily-driver suitability. Strong SERP signal from multiple Reddit threads directly comparing these tools.",
+      "aliases": [
+        "codex vs claude code",
+        "codex vs copilot",
+        "codex vs cursor",
+        "openai codex comparison",
+        "codex alternatives"
+      ],
+      "evidence_type": "serp_competitor",
+      "freshness_sensitivity": "high",
+      "page_type_hints": [
+        "compare",
+        "blog",
+        "faq"
+      ],
+      "seed_keywords": [
+        "codex vs claude code",
+        "openai codex vs github copilot",
+        "openai codex vs cursor",
+        "codex vs devin",
+        "codex vs claude code which is better",
+        "openai codex alternatives",
+        "best ai coding agent 2025",
+        "codex vs copilot for daily coding",
+        "is codex better than claude code",
+        "openai codex competitor comparison"
+      ]
+    },
+    {
+      "slug": "codex-legacy-model-disambiguation",
+      "name": "Legacy Codex Model vs Codex Agent",
+      "description": "Disambiguation between the original OpenAI Codex LLM series (2021–2023, the model that powered early GitHub Copilot) and the current Codex coding agent product. Wikipedia surfaces this confusion prominently. Gap: no official content addresses this directly, creating a missed SEO opportunity for branded searches.",
+      "aliases": [
+        "openai codex model",
+        "codex gpt",
+        "original openai codex",
+        "codex llm",
+        "codex davinci"
+      ],
+      "evidence_type": "gap_analysis",
+      "freshness_sensitivity": "low",
+      "page_type_hints": [
+        "glossary",
+        "blog",
+        "faq"
+      ],
+      "seed_keywords": [
+        "openai codex model vs agent",
+        "original openai codex llm",
+        "openai codex history",
+        "what happened to openai codex model",
+        "codex github copilot relationship",
+        "openai codex deprecated",
+        "codex vs codex-1 model",
+        "openai codex 2021 vs 2025",
+        "openai codex changelog history",
+        "codex model successor"
+      ]
+    },
+    {
+      "slug": "codex-headless-and-sdk-mode",
+      "name": "Headless Mode & SDK Integration",
+      "description": "Running Codex in non-interactive, headless mode for scripted pipelines and programmatic SDK integration. Distinct from basic CLI usage — covers use cases like CI automation, batch task execution, and embedding Codex into custom tooling. Mentioned in the official tutorial video but absent as a standalone subtopic.",
+      "aliases": [
+        "codex headless",
+        "codex sdk mode",
+        "codex non-interactive",
+        "codex programmatic",
+        "codex batch mode"
+      ],
+      "evidence_type": "serp_competitor",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "blog",
+        "faq"
+      ],
+      "seed_keywords": [
+        "codex headless mode",
+        "openai codex sdk integration",
+        "codex non-interactive mode",
+        "codex programmatic usage",
+        "how to run codex in ci pipeline",
+        "codex batch task execution",
+        "codex scripted workflows",
+        "openai codex api sdk",
+        "codex headless vs interactive",
+        "embed codex in custom tooling"
+      ]
+    },
+    {
+      "slug": "codex-non-coding-use-cases",
+      "name": "Non-Coding Use Cases",
+      "description": "Using Codex CLI and agent for tasks beyond writing code — documentation generation, meeting summarization, note management, proofreading, task organization, and Obsidian/markdown workflows. Surfaces from developer blogs show real adoption for these use cases, representing a gap in official content.",
+      "aliases": [
+        "codex for documentation",
+        "codex for notes",
+        "codex non-developer",
+        "codex for writing",
+        "codex productivity"
+      ],
+      "evidence_type": "gap_analysis",
+      "freshness_sensitivity": "low",
+      "page_type_hints": [
+        "blog",
+        "tutorial",
+        "faq"
+      ],
+      "seed_keywords": [
+        "openai codex for documentation",
+        "codex cli non-coding tasks",
+        "using codex for meeting notes",
+        "codex obsidian workflow",
+        "codex for markdown files",
+        "codex for non-developers",
+        "openai codex for writing",
+        "codex cli productivity tips",
+        "codex for proofreading",
+        "codex task management terminal"
+      ]
+    },
+    {
+      "slug": "codex-cookbook-and-examples",
+      "name": "Cookbook & Practical Examples",
+      "description": "Curated real-world examples, recipes, and worked walkthroughs for common Codex tasks — debugging sessions, refactor workflows, migration scripts, test generation, and PR creation. Competitor tutorial content (DataCamp, YouTube series) shows strong demand; official Codex Cookbook is referenced but not well-indexed as a content surface.",
+      "aliases": [
+        "codex cookbook",
+        "codex examples",
+        "codex tutorials",
+        "codex recipes",
+        "codex how-to"
+      ],
+      "evidence_type": "serp_competitor",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "blog",
+        "topic-hub"
+      ],
+      "seed_keywords": [
+        "openai codex examples",
+        "codex cookbook",
+        "codex practical examples",
+        "how to use codex to fix bugs",
+        "codex refactor example",
+        "codex test generation example",
+        "openai codex tutorial walkthrough",
+        "codex real world use cases",
+        "codex debugging workflow example",
+        "codex create pull request example"
+      ]
+    },
+    {
+      "slug": "codex-open-source-contributing",
+      "name": "Open Source & Contributing",
+      "description": "The open-source nature of the Codex CLI (Apache 2.0, hosted on GitHub), how to contribute to the project, build from source, file issues, and track releases. Covers the community contribution model and the open-source maintainer access program. Distinct from general setup/install.",
+      "aliases": [
+        "codex open source",
+        "codex github repo",
+        "codex apache license",
+        "contribute to codex",
+        "codex source code"
+      ],
+      "evidence_type": "serp_competitor",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "blog",
+        "faq"
+      ],
+      "seed_keywords": [
+        "openai codex open source",
+        "codex cli github repository",
+        "openai codex apache license",
+        "how to contribute to openai codex",
+        "codex cli build from source",
+        "openai codex maintainer program",
+        "codex open source vs proprietary",
+        "codex cli rust source code",
+        "openai codex community contributions",
+        "codex cli prebuilt binaries download"
+      ]
+    },
+    {
+      "slug": "codex-pr-review-workflow",
+      "name": "Automated PR Review Workflow",
+      "description": "Using Codex specifically as an automated pull request reviewer — triggering reviews via GitHub integration, configuring review scope, interpreting Codex feedback in PRs, and integrating review automation into team CI/CD. Surfaces as a distinct named feature in competitor tutorials but underseparated in official docs from general GitHub integration.",
+      "aliases": [
+        "codex pr review",
+        "codex code review",
+        "codex github pr",
+        "codex pull request review",
+        "codex review bot"
+      ],
+      "evidence_type": "serp_competitor",
+      "freshness_sensitivity": "medium",
+      "page_type_hints": [
+        "tutorial",
+        "blog",
+        "faq"
+      ],
+      "seed_keywords": [
+        "codex automated pull request review",
+        "openai codex pr review",
+        "codex code review github",
+        "how to use codex for code review",
+        "codex review pull request automatically",
+        "codex github review bot",
+        "codex review vs copilot review",
+        "openai codex review feedback",
+        "codex pr review setup",
+        "codex review in ci pipeline"
+      ]
+    }
+  ],
+  "sources": {
+    "official_docs": [
+      "https://developers.openai.com/codex/",
+      "https://developers.openai.com/codex/quickstart/",
+      "https://developers.openai.com/codex/cloud/",
+      "https://developers.openai.com/codex/cli/",
+      "https://developers.openai.com/codex/models/",
+      "https://developers.openai.com/codex/plugins/",
+      "https://developers.openai.com/codex/skills/",
+      "https://developers.openai.com/codex/config-advanced/",
+      "https://developers.openai.com/codex/changelog?type=general",
+      "https://developers.openai.com/codex/app/",
+      "https://developers.openai.com/cookbook/examples/gpt-5/codex_prompting_guide/",
+      "https://platform.openai.com/docs/codex/overview",
+      "https://community.openai.com/t/tips-and-tricks-for-using-codex/1373143",
+      "https://developers.openai.com/codex/learn/best-practices/",
+      "https://developers.openai.com/codex/app/features/",
+      "https://openai.com/index/introducing-codex/",
+      "https://cookbook.openai.com/examples/gpt-5/codex_prompting_guide",
+      "https://developers.openai.com/codex/overview",
+      "https://developers.openai.com/codex/cli/features/",
+      "https://openai.com/codex/",
+      "https://developers.openai.com/codex/pricing/",
+      "https://openai.com/form/codex-for-oss/",
+      "https://openai.com/codex/get-started/",
+      "https://developers.openai.com/api/docs/guides/code-generation/",
+      "https://developers.openai.com/codex/config-basic/",
+      "https://platform.openai.com/",
+      "https://platform.openai.com/docs/models/compare?model=gpt-5.1-codex",
+      "https://platform.openai.com/docs/api-reference/chatkit/threads/object",
+      "https://platform.openai.com/docs/api-reference/project-users/retrieve",
+      "https://platform.openai.com/ai-text-classifier",
+      "https://platform.openai.com/docs/api-reference/runs?lang=python&adobe_mc=MCMID%3D12000814905405683995335849378418609464%7CMCORGID%3DA8833BC75245AF9E0A490D4D%2540AdobeOrg%7CTS%3D1744156800&_clear=true"
+    ],
+    "serp_competitors": [
+      "https://github.com/openai/codex",
+      "https://en.wikipedia.org/wiki/OpenAI_Codex",
+      "https://chatgpt.com/codex/",
+      "https://marketplace.visualstudio.com/items?itemName=openai.chatgpt",
+      "https://www.reddit.com/r/singularity/comments/1ko3mxq/openai_introducing_codex_software_engineering/",
+      "https://www.youtube.com/watch?v=px7XlbYgk7I",
+      "https://amanhimself.dev/blog/first-few-days-with-codex-cli/",
+      "https://srinivas-mahakud.medium.com/understanding-openai-codex-your-guide-to-the-ai-coding-assistant-f70ef2566498",
+      "https://www.reddit.com/r/OpenAI/comments/1qaz8l4/openai_releases_official_getting_started_with/",
+      "https://www.youtube.com/watch?v=dL0uvPXYi28",
+      "https://www.youtube.com/watch?v=tIb_TzVNbDM",
+      "https://www.datacamp.com/tutorial/openai-codex",
+      "https://www.youtube.com/watch?v=bZ-5CfD2LRU",
+      "https://www.reddit.com/r/OpenAI/comments/1k1qrk4/how_do_you_use_openais_codex_cli/",
+      "https://www.reddit.com/r/ClaudeAI/comments/1kp221z/claude_code_vs_openai_codex_the_browser_based/"
+    ]
+  }
+}
