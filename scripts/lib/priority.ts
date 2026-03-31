@@ -121,6 +121,28 @@ export const JUNK_KEYWORD_PATTERNS: RegExp[] = [
   /^mac & ios$/i,                              // platform listing
   /^desktop app download$/i,                   // generic CTA
   /^git provider support$/i,                   // generic nav label
+  // Ancient manuscripts (wrong "codex")
+  /\b(vaticanus|sinaiticus|gigas|aztec|christianity|manuscript)\b/i,
+  /^codex (books|definition)$/i,
+  // Other products entirely
+  /\b(outlook 365?|outlook)\b.*\b(task|recurring|schedule)\b/i,
+  /\brecurring task.*(planner|project|outlook)\b/i,
+  /\bschedule.*recurring.*(planner|project)\b/i,
+  /\binstallation process of windows\b/i,
+  /\bsetup installation windows\b/i,
+  /\bwindows installation.*step by step\b/i,
+  /\bwindows installation setup is starting\b/i,
+  /\b(google|microsoft) authenticator\b/i,
+  /\blogin[\s.]?gov\b/i,
+  /\bwordpress plugin development\b/i,
+  /\bturn on two-factor.*apple\b/i,
+  /\bdelete login gov\b/i,
+  /\bjira cloud\b/i,
+  /\b6 figure\b/i,
+  // Scraped article titles / press release headlines
+  /^openai (launches|introduces)\b/i,
+  /\bprinting house ltd\b/i,
+  /\bcomprendiendo las directrices\b/i,        // Spanish article title
 ];
 
 export const NON_ENGLISH_INDICATORS: RegExp[] = [
@@ -159,6 +181,72 @@ export function isJunkGroup(primaryKeyword: string, intent: string): boolean {
   }
 
   return false;
+}
+
+// ── Off-Topic Relevance Filter ──
+
+/** Product and topic terms that indicate a keyword is relevant to our site */
+const RELEVANT_TERMS: string[] = [
+  'claude', 'codex', 'anthropic', 'loreai',
+  'mcp', 'model context protocol',
+  'cursor', 'copilot', 'windsurf', 'cline', 'github copilot', // competitors (for compare)
+  'ai coding', 'ai agent', 'ai tool', 'ai assistant',
+  'hooks', 'subagent', 'worktree', 'skill.md', 'agents.md', 'claude.md',
+  'output style', 'plan mode', 'prompt engineering',
+];
+
+/**
+ * Clusters where generic (non-product-mentioning) keywords are common
+ * and should be filtered. Keywords in these clusters MUST mention a
+ * RELEVANT_TERM to be kept.
+ */
+const POLLUTED_CLUSTERS: string[] = [
+  'claude-code-authentication',
+  'claude-code-ci-cd-integration',
+  'claude-code-cli-reference',
+  'claude-code-permissions',
+  'claude-code-ide-integrations',
+  'claude-code-scheduled-tasks',
+  'claude-code-slack-linear-integrations',
+  'claude-code-remote-control',
+  'claude-code-git-workflow',
+  'claude-code-parallel-sessions',
+  'claude-code-plugins',
+  'claude-code-desktop-app',
+  'claude-code-installation-setup',
+  'claude-code-non-technical-use-cases',
+  'claude-code-plan-mode',
+  'claude-code-computer-use',
+  'claude-code-cost-pricing',
+  'claude-code-common-workflows',
+  'codex',
+  'codex-cli',
+  'codex-security',
+  'codex-openai',
+];
+
+/**
+ * Returns true if a keyword is off-topic for our site.
+ * For "polluted" clusters, requires the keyword to mention a relevant product term.
+ */
+export function isOffTopicForSite(primaryKeyword: string, clusterSlug: string | null): boolean {
+  if (!clusterSlug) return false;
+
+  // Only filter polluted clusters
+  if (!POLLUTED_CLUSTERS.includes(clusterSlug)) return false;
+
+  const kw = primaryKeyword.toLowerCase().trim();
+
+  // If keyword mentions any relevant term, keep it
+  for (const term of RELEVANT_TERMS) {
+    if (kw.includes(term)) return false;
+  }
+
+  // For codex clusters, "codex" in the keyword is enough to keep it
+  if (clusterSlug.startsWith('codex') && kw.includes('codex')) return false;
+
+  // Keyword is in a polluted cluster but doesn't mention any product → off-topic
+  return true;
 }
 
 // ── Cluster Diversity (D) ──
