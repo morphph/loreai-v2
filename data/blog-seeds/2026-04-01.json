@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Build with Veo 3.1 Lite, our most cost-effective video generation model",
+    "url": "https://blog.google/innovation-and-ai/technology/ai/veo-3-1-lite/",
+    "source": "rss:Google AI Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code's source code has been leaked via a map file in their NPM registry",
+    "url": "https://twitter.com/Fried_rice/status/2038894956459290963",
+    "source": "hackernews",
+    "x_engagement_24h": 2777,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.8331,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @UnslothAI: This model has been #1 trending for 3 weeks now. It's Qwen3.5-27B fine-tuned on distilled data from Claude-4.6-Opus",
+    "url": "https://x.com/_akhaliq/status/2038801439766487310",
+    "source": "twitter:@_akhaliq",
+    "x_engagement_24h": 2945,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 20.8835,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Georgi on why it's still hard to get great coding agent performance from local models",
+    "url": "https://x.com/simonw/status/2038714926769094875",
+    "source": "twitter:@simonw",
+    "x_engagement_24h": 319,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.0957,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "AI agent caught attack 45 min before official announcement",
+    "url": "https://x.com/swyx/status/2038903470212968830",
+    "source": "twitter:@swyx",
+    "x_engagement_24h": 276,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.0828,
+    "suggested_angle": "news"
+  }
+]
