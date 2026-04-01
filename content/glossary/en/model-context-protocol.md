@@ -24,7 +24,7 @@ related_topics:
 
 ## Why Model Context Protocol Matters
 
-MCP solves a fundamental limitation of LLMs: their isolation from live data and external systems. Before MCP, developers built custom connectors for each new data source or AI model—an "N×M" integration problem that didn't scale. With MCP, organizations can expose their data sources once and instantly make them accessible to any MCP-compatible AI application. This enables enterprise chatbots to query multiple databases through a single chat interface, agents to access Google Calendar and Notion autonomously, and AI-powered IDEs like [Cursor](/glossary/cursor) to generate entire web apps from [Figma](/glossary/figma) designs. Early adopters from Block to Apollo report significant time savings on development and integration complexity.
+MCP solves a fundamental limitation of LLMs: their isolation from live data and external systems. Before MCP, developers built custom connectors for each new data source or AI model—an "N×M" integration problem that didn't scale. With MCP, organizations can expose their data sources once and instantly make them accessible to any MCP-compatible AI application. This enables enterprise chatbots to query multiple databases through a single chat interface, agents to access Google Calendar and Notion autonomously, and AI-powered IDEs like [Cursor](/glossary/cursor) to generate entire web apps from Figma designs. Early adopters from Block to Apollo report significant time savings on development and integration complexity.
 
 ## How Model Context Protocol Works
 

@@ -35,7 +35,7 @@ Key mechanisms:
 - **Modelfile**: A Dockerfile-like spec that defines the base model, system prompt, parameters (temperature, context length), and adapter layers
 - **OpenAI-compatible API**: Serves models on `localhost:11434` with endpoints that match the OpenAI chat completions format
 - **Quantization support**: Runs models at various precision levels (Q4, Q5, Q8) to balance quality against memory usage
-- **Hardware detection**: Automatically leverages [Apple](/glossary/apple) Silicon GPU, NVIDIA CUDA, or falls back to CPU inference
+- **Hardware detection**: Automatically leverages Apple Silicon GPU, NVIDIA CUDA, or falls back to CPU inference
 
 Running a model is as simple as `ollama run llama3` — Ollama pulls the weights on first run and caches them locally.
 

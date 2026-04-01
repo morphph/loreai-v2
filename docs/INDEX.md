@@ -108,6 +108,7 @@ depends-on: []
 | ------------------------------------------------ | ------------------------------------------- | ---------- |
 | [Keyword Engine Log](logs/KEYWORD-ENGINE-LOG.md) | A1–C4 execution tracking with dates/results | 2026-03-20 |
 | [D1 Execution Log](logs/LOG-D1-execution.md)     | D1 Phase 1 deliverables and schema changes  | 2026-03-27 |
+| [Content Audit](logs/CONTENT-AUDIT-2026-04.md)   | Off-topic content sunset for topical authority | 2026-04-01 |
 
 
 ---

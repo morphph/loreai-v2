@@ -9,8 +9,7 @@ related_glossary:
   - fine-tuning
   - agentic-coding
   - chatgpt
-related_blog:
-  - restaurant-voice-agent-gpt-realtime-tutorial
+related_blog: []
 related_compare: []
 lang: zh
 ---
@@ -23,7 +22,7 @@ lang: zh
 
 LLM 本身只做文本生成，但实际产品需要连接数据库、调用 API、处理多轮对话状态。LangChain 填补了"裸模型"到"可用产品"之间的工程缺口。它是目前 LLM 应用开发生态中最活跃的框架之一，GitHub star 数超过 10 万，周下载量长期位居同类工具前列。
 
-无论你用 OpenAI、Claude 还是开源模型，LangChain 都提供统一的接口抽象，降低了切换模型的成本。对于需要构建 [RAG 检索增强生成](/glossary/fine-tuning)或[语音 Agent](/blog/restaurant-voice-agent-gpt-realtime-tutorial) 等复杂管线的团队，它显著缩短了从原型到生产的周期。
+无论你用 OpenAI、Claude 还是开源模型，LangChain 都提供统一的接口抽象，降低了切换模型的成本。对于需要构建 [RAG 检索增强生成](/glossary/fine-tuning)或[智能体编程](/glossary/agentic-coding)等复杂管线的团队，它显著缩短了从原型到生产的周期。
 
 ## LangChain 如何工作
 
@@ -31,7 +30,7 @@ LangChain 的核心抽象包括几个层次：
 
 - **Model I/O**：统一封装各家 LLM 和 Embedding 模型的调用接口
 - **Chains**：将提示词模板、模型调用、输出解析串联成可复用的处理链
-- **Retrieval**：内置向量数据库集成（Chroma、Pinecone 等），支持 [RAG](/zh/glossary/rag) 架构
+- **Retrieval**：内置向量数据库集成（Chroma、Pinecone 等），支持 RAG 架构
 - **Agents**：让 LLM 自主决定调用哪些工具、按什么顺序执行，实现[智能体编程](/glossary/agentic-coding)范式
 
 2024 年后 LangChain 拆分为核心库 `langchain-core` 和生态包，并推出 LangGraph（用于构建有状态 Agent 工作流）和 LangSmith（用于可观测性和评估），形成完整工具链。

@@ -74,7 +74,7 @@ Andrej Karpathy 等行业老将警告过"认知萎缩"的问题——开发者�
 2. 对跨越核心模块的变更，自己做一遍 code review
 3. 定期手动做一些你通常交给它的任务，保持手感
 
-关于[自主 AI 编程的风险边界](/blog/add-explicit-threat-model-sync-step-per-repo)，我们有更深入的分析。
+自主 AI 编程的风险边界值得关注——每次让 Agent 操作核心模块前，确保你理解它的行动计划。
 
 ## 第四步：在 VS Code 中使用
 

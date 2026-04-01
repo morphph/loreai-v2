@@ -5,7 +5,7 @@ description: "OpenAI 推出 Codex Security，专为安全团队设计的 AI 编�
 lang: zh
 category: tools
 related_glossary: [ai-safety, ai-regulation, agentic-coding]
-related_blog: [codex-complete-guide, codex-vscode, add-explicit-threat-model-sync-step-per-repo, a-unified-identity-defense-layer-why-pam-with-itdr-is-the-foundation-for-2026-security]
+related_blog: [codex-complete-guide, codex-vscode]
 related_compare: []
 related_topics: [codex]
 ---

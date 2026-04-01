@@ -33,7 +33,7 @@ Google DeepMind [announced Gemini 3.1 Pro](https://deepmind.google/blog/gemini-3
 
 Gemini 3.1 Pro sits in the "Pro" tier of Google's model lineup, between the lightweight Flash models (optimized for speed and cost) and the top-end Ultra class. The Pro tier has consistently been Google's sweet spot for developers: capable enough for serious workloads, priced competitively enough for production use at scale.
 
-The model is available through the [Gemini API](/glossary/gemini), [Google AI](/blog/tensorflow-trending-2026) Studio, and Vertex AI, maintaining Google's pattern of making new models accessible across both consumer-facing and enterprise platforms simultaneously. Integration with the broader Google ecosystem — Search, Workspace, and the Gemini app — is expected to follow the standard rollout pattern.
+The model is available through the [Gemini API](/glossary/gemini), Google AI Studio, and Vertex AI, maintaining Google's pattern of making new models accessible across both consumer-facing and enterprise platforms simultaneously. Integration with the broader Google ecosystem — Search, Workspace, and the Gemini app — is expected to follow the standard rollout pattern.
 
 This release continues the rapid iteration cycle Google has maintained throughout 2025 and into 2026, with major model updates arriving roughly every quarter.
 

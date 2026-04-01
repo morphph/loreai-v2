@@ -10,8 +10,7 @@ category: frameworks
 related_glossary:
   - fine-tuning
   - agentic-coding
-related_blog:
-  - restaurant-voice-agent-gpt-realtime-tutorial
+related_blog: []
 related_compare: []
 lang: en
 ---
@@ -24,7 +23,7 @@ lang: en
 
 Before LangChain, building an LLM-powered application meant writing custom glue code for every component: prompt formatting, API calls, output parsing, document retrieval, and conversation memory. LangChain abstracts these into composable modules with consistent interfaces.
 
-The framework is particularly valuable for **retrieval-augmented generation (RAG)** pipelines, where you need to fetch relevant documents from a vector store and inject them into prompts. It also simplifies building [agentic workflows](/glossary/agentic-coding) where an LLM decides which tools to call and in what order. For a practical example of tool-calling architectures, see our [voice agent tutorial](/blog/restaurant-voice-agent-gpt-realtime-tutorial).
+The framework is particularly valuable for **retrieval-augmented generation (RAG)** pipelines, where you need to fetch relevant documents from a vector store and inject them into prompts. It also simplifies building [agentic workflows](/glossary/agentic-coding) where an LLM decides which tools to call and in what order.
 
 ## How LangChain Works
 

@@ -27,7 +27,7 @@ lang: zh
 
 ## Ollama 的工作原理
 
-Ollama 基于 llama.cpp 构建推理引擎，支持 CPU 和 GPU（NVIDIA、[Apple](/zh/glossary/apple) Silicon）加速。核心机制包括：
+Ollama 基于 llama.cpp 构建推理引擎，支持 CPU 和 GPU（NVIDIA、Apple Silicon）加速。核心机制包括：
 
 - **Modelfile 系统**：类似 Dockerfile 的声明式格式，定义模型来源、系统提示词、温度等参数，实现可复现的模型配置
 - **模型仓库**：维护一个公开的模型库，支持 `ollama pull` 直接下载预量化模型（GGUF 格式）

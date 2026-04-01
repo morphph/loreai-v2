@@ -5,7 +5,7 @@ description: "How OpenAI Codex Security works: sandboxed AI agents for vulnerabi
 lang: en
 category: tools
 related_glossary: [agentic-coding, agent-sdk, ai-safety]
-related_blog: [codex-complete-guide, codex-vscode, claude-code-security-vulnerability-scanning, add-explicit-threat-model-sync-step-per-repo]
+related_blog: [codex-complete-guide, codex-vscode, claude-code-security-vulnerability-scanning]
 related_compare: []
 related_topics: [codex]
 ---
@@ -50,7 +50,7 @@ The sandboxed execution model deserves more attention than it typically gets. Co
 
 This matters for security work in two directions. First, you can safely hand the agent a malicious binary or a vulnerable application — if the agent triggers the exploit, it only affects the container. Second, security-conscious organizations can audit exactly what the agent had access to, which matters for compliance and incident investigation.
 
-The same sandbox design is discussed in the context of [adding explicit threat-model sync steps per repo](/blog/add-explicit-threat-model-sync-step-per-repo) — a pattern that translates well to Codex Security workflows where each engagement should have a defined scope.
+The same sandbox design translates well to Codex Security workflows where each engagement should have a defined scope and explicit threat-model sync steps.
 
 ## Practical Workflows: Where Codex Security Adds Value
 
@@ -68,7 +68,7 @@ The agent operates within defined task boundaries. It doesn't autonomously pivot
 
 The [AI safety](/glossary/ai-safety) constraints built into the underlying model also apply — the agent won't generate attack tooling designed to target production systems outside a clearly authorized research context.
 
-For teams considering Codex Security alongside other identity and access controls, the [PAM with ITDR guide](/blog/a-unified-identity-defense-layer-why-pam-with-itdr-is-the-foundation-for-2026-security) covers how to fit AI agents into a broader 2026 security architecture.
+For teams considering Codex Security alongside other identity and access controls, the broader question is how AI agents fit into your existing security architecture — including privileged access management and identity threat detection.
 
 ## Getting Started
 

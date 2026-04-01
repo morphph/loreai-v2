@@ -34,7 +34,7 @@ Google's AI efforts span three main arms:
 - **Gemini model family**: Google's flagship multimodal models, available in Ultra, Pro, and Flash tiers with varying capability-cost tradeoffs. Natively handles text, images, audio, and video
 - **AI infrastructure**: Tensor Processing Units (TPUs) provide custom training and inference hardware, while Vertex AI offers the managed platform for deploying models at scale
 
-Google also contributes foundational open-source tools like [TensorFlow](/blog/tensorflow-trending-2026), JAX, and the Transformer architecture paper that underpins nearly all modern LLMs — including [Claude](/glossary/claude).
+Google also contributes foundational open-source tools like TensorFlow, JAX, and the Transformer architecture paper that underpins nearly all modern LLMs — including [Claude](/glossary/claude).
 
 ## Related Terms
 

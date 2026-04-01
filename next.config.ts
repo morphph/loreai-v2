@@ -27,7 +27,7 @@ const nextConfig: NextConfig = {
       { source: '/zh/blog/1-add-an-explicit-threat-model-sync-step-per-repo', destination: '/zh/blog/add-explicit-threat-model-sync-step-per-repo', permanent: true },
 
       // ── Renamed glossary slugs (301) ──
-      { source: '/glossary/transformer', destination: '/glossary/transformers', permanent: true },
+      { source: '/glossary/transformer', destination: '/glossary', permanent: true },
       { source: '/glossary/mcp-server', destination: '/glossary/mcp', permanent: true },
       { source: '/en/glossary/transformer', destination: '/glossary/transformers', permanent: true },
       { source: '/en/glossary/mcp-server', destination: '/glossary/mcp', permanent: true },
@@ -50,6 +50,44 @@ const nextConfig: NextConfig = {
       { source: '/en/topics/:slug', destination: '/topics/:slug', permanent: true },
       // Legacy feed URL
       { source: '/rss.xml', destination: '/feed.xml', permanent: true },
+
+      // ── Sunset compare pages (301) — content audit 2026-04-01 ──
+      ...[
+        'anthropic-vs-google-ai-partnerships',
+      ].flatMap(slug => [
+        { source: `/compare/${slug}`, destination: '/compare', permanent: true },
+        { source: `/zh/compare/${slug}`, destination: '/zh/compare', permanent: true },
+      ]),
+
+      // ── Sunset glossary pages (301) — content audit 2026-04-01 ──
+      // Heavily-linked terms → best equivalent kept page
+      ...[
+        ['chatgpt', '/glossary/openai'],
+        ['ai-safety', '/glossary/anthropic'],
+        ['fine-tuning', '/glossary'],
+        ['reinforcement-learning', '/glossary'],
+        ['rlhf', '/glossary'],
+        ['gpt-54', '/glossary/openai'],
+        ['whisper', '/glossary/openai'],
+        ['huggingface', '/glossary'],
+        ['hugging-face', '/glossary'],
+        ['transformers', '/glossary'],
+        ['rag', '/glossary'],
+      ].flatMap(([slug, dest]) => [
+        { source: `/glossary/${slug}`, destination: dest, permanent: true },
+        { source: `/zh/glossary/${slug}`, destination: `/zh${dest}`, permanent: true },
+      ]),
+      // Low-link terms → glossary index
+      ...[
+        'amazon', 'apple', 'qualcomm', 'figma', 'grammarly', 'meta',
+        'microsoft', 'nvidia', 'sakana-ai', 'openclaw', 'deepseek',
+        'gpt-2', 'gpt', 'qwen', 'qwen3', 'qwen35', 'ltx',
+        'dpo', 'diffusers', 'triton', 'open-weight-models',
+        'ai-regulation', 'autonomous-weapons',
+      ].flatMap(slug => [
+        { source: `/glossary/${slug}`, destination: '/glossary', permanent: true },
+        { source: `/zh/glossary/${slug}`, destination: '/zh/glossary', permanent: true },
+      ]),
 
       // ── Sunset topic pages (301) — flagship authority cleanup 2026-03-31 ──
       // Duplicates → canonical kept page
@@ -108,6 +146,43 @@ const nextConfig: NextConfig = {
       '/glossary/skill-md',
       '/glossary/tokenizer',
       '/glossary/vector-database',
+      // ── Content audit sunset 2026-04-01: off-topic blogs ──
+      ...[
+        'a-unified-identity-defense-layer-why-pam-with-itdr-is-the-foundation-for-2026-security',
+        'add-explicit-threat-model-sync-step-per-repo',
+        'edit-or-complete-a-recurring-task',
+        'glm-ocr-open-source-image-to-text-model',
+        'google-ai-open-source-security-tools',
+        'ivanhzhao-notion-thoughts',
+        'restaurant-voice-agent-gpt-realtime-tutorial',
+        'tensorflow-trending-2026',
+      ].flatMap(slug => [
+        `/blog/${slug}`,
+        `/zh/blog/${slug}`,
+      ]),
+      // ── Content audit sunset 2026-04-01: off-topic compare pages ──
+      ...[
+        'anthropic-developer-program-vs-vercel-community',
+        'openssf-scorecard-vs-slsa',
+        'anthropic-partner-network-vs-openai-partner-program',
+        'claude-partner-network-vs-openai-partner-program',
+      ].flatMap(slug => [
+        `/compare/${slug}`,
+        `/zh/compare/${slug}`,
+      ]),
+      // ── Content audit sunset 2026-04-01: off-topic FAQ pages ──
+      ...[
+        'how-do-consulting-firms-join-the-claude-partner-network',
+        'how-does-anthropics-defense-engagement-differ-from-openais-a',
+        'how-much-is-anthropic-investing-in-the-claude-partner-networ',
+        'what-funding-and-resources-does-anthropic-provide-for-claude',
+        'what-guardrails-does-anthropic-propose-for-military-ai-use',
+        'what-is-anthropics-position-on-providing-ai-to-the-departmen',
+        'what-is-the-claude-partner-network',
+      ].flatMap(slug => [
+        `/faq/${slug}`,
+        `/zh/faq/${slug}`,
+      ]),
     ];
     return goneUrls.map(source => ({ source, destination: '/api/gone' }));
   },
