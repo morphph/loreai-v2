@@ -157,6 +157,16 @@ export const JUNK_KEYWORD_PATTERNS: RegExp[] = [
   /^what does this mean for admins$/i,
   /^the babysitting tax$/i,                    // article title
   /^stay in the loop$/i,                       // CTA/article title
+  // Exa headline contamination — scraped article titles / marketing copy
+  /slashing the noise by \d+%/i,
+  /\bempower security teams\b/i,
+  /\bfast-track code reviews\b/i,
+  /\bnow in research preview\b/i,
+  /\bwere introducing\b/i,
+  /\bopenai introduces\b/i,
+  /^precision engineering/i,
+  /^5\.4 is crazy good$/i,
+  /^gpt.* is officialy out$/i,
 ];
 
 export const NON_ENGLISH_INDICATORS: RegExp[] = [
@@ -199,14 +209,25 @@ export function isJunkGroup(primaryKeyword: string, intent: string): boolean {
 
 // ── Off-Topic Relevance Filter ──
 
-/** Product and topic terms that indicate a keyword is relevant to our site */
-const RELEVANT_TERMS: string[] = [
+/** Our product terms — keyword mentioning these is always relevant */
+const OUR_PRODUCT_TERMS: string[] = [
   'claude', 'codex', 'anthropic', 'loreai',
   'mcp', 'model context protocol',
-  'cursor', 'copilot', 'windsurf', 'cline', 'github copilot', // competitors (for compare)
   'ai coding', 'ai agent', 'ai tool', 'ai assistant',
   'hooks', 'subagent', 'worktree', 'skill.md', 'agents.md', 'claude.md',
   'output style', 'plan mode', 'prompt engineering',
+];
+
+/** Competitor names — relevant ONLY if keyword also contains comparison language */
+const COMPETITOR_TERMS: string[] = [
+  'cursor', 'copilot', 'windsurf', 'cline', 'github copilot',
+  'devin', 'aider', 'snyk',
+];
+
+/** Comparison language that makes a competitor mention relevant */
+const COMPARISON_LANGUAGE: RegExp[] = [
+  /\bvs\b/i, /\bversus\b/i, /\balternative/i, /\bcompare/i,
+  /\bbetter than\b/i, /\bswitch/i, /\bor\b/i, /\bvs\./i,
 ];
 
 /**
@@ -242,6 +263,8 @@ const POLLUTED_CLUSTERS: string[] = [
 /**
  * Returns true if a keyword is off-topic for our site.
  * For "polluted" clusters, requires the keyword to mention a relevant product term.
+ * Competitor-only keywords (e.g., "cursor tokens limit" in a claude-code cluster)
+ * are off-topic unless they contain comparison language ("vs", "alternative", etc.).
  */
 export function isOffTopicForSite(primaryKeyword: string, clusterSlug: string | null): boolean {
   if (!clusterSlug) return false;
@@ -251,13 +274,23 @@ export function isOffTopicForSite(primaryKeyword: string, clusterSlug: string | 
 
   const kw = primaryKeyword.toLowerCase().trim();
 
-  // If keyword mentions any relevant term, keep it
-  for (const term of RELEVANT_TERMS) {
+  // If keyword mentions one of OUR product terms, it's relevant
+  for (const term of OUR_PRODUCT_TERMS) {
     if (kw.includes(term)) return false;
   }
 
   // For codex clusters, "codex" in the keyword is enough to keep it
   if (clusterSlug.startsWith('codex') && kw.includes('codex')) return false;
+
+  // If keyword mentions a competitor, only keep it if it's a comparison
+  for (const comp of COMPETITOR_TERMS) {
+    if (kw.includes(comp)) {
+      // Has competitor mention — check for comparison language
+      const hasComparison = COMPARISON_LANGUAGE.some((p) => p.test(kw));
+      if (hasComparison) return false; // comparison → keep
+      return true; // competitor-only without comparison → off-topic
+    }
+  }
 
   // Keyword is in a polluted cluster but doesn't mention any product → off-topic
   return true;
