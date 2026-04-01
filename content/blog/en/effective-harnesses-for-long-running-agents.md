@@ -57,7 +57,7 @@ The **feature list pattern** is particularly clever. By having the initializer a
 
 For teams building with competing frameworks — [LangGraph](https://langchain.com/langgraph), [CrewAI](https://crewai.com), or custom orchestrators — the principles transfer directly. The specific implementation uses the Claude Agent SDK, but the architecture (initializer + incremental worker + progress artifacts) is framework-agnostic.
 
-The competitive angle matters too. As agents take on larger codebases and longer projects, the harness quality becomes the differentiator. Raw model capability hits diminishing returns; **orchestration quality** determines whether a 10-hour agent run produces a working app or a mess of abandoned branches.
+The competitive angle matters too. As agents take on larger codebases and longer projects, the harness quality becomes the differentiator. Raw model capability hits diminishing returns; **orchestration quality** determines whether a 10-hour agent run produces a working app or a mess of abandoned branches. For a deeper look at how Claude Code's own harness architecture implements these patterns at scale — including context management, memory systems, and tool orchestration — see our [deep dive into Claude Code's design philosophy](/learn/claude-code-design-philosophy).
 
 ## Technical Deep-Dive
 

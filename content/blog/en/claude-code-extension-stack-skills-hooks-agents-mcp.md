@@ -66,7 +66,7 @@ graph TD
     HK2 -->|side effects| EXT["External Systems\nSlack / Logs / Deploy"]
 ```
 
-The critical insight is **composability**: a Skill can invoke Agents, which use MCP tools, guarded by Hooks. Each layer is simple; the composition is where the power lives.
+The critical insight is **composability**: a Skill can invoke Agents, which use MCP tools, guarded by Hooks. Each layer is simple; the composition is where the power lives. For a deeper look at the engineering philosophy behind this architecture — including how Claude Code's 44 tool modules, sub-agent coordination, and prompt engineering work together — see our [deep dive into Claude Code's design philosophy](/learn/claude-code-design-philosophy).
 
 | Layer | What It Is | What It Solves | Common Misuse |
 |-------|-----------|----------------|---------------|

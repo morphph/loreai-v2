@@ -52,7 +52,7 @@ Auto memory addresses the long tail — the dozens of small preferences and proj
 
 The competitive angle is worth noting. [Cursor](/glossary/cursor) offers a system prompt field in settings. [GitHub Copilot](/glossary/github-[copilot](/glossary/copilot)) has instruction files. Neither has a tiered, file-based system that separates project rules from personal preferences from organization policies, all version-controlled and composable. Claude Code's approach — markdown files at known paths with clear precedence rules — is arguably the most engineer-friendly design in the space.
 
-For teams running AI-assisted workflows at scale — content pipelines, automated reviews, code generation — this memory system is the difference between "it works sometimes" and "it works consistently."
+For teams running AI-assisted workflows at scale — content pipelines, automated reviews, code generation — this memory system is the difference between "it works sometimes" and "it works consistently." For a technical deep dive into how Claude Code's three-layer memory architecture actually works under the hood — including MEMORY.md pointer indexing, cross-session consolidation, and sub-agent cache inheritance — see our [analysis of Claude Code's design philosophy from the leaked source code](/learn/claude-code-design-philosophy#memory).
 
 ## Technical Deep-Dive
 

@@ -55,6 +55,9 @@ Windows is supported natively via PowerShell or WinGet — no WSL required. Afte
 ### Blog Posts
 - [Integrate Claude Code Into Your Development Workflow](/blog/integrate-claude-code-into-your-development-workflow)
 
+### Deep Dives
+- [Claude Code 设计哲学：从51万行泄漏源码学习 AI Agent 架构](/learn/claude-code-design-philosophy) — Deep analysis of Claude Code's Agent Harness architecture, three-layer memory system, Prompt Engineering methodology, and anti-distillation defense from the leaked source code
+
 ### Glossary
 - [Agentic Coding](/glossary/agentic-coding) — The paradigm of AI tools that autonomously plan and execute multi-step coding tasks
 
