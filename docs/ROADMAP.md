@@ -2,7 +2,7 @@
 title: "Roadmap — Future Enhancements"
 status: active
 category: roadmap
-last-updated: 2026-03-27
+last-updated: 2026-04-01
 depends-on: []
 ---
 
@@ -51,3 +51,30 @@ depends-on: []
 - 设计决策需要人工判断（哪些 topic 值得投入）
 
 **触发条件**: 当手动管理 flagship topic 成为瓶颈、或内容覆盖率需要显著扩展时。
+
+---
+
+## Cross-Cluster Keyword Dedup at Content Generation
+
+**现状 (2026-04-01)**: B2 grouping happens per-cluster, so the same search intent can produce separate keyword groups in different clusters. Example: "codex vs claude code" (cluster: codex, score 6000), "claude code vs codex" (cluster: claude-code, score 1500), and "codex cli vs claude code" (cluster: codex-cli, score 1050) are three separate queue jobs that would generate three nearly identical compare pages.
+
+**Known duplicates found in queue audit**:
+- Claude Code vs Codex — 4 groups across 3 clusters
+- Claude Code vs Copilot — 3 groups across 3 clusters
+- Plugin vs Skill — 3 groups (codex-plugins, codex-skills, claude-code-plugins)
+- Claude Code vs Windsurf — 2 groups
+
+**未来方向**: Add a dedup step in `process-queue.ts` before content generation:
+1. When picking a job from the queue, fuzzy-match the primary keyword against other pending jobs (e.g., normalize "A vs B" ↔ "B vs A", strip "cli"/"app" suffixes)
+2. If overlapping jobs found, merge their secondary keywords into one content brief
+3. Mark the duplicates as `merged_into = <job_id>` instead of generating separately
+4. Generate one page targeting all merged keywords
+
+**Alternative**: Do dedup at B3 scoring time — when inserting into `create_queue`, check for existing pending jobs with similar primary keywords and merge before queuing.
+
+**为什么现在不做**:
+- Current queue (344 items) is manageable — can handle manually for the first batch
+- Needs fuzzy matching logic + merge strategy design
+- Should validate with real generation data first
+
+**触发条件**: When the queue grows past ~500 items again after next discovery cycle, or when duplicate content pages are detected in production.
