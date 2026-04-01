@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from 'next/font/google';
 import Script from 'next/script';
 import Link from 'next/link';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import NavMoreDropdown from '@/components/NavMoreDropdown';
 import FloatingBanner from '@/components/FloatingBanner';
 import MermaidRenderer from '@/components/MermaidRenderer';
 import './globals.css';
@@ -85,23 +86,12 @@ export default function RootLayout({
                   Blog
                 </Link>
                 <Link
-                  href="/compare"
+                  href="/learn/claude-code-design-philosophy"
                   className="text-sm text-muted transition-colors hover:text-foreground"
                 >
-                  Compare
+                  Learn
                 </Link>
-                <Link
-                  href="/topics"
-                  className="text-sm text-muted transition-colors hover:text-foreground"
-                >
-                  Topics
-                </Link>
-                <Link
-                  href="/glossary"
-                  className="text-sm text-muted transition-colors hover:text-foreground"
-                >
-                  Glossary
-                </Link>
+                <NavMoreDropdown />
               </div>
             </div>
             <div className="flex items-center gap-3">
@@ -127,6 +117,12 @@ export default function RootLayout({
               className="text-sm text-muted transition-colors hover:text-foreground"
             >
               Blog
+            </Link>
+            <Link
+              href="/learn/claude-code-design-philosophy"
+              className="text-sm text-muted transition-colors hover:text-foreground"
+            >
+              Learn
             </Link>
             <Link
               href="/compare"
