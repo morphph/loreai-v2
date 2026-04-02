@@ -34,7 +34,7 @@ const clusterSlug = getArg('cluster');
 const topicSlug = getArg('topic');
 const dryRun = args.includes('--dry-run');
 const force = args.includes('--force');
-const modelArg = (getArg('model') ?? 'haiku') as 'haiku' | 'sonnet';
+const modelArg = (getArg('model') ?? 'sonnet') as 'haiku' | 'sonnet';
 
 if (!clusterSlug && !topicSlug) {
   console.error(

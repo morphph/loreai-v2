@@ -22,9 +22,6 @@ describe('B1 expansion: API failure handling', () => {
       searchAutocomplete: vi.fn().mockResolvedValue({ suggestions: ['ac1', 'ac2'] }),
       estimateVolume: vi.fn().mockResolvedValue({ volume: 'medium', competition: 'low' }),
     }));
-    vi.doMock('../lib/exa', () => ({
-      semanticSearch: vi.fn().mockResolvedValue({ results: [] }),
-    }));
     vi.doMock('../lib/db', () => {
       const keywords = new Map<string, unknown>();
       return {
@@ -46,57 +43,14 @@ describe('B1 expansion: API failure handling', () => {
 
     const result = await expandSubtopic(
       { slug: 'test-topic', pillar_topic: 'Test Topic' },
-      { delayMs: 0, skipExa: false, maxVolumeCallsPerSubtopic: 0, dryRun: true },
+      { delayMs: 0, maxVolumeCallsPerSubtopic: 0, dryRun: true },
     );
 
-    // Serper PAA+related failed but autocomplete + exa should still work
+    // Serper PAA+related failed but autocomplete should still work
     expect(result.keywords_by_source['serper-paa']).toHaveLength(0);
-    expect(result.keywords_by_source['serper-related']).toHaveLength(0);
     // Autocomplete still ran
     expect(result.keywords_by_source['serper-autocomplete'].length).toBeGreaterThanOrEqual(0);
     // No crash — total_raw is computed
-    expect(typeof result.total_raw).toBe('number');
-  });
-
-  it('continues when Exa semanticSearch throws (timeout)', async () => {
-    vi.doMock('../lib/serper', () => ({
-      searchFull: vi.fn().mockResolvedValue({
-        peopleAlsoAsk: [{ question: 'what is test' }],
-        relatedSearches: [{ query: 'test related' }],
-      }),
-      searchAutocomplete: vi.fn().mockResolvedValue({ suggestions: [] }),
-      estimateVolume: vi.fn(),
-    }));
-    vi.doMock('../lib/exa', () => ({
-      semanticSearch: vi.fn().mockRejectedValue(new Error('ETIMEDOUT')),
-    }));
-    vi.doMock('../lib/db', () => {
-      const keywords = new Map<string, unknown>();
-      return {
-        getDb: vi.fn(() => ({
-          prepare: vi.fn((sql: string) => ({
-            all: vi.fn(() => {
-              if (sql.includes('SELECT keyword FROM keywords')) return Array.from(keywords.keys()).map((k) => ({ keyword: k }));
-              if (sql.includes('SELECT slug, pillar_topic')) return [{ slug: 'test', pillar_topic: 'Test' }];
-              return [];
-            }),
-            run: vi.fn(),
-          })),
-        })),
-        upsertKeyword: vi.fn((kw: string) => { keywords.set(kw, {}); }),
-      };
-    });
-
-    const { expandSubtopic } = await import('../lib/keyword-expand');
-
-    const result = await expandSubtopic(
-      { slug: 'test', pillar_topic: 'Test' },
-      { delayMs: 0, skipExa: false, maxVolumeCallsPerSubtopic: 0, dryRun: true },
-    );
-
-    // Serper worked, Exa failed gracefully
-    expect(result.keywords_by_source['serper-paa'].length).toBeGreaterThanOrEqual(0);
-    expect(result.keywords_by_source['exa-competitor']).toHaveLength(0);
     expect(typeof result.total_raw).toBe('number');
   });
 
@@ -108,9 +62,6 @@ describe('B1 expansion: API failure handling', () => {
       }),
       searchAutocomplete: vi.fn().mockResolvedValue({ suggestions: [] }),
       estimateVolume: vi.fn(),
-    }));
-    vi.doMock('../lib/exa', () => ({
-      semanticSearch: vi.fn().mockResolvedValue({ results: [] }),
     }));
     vi.doMock('../lib/db', () => ({
       getDb: vi.fn(() => ({
@@ -126,14 +77,12 @@ describe('B1 expansion: API failure handling', () => {
 
     const result = await expandSubtopic(
       { slug: 'empty-topic', pillar_topic: 'Empty Topic' },
-      { delayMs: 0, skipExa: false, maxVolumeCallsPerSubtopic: 0, dryRun: true },
+      { delayMs: 0, maxVolumeCallsPerSubtopic: 0, dryRun: true },
     );
 
     expect(result.total_raw).toBe(0);
     expect(result.keywords_by_source['serper-paa']).toHaveLength(0);
-    expect(result.keywords_by_source['serper-related']).toHaveLength(0);
     expect(result.keywords_by_source['serper-autocomplete']).toHaveLength(0);
-    expect(result.keywords_by_source['exa-competitor']).toHaveLength(0);
   });
 });
 

@@ -64,6 +64,7 @@ interface FreshnessOptions {
 interface FreshnessRunResult {
   topicSlug: string;
   signalsFound: number;
+  signalsFiltered: number;
   routingsCreated: number;
   draftsWritten: number;
   ignored: number;
@@ -146,6 +147,52 @@ export function loadExistingContent(topicSlug: string, pack: SubtopicPack): Exis
     .all(...allSlugs) as ExistingContentEntry[];
 
   return rows;
+}
+
+// ── Step 2.5: Flagship Topic Relevance Pre-Filter ──
+
+export async function filterSignalsByFlagship(
+  signals: FreshSignal[],
+  pack: SubtopicPack,
+  topicName: string,
+  opts: Pick<FreshnessOptions, 'dryRun'>,
+): Promise<FreshSignal[]> {
+  if (opts.dryRun) return signals;
+  if (signals.length === 0) return signals;
+
+  const systemPrompt = `You are a relevance classifier for the flagship topic '${topicName}'. For each news signal, determine if it genuinely relates to this specific product/topic — not just to AI in general. Return JSON only: { "results": [{ "index": number, "relevant": boolean }] }`;
+
+  const numberedList = signals
+    .map((s, i) => `${i}. ${s.title}\n   ${s.summary}`)
+    .join('\n');
+
+  const userPrompt = `Classify each signal for relevance to "${topicName}":\n\n${numberedList}`;
+
+  try {
+    const response = await callClaudeWithRetry(systemPrompt, userPrompt, {
+      model: 'claude-sonnet-4-20250514',
+      maxTokens: 1024,
+      temperature: 0,
+    });
+
+    const parsed = JSON.parse(response.content) as {
+      results: { index: number; relevant: boolean }[];
+    };
+
+    if (!parsed.results || !Array.isArray(parsed.results)) {
+      console.log('  ⚠ Flagship filter: unexpected response shape, passing all signals through');
+      return signals;
+    }
+
+    const relevantIndices = new Set(
+      parsed.results.filter((r) => r.relevant).map((r) => r.index),
+    );
+
+    return signals.filter((_, i) => relevantIndices.has(i));
+  } catch (err) {
+    console.log(`  ⚠ Flagship filter error (fail-open): ${err}`);
+    return signals;
+  }
 }
 
 // ── Step 3: Route Events to Subtopics ──
@@ -494,6 +541,7 @@ export async function runFreshnessMode(
   const result: FreshnessRunResult = {
     topicSlug: topic.slug,
     signalsFound: 0,
+    signalsFiltered: 0,
     routingsCreated: 0,
     draftsWritten: 0,
     ignored: 0,
@@ -526,6 +574,16 @@ export async function runFreshnessMode(
     return result;
   }
 
+  // Step 2.5: Flagship topic relevance pre-filter
+  const filteredSignals = await filterSignalsByFlagship(signals, pack, topic.name, opts);
+  result.signalsFiltered = filteredSignals.length;
+  console.log(`  After flagship filter: ${filteredSignals.length}/${signals.length}`);
+
+  if (filteredSignals.length === 0) {
+    console.log('  No relevant signals after filtering — done\n');
+    return result;
+  }
+
   // Step 3: Load existing content
   const existingContent = loadExistingContent(topic.slug, pack);
   console.log(`  Existing content: ${existingContent.length} pages`);
@@ -533,7 +591,7 @@ export async function runFreshnessMode(
   // Step 4: Route events to subtopics
   console.log('  Routing events...');
   const routingResult = await routeEventsToSubtopics(
-    signals,
+    filteredSignals,
     pack,
     existingContent,
     opts,

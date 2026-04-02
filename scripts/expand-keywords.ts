@@ -2,13 +2,13 @@
  * B1 — Keyword Expansion CLI
  *
  * Expands subtopics of a flagship topic into a full keyword universe
- * using Serper (PAA/related/autocomplete) and Exa (competitor scan).
+ * using Serper (PAA/autocomplete).
  *
  * Usage:
  *   npx tsx scripts/expand-keywords.ts --topic=claude-code
  *   npx tsx scripts/expand-keywords.ts --topic=claude-code --subtopics=pricing,hooks
  *   npx tsx scripts/expand-keywords.ts --topic=claude-code --dry-run
- *   npx tsx scripts/expand-keywords.ts --topic=claude-code --skip-exa --delay=500
+ *   npx tsx scripts/expand-keywords.ts --topic=claude-code --delay=500
  *
  * @see docs/plans/specs/SPEC-B1-keyword-expansion.md
  */
@@ -29,11 +29,10 @@ function getArg(name: string): string | undefined {
 const topicSlug = getArg('topic');
 const subtopicsArg = getArg('subtopics');
 const dryRun = args.includes('--dry-run');
-const skipExa = args.includes('--skip-exa');
 const delayMs = Number(getArg('delay') ?? 300);
 
 if (!topicSlug) {
-  console.error('Usage: npx tsx scripts/expand-keywords.ts --topic=<slug> [--subtopics=a,b] [--dry-run] [--skip-exa] [--delay=300]');
+  console.error('Usage: npx tsx scripts/expand-keywords.ts --topic=<slug> [--subtopics=a,b] [--dry-run] [--delay=300]');
   process.exit(1);
 }
 
@@ -55,7 +54,6 @@ async function main() {
 
   const result = await expandTopic(topicSlug!, subtopicSlugs, {
     delayMs,
-    skipExa,
     maxVolumeCallsPerSubtopic: 20,
     dryRun,
   });
@@ -70,7 +68,7 @@ async function main() {
     console.log(`💾 Summary`);
     console.log(`  Total: ${result.total_keywords_discovered} raw keywords → ${result.total_new_keywords} new (after dedup)`);
     console.log(`  Volume scored: ${result.total_volume_scored} keywords`);
-    console.log(`  API usage: ${result.serper_api_calls} Serper calls, ${result.exa_api_calls} Exa calls`);
+    console.log(`  API usage: ${result.serper_api_calls} Serper calls`);
   }
 
   console.log(`\n✅ Keyword expansion complete — ${result.total_new_keywords} new keywords across ${result.subtopics_processed} subtopics`);

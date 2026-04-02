@@ -1,13 +1,12 @@
 /**
  * Unit tests for B1 — Keyword Expansion
  *
- * Mocks serper.ts and exa.ts — no API credits consumed, no DB touched.
+ * Mocks serper.ts — no API credits consumed, no DB touched.
  */
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import {
   normalizeKeyword,
-  extractCompetitorKeywords,
   expandViaSerperSearch,
   expandSubtopic,
   expandTopic,
@@ -17,7 +16,6 @@ import {
 } from '../keyword-expand';
 
 import type { SubtopicInput, ExpandOptions } from '../keyword-expand';
-import type { ExaSearchResult } from '../exa';
 
 // ── Mocks ──
 
@@ -25,10 +23,6 @@ vi.mock('../serper', () => ({
   searchFull: vi.fn(),
   searchAutocomplete: vi.fn(),
   estimateVolume: vi.fn(),
-}));
-
-vi.mock('../exa', () => ({
-  semanticSearch: vi.fn(),
 }));
 
 vi.mock('../db', () => {
@@ -127,7 +121,6 @@ vi.mock('../db', () => {
 });
 
 import { searchFull, searchAutocomplete, estimateVolume } from '../serper';
-import { semanticSearch } from '../exa';
 import { upsertKeyword } from '../db';
 
 // Access mock helpers
@@ -141,7 +134,6 @@ const mockDb = await import('../db') as unknown as {
 const mockSearchFull = searchFull as ReturnType<typeof vi.fn>;
 const mockSearchAutocomplete = searchAutocomplete as ReturnType<typeof vi.fn>;
 const mockEstimateVolume = estimateVolume as ReturnType<typeof vi.fn>;
-const mockSemanticSearch = semanticSearch as ReturnType<typeof vi.fn>;
 
 // ── Test data ──
 
@@ -152,7 +144,6 @@ const SUBTOPIC: SubtopicInput = {
 
 const DEFAULT_OPTS: ExpandOptions = {
   delayMs: 0,
-  skipExa: false,
   maxVolumeCallsPerSubtopic: 20,
   dryRun: false,
 };
@@ -182,26 +173,6 @@ function setupDefaultMocks() {
       'claude code pricing per month',
       'claude code pricing api',
       'claude code pricing plans', // overlaps with related
-    ],
-  });
-
-  mockSemanticSearch.mockResolvedValue({
-    query: 'Claude Code Pricing',
-    results: [
-      {
-        url: 'https://competitor.com/claude-code-cost',
-        title: 'claude code cost breakdown',
-        published_date: '2026-02-15',
-        author: null,
-        text: '## Overview\nContent...\n## plans and pricing details\nMore content...\n## free tier usage details\nDetails...',
-      },
-      {
-        url: 'https://another.com/ai-coding-tools',
-        title: 'ai coding tools compared',
-        published_date: '2026-01-20',
-        author: null,
-        text: '## claude code pricing info\nContent...\n## cursor pricing overview\nContent...\n## copilot enterprise pricing\nContent...',
-      },
     ],
   });
 
@@ -421,149 +392,6 @@ describe('isTitleCase', () => {
   });
 });
 
-describe('extractCompetitorKeywords', () => {
-  it('extracts titles', () => {
-    const results: ExaSearchResult[] = [
-      // 3 words — below isTitleCase threshold (< 4 words)
-      { url: 'https://a.com', title: 'claude code review', published_date: null, author: null },
-      { url: 'https://b.com', title: 'AI Coding Tools', published_date: null, author: null },
-    ];
-    const kws = extractCompetitorKeywords(results);
-    expect(kws).toContain('claude code review');
-    expect(kws).toContain('AI Coding Tools');
-  });
-
-  it('filters title-case article headlines', () => {
-    const results: ExaSearchResult[] = [
-      // 4+ words, >60% capitalized → title case → rejected
-      { url: 'https://a.com', title: 'Claude Code Review Complete Guide', published_date: null, author: null },
-    ];
-    const kws = extractCompetitorKeywords(results);
-    expect(kws).not.toContain('Claude Code Review Complete Guide');
-  });
-
-  it('extracts H2/H3 headings (filtering single-word noise)', () => {
-    const results: ExaSearchResult[] = [
-      {
-        url: 'https://a.com',
-        title: 'Complete Pricing Guide',
-        published_date: null,
-        author: null,
-        text: '## Plans and Pricing\nContent...\n### Free Tier Details\nMore...\n## Overview\nIntro...',
-      },
-    ];
-    const kws = extractCompetitorKeywords(results);
-    expect(kws).toContain('Plans and Pricing');
-    expect(kws).toContain('Free Tier Details');
-    // "Overview" is a single word — filtered as noise
-    expect(kws).not.toContain('Overview');
-  });
-
-  it('filters short headings (< 5 chars)', () => {
-    const results: ExaSearchResult[] = [
-      {
-        url: 'https://a.com',
-        title: 'Title',
-        published_date: null,
-        author: null,
-        text: '## FAQ\nContent...',
-      },
-    ];
-    const kws = extractCompetitorKeywords(results);
-    // "FAQ" is only 3 chars, should be filtered
-    expect(kws).not.toContain('FAQ');
-  });
-
-  it('filters long headings (> 100 chars)', () => {
-    const longHeading = 'A'.repeat(101);
-    const results: ExaSearchResult[] = [
-      {
-        url: 'https://a.com',
-        title: 'Title',
-        published_date: null,
-        author: null,
-        text: `## ${longHeading}\nContent...`,
-      },
-    ];
-    const kws = extractCompetitorKeywords(results);
-    expect(kws).not.toContain(longHeading);
-  });
-
-  it('handles results without text', () => {
-    const results: ExaSearchResult[] = [
-      { url: 'https://a.com', title: 'just a title here', published_date: null, author: null },
-    ];
-    const kws = extractCompetitorKeywords(results);
-    expect(kws).toEqual(['just a title here']);
-  });
-
-  it('handles results without title', () => {
-    const results: ExaSearchResult[] = [
-      { url: 'https://a.com', title: '', published_date: null, author: null, text: '## Valid Heading Here\n...' },
-    ];
-    const kws = extractCompetitorKeywords(results);
-    expect(kws).toContain('Valid Heading Here');
-    // Empty title is falsy, should not be included
-    expect(kws).not.toContain('');
-  });
-
-  it('handles empty results', () => {
-    expect(extractCompetitorKeywords([])).toEqual([]);
-  });
-
-  it('filters CTA/nav titles', () => {
-    const results: ExaSearchResult[] = [
-      { url: 'https://a.com', title: 'Get Started with Claude', published_date: null, author: null },
-      { url: 'https://b.com', title: 'Subscribe to Our Newsletter', published_date: null, author: null },
-      { url: 'https://c.com', title: 'Learn More About AI Tools', published_date: null, author: null },
-    ];
-    const kws = extractCompetitorKeywords(results);
-    expect(kws).toHaveLength(0);
-  });
-
-  it('filters titles ending with punctuation', () => {
-    const results: ExaSearchResult[] = [
-      { url: 'https://a.com', title: 'Make better product decisions.', published_date: null, author: null },
-    ];
-    const kws = extractCompetitorKeywords(results);
-    expect(kws).toHaveLength(0);
-  });
-
-  it('strips site name suffixes from titles', () => {
-    const results: ExaSearchResult[] = [
-      // After stripping " | TechSite", becomes "claude code pricing" — 3 words, below isTitleCase threshold
-      { url: 'https://a.com', title: 'claude code pricing | TechSite', published_date: null, author: null },
-    ];
-    const kws = extractCompetitorKeywords(results);
-    expect(kws).toContain('claude code pricing');
-    expect(kws).not.toContain('claude code pricing | TechSite');
-  });
-
-  it('filters too-short titles (< 3 words)', () => {
-    const results: ExaSearchResult[] = [
-      { url: 'https://a.com', title: 'Overview', published_date: null, author: null },
-      { url: 'https://b.com', title: 'AI Tools', published_date: null, author: null },
-    ];
-    const kws = extractCompetitorKeywords(results);
-    expect(kws).toHaveLength(0);
-  });
-
-  it('filters nav headings like Table of Contents', () => {
-    const results: ExaSearchResult[] = [
-      {
-        url: 'https://a.com',
-        title: 'claude code guide',
-        published_date: null,
-        author: null,
-        text: '## Table of Contents\n...\n## Related Posts and Resources\n...\n## claude code architecture overview\n...',
-      },
-    ];
-    const kws = extractCompetitorKeywords(results);
-    expect(kws).toContain('claude code architecture overview');
-    expect(kws).not.toContain('Table of Contents');
-    expect(kws).not.toContain('Related Posts and Resources');
-  });
-});
 
 describe('expandViaSerperSearch', () => {
   beforeEach(() => {
@@ -613,21 +441,17 @@ describe('expandSubtopic', () => {
     const result = await expandSubtopic(SUBTOPIC, DEFAULT_OPTS);
 
     expect(result.keywords_by_source['serper-paa'].length).toBeGreaterThan(0);
-    expect(result.keywords_by_source['serper-related'].length).toBeGreaterThan(0);
     expect(result.keywords_by_source['serper-autocomplete'].length).toBeGreaterThan(0);
-    expect(result.keywords_by_source['exa-competitor'].length).toBeGreaterThan(0);
     expect(result.total_raw).toBeGreaterThan(0);
   });
 
   it('deduplicates within run', async () => {
-    // "is claude code free" appears in both PAA and related
+    // "is claude code free" could appear in both PAA and autocomplete
     const result = await expandSubtopic(SUBTOPIC, DEFAULT_OPTS);
 
     const allKeywords = [
       ...result.keywords_by_source['serper-paa'],
-      ...result.keywords_by_source['serper-related'],
       ...result.keywords_by_source['serper-autocomplete'],
-      ...result.keywords_by_source['exa-competitor'],
     ];
     const uniqueSet = new Set(allKeywords);
     expect(allKeywords.length).toBe(uniqueSet.size);
@@ -638,33 +462,12 @@ describe('expandSubtopic', () => {
       searchParameters: { q: 'test', gl: 'us', hl: 'en', type: 'search' },
       organic: [],
       peopleAlsoAsk: [],
-      relatedSearches: [{ query: 'some related query' }],
+      relatedSearches: [],
     });
 
     const result = await expandSubtopic(SUBTOPIC, DEFAULT_OPTS);
     expect(result.keywords_by_source['serper-paa']).toHaveLength(0);
-    expect(result.keywords_by_source['serper-related'].length).toBeGreaterThan(0);
-  });
-
-  it('handles Exa empty', async () => {
-    mockSemanticSearch.mockResolvedValue({
-      query: 'test',
-      results: [],
-    });
-
-    const result = await expandSubtopic(SUBTOPIC, DEFAULT_OPTS);
-    expect(result.keywords_by_source['exa-competitor']).toHaveLength(0);
-    expect(result.keywords_by_source['serper-paa'].length).toBeGreaterThan(0);
-  });
-
-  it('skips Exa when skipExa=true', async () => {
-    const result = await expandSubtopic(SUBTOPIC, {
-      ...DEFAULT_OPTS,
-      skipExa: true,
-    });
-
-    expect(mockSemanticSearch).not.toHaveBeenCalled();
-    expect(result.keywords_by_source['exa-competitor']).toHaveLength(0);
+    expect(result.keywords_by_source['serper-autocomplete'].length).toBeGreaterThan(0);
   });
 
   it('dry run does not call upsertKeyword', async () => {
@@ -683,9 +486,8 @@ describe('expandSubtopic', () => {
     mockSearchFull.mockRejectedValue(new Error('Rate limited'));
 
     const result = await expandSubtopic(SUBTOPIC, DEFAULT_OPTS);
-    // Should still have autocomplete and exa results
+    // Should still have autocomplete results
     expect(result.keywords_by_source['serper-paa']).toHaveLength(0);
-    expect(result.keywords_by_source['serper-related']).toHaveLength(0);
     expect(result.keywords_by_source['serper-autocomplete'].length).toBeGreaterThan(0);
   });
 
@@ -697,14 +499,6 @@ describe('expandSubtopic', () => {
     expect(result.keywords_by_source['serper-paa'].length).toBeGreaterThan(0);
   });
 
-  it('handles Exa error gracefully', async () => {
-    mockSemanticSearch.mockRejectedValue(new Error('API error'));
-
-    const result = await expandSubtopic(SUBTOPIC, DEFAULT_OPTS);
-    expect(result.keywords_by_source['exa-competitor']).toHaveLength(0);
-    expect(result.keywords_by_source['serper-paa'].length).toBeGreaterThan(0);
-  });
-
   it('writes keywords to DB with correct source and clusterSlug', async () => {
     await expandSubtopic(SUBTOPIC, DEFAULT_OPTS);
 
@@ -713,7 +507,7 @@ describe('expandSubtopic', () => {
     expect(calls.length).toBeGreaterThan(0);
     for (const [kw, source, slug] of calls) {
       expect(typeof kw).toBe('string');
-      expect(['serper-paa', 'serper-related', 'serper-autocomplete', 'exa-competitor']).toContain(source);
+      expect(['serper-paa', 'serper-autocomplete']).toContain(source);
       expect(slug).toBe('claude-code-pricing');
     }
   });
@@ -749,9 +543,16 @@ describe('expandTopic', () => {
     expect(result.subtopics_processed).toBe(2);
   });
 
-  it('throws when no subtopics found', async () => {
+  it('throws for non-flagship topics', async () => {
     await expect(
       expandTopic('nonexistent-topic', null, DEFAULT_OPTS),
+    ).rejects.toThrow('Keyword expansion restricted to flagship topics');
+  });
+
+  it('throws when no subtopics found for flagship topic', async () => {
+    // claude-code is flagship but has no clusters added
+    await expect(
+      expandTopic('claude-code', null, DEFAULT_OPTS),
     ).rejects.toThrow('No subtopics found');
   });
 
@@ -784,17 +585,6 @@ describe('expandTopic', () => {
 
     const result = await expandTopic('claude-code', null, DEFAULT_OPTS);
     expect(result.serper_api_calls).toBeGreaterThanOrEqual(2); // at least 1 searchFull + 1 autocomplete
-    expect(result.exa_api_calls).toBe(1);
-  });
-
-  it('exa_api_calls is 0 when skipExa is true', async () => {
-    mockDb.__addCluster('claude-code-pricing', 'Claude Code Pricing', 5);
-
-    const result = await expandTopic('claude-code', null, {
-      ...DEFAULT_OPTS,
-      skipExa: true,
-    });
-    expect(result.exa_api_calls).toBe(0);
   });
 });
 

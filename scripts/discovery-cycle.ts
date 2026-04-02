@@ -11,7 +11,7 @@
  *   npx tsx scripts/discovery-cycle.ts --topic=claude-code --expand-only
  *   npx tsx scripts/discovery-cycle.ts --topic=claude-code --dry-run
  *   npx tsx scripts/discovery-cycle.ts --delay=500 --max-serp=30
- *   npx tsx scripts/discovery-cycle.ts --topic=claude-code --skip-exa
+ *   npx tsx scripts/discovery-cycle.ts --topic=claude-code --skip-serp
  *
  * @see docs/plans/specs/SPEC-C1-discovery-cycle.md
  */
@@ -38,9 +38,8 @@ const opts: DiscoveryOptions = {
   dryRun: args.includes('--dry-run'),
   delay: Number(getArg('delay') ?? 300),
   maxSerp: Number(getArg('max-serp') ?? 50),
-  skipExa: args.includes('--skip-exa'),
   skipSerp: args.includes('--skip-serp'),
-  model: (getArg('model') as 'haiku' | 'sonnet') ?? 'haiku',
+  model: (getArg('model') as 'haiku' | 'sonnet') ?? 'sonnet',
 };
 
 // ── Main ──

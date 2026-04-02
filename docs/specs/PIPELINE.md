@@ -2,7 +2,7 @@
 title: "Pipeline Architecture"
 status: active
 category: spec
-last-updated: 2026-03-31
+last-updated: 2026-04-02
 depends-on: []
 ---
 
@@ -118,6 +118,8 @@ Each stage feeds the next. The **Keyword Engine** (B1→B4) is the core content 
 |  3b. FLAGSHIP FRESHNESS  (flagship-freshness.ts)          |
 |                                                           |
 |  Routes daily news signals to approved flagship subtopics.|
+|  New pre-filter step: Claude Sonnet classifies each       |
+|  signal's relevance to the flagship topic before routing. |
 |  Reads approved subtopic-pack, maps events to existing    |
 |  subtopics/pages, drafts refresh/create actions.          |
 |                                                           |
@@ -157,16 +159,22 @@ Sat 7:30am SGT
 |      For others: legacy topic_clusters LIKE query         |
 |                                                           |
 |  B1: Keyword Expansion (expand-keywords.ts)               |
-|      Serper: PAA, related searches, autocomplete          |
-|      Exa: competitor page scan                            |
+|      Sources: Serper PAA + Autocomplete only              |
+|      (Exa competitor scan and related searches removed)   |
+|      Scoped to flagship topics only.                      |
 |      -> Upsert keywords with search_volume, competition  |
 |                                                           |
 |  B2: Intent Grouping (group-keywords.ts)                  |
-|      Claude groups keywords by search intent              |
+|      Default model: Claude Sonnet 4.6                     |
+|      (auto-downgrade to Haiku for <20 keywords)           |
+|      Passes flagship subtopic context (description,       |
+|      aliases) to grouping prompt.                         |
 |      -> Create keyword_groups with content_type           |
 |         (faq, compare, glossary, blog, topic-hub)         |
 |                                                           |
 |  B3: Priority Scoring (score-and-queue.ts)                |
+|      Flagship-only guard: only processes groups under     |
+|      flagship topic clusters (claude-code, codex).        |
 |      Score: volume x competition x intent x timeliness    |
 |      -> Insert jobs into create_queue                     |
 |                                                           |
@@ -207,17 +215,30 @@ The keyword engine is the core system driving SEO content generation. It replace
 
 ```
 topic_clusters ──> B1 Expansion ──> B2 Grouping ──> B3 Scoring ──> B4 Generation
-                   (Serper+Exa)     (Claude)        (priority)     (Claude+research)
+(flagship only)    (Serper PAA+AC)  (Sonnet 4.6)    (flagship guard) (Opus/Sonnet)
                        |                |                |                |
                    keywords        keyword_groups   create_queue     content files
 ```
 
 | Stage | Script | Input | Output | AI |
 |-------|--------|-------|--------|----|
-| B1 | `expand-keywords.ts` | topic_clusters | keywords (with search_volume, competition) | — |
-| B2 | `group-keywords.ts` | ungrouped keywords | keyword_groups (intent, content_type) | Claude Haiku/Sonnet |
-| B3 | `score-and-queue.ts` | keyword_groups | create_queue jobs | — |
-| B4 | `process-queue.ts` | create_queue | content files (EN+ZH) | Claude Opus + Serper + Exa |
+| B1 | `expand-keywords.ts` | topic_clusters (flagship only) | keywords (with search_volume, competition) | — |
+| B2 | `group-keywords.ts` | ungrouped keywords | keyword_groups (intent, content_type) | Claude Sonnet 4.6 (auto-downgrade Haiku for <20 kw) |
+| B3 | `score-and-queue.ts` | keyword_groups (flagship only) | create_queue jobs | — |
+| B4 | `process-queue.ts` | create_queue | content files (EN+ZH) | Opus (all types except FAQ/Glossary → Sonnet 4.6) |
+
+B4 model map: Opus for all content types except FAQ/Glossary (Sonnet 4.6). Word counts significantly increased based on competitive analysis:
+
+| Content Type | Model | Word Count Target |
+|-------------|-------|-------------------|
+| Blog (tutorial) | Opus | 1,800–2,500 words |
+| Blog (comparison) | Opus | 4,000–5,000 words |
+| Topic Hub | Opus | 3,000–5,000 words |
+| Compare | Opus | 4,000–5,000 words |
+| Deep-dive | Opus | 5,000–8,000 words |
+| Cornerstone | Opus | 5,000–8,000 words |
+| FAQ | Sonnet 4.6 | 800–1,500 words |
+| Glossary | Sonnet 4.6 | 200–500 words |
 
 B4 has two research pipelines:
 - **Standard**: Serper SERP results + Exa semantic search
@@ -315,9 +336,9 @@ Dashboard URL: `https://loreai.dev/dashboard?key=aeodashboard`
 | API | Used by | Purpose |
 |-----|---------|---------|
 | Claude CLI (Opus) | Newsletter, Generate (B4), Weekly | Content generation |
-| Claude CLI (Sonnet) | Entity Extract, Keyword Grouping (B2), Flagship Discovery, Flagship Freshness | Classification, extraction, synthesis, event routing |
+| Claude CLI (Sonnet 4.6) | Entity Extract, Keyword Grouping (B2), Flagship Discovery, Flagship Freshness, B4 FAQ/Glossary | Classification, extraction, synthesis, event routing, lightweight content generation |
 | Serper | Discovery (B1), Generate (B4) | Google SERP data, PAA, related searches |
-| Exa.ai | Discovery (B1), Generate (B4) | Semantic search, competitor page scan |
+| Exa.ai | Generate (B4) | Semantic search, content fetching (removed from B1 keyword expansion) |
 | Gemini Deep Research | Generate (B4) | Deep research pipeline (optional) |
 | Buttondown | Newsletter | Email delivery (EN + ZH) |
 | Twitter API (twitterapi.io) | Collect | Tweet collection (36 accounts + 18 queries) |

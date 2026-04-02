@@ -2,7 +2,7 @@
 title: "Pipeline Status"
 status: active
 category: guide
-last-updated: 2026-03-31
+last-updated: 2026-04-02
 depends-on: []
 ---
 
@@ -97,7 +97,7 @@ Collect  News   Entity  Fresh   Generate  D1     Disc    Perf   Weekly  Review
 | Trigger | Cron via `daily-pipeline.sh freshness` |
 | Status | **Operational** (since 2026-03-27) |
 
-**What it does**: Routes daily news signals to approved flagship subtopics. Reads approved subtopic-pack, maps events to existing subtopics/pages, drafts refresh/create actions.
+**What it does**: Routes daily news signals to approved flagship subtopics. New pre-filter step: Claude Sonnet classifies each signal's relevance to the flagship topic before routing. Reads approved subtopic-pack, maps events to existing subtopics/pages, drafts refresh/create actions.
 
 **Dedup**: Triple dedup — vs create_queue, vs recent content, vs same-run duplicates.
 **Output**: `create_queue` entries with `source='flagship_fresh'`, keyword seeds via `upsertKeyword()`.
@@ -113,7 +113,7 @@ Collect  News   Entity  Fresh   Generate  D1     Disc    Perf   Weekly  Review
 | Trigger | Cron via `daily-pipeline.sh generate` |
 | Status | **Operational** |
 
-**What it does**: Reads top-N jobs from `create_queue` by priority score. For each job: research (Serper + Exa, or Gemini Deep Research) → Claude Opus writes EN → Claude Opus writes ZH → validate links → write files + update DB.
+**What it does**: Reads top-N jobs from `create_queue` by priority score. For each job: research (Serper + Exa, or Gemini Deep Research) → Claude writes EN → Claude writes ZH → validate links → write files + update DB. Model map: Opus for all content types except FAQ/Glossary (Sonnet 4.6). Word counts significantly increased based on competitive analysis (e.g., comparison blogs 4000-5000w, topic hubs 3000-5000w, deep-dives 5000-8000w).
 
 **Content types**: faq, compare, glossary, blog, topic-hub, deep-dive, cornerstone
 **Output**: Content files in `content/{type}/{en,zh}/slug.md`, `content` table updates.
@@ -146,11 +146,11 @@ Collect  News   Entity  Fresh   Generate  D1     Disc    Perf   Weekly  Review
 | Trigger | Cron via `daily-pipeline.sh discovery` |
 | Status | **Operational** |
 
-**Orchestrates**: C1 → B1 → B2 → B3 pipeline:
+**Orchestrates**: C1 → B1 → B2 → B3 pipeline (scoped to flagship topics only):
 - **C1**: Load subtopics (prefers flagship packs when available)
-- **B1**: Keyword expansion via `expand-keywords.ts` (Serper + Exa)
-- **B2**: Intent grouping via `group-keywords.ts` (Claude)
-- **B3**: Priority scoring via `score-and-queue.ts`
+- **B1**: Keyword expansion via `expand-keywords.ts` (Serper PAA + Autocomplete only; Exa competitor scan and related searches removed)
+- **B2**: Intent grouping via `group-keywords.ts` (Claude Sonnet 4.6, auto-downgrade to Haiku for <20 keywords; passes subtopic context including description and aliases)
+- **B3**: Priority scoring via `score-and-queue.ts` (flagship-only guard: only processes groups under flagship topic clusters)
 
 **Output**: `keywords`, `keyword_groups`, `create_queue` entries.
 

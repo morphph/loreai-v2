@@ -99,8 +99,8 @@ Top story of the day goes here.
 // ── Blog Post Validation ───────────────────────────────────────────────
 
 describe('validateBlogPost', () => {
-  // Generate a blog with ~600 words
-  const filler = Array(100).fill('This is filler text for word count testing purposes and more.').join(' ');
+  // Generate a blog with ~1600 words (min is 1500)
+  const filler = Array(160).fill('This is filler text for word count testing purposes and more.').join(' ');
   const validBlog = `# GPT-5 Turbo Review\n\n## Architecture\n\n${filler}\n\n## Conclusion\n\nWrap up here.\n\n[Subscribe to our newsletter](/subscribe)`;
 
   it('passes for valid blog post', () => {
@@ -252,7 +252,7 @@ describe('validateCompare', () => {
   const wordsN = (n: number) => Array(n).fill('word').join(' ');
 
   it('passes for valid compare page', () => {
-    const md = `# GPT-4 vs Claude 3\n\n## Overview\n\n${wordsN(200)}\n\n| Feature | GPT-4 | Claude 3 |\n|---------|-------|----------|\n| Speed | Fast | Faster |\n\n## Details\n\n${wordsN(200)}\n\n[Subscribe](/subscribe)`;
+    const md = `# GPT-4 vs Claude 3\n\n## Overview\n\n${wordsN(1600)}\n\n| Feature | GPT-4 | Claude 3 |\n|---------|-------|----------|\n| Speed | Fast | Faster |\n\n## Details\n\n${wordsN(1600)}\n\n[Subscribe](/subscribe)`;
     const result = validateCompare(md);
     expect(result.valid).toBe(true);
   });
@@ -278,7 +278,7 @@ describe('validateTopicHub', () => {
   const wordsN = (n: number) => Array(n).fill('word').join(' ');
 
   it('passes for valid topic hub', () => {
-    const md = `# Large Language Models\n\n## Overview\n\n${wordsN(300)}\n\nSee [glossary](/glossary/transformer) for more.\n\n## Resources\n\n${wordsN(200)}\n\n[Subscribe](/subscribe)`;
+    const md = `# Large Language Models\n\n## Overview\n\n${wordsN(1500)}\n\nSee [glossary](/glossary/transformer) for more.\n\n## Resources\n\n${wordsN(1200)}\n\n[Subscribe](/subscribe)`;
     const result = validateTopicHub(md);
     expect(result.valid).toBe(true);
   });
@@ -296,8 +296,8 @@ describe('validateTopicHub', () => {
     expect(result.errors.some((e) => e.includes('Too short'))).toBe(true);
   });
 
-  it('fails when word count exceeds ceiling (>1200)', () => {
-    const md = `# Topic\n\n## S1\n\n${wordsN(800)}\n\nSee [this](/page).\n\n## S2\n\n${wordsN(500)}\n\n[Subscribe](/subscribe)`;
+  it('fails when word count exceeds ceiling (>6000)', () => {
+    const md = `# Topic\n\n## S1\n\n${wordsN(4000)}\n\nSee [this](/page).\n\n## S2\n\n${wordsN(2500)}\n\n[Subscribe](/subscribe)`;
     const result = validateTopicHub(md);
     expect(result.valid).toBe(false);
     expect(result.errors.some((e) => e.includes('Too long'))).toBe(true);

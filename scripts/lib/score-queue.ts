@@ -9,6 +9,7 @@
  */
 
 import { getDb } from './db';
+import { FLAGSHIP_TOPICS } from './discovery';
 import {
   calculatePriorityScore,
   routeKeywordGroup,
@@ -56,7 +57,17 @@ export async function scoreAndQueue(
   // ── Stage 1: Load pending keyword_groups ──
   console.log('\n📥 Stage 1: Load Pending Groups');
 
-  const groups = loadPendingGroups(topicSlug, clusterSlug, opts.force);
+  let groups = loadPendingGroups(topicSlug, clusterSlug, opts.force);
+
+  // Flagship-only guard: only process groups under flagship topic clusters
+  const flagshipSlugs = FLAGSHIP_TOPICS.map(t => t.slug);
+  const originalCount = groups.length;
+  groups = groups.filter(g =>
+    g.cluster_slug && flagshipSlugs.some(fs => g.cluster_slug!.startsWith(fs))
+  );
+  if (originalCount > groups.length) {
+    console.log(`  Filtered ${originalCount - groups.length} non-flagship groups`);
+  }
 
   if (groups.length === 0) {
     return {

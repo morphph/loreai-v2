@@ -126,11 +126,11 @@ export interface ContentGenOptions {
 // ── Model Selection ──
 
 const MODEL_MAP: Record<ContentType, string> = {
-  faq: 'claude-haiku-4-5-20251001',
-  glossary: 'claude-haiku-4-5-20251001',
-  compare: 'claude-sonnet-4-20250514',
-  'topic-hub': 'claude-sonnet-4-20250514',
-  blog: 'claude-sonnet-4-20250514',
+  faq: 'claude-sonnet-4-20250514',
+  glossary: 'claude-sonnet-4-20250514',
+  compare: 'claude-opus-4-20250514',
+  'topic-hub': 'claude-opus-4-20250514',
+  blog: 'claude-opus-4-20250514',
   'deep-dive': 'claude-opus-4-20250514',
   cornerstone: 'claude-opus-4-20250514',
 };
@@ -152,9 +152,9 @@ export function getValidatorForType(
     case 'blog':
       return validateBlogPost;
     case 'deep-dive':
-      return (md) => validateBlogPost(md, { maxWords: 5000 });
+      return (md) => validateBlogPost(md, { maxWords: 10000 });
     case 'cornerstone':
-      return (md) => validateBlogPost(md, { maxWords: 5000 });
+      return (md) => validateBlogPost(md, { maxWords: 7000 });
   }
 }
 
@@ -162,11 +162,11 @@ export function getValidatorForType(
 
 const ZH_WORD_RANGES: Record<ContentType, string> = {
   faq: '200-450',
-  compare: '350-700',
   glossary: '200-350',
-  'topic-hub': '450-900',
-  blog: '600-1200',
-  'deep-dive': '2000-3500',
+  compare: '2500-3500',
+  'topic-hub': '2000-3500',
+  blog: '1200-3500',
+  'deep-dive': '3500-5500',
   cornerstone: '2000-3500',
 };
 
@@ -622,7 +622,7 @@ function getContentTypeInstructions(contentType: ContentType): string {
 - Lead with the news event or key insight, then provide analysis
 - First paragraph must state: WHAT happened, WHO is involved, WHEN
 - Structure: News lead → Analysis → Impact → What's next
-- Word count: 800-1500
+- For tutorials: 1800-2500 words. For comparison posts (vs/alternative keywords): 4000-5000 words.
 - Include source attribution: "According to [source]..."
 - Must use source material — no speculation`;
 
@@ -631,7 +631,7 @@ function getContentTypeInstructions(contentType: ContentType): string {
 - Workflow-oriented: explain HOW to use/apply the topic, not just WHAT it is
 - Include code examples where relevant
 - Structure: Problem → Context → Implementation → Tradeoffs → Takeaways
-- Word count: 2500-4000
+- Word count: 5000-8000
 - Bold key terms, use H2/H3 hierarchy, short paragraphs
 - Based on research output — synthesize and structure, don't summarize`;
 
@@ -640,7 +640,7 @@ function getContentTypeInstructions(contentType: ContentType): string {
 - The definitive guide to this topic on our site
 - Comprehensive but scannable: clear H2 headings, direct answers at section tops
 - Structure: Overview → Core concepts → Key features → Common questions → Getting started → Resources
-- Word count: 2500-4000
+- Word count: 3000-5000
 - Must link to all supporting cluster pages (glossary, FAQ, compare)
 - Every H2 section should be independently valuable (quotable by AI systems)`;
 

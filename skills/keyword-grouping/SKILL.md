@@ -72,6 +72,15 @@ Choose the primary keyword that:
 - Different question intents: "is claude code free" and "how much does claude code cost" — same topic, but one is yes/no and the other is price breakdown. Use judgment: if one FAQ page genuinely answers both, group them; if not, separate.
 - Head terms with specific long-tails: "claude code" (navigational/definitional) should NOT be grouped with "claude code tutorial for beginners" (informational)
 
+## Topic Context (when available)
+
+When the keywords come from a specific subtopic under a flagship topic, you'll receive context about the flagship topic name, subtopic description, and aliases.
+
+Use this context to:
+- Ensure groups align with the subtopic's domain (not generic AI topics)
+- Prefer primary keywords that include the flagship topic name when relevant
+- Flag keywords that seem off-topic for this subtopic (put in ungrouped)
+
 ## Quality Checklist
 - Every input keyword appears in exactly one group OR in `ungrouped`
 - No keyword appears in multiple groups

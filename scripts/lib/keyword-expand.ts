@@ -1,18 +1,17 @@
 /**
  * B1 — Keyword Expansion Core Logic
  *
- * Expands subtopics into full keyword universes using Serper (PAA/related/autocomplete)
- * and Exa (competitor scan). Writes results to the keywords table.
+ * Expands subtopics into full keyword universes using Serper (PAA/autocomplete).
+ * Restricted to flagship topics only.
  *
  * @see docs/plans/specs/SPEC-B1-keyword-expansion.md
  */
 
 import { searchFull, searchAutocomplete, estimateVolume } from './serper';
-import { semanticSearch } from './exa';
 import { getDb, upsertKeyword, resolveSubtopics } from './db';
+import { FLAGSHIP_TOPICS } from './flagship-topics';
 
 import type { SerperSearchResponse } from './serper';
-import type { ExaSearchResult } from './exa';
 
 // ── Types ──
 
@@ -26,9 +25,7 @@ export interface SubtopicExpansionResult {
   pillar_topic: string;
   keywords_by_source: {
     'serper-paa': string[];
-    'serper-related': string[];
     'serper-autocomplete': string[];
-    'exa-competitor': string[];
   };
   total_raw: number;
   total_new: number;
@@ -43,12 +40,10 @@ export interface ExpansionRunResult {
   total_new_keywords: number;
   total_volume_scored: number;
   serper_api_calls: number;
-  exa_api_calls: number;
 }
 
 export interface ExpandOptions {
   delayMs: number;
-  skipExa: boolean;
   maxVolumeCallsPerSubtopic: number;
   dryRun: boolean;
 }
@@ -84,7 +79,7 @@ export function normalizeKeyword(raw: string): string | null {
   return kw;
 }
 
-// ── Competitor Keyword Extraction ──
+// ── Keyword Noise Filtering ──
 
 /**
  * Known CTA / navigation patterns that are not real search queries.
@@ -118,13 +113,6 @@ export type NoiseFilterReason =
   | 'self-domain'
   | 'markdown-artifact'
   | null;
-
-/**
- * Strip trailing ` | SiteName` or ` - SiteName` suffixes from page titles.
- */
-function stripSiteSuffix(title: string): string {
-  return title.replace(/\s*[|\-–—]\s*[^|\-–—]+$/, '').trim();
-}
 
 /**
  * Check if a string looks like a real keyword (not pure CTA/nav noise).
@@ -200,37 +188,6 @@ export function isTitleCase(raw: string): boolean {
   return capitalizedCount / words.length > 0.6;
 }
 
-/**
- * Extract keywords from Exa competitor page results.
- * Filters out page titles that are CTAs, navigation, or site-suffixed noise.
- */
-export function extractCompetitorKeywords(
-  results: ExaSearchResult[],
-): string[] {
-  const keywords: string[] = [];
-
-  for (const r of results) {
-    if (r.title) {
-      const cleaned = stripSiteSuffix(r.title);
-      if (cleaned && !isTitleCase(cleaned) && !isKeywordNoise(cleaned)) {
-        keywords.push(cleaned);
-      }
-    }
-
-    if (r.text) {
-      const headings = r.text.match(/^#{2,3}\s+(.+)$/gm) ?? [];
-      for (const h of headings) {
-        const clean = h.replace(/^#{2,3}\s+/, '').trim();
-        if (clean.length > 5 && clean.length < 100 && !isTitleCase(clean) && !isKeywordNoise(clean)) {
-          keywords.push(clean);
-        }
-      }
-    }
-  }
-
-  return keywords;
-}
-
 // ── Serper Search Optimization ──
 
 /**
@@ -263,9 +220,7 @@ export async function expandSubtopic(
     pillar_topic: subtopic.pillar_topic,
     keywords_by_source: {
       'serper-paa': [],
-      'serper-related': [],
       'serper-autocomplete': [],
-      'exa-competitor': [],
     },
     total_raw: 0,
     total_new: 0,
@@ -274,11 +229,10 @@ export async function expandSubtopic(
 
   // Track API calls
   let serperCalls = 0;
-  let exaCalls = 0;
 
-  // ── Step 1+2: Serper PAA + Related (single API call) ──
+  // ── Step 1: Serper PAA (from full search) ──
   try {
-    const { paa, related } = await expandViaSerperSearch(
+    const { paa } = await expandViaSerperSearch(
       subtopic.pillar_topic,
     );
     serperCalls++;
@@ -290,14 +244,6 @@ export async function expandSubtopic(
         result.keywords_by_source['serper-paa'].push(norm);
       }
     }
-
-    for (const q of related) {
-      const norm = normalizeKeyword(q);
-      if (norm && !seen.has(norm)) {
-        seen.add(norm);
-        result.keywords_by_source['serper-related'].push(norm);
-      }
-    }
   } catch (err) {
     console.warn(
       `  ⚠ Serper search failed for "${subtopic.pillar_topic}":`,
@@ -307,7 +253,7 @@ export async function expandSubtopic(
 
   await delay(opts.delayMs);
 
-  // ── Step 3: Serper Autocomplete ──
+  // ── Step 2: Serper Autocomplete ──
   try {
     const ac = await searchAutocomplete(subtopic.pillar_topic);
     serperCalls++;
@@ -328,42 +274,10 @@ export async function expandSubtopic(
 
   await delay(opts.delayMs);
 
-  // ── Step 4: Exa Competitor Scan ──
-  if (!opts.skipExa) {
-    try {
-      const competitors = await semanticSearch(subtopic.pillar_topic, {
-        numResults: 10,
-        contents: { text: { maxCharacters: 3000 } },
-        excludeDomains: ['loreai.dev'],
-      });
-      exaCalls++;
-
-      const competitorKeywords = extractCompetitorKeywords(
-        competitors.results,
-      );
-      for (const kw of competitorKeywords) {
-        const norm = normalizeKeyword(kw);
-        if (norm && !seen.has(norm)) {
-          seen.add(norm);
-          result.keywords_by_source['exa-competitor'].push(norm);
-        }
-      }
-    } catch (err) {
-      console.warn(
-        `  ⚠ Exa competitor scan failed for "${subtopic.pillar_topic}":`,
-        err instanceof Error ? err.message : err,
-      );
-    }
-
-    await delay(opts.delayMs);
-  }
-
   // ── Compute raw total ──
   result.total_raw =
     result.keywords_by_source['serper-paa'].length +
-    result.keywords_by_source['serper-related'].length +
-    result.keywords_by_source['serper-autocomplete'].length +
-    result.keywords_by_source['exa-competitor'].length;
+    result.keywords_by_source['serper-autocomplete'].length;
 
   // ── DB Write ──
   if (!opts.dryRun) {
@@ -388,12 +302,10 @@ export async function expandSubtopic(
     result.total_new = newCount;
 
     // ── Volume Pre-scoring ──
-    // Prioritize PAA and related keywords (more likely to be real search queries)
+    // Prioritize PAA keywords (more likely to be real search queries)
     const prioritized = [
       ...result.keywords_by_source['serper-paa'],
-      ...result.keywords_by_source['serper-related'],
       ...result.keywords_by_source['serper-autocomplete'],
-      ...result.keywords_by_source['exa-competitor'],
     ];
 
     // Only score keywords that don't have volume yet
@@ -438,6 +350,12 @@ export async function expandTopic(
   subtopicSlugs: string[] | null,
   opts: ExpandOptions,
 ): Promise<ExpansionRunResult> {
+  // Flagship guard — only expand keywords for known flagship topics
+  const isFlagship = FLAGSHIP_TOPICS.some(t => t.slug === topicSlug);
+  if (!isFlagship) {
+    throw new Error(`Keyword expansion restricted to flagship topics: ${FLAGSHIP_TOPICS.map(t => t.slug).join(', ')}`);
+  }
+
   const db = getDb();
 
   // Load subtopics via resolveSubtopics() (flagship-aware, single entry point)
@@ -481,7 +399,6 @@ export async function expandTopic(
     total_new_keywords: 0,
     total_volume_scored: 0,
     serper_api_calls: 0,
-    exa_api_calls: 0,
   };
 
   for (let i = 0; i < subtopics.length; i++) {
@@ -502,13 +419,7 @@ export async function expandTopic(
       `    serper-paa:          ${stResult.keywords_by_source['serper-paa'].length} keywords`,
     );
     console.log(
-      `    serper-related:      ${stResult.keywords_by_source['serper-related'].length} keywords`,
-    );
-    console.log(
       `    serper-autocomplete: ${stResult.keywords_by_source['serper-autocomplete'].length} keywords`,
-    );
-    console.log(
-      `    exa-competitor:      ${stResult.keywords_by_source['exa-competitor'].length} keywords`,
     );
     if (stResult.volume_scored > 0) {
       console.log(
@@ -521,7 +432,6 @@ export async function expandTopic(
   // Estimate API calls (1 searchFull + 1 autocomplete per subtopic, + volume calls)
   runResult.serper_api_calls =
     subtopics.length * 2 + runResult.total_volume_scored;
-  runResult.exa_api_calls = opts.skipExa ? 0 : subtopics.length;
 
   return runResult;
 }

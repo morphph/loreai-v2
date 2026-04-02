@@ -17,33 +17,15 @@ import type { GroupOptions, GroupingRunResult } from './keyword-group';
 import type { ScoreQueueOptions } from './score-queue';
 import type { ScoringRunResult } from './priority';
 
+// Import + re-export from shared config to maintain backward compatibility
+import { FLAGSHIP_TOPICS } from './flagship-topics';
+import type { FlagshipTopic } from './flagship-topics';
+export { FLAGSHIP_TOPICS };
+export type { FlagshipTopic };
+
 // ── Constants ──
 
 export const MAX_NEW_SUBTOPICS_PER_EVENT = 3;
-
-// ── Flagship Topics Config ──
-
-export interface FlagshipTopic {
-  slug: string;
-  name: string;
-  cornerstoneUrl: string;
-  excludeDomains: string[];
-}
-
-export const FLAGSHIP_TOPICS: FlagshipTopic[] = [
-  {
-    slug: 'claude-code',
-    name: 'Claude Code',
-    cornerstoneUrl: 'https://loreai.dev/claude-code',
-    excludeDomains: ['loreai.dev'],
-  },
-  {
-    slug: 'codex',
-    name: 'OpenAI Codex',
-    cornerstoneUrl: 'https://loreai.dev/codex',
-    excludeDomains: ['loreai.dev'],
-  },
-];
 
 // ── Types ──
 
@@ -68,7 +50,6 @@ export interface DiscoveryCycleResult {
     total_keywords_discovered: number;
     total_new_keywords: number;
     serper_api_calls: number;
-    exa_api_calls: number;
   };
 
   // Stage 2
@@ -108,7 +89,6 @@ export interface DiscoveryOptions {
   dryRun: boolean;
   delay: number;
   maxSerp: number;
-  skipExa: boolean;
   skipSerp: boolean;
   model: 'haiku' | 'sonnet';
 }
@@ -212,7 +192,6 @@ export async function runDiscoveryForTopic(
       total_keywords_discovered: 0,
       total_new_keywords: 0,
       serper_api_calls: 0,
-      exa_api_calls: 0,
     },
     grouping: null,
     scoring: null,
@@ -290,7 +269,6 @@ export async function runDiscoveryForTopic(
 
     const expandOpts: ExpandOptions = {
       delayMs: opts.delay,
-      skipExa: opts.skipExa,
       maxVolumeCallsPerSubtopic: 10,
       dryRun: opts.dryRun,
     };
@@ -306,14 +284,13 @@ export async function runDiscoveryForTopic(
       total_keywords_discovered: expansionResult.total_keywords_discovered,
       total_new_keywords: expansionResult.total_new_keywords,
       serper_api_calls: expansionResult.serper_api_calls,
-      exa_api_calls: expansionResult.exa_api_calls,
     };
 
     console.error(
       `  Subtopics: ${expansionResult.subtopics_processed}, New keywords: ${expansionResult.total_new_keywords}`,
     );
     console.error(
-      `  API calls: Serper ${expansionResult.serper_api_calls}, Exa ${expansionResult.exa_api_calls}`,
+      `  API calls: Serper ${expansionResult.serper_api_calls}`,
     );
 
     stage1Success = true;
@@ -325,8 +302,7 @@ export async function runDiscoveryForTopic(
 
   // If expand-only or Stage 1 failed, skip remaining stages
   if (opts.expandOnly || !stage1Success) {
-    result.total_api_calls =
-      result.expansion.serper_api_calls + result.expansion.exa_api_calls;
+    result.total_api_calls = result.expansion.serper_api_calls;
     result.duration_ms = Date.now() - startTime;
     if (errors.length > 0) result.errors = errors;
     return result;
@@ -431,8 +407,7 @@ export async function runDiscoveryForTopic(
 
   // ── Totals ──
 
-  let totalApi =
-    result.expansion.serper_api_calls + result.expansion.exa_api_calls;
+  let totalApi = result.expansion.serper_api_calls;
   if (result.grouping) totalApi += result.grouping.claude_api_calls;
   if (result.scoring) totalApi += result.scoring.serp_api_calls;
 

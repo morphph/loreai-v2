@@ -2,7 +2,7 @@
 title: "Skills Index"
 status: active
 category: guide
-last-updated: 2026-03-30
+last-updated: 2026-04-02
 depends-on: []
 ---
 
@@ -22,11 +22,11 @@ depends-on: []
 | Newsletter Weekly ZH | `skills/newsletter-weekly-zh/SKILL.md` | Chinese weekly retrospective, connecting dots for tech-savvy audience | `write-weekly.ts` |
 | Email EN | `skills/email-en/SKILL.md` | Concise email rewrite with punchy subject lines (4-8 words) | `send-newsletter.ts` |
 | Email ZH | `skills/email-zh/SKILL.md` | Chinese email rewrite with subject lines (30 char max) | `send-newsletter.ts` |
-| Blog EN | `skills/blog-en/SKILL.md` | Senior engineer explaining to smart colleague, whiteboard session style | `process-queue.ts` (blog type) |
+| Blog EN | `skills/blog-en/SKILL.md` | Major rewrite: two templates (tutorial 1800-2500w, comparison 4000-5000w), AEO-optimized, practitioner voice | `process-queue.ts` (blog type) |
 | Blog ZH | `skills/blog-zh/SKILL.md` | Chinese blog, 平实有温度直击核心, not translated from EN | `process-queue.ts` (blog type) |
-| Topic Blog EN | `skills/topic-blog-en/SKILL.md` | Practitioner-perspective technical deep dives with metrics | `write-topic-blog.ts` |
+| Topic Blog EN | `skills/topic-blog-en/SKILL.md` | Word count upgraded to 5000-8000w, 8-12 H2 sections, AEO requirements, min 5 FAQ questions | `write-topic-blog.ts` |
 | Topic Blog ZH | `skills/topic-blog-zh/SKILL.md` | Chinese deep blog with Chinese examples and token counting | `write-topic-blog.ts` |
-| SEO | `skills/seo/SKILL.md` | Unified skill for glossary, FAQ, compare, topic-hub pages with AEO principles | `process-queue.ts` (SEO types) |
+| SEO | `skills/seo/SKILL.md` | Unified skill for glossary, FAQ, compare, topic-hub pages with AEO principles. Added AEO section, comparison pages expanded to 4000-5000w, topic hubs expanded to 3000-5000w | `process-queue.ts` (SEO types) |
 | SEO Refresh | `skills/seo-refresh/SKILL.md` | Refresh existing pages based on GSC performance signals | `performance-cycle.ts` |
 | Video-to-Blog ZH | `skills/video-to-blog-zh/SKILL.md` | Convert video scripts to written Chinese blog posts (Phase 2) | `import-video-blog.ts` |
 
@@ -35,7 +35,7 @@ depends-on: []
 | Skill | Path | Description | Used By |
 |-------|------|-------------|---------|
 | Entity Extraction | `skills/entity-extraction/SKILL.md` | Extract and normalize AI entities from news items | `extract-entities.ts` |
-| Keyword Grouping | `skills/keyword-grouping/SKILL.md` | Cluster keywords by shared search intent | `group-keywords.ts` (B2) |
+| Keyword Grouping | `skills/keyword-grouping/SKILL.md` | Cluster keywords by shared search intent. Now includes subtopic context (description, aliases). Default model: Sonnet 4.6 (auto-downgrade to Haiku for <20 keywords). | `group-keywords.ts` (B2) |
 
 ## Notes
 

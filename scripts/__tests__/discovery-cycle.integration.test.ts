@@ -171,7 +171,7 @@ describe('Discovery Cycle Integration', () => {
     expect(r.grouping!.total_groups_created).toBe(6);
     expect(r.scoring).not.toBeNull();
     expect(r.scoring!.groups_queued).toBe(5);
-    expect(r.total_api_calls).toBe(12 + 3 + 3 + 5); // serper + exa + claude + serp
+    expect(r.total_api_calls).toBe(12 + 3 + 5); // serper + claude + serp (exa removed)
     expect(r.duration_ms).toBeGreaterThanOrEqual(0);
     expect(r.errors).toBeUndefined();
   });

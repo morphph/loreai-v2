@@ -2,7 +2,7 @@
 title: "Unified SEO/AEO Strategy"
 status: active
 category: spec
-last-updated: 2026-03-30
+last-updated: 2026-04-02
 depends-on: []
 ---
 
@@ -250,10 +250,10 @@ For each subtopic, expand into concrete keywords:
 
 **Keyword expansion tools:**
 
-- **Serper.dev:** PAA boxes ("People Also Ask"), related searches, autocomplete — Google's own view of what people search
+- **Serper.dev:** PAA boxes ("People Also Ask") and autocomplete — Google's own view of what people search (related searches and Exa competitor scan removed to reduce noise and cost; scoped to flagship topics only)
 - **GSC queries:** Real search queries that are reaching (or nearly reaching) our pages — actual demand data
 
-**Keyword grouping:** Implemented as a **skill** (`skills/keyword-grouping/`). A single Claude call takes all expanded keywords for a subtopic and groups them by shared intent — if a user searching keyword A would be satisfied by the same page as keyword B, they belong in the same group → one page. The skill outputs grouped keywords with intent classification and suggested content type. Using a skill (rather than inline LLM call) makes the grouping prompt iterable, testable, and reusable across weekly discovery cycles.
+**Keyword grouping:** Implemented as a **skill** (`skills/keyword-grouping/`). Default model: Claude Sonnet 4.6 (auto-downgrade to Haiku for <20 keywords). A single Claude call takes all expanded keywords for a subtopic and groups them by shared intent — if a user searching keyword A would be satisfied by the same page as keyword B, they belong in the same group → one page. The skill now receives flagship subtopic context (description, aliases) to improve grouping accuracy. The skill outputs grouped keywords with intent classification and suggested content type. Using a skill (rather than inline LLM call) makes the grouping prompt iterable, testable, and reusable across weekly discovery cycles.
 
 Example for subtopic "pricing":
 
@@ -376,10 +376,10 @@ Every page is produced by combining a **research pipeline** (how deep we go) wit
 **Two research pipelines:**
 
 
-| Pipeline          | Flow                                                                | Word Count        | Cost |
-| ----------------- | ------------------------------------------------------------------- | ----------------- | ---- |
-| **Standard**      | Serper search → Exa `getContents` (full page text) → Claude + skill | 200–1,500 words   | Low  |
-| **Deep Research** | Gemini Deep Research → multi-source synthesis → Claude + skill      | 2,500–4,000 words | High |
+| Pipeline          | Flow                                                                | Word Count          | Cost |
+| ----------------- | ------------------------------------------------------------------- | ------------------- | ---- |
+| **Standard**      | Serper search → Exa `getContents` (full page text) → Claude + skill | 200–5,000 words     | Low  |
+| **Deep Research** | Gemini Deep Research → multi-source synthesis → Claude + skill      | 5,000–8,000 words   | High |
 
 
 The Standard pipeline uses Serper to find relevant URLs, then Exa to fetch clean full-text content from those pages. This ensures Claude writes from real, current sources — not snippets or memory.
@@ -387,15 +387,16 @@ The Standard pipeline uses Serper to find relevant URLs, then Exa to fetch clean
 **Content type → pipeline + skill + AEO rules:**
 
 
-| Content Type   | Pipeline      | Skill         | Word Count  | AEO Rule                                                                     |
-| -------------- | ------------- | ------------- | ----------- | ---------------------------------------------------------------------------- |
-| FAQ            | Standard      | `faq`         | 200–800     | Answer in the first sentence, then elaborate. Structure for AI extraction.   |
-| Compare        | Standard      | `compare`     | 800–1,500   | Structured feature tables, not just prose. Lead with a clear verdict.        |
-| Glossary       | Standard      | `glossary`    | 200–500     | One-sentence definition first. Precise, consistent entity mentions.          |
-| Topic Hub      | Standard      | `topic-hub`   | 1,000–2,000 | Cluster navigation. Links to all supporting pages. Created last.             |
-| News blog      | Standard      | `news-blog`   | 800–1,500   | Lead with the news event, then analysis. Timely and factual.                 |
-| Deep-dive blog | Deep Research | `deep-dive`   | 2,500–4,000 | Workflow-oriented. Code examples where relevant.                             |
-| Cornerstone    | Deep Research | `cornerstone` | 2,500–4,000 | Clear headings, direct answers at section tops. Comprehensive but scannable. |
+| Content Type   | Pipeline      | Skill         | Word Count    | Model       | AEO Rule                                                                     |
+| -------------- | ------------- | ------------- | ------------- | ----------- | ---------------------------------------------------------------------------- |
+| FAQ            | Standard      | `faq`         | 800–1,500     | Sonnet 4.6  | Answer in the first sentence, then elaborate. Structure for AI extraction.   |
+| Compare        | Standard      | `compare`     | 4,000–5,000   | Opus        | Structured feature tables, not just prose. Lead with a clear verdict.        |
+| Glossary       | Standard      | `glossary`    | 200–500       | Sonnet 4.6  | One-sentence definition first. Precise, consistent entity mentions.          |
+| Topic Hub      | Standard      | `topic-hub`   | 3,000–5,000   | Opus        | Cluster navigation. Links to all supporting pages. Created last.             |
+| Blog (tutorial)| Standard      | `blog`        | 1,800–2,500   | Opus        | Practitioner voice, AEO-optimized with FAQ section.                          |
+| Blog (comparison)| Standard    | `blog`        | 4,000–5,000   | Opus        | Structured comparison with feature tables and verdict.                       |
+| Deep-dive blog | Deep Research | `deep-dive`   | 5,000–8,000   | Opus        | Workflow-oriented. 8-12 H2 sections. Min 5 FAQ questions. Code examples.    |
+| Cornerstone    | Deep Research | `cornerstone` | 5,000–8,000   | Opus        | Clear headings, direct answers at section tops. Comprehensive but scannable. |
 
 
 **System role:** Asset generation engine — generates content by keyword group and intent, not by publication slot.
@@ -570,6 +571,51 @@ These two page types are often confused. The key distinction:
 Deep-dive blogs and cornerstones use the **Deep Research pipeline** (Gemini Deep Research → Claude + skill). They are **supporting nodes** in the cluster graph — each covers one angle deeply (e.g., "Agent Teams", "Agentic Engineering Best Practices"), while the cornerstone covers all angles at overview level.
 
 The same Deep Research pipeline produces both deep-dive and cornerstone content by using different skills (`deep-dive` skill for single-angle depth, `cornerstone` skill for comprehensive overview). All other content types (Compare, FAQ, Glossary, Topic Hub, News blog) use the **Standard pipeline** (Serper + Exa + Claude + skill) — the Deep Research pipeline is too costly for these shorter content types.
+
+---
+
+## 5b. AEO (Answer Engine Optimization) Strategy
+
+As AI-powered answer engines (ChatGPT, Perplexity, Google AI Overviews, Gemini) increasingly mediate search traffic, LoreAI's content must be optimized not just for traditional search rankings but for **AI extraction and citation**.
+
+### 5b.1 Core AEO Principles
+
+1. **Answer-first content structure**: Every FAQ, glossary, and comparison page leads with a direct, extractable answer before elaboration. AI systems preferentially cite content that provides clear, quotable answers in the first sentence.
+
+2. **Structured data for machine parsing**: Feature tables in comparisons, FAQ schema markup, and consistent heading hierarchy make content parseable by AI systems. Prose-only content is harder for AI to extract and cite accurately.
+
+3. **Practitioner authority signals**: Content written from a practitioner perspective (with real code examples, concrete metrics, and workflow context) is more likely to be cited by AI systems than generic overviews.
+
+4. **FAQ sections as AEO anchors**: Every blog post and deep-dive includes a dedicated FAQ section (minimum 5 questions for topic blogs) that serves as a structured extraction target for AI answer engines.
+
+### 5b.2 AEO Requirements by Content Type
+
+| Content Type | AEO Requirement |
+|-------------|----------------|
+| FAQ | Answer in first sentence. `FAQPage` schema. Each answer self-contained and quotable. |
+| Compare | Feature comparison table (not just prose). Clear verdict statement. Structured for AI extraction. |
+| Glossary | One-sentence definition first. `DefinedTerm` schema. Precise entity mentions. |
+| Blog | Dedicated FAQ section (3-5 questions). Key takeaways box. Practitioner voice with concrete examples. |
+| Topic Blog | Min 5 FAQ questions. 8-12 H2 sections for granular extraction. AEO-optimized structure throughout. |
+| Topic Hub | Structured index with brief descriptions. Links to all supporting pages for AI crawling. |
+| Cornerstone | Comprehensive FAQ section. Section-level answers. Schema markup for breadcrumbs and article. |
+
+### 5b.3 Flagship-Only Pipeline Scope
+
+The keyword engine (B1-B4) is currently scoped to **flagship topics only** (claude-code, codex). This is a deliberate strategic choice:
+
+- **Focus over breadth**: Concentrating pipeline resources on flagship topics builds deeper authority faster than spreading across many topics.
+- **Quality over quantity**: Flagship-only scope allows for higher word counts and more thorough competitive analysis per piece.
+- **Model selection optimization**: Opus is used for high-value content types (comparison, topic hub, deep-dive) while Sonnet 4.6 handles FAQ/glossary — balancing quality and cost within the flagship scope.
+- **Expansion path**: Once flagship clusters reach maturity (target: 30+ pages with complete internal linking), the scope expands to adjacent topics.
+
+### 5b.4 Model Selection Rationale
+
+| Model | Used For | Rationale |
+|-------|---------|-----------|
+| Claude Opus | Blog, Compare, Topic Hub, Deep-dive, Cornerstone | High-value content types that benefit from Opus's superior reasoning, nuance, and long-form coherence. |
+| Claude Sonnet 4.6 | FAQ, Glossary, Keyword Grouping (B2), Flagship Freshness pre-filter | Shorter-form content and classification tasks where Sonnet's quality is sufficient at lower cost. |
+| Claude Haiku | Keyword Grouping (B2) for <20 keywords | Small batches don't justify Sonnet cost. |
 
 ---
 

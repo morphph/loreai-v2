@@ -121,7 +121,7 @@ Topic blog posts are **deep dives** with richer structure than daily blogs. Ever
 ### {Question 3}
 {Answer}
 
-{Min 3 questions. Use questions real developers would ask. Each answer should add new information not covered in the main sections.}
+{Min 5 questions. Use questions real developers would ask. Each answer should add new information not covered in the main sections.}
 
 ## References
 
@@ -136,12 +136,16 @@ Topic blog posts are **deep dives** with richer structure than daily blogs. Ever
 
 ## Word Count
 
-**2,500-4,000 words** total (excluding frontmatter). This is significantly longer than daily blog posts. The depth comes from:
-- Thorough Background and What Happened sections
-- Technical How It Works with diagrams, tables, and frameworks
+**5,000-8,000 words** total (excluding frontmatter). This is significantly longer than daily blog posts. The depth comes from:
+- Thorough Background and What Happened sections (200-400 words each)
+- Technical How It Works with diagrams, tables, and frameworks (500-800 words)
+- Multiple detailed analysis sections with code examples (300-500 words each)
 - Pitfall/fix pairs and decision rules throughout
-- Honest Risks and Limitations section
-- FAQ section (min 3 questions, adds 300-500 words)
+- Honest Risks and Limitations section (200-300 words)
+- FAQ section (min 5 questions, adds 500-700 words)
+- Performance benchmarks and edge case analysis
+
+Target **8-12 H2 sections** with **25-35 H3 subsections** total. This depth separates your content from surface-level coverage.
 
 ## Visuals & Diagrams
 
@@ -165,6 +169,20 @@ graph TD
 ```
 
 Keep diagrams focused — 5-10 nodes max. Label edges with actions/data. Use `graph TD` (top-down) for hierarchies, `graph LR` (left-right) for flows.
+
+## AEO & Required Structural Elements
+
+Every deep-dive post MUST include:
+- **Self-contained answer paragraph** (40-60 words) at the start of every H2 — this is what AI engines extract
+- **TL;DR box** at the top (already in template)
+- **Statistics with source links** every 150-200 words
+- **Architecture diagram** (Mermaid): minimum 1 per post
+- **Code examples**: minimum 20 across the post (can be short snippets)
+- **Edge cases / failure modes section**: what breaks, what to watch for
+- **Performance benchmarks section**: with concrete data
+- **"Key Takeaway" callout** per major section: `> **Key Takeaway:** {one sentence}`
+- **FAQ section**: minimum 5 questions (was 3) — each answer adds new info not in main text
+- **Short paragraphs**: 2-4 sentences max. No text walls.
 
 ## Data Summary Blocks
 
@@ -197,7 +215,7 @@ Every blog post MUST include:
 
 1. **No fabrication**: If source material doesn't contain a detail, don't invent it. Use "not yet disclosed" or similar when information is missing.
 2. **Go far beyond the newsletter summary**: Add context, history, comparisons, benchmarks, architectural analysis. The topic blog should be a definitive resource on its subject.
-3. **2,500-4,000 words** total (excluding frontmatter).
+3. **5,000-8,000 words** total (excluding frontmatter).
 4. **Concrete over abstract**: Numbers, examples, code, diagrams > vague claims.
 5. **Every claim needs a source**: Link to official announcements, papers, benchmarks.
 6. **Take a position**: Don't just summarize — analyze, compare, and give your informed opinion.

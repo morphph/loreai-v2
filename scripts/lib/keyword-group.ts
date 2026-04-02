@@ -12,6 +12,8 @@ import fs from 'fs';
 import path from 'path';
 import { callClaudeWithRetry } from './ai';
 import { getDb } from './db';
+import { FLAGSHIP_TOPICS } from './discovery';
+import { loadPack } from './subtopic-pack';
 
 // ── Types ──
 
@@ -135,6 +137,11 @@ export function buildPrompt(
   clusterSlug: string,
   pillarTopic: string,
   keywords: KeywordInput[],
+  subtopicContext?: {
+    description: string;
+    aliases: string[];
+    flagshipTopicName: string;
+  },
 ): string {
   const keywordLines = keywords.map((kw, i) => {
     const parts = [kw.keyword];
@@ -147,6 +154,14 @@ export function buildPrompt(
   return [
     `## Subtopic: ${pillarTopic}`,
     `Cluster: ${clusterSlug}`,
+    ...(subtopicContext ? [
+      `Flagship topic: ${subtopicContext.flagshipTopicName}`,
+      `Subtopic description: ${subtopicContext.description}`,
+      `Also known as: ${subtopicContext.aliases.join(', ')}`,
+      '',
+      `Group keywords in the context of ${subtopicContext.flagshipTopicName}.`,
+      `Flag keywords that seem off-topic for this subtopic as ungrouped.`,
+    ] : []),
     `Total keywords: ${keywords.length}`,
     '',
     '## Keywords',
@@ -353,10 +368,11 @@ export async function callClaude(
   clusterSlug: string,
   pillarTopic: string,
   opts: GroupOptions,
+  subtopicContext?: Parameters<typeof buildPrompt>[3],
 ): Promise<ClaudeGroupOutput> {
   const skill = loadSkill();
   const modelId = MODEL_MAP[opts.model] || MODEL_MAP.sonnet;
-  const prompt = buildPrompt(clusterSlug, pillarTopic, keywords);
+  const prompt = buildPrompt(clusterSlug, pillarTopic, keywords, subtopicContext);
   const inputKeywordList = keywords.map((kw) => kw.keyword);
 
   const response = await callClaudeWithRetry(skill, prompt, {
@@ -461,6 +477,21 @@ export async function groupCluster(
     throw new Error(`Cluster "${clusterSlug}" not found in topic_clusters`);
   }
 
+  // Load subtopic context from flagship pack (if available)
+  let subtopicContext: Parameters<typeof buildPrompt>[3] | undefined;
+  const ft = FLAGSHIP_TOPICS.find(t => clusterSlug.startsWith(t.slug));
+  if (ft) {
+    const pack = loadPack(ft.slug);
+    const subtopic = pack?.subtopics.find(s => s.slug === clusterSlug);
+    if (subtopic) {
+      subtopicContext = {
+        description: subtopic.description,
+        aliases: subtopic.aliases || [],
+        flagshipTopicName: ft.name,
+      };
+    }
+  }
+
   // Force: clear existing groups first
   if (opts.force) {
     clearClusterGroups(clusterSlug);
@@ -493,20 +524,20 @@ export async function groupCluster(
     const batchResults: ClaudeGroupOutput[] = [];
 
     for (const batch of batches) {
-      const batchResult = await callClaude(batch, clusterSlug, cluster.pillar_topic, opts);
+      const batchResult = await callClaude(batch, clusterSlug, cluster.pillar_topic, opts, subtopicContext);
       batchResults.push(batchResult);
     }
 
     claudeResult = mergeGroupResults(batchResults);
   } else {
-    // Auto-select model for large keyword sets
+    // Auto-downgrade to haiku for very small sets (cost optimization)
     const effectiveOpts = { ...opts };
-    if (keywords.length > 200 && opts.model === 'haiku') {
-      effectiveOpts.model = 'sonnet';
-      console.log(`    Auto-upgrading to sonnet (${keywords.length} keywords > 200)`);
+    if (keywords.length < 20 && (effectiveOpts.model === 'sonnet' || !effectiveOpts.model)) {
+      effectiveOpts.model = 'haiku';
+      console.log(`    Auto-downgrading to haiku (${keywords.length} keywords < 20)`);
     }
 
-    claudeResult = await callClaude(keywords, clusterSlug, cluster.pillar_topic, effectiveOpts);
+    claudeResult = await callClaude(keywords, clusterSlug, cluster.pillar_topic, effectiveOpts, subtopicContext);
   }
 
   result.ungrouped_count = claudeResult.ungrouped.length;

@@ -45,6 +45,15 @@ Never use any of these:
 3. **Slug**: lowercase, hyphenated, keyword-rich (e.g., `claude-code`, `claude-code-vs-cursor`)
 4. **H2 headings**: Clear, descriptive. Include keyword in at least one H2
 
+## AEO (Answer Engine Optimization) — All Page Types
+
+Every page must be optimized for AI answer engine extraction (Perplexity, ChatGPT, Google AI Overviews):
+
+1. **Self-contained answer paragraph**: Start every H2 section with a 40-60 word paragraph that directly answers the section's implied question. AI engines extract these as standalone answers.
+2. **Section length**: Aim for 120-180 words between headings. Longer sections get split at unpredictable points by extractors.
+3. **Statistics with sources**: Include a concrete statistic or data point with a source link every 150-200 words (e.g., "According to [Anthropic's benchmarks](url), Claude scores 92.3% on HumanEval").
+4. **FAQ schema section**: Every page must end with a "## Frequently Asked Questions" section containing 3-5 questions in H3 format. This enables FAQPage JSON-LD extraction.
+
 ## Internal Linking Rules (All Page Types)
 
 Every SEO page MUST include contextually relevant internal links:
@@ -189,7 +198,7 @@ lang: {en|zh}
 
 ## Page Type 3: Comparison (`/compare/[slug]`)
 
-**Word count**: 400-800 words
+**Word count**: **4,000-5,000 words**
 
 **Purpose**: Compare two AI tools, models, or services fairly. Balanced, opinionated but fair — state a clear verdict. Must be Product JSON-LD compatible.
 
@@ -200,29 +209,55 @@ lang: {en|zh}
 ```markdown
 # {Item A} vs {Item B}: {Angle or Question}
 
-{80-120 words. Overview of both items and why this comparison matters. State what each product is and the key differentiator upfront. Include the target keyword naturally.}
+**TL;DR:** {2-3 sentence verdict. Bold the winner for each key dimension. This must stand alone as a quotable summary.}
+
+## Overview: {Item A}
+
+{150-200 words. Self-contained answer paragraph (40-60 words) explaining what Item A is. Then expand: who it's for, key differentiators, pricing model.}
+
+## Overview: {Item B}
+
+{150-200 words. Same treatment for Item B.}
 
 ## Feature Comparison
 
-| Feature | {Item A} | {Item B} |
-|---------|----------|----------|
-| {Feature 1} | {Value} | {Value} |
-| {Feature 2} | {Value} | {Value} |
-| {Feature 3} | {Value} | {Value} |
-| {Feature 4} | {Value} | {Value} |
-| Pricing | {Value} | {Value} |
+| Feature | {Item A} | {Item B} | Winner |
+|---------|----------|----------|--------|
+| {Feature 1} | {Value} | {Value} | {A/B/Tie} |
+| {Feature 2} | {Value} | {Value} | {A/B/Tie} |
+| {Feature 3} | {Value} | {Value} | {A/B/Tie} |
+| Pricing | {Value} | {Value} | {A/B/Tie} |
 
-## When to Use {Item A}
+## {Feature Category 1}: Detailed Analysis
 
-{80-150 words. Specific scenarios, user profiles, and workflows where Item A is the better choice. Concrete examples. Link to [glossary](/glossary/slug) entries for key terms.}
+{300-500 words. Deep dive into the most important differentiator. Code examples or configuration snippets if relevant. Include statistics with source links.}
 
-## When to Use {Item B}
+## {Feature Category 2}: Detailed Analysis
 
-{80-150 words. Same treatment for Item B. Be fair — both tools have legitimate strengths.}
+{300-500 words. Second most important differentiator.}
+
+## When to Choose {Item A}
+
+{150-200 words. Specific scenarios, user profiles, and workflows. Concrete examples.}
+
+## When to Choose {Item B}
+
+{150-200 words. Same treatment. Be fair — both tools have legitimate strengths.}
 
 ## Verdict
 
-{50-100 words. Clear recommendation with nuance. "If you need X, choose A. If you need Y, choose B." Don't cop out with "it depends" without specifics. Link to related [blog posts](/blog/slug) for deeper analysis.}
+{100-150 words. Clear recommendation with nuance. Bold the conclusion. Link to related blog posts for deeper analysis.}
+
+## Frequently Asked Questions
+
+### {Question 1}?
+{40-60 word direct answer.}
+
+### {Question 2}?
+{40-60 word direct answer.}
+
+### {Question 3}?
+{40-60 word direct answer.}
 
 ---
 
@@ -250,7 +285,7 @@ lang: {en|zh}
 
 ## Page Type 4: Topic Hub (`/topics/[slug]`)
 
-**Word count**: 500-1000 words
+**Word count**: **3,000-5,000 words**
 
 **Purpose**: Serve as the central cluster node for a topic. Aggregates and links to all related content: glossary entries, blog posts, newsletters, FAQ, and comparisons. Provides a comprehensive overview with latest context.
 
@@ -261,15 +296,15 @@ lang: {en|zh}
 ```markdown
 # {Topic} — Everything You Need to Know
 
-{100-150 words. Comprehensive overview of the topic. What it is, who it's for, and why it matters now. This should be the best single-paragraph summary of the topic on the internet. Include the target keyword naturally.}
+{200-300 words. Comprehensive overview of the topic. What it is, who it's for, and why it matters now. Self-contained answer paragraph (40-60 words) first, then expand with history, market context, and key differentiators. This should be the best summary of the topic on the internet. Include the target keyword naturally. Include a statistic with source link.}
 
 ## Latest Developments
 
-{100-200 words. What's new or recently changed. Recent releases, updates, or news. Link to [newsletters](/newsletter/YYYY-MM-DD) and [blog posts](/blog/slug) covering these developments.}
+{200-400 words. What's new or recently changed. Recent releases, updates, or news. Chronological order, most recent first. Include specific dates and version numbers. Link to [newsletters](/newsletter/YYYY-MM-DD) and [blog posts](/blog/slug) covering these developments.}
 
 ## Key Features and Capabilities
 
-{150-250 words. Core features, architecture, or concepts. Technical depth appropriate for the audience. Bold key sub-features. Link to [glossary entries](/glossary/slug) for technical terms.}
+{400-600 words. Core features, architecture, or concepts. Technical depth appropriate for the audience. Bold key sub-features. Include a comparison table if 3+ features. Link to [glossary entries](/glossary/slug) for technical terms. Code examples or configuration snippets where relevant.}
 
 ## Common Questions
 
@@ -294,6 +329,17 @@ lang: {en|zh}
 
 ### Newsletters
 - [{Newsletter date/title}](/newsletter/YYYY-MM-DD)
+
+## Frequently Asked Questions
+
+### {Question 1}?
+{40-60 word direct answer.}
+
+### {Question 2}?
+{40-60 word direct answer.}
+
+### {Question 3}?
+{40-60 word direct answer.}
 
 ---
 

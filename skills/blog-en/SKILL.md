@@ -5,6 +5,8 @@
 Write like a **senior engineer explaining something to a smart colleague** — authoritative but accessible. You've done the research, you understand the nuances, and you're sharing your analysis over a whiteboard session.
 
 Do:
+- Write in first-person practitioner voice: "After testing X in production for 3 months...", "In our deployment..."
+- Never write as a journalist or reviewer — write as someone with hands-on experience
 - Lead with the most important insight, not background
 - Use concrete specifics: benchmark scores, token counts, pricing, architecture details
 - Compare to existing tools/models the reader already knows
@@ -21,37 +23,142 @@ Don't:
 - Repeat the same point across sections
 - Hedge excessively: "It could potentially maybe be useful"
 
-## Structure Template
+## Structure Templates
 
-Every blog post follows this exact structure:
+Blog posts use one of two templates depending on the intent:
+
+### Tutorial Template (1,800-2,500 words)
+
+Use for informational keywords: "how to use X", "X tutorial", "getting started with X".
 
 ```markdown
 # {Title With Target Keyword}
 
-{80-120 word hook. State the core development, why it matters, and what the reader will learn. Include the target keyword naturally. This paragraph must stand alone as a compelling summary.}
+**TL;DR:** {1-2 sentence summary with key facts bolded. Must stand alone as a quotable answer.}
 
-## What Happened
+## Table of Contents
+- [What Is {Topic}](#what-is-topic)
+- [Getting Started](#getting-started)
+- [Core Features](#core-features)
+- [Advanced Tips](#advanced-tips)
+- [FAQ](#frequently-asked-questions)
 
-{200-300 words. The factual account: who released what, when, key specs and capabilities. Include specific numbers. Link to primary sources. Provide context on how this fits into the broader landscape.}
+## What Is {Topic}
 
-## Why It Matters
+{40-60 word self-contained answer paragraph — AI engines extract this.}
 
-{200-300 words. Analysis and implications. How does this change workflows, economics, or competitive dynamics? Compare to alternatives. Who wins, who loses? What shifts?}
+{120-180 word expansion: context, history, why it matters now. Include a statistic with source link.}
 
-## Technical Deep-Dive
+## Getting Started with {Topic}
 
-{200-300 words. Architecture, implementation details, benchmarks, or usage patterns. Code snippets if relevant. Performance comparisons. Limitations and caveats. This is where you show depth.}
+{300-500 words. Step-by-step guide with code blocks. Show the simplest working example first, then build complexity. Include at least 2 code examples.}
 
-## What You Should Do
+## Core Features of {Topic}
 
-{100-200 words. Concrete action items for the reader. Try X, migrate from Y, watch for Z. Prioritized, specific, practical.}
+{300-500 words. Feature-by-feature breakdown. Use a comparison table if 3+ features. Bold key terms. Include pitfall/fix pairs.}
 
-**Related**: [Today's newsletter](/newsletter/YYYY-MM-DD) covers the broader context. See also: [related post title](/blog/related-slug).
+## Advanced Tips
+
+{200-300 words. Power-user patterns, optimization, common mistakes. Decision rules: "If X, do Y. If Z, do W."}
+
+## Frequently Asked Questions
+
+### {Question 1}?
+{40-60 word direct answer.}
+
+### {Question 2}?
+{40-60 word direct answer.}
+
+### {Question 3}?
+{40-60 word direct answer.}
+
+## References
+
+- [{Source 1 Title}]({url}) — {Source}, {YYYY-MM-DD}
+- [{Source 2 Title}]({url}) — {Source}, {YYYY-MM-DD}
 
 ---
 
 *Found this useful? [Subscribe to AI News](/subscribe) for daily AI briefings.*
 ```
+
+### Comparison Template (4,000-5,000 words)
+
+Use for commercial keywords: "X vs Y", "X alternative", "best X for Y".
+
+```markdown
+# {Item A} vs {Item B}: {Verdict Angle}
+
+**TL;DR:** {2-3 sentence verdict with bolded winner per dimension.}
+
+## Table of Contents
+- [Overview: {Item A}](#overview-item-a)
+- [Overview: {Item B}](#overview-item-b)
+- [Feature Comparison](#feature-comparison)
+- ...
+
+## Overview: {Item A}
+
+{150-200 words. What it is, who it's for, pricing, key differentiator.}
+
+## Overview: {Item B}
+
+{150-200 words. Same treatment.}
+
+## Feature Comparison
+
+| Feature | {Item A} | {Item B} | Winner |
+|---------|----------|----------|--------|
+| {Feature 1} | {Value} | {Value} | {A/B/Tie} |
+...
+
+## {Feature Category 1}: Detailed Analysis
+
+{300-500 words with code examples or screenshots. Include statistics with source links.}
+
+## {Feature Category 2}: Detailed Analysis
+
+{300-500 words.}
+
+## {Feature Category 3}: Detailed Analysis
+
+{300-500 words.}
+
+## When to Choose {Item A}
+
+{150-200 words. Specific scenarios and user profiles.}
+
+## When to Choose {Item B}
+
+{150-200 words.}
+
+## Frequently Asked Questions
+
+### {Q1}?
+{40-60 word answer.}
+
+### {Q2}?
+...
+
+## References
+...
+
+---
+
+*Found this useful? [Subscribe to AI News](/subscribe) for daily AI briefings.*
+```
+
+## Required Structural Elements (All Blog Types)
+
+Every blog post MUST include:
+- **TL;DR summary** as the first element after the title
+- **Table of Contents** with jump links (after TL;DR)
+- **FAQ section** with schema (minimum 3 questions with H3 headings)
+- **References section** with structured source list
+- **Code blocks** (minimum 2 per tutorial)
+- **Comparison table** (required if comparing 3+ items)
+- **Statistics with source links** every 150-200 words
+- **Self-contained answer paragraph** (40-60 words) at the start of every H2 section
 
 ## SEO Rules
 
@@ -72,7 +179,7 @@ Every blog post MUST include:
 
 1. **No fabrication**: If source material doesn't contain a detail, don't invent it. Use "not yet disclosed" or similar when information is missing.
 2. **Go beyond the newsletter summary**: Add context, history, comparisons, benchmarks. The blog post should provide significantly more value than the newsletter mention.
-3. **800-1500 words** total (excluding frontmatter). Target ~1000 words for most posts.
+3. **Word count**: Tutorials: 1,800-2,500 words. Comparisons: 4,000-5,000 words. (excluding frontmatter)
 4. **Concrete over abstract**: Numbers, examples, code > vague claims.
 5. **Every claim needs a source**: Link to official announcements, papers, benchmarks.
 

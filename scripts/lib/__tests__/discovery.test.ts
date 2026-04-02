@@ -88,7 +88,6 @@ const MOCK_EXPANSION_RESULT = {
   total_new_keywords: 15,
   total_volume_scored: 15,
   serper_api_calls: 9,
-  exa_api_calls: 3,
 };
 
 const MOCK_GROUPING_RESULT = {
@@ -161,7 +160,6 @@ const DEFAULT_OPTS: DiscoveryOptions = {
   dryRun: false,
   delay: 300,
   maxSerp: 50,
-  skipExa: false,
   skipSerp: false,
   model: 'haiku',
 };
@@ -386,7 +384,6 @@ describe('runDiscoveryForTopic', () => {
     expect(result.expansion.subtopics_processed).toBe(3);
     expect(result.expansion.total_new_keywords).toBe(15);
     expect(result.expansion.serper_api_calls).toBe(9);
-    expect(result.expansion.exa_api_calls).toBe(3);
 
     // Grouping
     expect(result.grouping).not.toBeNull();
@@ -415,8 +412,8 @@ describe('runDiscoveryForTopic', () => {
       mode: 'scheduled',
     });
 
-    // serper(9) + exa(3) + claude(3) + serp(4) = 19
-    expect(result.total_api_calls).toBe(19);
+    // serper(9) + claude(3) + serp(4) = 16
+    expect(result.total_api_calls).toBe(16);
   });
 
   it('records duration_ms', async () => {
@@ -694,22 +691,6 @@ describe('options forwarding', () => {
       'claude-code',
       null,
       expect.objectContaining({ delayMs: 500 }),
-    );
-  });
-
-  it('forwards skipExa to B1', async () => {
-    setupDefaultMocks();
-
-    await runDiscoveryForTopic(MOCK_TOPIC, {
-      ...DEFAULT_OPTS,
-      skipExa: true,
-      mode: 'scheduled',
-    });
-
-    expect(mockExpandTopic).toHaveBeenCalledWith(
-      'claude-code',
-      null,
-      expect.objectContaining({ skipExa: true }),
     );
   });
 

@@ -477,7 +477,7 @@ describe('buildGenerationPrompt', () => {
 
     expect(system).toContain('Blog Post');
     expect(system).toContain('WHAT happened');
-    expect(system).toContain('800-1500');
+    expect(system).toContain('1800-2500');
   });
 
   test('deep-dive prompt includes inline instructions', () => {
@@ -492,7 +492,7 @@ describe('buildGenerationPrompt', () => {
     const { system } = buildGenerationPrompt('deep-dive', sp, context, 'en');
 
     expect(system).toContain('Deep-Dive Blog Post');
-    expect(system).toContain('2500-4000');
+    expect(system).toContain('5000-8000');
     expect(system).toContain('code examples');
   });
 
@@ -509,7 +509,7 @@ describe('buildGenerationPrompt', () => {
 
     expect(system).toContain('Cornerstone Page');
     expect(system).toContain('definitive guide');
-    expect(system).toContain('2500-4000');
+    expect(system).toContain('3000-5000');
   });
 
   test('user prompt instructs not to fabricate', () => {
@@ -901,11 +901,11 @@ describe('ZH generation', () => {
     const types: ContentType[] = ['faq', 'compare', 'glossary', 'topic-hub', 'blog', 'deep-dive', 'cornerstone'];
     const expectedRanges: Record<ContentType, string> = {
       faq: '200-450',
-      compare: '350-700',
+      compare: '2500-3500',
       glossary: '200-350',
-      'topic-hub': '450-900',
-      blog: '600-1200',
-      'deep-dive': '2000-3500',
+      'topic-hub': '2000-3500',
+      blog: '1200-3500',
+      'deep-dive': '3500-5500',
       cornerstone: '2000-3500',
     };
 

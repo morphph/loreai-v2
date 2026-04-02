@@ -42,8 +42,8 @@ export function validateBlogPost(md: string, options?: { maxWords?: number }): V
   // Word count check (800-1500 target) — uses CJK-aware counter
   const wordCount = countWords(md);
 
-  const maxWords = options?.maxWords ?? 2000;
-  if (wordCount < 500) errors.push(`Too short: ${wordCount} words (min 500)`);
+  const maxWords = options?.maxWords ?? 6000;
+  if (wordCount < 1500) errors.push(`Too short: ${wordCount} words (min 1500)`);
   if (wordCount > maxWords) errors.push(`Too long: ${wordCount} words (max ${maxWords})`);
 
   return { valid: errors.length === 0, errors };
@@ -172,10 +172,10 @@ export function validateCompare(md: string): ValidationResult {
   const h2Count = (md.match(/^## .+/gm) || []).length;
   if (h2Count < 2) errors.push(`Only ${h2Count} H2 sections (need >= 2)`);
 
-  // Word count: 400-800
+  // Word count: 3000-6000
   const wordCount = countWords(md);
-  if (wordCount < 300) errors.push(`Too short: ${wordCount} words (min 400, hard floor 300)`);
-  if (wordCount > 1000) errors.push(`Too long: ${wordCount} words (max 800, hard ceiling 1000)`);
+  if (wordCount < 3000) errors.push(`Too short: ${wordCount} words (min 3000)`);
+  if (wordCount > 6000) errors.push(`Too long: ${wordCount} words (max 6000)`);
 
   // No forbidden phrases
   if (md.match(FORBIDDEN_PHRASES)) errors.push('Forbidden phrase detected');
@@ -349,10 +349,10 @@ export function validateTopicHub(md: string): ValidationResult {
   const h2Count = (md.match(/^## .+/gm) || []).length;
   if (h2Count < 2) errors.push(`Only ${h2Count} H2 sections (need >= 2)`);
 
-  // Word count: 500-1000
+  // Word count: 2500-6000
   const wordCount = countWords(md);
-  if (wordCount < 350) errors.push(`Too short: ${wordCount} words (min 500, hard floor 350)`);
-  if (wordCount > 1200) errors.push(`Too long: ${wordCount} words (max 1000, hard ceiling 1200)`);
+  if (wordCount < 2500) errors.push(`Too short: ${wordCount} words (min 2500)`);
+  if (wordCount > 6000) errors.push(`Too long: ${wordCount} words (max 6000)`);
 
   // No forbidden phrases
   if (md.match(FORBIDDEN_PHRASES)) errors.push('Forbidden phrase detected');
