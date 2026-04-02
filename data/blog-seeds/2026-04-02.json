@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Anthropic just deleted their official blog post announcing Claude Mythos: their most powerful AI model ever",
+    "url": "https://x.com/AiBreakfast/status/2037516913946066956",
+    "source": "twitter:@AiBreakfast",
+    "x_engagement_24h": 206,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 45.0618,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "We've made setting up claude.ai with GitHub much easier! You can now run /web-setup in a local claude session",
+    "url": "https://x.com/bcherny/status/2039155316601061449",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 1148,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.3444,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Claude wrote a full FreeBSD remote kernel RCE with root shell",
+    "url": "https://github.com/califio/publications/blob/main/MADBugs/CVE-2026-4747/write-up.md",
+    "source": "hackernews",
+    "x_engagement_24h": 339,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.1017,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Today we're excited to announce NO_FLICKER mode for Claude Code in the terminal",
+    "url": "https://x.com/trq212/status/2039429267172557269",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 5461,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 21.6383,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "New in Xcode 26 Beta 7: Users can now log into their Claude account from Xcode",
+    "url": "https://x.com/mikeyk/status/1961138678706954472",
+    "source": "twitter:@mikeyk",
+    "x_engagement_24h": 4672,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 17.4016,
+    "suggested_angle": "news"
+  }
+]
