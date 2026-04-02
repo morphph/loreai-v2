@@ -1,51 +1,45 @@
 ---
-title: How Much Does Codex Cost?
+title: "How Much Does OpenAI Codex Cost?"
 slug: codex-pricing
-description: >-
-  Codex is included with ChatGPT Pro, Business, and Enterprise plans. API
-  pricing starts at $1.50/M input tokens.
+description: "OpenAI Codex pricing: free tier for students and open source maintainers, Pro access for paid subscribers. Here's what each tier includes."
 category: tools
-related_glossary:
-  - codex
-related_blog:
-  - codex-complete-guide
+related_glossary: [agentic-coding, agent-sdk]
+related_blog: [codex-complete-guide, codex-for-students, codex-for-open-source, codex-vscode]
+related_compare: []
+related_topics: [codex]
 lang: en
-related_topics:
-  - codex
 ---
 
-# How Much Does Codex Cost?
+# How Much Does OpenAI Codex Cost?
 
-**[Codex](/glossary/codex)** is bundled into existing [ChatGPT](/glossary/chatgpt) plans — there is no separate subscription. ChatGPT Pro, Business, Enterprise, and Plus users all have access at no additional cost during the initial rollout period. OpenAI has stated it will introduce rate-limited access and flexible on-demand pricing options after this introductory phase, but specific tier pricing has not been publicly documented yet.
+**OpenAI Codex** offers a tiered pricing structure: free credits for students and open source maintainers, and paid access for general users. Students receive **$100 in free credits** through OpenAI's education program, while open source maintainers get free Pro-level access. Beyond these programs, Codex access is tied to OpenAI's broader API and ChatGPT subscription tiers.
 
 ## Context
 
-[Codex](/faq/codex)'s pricing model splits into two tracks: the ChatGPT-integrated product and the API.
+Codex pricing has evolved significantly from its origins as a standalone API. The current Codex CLI — OpenAI's [agentic coding](/glossary/agentic-coding) tool for the terminal — runs on the same underlying models as ChatGPT and the OpenAI API, which means pricing depends on how you access it.
 
-**ChatGPT product (Codex in the sidebar):** Included with your existing ChatGPT subscription. Pro ($200/mo), Business ($25/user/mo), Enterprise (custom), and Plus ($20/mo) users can all access Codex. During the research preview, OpenAI offered generous usage at no extra charge. Long-term, expect rate limits that vary by plan tier, with the option to purchase additional usage on demand.
+There are three distinct access paths:
 
-**API (codex-mini-latest):** For developers building on the Codex model directly, `codex-mini-latest` is available through the Responses API at:
+**Free credits for students**: OpenAI's student program grants $100 in free credits. The [Codex for Students offer](/blog/codex-for-students) comes with real caveats — the credits are time-limited and subject to usage rate limits. This is enough to explore the tool, but not sufficient for sustained daily use on large codebases.
 
-- **$1.50** per 1M input tokens
-- **$6.00** per 1M output tokens
-- **75% prompt caching discount**
+**Free Pro access for open source maintainers**: OpenAI launched a dedicated program giving qualifying open source maintainers free access to [Codex Pro tools](/blog/codex-for-open-source). The criteria center on active public repositories with real user adoption — hobbyist projects don't automatically qualify.
 
-**Free API credits:** Plus subscribers who sign into [Codex CLI](/glossary/codex-cli) with their ChatGPT account can redeem $5 in free API credits, while Pro subscribers get $50 — both valid for 30 days.
+**Standard API billing for everyone else**: Codex CLI uses OpenAI's API under the hood, which means token-based billing at standard API rates. The costs scale with how much context you send per task — large codebases with long file reads can accumulate token usage quickly. See the [complete Codex guide](/blog/codex-complete-guide) for a breakdown of how the tool processes requests.
 
-For a full breakdown of capabilities across plans, see our [complete Codex guide](/blog/codex-complete-guide).
+If you're comparing this against alternatives, Anthropic's Claude Code uses similar API-based billing. Both tools reward users who keep tasks focused and context tight to manage costs.
 
 ## Practical Steps
 
-1. **Already on ChatGPT Pro, Business, or Enterprise?** Open ChatGPT, find Codex in the sidebar, and start using it immediately
-2. **On ChatGPT Plus?** You have access as well — Codex was expanded to Plus users in June 2025
-3. **Want API access?** Use `codex-mini-latest` via the Responses API — enable prompt caching to cut input costs by 75%
-4. **[Using Codex](/faq/using-codex) CLI?** Sign in with your ChatGPT account to automatically redeem your free API credits ($5 for Plus, $50 for Pro)
+1. **Students**: Apply through OpenAI's education portal to claim the $100 credit. Check the [real caveats](/blog/codex-for-students) before assuming this covers production use.
+2. **Open source maintainers**: Apply for free Pro access via OpenAI's open source program. Have your repository stats ready — stars, contributors, and download metrics.
+3. **General users**: Start with the [Codex CLI guide](/blog/guide-to-codex-cli) to understand typical session costs before committing. Use the `--dry-run` flag where available to preview what a task will do before burning tokens.
+4. **VS Code users**: The [Codex VS Code extension](/blog/codex-vscode) may have different billing behavior than the CLI — check the extension's documentation for token usage details.
 
 ## Related Questions
 
-- [What is Codex?](/faq/what-is-codex)
-
-For a complete overview, see the [Codex topic hub](/topics/codex).
+- [How do I use Codex?](/faq/using-codex)
+- [How does Codex CLI work with VS Code?](/faq/codex-cli-vscode)
+- [How do I configure Codex CLI?](/faq/configuration)
 
 ---
 

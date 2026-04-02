@@ -1,45 +1,48 @@
 ---
-title: Codex 怎么收费？
+title: "Codex 定价是怎样的？"
 slug: codex-pricing
-description: >-
-  Codex 包含在 ChatGPT Pro/Plus/Business/Enterprise 订阅中，API 模型 codex-mini-latest 按
-  token 计费。
+description: "OpenAI Codex CLI 的定价基于 API token 用量，通过 OpenAI API key 计费。本文解释收费逻辑与免费额度。"
 category: tools
-related_glossary:
-  - codex
-related_blog:
-  - codex-complete-guide
+related_glossary: [agentic-coding, agent-sdk]
+related_blog: [codex-complete-guide, first-few-days-with-codex-cli, codex-for-students]
+related_compare: []
+related_topics: [codex]
 lang: zh
-related_topics:
-  - codex
 ---
 
-# Codex 怎么收费？
+# Codex 定价是怎样的？
 
-**[Codex](/glossary/codex)** 目前包含在 [ChatGPT](/zh/glossary/chatgpt) Pro、Plus、Business 和 Enterprise 订阅中，无需额外付费即可使用。API 开发者则可通过 [codex](/zh/blog/codex-complete-guide)-mini-latest 模型按 token 计费：输入 $1.50/百万 token，输出 $6/百万 token，prompt 缓存享 75% 折扣。
+**Codex CLI** 本身是开源免费工具，但运行时需要消耗 OpenAI API token，费用按实际用量计算。你绑定自己的 API key，每次任务的成本取决于调用的模型和上下文长度——没有固定月费，也没有座位订阅。
 
-## 背景
+## 收费逻辑
 
-OpenAI 在 2025 年 5 月发布 Codex 研究预览版时，首先向 Pro、Enterprise 和 Business 用户开放，随后在 6 月扩展到 Plus 用户。发布初期，OpenAI 提供了"慷慨的免费额度"供用户探索，并表示后续会推出限速访问和灵活的按需付费选项。
+Codex CLI 是一个在本地运行的编程 Agent，它的每一步推理都通过 OpenAI API 完成。这意味着：
 
-需要注意的是，Codex 的使用成本实际取决于你的使用方式：
+- **按 token 计费**：输入 + 输出 token 合并计算，具体单价取决于你选择的底层模型（如 `o4-mini`、`o3` 等）
+- **任务复杂度决定成本**：简单的单文件修改消耗少，跨仓库重构或多轮对话消耗显著更高
+- **没有平台抽成**：你直接向 OpenAI 付费，Codex CLI 工具本身不收取额外费用
 
-- **ChatGPT 内使用**：通过 ChatGPT 侧边栏使用 Codex，费用包含在你现有的 ChatGPT 订阅中。Pro 用户（$200/月）和 Plus 用户（$20/月）均可访问，但具体的速率限制因套餐而异。
-- **API 调用**：开发者通过 Responses API 调用 codex-mini-latest，按实际 token 用量计费。75% 的 prompt 缓存折扣对重复调用场景（如 CI/CD 集成）非常有价值。
-- **[Codex CLI](/zh/glossary/codex-cli)**：命令行工具本身开源免费，但底层调用 API 会产生费用。Plus 和 Pro 用户首次登录可分别领取 $5 和 $50 的免费 API 额度（30 天有效）。
+详细的单价表请参考 OpenAI 官方 API 定价页面，因为模型价格会随时调整。
 
-Codex 的定价策略仍在演进中——OpenAI 明确表示会推出更灵活的付费选项。关于 Codex 的完整功能介绍，参见我们的[深度解析](/blog/codex-complete-guide)。
+## 有没有免费额度？
 
-## 实用建议
+OpenAI 面向特定用户群体提供免费或优惠额度：
 
-1. **已有 ChatGPT 订阅**：直接在 ChatGPT 侧边栏启用 Codex，无需额外操作
-2. **开发者集成**：使用 codex-mini-latest 模型，善用 prompt 缓存降低成本
-3. **CLI 用户**：用 ChatGPT 账号登录 Codex CLI，领取免费 API 额度试用
-4. **控制成本**：合理拆分任务粒度，避免单次任务消耗过多 token
+- **学生**：OpenAI Codex for Students 项目为在校学生提供 $100 免费 API 额度，用于 Codex CLI 的学习和实验
+- **开源项目**：Codex for Open Source 计划为符合条件的开源项目提供额外资源支持
+- **新账户**：OpenAI 通常为新注册账户提供有限的试用额度，具体以官网公告为准
+
+如果你刚开始上手，可以先读初识 Codex CLI：前几天你需要知道的一切，了解如何控制任务规模、避免不必要的 token 消耗。
+
+## 实际使用成本高吗？
+
+这取决于工作模式。Codex CLI 完整指南中提到，日常轻度使用（调试、小功能开发）通常成本可控；但如果将其用于大型代码库的自动化重构或长对话任务，成本会快速增加。建议先用 `--dry-run` 模式预估任务复杂度，再正式运行。
 
 ## 相关问题
 
-- [什么是 Codex？](/faq/what-is-codex)
+- 如何开始使用 Codex？
+- Codex CLI 怎么在 VS Code 里用？
+- Codex CLI 怎么配置？
 
 ---
 

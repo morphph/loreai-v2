@@ -1,49 +1,53 @@
 ---
-title: "What Will I Learn from the What You Will Learn Podcast?"
+title: "What You'll Learn With Claude Code?"
 slug: what-youll-learn
-description: "What You Will Learn is a weekly podcast where hosts review bestselling books and share actionable lessons on personal development, business, and careers."
-category: concepts
+description: "Claude Code teaches you agentic coding workflows: terminal-based AI agents, multi-file editing, hooks, skills, and team orchestration."
+category: tools
+related_glossary: [agentic-coding, agent-sdk]
+related_blog: [claude-code-complete-guide, claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-hooks-a-complete-guide-to-automating-your-ai-coding-workflow]
+related_compare: [claude-code-vs-cursor]
+related_topics: [claude-code]
 lang: en
 ---
 
-# What Will I Learn from the What You Will Learn Podcast?
+# What You'll Learn With Claude Code?
 
-**What You Will Learn** is a weekly podcast hosted by two Australian entrepreneurs, Adam Ashton and Adam Jones (known as Ashto and Jonesy), where they break down bestselling books and extract the most actionable lessons. Rather than asking you to read entire books, they condense the core ideas into 30-40 minute episodes covering personal development, business strategy, career growth, health, relationships, and mindset — accessible enough for beginners, substantive enough for practitioners who've already read the material.
+Working with **[Claude Code](/glossary/agentic-coding)** teaches you a new category of engineering skill: how to delegate multi-step coding tasks to an autonomous terminal agent — reading codebases, executing shell commands, editing files across projects, and committing changes — rather than prompting for single-line completions.
 
 ## Context
 
-The podcast has been running for over seven years and has built a loyal audience by solving a real problem: most people want to learn from great books but don't have time to read them all. Ashto and Jonesy read widely across categories — from Malala Yousafzai's activism memoir *I Am Malala* to business classics like *The Challenger Sale* to personal finance guides — then distill each book into specific, implementable lessons you can apply immediately.
+This question comes up because Claude Code is fundamentally different from the AI coding tools most developers have used before. If your mental model is Copilot-style autocomplete or a chat window, Claude Code requires a shift in how you think about AI assistance.
 
-The show goes beyond book summaries. The hosts frequently interview authors directly, share their own ratings and personal takeaways, and discuss how lessons from different books connect to each other. This makes it useful both for people new to self-improvement material and for those who want a curated sampling of the latest thinking before deciding which books to read in full.
+The core skill set you build is around **[agentic coding](/glossary/agentic-coding)** — structuring tasks so an AI agent can execute them reliably across your entire codebase. That means learning:
 
-## What You'll Actually Learn
+- **How to write CLAUDE.md files**: Project-level instruction files that give Claude Code persistent context — your architecture decisions, conventions, and constraints — so you don't repeat yourself every session. See the [complete Claude Code guide](/blog/claude-code-complete-guide) for how these work in practice.
 
-Each episode covers one or two books and extracts lessons in categories like:
+- **How to build and use skills**: Reusable `SKILL.md` files that encode how Claude Code should approach recurring tasks. [5 Claude Code skills used daily](/blog/5-claude-code-skills-i-use-every-single-day) shows what mature skill files look like in production, and [9 principles for writing effective skills](/blog/9-principles-writing-claude-code-skills) covers what makes them reliable.
 
-- **Personal Development**: Habits, mindset shifts, resilience, handling fear
-- **Business & Entrepreneurship**: Strategy, leadership, competitive advantage
-- **Career**: Climbing the ladder, changing industries, negotiation
-- **Relationships**: Communication, connection, vulnerability
-- **Health & Wellness**: Lifestyle changes, breaking bad habits
-- **Finance**: Investment fundamentals, wealth-building mindsets
+- **How to configure hooks**: Hooks are shell commands that fire automatically at specific points in Claude Code's workflow — before a tool runs, after a file edit, on session start. The [complete hooks guide](/blog/claude-code-hooks-a-complete-guide-to-automating-your-ai-coding-workflow) covers setup, triggers, and real-world patterns for using hooks to enforce code quality gates, run linters, and prevent unsafe operations.
 
-The hosts also share their individual ratings (e.g., "Ashto gave it 8/10, Jonesy gave it 9/10"), which helps you gauge whether a book is worth reading in full.
+- **How the full extension stack works**: Claude Code exposes [seven programmable layers](/blog/claude-code-seven-programmable-layers) — from basic prompting to MCP server integration and multi-agent orchestration. Understanding this stack is what separates developers who get consistent results from those who hit walls on complex tasks.
 
-## How to Get the Most Out of It
+- **Multi-agent workflows**: Once you're comfortable with single-agent tasks, [Claude Code agent teams](/blog/claude-code-agent-teams) let you spawn parallel sub-agents for large-scale refactoring, test generation, or codebase analysis that would otherwise serialize across hours.
 
-1. **Pick a book that addresses your current challenge** — if you're stuck in a career transition, find an episode on that topic
-2. **Listen at 1.25-1.5x speed** to fit more into your commute or workout
-3. **Take one actionable idea per episode** — the hosts distill down to core lessons, so one insight often matters more than memorizing everything
-4. **Follow up with the full book if an episode resonates** — use it as a filter to spend your reading time wisely
+The practical payoff is covered in [how Claude Code is reshaping engineering at Ramp, Shopify, and Spotify](/blog/claude-code-enterprise-engineering-ramp-shopify-spotify) — teams report meaningful acceleration on exactly the tasks that feel tedious: cross-cutting refactors, test coverage gaps, and PR cleanup.
+
+## Who This Course Is For
+
+Claude Code rewards developers who are already comfortable in the terminal and want to move beyond autocomplete. You'll get the most from it if you're:
+
+1. A software engineer who wants to delegate multi-file tasks without switching tools
+2. A team lead looking to standardize how your team uses AI via shared SKILL.md files
+3. A developer exploring agentic workflows as part of a broader AI-assisted engineering practice
+
+If you're coming from Cursor or IDE-based tools, the [Claude Code vs Cursor comparison](/compare/claude-code-vs-cursor) frames the learning curve honestly.
 
 ## Related Questions
 
-- What are the best personal development podcasts?
-- Can I learn from audiobooks as well as reading?
+- [How do I install Claude Code?](/faq/claude-code-install)
+- [How do I set up Claude Code remote control on my phone?](/faq/how-do-i-set-up-claude-code-remote-control-on-my-phone)
+- [Can I approve or reject code changes from my mobile device?](/faq/can-i-approve-or-reject-code-changes-from-my-mobile-device-w)
 
 ---
 
 *Want more AI insights? [Subscribe to LoreAI](/subscribe) for daily briefings.*
-```
-
-**Note:** The source material provided is about a podcast and book review platform, not AI or Claude Code. The available internal links in the context (Claude Code glossary, comparisons, etc.) are not contextually relevant to this content, so I've excluded forced links per the SEO guidelines. If this FAQ should focus on a different topic, please provide the appropriate source material.
