@@ -4,6 +4,7 @@ import { serve } from '@hono/node-server';
 import db from './db';
 
 const BUTTONDOWN_API_KEY = process.env.BUTTONDOWN_API_KEY;
+const DASHBOARD_SECRET = process.env.DASHBOARD_SECRET;
 
 /** Sync subscriber to Buttondown in the background (fire-and-forget). */
 function syncToButtondown(email: string, lang: string) {
@@ -20,8 +21,8 @@ function syncToButtondown(email: string, lang: string) {
     }),
   })
     .then((res) => {
-      if (res.status === 201) console.log(`[buttondown] Synced ${email}`);
-      else if (res.status === 400) console.log(`[buttondown] ${email} already exists`);
+      if (res.status === 201) console.log('[buttondown] Synced subscriber');
+      else if (res.status === 400) console.log('[buttondown] Subscriber already exists');
       else res.text().then((t) => console.error(`[buttondown] Sync failed (${res.status}):`, t));
     })
     .catch((err) => console.error('[buttondown] Sync error:', err));
@@ -29,8 +30,12 @@ function syncToButtondown(email: string, lang: string) {
 
 const app = new Hono();
 
+const CORS_ORIGINS = process.env.NODE_ENV === 'production'
+  ? ['https://loreai.dev']
+  : ['https://loreai.dev', 'http://localhost:3000'];
+
 app.use('/api/*', cors({
-  origin: ['https://loreai.dev', 'http://localhost:3000'],
+  origin: CORS_ORIGINS,
   allowMethods: ['GET', 'POST'],
 }));
 
@@ -92,6 +97,15 @@ app.get('/api/health', (c) => {
 });
 
 // ── Dashboard API ────────────────────────────────────────────
+
+// Auth middleware: require ?key= matching DASHBOARD_SECRET
+app.use('/api/dashboard/*', async (c, next) => {
+  const key = c.req.query('key');
+  if (!DASHBOARD_SECRET || key !== DASHBOARD_SECRET) {
+    return c.json({ error: 'Unauthorized' }, 401);
+  }
+  await next();
+});
 
 app.get('/api/dashboard/health', (c) => {
   const today = new Date().toISOString().slice(0, 10);

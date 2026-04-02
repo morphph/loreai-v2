@@ -7,6 +7,19 @@ import html from 'remark-html';
 
 const CONTENT_DIR = path.join(process.cwd(), 'content');
 
+const VALID_LANGS = new Set(['en', 'zh']);
+const SAFE_SLUG = /^[a-z0-9][a-z0-9_-]*$/i;
+
+/** Validate lang is in whitelist */
+function assertLang(lang: string): void {
+  if (!VALID_LANGS.has(lang)) throw new Error(`Invalid lang: ${lang}`);
+}
+
+/** Validate slug/date contains only safe characters (no path traversal) */
+function assertSlug(slug: string): void {
+  if (!SAFE_SLUG.test(slug)) throw new Error(`Invalid slug: ${slug}`);
+}
+
 export interface ContentMeta {
   title: string;
   date: string;
@@ -68,6 +81,7 @@ export function listContentFiles(subdir: string): string[] {
 }
 
 export function getAllNewsletters(lang: string = 'en'): ContentItem[] {
+  assertLang(lang);
   const files = listContentFiles(`newsletters/${lang}`);
   return files
     .map((f) => readMarkdownFile(path.join(CONTENT_DIR, `newsletters/${lang}`, f)))
@@ -75,10 +89,13 @@ export function getAllNewsletters(lang: string = 'en'): ContentItem[] {
 }
 
 export function getNewsletter(date: string, lang: string = 'en'): ContentItem | null {
+  assertLang(lang);
+  assertSlug(date);
   return readMarkdownFile(path.join(CONTENT_DIR, `newsletters/${lang}/${date}.md`));
 }
 
 export function getAllBlogPosts(lang: string = 'en'): ContentItem[] {
+  assertLang(lang);
   const files = listContentFiles(`blog/${lang}`);
   return files
     .map((f) => readMarkdownFile(path.join(CONTENT_DIR, `blog/${lang}`, f)))
@@ -86,10 +103,13 @@ export function getAllBlogPosts(lang: string = 'en'): ContentItem[] {
 }
 
 export function getBlogPost(slug: string, lang: string = 'en'): ContentItem | null {
+  assertLang(lang);
+  assertSlug(slug);
   return readMarkdownFile(path.join(CONTENT_DIR, `blog/${lang}/${slug}.md`));
 }
 
 export function getAllGlossary(lang: string = 'en'): ContentItem[] {
+  assertLang(lang);
   const files = listContentFiles(`glossary/${lang}`);
   return files
     .map((f) => readMarkdownFile(path.join(CONTENT_DIR, `glossary/${lang}`, f)))
@@ -97,14 +117,19 @@ export function getAllGlossary(lang: string = 'en'): ContentItem[] {
 }
 
 export function getGlossaryTerm(term: string, lang: string = 'en'): ContentItem | null {
+  assertLang(lang);
+  assertSlug(term);
   return readMarkdownFile(path.join(CONTENT_DIR, `glossary/${lang}/${term}.md`));
 }
 
 export function getFaq(slug: string, lang: string = 'en'): ContentItem | null {
+  assertLang(lang);
+  assertSlug(slug);
   return readMarkdownFile(path.join(CONTENT_DIR, `faq/${lang}/${slug}.md`));
 }
 
 export function getAllFaq(lang: string = 'en'): ContentItem[] {
+  assertLang(lang);
   const files = listContentFiles(`faq/${lang}`);
   return files
     .map((f) => readMarkdownFile(path.join(CONTENT_DIR, `faq/${lang}`, f)))
@@ -112,10 +137,13 @@ export function getAllFaq(lang: string = 'en'): ContentItem[] {
 }
 
 export function getCompare(slug: string, lang: string = 'en'): ContentItem | null {
+  assertLang(lang);
+  assertSlug(slug);
   return readMarkdownFile(path.join(CONTENT_DIR, `compare/${lang}/${slug}.md`));
 }
 
 export function getAllCompare(lang: string = 'en'): ContentItem[] {
+  assertLang(lang);
   const files = listContentFiles(`compare/${lang}`);
   return files
     .map((f) => readMarkdownFile(path.join(CONTENT_DIR, `compare/${lang}`, f)))
@@ -123,10 +151,13 @@ export function getAllCompare(lang: string = 'en'): ContentItem[] {
 }
 
 export function getTopic(slug: string, lang: string = 'en'): ContentItem | null {
+  assertLang(lang);
+  assertSlug(slug);
   return readMarkdownFile(path.join(CONTENT_DIR, `topics/${lang}/${slug}.md`));
 }
 
 export function getAllTopics(lang: string = 'en'): ContentItem[] {
+  assertLang(lang);
   const files = listContentFiles(`topics/${lang}`);
   return files
     .map((f) => readMarkdownFile(path.join(CONTENT_DIR, `topics/${lang}`, f)))
@@ -134,6 +165,7 @@ export function getAllTopics(lang: string = 'en'): ContentItem[] {
 }
 
 export function getWeeklyNewsletters(lang: string = 'en'): ContentItem[] {
+  assertLang(lang);
   const files = listContentFiles(`newsletters/weekly/${lang}`);
   return files
     .map((f) => readMarkdownFile(path.join(CONTENT_DIR, `newsletters/weekly/${lang}`, f)))
@@ -141,6 +173,8 @@ export function getWeeklyNewsletters(lang: string = 'en'): ContentItem[] {
 }
 
 export function getWeeklyNewsletter(slug: string, lang: string = 'en'): ContentItem | null {
+  assertLang(lang);
+  assertSlug(slug);
   return readMarkdownFile(path.join(CONTENT_DIR, `newsletters/weekly/${lang}/${slug}.md`));
 }
 
@@ -178,6 +212,6 @@ export function getRelatedContentForTopic(
 }
 
 export async function markdownToHtml(md: string): Promise<string> {
-  const result = await remark().use(remarkGfm).use(html, { sanitize: false }).process(md);
+  const result = await remark().use(remarkGfm).use(html, { sanitize: true }).process(md);
   return result.toString();
 }
