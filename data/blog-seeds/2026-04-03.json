@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Gemma 4: Byte for byte, the most capable open models",
+    "url": "https://deepmind.google/blog/gemma-4-byte-for-byte-the-most-capable-open-models/",
+    "source": "rss:DeepMind Blog",
+    "x_engagement_24h": 5952,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 22.785600000000002,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Create, edit and share videos at no cost in Google Vids",
+    "url": "https://blog.google/products-and-platforms/products/workspace/google-vids-updates-lyria-veo/",
+    "source": "rss:Google AI Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Computer use in Claude Cowork and Claude Code Desktop is now available on Windows",
+    "url": "https://x.com/claudeai/status/2039836891508261106",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 3522,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 18.0566,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Moonlake: Causal World Models — Interactive and Efficient",
+    "url": "https://www.latent.space/p/moonlake",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "OpenAI resolving open mathematical problems with short elegant proofs",
+    "url": "https://x.com/reach_vb/status/2039754244555727210",
+    "source": "twitter:@reach_vb",
+    "x_engagement_24h": 680,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.204,
+    "suggested_angle": "news"
+  }
+]
