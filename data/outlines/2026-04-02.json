@@ -1,0 +1,228 @@
+{
+  "date": "2026-04-02",
+  "headline_hook": "GPT 5.4 Mini Drops While Claude Lands in Xcode and Writes a Kernel Exploit",
+  "preview_topics": [
+    "OpenAI's 5.4 Mini cost play",
+    "Claude inside Apple's IDE",
+    "an AI-authored kernel exploit"
+  ],
+  "pick_of_the_day": {
+    "item_id": 17627,
+    "thesis": "An AI autonomously chaining CVE analysis to a working root shell isn't a benchmark score — it's a concrete timestamp for when offensive security automation stopped being theoretical, and it forces every security team to recalculate their threat model timeline by years."
+  },
+  "model_literacy": {
+    "concept": "Knowledge Distillation",
+    "relevance": "GPT 5.4 Mini joins a wave of 'Mini' models that compress frontier capabilities into cheaper, faster variants. Distillation — training a smaller model to mimic a larger one's outputs — is why Mini models can match their parents on most tasks at a fraction of the cost, and why the default model choice for production just keeps shifting downward."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 17187,
+          "title": "GPT 5.4 Mini Arrives to Reshape the Default Model Choice",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "If Mini preserves the 5.4 family's reasoning gains at a fraction of the cost, most production apps just found their new default — and the mid-tier model war intensifies.",
+          "key_fact": "Official announcement via OpenAI DevRel account confirms GPT 5.4 Mini availability"
+        },
+        {
+          "id": 16941,
+          "title": "Holo3: A MoE Vision Model Built for Computer Use Agents",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Hcompany's 35B-A3B mixture-of-experts model targets GUI interaction directly, challenging Anthropic's Computer Use lead with an open-weight alternative.",
+          "key_fact": "35B total parameters, 3B active (MoE architecture) — designed specifically for computer use"
+        },
+        {
+          "id": 16936,
+          "title": "Google Deploys AI Satellite Monitoring to Protect Brazil's Forests",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "One of the most concrete 'AI for good' deployments at national scale — real-time deforestation detection via satellite imagery, backed by the Brazilian government.",
+          "key_fact": "Government-partnered national-scale deployment for real-time forest monitoring"
+        },
+        {
+          "id": 16942,
+          "title": "Falcon Perception: UAE's Multimodal Push Continues",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "TII keeps Falcon relevant with a visual understanding model — one of the few non-US, non-China frontier efforts worth tracking.",
+          "key_fact": "New multimodal model from TII focused on visual understanding"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 17114,
+          "title": "Claude Goes Native Inside Xcode 26",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Apple's deepest AI partnership for developer tooling yet — generate code, docs, and automate tasks without leaving the IDE. This is how Claude becomes the default for iOS development.",
+          "key_fact": "4,238 likes, 434 RTs — Xcode 26 Beta 7 adds native Claude account login"
+        },
+        {
+          "id": 17149,
+          "title": "Claude Code Ships NO_FLICKER Mode for Terminal",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The most common complaint about Claude Code's CLI experience gets a direct fix — an experimental renderer that eliminates terminal flicker entirely.",
+          "key_fact": "5,171 likes — addresses the #1 user complaint about Claude Code's terminal rendering"
+        },
+        {
+          "id": 17568,
+          "title": "Google Analytics Gets an Official MCP Server",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Google shipping a first-party MCP server is the clearest signal yet that MCP is becoming the standard protocol for tool integration — not just an Anthropic thing.",
+          "key_fact": "Official Google-built MCP server connecting GA data to any LLM"
+        },
+        {
+          "id": 17014,
+          "title": "Claude Code's GitHub Integration Gets One-Command Setup",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Running /web-setup in a local session now handles the full GitHub connection — lowers the barrier for teams bridging CLI and web dashboard.",
+          "key_fact": "Single /web-setup command replaces multi-step GitHub OAuth flow"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 17627,
+          "title": "Claude Autonomously Writes a Full FreeBSD Kernel Exploit",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "From CVE to root shell with no human steering — this is the most concrete demonstration yet that AI-assisted offensive security has crossed from theoretical to operational.",
+          "key_fact": "Full remote kernel RCE with root shell, documented end-to-end on GitHub"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 15786,
+          "title": "Meta's Neural Wrist Interface Models Land in Nature",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The ML models translating wrist muscle signals into computer commands are peer-reviewed and open-sourced — this is the input layer for Meta's AR/VR future.",
+          "key_fact": "Published in Nature, models on GitHub — EMG-to-command translation for AR/VR input"
+        },
+        {
+          "id": 15900,
+          "title": "Hard Data: AI Saves Workers 6% of Their Time (2.5 Hours/Week)",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The first credible macro numbers on AI productivity — consistent across US, UK, and Netherlands — with early signs it's translating to real economic growth.",
+          "key_fact": "6% time savings (2.5 hrs/week) across average US workers, corroborated internationally"
+        },
+        {
+          "id": 15782,
+          "title": "Meta FAIR Opens the Largest CO₂ Capture Materials Dataset",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "AI-for-climate researchers get a serious screening benchmark for direct air capture materials — a collaboration between Meta FAIR, Georgia Tech, and cusp.ai.",
+          "key_fact": "Largest open dataset for discovering CO₂ capture materials"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 16888,
+          "title": "OpenAI Closes at $852B — The Most Valuable Private Company Ever",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The valuation sets the bar for the entire industry and signals investor confidence despite growing open-source competition — but the gap between valuation and revenue has never been wider.",
+          "key_fact": "$852B valuation, largest private company in history by a wide margin"
+        },
+        {
+          "id": 17455,
+          "title": "Anthropic Accidentally Leaks 'Claude Mythos' Blog Post",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A briefly published and quickly deleted post describes a new model tier that 'crushes Opus 4.6' in coding, reasoning, and cybersecurity — suggesting a major release is imminent.",
+          "key_fact": "Deleted blog post described Mythos as surpassing Opus 4.6 across coding, reasoning, cybersecurity"
+        },
+        {
+          "id": 16189,
+          "title": "Axios Hit by npm Supply Chain Attack",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "One of npm's most-downloaded packages gets compromised — another reminder that dependency security is the unglamorous frontier that actually matters.",
+          "key_fact": "Malicious dependency pulled into Axios via npm supply chain compromise"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 17564,
+          "title": "EmDash: A TypeScript WordPress Successor with Built-In MCP",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "MIT-licensed, serverless, imports existing WordPress sites, and ships with an MCP server for agent-era monetization. 1,900+ likes suggest real demand for a modern CMS.",
+          "key_fact": "MIT license, TypeScript/serverless, WordPress import, built-in MCP server and x402 support"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 17596,
+      "title": "Bonsai-8B Trends on HuggingFace for Local Inference",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "New 8B model in GGUF format gaining fast traction",
+      "key_fact": "198 likes, 1.5K downloads in early release"
+    },
+    {
+      "id": 17392,
+      "title": "Jim Fan: Robotics Today Feels Like NLP in 2018",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "NVIDIA's Fan pegs the robotics 'ChatGPT moment' at 2-3 years out",
+      "key_fact": "3,950 likes on the NLP-to-robotics timeline analogy"
+    },
+    {
+      "id": 17366,
+      "title": "Mollick: AI Labs Can't Explain the Future They're Building",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The gap between capabilities and articulated use cases is becoming strategic debt",
+      "key_fact": "771 likes — even 'Machines of Loving Grace' lacks concrete daily-life visions"
+    },
+    {
+      "id": 17390,
+      "title": "The Mini Moravec's Paradox: Robots Can Flip but Can't Cook",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Fan's framework for where robotics investments pay off first",
+      "key_fact": "2,589 likes, 600 RTs on the gymnastics-vs-cooking paradox"
+    },
+    {
+      "id": 17626,
+      "title": "StepFun 3.5 Flash Tops Cost-Effectiveness Leaderboard",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Chinese model quietly wins on performance-per-dollar across 300 arena battles",
+      "key_fact": "#1 on OpenClaw cost-effectiveness benchmark"
+    },
+    {
+      "id": 17628,
+      "title": "The OpenAI Graveyard: Every Killed Product and Broken Deal",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Forbes catalogs the gap between OpenAI announcements and actual shipping",
+      "key_fact": "Comprehensive list of abandoned products amid $852B valuation"
+    }
+  ],
+  "total_items": 22
+}

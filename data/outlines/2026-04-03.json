@@ -1,0 +1,228 @@
+{
+  "date": "2026-04-03",
+  "headline_hook": "Google Drops Gemma 4 as Anthropic Discovers Emotions Living Inside Claude",
+  "preview_topics": [
+    "the Gemma 4 vs Qwen3.6 open-model showdown",
+    "emotion representations found inside LLMs",
+    "Karpathy's LLM knowledge base workflow"
+  ],
+  "pick_of_the_day": {
+    "item_id": 17797,
+    "thesis": "Finding structured emotion-like representations inside LLMs — not trained for, not prompted — suggests these models have developed internal states far richer than their training objectives required, and that changes the entire alignment conversation from 'prevent bad outputs' to 'understand emergent internal structure.'"
+  },
+  "model_literacy": {
+    "concept": "Mixture-of-Experts (MoE) vs Dense Models",
+    "relevance": "Gemma 4 ships both a 31B dense and a 26B MoE (4B active) variant — today is the perfect day to understand why MoE architectures deliver near-dense performance at a fraction of the compute, and when you'd pick one over the other for local inference."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 17671,
+          "title": "Google Unleashes Gemma 4 — Its Most Capable Open Models Yet",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "31B dense and 26B MoE built on Gemini 3 tech, Apache 2.0 licensed — Google just handed the open-source community frontier-grade reasoning for free.",
+          "key_fact": "31B dense + 26B MoE (4B active params), Apache 2.0 license"
+        },
+        {
+          "id": 18355,
+          "title": "Alibaba Fires Back with Qwen3.6-Plus — Built for Real-World Agents",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Dropping on the same day as Gemma 4, Qwen3.6-Plus targets agentic workflows specifically — the open-model race just became a two-front war between Google and Alibaba.",
+          "key_fact": "Released same day as Gemma 4, focused on agent capabilities"
+        },
+        {
+          "id": 17897,
+          "title": "ChatGPT Voice Mode Rolls Into Apple CarPlay",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The first major LLM-native integration into the car dashboard — OpenAI beat Google and Apple's own Siri to the in-car AI assistant slot.",
+          "key_fact": "Available on iOS 26.4+, 6.6K likes"
+        },
+        {
+          "id": 17673,
+          "title": "Google Vids Gets Free AI Video Generation via Veo 3.1 and Lyria 3",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "AI video creation is now a free default inside Google Workspace — the 'good enough and free' strategy that killed standalone tools.",
+          "key_fact": "Free for all Workspace users, powered by Veo 3.1 + Lyria 3"
+        },
+        {
+          "id": 18153,
+          "title": "Sakana AI Ships an 8-Hour Autonomous Research Agent",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Sakana's first commercial product runs a single research query for up to 8 hours — the AI Scientist team bets that depth, not speed, is what knowledge workers need.",
+          "key_fact": "Up to 8 hours per query, built on Nature-published AI Scientist"
+        },
+        {
+          "id": 17292,
+          "title": "Arcee Drops Trinity-Large-Thinking Under Apache 2.0",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Another open-weight reasoning model enters the arena — the floor for capable open models keeps rising.",
+          "key_fact": "Apache 2.0, open weights on HuggingFace, 739 likes"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 17672,
+          "title": "Google Lets Developers Trade Cost for Reliability with New Gemini API Tiers",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Flex (cheapest, best-effort) and Priority (guaranteed latency) give developers explicit control over the cost-reliability tradeoff — no more guessing at API behavior under load.",
+          "key_fact": "Two new tiers: Flex (cheapest) and Priority (guaranteed latency)"
+        },
+        {
+          "id": 17817,
+          "title": "Claude's Computer Use and Cowork Land on Windows",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Windows developers can now have Claude see their screen and click through UIs — the platform gap that kept computer use Mac-only is closed.",
+          "key_fact": "Computer use + Claude Code Desktop, now on Windows"
+        },
+        {
+          "id": 18356,
+          "title": "AMD Releases Lemonade — An Open-Source Local LLM Server for GPU + NPU",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "AMD's play to become a first-class citizen for local inference, not just a cheaper NVIDIA alternative — leveraging both GPU and NPU simultaneously.",
+          "key_fact": "Open source, uses both GPU and NPU on AMD hardware"
+        },
+        {
+          "id": 17777,
+          "title": "Anthropic Drops Claude Team Plan to $8/mo for Nonprofits",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Two-seat minimum at $8/user with Claude Code and Cowork included — frontier AI tools are now accessible to the smallest nonprofit teams.",
+          "key_fact": "$8/user/mo, 2-seat minimum, includes Claude Code + Cowork"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 18035,
+          "title": "Karpathy Shows How to Build Personal Knowledge Bases with LLMs",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "Shift your token budget from code manipulation to knowledge manipulation — Karpathy's workflow for indexing source documents into structured markdown is the kind of practical pattern that changes daily habits.",
+          "key_fact": "8.6K likes, structured markdown approach, source document indexing"
+        },
+        {
+          "id": 18202,
+          "title": "Carmack: GPU Power Draw Is a Better Utilization Metric Than Scheduling",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "nvidia-smi power readings reveal what scheduler metrics hide — how many GPUs worldwide are drawing watts but doing minimal useful work?",
+          "key_fact": "Power draw from nvidia-smi as utilization proxy"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 17797,
+          "title": "Anthropic Finds Emotion-Like Representations Living Inside LLMs",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Not pattern matching — structured internal states that functionally influence outputs. This changes alignment from 'control what comes out' to 'understand what's forming inside.'",
+          "key_fact": "9.6K likes, 1.3K RTs — internal emotion representations that affect model behavior"
+        },
+        {
+          "id": 18169,
+          "title": "OpenAI's Models Are Now Solving Open Math Problems with Elegant Proofs",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Short, elegant proofs for longstanding open problems — we may be crossing from 'AI assists mathematicians' to 'AI does novel mathematics.'",
+          "key_fact": "Solving previously unsolved mathematical problems"
+        },
+        {
+          "id": 17665,
+          "title": "Moonlake: Interactive World Models Bootstrapped from Game Engines",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Chris Manning's team prioritizes interactivity over passive prediction — long-running, multiplayer world models that you can actually play in.",
+          "key_fact": "Multiplayer, interactive, bootstrapped from game engines"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 18357,
+          "title": "OpenAI Acquires TBPN — Sam Altman Now Owns a Media Network",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "OpenAI moves from building AI to owning distribution — acquiring a tech media network signals the company is thinking about narrative control, not just model quality.",
+          "key_fact": "7K likes, TBPN acquisition, shows continue unchanged"
+        },
+        {
+          "id": 18092,
+          "title": "Mollick in The Economist: Stop Domesticating AI",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Treating AI like normal IT automation leads to bad outcomes — Mollick argues companies must embrace the strangeness rather than forcing AI into familiar boxes.",
+          "key_fact": "Published in The Economist, 417 likes"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 18335,
+          "title": "Gemma 4's MoE Variant Hits HuggingFace — 4B Active Params, Near-Dense Performance",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The efficiency play: 26B total, 4B active, already pulling 9K downloads — this is the variant most developers will actually run locally.",
+          "key_fact": "26B MoE / 4B active params, 9.2K downloads, 161 likes"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 18328,
+      "title": "Gemma 4 31B Instruction-Tuned Model Live on HuggingFace",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "29K downloads in hours — community already benchmarking and fine-tuning",
+      "key_fact": "29K downloads, 303 likes"
+    },
+    {
+      "id": 18341,
+      "title": "Bonsai-8B: 1-Bit Quantized Model for Apple Silicon",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Pushing extreme efficiency for MacBook-local inference via MLX",
+      "key_fact": "1-bit quantized, 7.6K downloads"
+    },
+    {
+      "id": 16192,
+      "title": "Simon Willison Ships llm 0.30 with Async and Multi-Model Support",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The terminal LLM Swiss Army knife keeps getting sharper",
+      "key_fact": "llm 0.30 + datasette-llm + llm-all-models-async"
+    },
+    {
+      "id": 16937,
+      "title": "Google's Official March 2026 AI Recap",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Single reference for everything Google shipped last month",
+      "key_fact": "Covers Gemini, Search, Workspace, and Cloud updates"
+    }
+  ],
+  "total_items": 22
+}
