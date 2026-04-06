@@ -106,7 +106,7 @@ export function validateWeeklyZhNewsletter(md: string): ValidationResult {
 
 const FORBIDDEN_PHRASES = /in conclusion|as we can see|it's worth noting|in this article|without further ado|let's dive in|let's break it down|game-changing|revolutionary|unprecedented|stay tuned|in today's post|as we all know|it goes without saying|at the end of the day|moving forward/i;
 
-function countWords(md: string): number {
+export function countWords(md: string): number {
   const stripped = md
     .replace(/^---[\s\S]*?---/m, '') // strip frontmatter
     .replace(/^#+.+$/gm, '')          // strip headings

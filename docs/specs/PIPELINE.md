@@ -2,7 +2,7 @@
 title: "Pipeline Architecture"
 status: active
 category: spec
-last-updated: 2026-04-02
+last-updated: 2026-04-06
 depends-on: []
 ---
 
@@ -288,7 +288,7 @@ Performance -> GSC snapshots -> refresh jobs -------> create_queue
 |-----------|-----------|--------|
 | `content/newsletters/{en,zh}/` | Newsletter | Markdown + frontmatter |
 | `content/newsletters/weekly/{en,zh}/` | Weekly | Markdown + frontmatter |
-| `content/blog/{en,zh}/` | Generate (B4) | Markdown + frontmatter |
+| `content/blog/{en,zh}/` | Generate (B4), `import-blog.ts` | Markdown + frontmatter |
 | `content/glossary/{en,zh}/` | Generate (B4) | Markdown + frontmatter |
 | `content/faq/{en,zh}/` | Generate (B4) | Markdown + frontmatter |
 | `content/compare/{en,zh}/` | Generate (B4) | Markdown + frontmatter |
@@ -309,6 +309,18 @@ All pipeline steps run through `daily-pipeline.sh`, which provides:
 - **Email send**: Newsletter step sends EN+ZH emails via Buttondown after validation
 
 Legacy steps (`blog`, `seo`) are preserved for manual/fallback use but print deprecation warnings.
+
+## Manual Import: Offline Blog (`import-blog.ts`)
+
+For human-written articles created outside the automated pipeline:
+
+```bash
+npx tsx scripts/import-blog.ts --file=article.md [--date=YYYY-MM-DD] [--category=DEV] [--dry-run] [--no-seo] [--no-git] [--force]
+```
+
+11-stage pipeline: Parse → Normalize frontmatter → Insert mermaid visualizations → Strip HTML comments → Inject internal links (via `link-inject.ts`) → Auto-populate related_* → Validate → Write file → DB upsert (`generated_by: 'human'`) → SEO entity extraction → Git.
+
+Handles non-standard frontmatter (e.g., `tags`→`keywords`, `zh-CN`→`zh`, placeholder dates). Preserves extra metadata (`series`, `episode`, `author`) in DB `meta_json`. Uses `data/link-targets.json` for internal linking (run `build-link-targets.ts` first if stale).
 
 ## Dashboard API Server
 
