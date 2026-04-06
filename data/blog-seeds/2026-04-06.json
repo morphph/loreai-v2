@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Microsoft 365 connectors are now available on every Claude plan. Connect Outlook, OneDrive, and SharePoint to bring your email, docs, and files into the conversation.",
+    "url": "https://x.com/claudeai/status/2040086268562842097",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 17709,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 34.3127,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "OmniVoice: open-source TTS model trending on HuggingFace.",
+    "url": "https://huggingface.co/k2-fsa/OmniVoice",
+    "source": "huggingface:trending",
+    "x_engagement_24h": 244,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.0732,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Simon Willison: 'Billing different based on text contained in the system prompt is a really bad look.'",
+    "url": "https://x.com/simonw/status/2040846932239851936",
+    "source": "twitter:@simonw",
+    "x_engagement_24h": 1060,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.317999999999998,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Karpathy shares the 'idea file' concept: in the age of LLM agents, share the idea, not the code.",
+    "url": "https://x.com/karpathy/status/2040470801506541998",
+    "source": "twitter:@karpathy",
+    "x_engagement_24h": 24308,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 19.2924,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Starting tomorrow, Claude subscriptions will no longer cover usage on third-party tools like OpenClaw.",
+    "url": "https://x.com/bcherny/status/2040206440556826908",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 9215,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 18.764499999999998,
+    "suggested_angle": "news"
+  }
+]
