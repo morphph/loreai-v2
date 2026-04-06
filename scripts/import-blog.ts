@@ -210,20 +210,8 @@ const VISUALIZATIONS: Record<string, string> = {
 | 4/1 | 💥 GitHub 误删数千相关仓库；Claw Code 开源重写获 50K stars |
 | 4/1~03 | 📊 社区分析爆发，17 章架构拆解发布 |`,
 
-  // Architecture overview → table + tiny flow diagram
-  '【插图 3】': `| 层级 | 解决什么 | 核心模块 | 代码规模 |
-|------|---------|---------|---------|
-| 🧠 核心 | Agent 循环 | QueryEngine（while loop） | ~1,296 行 |
-| 📋 第一层 | 模型该看什么 | 微压缩 · 会话记忆 · 完整压缩 · 工具系统 42+ | ~46K 行 |
-| 🛡️ 第二层 | 模型不能做什么 | 四层权限 · Bash 分类器 · YOLO 分类器 · Hooks | 9.5K 行 + 300KB |
-| 🤝 第三层 | 一个模型不够用 | Swarm · Coordinator Mode · MCP 协议 | ~25K 行 |
-| 🔮 未发布 | 未来形态 | KAIROS · Speculation · ULTRAPLAN · Buddy | 44 个 flags |
-
-\`\`\`mermaid
-flowchart LR
-    A["🧠 核心"] --> B["📋 上下文"] --> C["🛡️ 安全"] --> D["🤝 多Agent"]
-    D -.-> E["🔮 未发布"]
-\`\`\``,
+  // Architecture overview → Excalidraw-generated PNG
+  '【插图 3】': `![Claude Code 架构全景：1,296 行核心 vs 470,000+ 行 Harness](/blog-images/claude-code-architecture.png)`,
 
   // Engine vs car → blockquote comparison table
   '【插图 4】': `> **⚙️ 引擎 vs. 🏎️ 整辆车**
