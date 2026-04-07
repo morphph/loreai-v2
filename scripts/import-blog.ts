@@ -201,66 +201,134 @@ console.log(`  → keywords: ${frontmatter.keywords.join(', ')}`);
 console.log('\n🎨 Stage 2: Insert visualizations');
 
 const VISUALIZATIONS: Record<string, string> = {
-  // Timeline → compact table with emoji anchors
-  '【插图 2】': `| 时间 | 事件 |
-|------|------|
-| 3/31 凌晨 | 🔍 Chaofan Shou 发现 59.8MB source map 指向完整源码 |
-| 数小时内 | 📦 代码被镜像到多个 GitHub 仓库 |
-| 3/31 | ⚖️ Anthropic 确认泄漏，发布 DMCA 删除通知 |
-| 4/1 | 💥 GitHub 误删数千相关仓库；Claw Code 开源重写获 50K stars |
-| 4/1~03 | 📊 社区分析爆发，17 章架构拆解发布 |`,
-
-  // Architecture overview → table + tiny flow diagram
-  '【插图 3】': `| 层级 | 解决什么 | 核心模块 | 代码规模 |
-|------|---------|---------|---------|
-| 🧠 核心 | Agent 循环 | QueryEngine（while loop） | ~1,296 行 |
-| 📋 第一层 | 模型该看什么 | 微压缩 · 会话记忆 · 完整压缩 · 工具系统 42+ | ~46K 行 |
-| 🛡️ 第二层 | 模型不能做什么 | 四层权限 · Bash 分类器 · YOLO 分类器 · Hooks | 9.5K 行 + 300KB |
-| 🤝 第三层 | 一个模型不够用 | Swarm · Coordinator Mode · MCP 协议 | ~25K 行 |
-| 🔮 未发布 | 未来形态 | KAIROS · Speculation · ULTRAPLAN · Buddy | 44 个 flags |
-
-\`\`\`mermaid
-flowchart LR
-    A["🧠 核心"] --> B["📋 上下文"] --> C["🛡️ 安全"] --> D["🤝 多Agent"]
-    D -.-> E["🔮 未发布"]
+  '【插图 2】': `\`\`\`mermaid
+timeline
+    title 泄漏事件时间线
+    2026-03-31 凌晨 : Chaofan Shou 发现 source map
+                    : 59.8MB 调试文件指向完整源码
+    数小时内 : 代码被镜像到多个 GitHub 仓库
+    2026-03-31 : Anthropic 确认并发布 DMCA
+    2026-04-01 : GitHub 误删数千个相关仓库
+              : Claw Code 开源重写获 50K stars
+    2026-04-01~03 : 社区分析爆发
+                  : 17 章架构拆解发布
 \`\`\``,
 
-  // Engine vs car → blockquote comparison table
-  '【插图 4】': `> **⚙️ 引擎 vs. 🏎️ 整辆车**
->
-> | | 引擎（LLM 模型） | 整辆车（Harness） |
-> |--|-----------|----------------|
-> | **代码量** | ~1,296 行 | 470,000+ 行 |
-> | **占比** | 0.3% | 99.7% |
-> | **做什么** | 核心推理循环 | 上下文管理 · 安全权限 · 工具系统 · 错误恢复 · 多 Agent 协作 · 监控日志 |`,
+  '【插图 3】': `\`\`\`mermaid
+flowchart TB
+    subgraph core["🧠 核心 — Agent Loop ~1,296 行"]
+        QE["QueryEngine: while 循环<br/>调用模型 → 执行工具 → 重复"]
+    end
 
-  // 3-stage pipeline → flat LR chain (no subgraphs)
+    subgraph ctx["📋 第一层 Harness — 上下文管理"]
+        MC["微压缩<br/>规则驱动 · 零成本"]
+        SM["会话记忆<br/>提取结构化事实"]
+        FC["完整压缩<br/>LLM 生成摘要"]
+        TS["工具系统 42+<br/>Zod 校验 · 按需加载"]
+    end
+
+    subgraph sec["🛡️ 第二层 Harness — 安全与约束"]
+        PM["四层权限模式"]
+        BC["Bash 分类器<br/>规则匹配"]
+        YC["YOLO 分类器<br/>LLM-as-Judge"]
+        HC["23 条硬编码安全规则"]
+        HK["Hooks 系统 ~8K 行"]
+    end
+
+    subgraph ext["🤝 第三层 Harness — 多 Agent 与扩展"]
+        SW["Swarm 架构 ~6.8K 行"]
+        CO["Coordinator Mode"]
+        MP["MCP 协议 ~11K 行"]
+    end
+
+    subgraph future["🔮 未发布功能 (44 Feature Flags)"]
+        KA["KAIROS 永远在线"]
+        SP["Speculation 投机执行"]
+        UP["ULTRAPLAN 云端规划"]
+        BD["Buddy 电子宠物"]
+    end
+
+    core --> ctx
+    ctx --> sec
+    sec --> ext
+    ext -.-> future
+\`\`\``,
+
+  '【插图 4】': `\`\`\`mermaid
+flowchart LR
+    subgraph engine["⚙️ 引擎 = LLM 模型"]
+        E["~1,296 行<br/>核心推理循环"]
+    end
+
+    subgraph car["🏎️ 整辆车 = Harness (47 万行)"]
+        direction TB
+        A["方向盘: 上下文管理"]
+        B["刹车: 安全与权限"]
+        C["导航: 工具系统"]
+        D["安全气囊: 错误恢复"]
+        F["变速箱: 多 Agent 协作"]
+        G["仪表盘: 监控与日志"]
+    end
+
+    engine --> car
+\`\`\``,
+
   '【插图 5】': `\`\`\`mermaid
 flowchart LR
-    A["对话历史"] --> B["微压缩\\n规则驱动 · 零成本"] --> C["会话记忆\\n提取结构化事实"] --> D["完整压缩\\nLLM 生成摘要"] --> E["~200K tokens"]
+    INPUT["对话历史<br/>无限长"] --> L1
+
+    subgraph L1["第一级: 微压缩"]
+        R1["规则驱动 · 零成本<br/>清理旧工具结果<br/>保护 prompt 缓存"]
+    end
+
+    L1 --> L2
+
+    subgraph L2["第二级: 会话记忆"]
+        R2["提取结构化事实<br/>项目结构 · 用户偏好 · 任务进度<br/>持久化到本地目录"]
+    end
+
+    L2 --> L3
+
+    subgraph L3["第三级: 完整压缩"]
+        R3["独立模型调用<br/>生成摘要边界消息<br/>旧消息移出视野"]
+    end
+
+    L3 --> OUTPUT["精简上下文<br/>~200K tokens"]
 \`\`\``,
 
-  // 7-layer security → compact table
-  '【插图 6】': `| # | 防线 | 机制 | 特点 |
-|---|------|------|------|
-| 1 | 配置规则 | 权限模式选择 | 逐一确认 → 半自动 → YOLO |
-| 2 | AST 分析 | 解析命令结构 | 静态分析 |
-| 3 | Bash 分类器 | 纯规则匹配 | 只读命令自动放行，极速 |
-| 4 | YOLO 分类器 | LLM-as-Judge | 两阶段：快判 → 完整推理 |
-| 5 | OS 沙箱 | 操作系统级隔离 | 系统级防线 |
-| 6 | Hooks 拦截 | 可插拔回调 | ~8K 行，USB 式热插拔 |
-| 7 | 硬编码安全检查 | 23 条规则 | 300KB+ 安全代码 |
+  '【插图 6】': `\`\`\`mermaid
+flowchart TB
+    L1["1️⃣ 配置规则<br/>权限模式: 逐一确认 → 半自动 → 大部分自动 → YOLO"]
+    L2["2️⃣ AST 分析<br/>解析命令结构"]
+    L3["3️⃣ Bash 分类器<br/>纯规则匹配 · 只读命令自动放行"]
+    L4["4️⃣ YOLO 分类器<br/>LLM-as-Judge · 两阶段架构"]
+    L5["5️⃣ OS 沙箱<br/>操作系统级隔离"]
+    L6["6️⃣ Hooks 拦截<br/>可插拔回调 · ~8K 行"]
+    L7["7️⃣ 硬编码安全检查<br/>23 条规则 · 300KB+ 安全代码"]
 
-> **全部通过 → ✅ 安全执行。** 任一层失败 → 默认拦截（宁可误杀不可放过）。`,
+    L1 --> L2 --> L3 --> L4 --> L5 --> L6 --> L7
+    L7 --> SAFE["✅ 安全执行"]
+\`\`\``,
 
-  // Swarm architecture → simplified LR mermaid (drop Coordinator to prose)
   '【插图 7】': `\`\`\`mermaid
-flowchart LR
-    L["🎯 Leader\\n拆解 · 分配 · 收集"] -->|指令| T1["Teammate 1"]
-    L -->|指令| T2["Teammate 2"]
-    L -->|指令| T3["Teammate 3"]
-    T1 & T2 & T3 -->|关键发现| M["📝 Memory Sync"]
-    M -->|同步| L
+flowchart TB
+    LEADER["🎯 Leader Agent<br/>任务拆解 · 分配 · 收集"]
+
+    LEADER -->|"指令"| T1["Teammate 1"]
+    LEADER -->|"指令"| T2["Teammate 2"]
+    LEADER -->|"指令"| T3["Teammate 3"]
+
+    T1 -.->|"上下文隔离"| T2
+    T2 -.->|"上下文隔离"| T3
+
+    T1 -->|"关键发现"| MEM["📝 Team Memory Sync<br/>重要信息跨 Agent 流动"]
+    T2 -->|"关键发现"| MEM
+    T3 -->|"关键发现"| MEM
+
+    MEM -->|"同步"| LEADER
+
+    COORD["🔄 Coordinator Mode<br/>纯编排: 自己不干活<br/>只拆任务 · 派任务 · 收结果"]
+    COORD -.->|"模式切换"| LEADER
 \`\`\``,
 };
 
