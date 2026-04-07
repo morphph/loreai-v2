@@ -53,9 +53,6 @@ source_type: offline
 
 如果你用过 Claude Code（或者任何 AI [coding agent](/zh/blog/coding-agents-reshaping-epd)），你会感觉它在"思考"——它读代码、跑测试、改文件、再跑测试、再改文件……直到任务完成。
 
-![QueryEngine 双层架构：会话层管理全局状态，单轮执行层驱动核心循环](/diagrams/claude-code-agent-loop-query-engine-deep-dive-1.svg)
-
-
 这种感觉的背后，就是 Agent Loop。
 
 用最通俗的话讲：Agent Loop 就是一个不断重复的决策循环。
@@ -89,6 +86,18 @@ Claude Code 选择了一个极端的设计哲学：**把循环做到极致简单
 ### 下层：Turn Layer（单轮层）
 
 `query` 函数是真正的执行引擎，包含约 **1,730 行代码**的核心 `while(true)` 循环。每次用户输入一条消息，Turn Layer 就启动一轮循环：
+
+```mermaid
+flowchart LR
+    U[用户输入] --> SL[Session Layer\n状态记忆管理]
+    SL --> TL[Turn Layer\nwhile true 执行引擎]
+    TL --> API[调用模型 API]
+    API --> TC{有工具调用?}
+    TC -->|是| EX[执行工具]
+    EX --> TL
+    TC -->|否| END([Terminal 退出])
+```
+
 
 1. 预处理用户输入（解析斜杠命令、附件等）
 2. 组装上下文（系统提示词 + 自定义提示 + 记忆 + 当轮附件）
@@ -142,6 +151,16 @@ API 返回 413 错误（请求体太大），说明对话历史超过了模型�
 
 循环通过 `Terminal` 状态退出，具体有 7 种终止原因：
 
+```mermaid
+flowchart LR
+    RESP[模型响应] --> TC{有工具调用?}
+    TC -->|是| EX[执行工具] --> LOOP[继续下一轮]
+    TC -->|否| LIM{命中输出上限?}
+    LIM -->|是| ESC[升级限制\n注入续行消息] --> LOOP
+    LIM -->|否| DONE([Terminal 完成])
+```
+
+
 - `completed`——模型正常完成
 - `blocking_limit`——达到硬性限制
 - `model_error`——模型调用出错
@@ -158,14 +177,13 @@ API 返回 413 错误（请求体太大），说明对话历史超过了模型�
 
 大部分人在思考 Agent Loop 时，注意力都在"调用模型 → 执行工具"这个主循环上。但 Claude Code 在每次调用模型 API **之前**，有一个精密的五级预处理管道在默默工作：
 
-```mermaid
-flowchart LR
-  A[1 工具结果预算] --> B[2 片段裁剪]
-  B --> C[3 微压缩]
-  C --> D[4 上下文坍缩]
-  D --> E[5 自动压缩]
-  E --> F([调用模型])
-```
+| 级别 | 名称 | 触发条件 | 调用模型? |
+|------|------|----------|-----------|
+| 1 | Tool Result Budgeting | 工具输出超量 | 否 |
+| 2 | Snip Compact | Feature Flag 控制 | 否 |
+| 3 | Microcompact | 感知服务端缓存状态 | 否 |
+| 4 | Context Collapse | 旧轮次归档为投影视图 | 否 |
+| 5 | Autocompact | 上下文利用率 >93.5% | 是 |
 
 
 **第一级：Tool Result Budgeting（工具结果预算）**
@@ -229,21 +247,20 @@ Claude Code 直接消费 **原始 SSE（Server-Sent Events）事件流**，而�
 
 一个在生产环境中运行的 agent，必须能优雅地处理各种错误。Claude Code 的错误恢复系统是它 Harness 工程的一个典范。
 
-```mermaid
-flowchart LR
-  E[错误发生] --> T{错误类型}
-  T -->|网络/过载| R[退避重试 10次]
-  T -->|Token超限| U[升级输出限制]
-  T -->|Opus连续过载| F[切换Sonnet]
-  R -->|超限| X[报告用户]
-  U -->|3次仍超限| X
-  F --> C[继续执行]
-```
-
-
 ### 三阶段输出限制恢复
 
 当模型的输出命中了 token 限制：
+
+```mermaid
+flowchart LR
+    START[命中 Token 输出上限] --> N1{第1次触发?}
+    N1 -->|是| A1[8K 升级至 64K\n注入 Resume 消息]
+    A1 --> N2{第2次触发?}
+    N2 -->|是| A2[再次注入\n恢复消息重试]
+    A2 --> N3{第3次触发?}
+    N3 -->|是| ERR([向用户报告错误])
+```
+
 
 - **第 1 次**：默认 8K 限制被触发 → 升级到 64K → 注入"Resume directly"消息 → 重试
 - **第 2 次**：64K 限制被触发 → 再次注入恢复消息 → 重试

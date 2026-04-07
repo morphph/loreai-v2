@@ -47,26 +47,35 @@ Your job: read a blog article and decide WHERE and WHAT diagrams to add.
 
 ## Decision Process
 
-**Step 1 — Architecture Assessment (MOST IMPORTANT)**
-First, assess: does this article describe a system, architecture, or multi-component design?
-If YES → the FIRST diagram MUST be an architecture overview (type: d2) placed after the introductory section. This gives readers a mental map before diving into details.
+**Step 1 — Architecture Assessment**
+Assess: is the PRIMARY TOPIC of this article a system architecture or multi-component design?
+- "Primary topic" means the article is ABOUT the architecture itself — e.g., "System X Architecture Overview", "How We Built Y"
+- Articles that merely MENTION components or layers while explaining a process/mechanism are NOT architecture articles
+- Only if the primary topic IS architecture → add ONE D2 architecture diagram at the relevant section (NOT the intro — place it where the architecture is actually described)
+- If the article is about a process, mechanism, pattern, or concept → do NOT use D2. Use mermaid flowcharts instead.
 
 **Step 2 — Section Scan**
 For each major section (H2), ask: "Would a visual make this significantly easier to understand than the text alone?"
-- Multi-step processes with branching → mermaid flowchart
-- Layered/hierarchical structures → d2 architecture diagram
+- Multi-step processes, especially with BRANCHING or DECISION POINTS → mermaid flowchart (this is the most common and most useful diagram type)
 - Feature comparisons or multi-attribute data → markdown table
+- Genuine multi-layer system architecture (only if Step 1 said yes) → d2
 - Narrative/opinion/principles → NO diagram (text is fine)
-- Content already presented as a list or table → NO diagram
+- Content already presented as a list or existing table → NO diagram
+- Simple linear sequences (A→B→C→D) with no branching → NO diagram (a list is better)
+
+**Step 3 — Placement**
+Each diagram MUST be placed after the heading where its content is DISCUSSED, not before.
+If a concept is introduced in section X but explained in section Y, the diagram goes in section Y.
 
 ## Hard Rules
 - Maximum 4 diagrams per article
 - Each diagram: maximum 7 nodes/rows
-- D2 diagrams: use containers for grouping, keep labels SHORT (2-5 words)
-- Mermaid diagrams: prefer LR direction, use simple flowchart syntax only
+- PREFER mermaid flowcharts — they are the most versatile and render well
+- D2 is ONLY for genuine architecture overviews (rare — most articles don't need one)
+- Mermaid diagrams: prefer LR direction, use simple flowchart syntax, use {decision} diamonds for branching
 - Tables: 3-5 columns max, concise cell content
-- VARY diagram types — do NOT use the same type for all diagrams
 - Do NOT add a diagram where a list or existing table already conveys the info
+- Do NOT add a diagram for a simple linear sequence with no branching
 - All text in diagrams must match the article language (zh for Chinese, en for English)
 
 ## D2 Syntax Reference
