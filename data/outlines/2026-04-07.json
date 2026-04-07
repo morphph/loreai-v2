@@ -1,0 +1,228 @@
+{
+  "date": "2026-04-07",
+  "headline_hook": "Anthropic Locks In Gigawatt TPU Deal While Apple Catches AI Failing Grade-School Math",
+  "preview_topics": [
+    "Anthropic's gigawatt TPU gambit",
+    "X launches an official MCP server",
+    "why AI still can't do basic arithmetic"
+  ],
+  "pick_of_the_day": {
+    "item_id": 19142,
+    "thesis": "The first multi-gigawatt TPU commitment by a non-Google company signals that the frontier lab race has become an infrastructure race — Anthropic's bet against NVIDIA-only training could reshape the entire compute supply chain and force every frontier lab to rethink their hardware strategy."
+  },
+  "model_literacy": {
+    "concept": "Model Quantization (NVFP4)",
+    "relevance": "NVIDIA's NVFP4 quantization of Gemma 4 shrinks weights 4x while preserving quality — understanding quantization formats explains why a 31B model can suddenly run on your laptop GPU, and why official vendor quants matter more than community ones."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 19142,
+          "title": "Anthropic Bets Its Future on Google TPUs With Multi-Gigawatt Compute Deal",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The largest known compute deal for a non-Google company — Anthropic is locking in TPU capacity starting 2027, signaling a deliberate move away from NVIDIA dependency for frontier model training.",
+          "key_fact": "Multiple gigawatts of next-generation TPU capacity coming online starting 2027"
+        },
+        {
+          "id": 19492,
+          "title": "NVIDIA Officially Quantizes Gemma 4 31B to Run on a Single Consumer GPU",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "NVFP4 compression delivers 4x smaller weights at frontier quality — this is an official NVIDIA quant, not a community hack, which means guaranteed optimization for their hardware stack.",
+          "key_fact": "4x weight compression via NVFP4 with frontier-level quality maintained"
+        },
+        {
+          "id": 19813,
+          "title": "Google Drops Gemma 4 E2B: Any-to-Any Multimodal Variant",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A new any-to-any modality variant for the Gemma 4 family that handles multiple input/output types — positioning Gemma against multimodal competitors at every tier.",
+          "key_fact": "23K downloads and 134 likes within days of release"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 19780,
+          "title": "X/Twitter Releases Official MCP Server for AI Agent Access",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Your AI agent can now search tweets, read bookmarks, and interact with X programmatically through the standard MCP protocol — major platform validation for MCP as the emerging agent integration standard.",
+          "key_fact": "Official X MCP server enabling tweet search, bookmark access, and programmatic interaction"
+        },
+        {
+          "id": 19770,
+          "title": "Claude Gets Real-Time Financial Data via MCP Integration",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Financial Datasets MCP Server pipes live stock prices, balance sheets, and cash flows directly into Claude — eliminating hallucinated financial figures, the top complaint in finance use cases.",
+          "key_fact": "Real-time access to stock prices, balance sheets, cash flow statements, and breaking company news"
+        },
+        {
+          "id": 19136,
+          "title": "Gradio Server Decouples Backend From Frontend for ML Apps",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "You can now use React, Vue, or any frontend framework while keeping Gradio's ML serving, auth, and queue infrastructure — best of both worlds for ML app builders who outgrew Gradio's default UI.",
+          "key_fact": "Full backend/frontend decoupling while retaining Gradio's serving infrastructure"
+        },
+        {
+          "id": 19387,
+          "title": "OpenAI Hosts Live Deep-Dive on Codex Workflows",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The Codex team walks through real shipping workflows — practical insights from the builders themselves on how to actually use the tool effectively in team settings.",
+          "key_fact": "Live session covering feature exploration to team shipping with Codex"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 19743,
+          "title": "Fine-Tune Gemma 4 (and 500+ Models) in a Free Colab Notebook",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Unsloth Studio removes every barrier to fine-tuning — no setup, no GPU costs, just click run in a free Colab. The fine-tuning accessibility gap just closed to zero.",
+          "key_fact": "500+ models supported with zero-cost fine-tuning in Google Colab"
+        },
+        {
+          "id": 19080,
+          "title": "Running Gemma 4 Locally With LM Studio's Headless CLI and Claude Code",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A step-by-step guide combining LM Studio's headless mode with Claude Code for local Gemma 4 inference — the exact developer workflow many want but haven't pieced together yet.",
+          "key_fact": "Complete walkthrough with real benchmarks for local Gemma 4 execution"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 19656,
+          "title": "Apple Research Shows AI Models Fail at Grade-School Arithmetic",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Not advanced math — the kind a 10-year-old solves. Apple's findings are a reality check for anyone deploying math-dependent features, amplified by LeCun to 2.4K likes.",
+          "key_fact": "Current AI models fail at basic grade-school arithmetic, not just complex math"
+        },
+        {
+          "id": 19367,
+          "title": "OpenAI Launches Safety Fellowship for Independent Researchers",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A dedicated fellowship funding alignment work outside OpenAI's own team — addressing the long-standing criticism that safety research is too centralized within the labs themselves.",
+          "key_fact": "Independent research funding for AI safety and alignment, plus next-gen talent pipeline"
+        },
+        {
+          "id": 18881,
+          "title": "Nature Publishes Paper on Fully Automating AI Research End-to-End",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "From hypothesis generation through experimentation to paper writing — the meta-research question of AI accelerating AI research is no longer speculative, it's in Nature.",
+          "key_fact": "End-to-end automation covering hypothesis, experimentation, and paper writing"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 19248,
+          "title": "Anthropic's Revenue Triples to $30B Run-Rate in Four Months",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "From $9B to $30B in roughly four months — the fastest revenue growth in AI history, validating that Claude usage is converting to real enterprise spend at unprecedented scale.",
+          "key_fact": "$9B to $30B run-rate revenue in ~4 months"
+        },
+        {
+          "id": 19744,
+          "title": "Meta Prepares First LLM Built Under Alexandr Wang's Leadership",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Meta's targeting specific consumer strengths rather than trying to beat OpenAI/Anthropic across the board — with plans to eventually open-source versions, this could shift the open-weight landscape.",
+          "key_fact": "First Wang-era Meta LLM imminent, with open-source versions planned"
+        },
+        {
+          "id": 18817,
+          "title": "Axios Supply Chain Attack Started With Social Engineering a Maintainer",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Simon Willison warns: the attack vector was sophisticated social engineering targeting a single developer — every open-source maintainer is now a high-value target in increasingly targeted supply chain campaigns.",
+          "key_fact": "Attack began with social engineering of an individual developer, not a technical exploit"
+        },
+        {
+          "id": 18766,
+          "title": "Karpathy: AI Could Flip the Surveillance Relationship With Government",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Citizens making governments legible instead of the reverse — Karpathy reframes AI's civic potential beyond the usual productivity narrative, with 4.9K likes signaling broad resonance.",
+          "key_fact": "4,916 likes on the thesis that AI empowers citizen oversight of government"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 19079,
+          "title": "Eight Years of Wanting, Three Months of Building: SyntaqLite Ships With AI",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A developer ships a project they wanted for 8 years but built in 3 months with AI — 573 HN points on a concrete case study of AI unlocking long-deferred side projects.",
+          "key_fact": "8-year dream project built in 3 months with AI assistance, 573 HN points"
+        },
+        {
+          "id": 19823,
+          "title": "Hippo: Hippocampus-Inspired Memory System for AI Agents",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Memory consolidation, forgetting, and retrieval modeled on neuroscience — a fresh approach to agent memory that goes beyond naive vector store retrieval patterns.",
+          "key_fact": "Biologically inspired consolidation and forgetting patterns for agent memory"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 19269,
+      "title": "Anthropic's TPU Deal Tweet Hits 7.4K Likes",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Social signal: the compute deal resonated hard with the industry",
+      "key_fact": "7,442 likes and 483 RTs on the announcement"
+    },
+    {
+      "id": 19826,
+      "title": "AI Singer 'Eddie Dalton' Holds 11 Simultaneous iTunes Chart Spots",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "AI-generated music is competing directly with human artists at commercial scale",
+      "key_fact": "11 simultaneous spots on the iTunes singles chart"
+    },
+    {
+      "id": 19566,
+      "title": "Mollick: Gemma 4 Impressive On-Device, But Can't Handle Real Agentic Work",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Important counterweight to small-model hype for anyone planning agent architectures",
+      "key_fact": "Judgment and self-correction gaps limit agentic potential"
+    },
+    {
+      "id": 19824,
+      "title": "Claude Code 'Unusable for Complex Tasks' Issue Hits 709 Upvotes",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Significant community signal on regression — worth understanding the failure modes",
+      "key_fact": "709 upvotes and 446 comments on GitHub"
+    }
+  ],
+  "total_items": 22
+}

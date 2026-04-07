@@ -1,0 +1,220 @@
+{
+  "date": "2026-04-06",
+  "headline_hook": "OpenAI Ships Next-Gen Audio, Netflix Opens Its Video Vault, and Claude Goes Enterprise",
+  "preview_topics": [
+    "OpenAI's next-gen audio overhaul",
+    "Netflix's surprise open-source debut",
+    "why sharing ideas beats sharing code"
+  ],
+  "pick_of_the_day": {
+    "item_id": 18767,
+    "thesis": "Karpathy's 'share the idea, not the code' framing isn't just a hot take — it's the clearest articulation yet that AI agents are collapsing the gap between intent and implementation, making code a disposable intermediate artifact rather than the unit of collaboration."
+  },
+  "model_literacy": {
+    "concept": "Neural Audio Codecs",
+    "relevance": "OpenAI's next-gen audio models and OmniVoice both rely on neural audio codecs — learned compression that turns speech into discrete tokens a language model can reason over. Understanding this bridge between audio and text is key to grasping why voice AI quality is leaping so fast."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 18425,
+          "title": "OpenAI Drops Next-Gen Audio Models With Full API Access",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "A ground-up rebuild of OpenAI's voice and audio stack — every app on the API gets an upgrade overnight.",
+          "key_fact": "Next-generation architecture replacing the existing audio models across the entire API surface"
+        },
+        {
+          "id": 18548,
+          "title": "Claude Plugs Into Microsoft 365 Across Every Plan",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Outlook, OneDrive, and SharePoint connectors make Claude immediately useful for the millions of workers who live in Microsoft's ecosystem.",
+          "key_fact": "16,297 likes — available on every Claude plan, not just enterprise"
+        },
+        {
+          "id": 19047,
+          "title": "Netflix Releases Its First Public Model: void-model for Video-to-Video",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Netflix entering open-source AI with a video model is a surprise move from a company that's historically kept its ML stack locked down.",
+          "key_fact": "First-ever public model release from Netflix, published on HuggingFace"
+        },
+        {
+          "id": 19054,
+          "title": "OmniVoice Hits 40K Downloads as Open-Source TTS Heats Up",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Another strong open-source TTS entry — the voice AI space is getting crowded fast after last week's Voxtral release.",
+          "key_fact": "39,900 downloads and 244 likes in early trending"
+        },
+        {
+          "id": 19058,
+          "title": "Tencent Ships HY-OmniWeaving, Its Latest Open Multimodal Model",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Chinese tech giants are competing on open-weight releases, not just closed APIs — Tencent keeps the pace.",
+          "key_fact": "213 likes on HuggingFace trending"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 18767,
+          "title": "Karpathy: In the Age of Agents, Share the Idea — Not the Code",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "22K likes says this framing hit a nerve: the unit of sharing is shifting from repositories to intent descriptions that another person's agent builds fresh.",
+          "key_fact": "22,081 likes and 2,227 retweets — Karpathy's most viral post this month"
+        },
+        {
+          "id": 19007,
+          "title": "DeepSeek Ditches NVIDIA, Builds V4 on Huawei Chips",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The clearest signal yet that China's AI stack is decoupling — Alibaba, ByteDance, and Tencent reportedly placing massive orders for the same Huawei silicon.",
+          "key_fact": "Hundreds of thousands of Huawei chips ordered across major Chinese AI labs"
+        },
+        {
+          "id": 18471,
+          "title": "Anthropic Cuts Off Third-Party Tools From Claude Subscriptions",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Third-party tool users now need separate usage bundles — a policy shift that reshapes the economics for anyone building on Claude outside Anthropic's own surfaces.",
+          "key_fact": "8,531 likes — effective starting tomorrow"
+        },
+        {
+          "id": 18957,
+          "title": "OpenAI's SPUD: A Ground-Up Pre-Train With Native Agentic Capabilities",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Not incremental — early details suggest a fresh pre-train built for agents from the start. If real, it's the first post-GPT-5 architecture from OpenAI.",
+          "key_fact": "2 years of research behind a fresh pre-train, not a fine-tune"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 19037,
+          "title": "New MCP Turns Claude Code Into a UI Design Tool",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Addresses Claude Code's well-known weakness at visual design by piping an AI design tool through MCP — designs drop straight into the codebase.",
+          "key_fact": "770 likes — generates UIs directly into your project files"
+        },
+        {
+          "id": 19027,
+          "title": "Japan's Transport Ministry Ships a Government MCP Server",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A national government agency publishing an MCP server is a first — MCP is crossing from dev tooling into institutional infrastructure.",
+          "key_fact": "629 likes, 146 RTs — first government-issued MCP server"
+        },
+        {
+          "id": 18813,
+          "title": "Willison Ships scan-for-secrets: Catch Leaked Keys Before Sharing",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Simple Python CLI that scans folders for API keys and tokens — essential hygiene before feeding files to AI tools.",
+          "key_fact": "Scans for secret strings across folders with a single command"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 18765,
+          "title": "Karpathy Endorses 'Farzapedia' — Personal Wikis as Inspectable AI Memory",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Instead of opaque 'it learns the more you use it' personalization, build an explicit wiki the AI reads — inspectable, editable, and portable.",
+          "key_fact": "7,165 likes — advocates navigable personal knowledge bases over implicit memory"
+        },
+        {
+          "id": 19018,
+          "title": "Fix Claude Code's Unreliable Skill Triggers With a Prompt Hook",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Skills don't auto-invoke reliably from trigger phrases — the fix is a user-prompt-submit hook that scans for keywords and injects the right skill.",
+          "key_fact": "Workaround uses hooks to force keyword-based skill invocation"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 18826,
+          "title": "Field Trial: AI-Using Startups See 1.9x Revenue, Need 39% Less Capital",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Hard data from a randomized trial of 515 startups — the bottleneck isn't the tools, it's understanding how peers use them.",
+          "key_fact": "Showing founders how peers use AI led to 44% more adoption and 1.9x revenue"
+        },
+        {
+          "id": 18528,
+          "title": "Anthropic Fellows Introduce 'Model Diffing' to Surface Behavioral Gaps",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Applying the diff concept from software to AI models — systematically comparing open-weight model behaviors instead of relying on benchmarks alone.",
+          "key_fact": "New method for surfacing behavioral differences between models"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 19081,
+          "title": "Nanocode: A From-Scratch Claude Code Clone Built in JAX on TPUs for $200",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The AI coding agent pattern is becoming reproducible — and you don't need NVIDIA hardware to build one.",
+          "key_fact": "Full Claude Code implementation in pure JAX running on TPUs for $200"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 18829,
+      "title": "Mollick Calls Time on the RAG Era",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Massive context windows and native tool use are making RAG the new legacy pattern.",
+      "key_fact": "969 likes on the post-mortem"
+    },
+    {
+      "id": 18812,
+      "title": "Willison Flags Billing-by-System-Prompt as a Dangerous Precedent",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "If pricing depends on what's in your prompt, trust breaks for the entire ecosystem.",
+      "key_fact": "1,001 likes — calls it 'a really bad look'"
+    },
+    {
+      "id": 18397,
+      "title": "Andreessen on The Death of the Browser and Why This Time Is Different",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Long-form interview: AI agents are bypassing web UIs entirely.",
+      "key_fact": "Rare extended interview from Andreessen on where compute and interfaces are heading"
+    },
+    {
+      "id": 18955,
+      "title": "SeeDance 2.0 Claims Studio-Quality AI Video Generation",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Launching Monday on ChatLLM, region-limited due to IP concerns.",
+      "key_fact": "470 likes — limited availability due to legal issues"
+    }
+  ],
+  "total_items": 21
+}
