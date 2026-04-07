@@ -3,7 +3,7 @@
 Import an offline-written blog article into the LoreAI platform with full validation, deployment, and live verification.
 
 ## Input
-User provides a markdown file path (e.g., `my-article.md`) and optionally: `--date`, `--category`, `--force`, `--no-seo`.
+User provides a markdown file path (e.g., `my-article.md`) and optionally: `--date`, `--category`, `--force`, `--no-seo`, `--no-diagrams`.
 
 ## Steps
 
@@ -26,6 +26,14 @@ User provides a markdown file path (e.g., `my-article.md`) and optionally: `--da
    npx tsx scripts/import-blog.ts --file={path} --no-git [user flags]
    ```
 8. Verify the output file was created in `content/blog/{lang}/{slug}.md`
+
+### Phase 3.5: Diagram Generation (automatic, unless --no-diagrams)
+The import script automatically generates diagrams via LLM (Stage 4.5):
+- Assesses if an architecture overview diagram would help → if yes, places D2 diagram after intro
+- Scans sections for multi-step processes → generates mermaid flowcharts
+- Scans for comparison data → generates markdown tables
+- D2 diagrams rendered to SVG in `public/diagrams/`, mermaid rendered client-side
+- Max 4 diagrams, max 7 nodes each, mixed types enforced
 
 ### Phase 4: Build Validation
 9. Run `npm run build` — must succeed. If it fails, diagnose and fix
