@@ -20,6 +20,7 @@ related_glossary:
   - claude-code
   - claude
   - what-are-claude-code-hooks
+  - what-is-mcp-claude-code
 related_compare:
   - claude-code-remote-vs-ssh
   - claude-code-vs-aider
@@ -51,6 +52,9 @@ source_type: offline
 ## 先建立一个直觉：Agent Loop 是什么？
 
 如果你用过 Claude Code（或者任何 AI [coding agent](/zh/blog/coding-agents-reshaping-epd)），你会感觉它在"思考"——它读代码、跑测试、改文件、再跑测试、再改文件……直到任务完成。
+
+![QueryEngine 双层架构：会话层管理全局状态，单轮执行层驱动核心循环](/diagrams/claude-code-agent-loop-query-engine-deep-dive-1.svg)
+
 
 这种感觉的背后，就是 Agent Loop。
 
@@ -154,6 +158,16 @@ API 返回 413 错误（请求体太大），说明对话历史超过了模型�
 
 大部分人在思考 Agent Loop 时，注意力都在"调用模型 → 执行工具"这个主循环上。但 Claude Code 在每次调用模型 API **之前**，有一个精密的五级预处理管道在默默工作：
 
+```mermaid
+flowchart LR
+  A[1 工具结果预算] --> B[2 片段裁剪]
+  B --> C[3 微压缩]
+  C --> D[4 上下文坍缩]
+  D --> E[5 自动压缩]
+  E --> F([调用模型])
+```
+
+
 **第一级：Tool Result Budgeting（工具结果预算）**
 设置工具输出的总量上限。如果上一轮的工具执行产生了大量输出（比如读了一个很大的文件），这一步会预算控制总量。
 
@@ -214,6 +228,18 @@ Claude Code 直接消费 **原始 SSE（Server-Sent Events）事件流**，而�
 ## 错误恢复：从不轻易放弃
 
 一个在生产环境中运行的 agent，必须能优雅地处理各种错误。Claude Code 的错误恢复系统是它 Harness 工程的一个典范。
+
+```mermaid
+flowchart LR
+  E[错误发生] --> T{错误类型}
+  T -->|网络/过载| R[退避重试 10次]
+  T -->|Token超限| U[升级输出限制]
+  T -->|Opus连续过载| F[切换Sonnet]
+  R -->|超限| X[报告用户]
+  U -->|3次仍超限| X
+  F --> C[继续执行]
+```
+
 
 ### 三阶段输出限制恢复
 

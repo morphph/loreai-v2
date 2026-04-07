@@ -29,6 +29,7 @@ import { upsertContent, upsertKeyword, closeDb } from './lib/db';
 import { todaySGT } from './lib/date.js';
 import { gitAddCommitPush } from './lib/git';
 import { loadTargets, injectLinks } from './lib/link-inject';
+import { generateDiagrams, insertDiagrams } from './lib/diagram-gen';
 
 const ROOT = process.cwd();
 
@@ -49,6 +50,7 @@ const MAX_WORDS = parseInt(getArg('max-words') || '10000', 10);
 const DRY_RUN = args.includes('--dry-run');
 const NO_SEO = args.includes('--no-seo');
 const NO_GIT = args.includes('--no-git');
+const NO_DIAGRAMS = args.includes('--no-diagrams');
 const FORCE = args.includes('--force');
 
 if (!FILE) {
@@ -194,15 +196,7 @@ console.log(`  → date: ${frontmatter.date}`);
 console.log(`  → category: ${frontmatter.category}`);
 console.log(`  → keywords: ${frontmatter.keywords.join(', ')}`);
 
-// ============================================================
-// Stage 2: Insert visualizations (replace illustration placeholders)
-// ============================================================
-
-console.log('\n🎨 Stage 2: Insert visualizations');
-// Visualization insertion is skipped — illustration placeholders in HTML comments
-// are stripped in Stage 3. Per-article diagrams should be authored inline in the
-// markdown source, not injected by the import script.
-console.log('  (skipped — diagrams should be inline in source markdown)');
+// Stage 2 is now diagram generation — moved after Stage 4 (needs final article body)
 
 // ============================================================
 // Stage 3: Strip remaining HTML comments
@@ -226,6 +220,29 @@ if (Object.keys(targets).length > 0) {
   for (const d of details) console.log(d);
 } else {
   console.log('  ⚠ No link targets found — run build-link-targets.ts first. Skipping.');
+}
+
+// ============================================================
+// Stage 4.5: Generate & insert diagrams (LLM-powered)
+// ============================================================
+
+const diagramFiles: string[] = [];
+if (!NO_DIAGRAMS && !DRY_RUN) {
+  console.log('\n🎨 Stage 4.5: Generate diagrams');
+  try {
+    const diagrams = await generateDiagrams(body, frontmatter.slug, frontmatter.lang);
+    if (diagrams.length > 0) {
+      body = insertDiagrams(body, diagrams);
+      for (const d of diagrams) diagramFiles.push(...d.files);
+      console.log(`  ✓ Inserted ${diagrams.length} diagram(s)`);
+    } else {
+      console.log('  No diagrams generated');
+    }
+  } catch (err) {
+    console.warn(`  ⚠ Diagram generation failed: ${(err as Error).message}`);
+  }
+} else if (NO_DIAGRAMS) {
+  console.log('\n⏭️  Stage 4.5: Diagrams (skipped — --no-diagrams)');
 }
 
 // ============================================================
@@ -357,7 +374,7 @@ if (fs.existsSync(outPath) && !FORCE) {
 fs.writeFileSync(outPath, outputMarkdown, 'utf-8');
 console.log(`  Written: ${outPath}`);
 
-const writtenFiles = [outPath];
+const writtenFiles = [outPath, ...diagramFiles];
 
 // ============================================================
 // Stage 8: DB upsert
