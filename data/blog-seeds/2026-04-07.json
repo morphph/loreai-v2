@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Running Gemma 4 locally with LM Studio's new headless CLI and Claude Code",
+    "url": "https://ai.georgeliu.com/p/running-google-gemma-4-locally-with",
+    "source": "hackernews",
+    "x_engagement_24h": 197,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 41.0591,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "We've signed an agreement with Google and Broadcom for multiple gigawatts of next-generation TPU capacity, coming online starting in 2027, to train and serve frontier Claude models.",
+    "url": "https://x.com/AnthropicAI/status/2041275561704931636",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 7925,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 38.3775,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "You can now fine-tune Gemma 4 (and 500 other open source models) in a free Google Colab 🔥",
+    "url": "https://x.com/itsPaulAi/status/2041217694767415320",
+    "source": "twitter:search:\"open source\" (LLM OR model) (release OR launch)",
+    "x_engagement_24h": 742,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 28.2226,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @AnthropicAI: Our run-rate revenue has surpassed $30 billion, up from $9 billion at the end of 2025, as demand for Claude continues to a…",
+    "url": "https://x.com/adocomplete/status/2041286937647149108",
+    "source": "twitter:@adocomplete",
+    "x_engagement_24h": 1623,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.4869,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic expands partnership with Google and Broadcom for multiple gigawatts of next-generation compute",
+    "url": "https://www.anthropic.com/news/google-broadcom-partnership-compute",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25,
+    "suggested_angle": "news"
+  }
+]
