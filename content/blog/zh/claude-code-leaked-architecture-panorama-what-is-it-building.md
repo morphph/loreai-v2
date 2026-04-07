@@ -111,7 +111,19 @@ openedclaude 的分析把它描述为一个"12 步状态机"，但本质上依�
 
 我把这套 Harness 拆成三层来讲。
 
-![Claude Code 架构全景：1,296 行核心 vs 470,000+ 行 Harness](/blog-images/claude-code-architecture.png)
+| 层级 | 解决什么 | 核心模块 | 代码规模 |
+|------|---------|---------|---------|
+| 🧠 核心 | Agent 循环 | QueryEngine（while loop） | ~1,296 行 |
+| 📋 第一层 | 模型该看什么 | 微压缩 · 会话记忆 · 完整压缩 · 工具系统 42+ | ~46K 行 |
+| 🛡️ 第二层 | 模型不能做什么 | 四层权限 · Bash 分类器 · YOLO 分类器 · [Hooks](/zh/blog/claude-code-seven-programmable-layers) | 9.5K 行 + 300KB |
+| 🤝 第三层 | 一个模型不够用 | Swarm · Coordinator Mode · [MCP](/zh/glossary/mcp) 协议 | ~25K 行 |
+| 🔮 未发布 | 未来形态 | KAIROS · Speculation · ULTRAPLAN · Buddy | 44 个 flags |
+
+```mermaid
+flowchart LR
+    A["🧠 核心"] --> B["📋 上下文"] --> C["🛡️ 安全"] --> D["🤝 多Agent"]
+    D -.-> E["🔮 未发布"]
+```
 
 ### 第一层 Harness：上下文管理 — 解决"模型该看什么"
 
