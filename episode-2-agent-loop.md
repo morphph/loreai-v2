@@ -1,46 +1,118 @@
 ---
-title: Agent Loop：为什么最强 AI Agent 的核心只是一个 While 循环？
-date: '2026-04-07'
-slug: claude-code-agent-loop-query-engine-deep-dive
-description: >-
-  Claude Code 的大脑叫 QueryEngine——46,000 行代码，但核心循环只有约 1,700 行。这个 while(true)
-  循环是如何驱动全球最强编码 Agent 的？本文从循环的每一步拆起，带你理解 Agent Loop 的设计哲学。
-keywords:
-  - Claude Code
-  - Agent Loop
-  - Query Engine
-  - AI Agent Architecture
-  - Streaming
-  - Error Recovery
-  - Token Budget
-  - Harness Engineering
-category: DEV
-related_newsletter: '2026-04-07T00:00:00.000Z'
-related_glossary:
-  - claude-code
-  - claude
-  - what-are-claude-code-hooks
-related_compare:
-  - claude-code-remote-vs-ssh
-  - claude-code-vs-aider
-  - claude-code-vs-amazon-q
-related_blog:
-  - 5-claude-code-skills-i-use-every-single-day
-  - 9-principles-writing-claude-code-skills
-  - claude-code-agent-teams
-related_topics:
-  - claude-code
-  - claude
-lang: zh
-video_ready: false
-video_hook: ''
-video_status: none
-source_type: offline
+title: "Agent Loop：为什么最强 AI Agent 的核心只是一个 While 循环？"
+slug: "claude-code-agent-loop-query-engine-deep-dive"
+series: "从 Claude Code 泄漏源码学 Agent 工程实践"
+episode: "第 2 期 · Agent Loop 篇"
+date: "2026-04-07"
+tags: ["Claude Code", "Agent Loop", "Query Engine", "AI Agent Architecture", "Streaming", "Error Recovery", "Token Budget", "Harness Engineering"]
+description: "Claude Code 的大脑叫 QueryEngine——46,000 行代码，但核心循环只有约 1,700 行。这个 while(true) 循环是如何驱动全球最强编码 Agent 的？本文从循环的每一步拆起，带你理解 Agent Loop 的设计哲学。"
+lang: "zh-CN"
+canonical_url: "https://loreai.dev/blog/claude-code-agent-loop-query-engine-deep-dive"
 ---
+
+<!--
+============================================================
+SEO / AEO 优化备注
+============================================================
+
+目标关键词（主）：
+- claude code agent loop
+- claude code query engine
+- AI agent loop architecture
+- claude code how it works
+
+目标关键词（长尾）：
+- claude code agent loop explained
+- how does claude code agent loop work
+- AI agent while loop pattern
+- claude code streaming tool execution
+- claude code error recovery
+- claude code token budget management
+- agent loop vs DAG orchestration
+- AI agent architecture 2026
+- claude code context compression pipeline
+
+AEO 优化：
+- 每个 H2 标题可直接作为搜索问题的答案入口
+- 核心流程步骤用编号列表，方便 AI 引擎提取
+- 关键数据点在正文中多次出现（1,730行、7种续行原因、13K buffer等）
+
+内链建议：
+- 链接到第 1 期全景篇
+- 预告第 3 期 Tool System
+- 链接到 Lora AI.devs 的 agent 架构相关内容
+
+============================================================
+插图需求清单
+============================================================
+
+【插图 1】Hero Banner
+位置：文章顶部
+内容：一个无限循环符号（∞）中间嵌入代码片段，
+传达"一个循环驱动一切"的概念
+风格：与第 1 期保持一致的深色科技感
+
+【插图 2】Agent Loop 核心流程图 ⭐ 最重要
+位置："while(true) 的每一步"部分
+内容：循环流程图
+用户输入 → 上下文组装 → 模型 API 调用 → 判断分支：
+  ├─ 有工具调用 → 执行工具 → 结果反馈 → 回到模型调用
+  ├─ 触发续行条件（7种之一）→ 处理 → 回到模型调用
+  └─ 完成/终止 → 退出循环
+标注每个节点的关键代码（queryLoop、submitMessage等）
+
+【插图 3】QueryEngine 两层架构图
+位置："两层设计"部分
+内容：上下两层：
+- 上层：Session Layer（QueryEngine 类）— 跨轮次状态管理
+- 下层：Turn Layer（query 函数）— 单轮 while(true) 循环
+箭头：submitMessage() 连接两层
+标注各层职责
+
+【插图 4】7 种循环续行原因
+位置："7种续行原因"部分
+内容：表格或卡片式信息图
+7种原因 + 每种的触发条件和处理方式
+用颜色区分：红色=错误恢复、黄色=资源管理、绿色=正常续行
+
+【插图 5】消息处理四阶段管道
+位置："四阶段生命周期"部分
+内容：管道/流水线图
+输入处理 → 上下文组装 → 查询循环 → 结果提取
+每阶段标注具体操作
+
+【插图 6】五级预处理压缩管道
+位置："每次 API 调用前"部分
+内容：漏斗图或管道图
+Tool Result Budgeting → Snip Compact → Microcompact → Context Collapse → Autocompact
+每级标注成本和效果
+
+【插图 7】三阶段输出限制恢复
+位置：错误恢复部分
+内容：阶梯图
+第1次命中 → 8K cap → 重试
+第2次命中 → 升级到 64K → 重试
+第3次命中 → 报告错误
+配合"注入恢复消息"的标注
+
+【插图 8】Agent Loop 对比图（Claude Code vs Cursor vs Copilot）
+位置：对比分析部分
+内容：三栏对比表
+- Claude Code：终端原生、完整 agent loop、1M context
+- Cursor：IDE 原生、受限 agent mode、200K context
+- Copilot：扩展形态、反应式补全、正在追赶
+用雷达图展示各维度差异
+
+【插图 9】系列进度条
+位置：文末
+内容：6 期进度条，第 1 期✓完成、第 2 期●当前、第 3-6 期○待发布
+
+============================================================
+-->
 
 # Agent Loop：为什么最强 AI Agent 的核心只是一个 While 循环？
 
-> **系列说明**：这是「从 [Claude Code](/zh/blog/9-principles-writing-claude-code-skills) 泄漏源码学 Agent 工程实践」系列的第 2 期。[第 1 期全景篇](/zh/blog/claude-code-leaked-architecture-panorama-what-is-it-building)我们建立了 Claude Code 的完整认知框架。本期深入 Agent Loop——整个系统的心脏。
+> **系列说明**：这是「从 Claude Code 泄漏源码学 Agent 工程实践」系列的第 2 期。[第 1 期全景篇](/zh/blog/claude-code-leaked-architecture-panorama-what-is-it-building)我们建立了 Claude Code 的完整认知框架。本期深入 Agent Loop——整个系统的心脏。
 
 上一期我们说了一个结论：Claude Code 用不到 2,000 行代码实现了核心循环，用超过 47 万行代码让这个循环变得可靠。
 
@@ -50,7 +122,7 @@ source_type: offline
 
 ## 先建立一个直觉：Agent Loop 是什么？
 
-如果你用过 Claude Code（或者任何 AI [coding agent](/zh/blog/coding-agents-reshaping-epd)），你会感觉它在"思考"——它读代码、跑测试、改文件、再跑测试、再改文件……直到任务完成。
+如果你用过 Claude Code（或者任何 AI coding agent），你会感觉它在"思考"——它读代码、跑测试、改文件、再跑测试、再改文件……直到任务完成。
 
 这种感觉的背后，就是 Agent Loop。
 
@@ -62,7 +134,7 @@ source_type: offline
 4. **反馈**——把执行结果告诉模型，让它再决定
 5. **重复**——直到模型说"我完成了"，或者资源耗尽
 
-这个"看-想-做-反馈-重复"的模式，就是几乎所有 [AI agent](/zh/blog/effective-harnesses-for-long-running-agents) 的基本骨架。不只是 Claude Code，[Cursor](/zh/glossary/cursor) 的 Agent Mode、[GitHub Copilot](/zh/glossary/github-[copilot](/zh/glossary/copilot)) 的 Workspace、[Devin](/zh/glossary/devin)——它们的核心都是某种形式的 Agent Loop。
+这个"看-想-做-反馈-重复"的模式，就是几乎所有 AI agent 的基本骨架。不只是 Claude Code，Cursor 的 Agent Mode、GitHub Copilot 的 Workspace、Devin——它们的核心都是某种形式的 Agent Loop。
 
 差别在于：**循环本身有多简单，循环周围的系统有多精密。**
 
@@ -94,6 +166,8 @@ Claude Code 选择了一个极端的设计哲学：**把循环做到极致简单
 6. 如果模型说"完成了"或触发终止条件 → 退出循环
 
 两层分离的好处是：Session Layer 只需要关心"对话级别"的状态（token 总量、权限记录），Turn Layer 只需要关心"当前这一轮"怎么把事情做完。各管各的，互不干涉。
+
+<!-- 【插图 3】QueryEngine 两层架构图 -->
 
 ## while(true) 的每一步：比你想象的精密得多
 
@@ -150,6 +224,9 @@ API 返回 413 错误（请求体太大），说明对话历史超过了模型�
 
 这就是"简单循环 + 精密控制"的设计哲学的具体体现。
 
+<!-- 【插图 2】Agent Loop 核心流程图 -->
+<!-- 【插图 4】7 种循环续行原因 -->
+
 ## 每次调用模型之前：五级预处理管道
 
 大部分人在思考 Agent Loop 时，注意力都在"调用模型 → 执行工具"这个主循环上。但 Claude Code 在每次调用模型 API **之前**，有一个精密的五级预处理管道在默默工作：
@@ -177,6 +254,9 @@ API 返回 413 错误（请求体太大），说明对话历史超过了模型�
 五级管道从轻到重排列：能用规则解决的不调模型，能局部清理的不全局压缩。只有当前四级都不够用时，才启动最昂贵的第五级。
 
 **对 Builder 的启示**：如果你在做 agent 产品，不要在每次 API 调用时把所有信息"无脑"塞进 context。建立一个分级的预处理管道——哪些信息必须保留，哪些可以摘要，哪些可以丢弃。这个管道的精细程度，直接决定了你的 agent 在长对话中的表现。
+
+<!-- 【插图 5】消息处理四阶段管道 -->
+<!-- 【插图 6】五级预处理压缩管道 -->
 
 ## 流式传输：不是等模型说完，而是边说边做
 
@@ -249,6 +329,8 @@ Claude Code 在调用模型 API **之前**，就先把用户消息持久化到�
 
 **对 Builder 的启示**：错误恢复不是"出了错就报错"那么简单。一个生产级的 agent 需要分层的恢复策略：先自动重试 → 升级参数 → 切换模型 → 最后才向用户报告。每一步都要有明确的上限，防止无限循环。Claude Code 用 watermark（水位标记）机制来限制每种错误模式的恢复次数——这个设计思路可以直接借用。
 
+<!-- 【插图 7】三阶段输出限制恢复 -->
+
 ## Token 预算管理：知道什么时候该停
 
 一个 agent 可以无限循环，但 token 不是无限的。Claude Code 的预算管理系统解决了一个微妙的问题：**怎么判断模型是"还在高效工作"还是"在空转浪费 token"？**
@@ -275,7 +357,7 @@ Claude Code 在调用模型 API **之前**，就先把用户消息持久化到�
 
 三类 Hook 会在循环正常结束后触发：
 
-1. **Standard Stop [Hooks](/zh/blog/claude-code-seven-programmable-layers)**——在 settings.json 中配置，并行运行。它们可以产生阻塞错误（阻止任务被标记为完成），也可以返回需要后续处理的信息。
+1. **Standard Stop Hooks**——在 settings.json 中配置，并行运行。它们可以产生阻塞错误（阻止任务被标记为完成），也可以返回需要后续处理的信息。
 
 2. **TaskCompleted Hooks**——在多 Agent 模式下，当一个子任务完成时触发。
 
@@ -323,6 +405,8 @@ Claude Code 的 Agent Loop 是一个完全自主的执行循环——你给它�
 
 Claude Code 只是把这个模式做到了最极致——核心循环极简，外围系统极精密。
 
+<!-- 【插图 8】Agent Loop 对比图 -->
+
 ## 从 Claude Code 的 Agent Loop 中学到的 5 条设计原则
 
 ### 原则一：循环要简单，状态转换要显式
@@ -353,8 +437,75 @@ Transcript-First 模式：用户输入先写盘，再调 API。这保证了崩�
 
 **第 3 期：Tool System 与安全——让 AI 安全地动手**，我们下期见。
 
----
+<!-- 【插图 9】系列进度条 -->
 
 ---
 
-*觉得有用？[订阅 AI 简报](/subscribe)，每天 5 分钟掌握 AI 动态。*
+<!--
+============================================================
+数据来源与可信度标注
+============================================================
+
+以下数据点来自直接分析源码的项目，可信度较高：
+- QueryEngine 两层架构（Session Layer / Turn Layer）— openedclaude Ch1 + DeepWiki
+- query 函数约 1,730 行 — DeepWiki (deepwiki.com/oboard/claude-code-rev)
+- 7 种循环续行原因的具体名称 — claudecode-manual (GitHub)
+- 7 种终止条件的具体名称 — claudecode-manual + DeepWiki
+- SSE 事件流结构 — Anthropic 官方 Streaming 文档
+- Autocompact 的 13K buffer / 187K 触发 / 20K 摘要 — DeepWiki
+- 三阶段输出限制恢复（8K→64K→报错）— claudecode-manual
+- withRetry() 退避公式 — DeepWiki
+- 最多 10 个工具并行 — DeepWiki
+- 7步权限评估管道 — claudecode-manual
+- 后台任务（promptSuggestion / extractMemories / autoDream）— DeepWiki
+
+以下数据来自多个二次来源交叉验证，可信度中等：
+- 整体规模（477K行、1902文件、42+工具）— openedclaude + Deep-Dive-Claude-Code
+- Opus→Sonnet 回退机制 — DeepWiki（具体触发条件未独立验证）
+- Context Collapse 机制 — 多个分析提及但细节不一致
+
+以下数据需谨慎使用：
+- "多文件操作快18%"的具体数字 — 来自 builder.io 对比文章，测试条件不明
+
+============================================================
+X Long Article 浓缩版提示
+============================================================
+
+X 版本建议结构（2000-3000字）：
+1. Hook：全球最强编码agent的核心只有1730行代码的while(true)
+2. 核心概念：看-想-做-反馈-重复
+3. 最意外的发现：7种续行原因 + 5级预处理管道
+4. 流式工具执行：边想边做
+5. 5条设计原则
+6. 导流到完整版
+
+============================================================
+微信视频号口播版提示
+============================================================
+
+建议时长：12-15 分钟
+Hook 开头："如果我告诉你，全球最强的AI编码agent，它的核心竟然只是一个while(true)循环，
+你信吗？今天我们来拆 Claude Code 的心脏——Agent Loop。"
+
+口播节奏建议：
+- 0:00-0:30 Hook
+- 0:30-2:00 "看-想-做-反馈-重复"的直觉建立
+- 2:00-4:00 QueryEngine 两层架构
+- 4:00-6:00 7种续行原因（挑最有趣的3个讲）
+- 6:00-8:00 5级预处理管道
+- 8:00-9:30 流式工具执行（边想边做）
+- 9:30-11:00 错误恢复的分层设计
+- 11:00-12:00 5条设计原则
+- 12:00-13:00 对比（Claude Code vs Cursor vs Copilot）
+- 13:00-14:00 下期预告 + 收尾
+
+============================================================
+英文版标题备选
+============================================================
+
+Option A: "Why the World's Best AI Agent Is Powered by a Simple While Loop"
+Option B: "Inside Claude Code's Agent Loop: 1,730 Lines That Drive 512K Lines of Code"
+Option C: "The Agent Loop Pattern: What Claude Code's Leaked Source Teaches About AI Architecture"
+
+============================================================
+-->
