@@ -187,7 +187,18 @@ app.get('/api/dashboard/health', (c) => {
     summary: `${refreshJobs} refresh actions (7d)`,
   });
 
-  return c.json({ timestamp: new Date().toISOString(), stages });
+  // Overall health score: green=15, yellow=5, red=0 (max 90)
+  const scoreMap = { green: 15, yellow: 5, red: 0 } as const;
+  const healthScore = stages.reduce((sum, s) => sum + scoreMap[s.status], 0);
+  const greenCount = stages.filter(s => s.status === 'green').length;
+  const yellowCount = stages.filter(s => s.status === 'yellow').length;
+  const redCount = stages.filter(s => s.status === 'red').length;
+
+  return c.json({
+    timestamp: new Date().toISOString(),
+    stages,
+    meta: { score: healthScore, max_score: 90, green: greenCount, yellow: yellowCount, red: redCount },
+  });
 });
 
 app.get('/api/dashboard/topics', (c) => {
@@ -426,6 +437,11 @@ app.get('/api/dashboard/trends', (c) => {
     content_total: m['content_total'] ?? 0,
     subscribers_total: m['subscribers_total'] ?? 0,
     striking_count: m['gsc_striking_count'] ?? 0,
+    pipeline_health_score: m['pipeline_health_score'] ?? null,
+    pipeline_health_queue_depth: m['pipeline_health_queue_depth'] ?? null,
+    pipeline_health_coverage_rate: m['pipeline_health_coverage_rate'] ?? null,
+    pipeline_health_seo_orphans: m['pipeline_health_seo_orphans'] ?? null,
+    pipeline_health_live_site_ok: m['pipeline_health_live_site_ok'] ?? null,
   }));
 
   return c.json({ weeks: weeklyData });

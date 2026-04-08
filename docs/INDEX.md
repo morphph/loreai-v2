@@ -3,7 +3,7 @@
 ## title: "Documentation Index"
 status: active
 category: guide
-last-updated: 2026-03-30
+last-updated: 2026-04-08
 depends-on: []
 
 # Documentation Index
@@ -119,6 +119,16 @@ depends-on: []
 | Document                                                        | Description                                        | Updated    |
 | --------------------------------------------------------------- | -------------------------------------------------- | ---------- |
 | [Pipeline E2E Issues](issues/2026-03-23-pipeline-e2e-issues.md) | 6 issues from 2026-03-23 test run (#1,#2,#4 fixed) | 2026-03-23 |
+
+
+---
+
+## Plans (`plans/`)
+
+
+| Document                                                     | Description                                           | Updated    |
+| ------------------------------------------------------------ | ----------------------------------------------------- | ---------- |
+| [Pipeline Health Skill](plans/pipeline-health-skill.md)      | Spec for `/pipeline-health` weekly ops skill          | 2026-04-08 |
 
 
 ---

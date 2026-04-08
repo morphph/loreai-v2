@@ -2,7 +2,7 @@
 title: "Skills Index"
 status: active
 category: guide
-last-updated: 2026-04-02
+last-updated: 2026-04-08
 depends-on: []
 ---
 
@@ -36,6 +36,12 @@ depends-on: []
 |-------|------|-------------|---------|
 | Entity Extraction | `skills/entity-extraction/SKILL.md` | Extract and normalize AI entities from news items | `extract-entities.ts` |
 | Keyword Grouping | `skills/keyword-grouping/SKILL.md` | Cluster keywords by shared search intent. Now includes subtopic context (description, aliases). Default model: Sonnet 4.6 (auto-downgrade to Haiku for <20 keywords). | `group-keywords.ts` (B2) |
+
+## Operations Skills
+
+| Skill | Path | Description | Used By |
+|-------|------|-------------|---------|
+| Pipeline Health | `skills/pipeline-health/SKILL.md` | Weekly health check: API pull + VPS SSH deep dive + live browser checks + GSC + Chinese HTML report | `/pipeline-health` (Saturday 11 AM SGT cron) |
 
 ## Notes
 
