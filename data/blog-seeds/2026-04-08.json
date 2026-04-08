@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "RT @OpenAI: GPT-5 is here.  Rolling out to everyone starting today.  https://t.co/rOcZ8J2btI https://t.co/dk6zLTe04s",
+    "url": "https://x.com/ChatGPTapp/status/1953617699927671294",
+    "source": "twitter:@ChatGPTapp",
+    "x_engagement_24h": 38435,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 28.5305,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @OpenAI: Our open models are here. Both of them.  https://t.co/9tFxefOXcg",
+    "url": "https://x.com/ChatGPTapp/status/1952818671056990592",
+    "source": "twitter:@ChatGPTapp",
+    "x_engagement_24h": 22563,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 27.7689,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Mythos is very powerful, and should feel terrifying. I am proud of our approach to responsibly preview it with cyber defenders, rather than generally releasing it into the wild.  Model card here: https://t.co/HjhknJcRKQ",
+    "url": "https://x.com/bcherny/status/2041605852382351666",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 5563,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 26.6689,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @claudeai: Computer use in Claude Cowork and Claude Code Desktop is now available on Windows.",
+    "url": "https://x.com/bcherny/status/2040260574429450369",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 12817,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 24.845100000000002,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @AnthropicAI: Our run-rate revenue has surpassed $30 billion, up from $9 billion at the end of 2025, as demand for Claude continues to a…",
+    "url": "https://x.com/bcherny/status/2041320424706097340",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 7989,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 18.3967,
+    "suggested_angle": "news"
+  }
+]
