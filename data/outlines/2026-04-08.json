@@ -1,0 +1,223 @@
+{
+  "date": "2026-04-08",
+  "headline_hook": "GPT-5 Drops Alongside Open-Weight Models While Anthropic Hits $30B",
+  "preview_topics": [
+    "GPT-5 and the open-weight double drop",
+    "Claude's Windows computer-use expansion",
+    "zero-human-code engineering at OpenAI scale"
+  ],
+  "pick_of_the_day": {
+    "item_id": 19865,
+    "thesis": "OpenAI's first public look at a 'dark factory' — 1M LOC with zero human code and zero human review — reveals that the real moat isn't the model, it's the harness infrastructure that lets you ship a billion tokens a day without a single engineer touching the output."
+  },
+  "model_literacy": {
+    "concept": "Open-Weight vs. API-Only Release Strategy",
+    "relevance": "OpenAI simultaneously shipped GPT-5 (closed API) and open-weight models, while GLM-5.1 and Netflix both went open — today's news is a live case study in when companies choose open distribution versus API lock-in, and what builders gain or lose with each path."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 20474,
+          "title": "GPT-5 Is Live — OpenAI's Biggest Model Ships to Everyone",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The flagship model that absorbed o3-pro reasoning is now generally available — the question is whether the jump justifies the hype cycle",
+          "key_fact": "32,000+ likes and rolling out to all users starting today"
+        },
+        {
+          "id": 20475,
+          "title": "OpenAI Drops Two Open-Weight Models in a Single Day",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "OpenAI betting on open-weight distribution alongside its flagship API launch signals a strategic shift toward ecosystem capture, not just API revenue",
+          "key_fact": "Two models released simultaneously as open-weight"
+        },
+        {
+          "id": 20479,
+          "title": "o3-pro Arrives as GPT-5's Reasoning Backbone",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The reasoning-specialized tier completes OpenAI's model stack — heavy compute for hard problems",
+          "key_fact": "Launched as a distinct pro-tier reasoning model"
+        },
+        {
+          "id": 20497,
+          "title": "GLM-5.1 Ships as China's Latest Open-Source Agentic Coder",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Zhipu's new model sustains long-horizon problem-solving over hundreds of iterations — a direct shot at SWE-bench dominance",
+          "key_fact": "Significant eval gains over GLM-5.0 on complex software engineering benchmarks"
+        },
+        {
+          "id": 18760,
+          "title": "Netflix Releases Its First Public AI Model on Hugging Face",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A media giant entering the open model space suggests AI model releases are becoming a talent and brand play, not just a product strategy",
+          "key_fact": "First public model from Netflix, published on Hugging Face"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 18470,
+          "title": "Claude Computer Use Lands on Windows via Cowork and Code Desktop",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Anthropic's computer-use agent crossing from Mac to Windows unlocks enterprise desktops where most corporate workflows actually live",
+          "key_fact": "11,700+ likes — computer use now available on Windows for Cowork and Claude Code Desktop"
+        },
+        {
+          "id": 19783,
+          "title": "narrator-ai-cli-skill: One-Prompt Movie Narration Videos via Agent Skills",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "An agent skill file that chains script writing, clip matching, TTS, and editing into a single natural-language command — the skill-file pattern keeps spreading",
+          "key_fact": "93 built-in movies, 63 voice options, 90+ visual templates, automatic cost estimation"
+        },
+        {
+          "id": 20531,
+          "title": "X's Official CLI May Beat MCP for Twitter Automation",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "As MCP hype grows, devs are realizing that turning an official CLI into a skill file is simpler than spinning up a local MCP server",
+          "key_fact": "410 likes arguing the official X CLI is more practical than XMCP for automation"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 18747,
+          "title": "Gemma 4 as Video Director: Orchestrating SAM 3 and RF-DETR from Raw Footage",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "One multimodal model watching video and issuing tool calls to segmentation and tracking models — the 'AI directing other AIs' pattern is becoming a repeatable recipe",
+          "key_fact": "Gemma 4 interprets scenes, then prompts SAM 3 for segmentation and RF-DETR for tracking"
+        },
+        {
+          "id": 19865,
+          "title": "Inside OpenAI's Dark Factory: 1M LOC, 1B Tokens/Day, Zero Human Code",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The first public deep dive into extreme harness engineering — where the infrastructure around the model matters more than the model itself",
+          "key_fact": "1 million lines of code, 1 billion tokens per day, 0% human-written code, 0% human review"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 19181,
+          "title": "GPT-5 Safe Completions: OpenAI's Safety Architecture for the Flagship",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The safety system shipped with GPT-5 shows how OpenAI is building guardrails directly into completion paths rather than bolting them on after",
+          "key_fact": "Published alongside the GPT-5 launch as a dedicated safety methodology"
+        },
+        {
+          "id": 19159,
+          "title": "GPT-OSS Safeguard Technical Report: Safety Specs for the Open Models",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "OpenAI publishing safety guardrails for its open-weight models sets a precedent — open doesn't mean unguarded",
+          "key_fact": "Full technical report detailing safeguard implementation for the open-source releases"
+        },
+        {
+          "id": 19177,
+          "title": "BrowseComp: A New Benchmark for Web-Browsing AI Agents",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "As agents get browser access, we need evals that test real browsing — not just QA on cached pages",
+          "key_fact": "New OpenAI benchmark specifically targeting browsing agent capabilities"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 19956,
+          "title": "Anthropic's Run-Rate Hits $30B, Tripling From $9B in Under a Year",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "A 3.3× revenue jump in months shows Claude demand is compounding — this isn't linear growth, it's the enterprise adoption inflection point",
+          "key_fact": "Run-rate revenue from $9B (end of 2025) to $30B+ (April 2026)"
+        },
+        {
+          "id": 19953,
+          "title": "Anthropic Previews 'Mythos' Exclusively With Cyber Defenders",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A frontier model too powerful for general release, shared only with defenders — the most explicit case yet of capability-gated deployment",
+          "key_fact": "Model card published, but access restricted to cyber defense community"
+        },
+        {
+          "id": 18398,
+          "title": "Gemma 4 Emerges as the Best Small Multimodal Open Model — Dramatically",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Google's small model strategy is paying off — Gemma 4 leapfrogs its predecessor in every benchmark, making the 'small but capable' tier increasingly competitive",
+          "key_fact": "Dramatic improvements over Gemma 3 across all multimodal benchmarks"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 19167,
+      "title": "4o Image Generation Goes Live",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "OpenAI's native image gen for 4o",
+      "key_fact": "Native image generation integrated into 4o model"
+    },
+    {
+      "id": 19170,
+      "title": "OpenAI Microscope: Visualizing Neural Network Internals",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Interpretability tool for exploring model neurons",
+      "key_fact": "Public visualization tool for neural network features"
+    },
+    {
+      "id": 19156,
+      "title": "DALL-E 3 Technical Deep Dive",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Full technical writeup on the DALL-E 3 architecture",
+      "key_fact": "Detailed blog post on DALL-E 3 design decisions"
+    },
+    {
+      "id": 19866,
+      "title": "Gemma 4 Crosses 2 Million Downloads",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Adoption velocity shows small open models have massive demand",
+      "key_fact": "2M+ downloads since launch"
+    },
+    {
+      "id": 20556,
+      "title": "GLM-5.1 Now on Hugging Face",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Zhipu's agentic coder available for download",
+      "key_fact": "294 likes, 389 downloads on HuggingFace"
+    },
+    {
+      "id": 18396,
+      "title": "Latent Space Roundup: Good Friday Edition",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Weekly AI news digest from Latent Space",
+      "key_fact": "Curated industry roundup covering the week's quieter stories"
+    }
+  ],
+  "total_items": 22
+}
