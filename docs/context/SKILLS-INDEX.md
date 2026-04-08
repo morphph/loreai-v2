@@ -42,6 +42,7 @@ depends-on: []
 | Skill | Path | Description | Used By |
 |-------|------|-------------|---------|
 | Pipeline Health | `skills/pipeline-health/SKILL.md` | Weekly health check: API pull + VPS SSH deep dive + live browser checks + GSC + Chinese HTML report | `/pipeline-health` (Saturday 11 AM SGT cron) |
+| Pipeline Flow | `skills/pipeline-flow/SKILL.md` | Generate up-to-date visual pipeline flow diagram (HTML + SVG) organized by data flow | `/pipeline-flow` (on-demand) |
 
 ## Notes
 
