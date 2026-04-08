@@ -119,6 +119,7 @@ depends-on: []
 | Document                                                        | Description                                        | Updated    |
 | --------------------------------------------------------------- | -------------------------------------------------- | ---------- |
 | [Pipeline E2E Issues](issues/2026-03-23-pipeline-e2e-issues.md) | 6 issues from 2026-03-23 test run (#1,#2,#4 fixed) | 2026-03-23 |
+| [Tech Debt & Pipeline Health](issues/TECH-DEBT-2026-04-08.md) | Keyword cleanup, queue status, freshness audit, action items | 2026-04-08 |
 
 
 ---
