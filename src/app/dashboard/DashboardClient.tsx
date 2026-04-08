@@ -6,8 +6,10 @@ import FlagshipTab from '@/components/dashboard/FlagshipTab';
 import QueueView from '@/components/dashboard/QueueView';
 import PerformanceTab from '@/components/dashboard/PerformanceTab';
 import CoverageView from '@/components/dashboard/CoverageView';
+import HealthReportTab from '@/components/dashboard/HealthReportTab';
 
 const TABS = [
+  { id: 'health-report', label: 'Health Report' },
   { id: 'overview', label: 'Overview' },
   { id: 'flagships', label: 'Flagship Topics' },
   { id: 'queue', label: 'Queue' },
@@ -18,7 +20,7 @@ const TABS = [
 type TabId = (typeof TABS)[number]['id'];
 
 export default function DashboardClient() {
-  const [activeTab, setActiveTab] = useState<TabId>('overview');
+  const [activeTab, setActiveTab] = useState<TabId>('health-report');
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
@@ -50,6 +52,7 @@ export default function DashboardClient() {
 
       {/* Tab content */}
       <div className="min-h-[50vh]">
+        {activeTab === 'health-report' && <HealthReportTab />}
         {activeTab === 'overview' && <OverviewTab />}
         {activeTab === 'flagships' && <FlagshipTab />}
         {activeTab === 'queue' && <QueueView />}

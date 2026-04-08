@@ -1,6 +1,8 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { serve } from '@hono/node-server';
+import { execSync } from 'child_process';
+import fs from 'fs';
 import db from './db';
 
 const BUTTONDOWN_API_KEY = process.env.BUTTONDOWN_API_KEY;
@@ -581,6 +583,67 @@ app.get('/api/dashboard/coverage', (c) => {
   });
 
   return c.json({ flagships: result });
+});
+
+// ── Infrastructure health ───────────────────────────────────
+app.get('/api/dashboard/infra', (c) => {
+  // Disk usage
+  let disk = { total: '', used: '', available: '', percent: '' };
+  try {
+    const dfLine = execSync('df -h / | tail -1', { timeout: 5000 }).toString().trim();
+    const parts = dfLine.split(/\s+/);
+    disk = { total: parts[1] || '?', used: parts[2] || '?', available: parts[3] || '?', percent: parts[4] || '?' };
+  } catch { /* ignore */ }
+
+  // Database size
+  let dbSize = '?';
+  try {
+    const dbPath = process.env.DB_PATH || './loreai.db';
+    const stat = fs.statSync(dbPath);
+    dbSize = `${(stat.size / (1024 * 1024)).toFixed(1)}MB`;
+  } catch { /* ignore */ }
+
+  // Pipeline lock
+  let lock = { exists: false, created: '' };
+  try {
+    const lockPath = '/tmp/loreai-pipeline.lock';
+    if (fs.existsSync(lockPath)) {
+      const stat = fs.statSync(lockPath);
+      lock = { exists: true, created: stat.mtime.toISOString() };
+    }
+  } catch { /* ignore */ }
+
+  // Cron schedule
+  let cron: string[] = [];
+  try {
+    const raw = execSync('crontab -l 2>/dev/null', { timeout: 5000 }).toString();
+    cron = raw.split('\n').filter(l => l.trim() && !l.startsWith('#'));
+  } catch { /* ignore */ }
+
+  // Newsletter date gaps (last 7 days)
+  const nlDates = (db.prepare(
+    "SELECT DISTINCT date(created_at) as d FROM content WHERE type = 'newsletter' AND created_at > date('now', '-7 days') ORDER BY d"
+  ).all() as Array<{ d: string }>).map(r => r.d);
+
+  // SEO orphans
+  const orphans = (db.prepare(
+    "SELECT count(*) as c FROM keywords WHERE cluster_slug IS NULL"
+  ).get() as { c: number }).c;
+
+  // Cancelled queue jobs
+  const cancelled = (db.prepare(
+    "SELECT count(*) as c FROM create_queue WHERE status = 'cancelled'"
+  ).get() as { c: number }).c;
+
+  return c.json({
+    disk,
+    db_size: dbSize,
+    pipeline_lock: lock,
+    cron_jobs: cron.length,
+    newsletter_dates_7d: nlDates,
+    seo_orphans: orphans,
+    cancelled_jobs: cancelled,
+  });
 });
 
 // ── Markdown report for LLM consumption ──────────────────────
