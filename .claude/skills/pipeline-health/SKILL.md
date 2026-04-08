@@ -15,16 +15,20 @@ Fetch data from the VPS dashboard API using WebFetch. The `DASHBOARD_SECRET` is 
 ssh loreai "cd /home/ubuntu/loreai-v2 && grep DASHBOARD_SECRET .env | cut -d= -f2"
 ```
 
-Then fetch all four endpoints (use the secret as `?key=`):
+Then fetch all endpoints. Two paths available:
+
+**Path A — Vercel proxy (preferred, no auth needed from client):**
+The Next.js API route at `src/app/api/dashboard/[...slug]/route.ts` auto-injects the `DASHBOARD_SECRET`.
 
 | Endpoint | URL |
 |----------|-----|
-| Health | `https://loreai.dev/dashboard/api/dashboard/health?key={SECRET}` |
-| Report JSON | `https://loreai.dev/dashboard/api/dashboard/report?format=json&key={SECRET}` |
-| Queue | `https://loreai.dev/dashboard/api/dashboard/queue?key={SECRET}` |
-| Coverage | `https://loreai.dev/dashboard/api/dashboard/coverage?key={SECRET}` |
+| Health | `https://loreai.dev/api/dashboard/health` |
+| Report JSON | `https://loreai.dev/api/dashboard/report?format=json` |
+| Queue | `https://loreai.dev/api/dashboard/queue` |
+| Coverage | `https://loreai.dev/api/dashboard/coverage` |
+| Trends | `https://loreai.dev/api/dashboard/trends?weeks=4` |
 
-**Note:** The dashboard proxies to VPS:3001. If the proxy fails, fall back to direct VPS access:
+**Path B — Direct VPS (fallback if proxy fails):**
 ```bash
 ssh loreai "curl -s 'http://localhost:3001/api/dashboard/health?key={SECRET}'"
 ```
