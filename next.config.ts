@@ -26,7 +26,13 @@ const nextConfig: NextConfig = {
       { source: '/blog/1-add-an-explicit-threat-model-sync-step-per-repo', destination: '/blog/add-explicit-threat-model-sync-step-per-repo', permanent: true },
       { source: '/zh/blog/1-add-an-explicit-threat-model-sync-step-per-repo', destination: '/zh/blog/add-explicit-threat-model-sync-step-per-repo', permanent: true },
 
+      // ── Renamed FAQ slugs (301) ──
+      { source: '/faq/is-codex-free', destination: '/faq/is-codex-free-or-paid', permanent: true },
+      { source: '/zh/faq/is-codex-free', destination: '/zh/faq/is-codex-free-or-paid', permanent: true },
+
       // ── Renamed glossary slugs (301) ──
+      { source: '/glossary/codex-cli', destination: '/glossary/what-is-codex-cli', permanent: true },
+      { source: '/zh/glossary/codex-cli', destination: '/zh/glossary/what-is-codex-cli', permanent: true },
       { source: '/glossary/transformer', destination: '/glossary', permanent: true },
       { source: '/glossary/mcp-server', destination: '/glossary/mcp', permanent: true },
       { source: '/en/glossary/transformer', destination: '/glossary/transformers', permanent: true },
