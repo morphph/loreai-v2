@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Introducing Claude Managed Agents: everything you need to build and deploy agents at scale.  It pairs an agent harness tuned for performance with production infrastructure, so you can go from prototype to launch in days.  Now in public beta on the Claude Platform. https://t.co/vH",
+    "url": "https://x.com/claudeai/status/2041927687460024721",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 36794,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 11,
+    "composite_score": 64.03819999999999,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @OpenAI: Introducing OpenAI o3 and o4-mini—our smartest and most capable models to date.  For the first time, our reasoning models can a…",
+    "url": "https://x.com/ChatGPTapp/status/1912619975233401199",
+    "source": "twitter:@ChatGPTapp",
+    "x_engagement_24h": 12183,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 12,
+    "composite_score": 60.6549,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Introducing Muse Spark, the first in the Muse family of models developed by Meta Superintelligence Labs.  Muse Spark is a natively multimodal reasoning model with support for tool-use, visual chain of thought, and multi-agent orchestration.  Muse Spark is available today at https",
+    "url": "https://x.com/AIatMeta/status/2041910285653737975",
+    "source": "twitter:@AIatMeta",
+    "x_engagement_24h": 7383,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 12,
+    "composite_score": 50.2149,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @alexandr_wang: 1/ today we're releasing muse spark, the first model from MSL. nine months ago we rebuilt our ai stack from scratch. new…",
+    "url": "https://x.com/AIatMeta/status/2041909585418842431",
+    "source": "twitter:@AIatMeta",
+    "x_engagement_24h": 8413,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 39.5239,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "HOLY SHIT!!!   We just asked Claude Mythos to optimize the placement and pd for this design. First thing it did was write its own MCP server to talk to Innovus over tcl socket, pulled my DEF/LEF, parsed the timing reports, and started re-floorplanning my macro placement. It then",
+    "url": "https://x.com/bubbleboi/status/2041629932498120899",
+    "source": "twitter:search:\"MCP server\" -crypto",
+    "x_engagement_24h": 394,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 32.1182,
+    "suggested_angle": "news"
+  }
+]
