@@ -1,50 +1,65 @@
 ---
-title: Codex CLI — AI Glossary
+title: "Codex CLI — AI Glossary"
 slug: codex-cli
-description: >-
-  What is Codex CLI? OpenAI's open-source terminal-based coding agent powered by
-  GPT-4.
+description: "What is Codex CLI? OpenAI's open-source terminal agent for coding — how it differs from the Codex app and when to use it."
 term: codex-cli
-display_term: Codex CLI
+display_term: "Codex CLI"
 category: tools
-related_glossary:
-  - codex
-  - agentic
-  - agent-teams
-related_blog:
-  - codex-complete-guide
-related_compare: []
+related_glossary: [codex, agentic-coding, claude-code]
+related_blog: [guide-to-codex-cli]
+related_compare: [codex-vs-claude-code]
+related_topics: [codex]
 lang: en
-related_topics:
-  - codex
 ---
+
+<!--
+PRE-DRAFT PLANNING (v0.2)
+
+1. Target keyword: what is codex cli
+2. Page type: glossary
+3. Keyword intent: definitional — answer fast, define clearly, explain why it matters, link deeper
+4. Likely official-doc competitor: OpenAI's "Introducing Codex" blog (openai.com/index/introducing-codex/) and the Codex CLI GitHub README (github.com/openai/codex). Both define the tool but bury the distinction between CLI, app, and API surfaces.
+5. Likely non-official competitor pattern: Most glossary-style pages either (a) confuse the Codex CLI agent with the deprecated Codex model from 2021, or (b) give a generic "it's a coding tool" definition without explaining the three Codex surfaces or when CLI specifically makes sense vs the app.
+6. LoreAI standout angle: Disambiguate Codex CLI from the Codex app and the legacy Codex model in the first paragraph. Then explain when CLI is the right choice vs the app — a decision most pages skip entirely.
+
+Source list:
+- OpenAI "Introducing Codex" blog (openai.com/index/introducing-codex/)
+- OpenAI Codex CLI GitHub repo (github.com/openai/codex)
+- OpenAI Codex help article (help.openai.com/en/articles/11096431)
+
+FRESHNESS NOTE: Codex CLI is open-source and actively developed. Model defaults, autonomy levels, and sandbox behavior may change between releases. Details below reflect the tool as of April 2026.
+-->
 
 # Codex CLI — AI Glossary
 
-**[Codex](/faq/codex) CLI** is OpenAI's open-source, terminal-based coding agent that reads your local codebase and executes multi-step software engineering tasks autonomously. Built on OpenAI's models (including GPT-4 and o3), it operates directly in your shell — reading files, writing code, running commands, and applying patches — rather than working through a chat interface or IDE plugin. Think of it as OpenAI's answer to [agentic](/glossary/agentic) developer tools like [Claude Code](/blog/claude-code-complete-guide) and [Aider](/glossary/aider).
+**Codex CLI** is OpenAI's open-source, terminal-based coding agent that runs on your local machine and connects to OpenAI's API to execute multi-step software engineering tasks. It is not the same as the **Codex app** (the cloud-based agent inside ChatGPT) or the **legacy Codex model** (the deprecated GPT-3 fine-tune from 2021). Codex CLI is specifically the local terminal tool — you install it via npm, it reads your codebase directly, and it executes commands in a sandboxed shell environment.
 
 ## Why Codex CLI Matters
 
-Codex CLI marks OpenAI's entry into the [agentic coding](/blog/claude-code-seven-programmable-layers) tool space, where the AI doesn't just suggest code but plans and executes entire workflows. Its open-source release (Apache 2.0 license) sets it apart from most commercial alternatives — developers can inspect, modify, and self-host the tool.
+Codex CLI fills a specific gap: developers who want an [agentic coding](/glossary/agentic-coding) tool that works locally, in the terminal, with full access to their project files — but don't want to go through a browser or connect a GitHub repo to a cloud service.
 
-The sandboxed execution model is a key design choice: Codex CLI runs commands in a restricted environment by default, limiting network access and filesystem writes to prevent unintended side effects. This makes it safer to let the agent operate with less manual oversight. For a deeper look at how it stacks up in practice, see our [complete Codex guide](/blog/codex-complete-guide).
+The key differentiator from the Codex app is control. The app runs tasks in OpenAI's cloud sandboxes — you submit a task, wait minutes, and get back a pull request. The CLI runs on your machine, shows you each step as it happens, and lets you approve or reject actions in real time. For developers who want to stay in the terminal and keep code local, that distinction matters.
+
+Its open-source status (Apache 2.0 license) is also significant — unlike most commercial coding agents, you can inspect the source, fork it, or self-host it. For a practical walkthrough, see our [Codex CLI setup guide](/blog/guide-to-codex-cli). For how it compares to Anthropic's terminal agent, see [Codex vs Claude Code](/compare/codex-vs-claude-code).
 
 ## How Codex CLI Works
 
-Codex CLI connects to the OpenAI API and uses tool-use capabilities to interact with your local environment. When you describe a task, the agent:
+Codex CLI connects to the OpenAI API and uses reasoning models (currently `codex-mini-latest`, a variant of o4-mini) to plan and execute tasks. The workflow:
 
-1. **Reads project context** — scans relevant files to understand your codebase structure
-2. **Plans changes** — breaks the task into steps and proposes edits
-3. **Executes in a sandbox** — runs shell commands and file operations within a confined environment
-4. **Applies diffs** — writes changes back to your working directory for review
+1. **You describe a task** in natural language from your terminal
+2. **The agent reads your codebase** — scanning files for context, respecting `AGENTS.md` project instructions
+3. **It proposes and executes changes** in a sandboxed environment — network-disabled by default, filesystem writes restricted to your project directory
+4. **You review the results** — approve, reject, or iterate
 
-The tool supports multiple autonomy levels, from fully interactive (approve every action) to auto-apply mode for trusted workflows. It uses OpenAI's reasoning models for complex multi-step tasks and can be configured with a `codex.md` project file for repository-specific instructions — similar to the `[CLAUDE.md](/blog/claude-code-memory)` convention in the [Anthropic](/glossary/anthropic) ecosystem.
+Three autonomy modes control how much the agent does without asking: **suggest** (proposes changes, you approve each one), **auto-edit** (applies file changes automatically, asks before shell commands), and **full-auto** (executes everything, you review at the end). The sandbox tightens or relaxes accordingly.
+
+Codex CLI uses API token billing, not a subscription. The default model costs $1.50/1M input tokens and $6/1M output tokens, with a 75% prompt caching discount. This is separate from any ChatGPT subscription — though Plus and Pro subscribers get $5–$50 in free API credits for 30 days. *(Pricing as of April 2026; see OpenAI's rate card for current rates.)*
 
 ## Related Terms
 
-- **[Codex](/glossary/codex)**: OpenAI's code-generation model family that powers Codex CLI's underlying intelligence
-- **[Agentic](/glossary/agentic)**: The AI design pattern where models autonomously plan and execute multi-step tasks rather than responding to single prompts
-- **[Agent Teams](/glossary/agent-teams)**: Architecture pattern where multiple AI agents collaborate on subtasks in parallel
+- **[Codex](/glossary/codex)**: The broader OpenAI product brand — includes the Codex app (cloud), Codex CLI (local terminal), and the underlying models
+- **[Agentic Coding](/glossary/agentic-coding)**: The AI pattern where coding tools autonomously plan and execute multi-step tasks, rather than suggesting single completions
+- **[Claude Code](/glossary/claude-code)**: Anthropic's terminal-based coding agent — the closest competitor to Codex CLI, using Claude models instead of OpenAI models
 
 ---
 
