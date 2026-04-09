@@ -12,24 +12,6 @@ related_topics: [codex]
 lang: en
 ---
 
-<!--
-PRE-DRAFT PLANNING (v0.2)
-
-1. Target keyword: what is codex cli
-2. Page type: glossary
-3. Keyword intent: definitional — answer fast, define clearly, explain why it matters, link deeper
-4. Likely official-doc competitor: OpenAI's "Introducing Codex" blog (openai.com/index/introducing-codex/) and the Codex CLI GitHub README (github.com/openai/codex). Both define the tool but bury the distinction between CLI, app, and API surfaces.
-5. Likely non-official competitor pattern: Most glossary-style pages either (a) confuse the Codex CLI agent with the deprecated Codex model from 2021, or (b) give a generic "it's a coding tool" definition without explaining the three Codex surfaces or when CLI specifically makes sense vs the app.
-6. LoreAI standout angle: Disambiguate Codex CLI from the Codex app and the legacy Codex model in the first paragraph. Then explain when CLI is the right choice vs the app — a decision most pages skip entirely.
-
-Source list:
-- OpenAI "Introducing Codex" blog (openai.com/index/introducing-codex/)
-- OpenAI Codex CLI GitHub repo (github.com/openai/codex)
-- OpenAI Codex help article (help.openai.com/en/articles/11096431)
-
-FRESHNESS NOTE: Codex CLI is open-source and actively developed. Model defaults, autonomy levels, and sandbox behavior may change between releases. Details below reflect the tool as of April 2026.
--->
-
 # Codex CLI — AI Glossary
 
 **Codex CLI** is OpenAI's open-source, terminal-based coding agent that runs on your local machine and connects to OpenAI's API to execute multi-step software engineering tasks. It is not the same as the **Codex app** (the cloud-based agent inside ChatGPT) or the **legacy Codex model** (the deprecated GPT-3 fine-tune from 2021). Codex CLI is specifically the local terminal tool — you install it via npm, it reads your codebase directly, and it executes commands in a sandboxed shell environment.

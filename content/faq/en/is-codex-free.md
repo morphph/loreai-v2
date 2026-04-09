@@ -9,26 +9,6 @@ related_topics: [codex]
 lang: en
 ---
 
-<!--
-PRE-DRAFT PLANNING (v0.2)
-
-1. Target keyword: is codex free or paid
-2. Page type: FAQ
-3. Keyword intent: pricing / plan evaluation — answer the commercial question first, separate included access vs API billing vs enterprise path
-4. Likely official-doc competitor: https://help.openai.com/en/articles/11096431 (Codex help article) and https://help.openai.com/en/articles/20001106-codex-rate-card (rate card). These pages list plan tiers and rates but scatter the info across multiple help articles with enterprise-focused language.
-5. Likely non-official competitor pattern: Most SEO pages either (a) give a one-line "yes it's free with Pro" answer that's already outdated, or (b) reproduce the rate card numbers without explaining what they mean in practice.
-6. LoreAI standout angle: Decode the three completely different pricing models (bundled ChatGPT access, API token billing for CLI, and free credit programs) into one clear decision tree. Most users don't realize "Codex" means different things depending on whether you use the app or CLI, and each has its own cost structure.
-
-Source list:
-- OpenAI Codex product page (openai.com/codex)
-- OpenAI Codex rate card (help.openai.com/en/articles/20001106)
-- OpenAI Codex help article (help.openai.com/en/articles/11096431)
-- OpenAI Codex CLI intro blog (openai.com/index/introducing-codex/)
-- OpenAI Codex app intro blog (openai.com/index/introducing-the-codex-app/)
-
-FRESHNESS NOTE: Codex pricing is in active flux. The app launched as a research preview with "free" bundled access, but OpenAI has announced rate limits and paid tiers. The rate card details and credit amounts may change. All pricing claims below sourced from official OpenAI pages as of April 2026.
--->
-
 # Is Codex Free or Paid?
 
 **Both.** [Codex](/glossary/codex) has free access paths and paid paths, but which one applies depends on *how* you use it — the cloud-based Codex app inside ChatGPT, the open-source [Codex CLI](/glossary/codex-cli) in your terminal, or the API directly. Each surface has a different cost structure, and OpenAI doesn't make this obvious on any single page.
