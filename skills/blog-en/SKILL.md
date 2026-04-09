@@ -5,8 +5,9 @@
 Write like a **senior engineer explaining something to a smart colleague** — authoritative but accessible. You've done the research, you understand the nuances, and you're sharing your analysis over a whiteboard session.
 
 Do:
-- Write in first-person practitioner voice: "After testing X in production for 3 months...", "In our deployment..."
-- Never write as a journalist or reviewer — write as someone with hands-on experience
+- Write in an expert analytical voice — a senior engineer explaining to a smart colleague
+- Show authority through depth of analysis, not claimed personal experience
+- Do **not** imply first-hand production use, benchmarking, or long-term testing unless that evidence is explicitly provided in the source material. Avoid: "After testing this in production…", "In our deployment…", "We found…" — unless sourced
 - Lead with the most important insight, not background
 - Use concrete specifics: benchmark scores, token counts, pricing, architecture details
 - Compare to existing tools/models the reader already knows
@@ -22,6 +23,27 @@ Don't:
 - Write walls of text — use short paragraphs (2-4 sentences max)
 - Repeat the same point across sections
 - Hedge excessively: "It could potentially maybe be useful"
+
+## Pre-Draft Planning
+
+Before drafting, generate these fields (include as a comment block at the top of the draft for review, then strip before publish):
+
+1. **Target keyword**
+2. **Likely top-ranking page type** — what currently ranks for this query? (official docs? competitor blog? forum thread?)
+3. **What official docs already cover** — summarize the vendor's own page on this topic
+4. **What most SEO competitors do poorly** — identify the gap (thin rewrites? outdated? no practical advice?)
+5. **LoreAI's standout angle** — the specific reason a reader would choose this page over docs or other blogs
+6. **The single most useful thing** the reader should learn from this page
+
+The standout angle must be concrete. "Comprehensive guide" is not a standout angle. "Explains the 3 permission modes, when to use each, and the gotcha that trips up most teams" is.
+
+## Official-Doc Differentiation
+
+When covering product queries where official docs are likely to rank (installation, pricing, CLI reference, setup, permissions, changelogs):
+
+- Do **not** produce a thinner version of the vendor's docs
+- Add value through: workflow framing, decision guidance, explanation of *why* a feature matters, confusion cleanup, tradeoff analysis, synthesis across multiple official sources
+- **Self-check:** If the draft reads like reworded docs with no original analysis, rewrite it
 
 ## Structure Templates
 
@@ -182,6 +204,34 @@ Every blog post MUST include:
 3. **Word count**: Tutorials: 1,800-2,500 words. Comparisons: 4,000-5,000 words. (excluding frontmatter)
 4. **Concrete over abstract**: Numbers, examples, code > vague claims.
 5. **Every claim needs a source**: Link to official announcements, papers, benchmarks.
+
+## Source Hierarchy & Freshness
+
+When researching and drafting, use this source priority order:
+
+1. **Official docs / official blog / official pricing pages / official changelog** — primary factual source
+2. **Official GitHub repos / official examples** — for code snippets and implementation details
+3. **High-quality secondary sources** — for framing, tutorials, comparison angles
+4. **Community discussions** — only for recurring confusion signals, not primary factual claims
+
+For **pricing, plan tiers, model access, availability, setup steps, permissions, security claims, and changelogs**:
+- Prefer official sources only where possible
+- Note that the information is freshness-sensitive
+- Include "as of {date checked}" or "at time of writing" where relevant
+
+## Anti-Generic Rule
+
+Reject drafts that feel like:
+- Reworded official docs with no original analysis
+- Vague "complete guide" filler with padded intros
+- No real opinion, prioritization, or decision guidance
+- No practical recommendation or "what to do next"
+
+Every blog post must include at least one of:
+- A decision rule ("If X, do Y; if Z, do W")
+- A tradeoff explanation ("X gives you A but costs B")
+- A practical workflow recommendation with concrete steps
+- A "what to do next" section grounded in the query, not generic advice
 
 ## Forbidden Phrases
 

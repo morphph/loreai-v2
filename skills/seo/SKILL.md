@@ -54,6 +54,61 @@ Every page must be optimized for AI answer engine extraction (Perplexity, ChatGP
 3. **Statistics with sources**: Include a concrete statistic or data point with a source link every 150-200 words (e.g., "According to [Anthropic's benchmarks](url), Claude scores 92.3% on HumanEval").
 4. **FAQ schema section**: Every page must end with a "## Frequently Asked Questions" section containing 3-5 questions in H3 format. This enables FAQPage JSON-LD extraction.
 
+## Pre-Draft Planning (All Page Types)
+
+Before writing any page, generate these fields (include as a comment block at the top of the draft for review, then strip before publish):
+
+1. **Target keyword**
+2. **Page type** (glossary / faq / compare / topic-hub)
+3. **Keyword intent** — classify as one of:
+   - **definitional**: "what is X" → answer fast, define clearly, explain why it matters, link deeper
+   - **setup / activation**: "how to install X", "X login" → focus on prerequisites, steps, blockers, next steps
+   - **pricing / plan evaluation**: "is X free", "X pricing" → answer the commercial question first, separate included access vs API billing vs enterprise path
+   - **comparison / alternative**: "X vs Y", "X alternative" → give a real recommendation by user type, avoid fake neutrality
+   - **troubleshooting**: "X not working", "X error" → focus on diagnosis order, common causes, resolution steps
+   - **disambiguation / confusion cleanup**: "X vs X (different thing)" → explicitly contrast the confused terms early using crisp "X is…, Y is…" framing
+4. **Likely official-doc competitor** — what page from the vendor's own docs will rank for this query?
+5. **Likely non-official competitor pattern** — what do existing SEO pages do? (thin rewrites? listicles? outdated info?)
+6. **LoreAI standout angle** — answer: "Why would a reader choose this page instead of the docs or another SEO page?"
+
+The standout angle must be concrete. "We provide more detail" is not a standout angle. "We explain the 3 plan tiers in plain English and recommend which one based on team size" is.
+
+## Competitive Positioning (All Page Types)
+
+For product queries where official docs are likely to rank #1 (installation, pricing, login, CLI reference, permissions, changelog, setup), do **not** try to reproduce docs. LoreAI wins by doing one or more of:
+
+- Clarifying confusing terminology
+- Explaining who the feature is actually for (and who it's not for)
+- Translating docs into practical workflows with decision points
+- Explaining tradeoffs and limitations the docs don't cover
+- Summarizing recent changes in plain English (what changed, what it means for you)
+- Connecting multiple official sources into one coherent answer
+
+**Self-check:** If the page reads like a thinner copy of official documentation, rewrite it. Every page must include at least one of:
+
+- A decision rule ("If X, choose Y; if Z, choose W")
+- A tradeoff explanation ("X gives you A but costs B")
+- A confusion-clearing distinction ("X is not the same as Y — here's the difference")
+- A workflow recommendation ("Start with A, then B, skip C unless you need D")
+- A prioritization recommendation ("Focus on X first; Y only matters if you're doing Z")
+
+Pages that merely restate the keyword, lightly rewrite official docs, list features without analysis, or present empty pros/cons tables without a verdict must be rejected and rewritten.
+
+## Source Hierarchy & Freshness (All Page Types)
+
+When researching and drafting, use this source priority order:
+
+1. **Official docs / official blog / official pricing pages / official changelog** — primary factual source
+2. **Official GitHub repos / official examples** — for code snippets and implementation details
+3. **High-quality secondary sources** — for framing, tutorials, comparison angles, workflow context
+4. **Community discussions** — only for recurring confusion signals, not primary factual claims
+
+For **pricing, model access, plan tiers, availability, setup steps, permissions, security claims, and changelogs**:
+- Prefer official sources only where possible
+- Mention that the information is freshness-sensitive
+- Include "as of {date checked}" or "at time of writing" where relevant
+- Never state pricing or plan details without sourcing
+
 ## Internal Linking Rules (All Page Types)
 
 Every SEO page MUST include contextually relevant internal links:
@@ -71,6 +126,13 @@ Every SEO page MUST include contextually relevant internal links:
 - Do not force links — only link where the keyword naturally appears in text
 
 **`related_topics` field**: If the content is about a specific topic hub (e.g., claude-code, codex), include `related_topics: [slug]` in frontmatter. This enables auto-aggregation on topic hub pages.
+
+**Cluster-role linking logic** — each page type has a directional role in the cluster:
+
+- **Glossary**: Define the term → link upward to the topic hub → link sideways to 2-3 related glossary terms → link to 1 practical page (blog/FAQ)
+- **FAQ**: Answer one narrow question → link to 1 glossary page for the key term → link to 1 deeper explainer (blog or comparison)
+- **Comparison**: Act as a decision page → link to both entities' overview/definition pages → link to related setup/pricing pages
+- **Topic hub**: Act as the parent node → route users into glossary, FAQ, blog, and compare pages within the cluster
 
 ## CTA (All Page Types)
 

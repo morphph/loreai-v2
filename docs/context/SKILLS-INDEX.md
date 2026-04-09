@@ -2,7 +2,7 @@
 title: "Skills Index"
 status: active
 category: guide
-last-updated: 2026-04-08
+last-updated: 2026-04-09
 depends-on: []
 ---
 
@@ -22,11 +22,11 @@ depends-on: []
 | Newsletter Weekly ZH | `skills/newsletter-weekly-zh/SKILL.md` | Chinese weekly retrospective, connecting dots for tech-savvy audience | `write-weekly.ts` |
 | Email EN | `skills/email-en/SKILL.md` | Concise email rewrite with punchy subject lines (4-8 words) | `send-newsletter.ts` |
 | Email ZH | `skills/email-zh/SKILL.md` | Chinese email rewrite with subject lines (30 char max) | `send-newsletter.ts` |
-| Blog EN | `skills/blog-en/SKILL.md` | Major rewrite: two templates (tutorial 1800-2500w, comparison 4000-5000w), AEO-optimized, practitioner voice | `process-queue.ts` (blog type) |
+| Blog EN | `skills/blog-en/SKILL.md` | v0.2: two templates (tutorial 1800-2500w, comparison 4000-5000w), AEO-optimized. Added: pre-draft planning, official-doc differentiation, source hierarchy, anti-generic rule. Voice shifted from fabricated practitioner to expert analytical | `process-queue.ts` (blog type) |
 | Blog ZH | `skills/blog-zh/SKILL.md` | Chinese blog, 平实有温度直击核心, not translated from EN | `process-queue.ts` (blog type) |
 | Topic Blog EN | `skills/topic-blog-en/SKILL.md` | Word count upgraded to 5000-8000w, 8-12 H2 sections, AEO requirements, min 5 FAQ questions | `write-topic-blog.ts` |
 | Topic Blog ZH | `skills/topic-blog-zh/SKILL.md` | Chinese deep blog with Chinese examples and token counting | `write-topic-blog.ts` |
-| SEO | `skills/seo/SKILL.md` | Unified skill for glossary, FAQ, compare, topic-hub pages with AEO principles. Added AEO section, comparison pages expanded to 4000-5000w, topic hubs expanded to 3000-5000w | `process-queue.ts` (SEO types) |
+| SEO | `skills/seo/SKILL.md` | v0.2: Unified skill for glossary, FAQ, compare, topic-hub with AEO. Added: pre-draft planning with intent archetypes, competitive positioning vs official docs, source hierarchy with freshness rules, cluster-role linking logic, commodity SEO avoidance | `process-queue.ts` (SEO types) |
 | SEO Refresh | `skills/seo-refresh/SKILL.md` | Refresh existing pages based on GSC performance signals | `performance-cycle.ts` |
 | Video-to-Blog ZH | `skills/video-to-blog-zh/SKILL.md` | Convert video scripts to written Chinese blog posts (Phase 2) | `import-video-blog.ts` |
 
