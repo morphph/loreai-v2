@@ -1,6 +1,7 @@
 ---
 title: "What Makes Claude So Good at Coding? The Architecture Behind Anthropic's AI Agent"
 slug: what-makes-claude-so-good-at-coding
+date: "2026-04-07"
 description: "What makes Claude so good at coding? From agentic architecture to skill files and full shell access, here's why Claude Code outperforms traditional copilots."
 lang: en
 category: tools

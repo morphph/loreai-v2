@@ -4,7 +4,7 @@ import { getAllNewsletters, getWeeklyNewsletters } from '@/lib/content';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 export const metadata: Metadata = {
-  title: 'AI 日报归档 | LoreAI',
+  title: 'AI 日报归档',
   description:
     '每日 AI 新闻简报，涵盖模型发布、开发工具和行业动态。为创始人和工程师精选。',
 };

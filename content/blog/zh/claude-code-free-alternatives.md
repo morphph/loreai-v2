@@ -1,6 +1,7 @@
 ---
 title: "Claude Code 免费替代方案全览：2026 年最值得试的开源与免费 AI 编程工具"
 slug: claude-code-free-alternatives
+date: "2026-04-03"
 description: "盘点 Claude Code 的免费替代方案：从 OpenAI Codex CLI 到本地 LLM，帮你找到最适合的 AI 编程工具。"
 lang: zh
 category: tools

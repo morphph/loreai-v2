@@ -32,6 +32,32 @@ const nextConfig: NextConfig = {
       { source: '/en/glossary/transformer', destination: '/glossary/transformers', permanent: true },
       { source: '/en/glossary/mcp-server', destination: '/glossary/mcp', permanent: true },
 
+      // ── Glossary semantic duplicate consolidation (301) — content audit 2026-04-09 ──
+      // MCP cluster → /glossary/mcp
+      ...[
+        'model-context-protocol',
+        'what-is-mcp-claude-code',
+      ].flatMap(slug => [
+        { source: `/glossary/${slug}`, destination: '/glossary/mcp', permanent: true },
+        { source: `/zh/glossary/${slug}`, destination: '/zh/glossary/mcp', permanent: true },
+      ]),
+      // Codex cluster → /glossary/codex
+      ...[
+        'what-does-codex-mean',
+      ].flatMap(slug => [
+        { source: `/glossary/${slug}`, destination: '/glossary/codex', permanent: true },
+        { source: `/zh/glossary/${slug}`, destination: '/zh/glossary/codex', permanent: true },
+      ]),
+      // Codex CLI cluster
+      { source: '/zh/glossary/what-is-codex-cli', destination: '/zh/glossary/codex-cli', permanent: true },
+      // Hooks cluster → /glossary/claude-code-hooks
+      ...[
+        'what-are-claude-code-hooks',
+      ].flatMap(slug => [
+        { source: `/glossary/${slug}`, destination: '/glossary/claude-code-hooks', permanent: true },
+        { source: `/zh/glossary/${slug}`, destination: '/zh/glossary/claude-code-hooks', permanent: true },
+      ]),
+
       // /en index pages → root
       { source: '/en', destination: '/', permanent: true },
       { source: '/en/newsletter', destination: '/newsletter', permanent: true },
@@ -50,6 +76,10 @@ const nextConfig: NextConfig = {
       { source: '/en/topics/:slug', destination: '/topics/:slug', permanent: true },
       // Legacy feed URL
       { source: '/rss.xml', destination: '/feed.xml', permanent: true },
+
+      // ── Duplicate comparison consolidation (301) — content audit 2026-04-09 ──
+      { source: '/compare/codex-vs-claude-code', destination: '/compare/claude-code-vs-codex', permanent: true },
+      { source: '/zh/compare/codex-vs-claude-code', destination: '/zh/compare/claude-code-vs-codex', permanent: true },
 
       // ── Sunset compare pages (301) — content audit 2026-04-01 ──
       ...[

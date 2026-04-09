@@ -1,6 +1,7 @@
 ---
 title: "Codex 是怎么工作的：从 App 到编辑器再到终端的完整工作流"
 slug: how-codex-works
+date: "2026-04-01"
 description: "Codex 如何工作？本文拆解 OpenAI Codex 的核心机制：云端 Agent 架构、三端工作流与实际使用逻辑。"
 lang: zh
 category: tools

@@ -5,9 +5,13 @@ import GlossaryList from '@/components/GlossaryList';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 export const metadata: Metadata = {
-  title: 'AI Glossary | LoreAI',
+  title: 'AI Glossary',
   description:
     'Comprehensive AI glossary covering models, tools, concepts, and frameworks. Clear definitions for practitioners and learners.',
+  openGraph: {
+    title: 'AI Glossary | LoreAI',
+    description: 'Comprehensive AI glossary covering models, tools, concepts, and frameworks.',
+  },
 };
 
 export default function GlossaryIndexPage() {

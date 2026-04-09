@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const topic = getTopic(slug, 'zh');
   if (!topic) {
-    return { title: '主题未找到 | LoreAI' };
+    return { title: '主题未找到' };
   }
   return topicMetadata(
     topic.meta.title,
@@ -53,7 +53,9 @@ export default async function ZhTopicDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  const rawHtml = await markdownToHtml(topic.content);
+  // Strip leading H1 from markdown to avoid duplicate H1 (page header already has one)
+  const contentWithoutH1 = topic.content.replace(/^#\s+.+\n*/m, '');
+  const rawHtml = await markdownToHtml(contentWithoutH1);
   const htmlContent = addHeadingIds(rawHtml);
 
   const pillarTopic = (topic.meta.pillar_topic as string) || topic.meta.title;

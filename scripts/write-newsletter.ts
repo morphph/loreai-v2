@@ -962,7 +962,10 @@ function extractHeadlineFromBody(md: string, lang: string): string | null {
   if (!subMatch) return null;
   const sub = subMatch[1].replace(/[。.]\s*$/, '').trim();
   if (lang === 'zh' && !/[\u4e00-\u9fff\u3400-\u4dbf]/.test(sub)) return null;
-  return sub.slice(0, 80);
+  if (sub.length <= 90) return sub;
+  // Truncate at last word boundary before 90 chars
+  const truncated = sub.slice(0, 90).replace(/\s+\S*$/, '');
+  return truncated || sub.slice(0, 90);
 }
 
 function extractTitle(md: string): string {

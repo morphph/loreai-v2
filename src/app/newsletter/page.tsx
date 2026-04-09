@@ -4,9 +4,13 @@ import { getAllNewsletters, getWeeklyNewsletters } from '@/lib/content';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 export const metadata: Metadata = {
-  title: 'AI Newsletter Archive | LoreAI',
+  title: 'AI Newsletter Archive',
   description:
     'Daily and weekly AI news briefings for founders and engineers. Curated coverage of model releases, developer tools, and industry trends.',
+  openGraph: {
+    title: 'AI Newsletter Archive | LoreAI',
+    description: 'Daily and weekly AI news briefings for founders and engineers.',
+  },
 };
 
 const ITEMS_PER_PAGE = 20;

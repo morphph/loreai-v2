@@ -6,7 +6,7 @@ import GlossaryList from '@/components/GlossaryList';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 export const metadata: Metadata = {
-  title: 'AI 词汇表 | LoreAI',
+  title: 'AI 词汇表',
   description:
     '全面的 AI 词汇表，涵盖模型、工具、概念和框架。为从业者和学习者提供清晰的定义。',
 };

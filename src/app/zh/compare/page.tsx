@@ -4,7 +4,7 @@ import { getAllCompare } from '@/lib/content';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 export const metadata: Metadata = {
-  title: 'AI 对比 | LoreAI',
+  title: 'AI 对比',
   description:
     'AI 工具、模型和框架的并排对比。通过我们的详细分析做出明智的决策。',
 };

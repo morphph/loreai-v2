@@ -1,6 +1,7 @@
 ---
 title: "How OpenAI Codex Security Works: A Guide for Security Teams"
 slug: how-codex-security-works
+date: "2026-04-01"
 description: "How OpenAI Codex Security works: sandboxed AI agents for vulnerability research, triage, and offensive security workflows."
 lang: en
 category: tools

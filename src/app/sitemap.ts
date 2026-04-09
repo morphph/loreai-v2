@@ -42,7 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // ── Static pages ──────────────────────────────────────────────────────
   const staticPages: MetadataRoute.Sitemap = [
-    ...bilingualPair('/', '/zh/', now, 'daily', 1.0),
+    ...bilingualPair('', '/zh', now, 'daily', 1.0),
     ...bilingualPair('/newsletter', '/zh/newsletter', now, 'daily', 0.9),
     ...bilingualPair('/blog', '/zh/blog', now, 'weekly', 0.8),
     ...bilingualPair('/glossary', '/zh/glossary', now, 'weekly', 0.7),
@@ -66,6 +66,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     for (const item of enItems) {
       const slug = item.meta.slug;
+      if (!slug || slug === 'undefined') continue;
       const enUrl = `${SITE_URL}${enPrefix}/${slug}`;
       const zhUrl = `${SITE_URL}${zhPrefix}/${slug}`;
       const hasZh = zhSlugs.has(slug);
@@ -98,6 +99,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // ZH-only items (no EN counterpart)
     for (const item of zhItems) {
       if (!zhSlugs.has(item.meta.slug)) continue;
+      if (!item.meta.slug || item.meta.slug === 'undefined') continue;
       result.push({
         url: `${SITE_URL}${zhPrefix}/${item.meta.slug}`,
         lastModified: safeDate(item.meta.date),

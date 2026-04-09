@@ -4,9 +4,13 @@ import { getAllTopics } from '@/lib/content';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 export const metadata: Metadata = {
-  title: 'AI Topics | LoreAI',
+  title: 'AI Topics',
   description:
     'Explore AI topic hubs covering major areas of artificial intelligence. Curated guides, tools, and resources for each topic.',
+  openGraph: {
+    title: 'AI Topics | LoreAI',
+    description: 'Explore AI topic hubs covering major areas of artificial intelligence.',
+  },
 };
 
 export default function TopicsIndexPage() {

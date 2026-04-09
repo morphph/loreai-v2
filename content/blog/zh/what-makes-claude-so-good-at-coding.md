@@ -1,6 +1,7 @@
 ---
 title: "Claude 为什么写代码这么强？从架构到工程化的深度拆解"
 slug: what-makes-claude-so-good-at-coding
+date: "2026-04-07"
 description: "深度解析 Claude 在编程领域的核心优势：从 Agent 架构、上下文工程到 Skills 系统，理解它为什么能成为开发者首选。"
 lang: zh
 category: tools

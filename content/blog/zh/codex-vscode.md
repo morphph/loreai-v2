@@ -1,6 +1,7 @@
 ---
 title: OpenAI Codex VS Code 扩展：在 IDE 里用上编程 Agent
 slug: codex-vscode
+date: "2026-03-31"
 description: OpenAI Codex 现已登陆 VS Code、Cursor 和 JetBrains。本文带你了解如何安装、如何用好它，以及避免哪些坑。
 lang: zh
 category: tools

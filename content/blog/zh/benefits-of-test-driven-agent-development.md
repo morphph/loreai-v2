@@ -1,6 +1,7 @@
 ---
 title: "测试驱动的 Agent 开发：为什么 TDD 是 AI 智能体质量的生命线"
 slug: benefits-of-test-driven-agent-development
+date: "2026-04-06"
 description: "测试驱动的 Agent 开发能显著提升 AI 智能体的可靠性与可维护性，本文解析 TDD 在 Agent 工作流中的核心优势与实践要点。"
 lang: zh
 category: techniques

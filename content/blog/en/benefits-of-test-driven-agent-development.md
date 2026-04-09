@@ -1,6 +1,7 @@
 ---
 title: "Benefits of Test-Driven Agent Development: Why TDD Matters More for AI Agents"
 slug: benefits-of-test-driven-agent-development
+date: "2026-04-06"
 description: "Test-driven agent development catches failures before deployment. Learn why TDD is essential for building reliable AI coding agents."
 lang: en
 category: techniques

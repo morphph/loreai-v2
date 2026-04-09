@@ -1,6 +1,7 @@
 ---
 title: "Claude Code MCP Setup: How to Connect MCP Servers to Your AI Coding Agent"
 slug: claude-code-mcp-setup
+date: "2026-04-03"
 description: "Step-by-step guide to Claude Code MCP setup — connect external tools, databases, and APIs to your terminal AI agent via Model Context Protocol."
 lang: en
 category: tools

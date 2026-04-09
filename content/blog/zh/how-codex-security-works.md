@@ -1,6 +1,7 @@
 ---
 title: "OpenAI Codex Security 是怎么工作的？"
 slug: how-codex-security-works
+date: "2026-04-01"
 description: "OpenAI 推出 Codex Security，专为安全团队设计的 AI 编程 Agent。本文拆解其工作原理、核心能力与实际使用场景。"
 lang: zh
 category: tools

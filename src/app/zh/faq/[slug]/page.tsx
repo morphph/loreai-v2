@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const faq = getFaq(slug, 'zh');
   if (!faq) {
-    return { title: '问题未找到 | LoreAI' };
+    return { title: '问题未找到' };
   }
   return faqMetadata(
     faq.meta.title,

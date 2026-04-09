@@ -5,9 +5,13 @@ import BlogCard from '@/components/BlogCard';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 export const metadata: Metadata = {
-  title: 'Blog | LoreAI',
+  title: 'Blog',
   description:
     'In-depth articles on AI models, tools, trends, and engineering practices. Expert analysis from the LoreAI team.',
+  openGraph: {
+    title: 'Blog | LoreAI',
+    description: 'In-depth articles on AI models, tools, trends, and engineering practices.',
+  },
 };
 
 const ITEMS_PER_PAGE = 12;

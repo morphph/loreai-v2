@@ -5,7 +5,7 @@ import BlogCard from '@/components/BlogCard';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 export const metadata: Metadata = {
-  title: '博客 | LoreAI',
+  title: '博客',
   description:
     '深入分析 AI 模型、工具、趋势和工程实践。来自 LoreAI 团队的专业解读。',
 };

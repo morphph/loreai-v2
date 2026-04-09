@@ -1,6 +1,7 @@
 ---
 title: "Claude Code Async Hooks 是什么？理解 AI 编程助手的生命周期钩子"
 slug: what-is-async-hooks-in-claude-code
+date: "2026-04-06"
 description: "Claude Code Hooks 是在工具调用等事件触发时自动执行的 Shell 命令，实现对 AI 编程行为的精确控制。"
 lang: zh
 category: tools

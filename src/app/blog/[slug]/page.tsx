@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const post = getBlogPost(slug, 'en');
   if (!post) {
-    return { title: 'Post Not Found | LoreAI' };
+    return { title: 'Post Not Found' };
   }
   return blogMetadata(
     post.meta.title,

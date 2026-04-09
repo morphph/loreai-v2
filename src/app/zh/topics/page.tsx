@@ -4,7 +4,7 @@ import { getAllTopics } from '@/lib/content';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 export const metadata: Metadata = {
-  title: 'AI 主题 | LoreAI',
+  title: 'AI 主题',
   description:
     '探索 AI 主题中心，涵盖人工智能的主要领域。每个主题的精选指南、工具和资源。',
 };

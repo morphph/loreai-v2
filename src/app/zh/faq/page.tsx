@@ -5,7 +5,7 @@ import { faqPageJsonLd, jsonLdScript } from '@/lib/seo';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 export const metadata: Metadata = {
-  title: '常见问题 | LoreAI',
+  title: '常见问题',
   description:
     '关于 AI 工具、模型和概念的常见问题解答。获取常见 AI 问题的清晰答案。',
 };

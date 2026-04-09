@@ -1,6 +1,7 @@
 ---
 title: "How Codex Works: OpenAI's Cloud-Based AI Coding Agent Explained"
 slug: how-codex-works
+date: "2026-04-01"
 description: "How does OpenAI Codex work? A technical breakdown of the cloud agent model, app workflow, VS Code integration, and multi-agent capabilities."
 lang: en
 category: tools

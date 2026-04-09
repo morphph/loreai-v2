@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const item = getCompare(slug, 'zh');
   if (!item) {
-    return { title: '对比未找到 | LoreAI' };
+    return { title: '对比未找到' };
   }
   return compareMetadata(
     item.meta.title,

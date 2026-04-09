@@ -1,6 +1,7 @@
 ---
 title: "What Are Async Hooks in Claude Code? Understanding the Lifecycle"
 slug: what-is-async-hooks-in-claude-code
+date: "2026-04-06"
 description: "Async hooks in Claude Code are shell commands that fire at lifecycle events like tool calls and prompts. Here's how they work and when to use them."
 lang: en
 category: tools

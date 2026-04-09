@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { date } = await params;
   const newsletter = getNewsletter(date, 'zh') || getWeeklyNewsletter(date, 'zh');
   if (!newsletter) {
-    return { title: '日报未找到 | LoreAI' };
+    return { title: '日报未找到' };
   }
   return newsletterMetadata(
     newsletter.meta.title,

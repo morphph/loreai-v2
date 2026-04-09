@@ -1,6 +1,7 @@
 ---
 title: 'OpenAI Codex VS Code Extension: What It Is and How It Works'
 slug: codex-vscode
+date: "2026-03-31"
 description: >-
   OpenAI's Codex coding agent is now available as a VS Code extension. Here's
   what it does, who can use it, and how it fits into your workflow.

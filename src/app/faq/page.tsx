@@ -5,9 +5,13 @@ import { faqPageJsonLd, jsonLdScript } from '@/lib/seo';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 export const metadata: Metadata = {
-  title: 'FAQ | LoreAI',
+  title: 'FAQ',
   description:
     'Frequently asked questions about AI tools, models, and concepts. Get clear answers to common AI questions.',
+  openGraph: {
+    title: 'FAQ | LoreAI',
+    description: 'Frequently asked questions about AI tools, models, and concepts.',
+  },
 };
 
 export default function FaqIndexPage() {

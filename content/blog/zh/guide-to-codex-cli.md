@@ -1,6 +1,7 @@
 ---
 title: "Codex CLI 完全上手指南：从安装到实战"
 slug: guide-to-codex-cli
+date: "2026-04-01"
 description: "Codex CLI 的完整使用指南：安装配置、ChatGPT 套餐绑定、命令行工作流与实战技巧，帮你快速掌握这款编程 Agent。"
 lang: zh
 category: tools

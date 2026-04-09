@@ -1,6 +1,7 @@
 ---
 title: "Claude Code MCP 配置完全指南：从零搭建你的第一个 MCP Server 连接"
 slug: claude-code-mcp-setup
+date: "2026-04-03"
 description: "手把手教你在 Claude Code 中配置 MCP Server，包括本地和远程连接方式、常见数据源接入及故障排查。"
 lang: zh
 category: tools

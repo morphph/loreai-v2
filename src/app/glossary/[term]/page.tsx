@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { term } = await params;
   const entry = getGlossaryTerm(term, 'en');
   if (!entry) {
-    return { title: 'Term Not Found | LoreAI' };
+    return { title: 'Term Not Found' };
   }
   const displayTerm = (entry.meta.display_term as string) || entry.meta.title;
   return glossaryMetadata(

@@ -1,6 +1,7 @@
 ---
 title: "A Practical Guide to the Codex CLI: Running AI Coding Agents in Your Terminal"
 slug: guide-to-codex-cli
+date: "2026-04-01"
 description: "Learn how to use the Codex CLI: installation, running with input prompts, and using it with your ChatGPT plan."
 lang: en
 category: tools

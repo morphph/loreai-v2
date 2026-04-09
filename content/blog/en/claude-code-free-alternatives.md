@@ -1,6 +1,7 @@
 ---
 title: "Claude Code Free Alternatives: 7 Options for AI-Assisted Coding in 2026"
 slug: claude-code-free-alternatives
+date: "2026-04-03"
 description: "Explore the best free alternatives to Claude Code for AI-assisted coding, from OpenAI Codex to open-source local LLM options."
 lang: en
 category: tools

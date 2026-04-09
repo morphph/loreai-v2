@@ -4,9 +4,13 @@ import { getAllCompare } from '@/lib/content';
 import NewsletterSignup from '@/components/NewsletterSignup';
 
 export const metadata: Metadata = {
-  title: 'AI Comparisons | LoreAI',
+  title: 'AI Comparisons',
   description:
     'Side-by-side comparisons of AI tools, models, and frameworks. Make informed decisions with our detailed analysis.',
+  openGraph: {
+    title: 'AI Comparisons | LoreAI',
+    description: 'Side-by-side comparisons of AI tools, models, and frameworks.',
+  },
 };
 
 export default function CompareIndexPage() {

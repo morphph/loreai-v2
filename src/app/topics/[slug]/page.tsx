@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const topic = getTopic(slug, 'en');
   if (!topic) {
-    return { title: 'Topic Not Found | LoreAI' };
+    return { title: 'Topic Not Found' };
   }
   return topicMetadata(
     topic.meta.title,
@@ -53,7 +53,9 @@ export default async function TopicDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  const rawHtml = await markdownToHtml(topic.content);
+  // Strip leading H1 from markdown to avoid duplicate H1 (page header already has one)
+  const contentWithoutH1 = topic.content.replace(/^#\s+.+\n*/m, '');
+  const rawHtml = await markdownToHtml(contentWithoutH1);
   const htmlContent = addHeadingIds(rawHtml);
 
   const pillarTopic = (topic.meta.pillar_topic as string) || topic.meta.title;
