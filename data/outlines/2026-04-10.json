@@ -1,0 +1,236 @@
+{
+  "date": "2026-04-10",
+  "headline_hook": "Anthropic Ships the Advisor Pattern While OpenAI Rebuilds Around Codex",
+  "preview_topics": [
+    "the Opus advisor-executor play",
+    "OpenAI's Codex-first pricing pivot",
+    "a 7M-param model that outreasons giants"
+  ],
+  "pick_of_the_day": {
+    "item_id": 21525,
+    "thesis": "The advisor-executor pattern — frontier brain, commodity hands — isn't a pricing hack. It's the architectural template for how every production agent system will manage the intelligence-cost tradeoff for the next two years, and Anthropic just made it a first-class platform primitive."
+  },
+  "model_literacy": {
+    "concept": "Model Cascading & Routing",
+    "relevance": "Today's advisor-executor launch and OpenAI's Codex tier restructuring both point to the same trend: production AI isn't one model, it's a pipeline. Model cascading routes each subtask to the cheapest model that can handle it — the concept behind Anthropic's advisor pattern and why OpenAI is now pricing tiers around workload intensity rather than chat access."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 21525,
+          "title": "Anthropic Makes the Advisor Pattern a Platform Primitive",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Opus as advisor + Sonnet/Haiku as executor means near-frontier agent intelligence at a fraction of the cost — the cost-performance unlock production teams have been hand-rolling for months is now one API call.",
+          "key_fact": "Near Opus-level intelligence at Sonnet/Haiku pricing for agentic workflows"
+        },
+        {
+          "id": 21955,
+          "title": "OpenAI Restructures Subscriptions Around Codex With a New $100 Tier",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "OpenAI's pricing pivot admits what usage data already showed: AI-assisted coding, not chat, is the primary value driver for paid subscribers. The new tier draws a competitive line against Claude Code and Cursor.",
+          "key_fact": "New $100/month tier built around Codex usage intensity"
+        },
+        {
+          "id": 21526,
+          "title": "Claude Cowork Goes GA With Full Enterprise Controls",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "After millions adopted Cowork in 12 weeks of preview, Anthropic ships the RBAC, spend limits, and OpenTelemetry that enterprise security teams require before org-wide rollout.",
+          "key_fact": "RBAC, group spend limits, usage analytics, and OpenTelemetry for Enterprise"
+        },
+        {
+          "id": 21313,
+          "title": "Microsoft Quietly Drops Harrier, a 27B Feature-Extraction Model",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "With 22K downloads already, Harrier is being picked up fast for embedding and retrieval workloads — a direct challenge to existing embedding APIs.",
+          "key_fact": "27B parameters, 22.9K downloads, feature-extraction focus"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 21444,
+          "title": "Claude Code Gets a Monitor Tool That Wakes the Agent When Things Break",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Background monitoring scripts that wake the agent on specific events — start a dev server, watch for errors, react. This is the missing piece for long-running autonomous workflows where agents need to respond to events, not poll.",
+          "key_fact": "Agents can now spawn background scripts that trigger wake-up on events"
+        },
+        {
+          "id": 20637,
+          "title": "Safetensors Joins the PyTorch Foundation",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The safe model serialization format that displaced pickle across the ML ecosystem is now officially under PyTorch Foundation governance — cementing it as the standard weight format.",
+          "key_fact": "Governance moves from Hugging Face to PyTorch Foundation"
+        },
+        {
+          "id": 20112,
+          "title": "OpenAI Adds Paper Review to Prism — Critical Analysis, Not Generation",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A structured workflow for reviewing technical papers, positioned explicitly as the opposite of writing them. Practical for researchers drowning in the arxiv firehose.",
+          "key_fact": "Dedicated AI workflow for structured critical analysis of scientific papers"
+        },
+        {
+          "id": 20584,
+          "title": "Google Open-Sources Scion, an Agent Orchestration Testbed",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "With Anthropic's Managed Agents and OpenAI's AgentKit shipping this week, Google contributes a neutral ground for researchers to compare multi-agent architectures.",
+          "key_fact": "Open-source testbed for experimenting with multi-agent orchestration"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 21869,
+          "title": "A 7M-Parameter Model Matches Big Models on Reasoning Through Pure Recursion",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Tiny Recursion Model achieves strong reasoning results at 7M parameters through recursive computation, directly challenging the assumption that reasoning requires massive scale. If it generalizes, this reshapes the efficiency frontier.",
+          "key_fact": "7M parameters, recursive reasoning approach, competitive results"
+        },
+        {
+          "id": 21102,
+          "title": "OpenAI Foundation Builds an AI Research Platform for Alzheimer's",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A concrete example of frontier AI directed at one of medicine's hardest unsolved problems — not productivity tools, but scientific discovery.",
+          "key_fact": "Purpose-built AI research platform targeting Alzheimer's disease"
+        },
+        {
+          "id": 22069,
+          "title": "Researcher Reverse-Engineers Google's SynthID Watermarking",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "If watermarks can be reliably detected or removed by third parties, it reshapes the entire calculus on AI content provenance and regulation.",
+          "key_fact": "Open-source reverse engineering of SynthID detection mechanism"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 21369,
+          "title": "Sentence Transformers Ships Multimodal Embeddings and Rerankers",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The most widely used embedding library now officially supports multimodal embeddings and rerankers — the easiest on-ramp to unified image + text retrieval for RAG pipelines.",
+          "key_fact": "Official multimodal support in Sentence Transformers"
+        },
+        {
+          "id": 22071,
+          "title": "Research-Driven Agents: Read Before You Code",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "SkyPilot shows that agents that gather context extensively before writing code consistently outperform agents that jump straight to implementation — read docs, search code, then plan.",
+          "key_fact": "Research-first pattern consistently outperforms code-first agents"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 21744,
+          "title": "Karpathy: The AI Capability Perception Gap Is Widening Fast",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "People who tried free-tier ChatGPT a year ago have locked-in views that are wildly outdated. Frontier capability is accelerating faster than public understanding — with real implications for product adoption curves.",
+          "key_fact": "Perception of AI capability lags reality by ~12 months for casual users"
+        },
+        {
+          "id": 21799,
+          "title": "Mollick Maps the Frontier: Who's Leading, Who's Falling Behind",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The clearest competitive landscape snapshot in weeks: Google/OpenAI/Anthropic lead with possible recursive self-improvement signals, xAI has fallen from frontier, Meta re-entered with closed-source.",
+          "key_fact": "xAI no longer frontier-tier; Meta pivots to closed-source"
+        },
+        {
+          "id": 20366,
+          "title": "Mistral and Sakana Forge a Europe-Japan AI Alliance",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "As US labs consolidate, the non-US AI ecosystem is building its own collaborative infrastructure — Europe's open-weight leader teams with Japan's AI-for-science pioneer.",
+          "key_fact": "Formal partnership between Mistral (France) and Sakana (Japan)"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 20382,
+          "title": "ACE-Step 1.5 XL: Open-Weight Music Generation Lands on HuggingFace",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "As AI music generation becomes a real creative tool, open-weight alternatives to proprietary music AI give creators control over their workflow and output.",
+          "key_fact": "Open-weight model with demo, available on HuggingFace"
+        },
+        {
+          "id": 22074,
+          "title": "CSS Studio: Design by Hand, Let the Agent Write the Code",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Inverts the typical AI coding flow — human creativity drives the visual design, AI handles implementation. A practical tool for designers who want pixel-perfect agent output.",
+          "key_fact": "139 HN upvotes, visual-first design-to-code workflow"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 21315,
+      "title": "NVIDIA Ships Nemotron OCR v2 for Document Understanding",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Purpose-built image-to-text model from a hardware vendor with optimized inference paths",
+      "key_fact": "Dedicated OCR model, alternative to general-purpose VLMs"
+    },
+    {
+      "id": 21368,
+      "title": "Waypoint 1.5 Brings Interactive 3D Worlds to Consumer GPUs",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Higher-fidelity interactive world generation that runs on everyday hardware",
+      "key_fact": "Consumer GPU-compatible interactive world model"
+    },
+    {
+      "id": 22073,
+      "title": "Developer Breaks Down Switching From Claude Code to Zed + OpenRouter",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Detailed cost-optimization analysis with 282 HN points — useful data for evaluating AI coding spend",
+      "key_fact": "$100/month reallocation from subscription to direct API access"
+    },
+    {
+      "id": 22070,
+      "title": "InstantDB Hits 1.0 With a Backend Built for AI-Generated Apps",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Schema flexibility and rapid prototyping for the agent-coded app era",
+      "key_fact": "1.0 release with architecture essay explaining the design decisions"
+    },
+    {
+      "id": 21049,
+      "title": "Simon Willison: Nobody Documents Which Search Engines Power AI Chat",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "When you ask Claude or ChatGPT to search, you don't know what backend you're getting",
+      "key_fact": "No major AI lab discloses its chat search engine provider"
+    }
+  ],
+  "total_items": 23
+}
