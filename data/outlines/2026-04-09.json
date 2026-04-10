@@ -1,0 +1,228 @@
+{
+  "date": "2026-04-09",
+  "headline_hook": "Anthropic Ships Managed Agents, Meta Drops Muse Spark, and ChatGPT Remembers Everything",
+  "preview_topics": [
+    "Claude Managed Agents in public beta",
+    "ChatGPT's full-history memory upgrade",
+    "a chip designer lets Claude off the leash"
+  ],
+  "pick_of_the_day": {
+    "item_id": 20491,
+    "thesis": "A chip designer's unscripted Claude Mythos session — where the model autonomously wrote an MCP server, connected to EDA tools, and cut timing violations by 40% — reveals that the real agent unlock isn't better benchmarks, it's models that identify problems you didn't ask them to solve."
+  },
+  "model_literacy": {
+    "concept": "Agent Harness Architecture (Brain vs. Hands)",
+    "relevance": "Both Anthropic's Managed Agents and Meta's Muse Spark decouple the reasoning model from execution infrastructure. Anthropic's engineering blog shows that infrastructure config alone can swing coding benchmarks by several points — sometimes more than the gap between top models. Understanding this split explains why 'just a better model' isn't enough for production agents."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 20791,
+          "title": "Claude Managed Agents Enters Public Beta — Anthropic's Play for the Agent Infrastructure Layer",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Anthropic is betting that the bottleneck for production agents isn't model quality but the harness around it — Managed Agents pairs a tuned runtime with hosted infra to collapse the prototype-to-deploy gap to days.",
+          "key_fact": "Public beta available now on the Claude Platform with production-grade agent harness"
+        },
+        {
+          "id": 20952,
+          "title": "Meta Superintelligence Labs Unveils Muse Spark — A Natively Multimodal Reasoning Model",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "MSL's first model ships with visual chain-of-thought, tool use, and multi-agent orchestration baked in from training — not bolted on after. Meta signals it wants to open-source future versions.",
+          "key_fact": "Natively multimodal with visual CoT; available on meta.ai today, API in private preview, open-source planned for future versions"
+        },
+        {
+          "id": 20480,
+          "title": "OpenAI Drops o3 and o4-mini — Reasoning Models That Use Tools",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "For the first time, OpenAI's reasoning models can natively invoke tools mid-chain — collapsing the agent scaffolding that developers were building around earlier o-series models.",
+          "key_fact": "First OpenAI reasoning models with native tool use during inference"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 20485,
+          "title": "ChatGPT Now Remembers All Your Past Conversations",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "OpenAI flips the switch on full chat-history memory — ChatGPT can now reference every prior conversation to personalize responses, turning it from a stateless tool into something closer to a persistent collaborator.",
+          "key_fact": "Memory now draws on all past chats, not just explicitly saved memories"
+        },
+        {
+          "id": 20477,
+          "title": "OpenAI Launches Study Tools to Keep ChatGPT from Doing Students' Homework",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "New guardrails push ChatGPT toward Socratic tutoring instead of answer-dumping — OpenAI's bet that the education market requires a fundamentally different UX than general chat.",
+          "key_fact": "Dedicated student mode designed to foster understanding over direct answers"
+        },
+        {
+          "id": 19197,
+          "title": "OpenAI's Computer-Using Agent Learns to Point and Click",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "CUA bridges the gap between API-first agents and the messy reality of GUIs — important infrastructure for agents that need to interact with software that has no API.",
+          "key_fact": "Full computer-use agent operating through visual GUI interaction"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 20771,
+          "title": "Inside Managed Agents: Designing Infrastructure for 'Programs as Yet Unthought Of'",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Anthropic's engineering blog reveals the hardest problem in agent infrastructure isn't the model — it's building a system flexible enough for agent behaviors that don't exist yet.",
+          "key_fact": "Engineering blog details the architecture behind Managed Agents' hosted runtime"
+        },
+        {
+          "id": 20639,
+          "title": "Why Your Agent Infra Matters More Than Your Model Choice",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Anthropic's deep dive shows infrastructure configuration can swing agentic coding benchmarks by several percentage points — sometimes exceeding the gap between top models on leaderboards.",
+          "key_fact": "Infra config swings agentic benchmarks by more points than the gap between top models"
+        },
+        {
+          "id": 19771,
+          "title": "Vellum: An MCP Server Where AI Models Leave Traces for Each Other",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A shared MCP space where Claude, Gemini, GPT, and Kimi deposit thought fragments in 10+ languages — an early experiment in inter-model communication and emergent AI collaboration.",
+          "key_fact": "242 AI voices contributing unprompted traces across thematic currents"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 20636,
+          "title": "ALTK-Evolve: Teaching Agents to Learn on the Job Instead of in the Lab",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "IBM's framework lets agents improve their tool-use strategies through deployment experience rather than pre-training — closing the gap between lab evals and real-world performance.",
+          "key_fact": "On-the-job learning framework for AI agents from IBM Research"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 20628,
+          "title": "Anthropic Hits $30B ARR as Claude Mythos Preview Draws GPT-2-Era 'Too Dangerous' Comparisons",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Latent Space reports Anthropic's revenue has exploded alongside Project GlassWing and the Mythos preview — positioning the company for an offensive against OpenAI's IPO narrative.",
+          "key_fact": "$30B ARR; Mythos described as first model 'too dangerous to release' since GPT-2"
+        },
+        {
+          "id": 20131,
+          "title": "OpenAI Retires Six Codex Models on April 14 — The GPT-5 Era Cleanup Begins",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Retiring gpt-5, gpt-5.1, and gpt-5.2-codex variants signals OpenAI is consolidating its model zoo — developers on older Codex endpoints have days to migrate.",
+          "key_fact": "Six models including gpt-5 and gpt-5.2-codex retired April 14"
+        },
+        {
+          "id": 20953,
+          "title": "Inside MSL's Nine-Month Rebuild: Why Meta Started Its AI Stack from Scratch",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Alexandr Wang reveals Meta Superintelligence Labs rebuilt their entire AI stack from zero in nine months — a bet that architectural debt from the LLaMA era was holding them back.",
+          "key_fact": "Complete AI stack rebuilt from scratch over nine months before Muse Spark launch"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 20491,
+          "title": "Claude Mythos Autonomously Writes an MCP Server, Optimizes a Chip Layout, Cuts Timing Violations 40%",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "An engineer asked Mythos to optimize a chip design. Without being told how, it wrote its own MCP server to interface with Innovus, parsed timing reports, re-floorplanned macro placement, and dropped TNS by 40% — a glimpse of agents as autonomous engineering collaborators.",
+          "key_fact": "40% TNS reduction; model autonomously created MCP server and connected to EDA toolchain"
+        },
+        {
+          "id": 20559,
+          "title": "VoxCPM2: Open-Source Text-to-Speech Model Trending on HuggingFace",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "OpenBMB drops a new TTS model that's gaining traction in the open-source community — another step toward commoditized high-quality voice synthesis.",
+          "key_fact": "242 likes and trending on HuggingFace"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 19193,
+      "title": "OpenAI o3 Mini Gets Its Own Release Page",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Smaller, faster reasoning model now formally documented",
+      "key_fact": "Dedicated o3-mini product page live on openai.com"
+    },
+    {
+      "id": 19198,
+      "title": "GPT-4.5 Introduction Post Still Drawing Reads",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "OpenAI's pre-reasoning-era flagship gets a formal writeup",
+      "key_fact": "Official introduction page on openai.com"
+    },
+    {
+      "id": 19204,
+      "title": "Codex Launch Post Resurfaces Amid Model Retirements",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Original Codex vision vs. today's deprecation wave",
+      "key_fact": "Original Codex introduction from OpenAI"
+    },
+    {
+      "id": 19777,
+      "title": "X's MCP Server Works Great — If You Can Afford 5 Cents Per Bookmark Lookup",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "API pricing makes the X MCP server impractical for casual use",
+      "key_fact": "~$0.05 per simple bookmark query"
+    },
+    {
+      "id": 19111,
+      "title": "Google AI Edge Gallery Brings On-Device Models to Mobile",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Google's toolkit for running AI models locally on edge devices",
+      "key_fact": "On-device model gallery via Simon Willison"
+    },
+    {
+      "id": 19112,
+      "title": "datasette-ports 0.2 Ships",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Simon Willison's database tool gets a point release",
+      "key_fact": "Version 0.2 with incremental improvements"
+    },
+    {
+      "id": 20627,
+      "title": "Latent Space Breaks Down MSL's Muse Spark and What It Means for Open-Source",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Deep analysis of Meta's new model lab and its open-source implications",
+      "key_fact": "Latent Space editorial on MSL's first frontier model"
+    }
+  ],
+  "total_items": 22
+}
