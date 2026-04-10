@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "We're bringing the advisor strategy to the Claude Platform. Pair Opus as an advisor with Sonnet or Haiku as an executor, and get near Opus-level intelligence in your agents at a fraction of the cost.",
+    "url": "https://x.com/claudeai/status/2042308622181339453",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 22479,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 35.743700000000004,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Thrilled to announce the Monitor tool which lets Claude create background scripts that wake the agent up when needed.",
+    "url": "https://x.com/bcherny/status/2042371317614461406",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 2572,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 28.7716,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Google open-sources experimental agent orchestration testbed Scion",
+    "url": "https://www.infoq.com/news/2026/04/google-agent-testbed-scion/",
+    "source": "hackernews",
+    "x_engagement_24h": 190,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.057000000000002,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Cowork is now generally available to all paid plans. For Enterprise, we are adding role-based access controls, group spend limits, usage analytics, and expanded OpenTelemetry.",
+    "url": "https://x.com/claudeai/status/2042273755485888810",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 7219,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 23.1657,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Tiny Recursion Model (TRM) is a recursive reasoning approach with a tiny 7M parameters neural network that obtains strong results.",
+    "url": "https://x.com/hardmaru/status/1976144654409269409",
+    "source": "twitter:@hardmaru",
+    "x_engagement_24h": 4857,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 22.4571,
+    "suggested_angle": "news"
+  }
+]
