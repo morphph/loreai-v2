@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pipeline Health Report — 2026-04-08</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #f9fafb; color: #111; padding: 24px; line-height: 1.6; }
+  .container { max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 24px; margin-bottom: 4px; }
+  .subtitle { color: #6b7280; font-size: 14px; margin-bottom: 24px; }
+  .card { background: #fff; border: 1px solid #e5e7eb; border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+  .card h2 { font-size: 16px; color: #374151; margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .stat { font-size: 42px; font-weight: 700; }
+  .stat-label { font-size: 14px; color: #6b7280; margin-top: 4px; }
+  .score-green { color: #16a34a; }
+  .score-yellow { color: #d97706; }
+  .score-red { color: #dc2626; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 16px; }
+  table { width: 100%; border-collapse: collapse; }
+  th { text-align: left; font-size: 12px; color: #6b7280; text-transform: uppercase; letter-spacing: 0.5px; padding: 8px 12px; border-bottom: 2px solid #e5e7eb; }
+  td { padding: 8px 12px; border-bottom: 1px solid #f3f4f6; font-size: 14px; }
+  tr:hover td { background: #f9fafb; }
+  .status { font-size: 18px; }
+  .bar { display: inline-block; height: 8px; border-radius: 4px; margin-left: 8px; vertical-align: middle; }
+  .bar-green { background: #16a34a; }
+  .bar-yellow { background: #d97706; }
+  .bar-red { background: #dc2626; }
+  .bar-blue { background: #3b82f6; }
+  .tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+  .tag-pass { background: #dcfce7; color: #166534; }
+  .tag-fail { background: #fee2e2; color: #991b1b; }
+  .tag-skip { background: #f3f4f6; color: #6b7280; }
+  .action-item { padding: 10px 14px; border-left: 4px solid; margin-bottom: 8px; border-radius: 0 8px 8px 0; background: #fafafa; }
+  .action-critical { border-color: #dc2626; }
+  .action-warning { border-color: #d97706; }
+  .action-info { border-color: #3b82f6; }
+  .action-label { font-size: 12px; font-weight: 700; margin-bottom: 2px; }
+  .action-label-critical { color: #dc2626; }
+  .action-label-warning { color: #d97706; }
+  .action-label-info { color: #3b82f6; }
+  .mini-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; margin-top: 8px; }
+  .mini-card { background: #f9fafb; border-radius: 8px; padding: 12px; text-align: center; }
+  .mini-val { font-size: 24px; font-weight: 700; color: #3b82f6; }
+  .mini-label { font-size: 12px; color: #6b7280; }
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Pipeline Health Report</h1>
+<p class="subtitle">2026-04-08 14:22 SGT (Asia/Singapore) &middot; LoreAI v2</p>
+
+<!-- 1. 总览 -->
+<div class="card">
+  <h2>1. 总览</h2>
+  <div style="display:flex; align-items:center; gap:24px;">
+    <div>
+      <div class="stat score-yellow">55<span style="font-size:20px;color:#9ca3af">/90</span></div>
+      <div class="stat-label">健康评分</div>
+    </div>
+    <div style="flex:1;">
+      <p style="font-size:15px; color:#374151;">
+        采集和Newsletter运行正常，SEO内容生成活跃。<strong style="color:#dc2626;">关键词发现为红灯</strong>（7天内0个新关键词），
+        博客今日无产出，性能优化循环本周未运行。磁盘使用79%需关注。
+      </p>
+      <div class="mini-grid" style="margin-top:12px;">
+        <div class="mini-card"><div style="font-size:20px;">🟢 3</div><div class="mini-label">正常</div></div>
+        <div class="mini-card"><div style="font-size:20px;">🟡 2</div><div class="mini-label">警告</div></div>
+        <div class="mini-card"><div style="font-size:20px;">🔴 1</div><div class="mini-label">故障</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. 流水线状态 -->
+<div class="card">
+  <h2>2. 流水线状态</h2>
+  <table>
+    <thead>
+      <tr><th>阶段</th><th>状态</th><th>摘要</th><th>详情</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Collect</strong> 采集</td>
+        <td class="status">🟢</td>
+        <td>170 条，5 个来源层级 (24h)</td>
+        <td>正常运行，多来源覆盖良好</td>
+      </tr>
+      <tr>
+        <td><strong>Newsletter</strong> 日报</td>
+        <td class="status">🟢</td>
+        <td>EN: ✅ ZH: ✅</td>
+        <td>中英文均已发布。本周连续覆盖 04-01 至 04-08（工作日无缺口）</td>
+      </tr>
+      <tr>
+        <td><strong>Blog</strong> 博客</td>
+        <td class="status">🟡</td>
+        <td>今日 0 篇，本周 10 篇</td>
+        <td>今天暂无新博客，但本周产出充足</td>
+      </tr>
+      <tr>
+        <td><strong>SEO Gen</strong> 内容生成</td>
+        <td class="status">🟢</td>
+        <td>7天完成 19 篇，329 篇待处理</td>
+        <td>生成速率正常，积压较大但稳步消化中</td>
+      </tr>
+      <tr>
+        <td><strong>Discovery</strong> 关键词发现</td>
+        <td class="status">🔴</td>
+        <td>7天内 0 个新关键词，7 个新分组</td>
+        <td>关键词扩展未运行，仅有分组创建。需检查 discovery cycle 是否正常触发</td>
+      </tr>
+      <tr>
+        <td><strong>Performance</strong> 性能优化</td>
+        <td class="status">🟡</td>
+        <td>7天内 0 个刷新任务</td>
+        <td>Performance cycle 本周未运行或未产生刷新任务</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 3. 内容产出 -->
+<div class="card">
+  <h2>3. 内容产出（本周）</h2>
+  <div class="mini-grid">
+    <div class="mini-card">
+      <div class="mini-val">6</div>
+      <div class="mini-label">Newsletter 天数</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-val">10</div>
+      <div class="mini-label">博客文章</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-val">19</div>
+      <div class="mini-label">SEO 页面完成</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-val">170</div>
+      <div class="mini-label">采集项 (24h)</div>
+    </div>
+  </div>
+  <table style="margin-top:16px;">
+    <thead><tr><th>Newsletter 日期</th><th>EN</th><th>ZH</th></tr></thead>
+    <tbody>
+      <tr><td>2026-04-01 (二)</td><td>✅</td><td>✅</td></tr>
+      <tr><td>2026-04-02 (三)</td><td>✅</td><td>✅</td></tr>
+      <tr><td>2026-04-03 (四)</td><td>✅</td><td>✅</td></tr>
+      <tr><td style="color:#9ca3af;">2026-04-04 (五)</td><td colspan="2" style="color:#9ca3af;">周末无排期</td></tr>
+      <tr><td style="color:#9ca3af;">2026-04-05 (六)</td><td colspan="2" style="color:#9ca3af;">周末无排期</td></tr>
+      <tr><td>2026-04-06 (日)</td><td>✅</td><td>✅</td></tr>
+      <tr><td>2026-04-07 (一)</td><td>✅</td><td>✅</td></tr>
+      <tr><td>2026-04-08 (二)</td><td>✅</td><td>✅</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 4. SEO 健康 -->
+<div class="card">
+  <h2>4. SEO 健康</h2>
+
+  <h3 style="font-size:14px; margin-bottom:8px; color:#6b7280;">队列状态</h3>
+  <table>
+    <thead><tr><th>类型</th><th>Pending</th><th>Completed</th><th>Cancelled</th><th>Partial</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>blog</td><td><strong>156</strong></td><td>31</td><td>140</td><td>1</td>
+      </tr>
+      <tr>
+        <td>faq</td><td><strong>88</strong></td><td>23</td><td>86</td><td>—</td>
+      </tr>
+      <tr>
+        <td>compare</td><td><strong>63</strong></td><td>3</td><td>15</td><td>2</td>
+      </tr>
+      <tr>
+        <td>glossary</td><td><strong>22</strong></td><td>7</td><td>39</td><td>—</td>
+      </tr>
+      <tr>
+        <td>topic-hub</td><td>—</td><td>1</td><td>1</td><td>—</td>
+      </tr>
+      <tr style="font-weight:700; border-top:2px solid #e5e7eb;">
+        <td>合计</td><td>329</td><td>65</td><td>281</td><td>3</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size:14px; margin:16px 0 8px; color:#6b7280;">其他指标</h3>
+  <div class="mini-grid">
+    <div class="mini-card">
+      <div class="mini-val" style="color:#d97706;">4</div>
+      <div class="mini-label">孤立关键词 (无 cluster)</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-val" style="color:#16a34a;">0</div>
+      <div class="mini-label">重复分组</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-val" style="color:#d97706;">281</div>
+      <div class="mini-label">Cancelled 任务</div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. 线上验证 -->
+<div class="card">
+  <h2>5. 线上验证</h2>
+  <p style="font-size:13px; color:#6b7280; margin-bottom:12px;">通过 WebFetch 验证（Playwright MCP 本次未加载）</p>
+  <table>
+    <thead><tr><th>页面</th><th>URL</th><th>状态</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>首页</td>
+        <td style="font-size:12px;">loreai.dev</td>
+        <td><span class="tag tag-pass">PASS</span></td>
+        <td>正常加载，内容完整</td>
+      </tr>
+      <tr>
+        <td>EN Newsletter</td>
+        <td style="font-size:12px;">loreai.dev/newsletter/2026-04-08</td>
+        <td><span class="tag tag-pass">PASS</span></td>
+        <td>GPT-5 专题，内容完整</td>
+      </tr>
+      <tr>
+        <td>ZH Newsletter</td>
+        <td style="font-size:12px;">loreai.dev/zh/newsletter/2026-04-08</td>
+        <td><span class="tag tag-pass">PASS</span></td>
+        <td>中文内容正常</td>
+      </tr>
+      <tr>
+        <td>Blog</td>
+        <td style="font-size:12px;">loreai.dev/blog/what-makes-claude-so-good-at-coding</td>
+        <td><span class="tag tag-pass">PASS</span></td>
+        <td>文章完整，TOC 正常</td>
+      </tr>
+      <tr>
+        <td>Glossary</td>
+        <td style="font-size:12px;">loreai.dev/glossary/what-is-mcp-claude-code</td>
+        <td><span class="tag tag-pass">PASS</span></td>
+        <td>词条内容完整</td>
+      </tr>
+      <tr>
+        <td>FAQ</td>
+        <td style="font-size:12px;">loreai.dev/faq/start-claude-code</td>
+        <td><span class="tag tag-pass">PASS</span></td>
+        <td>FAQ 结构完整</td>
+      </tr>
+      <tr>
+        <td>Compare</td>
+        <td style="font-size:12px;">loreai.dev/compare/claude-memory-vs-claude-md</td>
+        <td><span class="tag tag-fail">404</span></td>
+        <td>页面不存在 — DB 有记录但未部署到线上</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- 6. 搜索表现 -->
+<div class="card">
+  <h2>6. 搜索表现 (GSC)</h2>
+  <div style="padding:20px; text-align:center; color:#9ca3af;">
+    <p style="font-size:32px;">⚠️</p>
+    <p style="font-size:15px; margin-top:8px;">GSC 数据未配置</p>
+    <p style="font-size:13px; margin-top:4px;">Google Search Console 服务账号未部署到 VPS。Trends 数据全部为 0。</p>
+    <p style="font-size:12px; margin-top:8px; color:#6b7280;">
+      配置步骤：Google Cloud Console 创建 service account → 启用 Search Console API →
+      下载 JSON key → 上传至 VPS <code>config/gsc-service-account.json</code> →
+      设置 <code>GSC_SERVICE_ACCOUNT_KEY_PATH</code> 环境变量
+    </p>
+  </div>
+</div>
+
+<!-- 7. 基础设施 -->
+<div class="card">
+  <h2>7. 基础设施</h2>
+  <div class="mini-grid">
+    <div class="mini-card">
+      <div class="mini-val" style="color:#d97706;">79%</div>
+      <div class="mini-label">磁盘使用率</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-val">8.0G</div>
+      <div class="mini-label">剩余空间</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-val">26M</div>
+      <div class="mini-label">数据库大小</div>
+    </div>
+    <div class="mini-card">
+      <div class="mini-val" style="color:#d97706;">🔒</div>
+      <div class="mini-label">Pipeline Lock (06:00)</div>
+    </div>
+  </div>
+  <p style="font-size:13px; color:#6b7280; margin-top:12px;">
+    <strong>Cron 排程：</strong>5 个日常任务（Mon-Fri）+ 4 个周任务，全部配置正常。
+    TZ=Asia/Singapore。
+  </p>
+</div>
+
+<!-- 8. 待办事项 -->
+<div class="card">
+  <h2>8. 待办事项</h2>
+
+  <div class="action-item action-critical">
+    <div class="action-label action-label-critical">🔴 CRITICAL</div>
+    <strong>Discovery Cycle 未发现新关键词</strong><br>
+    7天内 0 个新关键词（仅7个分组）。检查：1) SSH 到 VPS 查看 <code>logs/discovery.log</code> 最近输出；
+    2) 确认 keyword expansion (B1) 是否正常运行；3) 确认 Serper API 额度是否充足。
+  </div>
+
+  <div class="action-item action-warning">
+    <div class="action-label action-label-warning">🟡 WARNING</div>
+    <strong>Compare 页面 404</strong><br>
+    <code>claude-memory-vs-claude-md</code> 在 DB 中存在但线上返回 404。
+    可能原因：1) SSG build 未包含该 slug；2) 内容文件缺失。
+    操作：检查 <code>content/compare/en/claude-memory-vs-claude-md.md</code> 是否存在并重新 build。
+  </div>
+
+  <div class="action-item action-warning">
+    <div class="action-label action-label-warning">🟡 WARNING</div>
+    <strong>Performance Cycle 本周未运行</strong><br>
+    0 个 refresh 任务（7天）。Performance cycle 排程为 Sat 10:00 SGT — 可能因上周六未正常触发。
+    操作：手动运行 <code>scripts/daily-pipeline.sh performance</code> 检查是否正常。
+  </div>
+
+  <div class="action-item action-warning">
+    <div class="action-label action-label-warning">🟡 WARNING</div>
+    <strong>磁盘使用率 79%</strong><br>
+    剩余 8GB。大量轮转日志文件（100+ 个 .gz）占用空间。
+    操作：SSH 到 VPS 执行 <code>find logs/ -name '*.gz' -mtime +30 -delete</code> 清理 30 天前的日志。
+  </div>
+
+  <div class="action-item action-warning">
+    <div class="action-label action-label-warning">🟡 WARNING</div>
+    <strong>Pipeline Lock 存在</strong><br>
+    <code>/tmp/loreai-pipeline.lock</code> 创建于今日 06:00 SGT。如果当前无 pipeline 运行，
+    可能为残留锁。操作：确认无进程运行后执行 <code>rm /tmp/loreai-pipeline.lock</code>。
+  </div>
+
+  <div class="action-item action-warning">
+    <div class="action-label action-label-warning">🟡 WARNING</div>
+    <strong>281 个 Cancelled 队列任务</strong><br>
+    cancelled 任务数量超过 completed (65)。可能是因为重复入队或批量取消。
+    操作：审查 cancelled 原因，考虑是否需要清理或重新入队。
+  </div>
+
+  <div class="action-item action-info">
+    <div class="action-label action-label-info">🔵 INFO</div>
+    <strong>GSC 服务账号未配置</strong><br>
+    搜索表现数据完全缺失。按 pipeline-health 计划 Phase 4 步骤配置 Google service account。
+  </div>
+
+  <div class="action-item action-info">
+    <div class="action-label action-label-info">🔵 INFO</div>
+    <strong>4 个孤立关键词</strong><br>
+    有 4 个关键词的 <code>cluster_slug</code> 为 NULL。操作：在下次 discovery cycle 中自动分配，或手动关联。
+  </div>
+
+  <div class="action-item action-info">
+    <div class="action-label action-label-info">🔵 INFO</div>
+    <strong>Dashboard 代理 404</strong><br>
+    <code>loreai.dev/dashboard/api/...</code> 返回 404，本次通过 SSH 直连获取数据。
+    检查 Vercel 的 <code>next.config.ts</code> rewrites 是否正确代理 <code>/dashboard/api</code> 到 VPS:3001。
+  </div>
+</div>
+
+<p style="text-align:center; color:#9ca3af; font-size:12px; margin-top:24px;">
+  Generated by <code>/pipeline-health</code> skill &middot; LoreAI v2 &middot; 2026-04-08
+</p>
+</div>
+</body>
+</html>

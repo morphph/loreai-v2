@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LoreAI v2 — Pipeline Flow Diagram</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f8fafc; color: #1e293b; padding: 32px; min-height: 100vh; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  h1 { font-size: 22px; font-weight: 700; margin-bottom: 4px; color: #0f172a; }
+  .subtitle { font-size: 13px; color: #94a3b8; margin-bottom: 32px; }
+
+  /* Node */
+  .node { border-radius: 10px; padding: 14px 18px; position: relative; transition: transform 0.15s, box-shadow 0.15s; color: #fff; }
+  .node:hover { transform: translateY(-1px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+  .node-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .node-script { font-size: 11px; font-family: 'SF Mono', 'Fira Code', monospace; opacity: 0.8; margin-bottom: 6px; }
+  .node-desc { font-size: 12px; opacity: 0.9; line-height: 1.5; }
+  .node-output { font-size: 11px; opacity: 0.7; margin-top: 6px; border-top: 1px solid rgba(255,255,255,0.15); padding-top: 6px; }
+
+  /* Colors — saturated for contrast on white bg */
+  .collect   { background: #2563eb; border: 1px solid #1d4ed8; }
+  .consume   { background: #7c3aed; border: 1px solid #6d28d9; }
+  .knowledge { background: #0891b2; border: 1px solid #0e7490; }
+  .seo       { background: #d97706; border: 1px solid #b45309; }
+  .generate  { background: #059669; border: 1px solid #047857; }
+  .perform   { background: #ea580c; border: 1px solid #c2410c; }
+  .monitor   { background: #64748b; border: 1px solid #475569; }
+
+  /* Badge */
+  .badge { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 10px; font-weight: 600; background: rgba(255,255,255,0.2); }
+  .db-tag { display: inline-block; background: rgba(255,255,255,0.15); padding: 1px 5px; border-radius: 3px; font-size: 10px; font-family: monospace; margin: 1px; }
+
+  /* Blocked badge */
+  .badge-blocked { background: #fef3c7; color: #92400e; border: 1px solid #fbbf24; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; display: inline-flex; align-items: center; gap: 4px; }
+  .badge-blocked::before { content: ""; display: inline-block; width: 7px; height: 7px; background: #f59e0b; border-radius: 50%; }
+
+  /* Section */
+  .section { margin-bottom: 24px; }
+  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+  .section-num { width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; flex-shrink: 0; color: #fff; }
+  .section-label { font-size: 14px; font-weight: 700; color: #0f172a; }
+  .section-sub { font-size: 12px; color: #94a3b8; }
+
+  /* Grid */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  /* Arrow */
+  .arrow-down { display: flex; justify-content: center; padding: 4px 0; }
+  .arrow-down svg { width: 20px; height: 20px; }
+  .arrow-label { font-size: 10px; color: #94a3b8; text-align: center; margin: 2px 0; }
+
+  @media (max-width: 700px) { .grid-2 { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>LoreAI v2 — Pipeline Architecture</h1>
+  <p class="subtitle">Organized by data flow &middot; Updated 2026-04-08 &middot; <span style="color:#f59e0b;">&#9679;</span> = human approval required</p>
+
+  <!-- ===== TOPLINE SVG ===== -->
+  <div style="background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:24px 20px; margin-bottom:32px; overflow-x:auto; box-shadow: 0 1px 3px rgba(0,0,0,0.06);">
+    <svg viewBox="0 0 960 460" style="width:100%; max-width:960px; display:block; margin:0 auto;" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <marker id="a" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="#94a3b8"/></marker>
+        <marker id="a-blue" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="#2563eb"/></marker>
+        <marker id="a-purple" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="#7c3aed"/></marker>
+        <marker id="a-cyan" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="#0891b2"/></marker>
+        <marker id="a-amber" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="#d97706"/></marker>
+        <marker id="a-green" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="#059669"/></marker>
+        <marker id="a-orange" markerWidth="7" markerHeight="5" refX="7" refY="2.5" orient="auto"><path d="M0,0 L7,2.5 L0,5" fill="#ea580c"/></marker>
+      </defs>
+
+      <!-- ── ROW 1: COLLECT ── -->
+      <rect x="40" y="10" width="880" height="52" rx="8" fill="#f1f5f9" stroke="#e2e8f0"/>
+      <rect x="370" y="18" width="180" height="36" rx="8" fill="#2563eb" stroke="#1d4ed8" stroke-width="1.5"/>
+      <text x="460" y="34" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">Collect</text>
+      <text x="460" y="47" text-anchor="middle" fill="#bfdbfe" font-size="9">7 tiers · news_items · Mon–Fri 12am</text>
+
+      <!-- Arrows from Collect to 3 streams -->
+      <path d="M 400 54 L 400 72 L 150 72 L 150 90" stroke="#7c3aed" stroke-width="1.5" fill="none" marker-end="url(#a-purple)"/>
+      <line x1="460" y1="54" x2="460" y2="90" stroke="#0891b2" stroke-width="1.5" marker-end="url(#a-cyan)"/>
+      <path d="M 520 54 L 520 72 L 760 72 L 760 90" stroke="#d97706" stroke-width="1.5" fill="none" marker-end="url(#a-amber)"/>
+
+      <!-- Stream labels -->
+      <text x="150" y="86" text-anchor="middle" fill="#7c3aed" font-size="9" font-weight="700">CONTENT DISTRIBUTION</text>
+      <text x="460" y="86" text-anchor="middle" fill="#0891b2" font-size="9" font-weight="700">KNOWLEDGE GRAPH</text>
+      <text x="760" y="86" text-anchor="middle" fill="#d97706" font-size="9" font-weight="700">SEO / AEO ENGINE</text>
+
+      <!-- ── LEFT: Content Distribution ── -->
+      <rect x="30" y="94" width="240" height="158" rx="8" fill="#faf5ff" stroke="#e9d5ff" stroke-width="0.5"/>
+
+      <rect x="50" y="104" width="200" height="38" rx="7" fill="#7c3aed"/>
+      <text x="150" y="121" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">Newsletter</text>
+      <text x="150" y="135" text-anchor="middle" fill="#ddd6fe" font-size="9">EN + ZH · Mon–Fri 2am</text>
+
+      <line x1="150" y1="142" x2="150" y2="158" stroke="#7c3aed" stroke-width="1" marker-end="url(#a-purple)"/>
+
+      <rect x="50" y="162" width="95" height="28" rx="6" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1"/>
+      <text x="97" y="180" text-anchor="middle" fill="#7c3aed" font-size="10">Email</text>
+
+      <rect x="155" y="162" width="95" height="28" rx="6" fill="#8b5cf6"/>
+      <text x="202" y="180" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">Weekly</text>
+      <text x="202" y="200" text-anchor="middle" fill="#a78bfa" font-size="8">Sun 5am</text>
+
+      <line x1="150" y1="200" x2="150" y2="218" stroke="#7c3aed" stroke-width="1" marker-end="url(#a-purple)"/>
+      <rect x="90" y="222" width="120" height="24" rx="6" fill="#f0fdf4" stroke="#059669" stroke-width="1"/>
+      <text x="150" y="238" text-anchor="middle" fill="#059669" font-size="10">Vercel deploy</text>
+
+      <!-- ── CENTER: Knowledge Graph ── -->
+      <rect x="300" y="94" width="320" height="158" rx="8" fill="#ecfeff" stroke="#a5f3fc" stroke-width="0.5"/>
+
+      <!-- Entity Extract -->
+      <rect x="320" y="104" width="130" height="38" rx="7" fill="#0891b2"/>
+      <text x="385" y="121" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">Entity Extract</text>
+      <text x="385" y="135" text-anchor="middle" fill="#a5f3fc" font-size="9">non-flagship · Mon–Fri 4am</text>
+
+      <!-- Flagship Discovery -->
+      <rect x="460" y="104" width="150" height="38" rx="7" fill="#d97706"/>
+      <text x="535" y="121" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">Flagship Discovery</text>
+      <text x="535" y="135" text-anchor="middle" fill="#fef3c7" font-size="9">Sat 7:30am</text>
+
+      <!-- BLOCKED indicator on Flagship Discovery -->
+      <circle cx="600" cy="108" r="7" fill="#fbbf24" stroke="#fff" stroke-width="1.5"/>
+      <text x="600" y="111" text-anchor="middle" fill="#78350f" font-size="8" font-weight="800">H</text>
+
+      <!-- Arrows to topic_clusters -->
+      <line x1="385" y1="142" x2="430" y2="172" stroke="#0891b2" stroke-width="1" marker-end="url(#a-cyan)"/>
+      <line x1="535" y1="142" x2="490" y2="172" stroke="#d97706" stroke-width="1" marker-end="url(#a-amber)"/>
+
+      <!-- topic_clusters DB -->
+      <rect x="400" y="170" width="120" height="26" rx="6" fill="#155e75" stroke="#0891b2" stroke-width="1"/>
+      <text x="460" y="187" text-anchor="middle" fill="#a5f3fc" font-size="10" font-weight="600">topic_clusters</text>
+
+      <line x1="460" y1="196" x2="460" y2="218" stroke="#0891b2" stroke-width="1" stroke-dasharray="4,3"/>
+      <text x="460" y="232" text-anchor="middle" fill="#94a3b8" font-size="9">feeds subtopics ↓</text>
+
+      <!-- ── RIGHT: SEO/AEO Engine ── -->
+      <rect x="640" y="94" width="300" height="158" rx="8" fill="#fffbeb" stroke="#fde68a" stroke-width="0.5"/>
+
+      <!-- Freshness -->
+      <rect x="660" y="104" width="130" height="38" rx="7" fill="#d97706"/>
+      <text x="725" y="121" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">Freshness</text>
+      <text x="725" y="135" text-anchor="middle" fill="#fef3c7" font-size="9">news → subtopics · daily 4:30am</text>
+
+      <!-- Discovery Cycle -->
+      <rect x="800" y="104" width="130" height="38" rx="7" fill="#d97706"/>
+      <text x="865" y="121" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">Discovery</text>
+      <text x="865" y="135" text-anchor="middle" fill="#fef3c7" font-size="9">B1→B2→B3 · Tue+Sat 8am</text>
+
+      <!-- Arrows to queue -->
+      <line x1="725" y1="142" x2="770" y2="172" stroke="#d97706" stroke-width="1" marker-end="url(#a-amber)"/>
+      <line x1="865" y1="142" x2="820" y2="172" stroke="#d97706" stroke-width="1" marker-end="url(#a-amber)"/>
+
+      <!-- create_queue -->
+      <rect x="740" y="170" width="110" height="26" rx="6" fill="#92400e" stroke="#d97706" stroke-width="1"/>
+      <text x="795" y="187" text-anchor="middle" fill="#fef3c7" font-size="10" font-weight="600">create_queue</text>
+
+      <!-- ── ROW 3: GENERATE (convergence) ── -->
+      <rect x="250" y="275" width="460" height="56" rx="10" fill="#059669" stroke="#047857" stroke-width="2"/>
+      <text x="480" y="298" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">Generate (Programmatic SEO/AEO)</text>
+      <text x="480" y="316" text-anchor="middle" fill="#a7f3d0" font-size="10">Opus/Sonnet writes EN+ZH · blog, faq, glossary, compare, topic-hub, deep-dive</text>
+
+      <!-- Arrows into Generate -->
+      <path d="M 460 240 L 460 275" stroke="#0891b2" stroke-width="1.5" marker-end="url(#a-cyan)"/>
+      <text x="450" y="260" fill="#0891b2" font-size="8" text-anchor="end">subtopics</text>
+      <path d="M 795 196 L 795 256 L 610 256 L 610 275" stroke="#d97706" stroke-width="1.5" fill="none" marker-end="url(#a-amber)"/>
+      <text x="700" y="252" fill="#d97706" font-size="8" text-anchor="middle">queue jobs</text>
+
+      <!-- Generate → Vercel -->
+      <rect x="760" y="284" width="100" height="32" rx="8" fill="#f0fdf4" stroke="#059669" stroke-width="1.5"/>
+      <text x="810" y="304" text-anchor="middle" fill="#059669" font-size="11" font-weight="600">Vercel</text>
+      <line x1="710" y1="300" x2="760" y2="300" stroke="#059669" stroke-width="1.5" marker-end="url(#a-green)"/>
+
+      <!-- ── ROW 4: Feedback ── -->
+      <rect x="640" y="350" width="210" height="44" rx="8" fill="#ea580c" stroke="#c2410c" stroke-width="1.5"/>
+      <text x="745" y="368" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">Performance Cycle</text>
+      <text x="745" y="382" text-anchor="middle" fill="#fed7aa" font-size="9">GSC → refresh queue · Sat 10am</text>
+
+      <!-- Vercel → GSC → Performance -->
+      <path d="M 810 316 L 810 340 L 780 340 L 780 350" stroke="#ea580c" stroke-width="1" fill="none" stroke-dasharray="4,3" marker-end="url(#a-orange)"/>
+      <text x="830" y="336" fill="#ea580c" font-size="8">GSC measures</text>
+
+      <!-- Performance loops back to queue -->
+      <path d="M 850 372 L 910 372 L 910 183 L 850 183" stroke="#ea580c" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#a-orange)"/>
+      <text x="924" y="280" fill="#ea580c" font-size="8" transform="rotate(90,924,280)">refresh → queue</text>
+
+      <!-- Health Report -->
+      <rect x="320" y="358" width="160" height="30" rx="7" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+      <text x="400" y="377" text-anchor="middle" fill="#64748b" font-size="11" font-weight="600">Health Report</text>
+      <text x="400" y="404" text-anchor="middle" fill="#94a3b8" font-size="9">monitors all stages · Sat 11am</text>
+
+      <!-- Dashed monitoring lines -->
+      <line x1="320" y1="373" x2="150" y2="246" stroke="#cbd5e1" stroke-width="0.7" stroke-dasharray="3,3"/>
+      <line x1="400" y1="358" x2="480" y2="331" stroke="#cbd5e1" stroke-width="0.7" stroke-dasharray="3,3"/>
+      <line x1="480" y1="373" x2="640" y2="373" stroke="#cbd5e1" stroke-width="0.7" stroke-dasharray="3,3"/>
+
+      <!-- ── LEGEND ── -->
+      <rect x="40" y="425" width="880" height="30" rx="6" fill="#f8fafc" stroke="#e2e8f0"/>
+      <circle cx="60" cy="440" r="5" fill="#fbbf24" stroke="#fff" stroke-width="1"/>
+      <text x="68" y="443" fill="#78350f" font-size="6" font-weight="800">H</text>
+      <text x="82" y="444" fill="#64748b" font-size="10">= human approval blocks pipeline</text>
+      <line x1="260" y1="440" x2="290" y2="440" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <text x="296" y="444" fill="#64748b" font-size="10">= async / feedback connection</text>
+      <line x1="470" y1="440" x2="500" y2="440" stroke="#94a3b8" stroke-width="1.5"/>
+      <text x="506" y="444" fill="#64748b" font-size="10">= direct data flow</text>
+      <rect x="640" y="433" width="50" height="14" rx="4" fill="#f0fdf4" stroke="#059669" stroke-width="1"/>
+      <text x="665" y="443" text-anchor="middle" fill="#059669" font-size="8">deploy</text>
+      <text x="696" y="444" fill="#64748b" font-size="10">= external deployment</text>
+    </svg>
+  </div>
+
+  <!-- ===== DETAILED SECTIONS ===== -->
+
+  <!-- 1. Data Collection -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num" style="background:#2563eb;">1</div>
+      <div>
+        <div class="section-label">Data Collection</div>
+        <div class="section-sub">Raw material — everything starts here</div>
+      </div>
+    </div>
+    <div class="node collect">
+      <div class="node-title">
+        Collect
+        <span class="badge">0 0 * * 1-5</span>
+        <span class="badge">Mon–Fri 12:00am</span>
+      </div>
+      <div class="node-script">collect-news.ts</div>
+      <div class="node-desc">
+        7 tiers of sources collected in parallel: RSS (T0), Official Blogs (T1), Twitter/X — 36 accounts + 18 queries (T2),
+        GitHub Trending + Releases (T3), HuggingFace (T3c), Hacker News (T4), Reddit (T5).
+        Staleness filters per tier (7d RSS, 14d OpenAI, 60d HF). Dedup by URL.
+      </div>
+      <div class="node-output">
+        <span class="db-tag">news_items</span> ~100–200 items/day → feeds Newsletter, Entity Extract, Freshness
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Content Distribution -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num" style="background:#7c3aed;">2</div>
+      <div>
+        <div class="section-label">Content Distribution</div>
+        <div class="section-sub">Downstream readers — newsletter subscribers, weekly digest</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="node consume">
+        <div class="node-title">
+          Newsletter
+          <span class="badge">0 2 * * 1-5</span>
+          <span class="badge">Mon–Fri 2:00am</span>
+        </div>
+        <div class="node-script">write-newsletter.ts</div>
+        <div class="node-desc">
+          7-stage: Query 72h items → pre-filter (caps per source) → 3-tier agent filter (pick 18-25 best) →
+          outline (Opus) → EN writer (Opus) → ZH writer (Opus, independent) → email via Buttondown.
+        </div>
+        <div class="node-output">
+          <span class="db-tag">content</span>
+          <span class="db-tag">newsletters/{en,zh}/*.md</span>
+          <span class="db-tag">filtered-items/*.json</span>
+        </div>
+      </div>
+      <div class="node consume" style="background:#8b5cf6; border-color:#7c3aed;">
+        <div class="node-title">
+          Weekly Digest
+          <span class="badge">0 5 * * 0</span>
+          <span class="badge">Sun 5:00am</span>
+        </div>
+        <div class="node-script">write-weekly.ts</div>
+        <div class="node-desc">
+          Aggregates Mon–Fri newsletters + filtered-items. Ranks by frequency + engagement + agent_score.
+          Top 5 → Opus writes 200-400 word analysis. "5 Things That Mattered in AI This Week"
+        </div>
+        <div class="node-output">
+          <span class="db-tag">newsletters/weekly/{en,zh}/*.md</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Knowledge Graph -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num" style="background:#0891b2;">3</div>
+      <div>
+        <div class="section-label">Knowledge Graph</div>
+        <div class="section-sub">Building the topic taxonomy — entities from news + flagship subtopics from research</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="node knowledge">
+        <div class="node-title">
+          Entity Extract
+          <span class="badge">0 4 * * 1-5</span>
+          <span class="badge">Mon–Fri 4:00am</span>
+        </div>
+        <div class="node-script">extract-entities.ts</div>
+        <div class="node-desc">
+          Claude Sonnet extracts companies, models, tech concepts from all items (30h window).
+          D2 guard: skips flagship subtopics — those are managed by Flagship Discovery.
+        </div>
+        <div class="node-output">
+          <span class="db-tag">topic_clusters</span> (non-flagship entities only)
+        </div>
+      </div>
+      <div class="node seo">
+        <div class="node-title">
+          Flagship Discovery
+          <span class="badge">30 7 * * 6</span>
+          <span class="badge">Sat 7:30am</span>
+          <span class="badge-blocked">HUMAN APPROVAL</span>
+        </div>
+        <div class="node-script">flagship-discovery.ts</div>
+        <div class="node-desc">
+          Weekly full discovery — synthesizes official docs (Exa) + competitor content (Serper) into subtopic-pack.
+          <br><br>
+          <strong style="color:#fef3c7;">Blocked:</strong> Writes draft pack to <code style="color:#fef3c7;">data/flagship-packs/</code>.
+          Pipeline pauses until human runs <code style="color:#fef3c7;">--approve</code> to materializePack() → upserts subtopics + seeds keywords.
+          No downstream content is generated for new subtopics without approval.
+        </div>
+        <div class="node-output">
+          <span class="db-tag">topic_clusters</span> (flagship subtopics)
+          <span class="db-tag">keywords</span>
+          <span class="db-tag">flagship-packs/*.json</span>
+        </div>
+      </div>
+    </div>
+    <div class="arrow-down"><svg viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+    <div class="arrow-label">topic_clusters feeds → SEO/AEO Engine</div>
+  </div>
+
+  <!-- 4. SEO/AEO Engine -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num" style="background:#d97706;">4</div>
+      <div>
+        <div class="section-label">SEO / AEO Engine</div>
+        <div class="section-sub">Topical authority expansion + programmatic content generation at scale</div>
+      </div>
+    </div>
+
+    <div style="background:#fffbeb; border:1px solid #fde68a; border-radius:8px; padding:12px 16px; margin-bottom:12px; font-size:12px; color:#92400e; line-height:1.6;">
+      <strong>Two inputs feed the queue:</strong> Freshness routes daily breaking news to existing subtopics (reactive, daily).
+      Discovery expands keyword coverage systematically via B1→B2→B3 (proactive, Tue+Sat). Both write to <code>create_queue</code> which Generate consumes.
+    </div>
+
+    <div class="grid-2">
+      <div class="node seo">
+        <div class="node-title">
+          Flagship Freshness
+          <span class="badge">30 4 * * 1-5</span>
+          <span class="badge">Mon–Fri 4:30am</span>
+        </div>
+        <div class="node-script">flagship-freshness.ts</div>
+        <div class="node-desc">
+          <strong>Reactive:</strong> Routes daily news signals to approved flagship subtopics. Sonnet classifies relevance.
+          Triple dedup: vs queue, vs recent content, vs same-run.
+        </div>
+        <div class="node-output">
+          → <span class="db-tag">create_queue</span> (source=flagship_freshness)
+        </div>
+      </div>
+      <div class="node seo">
+        <div class="node-title">
+          Discovery Cycle
+          <span class="badge">0 8 * * 2,6</span>
+          <span class="badge">Tue+Sat 8:00am</span>
+        </div>
+        <div class="node-script">discovery-cycle.ts (C1→B1→B2→B3)</div>
+        <div class="node-desc">
+          <strong>Proactive:</strong> C1: Subtopic discovery (prefers flagship packs) → B1: Expand keywords (Serper PAA + autocomplete) →
+          B2: Intent grouping (Sonnet 4.6) → B3: Priority scoring (flagship-only guard) → queue jobs.
+        </div>
+        <div class="node-output">
+          <span class="db-tag">keywords</span>
+          <span class="db-tag">keyword_groups</span>
+          → <span class="db-tag">create_queue</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="arrow-down"><svg viewBox="0 0 24 24" fill="none" stroke="#d97706" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg></div>
+    <div class="arrow-label" style="color:#d97706;">create_queue → Generate</div>
+
+    <div class="node generate" style="border-width: 2px;">
+      <div class="node-title" style="font-size: 16px;">
+        Generate — Programmatic SEO/AEO
+        <span class="badge">0 6 * * 1-5</span>
+        <span class="badge">Mon–Fri 6:00am</span>
+      </div>
+      <div class="node-script">process-queue.ts (B4)</div>
+      <div class="node-desc">
+        Reads top-N jobs from create_queue by priority. For each: research (Serper + Exa, or Gemini Deep Research) →
+        Claude Opus writes EN + ZH → validate links → write files + DB upsert → git push → Vercel deploy.
+        <br><br>
+        <strong>Content types:</strong> blog (1800-5000w), faq (800-1500w), compare (4000-5000w), glossary (200-500w), topic-hub (3000-5000w), deep-dive/cornerstone (5000-8000w).
+        <br>
+        <strong>Models:</strong> Opus for all types except FAQ/Glossary (Sonnet 4.6). Two research pipelines: Standard (Serper+Exa) or Gemini Deep Research.
+      </div>
+      <div class="node-output">
+        <span class="db-tag">content</span>
+        <span class="db-tag">blog/*.md</span>
+        <span class="db-tag">faq/*.md</span>
+        <span class="db-tag">glossary/*.md</span>
+        <span class="db-tag">compare/*.md</span>
+        <span class="db-tag">topics/*.md</span>
+        → Vercel auto-deploy → live SEO/AEO pages
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Feedback Loop -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num" style="background:#ea580c;">5</div>
+      <div>
+        <div class="section-label">Feedback Loop</div>
+        <div class="section-sub">Measure → optimize → re-generate — closing the authority loop</div>
+      </div>
+    </div>
+    <div class="grid-2">
+      <div class="node perform">
+        <div class="node-title">
+          Performance Cycle
+          <span class="badge">0 10 * * 6</span>
+          <span class="badge">Sat 10:00am</span>
+        </div>
+        <div class="node-script">performance-cycle.ts</div>
+        <div class="node-desc">
+          Import GSC data (28d) → segment by position/CTR → detect anomalies (drops, low CTR) →
+          queue underperforming pages for refresh. <strong>Closes the loop:</strong> live pages → GSC feedback → refresh → better pages.
+        </div>
+        <div class="node-output">
+          <span class="db-tag">snapshots</span>
+          → <span class="db-tag">create_queue</span> (type=refresh) → back to Generate
+        </div>
+      </div>
+      <div class="node monitor">
+        <div class="node-title">
+          Health Report
+          <span class="badge">0 3 * * 6 UTC</span>
+          <span class="badge">Sat 11:00am SGT</span>
+        </div>
+        <div class="node-script">/pipeline-health · loreai.dev/dashboard</div>
+        <div class="node-desc">
+          Dashboard Health Report: overall score, 6 pipeline stages, content output, queue status,
+          coverage gaps, live site checks, infrastructure, action items.
+          Scheduled runs send Telegram summary.
+        </div>
+        <div class="node-output">
+          <span class="db-tag">snapshots</span> (pipeline_health.*)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Orchestration -->
+  <div style="background:#fff; border:1px solid #e2e8f0; border-radius:10px; padding:16px 20px; font-size:12px; color:#64748b; line-height:1.8;">
+    <strong style="color:#0f172a;">Orchestration:</strong> All steps run through <code style="color:#0891b2;">daily-pipeline.sh</code> — flock locking (no concurrent runs), auto git pull, validation after Collect/Newsletter, auto git commit+push (Vercel deploy), email send after Newsletter.
+    <br>
+    <strong style="color:#0f172a;">Key insight:</strong> Three sources feed <code style="color:#d97706;">create_queue</code> — Freshness (reactive, daily news), Discovery (proactive, keyword expansion), Performance (feedback, refresh). Generate consumes them all. This is the programmatic SEO/AEO engine.
+  </div>
+
+  <p style="text-align: center; color: #94a3b8; font-size: 11px; margin-top: 24px;">
+    Generated 2026-04-08 &middot; Source: docs/specs/PIPELINE.md &middot; LoreAI v2
+  </p>
+</div>
+</body>
+</html>

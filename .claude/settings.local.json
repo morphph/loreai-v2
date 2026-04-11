@@ -8,7 +8,15 @@
       "WebFetch(domain:deepmind.google)",
       "WebFetch(domain:developers.googleblog.com)",
       "WebFetch(domain:platform.openai.com)",
-      "WebFetch(domain:docs.anthropic.com)"
+      "WebFetch(domain:docs.anthropic.com)",
+      "WebFetch(domain:loreai.dev)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.npmjs.com)",
+      "Skill(schedule)",
+      "WebFetch(domain:help.openai.com)",
+      "WebFetch(domain:agents.md)",
+      "WebFetch(domain:www.sitepoint.com)",
+      "WebFetch(domain:milvus.io)"
     ]
   }
 }
