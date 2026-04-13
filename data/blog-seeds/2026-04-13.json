@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "RT @claudeai: Introducing Claude Sonnet 4.5—the best coding model in the world.  It's the strongest model for building complex agents. It's…",
+    "url": "https://x.com/AnthropicAI/status/1972707209680503213",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 23211,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 51.963300000000004,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "This morning we announced several upgrades to Claude Code.  We also launched two new features for managing context on the Claude Developer Platform.  Here’s what’s new: https://t.co/WG5S5BZBcH",
+    "url": "https://x.com/claudeai/status/1972758346068640120",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 4482,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 42.3446,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude is now available in Slack.  Chat with Claude through DMs, tag @.Claude in threads, or use the AI assistant panel—with access to web search, document analysis, and your connected tools. https://t.co/qbRcuXl8aR",
+    "url": "https://x.com/claudeai/status/1973445694305468597",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 4068,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 38.2204,
+    "suggested_angle": "analysis"
+  },
+  {
+    "topic": "New in Claude Code: /ultraplan  Claude builds an implementation plan for you on the web. You can read it and edit it, then run the plan on the web or back in your terminal.  Available now in preview for all users with CC on the web enabled.",
+    "url": "https://x.com/trq212/status/2042671370186973589",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 10903,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 36.2709,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Gemma 4 + Ollama + Claude Code = A FREE local coding agent setup 🔥 Full Tutorial: https://t.co/uzL4YMaGom  You can run agentic workflows in your terminal with no API limits, no cloud dependency, and full control over your stack. Claude Code plus Ollama with Anthropic API compati",
+    "url": "https://x.com/intheworldofai/status/2043220018054287861",
+    "source": "twitter:search:\"coding agent\" (tip OR trick OR workflow OR setup)",
+    "x_engagement_24h": 343,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 36.1029,
+    "suggested_angle": "tutorial"
+  }
+]
