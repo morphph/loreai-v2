@@ -1,0 +1,212 @@
+{
+  "date": "2026-04-13",
+  "headline_hook": "Sonnet 4.5 Drops, ChatGPT Starts Selling, and Mistral Opens the Mic",
+  "preview_topics": [
+    "Anthropic's Sonnet 4.5 coding crown",
+    "ChatGPT's instant checkout commerce play",
+    "why your AI benchmarks might be gamed"
+  ],
+  "pick_of_the_day": {
+    "item_id": 22831,
+    "thesis": "Berkeley's benchmark exploits reveal that the leaderboards driving billion-dollar model races may be measuring optimization tricks more than genuine capability — builders choosing models by score alone are making decisions on shaky ground, and the timing couldn't be worse with every lab claiming supremacy this week."
+  },
+  "model_literacy": {
+    "concept": "Benchmark Contamination vs. Benchmark Gaming",
+    "relevance": "With Sonnet 4.5 claiming the coding crown and Berkeley exposing agent benchmark exploits on the same weekend, understanding the difference between accidental data leakage into training (contamination) and deliberate optimization for benchmark tasks (gaming) is essential for evaluating any model claim you read this week."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 22273,
+          "title": "Claude Sonnet 4.5 Claims the Coding Throne",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Anthropic's new mid-tier model is gunning for the top of every coding leaderboard and positioning itself as the default agent backbone — the pricing-to-performance ratio is the real story.",
+          "key_fact": "Described as 'the best coding model in the world' and 'strongest model for building complex agents' with 20K+ likes on announcement"
+        },
+        {
+          "id": 22723,
+          "title": "ChatGPT Adds Instant Checkout — OpenAI Wants to Be Your Mall",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "OpenAI is turning a chatbot into a commerce platform, and every e-commerce player should be paying attention to what happens when product discovery and purchase collapse into a single conversation.",
+          "key_fact": "Instant Checkout lets users buy products directly inside ChatGPT conversations"
+        },
+        {
+          "id": 22469,
+          "title": "Mistral Drops Open Speech Recognition Models, Claims SOTA",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Open-weight speech recognition just got a serious contender — Mistral is expanding beyond text LLMs into multimodal territory with models the community can actually run.",
+          "key_fact": "Claims 'world's best' open speech recognition, 4.3K likes"
+        },
+        {
+          "id": 22797,
+          "title": "MiniMax Ships M2.7 on Hugging Face",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "MiniMax continues its quiet push into open models with a new text-generation release trending on Hugging Face.",
+          "key_fact": "455 likes and 873 downloads on Hugging Face"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 22337,
+          "title": "Claude Code Gets /ultraplan — Build Plans on the Web, Execute Anywhere",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The new planning feature bridges the gap between web-based design and terminal execution, making Claude Code the first AI coding tool with a genuine plan-review-execute loop across surfaces.",
+          "key_fact": "Available now in preview for all users with Claude Code on the web"
+        },
+        {
+          "id": 22294,
+          "title": "Claude Code Upgrades Plus New Context Management on Developer Platform",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Beyond /ultraplan, Anthropic shipped several Claude Code improvements and two new developer platform features for managing context — the unsexy infrastructure that makes agents actually work.",
+          "key_fact": "Two new context management features for the Claude Developer Platform"
+        },
+        {
+          "id": 22293,
+          "title": "Claude Lands in Slack with Web Search and Tool Access",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Claude's Slack integration goes beyond basic chat — DMs, thread mentions, and the AI assistant panel all work with web search and connected tools baked in.",
+          "key_fact": "Supports DMs, @Claude in threads, and the AI assistant panel with web search and document analysis"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 22831,
+          "title": "Berkeley Researchers Show How Easy It Is to Game AI Agent Benchmarks",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "If the benchmarks everyone uses to crown 'best model' can be exploited, the entire model evaluation ecosystem needs a rethink — and this paper shows exactly how fragile that foundation is.",
+          "key_fact": "Demonstrates exploits against the most prominent AI agent benchmarks currently used for model comparison"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 22357,
+          "title": "OpenAI Flags Axios Supply Chain Scare, Forces macOS App Update",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "No user data was compromised, but OpenAI pulling security certifications over a third-party library incident shows how supply chain risk now sits at the heart of AI infrastructure.",
+          "key_fact": "All macOS ChatGPT users required to update; part of a broader industry incident affecting the Axios library"
+        },
+        {
+          "id": 22830,
+          "title": "Anthropic Quietly Cut Cache TTL and Developers Noticed",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A GitHub issue calling out reduced prompt caching duration is gaining traction — the kind of silent infrastructure change that hits production costs before anyone writes a changelog.",
+          "key_fact": "461 likes on the GitHub issue; cache TTL reportedly downgraded since March 6th"
+        },
+        {
+          "id": 22106,
+          "title": "ChatGPT Voice Mode Runs a Weaker Model Than You Think",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Simon Willison flags that ChatGPT's voice mode uses a less capable model under the hood — a reminder that the interface you use determines the intelligence you get.",
+          "key_fact": "Voice mode confirmed to use a weaker underlying model than text chat"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 22789,
+          "title": "Run a Free Local Coding Agent with Gemma 4 + Ollama + Claude Code",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A step-by-step guide to running agentic coding workflows entirely locally — no API limits, no cloud dependency, using Ollama's Anthropic API compatibility layer.",
+          "key_fact": "Uses Gemma 4 via Ollama with Anthropic API compatibility for zero-cost local agent workflows"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 22785,
+          "title": "narrator-ai-cli-skill Automates Full Movie Commentary Videos via Agent",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "An open-source AI Agent skill file that plugs into Claude Code or similar agents to generate complete movie narration videos — script, clip matching, voiceover, BGM, and final render — from a single prompt.",
+          "key_fact": "93 built-in film assets, 63 voice options, 146 BGM tracks, 90+ visual templates; auto-calculates API costs before running"
+        },
+        {
+          "id": 22806,
+          "title": "Gemma 4 31B Gets a Fast Quantized Release on Hugging Face",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A community NVFP4 quantization of Gemma 4 31B is trending hard — making Google's latest model actually runnable on consumer hardware.",
+          "key_fact": "21.6K downloads and 169 likes; NVFP4 'turbo' quantization for local inference"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 22722,
+      "title": "ChatGPT Gets a Goals Feature for Persistent Task Tracking",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "OpenAI adds goal-setting alongside the checkout push",
+      "key_fact": "6K likes on announcement"
+    },
+    {
+      "id": 22753,
+      "title": "The 'Claude Is Eating Startups' Meme Goes Viral",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "AI founders react to Anthropic's weekly feature blitz",
+      "key_fact": "424 likes on the commentary post"
+    },
+    {
+      "id": 22113,
+      "title": "AI Engineer Europe 2026 Recap from Latent Space",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "First AIE London conference reflections",
+      "key_fact": "Coverage via Latent Space newsletter"
+    },
+    {
+      "id": 22103,
+      "title": "SQLite 3.53.0 Released",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "New SQLite version drops — relevant if you're building local-first AI",
+      "key_fact": "Version 3.53.0 release via Simon Willison"
+    },
+    {
+      "id": 22832,
+      "title": "Mistral Publishes 'European AI' Strategic Playbook",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Mistral makes the sovereignty pitch to EU builders",
+      "key_fact": "Published at europe.mistral.ai"
+    },
+    {
+      "id": 22104,
+      "title": "SQLite Query Result Formatter Demo",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Handy tool for pretty-printing SQLite output",
+      "key_fact": "Demo by Simon Willison"
+    }
+  ],
+  "total_items": 20
+}
