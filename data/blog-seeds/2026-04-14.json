@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Claude for Word is now in beta. Draft, edit, and revise documents directly from the sidebar.",
+    "url": "https://x.com/alexalbert__/status/2042705404992589927",
+    "source": "twitter:@alexalbert__",
+    "x_engagement_24h": 33861,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 39.1583,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Announcing Magistral, our first reasoning model designed to excel in domain-specific, transparent, and multilingual reasoning.",
+    "url": "https://x.com/MistralAI/status/1932441507262259564",
+    "source": "twitter:@MistralAI",
+    "x_engagement_24h": 3491,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 26.0473,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "You can now track your usage in real time across the Claude apps and Claude Code. Head to Settings → Usage or type /usage in Claude Code.",
+    "url": "https://x.com/claudeai/status/1972732965219438674",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 2516,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.7548,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Have you tried the new Claude Code renderer? Enable flicker-free output with: CLAUDE_CODE_NO_FLICKER=1 claude",
+    "url": "https://x.com/trq212/status/2043814646600348046",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 434,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.130200000000002,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Gemini 3.1 Flash Live (Thinking) tops Sierra's τ-Voice Leaderboard for voice agent benchmarking.",
+    "url": "https://x.com/GoogleDeepMind/status/2043710119347707926",
+    "source": "twitter:@GoogleDeepMind",
+    "x_engagement_24h": 206,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.061799999999998,
+    "suggested_angle": "news"
+  }
+]
