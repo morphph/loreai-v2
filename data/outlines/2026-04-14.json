@@ -1,0 +1,236 @@
+{
+  "date": "2026-04-14",
+  "headline_hook": "Claude Lands in Word, Mistral Drops Magistral, and Anthropic Names the Discipline Every Agent Builder Needs",
+  "preview_topics": [
+    "Claude's Microsoft Word debut",
+    "Mistral's reasoning model gambit",
+    "the rise of context engineering"
+  ],
+  "pick_of_the_day": {
+    "item_id": 22272,
+    "thesis": "Anthropic naming 'context engineering' as a formal discipline signals that the bottleneck in agent performance has shifted from model capability to information architecture — and most teams are still optimizing the wrong variable."
+  },
+  "model_literacy": {
+    "concept": "Reasoning Models vs. General-Purpose LLMs",
+    "relevance": "Mistral's Magistral launch joins o3 and DeepSeek-R1 in a growing 'reasoning model' category. Understanding how dedicated reasoning models differ from general LLMs — explicit chain-of-thought, test-time compute scaling, verification loops — helps readers evaluate when to reach for a reasoning specialist vs. a general-purpose model."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 22316,
+          "title": "Claude Moves Into Microsoft Word — Anthropic's Boldest Enterprise Play Yet",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Anthropic is no longer waiting for users to come to Claude — it's embedding directly into the document workflow where knowledge workers already live, putting it in a head-to-head fight with Microsoft Copilot.",
+          "key_fact": "31,465 likes — the highest engagement of any AI product announcement this week"
+        },
+        {
+          "id": 22474,
+          "title": "Mistral Ships Magistral, Its First Dedicated Reasoning Model",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Mistral is carving a differentiated lane in the reasoning model race by betting on transparency and multilingual strength — playing to European regulatory positioning rather than trying to out-benchmark o3.",
+          "key_fact": "Emphasizes transparent reasoning and multilingual capability over raw benchmark scores"
+        },
+        {
+          "id": 22470,
+          "title": "Devstral Small and Medium Give Coding Agents a Cost-vs-Capability Dial",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Mistral now has a two-tier coding model line that lets teams pick their price-performance tradeoff for agentic software engineering — a direct shot at Codex and Claude Code.",
+          "key_fact": "Two model sizes (Small and Medium) optimized specifically for coding agents"
+        },
+        {
+          "id": 23174,
+          "title": "Gemini 3.1 Flash Tops the First Credible Voice Agent Benchmark",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The benchmark matters as much as the winner — Sierra's τ-Voice leaderboard gives voice product builders their first real evaluation framework.",
+          "key_fact": "Gemini 3.1 Flash Live (Thinking) ranked #1 on Sierra's τ-Voice Leaderboard"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 22271,
+          "title": "Anthropic Open-Sources Its Internal Sycophancy and Deception Audit Tool",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The exact alignment testing tool Anthropic used internally on Sonnet 4.5 is now available to any team shipping LLM-powered products — a serious upgrade to responsible deployment tooling.",
+          "key_fact": "Tests for sycophancy and deception behaviors, the same checks run on Claude internally"
+        },
+        {
+          "id": 22295,
+          "title": "Claude Now Shows You Exactly Where Your Tokens Go — In Real Time",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Real-time usage tracking addresses the top complaint from Claude power users: surprise rate limits with no visibility into what consumed the budget.",
+          "key_fact": "Available via Settings → Usage in the app and /usage in Claude Code"
+        },
+        {
+          "id": 23521,
+          "title": "Google Cloud Turns Its Entire Doc Corpus Into an MCP Server",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "AI coding assistants can now ground answers in canonical Google Cloud docs instead of hallucinating API details — a template for how every cloud provider should expose documentation.",
+          "key_fact": "Developer Knowledge API provides machine-readable access to official Google Cloud docs"
+        },
+        {
+          "id": 22396,
+          "title": "NotebookLM Moves Inside Gemini, Plus Interactive 2D/3D Visualizations",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Pulling NotebookLM context into Gemini chat gives the model persistent research memory, while interactive visualizations turn it into a quick prototyping tool.",
+          "key_fact": "NotebookLM integration plus 2D/3D interactive visualizations in Gemini web chat"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 22272,
+          "title": "Anthropic Says 'Context Engineering' Is the Skill That Separates Good Agents From Great Ones",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "The model maker is formally naming and defining the discipline of controlling what information an agent sees and when — arguing it's now the single highest-leverage skill for agent builders.",
+          "key_fact": "3,163 likes and 515 RTs — the community validated this framing immediately"
+        },
+        {
+          "id": 22515,
+          "title": "The Pydantic Creator's 15-Minute MCP Masterclass Is the Tutorial Everyone Needed",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Samuel Colvin delivers the authoritative correction on MCP best practices — 1.7K likes in hours confirms most implementations are doing it wrong.",
+          "key_fact": "1,729 likes — the fastest-growing MCP tutorial this quarter"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 22621,
+          "title": "A 'Neural Computer' Simulates an Entire OS From Predicted Video Frames",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Instead of an AI controlling a real OS via APIs, this approach trains a video model to simulate the full computer interface from raw pixels — a fundamentally different path to computer-use agents.",
+          "key_fact": "Uses video generation architecture to build a World Model that predicts screen frames from keystrokes and clicks"
+        },
+        {
+          "id": 22118,
+          "title": "Interconnects Makes the Case for an Open Model Consortium",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Open-source AI is hitting a coordination crisis where no single lab can match frontier training runs alone — the proposed consortium model mirrors how CERN and Linux Foundation scaled collective research.",
+          "key_fact": "Individual open-source labs can no longer fund frontier-scale training independently"
+        },
+        {
+          "id": 22810,
+          "title": "Tencent Open-Sources an Embodied AI Model That Bridges Perception and Action",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Open-weight embodied models are rare — Tencent releasing one signals that robotics-ready foundation models are moving from closed labs to public repos.",
+          "key_fact": "Distinct from Tencent's HY-OmniWeaving multimodal line; focused on physical action"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 23315,
+          "title": "The 'Compute Bubble' Never Popped — Demand Ate the Supply",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Mollick marshals the data showing AI compute demand absorbed the entire infrastructure buildout — the predicted overcapacity crash never materialized, and the demand curve is steeper than bears predicted.",
+          "key_fact": "Six months of data show compute utilization stayed high despite massive buildout"
+        },
+        {
+          "id": 22275,
+          "title": "Anthropic Publishes the First Granular Map of AI Adoption by State and Country",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The first time a frontier lab has published geographic AI adoption data this detailed — useful for policy, hiring, and market-sizing decisions.",
+          "key_fact": "Interactive dataset covers every US state and country where Anthropic operates"
+        },
+        {
+          "id": 23575,
+          "title": "The Economist: The Tech Jobs Bust Is Real, but Don't Blame AI Yet",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The hiring slowdown is driven by post-ZIRP correction, not AI displacement — a nuanced counter-narrative for anyone in tech hiring or career planning.",
+          "key_fact": "The Economist attributes the downturn to interest rate normalization, not automation"
+        },
+        {
+          "id": 22639,
+          "title": "Pika Lets Creators Monetize AI-Generated Video — A Platform Play, Not Just a Tool",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The first major AI video platform to let users earn from generated content shifts the business model from tool-as-product to platform-as-marketplace.",
+          "key_fact": "First AI video platform with a built-in creator monetization path"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 23392,
+          "title": "27,000 ArXiv Papers OCR'd to Markdown With an Open 5B Model — Full Recipe Included",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "HuggingFace demonstrates a fully reproducible pipeline for mass-converting academic papers to structured Markdown — model, infra, and dataset all open-sourced.",
+          "key_fact": "16 parallel HF Jobs on L40S GPUs using an open 5B-parameter model"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 23094,
+      "title": "Hidden Env Flag Fixes Claude Code's Flickering Terminal",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Set CLAUDE_CODE_NO_FLICKER=1 for flicker-free output in long coding sessions",
+      "key_fact": "CLAUDE_CODE_NO_FLICKER=1 claude"
+    },
+    {
+      "id": 22815,
+      "title": "LiquidAI Ships a 450M Vision-Language Model That Runs on Edge",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Multimodal at a fraction of the usual parameter count — runs where larger VL models can't",
+      "key_fact": "450M parameters, image-text-to-text"
+    },
+    {
+      "id": 22813,
+      "title": "LG AI Research Drops a 33B Open-Weight Multimodal Model",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "South Korea's largest AI lab joins the open-weight VL race alongside Gemma and Qwen",
+      "key_fact": "EXAONE-4.5-33B, 3.7K downloads on HuggingFace"
+    },
+    {
+      "id": 22560,
+      "title": "Mollick: When AI Writes Correctly, Only Style Differentiates You",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Ubiquitous AI prose makes voice and style the only remaining competitive advantage for writers",
+      "key_fact": "Logic and clarity commoditized; style is the new moat"
+    },
+    {
+      "id": 22829,
+      "title": "Claudraband: An Open-Source Claude Code Wrapper for Power Users",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Fills gaps the official tool doesn't cover yet — gaining traction on Hacker News",
+      "key_fact": "82 HN points and climbing"
+    }
+  ],
+  "total_items": 23
+}
