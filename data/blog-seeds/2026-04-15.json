@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Anthropic research: just a few malicious documents can produce vulnerabilities in an LLM regardless of model size",
+    "url": "https://x.com/AnthropicAI/status/1976323781938626905",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 1788,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.5364,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code Routines: trigger templated agents via GitHub event, API, or schedule",
+    "url": "https://x.com/trq212/status/2044100766445805823",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 2425,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.7275,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic Fellows research: developing an Automated Alignment Researcher using Claude Opus 4.6",
+    "url": "https://x.com/AnthropicAI/status/2044138481790648323",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 1389,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 28.4167,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "We've redesigned Claude Code on desktop. You can now run multiple Claude sessions side by side from one window, with a new sidebar to manage them all.",
+    "url": "https://x.com/claudeai/status/2044131493966909862",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 22172,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 27.651600000000002,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Introducing Kernels on the Hugging Face Hub — ship GPU kernels as easily as pushing a model",
+    "url": "https://x.com/huggingface/status/2044058209598513558",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 1324,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.397199999999998,
+    "suggested_angle": "news"
+  }
+]
