@@ -1,193 +1,150 @@
 ---
-title: "Claude Code Keyboard Shortcuts: The Complete Reference for Faster AI Coding"
+title: "Claude Code Keyboard Shortcuts: The Complete Reference for 2026"
 slug: claude-code-keyboard-shortcuts
-description: "Master every Claude Code keyboard shortcut — from input editing to model switching — and dramatically speed up your terminal-based AI coding workflow."
+description: "Master every Claude Code keyboard shortcut — from input control to session management. The complete reference for power users."
 lang: en
 category: tools
 related_glossary: [claude-code, agentic-coding]
-related_blog: [claude-code-complete-guide, claude-code-ctrl-s-prompt-stashing, claude-code-voice-mode, claude-code-btw-side-chain-conversations]
+related_blog: [claude-code-complete-guide, claude-code-ctrl-s-prompt-stashing, claude-code-voice-mode, claude-code-memory]
 related_compare: []
 related_topics: [claude-code]
 ---
 
-<!--
-Target keyword: claude code keyboard shortcuts
-Page type: blog (tutorial)
-Keyword intent: setup / activation — users want a reference they can scan and use immediately
-Likely official-doc competitor: Anthropic's Claude Code docs have a keybindings section, but it's buried and minimal
-Likely non-official competitor pattern: Thin listicles that copy-paste a partial shortcut table with no workflow context
-LoreAI standout angle: Complete shortcut reference organized by workflow phase (input → execution → navigation → session management), with terminal compatibility notes and practical combos that the docs don't cover
--->
+# Claude Code Keyboard Shortcuts: The Complete Reference for 2026
 
-# Claude Code Keyboard Shortcuts: The Complete Reference for Faster AI Coding
+**Claude Code** runs in your terminal, which means your keyboard is the entire interface. Knowing the right shortcuts is the difference between fighting the tool and flowing with it. This reference covers every keyboard shortcut available in [Claude Code](/blog/claude-code-complete-guide) — from basic input control to advanced session management — organized by what you're actually trying to do.
 
-**Claude Code** lives in your terminal, and terminals reward muscle memory. Knowing the right keyboard shortcut is the difference between a smooth, uninterrupted coding session and one where you're constantly reaching for the mouse or re-typing commands. This reference covers every shortcut available in Claude Code — organized not alphabetically, but by the workflow phase where you'll actually use them.
+Most developers discover Claude Code's shortcuts piecemeal, stumbling on them in docs or watching someone else's workflow. This guide puts them all in one place with the context you need: not just *what* each shortcut does, but *when* to reach for it.
 
-Whether you're composing multi-line prompts, canceling a runaway generation, switching models mid-session, or queuing up your next instruction while Claude is still working, there's a keybinding for it. Most developers only discover these shortcuts by accident or word-of-mouth. This guide puts them all in one place.
+## Input Control: Writing and Editing Prompts
 
-## Input Editing: Writing and Refining Your Prompts
+Claude Code's input line behaves differently from a standard shell prompt, and mastering its input shortcuts is the first step toward an efficient workflow. These shortcuts control how you compose, edit, and submit prompts before Claude starts processing.
 
-Claude Code's input area behaves differently from a standard shell prompt. Since your prompts are often multi-line instructions — not single-line commands — the keybindings are designed around composing longer text rather than quick one-liners.
+**Enter** submits your current prompt. This is straightforward, but the nuance matters: once you press Enter, Claude begins processing immediately. There is no confirmation step.
 
-**Enter** submits your current prompt to Claude. This is the most basic interaction, but it trips up new users who expect Enter to create a new line like in a text editor. In Claude Code, Enter means "send."
+**Shift+Enter** (or typing a backslash `\` at the end of a line) inserts a newline without submitting. Use this for multi-line prompts — pasting code blocks, writing detailed instructions, or structuring complex requests. Multi-line input is essential for giving Claude Code the context it needs for [agentic coding](/glossary/agentic-coding) tasks that span multiple files.
 
-To insert a **new line without submitting**, use one of these alternatives:
+**Up Arrow** recalls your previous prompt, similar to shell history. You can press it repeatedly to scroll through earlier prompts in the current session. This is invaluable when you need to retry a prompt with slight modifications — edit the recalled prompt and submit again.
 
-| Shortcut | Platform | Notes |
-|----------|----------|-------|
-| **Shift+Enter** | All | Most intuitive for users coming from chat apps |
-| **Option+Enter** | macOS | Also creates a new line |
-| **Ctrl+J** | All | Useful if your terminal intercepts Shift+Enter |
+**Ctrl+A** and **Ctrl+E** jump to the beginning and end of the current line, following standard terminal conventions. **Ctrl+W** deletes the word before the cursor. These work the same as they do in bash or zsh.
 
-For longer prompts that need real editing — restructuring paragraphs, moving lines around — **Ctrl+E** opens your prompt in your system's default `$EDITOR` (usually Vim or Nano). Write your full prompt there, save and quit, and it drops back into Claude Code ready to send. This is invaluable for complex instructions that benefit from proper text editing.
+**Tab** triggers autocomplete for file paths and slash commands. When typing a file path in your prompt, Tab completes it against your project's actual file system. When typing a `/` command, Tab shows available options.
 
-**Escape** clears your current input line without submitting. If you've typed out a prompt and decide against it, Escape wipes the slate clean. Think of it as the "never mind" key.
+## Cancellation and Interruption
 
-**Up Arrow** and **Down Arrow** cycle through your prompt history within the current session. If you sent a prompt that produced a good result and want to iterate on it, arrow up to recall it, edit, and resubmit.
+Knowing how to stop Claude Code mid-task is as important as knowing how to start it. These shortcuts give you precise control over cancellation at different stages of execution.
 
-**Tab** triggers autocomplete for file paths and slash commands. Start typing a file name or `/` command and Tab will complete it — saving keystrokes and reducing typos in file references.
+**Escape** cancels your current input without submitting it, clearing the input line. If you've typed a long prompt and change your mind, Escape is faster than selecting and deleting. During Claude's response, pressing Escape once will request a soft stop — Claude finishes its current thought and pauses, giving you a chance to redirect.
 
-## Execution Control: Managing Claude's Responses
+**Ctrl+C** is the harder interrupt. If Claude is actively generating a response or executing a tool, Ctrl+C sends an interrupt signal. Press it once to stop the current operation gracefully. Press it twice in quick succession to force-stop. This is your emergency brake when Claude is running a command you want to halt immediately, like a runaway build process or an unintended destructive operation.
 
-Once you've submitted a prompt, Claude begins generating a response — reading files, running commands, writing code. These shortcuts give you control over that execution flow.
+The distinction between Escape and Ctrl+C matters in practice. Escape is a polite "pause here" — Claude retains context and you can continue the conversation. Ctrl+C is a firmer "stop now" — use it when Claude is executing shell commands you need to terminate. If you find yourself reaching for Ctrl+C frequently during tool execution, consider tightening your [Claude Code hooks](/blog/claude-code-hooks-a-complete-guide-to-automating-your-ai-coding-workflow) to add approval gates on risky commands.
 
-**Escape** (during generation) sends a soft interrupt. Claude will stop generating and finalize its current response. Use this when you can see Claude heading in the wrong direction — there's no point waiting for a full response you're going to discard. The interrupted response stays in your conversation history, so you can reference what Claude started before redirecting.
+## Mode Switching: Fast Mode, Verbose Mode, and Models
 
-**Ctrl+C** is the hard cancel. If Claude is mid-generation or mid-tool-execution, Ctrl+C kills the current operation immediately. In standard terminal usage, Ctrl+C sends SIGINT — Claude Code respects this convention. Use it when Escape doesn't respond fast enough or when you need to halt a shell command Claude is running.
+Claude Code supports several runtime modes you can toggle with keyboard-driven commands during a session. These aren't traditional hotkeys — they're slash commands — but they function as mode toggles that change Claude's behavior instantly.
 
-The distinction matters: **Escape = "stop talking, let's move on"** versus **Ctrl+C = "stop everything right now."** In practice, reach for Escape first. Reserve Ctrl+C for when a tool execution (like a long-running build) needs to be killed.
+**/fast** toggles Fast Mode on and off. Fast Mode uses the same Claude model but optimizes for faster output, which is useful when you need quick answers or are iterating rapidly. The tradeoff: responses may be less thorough. Toggle it on for simple queries ("what does this function do?") and off for complex multi-file tasks where you want Claude to think carefully.
 
-## Prompt Stashing with Ctrl+S
+**/verbose** toggles verbose output. When enabled, Claude Code shows more detail about its internal reasoning, tool calls, and execution steps. This is critical for debugging when Claude does something unexpected — you can see *why* it chose a particular approach. Turn it off when you're confident in the workflow and don't need the extra output.
 
-One of Claude Code's most underrated features is **[prompt stashing with Ctrl+S](/blog/claude-code-ctrl-s-prompt-stashing)**. While Claude is actively generating a response, you can press Ctrl+S to open a stash input — type your next instruction, and it queues up automatically. When Claude finishes its current task, the stashed prompt fires immediately.
+**/model** allows you to switch the underlying model during a session. You can move between Claude Opus, Sonnet, and Haiku without restarting. The practical application: use a faster, cheaper model (Haiku) for simple lookups and switch to Opus for complex reasoning tasks. This is a cost-optimization lever that most developers underuse.
 
-This eliminates the "wait and watch" dead time during long generations. Instead of sitting idle while Claude refactors a module, stash your follow-up: "now run the tests" or "also update the README." The workflow becomes pipelined rather than sequential.
+**/compact** compresses your conversation context. When your session grows long and responses slow down, /compact summarizes the conversation history to free up context window space. Use it proactively in long sessions rather than waiting for degraded performance.
 
-Stashing also works for corrections. If you spot an issue in Claude's in-progress output, Ctrl+S lets you queue a course correction that fires as soon as the current generation completes.
+## Session Management
 
-## Side Conversations with /btw
+Long-running Claude Code sessions require active management. These shortcuts and commands help you control session state without losing context or work in progress.
 
-While not a single-key shortcut, the **[/btw command](/blog/claude-code-btw-side-chain-conversations)** deserves mention here because it enables a parallel conversational workflow. Typing `/btw` followed by a message lets you send a side-chain message to Claude without interrupting the current task. It's the conversational equivalent of tapping a colleague on the shoulder while they're working — a quick question or note that doesn't derail the main thread.
+**Ctrl+L** clears the terminal screen without affecting your session state. Your conversation history, context, and any in-progress work remain intact — it only clears the visual output. Use this when your terminal gets cluttered with long tool outputs or verbose logs.
 
-## Model and Mode Switching
+**Ctrl+D** exits the current Claude Code session. This is a clean exit — Claude Code will not prompt for confirmation, so make sure your work is committed before pressing it. If you have uncommitted changes, use `/commit` first or Claude will simply exit without saving.
 
-Claude Code supports switching between modes and models without leaving your session. These shortcuts change how Claude processes your next prompt.
+**/clear** resets the conversation context entirely. Unlike Ctrl+L (which is cosmetic), /clear wipes the conversation history so Claude starts fresh with only your project's CLAUDE.md context. Use this when you're switching to an unrelated task within the same project and don't want prior conversation polluting Claude's reasoning.
 
-**Ctrl+Space** or the **/fast** command toggles **fast mode** on and off. Fast mode uses the same Claude model but optimizes for speed over depth — shorter reasoning chains, quicker responses. Toggle it on for rapid-fire tasks (renaming variables, quick lookups) and off when you need Claude's full analytical depth (architecture decisions, complex debugging).
+The [prompt stashing feature](/blog/claude-code-ctrl-s-prompt-stashing) activated by **Ctrl+S** deserves special attention. When Claude is actively working on a task, Ctrl+S lets you queue up your next prompt without interrupting the current operation. This is a significant workflow improvement — instead of waiting for Claude to finish before typing your next instruction, you stash it and Claude picks it up automatically when the current task completes.
 
-The **/model** slash command lets you switch the underlying model during a session. If you started with Opus for deep analysis but want to switch to Haiku for a batch of simple file edits, `/model` handles that without restarting. Type `/model` and select from the available options.
+## Tool Approval Shortcuts
 
-**/think** or **/think more** activates **extended thinking mode**, giving Claude a larger internal reasoning budget before responding. Use this for problems where you want Claude to think more carefully — debugging a subtle race condition, planning a complex refactoring strategy, or evaluating architectural tradeoffs. The thinking tokens aren't displayed in the response, but they improve the quality of Claude's analysis for hard problems.
+Claude Code's permission system involves approving or denying tool executions — file edits, shell commands, and other actions. These shortcuts speed up the approval flow so it doesn't become a bottleneck.
 
-## Navigation and Session Management
+When Claude proposes an action and waits for approval, **y** or **Enter** approves the action. **n** denies it. These single-key responses keep the approval loop tight.
 
-These shortcuts manage your overall session rather than individual prompts.
+For batch operations where Claude is making many similar changes (like updating imports across 20 files), you can approve all remaining actions of the same type in one go rather than pressing Enter repeatedly. Watch for the prompt offering "allow all" options — accepting it tells Claude Code to proceed without per-action approval for that tool type during the current session.
 
-| Shortcut | Action |
-|----------|--------|
-| **Ctrl+L** | Clear the terminal screen (output history preserved) |
-| **Ctrl+C** (at empty prompt) | Exit Claude Code |
-| **/clear** | Reset conversation context — starts a fresh session without restarting the process |
-| **/compact** | Compress conversation history to free up context window space |
+You can also configure persistent permissions in your [Claude Code settings](/blog/claude-code-hooks-mastery) so that trusted operations (like reading files or running your test suite) never prompt for approval. This is a significant productivity gain once you've established trust with your workflow.
 
-**Ctrl+L** is cosmetic — it clears visual clutter but doesn't affect Claude's memory of the conversation. Use it when your terminal is full of tool output and you want a clean screen.
+## Navigation and Context
 
-**/clear** is more aggressive: it resets Claude's conversation context entirely. Everything from the current session is forgotten. Use this when switching between unrelated tasks within the same terminal window.
+These shortcuts help you explore and navigate within Claude Code's interface and output.
 
-**/compact** is the middle ground. Instead of erasing context, it summarizes the conversation history into a compressed form, freeing up context window space while preserving the essential information. This is critical for long sessions where you're approaching the context limit — [Claude Code's complete guide](/blog/claude-code-complete-guide) covers context management strategies in depth.
+**Ctrl+R** triggers a reverse search through your prompt history, similar to bash's reverse-i-search. Type a fragment and it finds matching previous prompts. This is faster than pressing Up Arrow repeatedly when you need to find a specific prompt from earlier in the session.
 
-## File and Context Shortcuts
+**/help** displays all available slash commands and their descriptions. If you forget a command mid-session, this is your reference. It's context-aware — the list includes any custom skills loaded from your project's [SKILL.md files](/blog/5-claude-code-skills-i-use-every-single-day).
 
-Claude Code provides shortcuts for adding context to your prompts without manually typing file paths.
+**/status** shows your current session state: which model you're using, whether fast mode is on, token usage, and other diagnostic information. Check this when you're unsure what mode you're operating in or want to monitor costs.
 
-**# (hash)** followed by a file path adds that file to Claude's context for the current prompt. Start typing `#src/` and Tab-complete to the file you want. This is faster than writing "read the file at src/components/Header.tsx" in natural language.
+## Terminal Compatibility Tips
 
-**@ (at)** references allow mentioning specific files or URLs inline in your prompt, providing Claude with targeted context about what you're discussing.
+Claude Code's keyboard shortcuts depend on your terminal emulator passing key sequences correctly. If a shortcut isn't working, the issue is almost always your terminal configuration, not Claude Code.
 
-## Custom Keybindings
+**iTerm2 on macOS** works out of the box. All shortcuts, including Shift+Enter for multi-line input, function correctly with default settings.
 
-Claude Code supports custom keybinding configuration through `~/.claude/keybindings.json`. If the defaults conflict with your terminal emulator or your muscle memory from other tools, you can remap them.
+**macOS Terminal.app** handles most shortcuts but may require enabling "Use Option as Meta key" in Preferences > Profiles > Keyboard for Alt-based shortcuts to work.
 
-The configuration file accepts a JSON array of binding objects, each specifying a key combination and the action it triggers. This is particularly useful for developers using terminal multiplexers like tmux or screen, where Ctrl-based shortcuts often conflict.
+**tmux and screen users** need to be aware that these multiplexers intercept certain key sequences. Ctrl+B (tmux's default prefix) and Ctrl+A (screen's default prefix) will be captured by the multiplexer, not passed to Claude Code. If you use Ctrl+A for beginning-of-line in Claude Code, you'll need to either remap your tmux/screen prefix or press it twice.
 
-Common remapping scenarios:
+**Windows Terminal via WSL** supports all shortcuts. The native Windows Terminal correctly passes Shift+Enter, Ctrl+C, and other sequences through to WSL. Older terminals like ConEmu may have issues with some key combinations.
 
-- **Ctrl+S conflict**: Some terminals intercept Ctrl+S for flow control (XOFF). If prompt stashing doesn't work, either disable flow control in your terminal (`stty -ixon`) or remap the stash shortcut
-- **Ctrl+J conflict**: Some terminal emulators treat Ctrl+J as Enter. Remap new-line to a different binding if this affects you
-- **Chord bindings**: Claude Code supports multi-key sequences (e.g., Ctrl+K followed by Ctrl+S) for users who want to avoid single-key conflicts
-
-## Terminal Compatibility Notes
-
-Not all shortcuts work identically across terminal emulators. Here are the key differences to watch for:
-
-**macOS Terminal.app** handles most shortcuts correctly out of the box, but Option+Enter may require enabling "Use Option as Meta key" in terminal preferences.
-
-**iTerm2** works well with Claude Code. Shift+Enter and Option+Enter both function as expected. iTerm2's own shortcuts (Cmd+T for tabs, Cmd+D for split panes) don't conflict with Claude Code's bindings.
-
-**VS Code integrated terminal** captures some keybindings before they reach Claude Code. If you're running Claude Code inside VS Code's terminal, shortcuts like Ctrl+L (which VS Code uses to clear the terminal) may behave differently. Consider using an external terminal for Claude Code sessions, or use the dedicated [Claude Code VS Code extension](https://marketplace.visualstudio.com/items?itemName=anthropics.claude-code) which handles keybinding conflicts natively.
-
-**Windows Terminal (via WSL)** generally works, but Ctrl+Space (fast mode toggle) may be captured by the Windows input method editor. Remap via `keybindings.json` if this occurs.
-
-## Putting It Together: A Power User Workflow
-
-Here's how these shortcuts combine in a real session. You open Claude Code and start a task:
-
-1. Type a multi-line prompt using **Shift+Enter** for line breaks — describing a refactoring task
-2. **Enter** to submit
-3. While Claude works, **Ctrl+S** to stash: "run the test suite after you're done"
-4. See Claude going off-track mid-generation — **Escape** to stop it
-5. **Up Arrow** to recall your last prompt, edit the instruction, **Enter** to resubmit
-6. Claude finishes the refactoring, auto-runs the stashed test command
-7. Tests pass — toggle **/fast** mode for a quick follow-up: "update the imports in the index file"
-8. **/compact** to free up context before the next big task
-
-This is the workflow that separates someone who uses Claude Code from someone who's [productive with Claude Code](/blog/5-claude-code-skills-i-use-every-single-day). The shortcuts aren't just convenience — they enable a pipelined, interrupt-driven development style that's fundamentally faster than prompt-wait-prompt-wait.
+If Shift+Enter doesn't create a newline in your terminal, use the backslash `\` at the end of a line as a fallback — it works universally across all terminal emulators.
 
 ## Quick Reference Table
 
-| Shortcut | Context | Action |
-|----------|---------|--------|
-| Enter | Input | Submit prompt |
-| Shift+Enter | Input | New line |
-| Option+Enter | Input (macOS) | New line |
-| Ctrl+J | Input | New line |
-| Ctrl+E | Input | Open in $EDITOR |
-| Escape | Input | Clear current input |
-| Escape | Generation | Soft stop |
-| Ctrl+C | Generation | Hard cancel |
-| Ctrl+C | Empty prompt | Exit Claude Code |
-| Ctrl+S | Generation | Stash next prompt |
-| Ctrl+Space | Any | Toggle fast mode |
-| Ctrl+L | Any | Clear screen |
-| Up/Down | Input | Prompt history |
-| Tab | Input | Autocomplete |
-| # | Input | Add file to context |
-| /clear | Any | Reset conversation |
-| /compact | Any | Compress context |
-| /model | Any | Switch model |
-| /think | Any | Extended thinking |
+| Shortcut | Action | When to Use |
+|----------|--------|-------------|
+| **Enter** | Submit prompt | Ready to send |
+| **Shift+Enter** / `\` | New line | Multi-line prompts |
+| **Escape** | Cancel input / soft stop | Change your mind or pause Claude |
+| **Ctrl+C** | Hard interrupt | Stop a running command |
+| **Ctrl+S** | Stash prompt | Queue next task while Claude works |
+| **Ctrl+L** | Clear screen | Declutter terminal |
+| **Ctrl+D** | Exit session | Done working |
+| **Ctrl+R** | Reverse search history | Find a previous prompt |
+| **Up Arrow** | Previous prompt | Retry or edit last input |
+| **Tab** | Autocomplete | File paths and slash commands |
+| **/fast** | Toggle fast mode | Quick queries vs deep tasks |
+| **/verbose** | Toggle verbose output | Debug Claude's decisions |
+| **/model** | Switch model | Optimize cost vs capability |
+| **/compact** | Compress context | Long sessions slowing down |
+| **/clear** | Reset conversation | Switch to unrelated task |
+
+## Customizing Keybindings
+
+Claude Code supports custom keybindings via `~/.claude/keybindings.json`. You can remap any default shortcut or add chord bindings (multi-key sequences) for commands you use frequently. This is particularly useful if Claude Code's defaults conflict with your terminal emulator or tmux configuration.
+
+The keybindings file uses a straightforward JSON format where you specify the key combination and the action it triggers. If your workflow involves frequently switching between [extended thinking mode](/blog/claude-code-seven-programmable-layers) and fast mode, binding those to single keystrokes eliminates friction.
 
 ## Frequently Asked Questions
 
-### How do I create a new line in Claude Code without submitting?
+### How do I cancel input in Claude Code?
 
-Use **Shift+Enter**, **Option+Enter** (macOS), or **Ctrl+J** to insert a line break. Plain Enter submits your prompt. If none of these work in your terminal, press **Ctrl+E** to open your prompt in a full text editor where Enter behaves normally.
+Press **Escape** to cancel your current input and clear the line. If Claude is already generating a response, Escape requests a soft stop. For a hard interrupt during command execution, press **Ctrl+C** once for a graceful stop or twice for a force-stop.
 
-### Can I customize Claude Code's keyboard shortcuts?
+### Can I write multi-line prompts in Claude Code?
 
-Yes. Edit `~/.claude/keybindings.json` to remap any shortcut. Claude Code supports both single-key bindings and chord sequences (multi-key combinations). This is useful when your terminal emulator or multiplexer captures default keybindings.
+Yes. Press **Shift+Enter** to insert a newline without submitting your prompt. If your terminal doesn't support Shift+Enter, type a backslash `\` at the end of the line and press Enter — this works as a universal fallback across all terminal emulators.
 
-### What's the difference between Escape and Ctrl+C during generation?
+### How do I switch models during a Claude Code session?
 
-**Escape** is a soft stop — Claude finishes its current thought and returns a partial response. **Ctrl+C** is a hard cancel that immediately terminates whatever Claude is doing, including any running shell commands. Use Escape first; reserve Ctrl+C for when you need an immediate halt.
+Type **/model** to change the underlying model without restarting your session. You can switch between Claude Opus, Sonnet, and Haiku on the fly. Use faster models for simple lookups and more capable models for complex multi-file reasoning tasks.
 
-### How do I switch between fast mode and full mode?
+### What does Ctrl+S do in Claude Code?
 
-Press **Ctrl+Space** or type **/fast** to toggle fast mode. Fast mode uses the same underlying model but optimizes for response speed. Toggle it on for simple tasks and off for complex analysis. The current mode is shown in the [status line](/blog/claude-code-complete-guide) at the bottom of your terminal.
+**Ctrl+S** activates prompt stashing — it lets you type and queue your next instruction while Claude is still working on the current task. Claude picks up the stashed prompt automatically when it finishes, eliminating idle wait time between tasks.
 
-### Does Ctrl+S work if my terminal uses it for flow control?
+### How do I toggle fast mode in Claude Code?
 
-Some terminals intercept Ctrl+S for XOFF flow control, which freezes output. Run `stty -ixon` in your shell profile to disable this, or remap the stash shortcut in `~/.claude/keybindings.json`. Most modern terminal emulators (iTerm2, Windows Terminal, Ghostty) have flow control disabled by default.
+Type **/fast** to toggle fast mode on or off during any session. Fast mode uses the same Claude model but optimizes for faster output at the cost of thoroughness. It does not switch to a different, less capable model.
 
 ---
 
