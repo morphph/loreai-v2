@@ -1,0 +1,220 @@
+{
+  "date": "2026-04-15",
+  "headline_hook": "Claude Code Ships Parallel Sessions as OpenAI Builds Its First Cyber-Specific Model",
+  "preview_topics": [
+    "Claude Code's multi-session redesign",
+    "the recursive alignment research bet",
+    "a 27-tool security MCP server"
+  ],
+  "pick_of_the_day": {
+    "item_id": 23760,
+    "thesis": "Anthropic using Opus 4.6 to accelerate alignment research is the highest-stakes recursive bet in AI — if it works, safety scales with capability; if it doesn't, we're building increasingly powerful tools we fundamentally cannot steer, and the window to course-correct narrows with every capability jump."
+  },
+  "model_literacy": {
+    "concept": "Data Poisoning Attacks",
+    "relevance": "Today's Anthropic/AISI research shows a few malicious documents can compromise any model regardless of size. As more teams fine-tune on scraped or user-submitted data, understanding how poisoning works — and why scale doesn't protect you — is essential for anyone curating training corpora."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 23780,
+          "title": "Claude Code Desktop Goes Multi-Session with Full Redesign",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Parallel agent sessions in a single window transforms Claude Code from a single-threaded tool into a cockpit — power users running multiple coding agents simultaneously is the workflow AI-native IDEs have been promising but never delivered.",
+          "key_fact": "20,761 likes — the most-engaged Claude Code announcement to date"
+        },
+        {
+          "id": 23744,
+          "title": "Engineering Lead Confirms: The Redesign Is Their Daily Driver Now",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Felix Rieseberg's confirmation that the team eats their own dogfood daily adds credibility — this isn't a demo, it's the tool the builders themselves rely on.",
+          "key_fact": "Built from the ground up for parallel work with significant speed improvements"
+        },
+        {
+          "id": 23622,
+          "title": "Gemini Robotics-ER 1.6 Brings Enhanced Spatial Reasoning to Physical Tasks",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "DeepMind upgrading multi-view understanding and spatial reasoning for robotics is a concrete step toward general-purpose robot foundation models — not a demo reel, but an inference engine for real-world manipulation.",
+          "key_fact": "Enhanced embodied reasoning with multi-view spatial understanding for autonomous task execution"
+        },
+        {
+          "id": 23860,
+          "title": "OpenAI Launches GPT-5.4-Cyber — First Frontier Model Fine-Tuned for Defense",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "A domain-specific fine-tune of a frontier model with tiered trusted access could become the template for how labs deploy AI in sensitive verticals — cybersecurity today, biodefense and financial regulation next.",
+          "key_fact": "First fine-tuned frontier model specifically for cybersecurity defense under a gated access model"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 23841,
+          "title": "Claude Code Routines Turn Agents into Programmable Automation",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Triggering templated Claude agents via GitHub events, schedules, or API calls transforms Claude Code from an interactive assistant into an automation platform — the 'cron job' moment for AI coding agents.",
+          "key_fact": "2,252 likes; supports GitHub event triggers, API triggers, and scheduled execution"
+        },
+        {
+          "id": 23623,
+          "title": "Chrome Skills Packages AI Prompts as One-Click Browser Tools",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Google is turning prompt engineering into a sharable, remixable format inside the browser billions already use — the distribution advantage is enormous.",
+          "key_fact": "Reusable one-click tools built from prompts, available directly in Chrome"
+        },
+        {
+          "id": 23984,
+          "title": "HuggingFace Kernels: Publish GPU Code Like You Push Models",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Versioned, shareable GPU kernels on the Hub dramatically lower the barrier to distributing high-performance inference code — the missing piece between a research kernel and production deployment.",
+          "key_fact": "1,165 likes; ship GPU kernels with the same push-and-share workflow as models"
+        },
+        {
+          "id": 24316,
+          "title": "Kontext CLI Brokers Credentials for AI Coding Agents",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A Go-based credential broker that handles secrets without exposing them in the agent's context window — solving the security gap most teams ignore when deploying coding agents.",
+          "key_fact": "Go-based CLI; secrets never enter the agent's context window"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 23760,
+          "title": "Anthropic Tests Whether Opus 4.6 Can Accelerate Alignment Research Itself",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The Anthropic Fellows program is testing the recursive hypothesis head-on: can the model help solve the safety problem that the model creates? The implications fork sharply depending on results.",
+          "key_fact": "1,247 likes; uses Claude Opus 4.6 as an automated alignment researcher"
+        },
+        {
+          "id": 22270,
+          "title": "A Few Malicious Documents Can Poison Any Model, Regardless of Size",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Joint Anthropic/UK AISI/Turing Institute finding that data poisoning doesn't require massive dataset corruption — just a few well-placed documents — upends the assumption that scale provides natural immunity.",
+          "key_fact": "Joint research with UK AISI and Turing Institute; attacks succeed regardless of model size"
+        },
+        {
+          "id": 24315,
+          "title": "Introspective Diffusion Merges Diffusion Generation with Language Models",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A novel architecture that lets LLMs handle uncertainty and revision during generation using diffusion principles — potentially unlocking a fundamentally different mode of text production.",
+          "key_fact": "New hybrid approach combining diffusion-based generation with autoregressive language modeling"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 22597,
+          "title": "Pydantic Creator's 15-Minute MCP Masterclass: You're Doing It Wrong",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "At 1.7K likes, Samuel Colvin's authoritative correction on MCP implementation patterns shows the community was waiting for someone with framework-level credibility to set the record straight.",
+          "key_fact": "1,729 likes; 15-minute walkthrough from the Pydantic/FastAPI creator"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 22473,
+          "title": "Mistral Compute Is Europe's Most Concrete AI Sovereignty Play Yet",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "An unprecedented European AI infrastructure initiative that ensures nation states and enterprises can train frontier models without US cloud dependency — the geopolitics of compute made tangible.",
+          "key_fact": "2,387 likes and 330 RTs — highest engagement of any European AI infrastructure announcement"
+        },
+        {
+          "id": 23317,
+          "title": "Mollick: If You've Used Agentic Tools, Mythos Cyber Claims Are Entirely Plausible",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Ethan Mollick's pragmatic pushback on Mythos skeptics — anyone who has shipped with current agentic coding tools knows the cybersecurity implications aren't science fiction, they're extrapolation.",
+          "key_fact": "647 likes; argues direct agentic tool experience makes large-scale cyber implications credible"
+        },
+        {
+          "id": 23606,
+          "title": "Simon Willison: Cybersecurity Now Looks Like Proof of Work",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "As AI makes attacks cheaper, defense increasingly requires proving computational effort — Willison reframes security economics through a crypto-native lens that might actually stick.",
+          "key_fact": "Defense-as-proof-of-work framework for the era of AI-cheapened attacks"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 24266,
+          "title": "27-Tool Security MCP Server Turns Any AI Agent into a Security Analyst",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "CVE lookup, EPSS scoring, CISA KEV, MITRE ATT&CK, Shodan, VirusTotal — all accessible through one MCP server. Fork it and your coding agent becomes a security research assistant.",
+          "key_fact": "27 security intelligence tools across 21 APIs in a single production-grade MCP server"
+        },
+        {
+          "id": 23243,
+          "title": "HuggingFace OCR'd 27,000 ArXiv Papers to Markdown with an Open 5B Model",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A fully reproducible pipeline for converting academic papers to structured Markdown at scale — fork this for your own PDF corpus and skip months of data engineering.",
+          "key_fact": "27,000 papers processed using 16 parallel jobs with an open-source 5B parameter model"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 23615,
+      "title": "Latent Space's Definitive Local Models List — April 2026",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Comprehensive reference for what you can actually run on your own hardware right now",
+      "key_fact": "Full local model rankings and benchmarks for April 2026"
+    },
+    {
+      "id": 24297,
+      "title": "LtxVideo 2.3 LoRA Enables High-Quality Image-to-Video Generation",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Animate stills without training your own model",
+      "key_fact": "LoRA adapter for LtxVideo 2.3 with 2.7K downloads"
+    },
+    {
+      "id": 23576,
+      "title": "AMD GAIA: Build Local AI Agents on AMD Hardware",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "AMD's official framework breaks NVIDIA's lock on local inference tooling",
+      "key_fact": "First-class local agent framework for AMD GPUs"
+    },
+    {
+      "id": 23761,
+      "title": "Anthropic Appoints Novartis CEO to Board",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Pharma CEO on the board signals AI-for-healthcare as a strategic priority",
+      "key_fact": "Vas Narasimhan (Novartis CEO) joins Anthropic's Board of Directors"
+    }
+  ],
+  "total_items": 21
+}
