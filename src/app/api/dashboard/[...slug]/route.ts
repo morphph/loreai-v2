@@ -5,7 +5,7 @@ const DASHBOARD_SECRET = process.env.DASHBOARD_SECRET;
 
 const ALLOWED_ENDPOINTS = new Set([
   'health', 'topics', 'topics-tree', 'gsc', 'activity',
-  'trends', 'queue', 'coverage', 'report', 'infra',
+  'trends', 'queue', 'coverage', 'report', 'infra', 'news-analysis',
 ]);
 
 export async function GET(

@@ -7,6 +7,7 @@ import QueueView from '@/components/dashboard/QueueView';
 import PerformanceTab from '@/components/dashboard/PerformanceTab';
 import CoverageView from '@/components/dashboard/CoverageView';
 import HealthReportTab from '@/components/dashboard/HealthReportTab';
+import NewsAnalysisTab from '@/components/dashboard/NewsAnalysisTab';
 
 const TABS = [
   { id: 'health-report', label: 'Health Report' },
@@ -15,6 +16,7 @@ const TABS = [
   { id: 'queue', label: 'Queue' },
   { id: 'performance', label: 'Performance' },
   { id: 'coverage', label: 'Coverage' },
+  { id: 'news-analysis', label: 'News Analysis' },
 ] as const;
 
 type TabId = (typeof TABS)[number]['id'];
@@ -58,6 +60,7 @@ export default function DashboardClient() {
         {activeTab === 'queue' && <QueueView />}
         {activeTab === 'performance' && <PerformanceTab />}
         {activeTab === 'coverage' && <CoverageView />}
+        {activeTab === 'news-analysis' && <NewsAnalysisTab />}
       </div>
     </div>
   );

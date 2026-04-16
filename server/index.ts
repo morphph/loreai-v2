@@ -857,6 +857,322 @@ app.get('/api/dashboard/report', async (c) => {
   return c.text(lines.join('\n'), 200, { 'Content-Type': 'text/markdown; charset=utf-8' });
 });
 
+// ── News Analysis ────────────────────────────────────────────
+app.get('/api/dashboard/news-analysis', (c) => {
+  const days = Math.min(parseInt(c.req.query('days') || '7', 10), 30);
+
+  // Find the actual date range with data
+  const dateRange = db.prepare(`
+    SELECT MIN(DATE(detected_at)) as min_date, MAX(DATE(detected_at)) as max_date,
+           COUNT(DISTINCT DATE(detected_at)) as days_with_data
+    FROM news_items
+    WHERE detected_at > datetime('now', '-' || ? || ' days')
+  `).get(days) as { min_date: string | null; max_date: string | null; days_with_data: number };
+
+  if (!dateRange.min_date) {
+    return c.json({ period: null, summary: null, daily: [], source_types: [], anomalies: { high_score_misses: [], low_score_hits: [], stale_sources: [] } });
+  }
+
+  // Get all news items in range
+  const allItems = db.prepare(`
+    SELECT ni.id, ni.title, ni.url, ni.source, ni.source_tier, ni.summary,
+           ni.score, ni.engagement_likes, ni.engagement_retweets, ni.engagement_downloads,
+           ni.detected_at, ni.selected_for_newsletter_at
+    FROM news_items ni
+    WHERE ni.detected_at > datetime('now', '-' || ? || ' days')
+    ORDER BY ni.detected_at DESC
+  `).all(days) as Array<{
+    id: number; title: string; url: string | null; source: string; source_tier: number;
+    summary: string | null; score: number; engagement_likes: number;
+    engagement_retweets: number; engagement_downloads: number;
+    detected_at: string; selected_for_newsletter_at: string | null;
+  }>;
+
+  // Get newsletter dates for linking selected items
+  const newsletterDates = db.prepare(`
+    SELECT cs.news_item_id, c.slug as newsletter_date
+    FROM content_sources cs
+    JOIN content c ON cs.content_id = c.id
+    WHERE c.type = 'newsletter' AND c.lang = 'en'
+  `).all() as Array<{ news_item_id: number; newsletter_date: string }>;
+
+  const itemToNewsletter = new Map<number, string>();
+  for (const row of newsletterDates) {
+    itemToNewsletter.set(row.news_item_id, row.newsletter_date);
+  }
+
+  // --- Replay Stage 2 filter logic to infer rejection reasons ---
+
+  const AI_RELEVANCE = /\b(ai|llm|gpt|claude|gemini|anthropic|openai|model|agent|mcp|transformer|benchmark|training|inference|coding|developer|api|sdk|diffusion|rag|fine.?tun|embedding|neural|deep.?learn|machine.?learn|hugging.?face|token|prompt|reasoning|multimodal|vision|speech|voice|distill|safety|alignment|eval|engineering|blog|changelog|release.?note|update|feature)\b/i;
+
+  const GITHUB_BLOCKLIST = new Set([
+    'https://github.com/tensorflow/tensorflow',
+    'https://github.com/pytorch/pytorch',
+    'https://github.com/huggingface/transformers',
+    'https://github.com/f/prompts.chat',
+    'https://github.com/langchain-ai/langchain',
+    'https://github.com/microsoft/autogen',
+    'https://github.com/ggerganov/llama.cpp',
+    'https://github.com/AUTOMATIC1111/stable-diffusion-webui',
+    'https://github.com/openai/openai-python',
+    'https://github.com/hwchase17/langchain',
+  ]);
+
+  // Determine filter reason for each item
+  type FilterReason = 'selected' | 'age_48h' | 'ai_relevance' | 'rt_dedup' | 'blocklist' | 'hf_min_likes' | 'stage2_cap' | 'stage3_ai_filter';
+
+  // Build RT dedup map for Twitter items
+  const rtBestEngagement = new Map<string, number>();
+  for (const item of allItems) {
+    if (!item.source.startsWith('twitter:')) continue;
+    const rtMatch = item.title.match(/^RT @\w+: (.{0,80})/);
+    if (rtMatch) {
+      const key = rtMatch[1].toLowerCase();
+      const best = rtBestEngagement.get(key) || 0;
+      if (item.engagement_likes > best) {
+        rtBestEngagement.set(key, item.engagement_likes);
+      }
+    }
+  }
+
+  function inferFilterReason(item: typeof allItems[0]): FilterReason {
+    if (item.selected_for_newsletter_at) return 'selected';
+
+    // Age filter: >48h from detection
+    if (item.detected_at) {
+      const age = Date.now() - new Date(item.detected_at).getTime();
+      if (age > 48 * 60 * 60 * 1000) return 'age_48h';
+    }
+
+    // Twitter-specific filters
+    if (item.source.startsWith('twitter:')) {
+      // RT dedup
+      const rtMatch = item.title.match(/^RT @\w+: (.{0,80})/);
+      if (rtMatch) {
+        const key = rtMatch[1].toLowerCase();
+        const best = rtBestEngagement.get(key) || 0;
+        if (item.engagement_likes < best) return 'rt_dedup';
+      }
+      // AI relevance
+      if (!AI_RELEVANCE.test(item.title) && !AI_RELEVANCE.test(item.summary || '')) return 'ai_relevance';
+    }
+
+    // GitHub blocklist
+    if (item.source.startsWith('github:trending') && item.url && GITHUB_BLOCKLIST.has(item.url)) return 'blocklist';
+
+    // HuggingFace min likes
+    if (item.source.startsWith('huggingface:') && item.engagement_likes < 100) return 'hf_min_likes';
+
+    // If it passed all Stage 2 checks but wasn't selected → Stage 3 AI filter
+    return 'stage3_ai_filter';
+  }
+
+  // --- Classify source type ---
+  function getSourceType(source: string, tier: number): string {
+    if (source.startsWith('blog:') || (source.startsWith('rss:') && tier === 1)) return 'blog';
+    if (source.startsWith('rss:')) return 'rss';
+    if (source.startsWith('twitter:@')) return 'twitter_account';
+    if (source.startsWith('twitter:search:') || source.startsWith('twitter:q:')) return 'twitter_search';
+    if (source.startsWith('github:trending')) return 'github_trending';
+    if (source.startsWith('github:release')) return 'github_release';
+    if (source.startsWith('huggingface:')) return 'huggingface';
+    if (source === 'hackernews') return 'hackernews';
+    if (source.startsWith('reddit:')) return 'reddit';
+    return 'other';
+  }
+
+  const SOURCE_TYPE_LABELS: Record<string, string> = {
+    blog: 'Official Blogs',
+    rss: 'RSS Feeds',
+    twitter_account: 'Twitter Accounts',
+    twitter_search: 'Twitter Search',
+    github_trending: 'GitHub Trending',
+    github_release: 'GitHub Releases',
+    huggingface: 'HuggingFace',
+    hackernews: 'Hacker News',
+    reddit: 'Reddit',
+    other: 'Other',
+  };
+
+  // Sort order for source types
+  const SOURCE_TYPE_ORDER: Record<string, number> = {
+    blog: 0, rss: 1, twitter_account: 2, twitter_search: 3,
+    github_release: 4, github_trending: 5, huggingface: 6,
+    hackernews: 7, reddit: 8, other: 9,
+  };
+
+  // --- Build grouped data ---
+  interface AnalysisItem {
+    id: number;
+    title: string;
+    url: string | null;
+    score: number;
+    likes: number;
+    retweets: number;
+    downloads: number;
+    detected_at: string;
+    selected: boolean;
+    newsletter_date: string | null;
+    filter_reason: FilterReason;
+  }
+
+  interface SourceGroup {
+    source: string;
+    collected: number;
+    selected: number;
+    items: AnalysisItem[];
+  }
+
+  interface SourceTypeGroup {
+    type: string;
+    label: string;
+    collected: number;
+    selected: number;
+    rate: number;
+    sources: SourceGroup[];
+  }
+
+  // Group items
+  const typeMap = new Map<string, Map<string, AnalysisItem[]>>();
+
+  for (const item of allItems) {
+    const sourceType = getSourceType(item.source, item.source_tier);
+    const filterReason = inferFilterReason(item);
+    const isSelected = item.selected_for_newsletter_at !== null;
+
+    const analysisItem: AnalysisItem = {
+      id: item.id,
+      title: item.title,
+      url: item.url,
+      score: item.score,
+      likes: item.engagement_likes,
+      retweets: item.engagement_retweets,
+      downloads: item.engagement_downloads,
+      detected_at: item.detected_at,
+      selected: isSelected,
+      newsletter_date: itemToNewsletter.get(item.id) || null,
+      filter_reason: filterReason,
+    };
+
+    if (!typeMap.has(sourceType)) typeMap.set(sourceType, new Map());
+    const sourceMap = typeMap.get(sourceType)!;
+    if (!sourceMap.has(item.source)) sourceMap.set(item.source, []);
+    sourceMap.get(item.source)!.push(analysisItem);
+  }
+
+  // Assemble source_types array
+  const sourceTypes: SourceTypeGroup[] = [];
+  for (const [type, sourceMap] of typeMap.entries()) {
+    const sources: SourceGroup[] = [];
+    let totalCollected = 0;
+    let totalSelected = 0;
+
+    for (const [source, items] of sourceMap.entries()) {
+      const selected = items.filter(i => i.selected).length;
+      sources.push({
+        source,
+        collected: items.length,
+        selected,
+        items: items.sort((a, b) => {
+          // Selected first, then by score desc
+          if (a.selected !== b.selected) return a.selected ? -1 : 1;
+          return b.score - a.score;
+        }),
+      });
+      totalCollected += items.length;
+      totalSelected += selected;
+    }
+
+    // Sort sources by collected desc
+    sources.sort((a, b) => b.collected - a.collected);
+
+    sourceTypes.push({
+      type,
+      label: SOURCE_TYPE_LABELS[type] || type,
+      collected: totalCollected,
+      selected: totalSelected,
+      rate: totalCollected > 0 ? Math.round((totalSelected / totalCollected) * 10000) / 10000 : 0,
+      sources,
+    });
+  }
+
+  // Sort source types by predefined order
+  sourceTypes.sort((a, b) => (SOURCE_TYPE_ORDER[a.type] ?? 99) - (SOURCE_TYPE_ORDER[b.type] ?? 99));
+
+  // --- Daily stats ---
+  const dailyMap = new Map<string, { collected: number; selected: number }>();
+  for (const item of allItems) {
+    const date = item.detected_at.slice(0, 10);
+    if (!dailyMap.has(date)) dailyMap.set(date, { collected: 0, selected: 0 });
+    const d = dailyMap.get(date)!;
+    d.collected++;
+    if (item.selected_for_newsletter_at) d.selected++;
+  }
+  const daily = Array.from(dailyMap.entries())
+    .map(([date, d]) => ({ date, collected: d.collected, selected: d.selected, rate: d.collected > 0 ? Math.round((d.selected / d.collected) * 10000) / 10000 : 0 }))
+    .sort((a, b) => a.date.localeCompare(b.date));
+
+  // --- Summary ---
+  const totalCollected = allItems.length;
+  const totalSelected = allItems.filter(i => i.selected_for_newsletter_at).length;
+  const allSources = new Set(allItems.map(i => i.source));
+  const activeSources = allSources.size;
+  const avgScore = totalCollected > 0 ? Math.round(allItems.reduce((s, i) => s + i.score, 0) / totalCollected) : 0;
+
+  // --- Anomalies ---
+  const highScoreMisses = allItems
+    .filter(i => i.score >= 80 && !i.selected_for_newsletter_at)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 20)
+    .map(i => ({
+      id: i.id, title: i.title, url: i.url, source: i.source,
+      score: i.score, likes: i.engagement_likes, detected_at: i.detected_at,
+      filter_reason: inferFilterReason(i),
+    }));
+
+  const lowScoreHits = allItems
+    .filter(i => i.score < 50 && i.selected_for_newsletter_at !== null)
+    .sort((a, b) => a.score - b.score)
+    .slice(0, 20)
+    .map(i => ({
+      id: i.id, title: i.title, url: i.url, source: i.source,
+      score: i.score, likes: i.engagement_likes, detected_at: i.detected_at,
+      newsletter_date: itemToNewsletter.get(i.id) || null,
+    }));
+
+  // Stale sources: check all known sources from past 30 days that had 0 items in the query window
+  const knownSources = db.prepare(`
+    SELECT DISTINCT source FROM news_items WHERE detected_at > datetime('now', '-30 days')
+  `).all() as Array<{ source: string }>;
+  const recentSources = new Set(allItems.map(i => i.source));
+  const staleSources = knownSources
+    .filter(s => !recentSources.has(s.source))
+    .map(s => s.source)
+    .sort();
+
+  return c.json({
+    period: {
+      from: dateRange.min_date,
+      to: dateRange.max_date,
+      days_with_data: dateRange.days_with_data,
+    },
+    summary: {
+      total_collected: totalCollected,
+      total_selected: totalSelected,
+      selection_rate: totalCollected > 0 ? Math.round((totalSelected / totalCollected) * 10000) / 10000 : 0,
+      active_sources: activeSources,
+      avg_score: avgScore,
+    },
+    daily,
+    source_types: sourceTypes,
+    anomalies: {
+      high_score_misses: highScoreMisses,
+      low_score_hits: lowScoreHits,
+      stale_sources: staleSources,
+    },
+  });
+});
+
 const port = Number(process.env.PORT) || 3001;
 console.log(`LoreAI API server listening on port ${port}`);
 
