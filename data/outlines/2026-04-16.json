@@ -1,0 +1,212 @@
+{
+  "date": "2026-04-16",
+  "headline_hook": "Claude Code Ships Routines, OpenAI Opens Agent Sandboxes, and Google Puts Robots to Work",
+  "preview_topics": [
+    "Claude Code's autonomous routines",
+    "OpenAI's sandboxed agent SDK",
+    "Google's spatial-reasoning robots"
+  ],
+  "pick_of_the_day": {
+    "item_id": 24436,
+    "thesis": "Routines mark the moment AI coding tools cross from chat assistants to autonomous infrastructure — developers no longer prompt, they configure. The long-term winner in AI-assisted development won't be the best model, but the best orchestration layer."
+  },
+  "model_literacy": {
+    "concept": "Event-Driven Agent Architecture",
+    "relevance": "Today's two biggest launches — Claude Code Routines and OpenAI Agents SDK — both pivot agents from request-response to event-triggered autonomous workflows. Understanding this pattern (cron schedules, webhook triggers, API-initiated runs) is how the industry moves from 'AI chatbot' to 'AI coworker.'"
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 24435,
+          "title": "Claude Code Desktop Gets a Ground-Up Redesign",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Anthropic rebuilds the desktop app from scratch — signaling Claude Code is graduating from dev-tool to full IDE competitor",
+          "key_fact": "Complete ground-up redesign of the desktop experience"
+        },
+        {
+          "id": 24634,
+          "title": "Gemini 3.1 Flash TTS Drops with Audio Tags for Controllable Speech",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Google's new TTS model lets developers steer vocal style, pacing, and delivery with inline text tags — 70+ languages supported",
+          "key_fact": "70+ languages, 24 high-quality evaluated, with inline audio tag control"
+        },
+        {
+          "id": 24998,
+          "title": "Humwork Launches MCP Server That Pays Humans When Agents Get Stuck",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "YC-backed startup creates a human-in-the-loop marketplace where AI agents can hire domain experts in 30 seconds via MCP",
+          "key_fact": "30-second connection to verified domain experts via MCP protocol"
+        },
+        {
+          "id": 25022,
+          "title": "Baidu Drops ERNIE-Image on Hugging Face",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Baidu open-sources its text-to-image model, joining the open-weights image generation race",
+          "key_fact": "287 likes and trending on Hugging Face within hours of release"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 24620,
+          "title": "OpenAI Agents SDK Adds Sandboxes, Memory Control, and Open-Source Harness",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "OpenAI's agent platform grows up — sandboxed execution, inspectable harness, and granular memory control signal the toolkit is ready for production",
+          "key_fact": "New sandboxed execution environments plus open-source harness inspection"
+        },
+        {
+          "id": 24437,
+          "title": "Claude Code Routines Get GitHub Event and API Triggers",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Beyond cron: routines can now fire on GitHub events or API calls, turning Claude Code into an event-driven agent platform",
+          "key_fact": "Three trigger types: schedule, GitHub event, and API"
+        },
+        {
+          "id": 24362,
+          "title": "HoloTab: HCompany's AI Browser Companion Hits Hugging Face",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A new browser-native AI assistant that lives in your tab bar, from the team behind H",
+          "key_fact": "Released on Hugging Face by HCompany"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 24436,
+          "title": "Claude Code Routines: Configure Once, Run Autonomously Forever",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "The biggest Claude Code update yet — routines let you define a prompt, a repo, and connectors, then let the agent run on its own. This is the chat-to-automation bridge.",
+          "key_fact": "17,585 likes — most-engaged Claude Code announcement ever"
+        },
+        {
+          "id": 24999,
+          "title": "The MCP Wiring Guide That Turns Claude from Chatbot to System",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A practical walkthrough of connecting Claude to your actual stack via MCP — the gap between 'using Claude' and 'deploying Claude' is one config file",
+          "key_fact": "Covers MCP servers, tool connections, and persistent memory setup"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 23920,
+          "title": "Gemini Robotics-ER 1.6 Teaches Robots to Reason About Physical Space",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Google DeepMind upgrades its robotics model with dramatically better visual and spatial understanding — the gap between 'AI that chats' and 'AI that moves' just narrowed",
+          "key_fact": "Significantly improved spatial and visual understanding for real-world task planning"
+        },
+        {
+          "id": 24655,
+          "title": "TIPSv2: DeepMind's Spatial Understanding Model Heads to CVPR 2026",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A complementary piece to Robotics-ER — TIPSv2 tackles the spatial reasoning challenge from the perception side",
+          "key_fact": "Accepted at CVPR 2026"
+        },
+        {
+          "id": 24361,
+          "title": "VAKRA Exposes Where AI Agents Actually Fail at Tool Use",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "IBM's benchmark dissects agent reasoning and tool-use failure modes — essential reading as everyone ships agent SDKs",
+          "key_fact": "Comprehensive analysis of reasoning, tool use, and failure modes in agents"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 24349,
+          "title": "Notion's 5-Rebuild Journey to the AI Software Factory",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Notion's co-founder reveals 5 failed rebuilds and 100+ tools before landing on their agent architecture — a masterclass in AI product iteration",
+          "key_fact": "5 rebuilds, 100+ tools evaluated, MCP vs CLIs comparison"
+        },
+        {
+          "id": 24348,
+          "title": "Latent Space Asks: Is This Humanity's Last Gasp of Quiet?",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "On a rare slow news day, the AI community pauses to reflect on what work means when agents can ship code autonomously",
+          "key_fact": "Published on one of the quietest AI news days in months"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 24977,
+          "title": "The $0 Production AI Stack for 2026",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A complete open-source stack from LLM to frontend — every layer free, every tool battle-tested",
+          "key_fact": "Full stack: Ollama + LangGraph + LlamaIndex + MCP + Next.js + SQLite"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 25024,
+      "title": "Baidu ERNIE-Image-Turbo Also Lands on Hugging Face",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Faster variant of ERNIE-Image for production use",
+      "key_fact": "215 likes, 419 downloads on HF"
+    },
+    {
+      "id": 24356,
+      "title": "DeepMind's Deep Dive on Flash TTS Audio Tags",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Technical blog breaking down the granular audio tag system",
+      "key_fact": "Covers the full audio tag specification"
+    },
+    {
+      "id": 23624,
+      "title": "Google Hosts AI for the Economy Forum in D.C.",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Google convenes policymakers on AI's economic impact",
+      "key_fact": "Washington D.C. policy forum"
+    },
+    {
+      "id": 23605,
+      "title": "OpenAI's Trusted Access Play for Cyber Defense",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Simon Willison flags OpenAI's new cybersecurity access tier",
+      "key_fact": "Covers trusted access model for defense applications"
+    },
+    {
+      "id": 24343,
+      "title": "Datasette Hits 1.0a27",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Simon Willison's data exploration tool keeps marching toward 1.0",
+      "key_fact": "Alpha 27 release"
+    }
+  ],
+  "total_items": 20
+}
