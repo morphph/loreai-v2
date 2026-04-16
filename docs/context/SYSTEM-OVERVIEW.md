@@ -2,7 +2,7 @@
 title: "System Overview"
 status: active
 category: guide
-last-updated: 2026-03-31
+last-updated: 2026-04-16
 depends-on: []
 ---
 
@@ -53,6 +53,7 @@ VPS (Ubuntu, ssh loreai)                    Vercel (CDN)
 │  Hono API server (pm2)    │
 │  └── port 3001             │
 │      /api/dashboard/*      │
+│        (incl news-analysis)│
 │      /api/subscribe        │
 │      /api/health           │
 │                            │
