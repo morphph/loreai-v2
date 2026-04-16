@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Build long-running agents with more control over agent execution.  New capabilities in the Agents SDK: • Run agents in controlled sandboxes • Inspect and customize the open-source harness • Control when memories are created and where they’re stored https://t.co/zPyuLup6b6",
+    "url": "https://x.com/OpenAIDevs/status/2044466699785920937",
+    "source": "twitter:@OpenAIDevs",
+    "x_engagement_24h": 1711,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 37.5133,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Most people using Claude right now are using it with one hand tied behind its back.  No MCP servers. No real tool connections. No persistent memory.  Just a chat window.  The ones who wire Claude into their actual stack with MCP are operating on a completely different level.  Thi",
+    "url": "https://x.com/cyrilXBT/status/2044435938571358332",
+    "source": "twitter:search:\"MCP\" (implementation OR plugin OR server OR tool) min_faves:10 -crypto",
+    "x_engagement_24h": 212,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 37.0636,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @noahzweben: Claude Code Routines are here! In addition to a schedule, you can now trigger templated agents via GitHub event or API – wi…",
+    "url": "https://x.com/bcherny/status/2044237111977750590",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 3839,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 34.1517,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "We’re rolling out an upgrade designed to help robots reason about the physical world. 🤖  Gemini Robotics-ER 1.6 has significantly better visual and spatial understanding in order to plan and complete more useful tasks. Here’s why this is important 🧵",
+    "url": "https://x.com/GoogleDeepMind/status/2044069878781390929",
+    "source": "twitter:@GoogleDeepMind",
+    "x_engagement_24h": 1834,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 32.5502,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "AI agents will pay you to chat with them.  When AI agents hit a wall, Humwork's (@humworkai) MCP server connects them to a verified domain expert in 30 seconds. Their experts include senior engineers, marketers, designers, and more.  Congrats on the launch, @theyashgoenka and @On",
+    "url": "https://x.com/ycombinator/status/2044445649538809985",
+    "source": "twitter:search:\"MCP\" (implementation OR plugin OR server OR tool) min_faves:10 -crypto",
+    "x_engagement_24h": 979,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.2937,
+    "suggested_angle": "news"
+  }
+]
