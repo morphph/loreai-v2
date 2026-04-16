@@ -116,10 +116,30 @@ const MIN_200_ACCOUNTS = new Set([
   'ylecun', 'ID_AA_Carmack', 'bindureddy', 'chipro', 'adocomplete', 'felixrieseberg',
 ]);
 
+// Extract timestamp from Twitter snowflake ID (fallback when createdAt is missing)
+function tweetIdToTimestamp(idStr: string): number | null {
+  try {
+    const id = BigInt(idStr);
+    const TWITTER_EPOCH = 1288834974657n;
+    const ms = Number((id >> 22n) + TWITTER_EPOCH);
+    return ms > 0 ? ms : null;
+  } catch {
+    return null;
+  }
+}
+
+const MAX_TWEET_AGE_MS = 3 * 24 * 60 * 60 * 1000; // 3 days
+
 function tweetToNewsItem(tweet: TwitterApiTweet, source: string): NewsItem | null {
   const text = tweet.text || '';
   const likes = tweet.likeCount || 0;
   const retweets = tweet.retweetCount || 0;
+
+  // Age filter: skip tweets older than 3 days (API returns old pinned/featured tweets)
+  const tweetTimestamp = tweet.createdAt
+    ? new Date(tweet.createdAt).getTime()
+    : (tweet.id ? tweetIdToTimestamp(tweet.id) : null);
+  if (tweetTimestamp && (Date.now() - tweetTimestamp) > MAX_TWEET_AGE_MS) return null;
 
   // Spam filter
   if (SPAM_PATTERN.test(text)) return null;

@@ -185,7 +185,7 @@ const OPENAI_SITEMAPS = [
 
 async function collectOpenAISitemaps(): Promise<NewsItem[]> {
   const items: NewsItem[] = [];
-  const fourteenDaysAgo = Date.now() - 14 * 24 * 60 * 60 * 1000;
+  const threeDaysAgo = Date.now() - 3 * 24 * 60 * 60 * 1000;
 
   for (const source of OPENAI_SITEMAPS) {
     try {
@@ -207,7 +207,7 @@ async function collectOpenAISitemaps(): Promise<NewsItem[]> {
       while ((urlMatch = urlBlockRegex.exec(xml)) !== null) {
         const [, loc, lastmod] = urlMatch;
         const modDate = new Date(lastmod).getTime();
-        if (isNaN(modDate) || modDate < fourteenDaysAgo) continue;
+        if (isNaN(modDate) || modDate < threeDaysAgo) continue;
 
         // Only keep /index/{slug}/ URLs (skip listing pages)
         const slugMatch = loc.match(/\/index\/([^/]+)\/?$/);
@@ -449,6 +449,8 @@ async function collectHuggingFace(): Promise<NewsItem[]> {
       for (const model of models) {
         const id = model.modelId || model.id;
         if (seen.has(id)) continue;
+        // Skip models older than 60 days (trending can surface old popular models)
+        if (model.createdAt && new Date(model.createdAt).getTime() < sixtyDaysAgo) continue;
         seen.add(id);
 
         const likes = model.likes || 0;

@@ -66,6 +66,18 @@ async function stage1_dbQuery(): Promise<NewsItem[]> {
 function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   console.log('\n🔍 Stage 2: Pre-filter');
 
+  // Hard age gate: drop items detected >48h ago (DB queries 72h for buffer, but >48h is stale per policy)
+  const AGE_LIMIT_MS = 48 * 60 * 60 * 1000;
+  const now = Date.now();
+  const ageFiltered = items.filter(item => {
+    if (!item.detected_at) return true;
+    return (now - new Date(item.detected_at).getTime()) <= AGE_LIMIT_MS;
+  });
+  const droppedByAge = items.length - ageFiltered.length;
+  if (droppedByAge > 0) {
+    console.log(`  Age filter: dropped ${droppedByAge} items older than 48h`);
+  }
+
   const blogs: NewsItem[] = [];
   const rss: NewsItem[] = [];
   const github: NewsItem[] = [];
@@ -74,7 +86,7 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   const twitter: NewsItem[] = [];
   const others: NewsItem[] = [];
 
-  for (const item of items) {
+  for (const item of ageFiltered) {
     if (item.source.startsWith('blog:') || (item.source.startsWith('rss:') && item.source_tier === 1)) {
       blogs.push(item);
     } else if (item.source.startsWith('rss:')) {
@@ -252,6 +264,7 @@ interface FilteredItem {
   engagement_likes: number;
   engagement_retweets: number;
   engagement_downloads: number;
+  detected_at?: string;
 }
 
 function loadPreviousBoldTitles(): string[] {
@@ -336,6 +349,7 @@ function ruleBasedFallback(items: NewsItem[]): FilteredItem[] {
         engagement_likes: item.engagement_likes,
         engagement_retweets: item.engagement_retweets,
         engagement_downloads: item.engagement_downloads,
+        detected_at: item.detected_at,
       });
     }
   }
@@ -1149,6 +1163,17 @@ async function main() {
     filtered = await stage3_agentFilter(preFiltered, previousBoldTitles);
   }
 
+  // Re-attach detected_at from pre-filtered items (lost during agent filter transformation)
+  const itemIdToDetectedAt = new Map<number, string>();
+  for (const item of preFiltered) {
+    if (item.id && item.detected_at) itemIdToDetectedAt.set(item.id, item.detected_at);
+  }
+  for (const f of filtered) {
+    if (!f.detected_at && itemIdToDetectedAt.has(f.id)) {
+      f.detected_at = itemIdToDetectedAt.get(f.id)!;
+    }
+  }
+
   if (filtered.length === 0) {
     console.error('❌ No items passed filter. Check data quality.');
     process.exit(1);
@@ -1204,13 +1229,13 @@ async function main() {
   const enQuality = validateNewsletterQuality({
     md: enContent,
     lang: 'en',
-    filteredItems: filtered.map((f) => ({ ...f, detected_at: undefined })),
+    filteredItems: filtered,
     previousBoldTitles,
   });
   const zhQuality = validateNewsletterQuality({
     md: zhContent,
     lang: 'zh',
-    filteredItems: filtered.map((f) => ({ ...f, detected_at: undefined })),
+    filteredItems: filtered,
     previousBoldTitles,
   });
 

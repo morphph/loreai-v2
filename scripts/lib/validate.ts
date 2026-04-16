@@ -227,20 +227,20 @@ export function validateNewsletterQuality(opts: QualityCheckOptions): Validation
     errors.push('Missing preview line (今天聊:)');
   }
 
-  // --- Check 1: News freshness (>72h items are stale) ---
+  // --- Check 1: News freshness (>48h items are stale) ---
   if (filteredItems) {
     const now = Date.now();
     const staleItems: string[] = [];
     for (const item of filteredItems) {
       if (item.detected_at) {
         const age = now - new Date(item.detected_at).getTime();
-        if (age > 72 * 60 * 60 * 1000) {
+        if (age > 48 * 60 * 60 * 1000) {
           staleItems.push(item.title.slice(0, 60));
         }
       }
     }
-    if (staleItems.length > 3) {
-      errors.push(`${staleItems.length} stale items (>72h old): ${staleItems.slice(0, 3).join('; ')}...`);
+    if (staleItems.length > 1) {
+      errors.push(`${staleItems.length} stale items (>48h old): ${staleItems.slice(0, 3).join('; ')}...`);
     }
   }
 

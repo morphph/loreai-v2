@@ -494,14 +494,14 @@ Top story of the day goes here.
     expect(result.valid).toBe(true);
   });
 
-  it('fails when >3 stale items (>72h old)', () => {
-    const fourDaysAgo = new Date(Date.now() - 96 * 60 * 60 * 1000).toISOString();
-    const staleItems = Array.from({ length: 5 }, (_, i) => ({
+  it('fails when >1 stale items (>48h old)', () => {
+    const threeDaysAgo = new Date(Date.now() - 72 * 60 * 60 * 1000).toISOString();
+    const staleItems = Array.from({ length: 3 }, (_, i) => ({
       id: i,
       title: `Stale item ${i}`,
       url: `https://example.com/${i}`,
       source: 'rss:test',
-      detected_at: fourDaysAgo,
+      detected_at: threeDaysAgo,
       engagement_likes: 100,
       engagement_retweets: 10,
       engagement_downloads: 0,
@@ -516,10 +516,10 @@ Top story of the day goes here.
     expect(result.errors.some((e) => e.includes('stale items'))).toBe(true);
   });
 
-  it('passes when ≤3 stale items', () => {
-    const fourDaysAgo = new Date(Date.now() - 96 * 60 * 60 * 1000).toISOString();
+  it('passes when ≤1 stale items', () => {
+    const threeDaysAgo = new Date(Date.now() - 72 * 60 * 60 * 1000).toISOString();
     const items = [
-      { id: 1, title: 'Stale one', url: 'https://a.com/1', source: 'rss:a', detected_at: fourDaysAgo, engagement_likes: 0, engagement_retweets: 0, engagement_downloads: 0 },
+      { id: 1, title: 'Stale one', url: 'https://a.com/1', source: 'rss:a', detected_at: threeDaysAgo, engagement_likes: 0, engagement_retweets: 0, engagement_downloads: 0 },
       { id: 2, title: 'Fresh one', url: 'https://a.com/2', source: 'rss:a', detected_at: new Date().toISOString(), engagement_likes: 0, engagement_retweets: 0, engagement_downloads: 0 },
     ];
 
