@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Introducing Claude Opus 4.7",
+    "url": "https://www.anthropic.com/news/claude-opus-4-7",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 79234,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 52.7702,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude API skill updated with Opus 4.7 migration support",
+    "url": "https://x.com/ClaudeDevs/status/2044872737672646716",
+    "source": "twitter:@ClaudeDevs",
+    "x_engagement_24h": 1467,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.4401,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "AISI: Claude Mythos is the first model to complete an AISI cyber task",
+    "url": "https://x.com/bcherny/status/2044301283545493714",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 3499,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 25.0497,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Qwen3.6-35B-A3B: Agentic coding power, now open to all",
+    "url": "https://qwen.ai/blog?id=qwen3.6-35b-a3b",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 10030,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 16.009,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Introducing GPT Rosalind",
+    "url": "https://openai.com/index/introducing-gpt-rosalind/",
+    "source": "blog:OpenAI Releases",
+    "x_engagement_24h": 8432,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 15.5296,
+    "suggested_angle": "news"
+  }
+]
