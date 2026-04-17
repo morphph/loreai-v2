@@ -1,0 +1,228 @@
+{
+  "date": "2026-04-17",
+  "headline_hook": "Opus 4.7 Launches, OpenAI Goes Biotech, and a Laptop Model Beats Them Both",
+  "preview_topics": [
+    "the Opus 4.7 agentic leap",
+    "OpenAI's biology-first frontier model",
+    "an open-source laptop model that punches up"
+  ],
+  "pick_of_the_day": {
+    "item_id": 25201,
+    "thesis": "A 3B-active-parameter model on a MacBook outperforming the world's newest flagship API isn't a benchmark curiosity — it's the clearest signal yet that the moat around frontier APIs is eroding from below, and the pricing, deployment, and control implications will reshape who actually ships AI products."
+  },
+  "model_literacy": {
+    "concept": "Mixture of Experts (MoE) — Sparse Activation",
+    "relevance": "Qwen3.6's 35B-total/3B-active architecture explains the seeming paradox of today's news: how a laptop-sized model matches frontier APIs. MoE routes each token through only a fraction of the network, slashing compute while preserving capacity — the key to understanding why 'model size' no longer means what it used to."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 25108,
+          "title": "Anthropic Drops Opus 4.7 — Agentic Coding Gets a Flagship Upgrade",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The biggest model upgrade of the year promises a step-change in agentic coding and long-running tasks — Cursor and Notion are already reporting double-digit eval jumps",
+          "key_fact": "Cursor internal bench jumped from 58% to 70%; Notion saw 14% eval lift with fewer tool calls"
+        },
+        {
+          "id": 25112,
+          "title": "OpenAI's GPT Rosalind Is a Frontier Model Built for Biology",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The first domain-specific frontier model from a major lab signals that the next AI war is vertical — and pharma budgets are the prize",
+          "key_fact": "First frontier model purpose-built for drug discovery and translational medicine"
+        },
+        {
+          "id": 25201,
+          "title": "Qwen3.6-35B-A3B: An Open-Source Laptop Model That Beats the Flagship",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Alibaba open-sources a sparse MoE model under Apache 2.0 that runs on consumer hardware and already outperforms Opus 4.7 on agentic benchmarks — the frontier is no longer API-only",
+          "key_fact": "35B total / 3B active parameters, Apache 2.0, beats Opus 4.7 on Simon Willison's pelican benchmark"
+        },
+        {
+          "id": 25191,
+          "title": "Tencent Open-Sources HY-World 2.0 for Interactive 3D Environments",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "An open-weight multimodal world model that generates, reconstructs, and simulates 3D environments — game devs and simulation researchers can run it today",
+          "key_fact": "Generates, reconstructs, and simulates interactive 3D environments from multimodal input"
+        },
+        {
+          "id": 25181,
+          "title": "Boston Dynamics' Spot Gets a Gemini Brain",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The most visible demonstration yet of foundation models powering physical robots — Spot now understands surroundings and follows natural-language commands via Gemini Robotics",
+          "key_fact": "Spot uses Gemini Robotics for embodied reasoning, object identification, and natural-language command following"
+        },
+        {
+          "id": 25094,
+          "title": "Google Puts AI Mode Inside Chrome for 3 Billion Users",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The browser becomes a conversational web agent — and with Chrome's install base, this is the largest-scale AI browsing deployment ever attempted",
+          "key_fact": "Chrome's 3B+ user base makes this the biggest AI browsing rollout to date"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 25170,
+          "title": "Codex Expands Way Beyond Code — Computer Use, Image Gen, 90+ Plugins",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Codex is no longer just a coding tool — it clicks through Mac apps, browses the web, generates images, and integrates with JIRA/GitLab/CircleCI, making it a general-purpose AI workstation",
+          "key_fact": "Computer use on Mac, in-app browser, gpt-image-1.5, 90+ new plugins including JIRA, CircleCI, GitLab"
+        },
+        {
+          "id": 25287,
+          "title": "One-Command Migration to Opus 4.7 in Claude Code",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The official @ClaudeDevs account drops a migration tool that auto-updates model names, prompts, and effort settings — removing friction from the year's biggest model upgrade",
+          "key_fact": "Say 'migrate to Opus 4.7' in Claude Code to auto-update model names, prompts, and effort settings"
+        },
+        {
+          "id": 25171,
+          "title": "Cloudflare Sandbox SDK Gives AI Agents a Secure Runtime",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Production sandboxing for AI agents is now a one-SDK integration — the infrastructure story is finally catching up to the agent story",
+          "key_fact": "Integrates with OpenAI Agents SDK for secure, isolated agent code execution"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 25122,
+          "title": "Boris Cherny's Field Notes on Getting the Most From Opus 4.7",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The Claude Code creator says the prompting patterns that worked on 4.6 don't fully transfer — it took days to learn how to leverage the new agentic capabilities",
+          "key_fact": "Prompting patterns from 4.6 need adjustment; took days to learn the new model's strengths"
+        },
+        {
+          "id": 25099,
+          "title": "The Missing Bridge: Porting HuggingFace Models to Apple MLX",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "With Apple Silicon dominating local inference hardware, HuggingFace publishes the practical guide for getting Transformers models running at native Mac performance",
+          "key_fact": "Step-by-step guide for porting any Transformers model to Apple's MLX framework"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 24434,
+          "title": "UK AI Safety Institute Confirms: Claude Mythos First to Clear a Cyber Benchmark",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Independent third-party validation of frontier model cyber capabilities — AISI's evaluation adds concrete evidence to the capabilities debate beyond vendor claims",
+          "key_fact": "First model to complete an AISI cyber benchmark task in independent evaluation"
+        },
+        {
+          "id": 25366,
+          "title": "The Redis Creator Challenges the 'Cybersecurity as Proof of Work' Thesis",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "antirez enters the AI security debate with a technical counter-argument to Simon Willison — a substantive voice on whether AI truly changes the attacker-defender asymmetry",
+          "key_fact": "Technical rebuttal to the claim that cybersecurity functions as a proof-of-work barrier against AI threats"
+        },
+        {
+          "id": 25360,
+          "title": "Simon Willison's Pelican Test: A 21GB Local Model Outdraws Opus 4.7",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Beyond the meme — a concrete, reproducible data point showing open-weight MoE models closing the gap on frontier APIs on consumer hardware",
+          "key_fact": "Qwen3.6-35B-A3B (21GB) produced a better pelican drawing than Opus 4.7 running locally on a laptop"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 25215,
+          "title": "Mollick Flags Opus 4.7's Adaptive Thinking as a UX Problem",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The automatic effort routing that makes Opus 4.7 efficient also makes it unpredictable — non-code queries get downgraded with no manual override, a day-one friction point",
+          "key_fact": "No manual override for effort routing; non-math/code queries regularly classified as 'low effort'"
+        },
+        {
+          "id": 25084,
+          "title": "Latent Space Declares the Pull Request Dead",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "As AI coding tools shift from 'review my diff' to 'run the whole task,' the oldest ritual in software collaboration may not survive — a provocative but well-argued obituary",
+          "key_fact": "Thesis: agentic coding makes PRs obsolete because AI runs tasks end-to-end, not patch-by-patch"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 25364,
+          "title": "CodeBurn: See Where Your Claude Code Tokens Actually Go",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "With Opus 4.7's 1M context and adaptive thinking, token spend is harder to predict — this tool gives developers the visibility they need as agentic workloads scale",
+          "key_fact": "Analyzes Claude Code token usage by task for cost management"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 25095,
+      "title": "Gemini Nano Banana 2 Brings Personalized Image Gen On-Device",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Google's on-device model generates images from your personal photos — no cloud needed",
+      "key_fact": "Uses Google Photos context for personalized on-device image generation"
+    },
+    {
+      "id": 25358,
+      "title": "Google Ships an Agent-Agnostic CLI for Building Android Apps",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Any AI coding agent can now build Android apps 3x faster via a new Google CLI",
+      "key_fact": "Agent-agnostic CLI claiming 3x speed improvement for Android development"
+    },
+    {
+      "id": 25347,
+      "title": "NVIDIA Drops Lyra 2.0 on HuggingFace",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "New open model from the company that powers most AI training hardware",
+      "key_fact": "Trending on HuggingFace with strong early community interest"
+    },
+    {
+      "id": 25342,
+      "title": "NucleusAI's Text-to-Image Model Joins the Open Generation Race",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Another open image-gen model fragmenting the DALL-E/Midjourney duopoly",
+      "key_fact": "464 downloads and trending on HuggingFace within hours of release"
+    },
+    {
+      "id": 25050,
+      "title": "Gas Town Faces Backlash Over Alleged API Credit Siphoning",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A trust crisis erupts when users discover a popular dev tool may be routing their API credits for self-improvement",
+      "key_fact": "GitHub issue alleging silent use of user API credits to train the tool's own models"
+    }
+  ],
+  "total_items": 22
+}
