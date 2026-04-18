@@ -38,6 +38,7 @@ depends-on: []
 | [Pipeline Architecture](specs/PIPELINE.md)            | Complete schedule, data flow, pipeline stages     | 2026-03-30 |
 | [Pipeline Stage Gates](specs/PIPELINE-STAGE-GATES.md) | Quality gate criteria for each pipeline stage     | 2026-03-30 |
 | [Unified SEO/AEO Strategy](specs/STRATEGY.md)         | North star — flagship-topic-led keyword authority | 2026-03-30 |
+| [Content Authority Pivot](specs/CONTENT-AUTHORITY-STRATEGY-2026-04-18.md) | **Draft** — shift from volume to cornerstone depth | 2026-04-18 |
 
 
 ### Discovery (A-series)
