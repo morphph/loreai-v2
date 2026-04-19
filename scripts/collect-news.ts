@@ -244,13 +244,232 @@ async function collectOpenAISitemaps(): Promise<NewsItem[]> {
   return items;
 }
 
+// ============================================================
+// TIER 1: claude.com/blog (Webflow-hosted, SSR)
+// ============================================================
+
+const CLAUDE_BLOG = { name: 'Claude Blog', url: 'https://www.claude.com/blog', score: 90 };
+
+async function collectClaudeBlog(): Promise<NewsItem[]> {
+  const items: NewsItem[] = [];
+  try {
+    const res = await fetch(CLAUDE_BLOG.url, {
+      headers: { 'User-Agent': 'LoreAI/2.0 (news aggregator)' },
+    });
+    if (!res.ok) {
+      console.warn(`  ${CLAUDE_BLOG.name}: HTTP ${res.status}`);
+      return items;
+    }
+    const html = await res.text();
+
+    // Finsweet list cards: <div fs-list-field="heading">TITLE</div> ... <div fs-list-field="date">DATE</div> ... href="/blog/SLUG"
+    const cardRegex = /<div fs-list-field="heading">([^<]+)<\/div>[\s\S]{0,800}?<div fs-list-fieldtype="date" fs-list-field="date">([^<]+)<\/div>[\s\S]{0,3000}?href="(\/blog\/[a-z0-9-]+)"/g;
+    const thirtyDaysAgo = Date.now() - 30 * 24 * 60 * 60 * 1000;
+    const seen = new Set<string>();
+
+    let match;
+    while ((match = cardRegex.exec(html)) !== null) {
+      const [, rawTitle, dateStr, slugPath] = match;
+      const url = `https://www.claude.com${slugPath}`;
+      if (seen.has(url)) continue;
+      seen.add(url);
+
+      const pubDate = new Date(dateStr).getTime();
+      if (!isNaN(pubDate) && pubDate < thirtyDaysAgo) continue;
+
+      items.push({
+        title: rawTitle.trim(),
+        url,
+        source: `blog:${CLAUDE_BLOG.name}`,
+        source_tier: 1,
+        summary: null,
+        score: CLAUDE_BLOG.score,
+        engagement_likes: 0,
+        engagement_retweets: 0,
+        engagement_downloads: 0,
+        raw_json: JSON.stringify({
+          source: CLAUDE_BLOG.name,
+          slug: slugPath.replace('/blog/', ''),
+          publishedOn: dateStr,
+        }),
+      });
+    }
+    console.log(`  ${CLAUDE_BLOG.name}: ${items.length} articles`);
+  } catch (err) {
+    console.warn(`  ${CLAUDE_BLOG.name} failed:`, (err as Error).message);
+  }
+  return items;
+}
+
+// ============================================================
+// TIER 1: platform.claude.com release notes (Mintlify docs, .md endpoint)
+// ============================================================
+
+const PLATFORM_RELEASE_NOTES = {
+  name: 'Platform Release Notes',
+  url: 'https://platform.claude.com/docs/en/release-notes/overview.md',
+  score: 92,
+};
+
+async function collectPlatformReleaseNotes(): Promise<NewsItem[]> {
+  const items: NewsItem[] = [];
+  try {
+    const res = await fetch(PLATFORM_RELEASE_NOTES.url, {
+      headers: { 'User-Agent': 'LoreAI/2.0 (news aggregator)' },
+    });
+    if (!res.ok) {
+      console.warn(`  ${PLATFORM_RELEASE_NOTES.name}: HTTP ${res.status}`);
+      return items;
+    }
+    const md = await res.text();
+
+    // Split into dated sections: "### April 16, 2026\n- bullet\n- bullet..."
+    const sectionRegex = /###\s+(\w+\s+\d+(?:st|nd|rd|th)?,?\s+20\d{2})\s*\n([\s\S]*?)(?=\n###\s|\n##\s|$)/g;
+    const fourteenDaysAgo = Date.now() - 14 * 24 * 60 * 60 * 1000;
+
+    let sectionMatch;
+    while ((sectionMatch = sectionRegex.exec(md)) !== null) {
+      const [, rawDate, body] = sectionMatch;
+      const cleanedDate = rawDate.replace(/(\d+)(st|nd|rd|th)/, '$1');
+      const pubMs = new Date(cleanedDate).getTime();
+      if (isNaN(pubMs) || pubMs < fourteenDaysAgo) continue;
+
+      // Top-level bullets only (ignore nested indented ones)
+      const bulletRegex = /^-\s+([\s\S]+?)(?=\n-\s|\n\n|$)/gm;
+      let bm;
+      let bulletIdx = 0;
+      while ((bm = bulletRegex.exec(body)) !== null) {
+        const bulletText = bm[1].replace(/\s+/g, ' ').trim();
+        if (!bulletText) continue;
+
+        // First external/docs link = canonical URL
+        const linkMatch = bulletText.match(/\[([^\]]+)\]\((https?:\/\/[^\)]+|\/docs\/[^\)]+)\)/);
+        let url: string;
+        if (linkMatch) {
+          const lu = linkMatch[2];
+          url = lu.startsWith('/') ? `https://platform.claude.com${lu}` : lu;
+        } else {
+          const dateSlug = cleanedDate.toLowerCase().replace(/[\s,]+/g, '-');
+          url = `https://platform.claude.com/docs/en/release-notes/overview#${dateSlug}-${bulletIdx}`;
+        }
+
+        // Strip markdown from title
+        const title = bulletText
+          .replace(/\[([^\]]+)\]\([^\)]+\)/g, '$1')
+          .replace(/[*_`]/g, '')
+          .slice(0, 200);
+
+        items.push({
+          title,
+          url,
+          source: `docs:${PLATFORM_RELEASE_NOTES.name}`,
+          source_tier: 1,
+          summary: bulletText.length > 200 ? bulletText.slice(0, 500) : null,
+          score: PLATFORM_RELEASE_NOTES.score,
+          engagement_likes: 0,
+          engagement_retweets: 0,
+          engagement_downloads: 0,
+          raw_json: JSON.stringify({
+            source: PLATFORM_RELEASE_NOTES.name,
+            publishedOn: cleanedDate,
+            body: bulletText.slice(0, 1000),
+          }),
+        });
+        bulletIdx++;
+      }
+    }
+    console.log(`  ${PLATFORM_RELEASE_NOTES.name}: ${items.length} bullets (last 14d)`);
+  } catch (err) {
+    console.warn(`  ${PLATFORM_RELEASE_NOTES.name} failed:`, (err as Error).message);
+  }
+  return items;
+}
+
+// ============================================================
+// TIER 1: support.claude.com Claude Apps release notes (Intercom HTML)
+// ============================================================
+
+const SUPPORT_RELEASE_NOTES = {
+  name: 'Claude Apps Release Notes',
+  url: 'https://support.claude.com/en/articles/12138966-release-notes',
+  score: 88,
+};
+
+async function collectSupportReleaseNotes(): Promise<NewsItem[]> {
+  const items: NewsItem[] = [];
+  try {
+    const res = await fetch(SUPPORT_RELEASE_NOTES.url, {
+      headers: { 'User-Agent': 'LoreAI/2.0 (news aggregator)' },
+    });
+    if (!res.ok) {
+      console.warn(`  ${SUPPORT_RELEASE_NOTES.name}: HTTP ${res.status}`);
+      return items;
+    }
+    const html = await res.text();
+
+    // Each entry: <h3 id="h_xxxx">Month Day, Year</h3> then <p><b>TITLE</b></p> then <p>DESCRIPTION</p>
+    const entryRegex = /<h3\s+id="([^"]+)"[^>]*>(\w+\s+\d+,\s+20\d{2})<\/h3>([\s\S]*?)(?=<h3\s+id=|<h2\s+id=|$)/g;
+    const fourteenDaysAgo = Date.now() - 14 * 24 * 60 * 60 * 1000;
+
+    let em;
+    while ((em = entryRegex.exec(html)) !== null) {
+      const [, anchorId, dateStr, body] = em;
+      const pubMs = new Date(dateStr).getTime();
+      if (isNaN(pubMs) || pubMs < fourteenDaysAgo) continue;
+
+      // Title = first <p><b>...</b></p>; description = all remaining text in <p> tags
+      const titleMatch = body.match(/<p[^>]*><b>([\s\S]+?)<\/b>(?:<\/p>|[\s\S]*?<\/p>)/);
+      const rawTitle = titleMatch ? titleMatch[1] : null;
+      if (!rawTitle) continue;
+
+      const title = rawTitle.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+      if (!title) continue;
+
+      // Description: strip tags from body, up to 500 chars
+      const descText = body
+        .replace(/<[^>]+>/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .slice(0, 500);
+
+      // Canonical URL — page anchor per date (so dedup by date+title works via URL UNIQUE)
+      const dateSlug = dateStr.toLowerCase().replace(/[\s,]+/g, '-');
+      const url = `${SUPPORT_RELEASE_NOTES.url}#${dateSlug}`;
+
+      items.push({
+        title,
+        url,
+        source: `docs:${SUPPORT_RELEASE_NOTES.name}`,
+        source_tier: 1,
+        summary: descText.length > title.length ? descText : null,
+        score: SUPPORT_RELEASE_NOTES.score,
+        engagement_likes: 0,
+        engagement_retweets: 0,
+        engagement_downloads: 0,
+        raw_json: JSON.stringify({
+          source: SUPPORT_RELEASE_NOTES.name,
+          anchorId,
+          publishedOn: dateStr,
+        }),
+      });
+    }
+    console.log(`  ${SUPPORT_RELEASE_NOTES.name}: ${items.length} entries (last 14d)`);
+  } catch (err) {
+    console.warn(`  ${SUPPORT_RELEASE_NOTES.name} failed:`, (err as Error).message);
+  }
+  return items;
+}
+
 async function collectOfficialBlogs(): Promise<NewsItem[]> {
   console.log('\n📰 Tier 1: Official Blogs');
-  const [anthropicItems, openaiItems] = await Promise.all([
+  const [anthropicItems, openaiItems, claudeBlogItems, platformItems, supportItems] = await Promise.all([
     collectAnthropicBlogs(),
     collectOpenAISitemaps(),
+    collectClaudeBlog(),
+    collectPlatformReleaseNotes(),
+    collectSupportReleaseNotes(),
   ]);
-  return [...anthropicItems, ...openaiItems];
+  return [...anthropicItems, ...openaiItems, ...claudeBlogItems, ...platformItems, ...supportItems];
 }
 
 // ============================================================

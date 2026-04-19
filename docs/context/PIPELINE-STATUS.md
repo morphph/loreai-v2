@@ -2,7 +2,7 @@
 title: "Pipeline Status"
 status: active
 category: guide
-last-updated: 2026-04-02
+last-updated: 2026-04-19
 depends-on: []
 ---
 
@@ -16,7 +16,7 @@ depends-on: []
 12am    2am     4am    4:30am   6am     7:30am   8am     10am    5am     9pm
  |       |       |       |       |        |       |       |       |       |
 Collect  News   Entity  Fresh   Generate  D1     Disc    Perf   Weekly  Review
-(M-F)   (M-F)  (M-F)   (M-F)   (M-F)   (Sat)  (Tu+Sa) (Sat)  (Sun)  (M-F/Sun)
+(daily) (daily) (M-F)   (M-F)   (M-F)   (Sat)  (Tu+Sa) (Sat)  (Sun)  (M-F/Sun)
 ```
 
 ---
@@ -26,14 +26,14 @@ Collect  News   Entity  Fresh   Generate  D1     Disc    Perf   Weekly  Review
 | Attribute | Value |
 |-----------|-------|
 | Script | `scripts/collect-news.ts` |
-| Schedule | Mon-Fri 12:00am SGT |
+| Schedule | Daily 12:00am SGT |
 | Trigger | Cron via `daily-pipeline.sh collect` |
 | Status | **Operational** |
 
 **What it does**: Collects AI news from 7 source tiers in parallel:
 - Tier 0: 14 RSS feeds (~35 items)
-- Tier 1: 6 official blogs (~25 items)
-- Tier 2: Twitter/X — 36 accounts + 18 search queries (~80 items)
+- Tier 1: 9 official blogs (Anthropic News, Anthropic Engineering, Claude Blog, Platform Release Notes, Claude Apps Release Notes, OpenAI Releases, DeepMind, Google AI, HuggingFace) (~25 items)
+- Tier 2: Twitter/X — 38 accounts + 18 search queries (~80 items)
 - Tier 3a: GitHub Trending (~130 items)
 - Tier 3b: GitHub Releases — 18 tracked repos (~16 items)
 - Tier 3c: HuggingFace — trending + top-7d (~50 items)
@@ -51,7 +51,7 @@ Collect  News   Entity  Fresh   Generate  D1     Disc    Perf   Weekly  Review
 | Attribute | Value |
 |-----------|-------|
 | Script | `scripts/write-newsletter.ts` |
-| Schedule | Mon-Fri 2:00am SGT |
+| Schedule | Daily 2:00am SGT |
 | Trigger | Cron via `daily-pipeline.sh newsletter` |
 | Status | **Operational** |
 

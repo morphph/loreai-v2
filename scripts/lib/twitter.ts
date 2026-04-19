@@ -6,6 +6,7 @@ export const TWITTER_ACCOUNTS = [
   'bcherny', 'ErikSchluntz', 'adocomplete', 'felixrieseberg',
   // Anthropic
   'AnthropicAI', 'claudeai', 'mikeyk', 'alexalbert__', 'trq212',
+  'amorriscode', '_catwu',
   // Official Labs
   'OpenAI', 'OpenAIDevs', 'GoogleAI', 'GoogleDeepMind', 'AIatMeta',
   'MistralAI', 'huggingface', 'LangChainAI',
@@ -107,6 +108,7 @@ const NO_MIN_ACCOUNTS = new Set([
   'AnthropicAI', 'claudeai', 'OpenAI', 'OpenAIDevs', 'GoogleAI', 'GoogleDeepMind',
   'AIatMeta', 'MistralAI', 'huggingface', 'ChatGPTapp',
   'bcherny', 'ErikSchluntz', 'trq212', 'alexalbert__', 'mikeyk', 'sama', 'karpathy',
+  'amorriscode', '_catwu',
 ]);
 
 // Tier 2: Min 200 likes+RTs (thought leaders / broader coverage)

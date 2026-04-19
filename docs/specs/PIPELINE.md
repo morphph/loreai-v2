@@ -2,7 +2,7 @@
 title: "Pipeline Architecture"
 status: active
 category: spec
-last-updated: 2026-04-06
+last-updated: 2026-04-19
 depends-on: []
 ---
 
@@ -17,8 +17,8 @@ Each stage feeds the next. The **Keyword Engine** (B1→B4) is the core content 
 
 | Time (SGT) | Step | Script | Days |
 |-------------|------|--------|------|
-| 12:00am | Collect | `collect-news.ts` | Mon-Fri |
-| 2:00am | Newsletter | `write-newsletter.ts` | Mon-Fri |
+| 12:00am | Collect | `collect-news.ts` | Daily |
+| 2:00am | Newsletter | `write-newsletter.ts` | Daily |
 | 4:00am | Entity Extract | `extract-entities.ts` | Mon-Fri |
 | 4:30am | Flagship Freshness | `flagship-freshness.ts` | Mon-Fri |
 | 6:00am | Generate | `process-queue.ts` | Mon-Fri |
