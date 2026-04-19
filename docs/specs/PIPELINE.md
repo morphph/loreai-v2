@@ -39,9 +39,11 @@ Each stage feeds the next. The **Keyword Engine** (B1→B4) is the core content 
 |  7 tiers of data sources, collected in parallel:          |
 |  Tier 0: RSS (TechCrunch, Ars Technica, VentureBeat,     |
 |          Lilian Weng, LangChain, Latent Space, etc.)      |
-|  Tier 1: Official Blogs (DeepMind, Google AI, HuggingFace,|
-|          Anthropic, OpenAI Releases)                      |
-|  Tier 2: Twitter/X (36 accounts + 18 search queries)     |
+|  Tier 1: Official Blogs (Anthropic News, Anthropic       |
+|          Engineering, Claude Blog, Platform Release Notes,|
+|          Claude Apps Release Notes, OpenAI Releases,      |
+|          DeepMind, Google AI, HuggingFace)                |
+|  Tier 2: Twitter/X (38 accounts + 18 search queries)     |
 |  Tier 3a: GitHub Trending (5 search queries, ~130 items)  |
 |  Tier 3b: GitHub Releases (18 tracked repos)              |
 |  Tier 3c: HuggingFace (trending + top-7d + org-specific)  |
