@@ -37,6 +37,7 @@ import { validateNewsletter, validateZhNewsletter, validateNewsletterQuality } f
 import { extractBoldTitles } from './lib/dedup';
 import { validateAndExpand } from './lib/brave';
 import { markdownToEmailHtml } from './lib/email-html';
+import { isAnthropicSource } from './lib/anthropic-sources';
 // Parse args
 const dateArg = process.argv.find((a) => a.startsWith('--date='));
 import { todaySGT } from './lib/date.js';
@@ -122,8 +123,8 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   }
   const dedupedTwitter = [...rtSeen.values()];
 
-  // AI relevance filter: skip political/non-AI tweets from thought leaders
-  const AI_RELEVANCE = /\b(ai|llm|gpt|claude|gemini|anthropic|openai|model|agent|mcp|transformer|benchmark|training|inference|coding|developer|api|sdk|diffusion|rag|fine.?tun|embedding|neural|deep.?learn|machine.?learn|hugging.?face|token|prompt|reasoning|multimodal|vision|speech|voice|distill|safety|alignment|eval|engineering|blog|changelog|release.?note|update|feature)\b/i;
+  // AI/product relevance filter: skip political/non-product tweets even from Anthropic staff
+  const AI_RELEVANCE = /\b(ai|llm|gpt|claude|gemini|anthropic|openai|model|agent|mcp|opus|sonnet|haiku|skill|hook|routine|cowork|dispatch|transformer|benchmark|training|inference|coding|developer|api|sdk|diffusion|rag|fine.?tun|embedding|neural|deep.?learn|machine.?learn|hugging.?face|token|prompt|reasoning|multimodal|vision|speech|voice|distill|safety|alignment|eval|engineering|blog|changelog|release.?note|update|feature)\b/i;
   const relevantTwitter = dedupedTwitter.filter(item =>
     AI_RELEVANCE.test(item.title) || AI_RELEVANCE.test(item.summary || '')
   );
@@ -134,10 +135,14 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
     return (b.engagement_likes + b.engagement_retweets) - (a.engagement_likes + a.engagement_retweets);
   });
 
-  // Per-account cap: max 3 items per account
+  // Per-account cap: max 3 items per account — Anthropic handles bypass this cap
   const accountCounts: Record<string, number> = {};
   const cappedTwitter: NewsItem[] = [];
   for (const item of relevantTwitter) {
+    if (isAnthropicSource(item)) {
+      cappedTwitter.push(item);
+      continue;
+    }
     const account = item.source;
     accountCounts[account] = (accountCounts[account] || 0) + 1;
     if (accountCounts[account] <= 3) cappedTwitter.push(item);
@@ -177,11 +182,14 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
 
   // === PRIORITY SOURCE EXTRACTION ===
   // Must-include sources from major AI labs — bypass hard caps
-  const PRIORITY_BLOGS = /anthropic\.com\/(engineering|news)|openai\.com|blog\.google|deepmind\.google/i;
-  const PRIORITY_TWITTER = /twitter:@(AnthropicAI|claudeai|bcherny|trq212|OpenAI|OpenAIDevs|GoogleAI|GoogleDeepMind|AIatMeta|MistralAI|huggingface|ChatGPTapp)$/i;
+  // Anthropic routed via isAnthropicSource() (central registry); others kept as regex
+  const PRIORITY_BLOGS = /openai\.com|blog\.google|deepmind\.google/i;
+  const PRIORITY_TWITTER = /twitter:@(OpenAI|OpenAIDevs|GoogleAI|GoogleDeepMind|AIatMeta|MistralAI|huggingface|ChatGPTapp)$/i;
 
   const isPriority = (item: NewsItem): boolean =>
-    PRIORITY_BLOGS.test(item.url || '') || PRIORITY_TWITTER.test(item.source);
+    isAnthropicSource(item) ||
+    PRIORITY_BLOGS.test(item.url || '') ||
+    PRIORITY_TWITTER.test(item.source);
 
   // Extract priority items from all pools before applying caps
   const priorityItems: NewsItem[] = [];
@@ -221,7 +229,8 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
     return true;
   });
 
-  console.log(`  Priority items (bypass caps): ${priorityItems.length}`);
+  const anthropicInPriority = priorityItems.filter(isAnthropicSource).length;
+  console.log(`  Priority items (bypass caps): ${priorityItems.length} (of which Anthropic green-light: ${anthropicInPriority})`);
   console.log(`  Blogs (tier 1): ${blogs.length} → ${Math.min(normalBlogs.length, 15)}`);
   console.log(`  RSS (tier 0): ${rss.length} → ${Math.min(normalRss.length, 8)}`);
   console.log(`  GitHub: ${github.length} → ${filteredGithub.length} (blocklist) → ${Math.min(filteredGithub.length, 5)}`);
@@ -291,7 +300,12 @@ function loadPreviousBoldTitles(): string[] {
 function ruleBasedFallback(items: NewsItem[]): FilteredItem[] {
   console.log('  Using rule-based fallback filter');
 
-  // Group by source type (not just tier — curated Twitter and blogs share tier 1)
+  // Anthropic items are always included, unconditionally (bypass all quotas)
+  const anthropicItems = items.filter(isAnthropicSource);
+  const nonAnthropicItems = items.filter((i) => !isAnthropicSource(i));
+  console.log(`  Anthropic green-light: ${anthropicItems.length} items (unconditional)`);
+
+  // Group non-Anthropic items by source type
   const buckets: Record<string, NewsItem[]> = {
     blog: [],       // blog:* and tier-1 RSS (official blogs)
     rss: [],        // tier-0 RSS (media/indie)
@@ -303,7 +317,7 @@ function ruleBasedFallback(items: NewsItem[]): FilteredItem[] {
     reddit: [],     // reddit:*
   };
 
-  for (const item of items) {
+  for (const item of nonAnthropicItems) {
     const src = item.source;
     if (src.startsWith('blog:') || (src.startsWith('rss:') && item.source_tier === 1)) {
       buckets.blog.push(item);
@@ -354,7 +368,26 @@ function ruleBasedFallback(items: NewsItem[]): FilteredItem[] {
     }
   }
 
-  return selected.sort((a, b) => b.score - a.score).slice(0, 22);
+  // Prepend Anthropic items as FilteredItem; they bypass the 22-item cap too
+  const anthropicFiltered: FilteredItem[] = anthropicItems.map((item) => ({
+    id: item.id || 0,
+    title: item.title,
+    url: item.url || '',
+    source: item.source,
+    category: guessCategory(item),
+    score: Math.max(item.score, 95),
+    why_it_matters: item.summary || item.title,
+    action: 'Check it out',
+    engagement_likes: item.engagement_likes,
+    engagement_retweets: item.engagement_retweets,
+    engagement_downloads: item.engagement_downloads,
+    detected_at: item.detected_at,
+  }));
+
+  const rest = selected.sort((a, b) => b.score - a.score).slice(0, 22);
+  // Dedup against Anthropic items by id
+  const anthropicIds = new Set(anthropicFiltered.map((i) => i.id));
+  return [...anthropicFiltered, ...rest.filter((r) => !anthropicIds.has(r.id))];
 }
 
 function guessCategory(item: NewsItem): string {
@@ -383,6 +416,7 @@ function formatFilterInput(items: NewsItem[]) {
     retweets: item.engagement_retweets,
     downloads: item.engagement_downloads,
     priority: (item as NewsItem & { priority?: boolean }).priority || false,
+    anthropic: isAnthropicSource(item),
   }));
 }
 
@@ -409,8 +443,11 @@ function logFilterResult(filtered: FilteredItem[], label: string, model: string)
 
 // --- SHARED filter selection rules (used by both agent + single-shot prompts) ---
 
-const FILTER_SELECTION_RULES = `## Priority Items (MUST INCLUDE)
-Items marked with "priority": true are from official AI lab sources (Anthropic, OpenAI, Google/DeepMind). Include ALL priority items unless they are exact duplicates of stories covered in the last 7 days. Priority items count toward the total but the total can flex to 25 to accommodate them.
+const FILTER_SELECTION_RULES = `## Anthropic Items (MUST INCLUDE — green-light)
+Items marked with "anthropic": true are our TOP PRIORITY. Include EVERY ONE unless it is a near-exact duplicate of something already covered in the last 7-day bold-title history. The newsletter total may FLEX BEYOND 25 to accommodate them. Do NOT downrank Anthropic items based on category balance or engagement — assume every Anthropic-tagged item is newsworthy by default.
+
+## Priority Items (MUST INCLUDE)
+Items marked with "priority": true (OpenAI, Google, DeepMind) are must-include unless they are exact duplicates of stories covered in the last 7 days. Priority items count toward the total but the total can flex to 25 to accommodate them.
 
 ## Source Quotas (STRICT)
 - Reddit: MAX 2 items
