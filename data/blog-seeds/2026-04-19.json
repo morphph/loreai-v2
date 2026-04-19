@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Introducing Claude Design by Anthropic Labs",
+    "url": "https://www.anthropic.com/news/claude-design-anthropic-labs",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 15,
+    "composite_score": 69,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic deprecates Claude Sonnet 4 and Opus 4, retirement June 15",
+    "url": "https://platform.claude.com/docs/en/about-claude/models/overview#latest-models-comparison",
+    "source": "docs:Platform Release Notes",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 15,
+    "composite_score": 69,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude in Amazon Bedrock opens to all customers in 27 AWS regions",
+    "url": "https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock",
+    "source": "docs:Platform Release Notes",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 14,
+    "composite_score": 65,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Audit Claude Platform activity with the Compliance API",
+    "url": "https://www.claude.com/blog/claude-platform-compliance-api",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 14,
+    "composite_score": 65,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Using Claude Code: session management and 1M context",
+    "url": "https://www.claude.com/blog/using-claude-code-session-management-and-1m-context",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 14,
+    "composite_score": 65,
+    "suggested_angle": "news"
+  }
+]
