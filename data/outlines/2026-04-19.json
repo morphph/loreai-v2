@@ -1,0 +1,252 @@
+{
+  "date": "2026-04-19",
+  "headline_hook": "Anthropic Ships Claude Design, Cuts the Leash on Auto Mode, and Eyes $800B",
+  "preview_topics": [
+    "Claude's leap into design tools",
+    "the multi-agent coordination playbook",
+    "Anthropic's $800 billion signal"
+  ],
+  "pick_of_the_day": {
+    "item_id": 25429,
+    "thesis": "Claude Design isn't a Figma competitor — it's Anthropic proving that the next generation of creative tools won't start with a canvas but with a conversation, and that reshapes what 'design tool' even means for the AI-native workflow."
+  },
+  "model_literacy": {
+    "concept": "Model Cascading (Advisor Pattern)",
+    "relevance": "Anthropic's new Advisor tool productizes model cascading — pairing a fast executor with a smarter advisor mid-generation. As agent workloads grow longer and costlier, understanding when to route to which model tier is becoming a core infrastructure decision."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 25429,
+          "title": "Claude picks up a sketchpad: Anthropic Labs launches Claude Design",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Claude can now create prototypes, slides, and one-pagers natively — Anthropic is positioning it as a full creative collaborator, not just a code and text engine",
+          "key_fact": "Claude Design ships as an Anthropic Labs product, generating visual deliverables directly inside Claude"
+        },
+        {
+          "id": 25452,
+          "title": "Auto mode ships for Claude Code: give it a task, walk away",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Zero-permission autonomous coding is now live for Max users — the friction-free agent loop developers have been asking for since launch",
+          "key_fact": "Auto mode removes all permission prompts, enabling fully unattended Claude Code sessions"
+        },
+        {
+          "id": 25453,
+          "title": "Claude goes self-serve on Bedrock across 27 AWS regions",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Enterprise teams on AWS can now adopt Opus 4.7 and Haiku 4.5 without Anthropic account negotiations — the on-ramp just got a lot shorter",
+          "key_fact": "Opus 4.7 and Haiku 4.5 available via standard Messages API in 27 regions"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 25647,
+          "title": "GitHub's official MCP server hits 1.0 — AI agents get full GitHub access",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The bridge between AI coding agents and the world's largest code host is now production-ready, written in Go with full repo, issue, PR, and Actions support",
+          "key_fact": "v1.0 release, Go-based, covers repos, issues, PRs, and GitHub Actions"
+        },
+        {
+          "id": 25457,
+          "title": "Anthropic ships the `ant` CLI for scripting the Claude API",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A first-party CLI with YAML-based resource versioning lets developers script API interactions and version prompt configs alongside code",
+          "key_fact": "Native Claude Code integration and YAML config versioning built in"
+        },
+        {
+          "id": 25455,
+          "title": "Advisor tool enters public beta: pair a fast model with a smart one mid-generation",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Get near-Opus quality at executor-model token rates by routing hard decisions to a smarter advisor — the cost/quality tradeoff teams have been building manually",
+          "key_fact": "Pairs fast executor model with smarter advisor model during generation"
+        },
+        {
+          "id": 25451,
+          "title": "Compliance API lets enterprise teams audit all Claude platform activity",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Programmatic audit trails for every Claude interaction — table-stakes for regulated industries that have been waiting on the compliance story",
+          "key_fact": "Full programmatic audit of all Claude platform activity"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 25444,
+          "title": "Anthropic codifies five multi-agent coordination patterns",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "The reference architecture doc the agent-building community needed — five patterns with clear decision criteria for when each applies",
+          "key_fact": "Five distinct coordination patterns with concrete guidance on selection"
+        },
+        {
+          "id": 25439,
+          "title": "Official guide to Claude Code sessions with 1M context",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Compaction strategies and session hygiene for the full 1M window — critical for anyone running multi-hour coding sessions",
+          "key_fact": "Covers compaction strategies for managing the full 1M token context window"
+        },
+        {
+          "id": 25443,
+          "title": "How Anthropic engineers designed Claude Code's tool system",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The design philosophy behind how agents perceive and interact with codebases — essential for anyone building custom agent tooling",
+          "key_fact": "Reveals the internal design principles behind Claude Code's tool architecture"
+        },
+        {
+          "id": 25449,
+          "title": "When and how to use subagents in Claude Code",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Practical guide to spawning subagents, scoping their work, and avoiding context pollution in real Claude Code workflows",
+          "key_fact": "Covers subagent spawning, work scoping, and context isolation patterns"
+        },
+        {
+          "id": 25399,
+          "title": "Simon Willison diffs the Opus 4.6 vs 4.7 system prompts",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Detailed analysis reveals new safety guardrails, reasoning instructions, and tool-use patterns — helps developers write prompts that work with the model, not against it",
+          "key_fact": "Side-by-side comparison of system prompt changes between Opus 4.6 and 4.7"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 25442,
+          "title": "Anthropic's threat model for AI-accelerated offensive security",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "As AI agents gain tool access and autonomy, this is the threat model every security team needs to internalize now",
+          "key_fact": "Published security framework for defending against AI-powered attacks"
+        },
+        {
+          "id": 25450,
+          "title": "Unlocking Claude's full reasoning capabilities across task types",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Deep dive into Claude's cognitive architecture helps developers write better prompts and build stronger pipelines",
+          "key_fact": "Maps Claude's reasoning capabilities across different task categories"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 25394,
+          "title": "Anthropic draws $800B investor interest without even fundraising",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Valuation roughly doubled in months with no active raise — cements Anthropic's position in the two-horse frontier race and signals deep investor conviction in the Claude ecosystem",
+          "key_fact": "$800B implied valuation, up from ~$400B, with no active fundraise"
+        },
+        {
+          "id": 25454,
+          "title": "Claude Sonnet 4 and Opus 4 retire June 15 — migration clock starts now",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Teams pinned to Sonnet 4 or Opus 4 model IDs have two months to migrate to 4.6/4.7 — start testing immediately",
+          "key_fact": "June 15, 2026 retirement date for both Sonnet 4 and Opus 4"
+        },
+        {
+          "id": 25621,
+          "title": "Cursor nears $50B valuation as AI coding tools become a durable category",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A ~$2B raise at $50B+ signals investors see AI-native IDEs as a permanent layer, not a feature incumbents will absorb",
+          "key_fact": "~$2B raise at $50B+ valuation in advanced talks"
+        },
+        {
+          "id": 25580,
+          "title": "Anthropic reportedly cuts enterprise access overnight — 60+ employees affected",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Whether justified or not, the viral report is a reminder to maintain model-agnostic fallback infrastructure when building on any single provider",
+          "key_fact": "60+ employees lost Claude access with no prior explanation"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 25533,
+          "title": "Karpathy publishes a cross-provider multi-agent research template",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Step-by-step guide to multi-agent autonomous research using open models — works with Codex, Claude, and OpenAI out of the box",
+          "key_fact": "First practical cross-provider agent research template from a top-tier builder"
+        },
+        {
+          "id": 25484,
+          "title": "Claude Code hackathon returns with $100K and the team in the room",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Week-long hackathon with $100K in API credits and direct access to the Claude Code team — applications close Sunday",
+          "key_fact": "$100K prize pool, applications close Sunday"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 25479,
+      "title": "Claude Cowork ships 'skip all permissions' for fully autonomous desktop workflows",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Most-requested Cowork feature: unattended agent operation without permission dialogs",
+      "key_fact": "Fully autonomous operation mode now available"
+    },
+    {
+      "id": 25481,
+      "title": "Claude desktop app exposes a Bluetooth API for hardware makers",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "AI-aware hardware peripherals are now possible — desk pets that respond to Claude's permission prompts",
+      "key_fact": "Bluetooth API available in Claude Cowork and Code"
+    },
+    {
+      "id": 25510,
+      "title": "OpenAI + Modal show how to scale long-running agent workspaces",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Sandboxed workspace provisioning for multi-hour autonomous Agents SDK tasks",
+      "key_fact": "Controlled sandbox infrastructure for long-running agent workloads"
+    },
+    {
+      "id": 25513,
+      "title": "Render ships a Codex plugin: deploy directly from OpenAI's agent",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Agent-to-deployment pipeline collapses into a single loop",
+      "key_fact": "Write, deploy, and monitor without leaving Codex"
+    },
+    {
+      "id": 25448,
+      "title": "Carta Healthcare gets Claude to reason like a clinical abstractor",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Prompt engineering and validation patterns for high-stakes regulated AI deployment",
+      "key_fact": "Real-world clinical abstraction case study with validation patterns"
+    }
+  ],
+  "total_items": 25
+}

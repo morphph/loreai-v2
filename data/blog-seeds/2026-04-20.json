@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Claude for Word is now available on Pro and Max plans",
+    "url": "https://x.com/claudeai/status/2045222254699511855",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 10824,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 10,
+    "composite_score": 52.2472,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Mythos Preview for defensive cybersecurity (Project Glasswing)",
+    "url": "https://anthropic.com/glasswing",
+    "source": "docs:Platform Release Notes",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 10,
+    "composite_score": 49,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code hackathon returns — $100K prize pool, $500 API credits",
+    "url": "https://x.com/adocomplete/status/2045619301953245442",
+    "source": "twitter:@adocomplete",
+    "x_engagement_24h": 206,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 45.0618,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Best practices for using Claude Opus 4.7 with Claude Code",
+    "url": "https://www.claude.com/blog/best-practices-for-using-claude-opus-4-7-with-claude-code",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 45,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Introducing routines in Claude Code",
+    "url": "https://www.claude.com/blog/introducing-routines-in-claude-code",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 45,
+    "suggested_angle": "news"
+  }
+]

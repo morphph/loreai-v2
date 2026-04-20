@@ -1,0 +1,252 @@
+{
+  "date": "2026-04-20",
+  "headline_hook": "Anthropic Ships Managed Agents and Routines While Google Drops Multi-Speaker TTS",
+  "preview_topics": [
+    "Anthropic's managed agent platform play",
+    "Google Flash TTS in 70 languages",
+    "the advisor pattern for cheaper agentic runs"
+  ],
+  "pick_of_the_day": {
+    "item_id": 25445,
+    "thesis": "The advisor pattern isn't just a cost hack — it's the first credible architecture for making long agentic runs economically viable at enterprise scale, and it reveals that the real bottleneck in AI coding isn't model intelligence but knowing when to deploy it."
+  },
+  "model_literacy": {
+    "concept": "Model Cascading (Fast-Slow Routing)",
+    "relevance": "Today's advisor strategy blog formalizes what power users have been doing ad hoc — pairing a cheap executor with a smart advisor. Understanding cascade routing helps readers evaluate when to spend on Opus vs. delegate to Haiku, especially as Managed Agents makes multi-model orchestration a first-class primitive."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 25447,
+          "title": "Claude Managed Agents Hits Public Beta — Deploy Autonomous Agents Without Building Infrastructure",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Anthropic just turned 'build your own agent harness' into a checkbox — secure sandboxing, built-in tools, and SSE streaming out of the box. The build-vs-buy decision for agent infrastructure just tilted hard toward buy.",
+          "key_fact": "Fully managed agent harness with secure sandboxing now in public beta"
+        },
+        {
+          "id": 25528,
+          "title": "Gemini 3.1 Flash TTS Launches With Multi-Speaker Dialogue in 70+ Languages",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Google's TTS model doesn't just read text aloud — it handles multi-speaker dialogue with vocal delivery tags, making it immediately useful for podcast generation, dubbing, and accessibility at a scale no competitor matches.",
+          "key_fact": "Multi-speaker dialogue with audio delivery tags across 70+ languages, live in AI Studio"
+        },
+        {
+          "id": 25446,
+          "title": "Claude Cowork Gets Enterprise Controls — SSO, Audit Logs, Admin Dashboards",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The missing checklist items that kept IT teams from approving desktop AI agents are now shipped. Cowork goes from 'cool demo' to 'procurement-ready.'",
+          "key_fact": "SSO, audit logs, admin dashboards, and usage analytics now available"
+        },
+        {
+          "id": 25485,
+          "title": "Claude Lands Inside Microsoft Word for Pro and Max Users",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "First frontier AI model with native Word integration — meets knowledge workers where they already live instead of asking them to switch tabs.",
+          "key_fact": "Opus 4.7 available natively inside Microsoft Word on Pro and Max plans"
+        },
+        {
+          "id": 25619,
+          "title": "Alibaba Drops Qwen3.6-35B-A3B — 35B Params, 3B Active, Apache 2.0",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The open-source MoE model that runs 3B active params while punching at 35B weight — purpose-built for agentic terminal coding and licensed to ship commercially.",
+          "key_fact": "35B total params, 3B active, Apache 2.0, multimodal, agentic coding focus"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 25441,
+          "title": "Claude Code Routines Turn Ad-Hoc Prompting Into Trigger-Based Automation",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Routines are the missing layer between 'type a prompt' and 'write a CI pipeline' — reusable multi-step workflows that fire on triggers, finally giving Claude Code a proper automation primitive.",
+          "key_fact": "Reusable multi-step workflows that run on configurable triggers"
+        },
+        {
+          "id": 25440,
+          "title": "Claude Code Desktop Rebuilt Around Parallel Agent Panels",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The desktop UI now mirrors how Opus 4.7 actually works — parallel agent panels with status dashboards and conversation threading, not a single chat window.",
+          "key_fact": "Visual overhaul with parallel agent panels and status dashboards"
+        },
+        {
+          "id": 25456,
+          "title": "Managed Agents Platform Docs — Container Config, Sessions, Tool Registration",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The implementation companion to today's Managed Agents announcement — everything you need to go from blog post excitement to working deployment.",
+          "key_fact": "Full API docs covering container config, session management, and beta header requirements"
+        },
+        {
+          "id": 25459,
+          "title": "Claude Messages API Now Available on Amazon Bedrock",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Same API shape, AWS-managed infrastructure — enterprise teams get Claude with Bedrock's compliance and data residency story without changing their integration code.",
+          "key_fact": "Zero operator access, us-east-1, same Messages API request shape"
+        },
+        {
+          "id": 26113,
+          "title": "Claude Code v2.1.113 Ships Native Binary and Network Deny Lists",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Native binary replaces bundled JS for faster startup, and the new domain deny list gives security teams granular network control inside the sandbox.",
+          "key_fact": "Native binary startup + sandbox.network.deniedDomains setting"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 25438,
+          "title": "Anthropic's Official Guide to Getting the Most From Opus 4.7 in Claude Code",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "Straight from Anthropic: the delegation patterns, context management strategies, and subagent-vs-direct decision framework that separate effective Opus 4.7 usage from expensive token burning.",
+          "key_fact": "Official best practices covering delegation patterns, context management, and subagent routing"
+        },
+        {
+          "id": 25445,
+          "title": "The Advisor Strategy — Near-Opus Quality at a Fraction of the Cost",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Pair a fast executor with a smarter advisor that only activates on hard steps. The first well-documented pattern for making long agentic runs economically sane.",
+          "key_fact": "Near-Opus quality for long agentic runs by routing only hard steps to the expensive model"
+        },
+        {
+          "id": 25506,
+          "title": "Cat Wu's Mental Model Shift: Treat Opus 4.7 Like an Engineer You Delegate To",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Anthropic's own Cat Wu says stop guiding line-by-line — Opus 4.7 performs best when you hand over complete tasks. Three concrete workflow shifts.",
+          "key_fact": "Three workflow shifts: delegate complete tasks, not line-by-line guidance"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 25458,
+          "title": "Claude Mythos Preview — Anthropic's First Specialized Cybersecurity Model",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Project Glasswing puts a purpose-built defensive security model behind invitation-only access — Anthropic's clearest signal yet that specialized models, not just scaling, are the next frontier.",
+          "key_fact": "Gated research preview, defensive cybersecurity only, invitation-based access"
+        },
+        {
+          "id": 25507,
+          "title": "OpenAI Details GPT Rosalind and the Life Sciences Model Series",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "OpenAI's research leads explain the technical approach to biology-specific fine-tuning — a direct play on Anthropic's own life sciences moves this week.",
+          "key_fact": "Podcast deep dive on biology-specific fine-tuning and responsible deployment approach"
+        },
+        {
+          "id": 25418,
+          "title": "NVIDIA's Nemotron-OCR v2 — Synthetic Data Pipeline That Beats Commercial OCR APIs",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Practical playbook: how synthetic data pipelines can train a multilingual OCR model that matches commercial APIs, with the full methodology published.",
+          "key_fact": "Multilingual OCR matching commercial APIs, trained primarily on synthetic data"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 26288,
+          "title": "Mollick: Gemini Pro 3.1 Is a Great Model Trapped in a Bad Harness",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The growing gap between Google's model capabilities and product UX — no auditable chain-of-thought, manual canvas, minimal tool integration. The model competes; the harness doesn't.",
+          "key_fact": "No auditable CoT, manual canvas, minimal tool integration despite strong model benchmarks"
+        },
+        {
+          "id": 25564,
+          "title": "Opus 4.7's Adaptive Thinking Now Triggers Much More Often After Rapid Patch",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Anthropic's rapid response to launch-day criticism — adaptive thinking activates more aggressively now, trading cost for quality. Worth retesting if you bounced on day one.",
+          "key_fact": "Post-launch patch significantly increases adaptive thinking activation frequency"
+        },
+        {
+          "id": 25396,
+          "title": "Dario Amodei Visits the White House in 'Productive' AI Policy Talks",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Amodei met with the Chief of Staff and Treasury Secretary — both sides calling it 'productive and constructive' signals a potential thaw in AI-government relations.",
+          "key_fact": "Meetings with White House Chief of Staff and Treasury Secretary"
+        },
+        {
+          "id": 25430,
+          "title": "Anthropic Appoints Novartis CEO to Long-Term Benefit Trust Board",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Adding Vas Narasimhan to the LTBT board deepens Anthropic's life sciences bench and signals governance maturity as the company approaches potential IPO.",
+          "key_fact": "Novartis CEO Vas Narasimhan joins Anthropic's LTBT board of directors"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 25799,
+          "title": "Claude Code Hackathon Returns — $100K Prizes, $500 API Credits Per Builder",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Week-long hackathon on Opus 4.7 with real API credits and real prize money. Applications closing soon.",
+          "key_fact": "$100K total prizes, $500 API credits per participant"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 25527,
+      "title": "Google's Week in AI: Flash TTS, Robotics-ER 1.6, Gemini for Mac",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Google shipped four major AI products in a single week — the pace is accelerating",
+      "key_fact": "Flash TTS, Robotics-ER 1.6, Gemini desktop for Mac all in one week"
+    },
+    {
+      "id": 26114,
+      "title": "LangChain Core 1.3.0 Ships With Opus 4.7 Support",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Major core release plus compaction block handling for proper 4.7 integration",
+      "key_fact": "langchain-anthropic 1.4.1 handles Opus 4.7 compaction blocks"
+    },
+    {
+      "id": 25491,
+      "title": "Alex Albert: Opus 4.7 Launch-Day Bugs Now Patched",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "If you tried Opus 4.7 on day one and bounced, it's worth a second look",
+      "key_fact": "Many Day 1 bugs confirmed fixed"
+    },
+    {
+      "id": 26328,
+      "title": "Paper: Self-Improving Agents With Auditable Lineage and Rollback",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Framework for agents that propose and commit their own improvements with full audit trail",
+      "key_fact": "Self-improvement governance with rollback capabilities"
+    }
+  ],
+  "total_items": 25
+}
