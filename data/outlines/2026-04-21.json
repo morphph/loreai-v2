@@ -1,0 +1,244 @@
+{
+  "date": "2026-04-21",
+  "headline_hook": "Moonshot Drops a Trillion-Parameter Open Model While Claude Ships Living Dashboards",
+  "preview_topics": [
+    "Moonshot's trillion-parameter open challenger",
+    "Claude's live artifact dashboard layer",
+    "LeCun's generative AI dead-end thesis"
+  ],
+  "pick_of_the_day": {
+    "item_id": 26687,
+    "thesis": "LeCun's repeated insistence that autoregressive generation is a dead end isn't just academic contrarianism — it's the most coherent alternative thesis to the scaling consensus, and today's trillion-parameter releases are the exact evidence both sides will cite to prove their case."
+  },
+  "model_literacy": {
+    "concept": "Mixture of Experts (MoE)",
+    "relevance": "Kimi K2.6 packs 1 trillion parameters into an open-weight model that runs affordably because MoE activates only a fraction of parameters per token — understanding this architecture explains why '1T parameters' doesn't mean '1T cost'."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 26641,
+          "title": "Claude Cowork Ships Live Artifacts That Stay Connected to Your Data",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Claude goes from chat-and-forget to persistent dashboards that auto-refresh — the first real 'ambient AI layer' in a productivity tool.",
+          "key_fact": "Artifacts connect to apps and files via Connectors and refresh with live data on every open"
+        },
+        {
+          "id": 26901,
+          "title": "Kimi K2.6: A Trillion-Parameter Open Model Claims Opus-Level Coding",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Moonshot's 1T MoE model is the most ambitious open-weight release this year — if the benchmarks hold, the open-closed gap just collapsed for code.",
+          "key_fact": "1T-parameter open-weight MoE model claiming Opus 4.6-level coding at 76% lower cost"
+        },
+        {
+          "id": 26933,
+          "title": "Alibaba's Qwen3.6-Max-Preview Enters the Closed-Model Fight",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "After dropping open-weight Qwen3.6-35B last week, Alibaba now fields a closed flagship — playing both sides of the open/closed divide.",
+          "key_fact": "Alibaba's strongest closed model yet, following the open-weight Qwen3.6-35B release"
+        },
+        {
+          "id": 26648,
+          "title": "Google Opens AI Studio's Full Model Lineup to Paid Subscribers",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "No more API keys required — Pro and Ultra subscribers get Nano Banana Pro and Gemini Pro directly in AI Studio.",
+          "key_fact": "AI Pro and Ultra subscribers get Nano Banana Pro access without API key setup"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 26713,
+          "title": "Ollama Puts Kimi K2.6 on Cloud So You Don't Download 1TB",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Same-day cloud integration means you can test a frontier-class open model in minutes — plug it into Claude Code or any OpenAI-compatible client.",
+          "key_fact": "Kimi K2.6 available on Ollama cloud on launch day, no local download required"
+        },
+        {
+          "id": 26655,
+          "title": "HuggingFace Opens 1M Spaces as Callable Agent Tools",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Any HuggingFace Space can now be invoked as a function by AI agents — turning HF into the largest tool registry for autonomous systems.",
+          "key_fact": "1 million HuggingFace Spaces now callable as tools by AI agents"
+        },
+        {
+          "id": 26890,
+          "title": "Claude Code v2.1.116: Resume Sessions 67% Faster",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Large session resume is dramatically faster, MCP startup parallelized — the kind of daily-driver improvements that compound.",
+          "key_fact": "Session resume up to 67% faster, MCP server startup now parallelized"
+        },
+        {
+          "id": 26638,
+          "title": "Inside Live Artifacts: How Connectors Power Claude's Dashboards",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Felix Rieseberg's walkthrough shows what actually works today — which Connectors are live and what use cases make sense right now.",
+          "key_fact": "Live artifacts connect to external data via Connectors, auto-refresh on open"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 26666,
+          "title": "Opus 4.7 Quietly Costs 1.46x More Tokens Than 4.6",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "Same per-token price, but 1.46x more tokens for text and up to 3x for images — Simon Willison's token counter reveals the hidden migration cost.",
+          "key_fact": "Opus 4.7 uses 1.46x tokens for text and up to 3x for images vs Opus 4.6"
+        },
+        {
+          "id": 26645,
+          "title": "The Official Codex Beginner's Guide Treats It as a Platform",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "OpenAI's endorsed guide covers Codex from install to agent configuration — a signal they see it as a platform, not just a CLI.",
+          "key_fact": "Comprehensive guide covering install, prompting, and agent configuration from zero"
+        },
+        {
+          "id": 26654,
+          "title": "GGUF, Unsloth, Q_4_M, IQ_4XL: The Quantization Format Zoo Explained",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "If you've browsed HuggingFace model cards and wondered which GGUF variant to download, this is the explainer you need.",
+          "key_fact": "Covers all major GGUF quantization types, format tradeoffs, and quality differences"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 26581,
+          "title": "Why a Single Benchmark Number Lies About the Open-Closed Gap",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Interconnects shows the gap depends on task type, quantization, and eval methodology — essential context for interpreting every Kimi K2.6 claim today.",
+          "key_fact": "Open-closed performance gap varies dramatically by task type and evaluation method"
+        },
+        {
+          "id": 26576,
+          "title": "Noetik Aims Transformers at Cancer's 95% Trial Failure Rate",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Framing clinical trial matching as a sequence problem that autoregressive models can solve — transformers beyond text, in the highest-stakes domain.",
+          "key_fact": "95% of cancer trials fail; Noetik applies transformer architecture to patient-trial matching"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 26640,
+          "title": "Anthropic Secures 5 Gigawatts of Amazon Compute",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "5 GW is enough to power a small city — Anthropic is locking in infrastructure for models far beyond current scale, with 1 GW expected by end of quarter.",
+          "key_fact": "Up to 5 GW of compute capacity secured through Amazon, ~1 GW expected by end of quarter"
+        },
+        {
+          "id": 26687,
+          "title": "LeCun Doubles Down: Generative AI Is a Dead End",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The most substantive counter-narrative to the scaling consensus — whether you agree or not, his alternative architecture thesis deserves real engagement.",
+          "key_fact": "LeCun argues autoregressive generative models need fundamentally different architectures"
+        },
+        {
+          "id": 26639,
+          "title": "Anthropic Recruits Domain Scientists With STEM Fellows Program",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Not just hiring ML researchers — recruiting physicists, biologists, and engineers to embed alongside research teams. A bet that the next breakthroughs come from domain knowledge.",
+          "key_fact": "Recruiting science and engineering domain experts to work with Anthropic research teams"
+        },
+        {
+          "id": 26938,
+          "title": "Atlassian Quietly Turns On Default Data Collection for AI Training",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Every Jira ticket and Confluence page is now training data unless you opt out — check your admin settings today.",
+          "key_fact": "Default-on data collection for AI training across all Atlassian products"
+        },
+        {
+          "id": 26558,
+          "title": "Chinese Tech Workers Push Back on Training Their AI Replacements",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Companies asking employees to build AI replicas of themselves — the Colleague Skill GitHub project is a preview of automation tensions coming everywhere.",
+          "key_fact": "Workers resisting company mandates to create AI doubles of themselves"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 26608,
+          "title": "Claude Code Hackathon Winners Show What Agent-Native Dev Looks Like",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The winning projects are concrete proof points for what works with Opus 4.6 + Claude Code — not demos, real tools people built in days.",
+          "key_fact": "Hackathon winners built with Opus 4.6 and Claude Code"
+        },
+        {
+          "id": 26527,
+          "title": "Qwopus-GLM-18B: A Community Cross-Architecture Model Merge",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Merging Qwen and GLM architectures into a single 18B GGUF — the open-source community is experimenting with combinations the original labs haven't tried.",
+          "key_fact": "3K downloads on HuggingFace for Qwen+GLM architecture merge in 18B GGUF format"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 26685,
+      "title": "HuggingFace Opens a Tokyo Office",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Serious bet on Japan's underserved open-source AI community",
+      "key_fact": "New Tokyo office for the Japanese developer ecosystem"
+    },
+    {
+      "id": 26936,
+      "title": "Deezer: 44% of Daily Uploads Are Now AI-Generated",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "First hard number from a major platform on the AI content flood",
+      "key_fact": "44% of songs uploaded daily to Deezer are AI-generated"
+    },
+    {
+      "id": 26934,
+      "title": "GitHub's Fake Star Economy Exposed",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Star manipulation distorts the signal everyone uses to choose AI tools",
+      "key_fact": "Investigation into organized star manipulation on GitHub"
+    },
+    {
+      "id": 26720,
+      "title": "Recursive Superintelligence Raises $500M at $4B — Four Months Old",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The most extreme example of frontier AI's capital gravity",
+      "key_fact": "$500M raised at $4B pre-money valuation, GV-led, four months old"
+    }
+  ],
+  "total_items": 24
+}
