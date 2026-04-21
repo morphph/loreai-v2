@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "In Cowork, Claude can now build live artifacts: dashboards and trackers connected to your apps and files.  Open one any time and it refreshes with current data. https://t.co/oru97zRn8L",
+    "url": "https://x.com/claudeai/status/2046328619249684989",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 7846,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 27.3538,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Meet the winners of our Built with Opus 4.6 Claude Code hackathon",
+    "url": "https://www.claude.com/blog/meet-the-winners-of-our-built-with-opus-4-6-claude-code-hackathon",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "We're expanding our collaboration with Amazon to secure up to 5 gigawatts of compute for training and deploying Claude.",
+    "url": "https://x.com/AnthropicAI/status/2046327624092487688",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 6942,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 19.0826,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "We're launching the Anthropic STEM Fellows Program.",
+    "url": "https://x.com/AnthropicAI/status/2046362119755727256",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 1399,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.4197,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Hugging Face is opening an office in Tokyo",
+    "url": "https://x.com/_akhaliq/status/2046228160337821932",
+    "source": "twitter:@_akhaliq",
+    "x_engagement_24h": 2401,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.7203,
+    "suggested_angle": "news"
+  }
+]
