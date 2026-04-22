@@ -1,0 +1,236 @@
+{
+  "date": "2026-04-22",
+  "headline_hook": "OpenAI Drops GPT-Image-2 While Google Ships Deep Research Max",
+  "preview_topics": [
+    "OpenAI's image generation inflection point",
+    "Google's autonomous research agents go production",
+    "AI agents that outperform 146 economist teams"
+  ],
+  "pick_of_the_day": {
+    "item_id": 27094,
+    "thesis": "When AI coding agents produce tighter variance than 146 human economist teams on identical data, the question flips from 'can agents do research' to 'should humans still be the reproducibility benchmark.'"
+  },
+  "model_literacy": {
+    "concept": "Autoregressive Image Generation",
+    "relevance": "GPT-Image-2 generates images token-by-token like text rather than via diffusion, which is why it can 'think' about composition, render accurate text, and follow complex layout instructions — a fundamentally different architecture from Midjourney and DALL-E 3."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 27001,
+          "title": "ChatGPT Images 2.0 Ships With a Brain",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The first image model that reasons about composition before generating — thinking capabilities change what 'prompt engineering' means for visual work.",
+          "key_fact": "Combines thinking/reasoning with image generation for precise text rendering and layout control"
+        },
+        {
+          "id": 27051,
+          "title": "gpt-image-2 Hits the API and Codex on Day One",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "API-first launch means developers can integrate production-grade image generation immediately, not wait months for access.",
+          "key_fact": "Available today in the API and Codex with text rendering, editing, and resolution control"
+        },
+        {
+          "id": 27059,
+          "title": "Google Ships Deep Research Max With Full Agent Tooling",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Google's SOTA autonomous research agent gets MCP support and native tool integration — the research agent arms race just escalated.",
+          "key_fact": "Powered by Gemini 3.1 Pro with MCP support, native charts, and full tool integration"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 27178,
+          "title": "Deep Research API Gets MCP, Streaming, and Multi-Modal Input",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Developers can now build autonomous research pipelines with Google's best system — MCP support means it plugs into existing agent infrastructure.",
+          "key_fact": "MCP support, real-time streaming, planning mode, and full tool support including code execution"
+        },
+        {
+          "id": 27027,
+          "title": "Claude Cowork Builds Live Dashboards Connected to Your Apps",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Live artifacts turn Claude from a chat assistant into a dashboard builder — the most practical Claude feature this week for teams.",
+          "key_fact": "Dashboards and trackers connected to your apps and files, openable anytime"
+        },
+        {
+          "id": 27375,
+          "title": "Brex Open-Sources CrabTrap: An LLM Judge for Agent Safety",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "An HTTP proxy that validates agent actions before they hit production — the kind of safety layer every team deploying autonomous agents needs yesterday.",
+          "key_fact": "LLM-as-a-judge HTTP proxy that intercepts and validates agent API calls in production"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 27038,
+          "title": "Inside GPT-Image-2: How Thinking Makes Image Generation Smarter",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The research team explains how reasoning capabilities are baked into image generation — the first model that plans composition before rendering pixels.",
+          "key_fact": "First image model with explicit thinking/reasoning about composition before generation"
+        },
+        {
+          "id": 27110,
+          "title": "A Dead-Simple Trick for Getting Diverse LLM Outputs",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Have the model generate and manipulate its own random seed — solves a known failure mode in creative and sampling tasks without complex prompting.",
+          "key_fact": "Simple prompting trick: model generates a random seed then uses it to diversify outputs"
+        },
+        {
+          "id": 26967,
+          "title": "Simon Willison Stress-Tests ChatGPT Images 2.0 With Adversarial Prompts",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The practical companion to OpenAI's announcement — Willison pushes composition limits with raccoons, ham radios, and deliberately tricky spatial prompts.",
+          "key_fact": "Adversarial composition prompts reveal both strengths and remaining failure modes"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 27046,
+          "title": "GPT-Image-2 Sweeps Every Image Arena Leaderboard",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The first clean sweep in Arena history provides third-party validation that this isn't just marketing — human evaluators agree it's a generational leap.",
+          "key_fact": "#1 across all Image Arena leaderboards — first-ever clean sweep"
+        },
+        {
+          "id": 27094,
+          "title": "AI Agents Match 146 Economist Teams — With Tighter Variance",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "A classic reproducibility study rerun with AI agents shows Claude Code and Codex land near the human median but with far less variance — agents as research tools just got hard evidence.",
+          "key_fact": "Claude Code and Codex produced results near human median with significantly tighter variance than 146 economist teams"
+        },
+        {
+          "id": 27114,
+          "title": "MegaStyle Claims the ImageNet Moment for Style Transfer",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Full open-source release of code, data, and models arrives the same week as GPT-Image-2 — an open alternative for teams that need style-specific generation.",
+          "key_fact": "Complete open-source release: training code, inference, dataset, and models"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 27092,
+          "title": "Emollick: We Just Crossed a Quality Threshold Nobody Expected",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "AI-generated text in slides, papers, and documents is now practically usable — a capability inflection point where image generation becomes a productivity tool, not a toy.",
+          "key_fact": "Quality threshold crossed where AI-generated text, slides, and academic papers become practically usable"
+        },
+        {
+          "id": 27377,
+          "title": "Meta Starts Capturing Employee Keystrokes for AI Training",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Following Atlassian's quiet data collection move, workplace surveillance for AI training data is becoming an industry pattern — not an outlier.",
+          "key_fact": "Mouse movements and keystrokes captured from employees to train AI models"
+        },
+        {
+          "id": 26972,
+          "title": "Kimi K2.6 Positions as the Open-Source Front-Runner Ahead of DeepSeek v4",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Latent Space's analysis frames Kimi K2.6 as catching Opus 4.6 — essential context for teams deciding between open and closed models right now.",
+          "key_fact": "Positioned as world's leading open model, refreshed to compete with Opus 4.6 ahead of anticipated DeepSeek v4"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 27068,
+          "title": "HuggingFace Open-Sources ml-intern: The Agent That Automates Post-Training",
+          "section": "BUILD",
+          "prominence": "hero",
+          "angle": "Not a demo — ml-intern actually automates the post-training team's workflow at HuggingFace, making it the most concrete 'AI teammate' implementation that ships production work.",
+          "key_fact": "Open-source agent that automated HuggingFace's post-training team workflows"
+        },
+        {
+          "id": 27181,
+          "title": "Agent-Simulator Streams iOS Into Your Browser With MCP",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "AI agents can now interact with, inspect, and jump to React Native code in mobile apps — bridging the gap between coding agents and mobile development.",
+          "key_fact": "MCP-based tool streams iOS simulator to browser with code inspection and interaction"
+        },
+        {
+          "id": 27192,
+          "title": "Kimi 2.6 Code Adds a Claude Code-Style Terminal",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The strongest open-source coding model gets a proper terminal interface — lowering the barrier from 'powerful model' to 'usable coding agent workflow.'",
+          "key_fact": "Claude Code-style terminal interface added to Kimi K2.6, one of the strongest open-source models"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 27036,
+      "title": "Claude Code's /btw Side Chat Is a Daily Workflow Win",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "CMD+; for quick side questions without breaking flow",
+      "key_fact": "/btw command and CMD+; shortcut for side conversations in Claude Code"
+    },
+    {
+      "id": 27165,
+      "title": "Official Guide to Prompt Caching in the Claude API",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "If you're running Claude in loops, caching cuts your bill dramatically",
+      "key_fact": "Prompt caching as key cost optimization for Claude API users"
+    },
+    {
+      "id": 27379,
+      "title": "GoModel: A Lightweight Go Gateway for Multi-Provider AI",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Lighter than LiteLLM for multi-model routing in Go",
+      "key_fact": "Open-source unified Go gateway for routing across AI providers"
+    },
+    {
+      "id": 26649,
+      "title": "Google's Nano Banana Pro Nails Brand Consistency Across Assets",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Can AI do production brand work? Google says yes with a full case study",
+      "key_fact": "Maintained strict brand consistency across logos, typography, and assets"
+    },
+    {
+      "id": 27376,
+      "title": "Claude Code Exits the Pro Tier",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Anthropic segments coding agents as a premium product",
+      "key_fact": "Claude Code no longer included in Anthropic Pro subscription"
+    }
+  ],
+  "total_items": 23
+}
