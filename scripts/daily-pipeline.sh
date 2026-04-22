@@ -12,15 +12,26 @@ flock -n 200 || { echo "Another pipeline step is running"; exit 1; }
 export PATH="/home/ubuntu/.local/bin:/home/ubuntu/.npm-global/bin:/usr/local/bin:/usr/bin:/bin:$PATH"
 
 cd /home/ubuntu/loreai-v2
+
+# Branch guard — pipeline must run on main. If a merged feature branch is left
+# checked out, daily commits silently accumulate on the stale branch and never
+# reach Vercel. Abort loudly instead. (incident: 2026-04-22, see known-issues #13)
+EXPECTED_BRANCH="main"
+CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [ "$CURRENT_BRANCH" != "$EXPECTED_BRANCH" ]; then
+  echo "❌ Pipeline must run on '$EXPECTED_BRANCH' but HEAD is '$CURRENT_BRANCH'. Aborting."
+  exit 1
+fi
+
 STEP="${1:-all}"
 DATE=$(TZ=Asia/Singapore date +%Y-%m-%d)
 mkdir -p logs
-for i in 1 2 3; do git pull --rebase && break; sleep 10; done
+for i in 1 2 3; do git pull --rebase origin main && break; sleep 10; done
 
 # Safe push: pull --rebase first to handle divergence, then push.
 # Non-fatal — logs a warning but doesn't kill the pipeline.
 safe_push() {
-  git pull --rebase origin main 2>&1 && git push 2>&1 || echo "⚠️  git push failed — will retry next cycle"
+  git pull --rebase origin main 2>&1 && git push origin main 2>&1 || echo "⚠️  git push failed — will retry next cycle"
 }
 
 # ── Pipeline Steps (crontab uses TZ=Asia/Singapore — all times SGT) ──

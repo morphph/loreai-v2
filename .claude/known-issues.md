@@ -77,6 +77,14 @@ Real bugs that have occurred in production. Claude MUST avoid all of them when g
 - **重跑前应先清除当天的 selected 标记**：`UPDATE news_items SET selected_for_newsletter_at = NULL WHERE selected_for_newsletter_at >= '{DATE} 00:00:00'`
 - 或者在 `write-newsletter.ts` 加 `--rerun` flag 自动清除当天标记再跑
 
+## 13. VPS Stuck on Merged Feature Branch (VPS 残留在已合并的 feature 分支上)
+- **Incident 2026-04-22**: After PR #2 merged `feat/anthropic-greenlight` → `main` on Apr 20, the VPS working tree (`/home/ubuntu/loreai-v2`) was never switched back to `main`
+- Daily pipeline kept running successfully (content generated, emails sent), but `git commit` + `git push` landed on the stale `feat/anthropic-greenlight` branch
+- Vercel deploys from `main` → Apr 21 and Apr 22 newsletter pages returned HTTP 404 on loreai.dev for 2 days despite the pipeline reporting success
+- Root cause: `daily-pipeline.sh` ran `git pull --rebase` (no args, tracks current branch) and `safe_push()` pushed to HEAD — no guard that HEAD must be `main`
+- **Fix:** Added branch guard to `scripts/daily-pipeline.sh` — aborts with `❌ Pipeline must run on 'main'` if HEAD != main. Pinned `git pull --rebase origin main` and `git push origin main` explicitly.
+- **Operational reminder:** After merging any feature branch via PR, SSH to VPS and run `git checkout main && git pull` before the next cron cycle.
+
 ---
 
 ## Blog Pipeline
