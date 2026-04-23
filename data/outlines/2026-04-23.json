@@ -1,0 +1,228 @@
+{
+  "date": "2026-04-23",
+  "headline_hook": "Google Splits Its Chips While Claude Deploys Agent Fleets and Qwen Crashes the Coding Party",
+  "preview_topics": [
+    "Google's twin-chip TPU gambit",
+    "Shopify's unlimited AI token budget",
+    "the prompt caching gap most teams ignore"
+  ],
+  "pick_of_the_day": {
+    "item_id": 27420,
+    "thesis": "When a $100B company hands every engineer an unlimited Opus 4.6 budget and builds three internal agent tools, the implied ROI math tells you more about where agentic coding is headed than any benchmark ever could."
+  },
+  "model_literacy": {
+    "concept": "Training-Optimized vs. Inference-Optimized Silicon",
+    "relevance": "Google's TPU v8 split into 8T (training) and 8I (inference) reflects the industry realization that agentic workloads — millions of small, latency-sensitive inference calls — need fundamentally different hardware than batch training runs. Understanding this split explains why cloud pricing, model serving, and agent architecture are all about to change."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 27522,
+          "title": "Claude Code Ships Multi-Agent Cloud Reviews With /ultrareview",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Claude Code evolves from single-agent to fleet-based analysis — parallelized bug-hunting agents that fan out across your codebase in the cloud",
+          "key_fact": "Fleet of specialized agents runs concurrently in cloud, not locally"
+        },
+        {
+          "id": 27427,
+          "title": "Google Launches Twin TPU v8 Chips — One for Training, One for Inference",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Google bets that agentic inference workloads are different enough from training to warrant purpose-built silicon — the clearest infrastructure signal yet",
+          "key_fact": "TPU v8 splits into 8T (training) and 8I (inference), two distinct chip designs"
+        },
+        {
+          "id": 27893,
+          "title": "Qwen3.6-27B Beats Opus 4.5 on LiveBench at 16GB Quantized",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Alibaba drops a dense 27B model that runs on consumer hardware and community benchmarks show it rivaling frontier models on coding — the open-weight tier just got dramatically more competitive",
+          "key_fact": "27B dense model beats Opus 4.5 on LiveBench, runs quantized at 16GB"
+        },
+        {
+          "id": 27472,
+          "title": "OpenAI Goes Open-Source With a PII Detection Model",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A rare open-source release from OpenAI with immediate enterprise utility — bidirectional token-classification for on-premises data sanitization",
+          "key_fact": "Already integrated into HuggingFace Transformers v5.6.0"
+        },
+        {
+          "id": 27554,
+          "title": "Google Rebrands Vertex AI Into a Full Enterprise Agent Platform",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Google's answer to the agent platform race — model selection, agent building, and enterprise security under one roof, directly competing with Anthropic and OpenAI's agent infra",
+          "key_fact": "Full agent platform with model selection, building tools, and enterprise security"
+        },
+        {
+          "id": 27519,
+          "title": "Claude Cowork Gets Interactive Charts and Diagrams in Beta",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Cowork moves from static dashboard output to genuinely interactive data exploration, available on all paid plans",
+          "key_fact": "Live artifacts now render interactive charts and diagrams"
+        },
+        {
+          "id": 27896,
+          "title": "OpenAI Adds Persistent Team-Scoped Agents to ChatGPT Workspaces",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "ChatGPT repositions as an enterprise agent platform with persistent, team-scoped agents — not just a chat interface anymore",
+          "key_fact": "Persistent agents scoped to ChatGPT team workspaces"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 27491,
+          "title": "Anthropic Publishes the Canonical Guide to MCP in Production",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "MCP graduates from dev-tool curiosity to documented production integration pattern — this is the reference guide that will shape how teams actually wire agents into real systems",
+          "key_fact": "Official Anthropic guide covering production MCP agent architectures"
+        },
+        {
+          "id": 27854,
+          "title": "Ollama v0.21.1 Ships Kimi CLI Launch and Faster Sampling",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Running frontier open-weight models locally gets more frictionless — Ollama adds native Kimi CLI support, MLX logprobs, and fused sampling",
+          "key_fact": "ollama launch kimi now works natively, plus fused top-P/top-K sampling"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 27525,
+          "title": "79% of Claude API Orgs Leave Prompt Caching Off — Anthropic Ships a Dashboard to Fix It",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The gap between 79% of orgs ignoring caching and top integrations hitting 96% cache rates is pure money left on the table — Anthropic now shows you exactly where you stand",
+          "key_fact": "Top integrations hit 92-96% cache rates; most orgs are at 0%"
+        },
+        {
+          "id": 27705,
+          "title": "VS Code Copilot Now Lets You Bring Any Model and API Key",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "GitHub breaks the vendor lock-in that pushed developers to Cursor and Windsurf — real model flexibility inside the dominant editor",
+          "key_fact": "Any language model or API key now works in VS Code Copilot"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 27577,
+          "title": "Karpathy Boosts a Demo Where Every Pixel Streams Live From a Model",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "No HTML, no layout engine, no code — the entire screen rendered pixel-by-pixel from a model. If this direction scales, it obsoletes the frontend stack. 7K likes say the idea resonates.",
+          "key_fact": "7,130 likes on a demo of pure model-rendered UI with zero traditional code"
+        },
+        {
+          "id": 27516,
+          "title": "Anthropic Surveys 81,000 People on AI's Economic Impact",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The largest public dataset on how real people feel about AI and jobs — useful for anyone building products that need to address displacement anxiety",
+          "key_fact": "81,000-person survey, the largest public dataset on AI economic sentiment"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 27420,
+          "title": "Shopify CTO Reveals Unlimited Opus Budgets and Three Internal Agent Tools",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The most detailed public account of a major tech company going all-in on agentic coding — unlimited token budgets, custom tooling (Tangle, Tangent, SimGym), and a bet that AI-native development is the default",
+          "key_fact": "Unlimited Opus 4.6 token budget for every Shopify engineer"
+        },
+        {
+          "id": 27410,
+          "title": "OpenAI in Talks for a $10B Enterprise Deployment Joint Venture",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "OpenAI moves beyond model-building into enterprise deployment infrastructure with a PE-backed venture called DeployCo — a new competitive vector entirely",
+          "key_fact": "$500M initial investment, $10B target valuation, PE joint venture"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 27113,
+          "title": "HuggingFace's ml-intern Automates Fine-Tuning From a Single Prompt",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "An open-source agent that handles dataset selection, training, and evaluation end-to-end — dramatically lowers the barrier to post-training for anyone with a use case and a prompt",
+          "key_fact": "Already demonstrated fine-tuning medical SAM models from one prompt"
+        },
+        {
+          "id": 27659,
+          "title": "Google Cloud Releases 13 Agent Skills That Work in Claude Code, Codex, and Gemini CLI",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A notable cross-platform play — Google deliberately builds skills for competitors' agent harnesses, betting that ecosystem breadth wins over lock-in",
+          "key_fact": "13 official skills on GitHub, compatible with Gemini CLI, Codex, Claude Code"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 27849,
+      "title": "Claude Code v2.1.117: Forked Subagents and MCP in Agent Sessions",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Forked subagents via env flag, MCP in agent frontmatter, persistent model selection",
+      "key_fact": "Forked subagents now available on external builds"
+    },
+    {
+      "id": 27432,
+      "title": "Gemma 4 VLA Running Real-Time Robotics on a $249 Jetson Board",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Frontier multimodal driving real-time robotics on edge hardware",
+      "key_fact": "Running on Jetson Orin Nano Super ($249)"
+    },
+    {
+      "id": 27510,
+      "title": "Claude Code Wins a Webby Award",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Agent-native dev tools cross from niche to mainstream recognition",
+      "key_fact": "Webby Award for developer tools"
+    },
+    {
+      "id": 27426,
+      "title": "DeepMind Partners With Accenture, BCG, Deloitte, and McKinsey",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A distribution play — putting frontier AI into the hands of enterprise implementers",
+      "key_fact": "Only 25% of orgs at production-scale AI"
+    },
+    {
+      "id": 26980,
+      "title": "Google Ads Advisor Gets Three Agentic Safety Features",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Early example of autonomous agents with built-in safety rails in commercial systems",
+      "key_fact": "Agentic safety and policy enforcement in ad operations"
+    }
+  ],
+  "total_items": 22
+}
