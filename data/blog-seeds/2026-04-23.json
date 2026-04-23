@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Google Cloud Ships 13 Official Agent Skills for Any Harness",
+    "url": "https://x.com/JackWoth98/status/2047081072400466129",
+    "source": "twitter:@JackWoth98",
+    "x_engagement_24h": 44,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 10,
+    "composite_score": 49.0132,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "ml-intern: HuggingFace's Open-Source Agent That Automates Post-Training",
+    "url": "https://x.com/_akhaliq/status/2046611192710365231",
+    "source": "twitter:@_akhaliq",
+    "x_engagement_24h": 3261,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 45.978300000000004,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Google Launches Gemini Enterprise Agent Platform — Vertex AI Evolves",
+    "url": "https://x.com/GoogleDeepMind/status/2046983340524269713",
+    "source": "twitter:@GoogleDeepMind",
+    "x_engagement_24h": 1075,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 45.3225,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "New in Claude Code: /ultrareview runs a fleet of bug-hunting agents in the cloud",
+    "url": "https://x.com/trq212/status/2047001079905485113",
+    "source": "twitter:@trq212 (RT @ClaudeDevs)",
+    "x_engagement_24h": 10156,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 36.046800000000005,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "OpenAI Introduces Privacy Filter — Open-Source PII Detection Model",
+    "url": "https://openai.com/index/introducing-openai-privacy-filter/",
+    "source": "blog:OpenAI Releases",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "news"
+  }
+]
