@@ -1,0 +1,236 @@
+{
+  "date": "2026-04-24",
+  "headline_hook": "OpenAI Ships GPT-5.5 While Claude Plugs Into Your Real Life",
+  "preview_topics": [
+    "GPT-5.5's agentic intelligence class",
+    "Claude's everyday-life connectors",
+    "Anthropic's benchmark post-mortem"
+  ],
+  "pick_of_the_day": {
+    "item_id": 27955,
+    "thesis": "When infrastructure noise produces benchmark swings larger than the gap between frontier models, the entire leaderboard-driven evaluation industry is measuring config drift — not intelligence."
+  },
+  "model_literacy": {
+    "concept": "Decoupled Distributed Training (DiLoCo)",
+    "relevance": "DeepMind's DiLoCo paper shows models can train across unreliable data centers with local SGD — as frontier models outgrow single-cluster capacity, this technique determines who can actually train the next generation"
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 27965,
+          "title": "GPT-5.5 arrives: OpenAI's new intelligence class built for agents",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Not just a bigger model — a purpose-built architecture for agentic coding, computer use, and scientific research, available today in ChatGPT and Codex",
+          "key_fact": "35,500 likes in hours — the biggest community response since GPT-5"
+        },
+        {
+          "id": 28024,
+          "title": "Claude connects to Tripadvisor, Spotify, Instacart, and a dozen more services",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Anthropic's clearest signal yet that Claude is no longer just a work tool — it's going after the personal assistant market with real commerce and lifestyle integrations",
+          "key_fact": "10+ new connectors including Booking.com, Resy, Audible, TurboTax, and Thumbtack"
+        },
+        {
+          "id": 28025,
+          "title": "Claude Managed Agents gain persistent memory in public beta",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Agents that learn from every session — the missing piece for production agent deployments that need continuity across conversations",
+          "key_fact": "SDKs already updated with memory support on day one"
+        },
+        {
+          "id": 28092,
+          "title": "Gemini Embedding 2 hits GA with native multimodal search",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Google's first natively multimodal embedding model lets you search across text, images, and video in a single embedding space — a meaningful upgrade for RAG pipelines",
+          "key_fact": "Generally available in both Gemini API and Vertex AI"
+        },
+        {
+          "id": 28142,
+          "title": "OpenAI releases free healthcare ChatGPT for clinicians",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "OpenAI's first vertical AI product — a free specialized model that beat specialty-matched physicians on hard clinical tasks, signaling a shift from platform to domain tools",
+          "key_fact": "Free for clinicians, outperformed human specialists on difficult cases"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 28077,
+          "title": "Codex gets browser use: from code writer to full-stack agent",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Codex can now navigate web apps, test flows, capture screenshots, and iterate on what it sees — browser use transforms it from a code generator into something that can actually verify its own work",
+          "key_fact": "Powered by GPT-5.5, ships with files, docs, and computer interaction"
+        },
+        {
+          "id": 28406,
+          "title": "Claude Code v2.1.119: persistent config, agent worktrees, vim visual mode",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Two rapid-fire releases following the quality post-mortem — Anthropic is shipping fixes and features at an accelerated pace to rebuild trust",
+          "key_fact": "v2.1.118 and v2.1.119 shipped back-to-back with config persistence and agent worktrees"
+        },
+        {
+          "id": 28409,
+          "title": "Anthropic SDKs ship same-day support for Managed Agent memory",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Python v0.97.0 and TypeScript v0.91.0 both ship CMA Memory support on launch day — the API surface for persistent agent memory is ready to build on now",
+          "key_fact": "Both Python and TypeScript SDKs updated simultaneously"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 27944,
+          "title": "DeepMind's Decoupled DiLoCo trains across flaky data centers without missing a beat",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A training method resilient to node failures and network issues across data centers — could change the economics and geography of who can train frontier models",
+          "key_fact": "Maintains training quality despite infrastructure failures and cross-datacenter latency"
+        },
+        {
+          "id": 28094,
+          "title": "Vision Banana: image generators are secretly general-purpose vision models",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "DeepMind shows that the same models generating images can understand them — potentially collapsing the generation/understanding divide in vision AI",
+          "key_fact": "Image generators perform as generalist vision learners without architecture changes"
+        },
+        {
+          "id": 28175,
+          "title": "Sony's autonomous ping-pong robot achieves expert-level play, published in Nature",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "RL-powered real-time physical AI that reacts in milliseconds — a Nature-published landmark for embodied intelligence with instant decision loops",
+          "key_fact": "Expert-level play using only vision sensors, published in Nature"
+        },
+        {
+          "id": 28440,
+          "title": "LLaDA 2.0-Uni: a diffusion-based language model goes multimodal",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A fundamentally different architecture from autoregressive transformers — diffusion-based text and image generation in one model, now trending on HuggingFace",
+          "key_fact": "140 likes on HuggingFace, handles both text and images via diffusion"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 27955,
+          "title": "Anthropic opens the post-mortem playbook on Claude Code quality regression",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Infrastructure config produced benchmark swings larger than the leaderboard gap between top models — a transparency moment that reveals how fragile model evaluation really is",
+          "key_fact": "All affected users get rate limits reset; root cause was infrastructure config, not model changes"
+        },
+        {
+          "id": 28127,
+          "title": "Simon Willison: 'Within two years you'll prompt-inject an entire country'",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "As agents gain real-world permissions and tool access, the prompt injection attack surface scales from individual sessions to national infrastructure",
+          "key_fact": "Willison frames prompt injection as a systemic risk that scales with agent permissions"
+        },
+        {
+          "id": 28204,
+          "title": "Abacus AI moves production workloads to open-source Kimi 2.6",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "First public report of real production traffic shifting from closed to open-source models — if Kimi 2.6 holds, it validates the open-source cost thesis at scale",
+          "key_fact": "Production workloads, not benchmarks — actual business traffic on an open-source model"
+        },
+        {
+          "id": 28233,
+          "title": "Redis creator Antirez calls GPT-5.4 the strongest LLM for systems programming",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A credible practitioner signal for model selection — the creator of Redis shares hands-on experience and is already testing GPT-5.5 on day one",
+          "key_fact": "Antirez reports GPT-5.4 as his most effective systems programming tool"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 28091,
+          "title": "Gemini 3.1 TTS introduces inline audio tags for vocal style control",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A new prompting pattern for speech generation — inline tags like [whispers] and [screams] give developers fine-grained control over vocal delivery",
+          "key_fact": "Audio tags control style, pace, and delivery within the prompt itself"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 28459,
+          "title": "Agent Vault: open-source credential management for AI agents",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "As agents gain tool access, credential management is an unsolved gap — Infisical's open-source vault provides a dedicated security layer for agent authentication",
+          "key_fact": "Open-source, from the team behind Infisical's secrets management platform"
+        },
+        {
+          "id": 28247,
+          "title": "1,000+ Claude Code extensions in one community registry",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Skills, hooks, MCPs, and commands installable with a single command — the Claude Code ecosystem is growing faster than the official marketplace",
+          "key_fact": "1,000+ extensions covering agents, skills, commands, MCPs, and hooks"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 28063,
+      "title": "OpenAI's GPT-5.5 announcement thread breaks 35K likes",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The official Twitter thread with tool use and self-checking details",
+      "key_fact": "35,550 likes, 4,923 RTs"
+    },
+    {
+      "id": 28058,
+      "title": "Claude Code quietly stops over-calling Grep and Glob after v2.1.117",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A behavioral fix the community has wanted for months",
+      "key_fact": "1,383 likes on the observation"
+    },
+    {
+      "id": 28421,
+      "title": "llama.cpp patches critical heap-buffer-overflow (CVSS 8.8)",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "If you run llama.cpp as a server, update to b8908 immediately",
+      "key_fact": "CVE-2026-21869, CVSS 8.8"
+    },
+    {
+      "id": 28062,
+      "title": "Anthropic's Cat Wu on how Claude Code maintains product velocity",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Lenny's Podcast on the shifting PM role inside the team building Claude Code",
+      "key_fact": "124 likes"
+    }
+  ],
+  "total_items": 23
+}
