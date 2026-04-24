@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Built-in memory for Claude Managed Agents",
+    "url": "https://www.claude.com/blog/claude-managed-agents-memory",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 3996,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 46.1988,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code v2.1.119: persistent /config, prUrlTemplate, agent worktrees",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.119",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 41,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Introducing GPT-5.5 — A new class of intelligence for real work and powering agents",
+    "url": "https://x.com/OpenAI/status/2047376561205325845",
+    "source": "twitter:@OpenAI",
+    "x_engagement_24h": 40473,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 36.1419,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "An update on recent Claude Code quality reports",
+    "url": "https://www.anthropic.com/engineering/april-23-postmortem",
+    "source": "blog:Anthropic Engineering",
+    "x_engagement_24h": 2266,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.6798,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "After v2.1.117, Claude Code stopped calling Grep/Glob — it's faster now",
+    "url": "https://x.com/amorriscode/status/2047152254193729842",
+    "source": "twitter:@amorriscode",
+    "x_engagement_24h": 1420,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.426,
+    "suggested_angle": "news"
+  }
+]
