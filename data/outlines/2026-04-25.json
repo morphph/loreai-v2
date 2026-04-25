@@ -1,0 +1,236 @@
+{
+  "date": "2026-04-25",
+  "headline_hook": "DeepSeek V4 Undercuts the Frontier While Google Bets $40B on Anthropic",
+  "preview_topics": [
+    "DeepSeek's 20x pricing disruption",
+    "Google's record Anthropic investment",
+    "Claude negotiates real marketplace deals"
+  ],
+  "pick_of_the_day": {
+    "item_id": 28615,
+    "thesis": "Project Deal reveals that the real test of AI agents isn't benchmarks but economic behavior under real stakes — and the gap between how LLMs negotiate and how humans expect them to may be the biggest unsolved alignment problem for agentic commerce."
+  },
+  "model_literacy": {
+    "concept": "Mixture of Experts (MoE) and inference cost",
+    "relevance": "DeepSeek V4 achieves frontier performance at 1/20th the cost of Opus 4.7 largely through aggressive MoE routing — only activating a fraction of the model's parameters per token. Understanding MoE explains why cost-performance disruptions keep coming from architecture, not just scale."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 28675,
+          "title": "DeepSeek V4 Drops as the Cheapest Frontier Model — 1/20th the Cost of Opus 4.7",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The most aggressive price-performance disruption since R1 — million-token context at commodity pricing rewrites the economics of agentic AI overnight.",
+          "key_fact": "1/20th the cost of Opus 4.7 with comparable benchmark scores"
+        },
+        {
+          "id": 28631,
+          "title": "GPT-5.5 Hits the API With the Most Expensive Frontier Pricing Yet",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "OpenAI goes the opposite direction from DeepSeek — $30/1M output tokens for Pro tier makes this a bet that developers will pay a premium for the best model, not the cheapest.",
+          "key_fact": "$30 per 1M output tokens for GPT-5.5 Pro tier"
+        },
+        {
+          "id": 28990,
+          "title": "DeepSeek V4-Pro Open Weights Land on HuggingFace",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The Pro variant benchmarking at Opus 4.7 level is downloadable today — the open-source frontier leapfrogs again while closed-model companies debate pricing.",
+          "key_fact": "Full open weights available on HuggingFace day of announcement"
+        },
+        {
+          "id": 28632,
+          "title": "OpenAI Ships ChatGPT for Clinicians — Free and Domain-Specific",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Free for clinicians signals this is a distribution play to lock in healthcare workflows, not a revenue product — OpenAI's second vertical bet after education.",
+          "key_fact": "Free access for verified clinicians"
+        },
+        {
+          "id": 28655,
+          "title": "Google Dumps a Week of Cloud Next AI Infrastructure at Once",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Eighth-gen TPUs, enterprise agent platform, and Workspace Intelligence — the most comprehensive AI infrastructure update Google has shipped in a single week.",
+          "key_fact": "TPUt/TPUi, Gemini Enterprise Agent Platform, Gemini Embedding 2 all GA"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 29024,
+          "title": "Google in Talks to Pour Up to $40B Into Anthropic",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Bloomberg breaks the largest AI investment ever discussed — this reshapes the entire competitive landscape and raises questions about Anthropic's independence between its two mega-investors.",
+          "key_fact": "Up to $40B, dwarfing all previous AI investments"
+        },
+        {
+          "id": 28524,
+          "title": "Anthropic and Amazon Lock In 5 Gigawatts of New Compute",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "5GW is datacenter-city-level power — Anthropic is now backed by both Google's $40B and Amazon's infrastructure at a scale that rivals national energy projects.",
+          "key_fact": "5 gigawatts of compute capacity"
+        },
+        {
+          "id": 28663,
+          "title": "Meta Goes to AWS for Tens of Millions of Graviton Cores",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Even the most vertically-integrated AI company can't build fast enough for agentic scale — Meta's AWS deal signals the compute ceiling is real.",
+          "key_fact": "Tens of millions of Graviton cores for AI workloads"
+        },
+        {
+          "id": 28489,
+          "title": "Musk vs. OpenAI Heads to Jury Selection Monday",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The outcome could force OpenAI's restructuring and set legal precedent for how AI companies change corporate structure — the $300B valuation hangs in the balance.",
+          "key_fact": "Jury selection begins next week in Oakland"
+        },
+        {
+          "id": 28523,
+          "title": "Anthropic and NEC Team Up for Japan's Largest AI Engineering Workforce",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Anthropic's first major Japanese enterprise deal with the country's largest IT services company — a serious push into Asia's biggest enterprise AI market.",
+          "key_fact": "NEC is Japan's largest IT services company"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 28615,
+          "title": "Anthropic's Project Deal: Claude Negotiates Real Transactions in an Office Marketplace",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "The first controlled study of LLM economic behavior with real stakes — Claude buying, selling, and negotiating reveals how AI agents actually behave in markets, not just on benchmarks.",
+          "key_fact": "Real marketplace with real employee money, Claude handling all negotiations"
+        },
+        {
+          "id": 28749,
+          "title": "OpenAI Launches a Biosecurity-Specific Bug Bounty for GPT-5.5",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A dedicated biosecurity bug bounty for a single model release is unprecedented — OpenAI is signaling that GPT-5.5's capabilities require domain-specific red-teaming.",
+          "key_fact": "First domain-specific safety bug bounty for a single model"
+        },
+        {
+          "id": 28093,
+          "title": "DeepMind's Decoupled DiLoCo Trains Across Flaky Data Centers",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Distributed training that tolerates network failures and cross-datacenter latency — the key enabler for training models too large for any single cluster.",
+          "key_fact": "Eliminates synchronization bottleneck across unreliable networks"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 28642,
+          "title": "GPT-5.5 Tops CursorBench at 72.8% — Cursor Ships Same-Day Integration",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Cursor's own benchmark crowns GPT-5.5 as the best coding model and they shipped integration within hours — the speed of ecosystem adoption signals how seriously tool makers take this release.",
+          "key_fact": "72.8% on CursorBench, same-day Cursor integration"
+        },
+        {
+          "id": 28621,
+          "title": "Claude Code Gets a Web and Mobile Refresh With Desktop File Browser",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The rapid iteration continues post-quality-postmortem — CMD+Shift+F file browser is the standout addition for developers who live in the terminal.",
+          "key_fact": "New desktop file browser with CMD+Shift+F"
+        },
+        {
+          "id": 28606,
+          "title": "Anthropic Ships a Rate Limits API for Programmatic Org-Level Queries",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Teams managing API budgets at scale can finally query limits programmatically — essential plumbing for internal dashboards and cost governance.",
+          "key_fact": "Programmatic rate limit queries per org and workspace"
+        },
+        {
+          "id": 28739,
+          "title": "Sakana AI Launches Fugu: Multi-Agent Orchestration in Beta",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Sakana's first commercial product sits between single-agent tools and full platforms like Anthropic Managed Agents — the evolutionary model merging lab enters the orchestration race.",
+          "key_fact": "Beta launch, from the lab behind evolutionary model merging"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 28808,
+          "title": "Claude Code Setup Plugin Auto-Configures Hooks, Skills, and MCP for Your Project",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "An official Anthropic plugin that analyzes your project and recommends which automations to activate — dramatically lowers the barrier to the hooks-and-skills workflow.",
+          "key_fact": "Auto-detects and recommends hooks, skills, and MCP servers"
+        },
+        {
+          "id": 28743,
+          "title": "Qwen3.6-27B Runs on a Raspberry Pi Coding a Web App Live",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A frontier-class 27B model coding a working app on consumer hardware — the gap between local AI and cloud AI continues to collapse at the edge.",
+          "key_fact": "27B parameter model running and coding live on a Raspberry Pi"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 28891,
+          "title": "Superpowers: The 166K-Star Agentic Skills Framework",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Codifies the 'skills' pattern for agentic development into a reusable methodology — the most popular new agent framework to emerge this month.",
+          "key_fact": "166K GitHub stars, fastest-growing agent framework in April"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 28513,
+      "title": "How to Run Transformers.js in a Chrome Extension",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Step-by-step guide to ML models in browser extensions — no server, no API keys",
+      "key_fact": "Full HuggingFace tutorial for offline AI in extensions"
+    },
+    {
+      "id": 29029,
+      "title": "Browser Harness: Open-Source Browser Automation for LLM Agents",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Lightweight Playwright alternative designed for autonomous agent navigation",
+      "key_fact": "Open-source, LLM-first browser control"
+    },
+    {
+      "id": 28975,
+      "title": "Anthropic TypeScript SDK v0.91.1: Memory File Security Patch",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Security fix for CMA memory file permissions — update if using managed agent memory in prod",
+      "key_fact": "Fixes unauthorized access to memory files"
+    }
+  ],
+  "total_items": 23
+}
