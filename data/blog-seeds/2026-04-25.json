@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "New Anthropic research: Project Deal. We created a marketplace for employees in our San Francisco office, with one big twist — Claude handles buying, selling and negotiating.",
+    "url": "https://x.com/AnthropicAI/status/2047728360818696302",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 4023,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 38.2069,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Google plans to invest up to $40B in Anthropic",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-24/google-plans-to-invest-up-to-40-billion-in-anthropic",
+    "source": "hackernews",
+    "x_engagement_24h": 563,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.1689,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "OpenAI launches Bio Bug Bounty for GPT-5.5 safety testing",
+    "url": "https://x.com/reach_vb/status/2047677438617080228",
+    "source": "twitter:@reach_vb",
+    "x_engagement_24h": 1843,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.5529,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic and Amazon expand collaboration for up to 5 gigawatts of new compute",
+    "url": "https://www.anthropic.com/news/anthropic-amazon-compute",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic and NEC collaborate to build Japan's largest AI engineering workforce",
+    "url": "https://www.anthropic.com/news/anthropic-nec",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  }
+]
