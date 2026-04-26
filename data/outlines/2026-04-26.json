@@ -1,0 +1,236 @@
+{
+  "date": "2026-04-26",
+  "headline_hook": "DeepSeek-V4 Drops a Million Tokens While Google Bets $40B on Anthropic",
+  "preview_topics": [
+    "DeepSeek-V4's million-token architecture",
+    "Google's record $40B Anthropic deal",
+    "AI agents that reproduce scientific papers"
+  ],
+  "pick_of_the_day": {
+    "item_id": 29257,
+    "thesis": "When AI agents can independently reproduce research papers — and find errors humans missed — the entire peer review system faces an existential question: who's actually checking whom?"
+  },
+  "model_literacy": {
+    "concept": "Effective Context Length vs. Advertised Context Window",
+    "relevance": "DeepSeek-V4 claims 1M tokens, but effective context — what the model actually attends to — is what determines agentic usefulness. The gap between advertised and effective context is the number that matters for builders choosing between V4, GPT-5.5, and Claude."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 28512,
+          "title": "DeepSeek-V4 Lands With a Million-Token Context Window Built for Agents",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The first open-weight model where million-token context is designed around agentic workloads, not just long documents",
+          "key_fact": "Million-token context window with MoE routing optimized for agent-scale inference"
+        },
+        {
+          "id": 28637,
+          "title": "GPT-5.5 Rolls Out Across Microsoft's Entire Copilot Stack on Day One",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Microsoft treated this as a coordinated platform event — GitHub, M365, Studio, and Foundry all get GPT-5.5 simultaneously",
+          "key_fact": "Satya Nadella confirms day-one rollout across four Copilot products"
+        },
+        {
+          "id": 28720,
+          "title": "GPT-5.5 and GPT-5.5 Pro Hit the API at Record-High Pricing",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "OpenAI is betting that raw capability justifies $30/1M output tokens while DeepSeek undercuts at 1/20th the cost",
+          "key_fact": "$30 per million output tokens for GPT-5.5 Pro — the most expensive frontier API tier ever"
+        },
+        {
+          "id": 28995,
+          "title": "DeepSeek-V4-Flash Trades Marginal Quality for Maximum Speed",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The open-weight community is voting with downloads — 614 likes says speed matters more than the last few benchmark points",
+          "key_fact": "614 HuggingFace likes, near-Pro-level quality at significantly faster inference"
+        },
+        {
+          "id": 29198,
+          "title": "OpenArt's Smart Shot Merges Image and Video Generation Into One Prompt",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "GPT Image-2 plus Seedance 2.0 means cinematic scene generation — full shot, close-up, establishing — from a single sentence",
+          "key_fact": "Combines GPT Image-2 with Seedance 2.0 video model for end-to-end scene generation"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 29181,
+          "title": "Claude Code Finally Stops Over-Calling Grep and Glob",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Four months of user complaints resolved in one release — native file operations replace shell-outs for noticeably faster workflows",
+          "key_fact": "v2.1.117+ uses native file operations instead of shelling out to Grep/Glob"
+        },
+        {
+          "id": 28646,
+          "title": "Codex With GPT-5.5 Is One-Shotting Full Applications",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Browser-use capability plus GPT-5.5 reasoning represents a step change in what a single prompt can build",
+          "key_fact": "Developer reports flooding in of complex apps generated in a single Codex prompt"
+        },
+        {
+          "id": 28626,
+          "title": "Claude Code Desktop Ships a File Browser That Closes the IDE Gap",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "CMD+Shift+F gives you direct file browsing and editing — the last major UX gap between Claude Code and traditional IDEs",
+          "key_fact": "Built-in file picker with browse, view, and edit capabilities"
+        },
+        {
+          "id": 28748,
+          "title": "Sakana AI Launches Fugu for Multi-Agent Orchestration",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A lighter entry point for teams not ready for full Managed Agents but beyond simple chaining",
+          "key_fact": "Beta release from the evolutionary model merging lab, now pivoting to commercial orchestration"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 29257,
+          "title": "AI Agents Are Reproducing Scientific Papers — and Finding Human Errors",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "When AI reconstructs papers from just methods and data — and the mistakes are in the original — reproducibility gets redefined",
+          "key_fact": "Agents reproduced complex papers without seeing code; errors found were in the human originals"
+        },
+        {
+          "id": 28490,
+          "title": "Google's $40 Billion Anthropic Bet Reshapes the Entire AI Power Map",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The largest AI investment in history plus a 5-gigawatt compute deal raises fundamental questions about cloud neutrality",
+          "key_fact": "$40B investment plus 5GW compute commitment — Anthropic becomes the most heavily backed AI company"
+        },
+        {
+          "id": 28492,
+          "title": "Even Meta Needs External Compute — Multi-Billion Graviton Deal With Amazon",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The most vertically-integrated AI company can't build enough compute for agent-scale inference at billions of users",
+          "key_fact": "Multi-billion dollar deal for Amazon Graviton CPUs specifically for agentic workloads"
+        },
+        {
+          "id": 28493,
+          "title": "Beijing Tightens the Valve on US Investment in Chinese AI",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "China's response to Meta acquiring Manus — prior approval required for US investment — could reshape cross-border AI partnerships",
+          "key_fact": "New regulations require prior approval for US investment in Chinese tech firms"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 29553,
+          "title": "OpenAI Creates a Biosecurity-Specific Bug Bounty for GPT-5.5",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A model-specific, domain-specific bounty is unprecedented — frontier models now need vertical safety programs",
+          "key_fact": "First-ever domain-specific red-teaming program targeting a single model's biosecurity capabilities"
+        },
+        {
+          "id": 29327,
+          "title": "GPT-5.5 Thinking Mode Tops Every Major Benchmark",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Independent results confirm GPT-5.5's dominance while reports of Opus 4.7 regression suggest the competitive landscape is shifting fast",
+          "key_fact": "GPT-5.5 thinking mode leads every major leaderboard per independent benchmarks"
+        },
+        {
+          "id": 29555,
+          "title": "LamBench Exposes a Formal Reasoning Gap That Benchmarks Miss",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Lambda calculus is where pattern matching and memorization fail — current frontier models score poorly on genuinely novel formal reasoning",
+          "key_fact": "All current frontier models struggle on lambda calculus tasks that resist memorization"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 29359,
+          "title": "This Plugin Auto-Configures Your Entire Claude Code Setup",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Scans your project and tells you exactly which hooks, skills, MCP servers, and subagents to activate — going viral across languages",
+          "key_fact": "811 likes, spreading in English, Portuguese, and Japanese developer communities"
+        },
+        {
+          "id": 28682,
+          "title": "Qwen3.6-27B Runs on a Raspberry Pi and Codes a Working Web App",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A frontier-class model writing functional code on a Pi forces you to reconsider what 'requires the cloud' actually means",
+          "key_fact": "27B parameter model generating working web apps in real-time on consumer hardware"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 28722,
+          "title": "OpenAI Open-Sources Its Model Monitorability Evaluations",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A rare contribution to the safety commons — these evals measure what matters most as agents gain real-world permissions",
+          "key_fact": "Open-sourced evaluations for measuring how well models can be monitored and supervised"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 29258,
+      "title": "Mollick: Multi-Agent Org Design Is the Real Value Unlock",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Designing how agents work together matters more than individual agent benchmarks",
+      "key_fact": "397 likes on the thesis that multi-agent collaboration is the key economic blocker"
+    },
+    {
+      "id": 29376,
+      "title": "Kimi Code Ships as a Drop-In Claude Code Replacement",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Two env vars, same CLI, 100 tokens/sec — Chinese labs competing on developer tools",
+      "key_fact": "100 tokens/sec, 262K context, drop-in CLI compatibility"
+    },
+    {
+      "id": 29025,
+      "title": "ArXiv Paper Argues Deep Learning Will Get a Scientific Theory",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "HN engagement signals hunger for theoretical grounding as scaling hits limits",
+      "key_fact": "102 likes, 39 RTs on foundational DL theory paper"
+    },
+    {
+      "id": 28984,
+      "title": "Ollama v0.21.3 Maps OpenAI's Reasoning Effort to Local Think",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Same API calls now work for cloud and local models",
+      "key_fact": "Accepts 'max' as think value, maps OpenAI Responses API reasoning_effort parameter"
+    }
+  ],
+  "total_items": 23
+}
