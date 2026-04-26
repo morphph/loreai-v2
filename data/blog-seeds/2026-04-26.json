@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "OpenAI launches GPT-5.5 Bio Bug Bounty — domain-specific red-teaming",
+    "url": "https://openai.com/index/gpt-5-5-bio-bug-bounty/",
+    "source": "hackernews",
+    "x_engagement_24h": 219,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 41.0657,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Codex with GPT-5.5 one-shots complex app creation",
+    "url": "https://x.com/OpenAIDevs/status/2047661863530639541",
+    "source": "twitter:@OpenAIDevs",
+    "x_engagement_24h": 3277,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.9831,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Sam Altman: GPT-5.5 and GPT-5.5 Pro now available in the API",
+    "url": "https://x.com/sama/status/2047787124846653895",
+    "source": "twitter:@sama",
+    "x_engagement_24h": 3861,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 26.1583,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "GPT-5.5 thinking mode tops every leaderboard",
+    "url": "https://x.com/bindureddy/status/2047783814106423645",
+    "source": "twitter:@bindureddy",
+    "x_engagement_24h": 352,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.105600000000003,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code v2.1.117+ stops over-calling Grep/Glob — noticeably faster file operations",
+    "url": "https://x.com/bcherny/status/2047913002356392385",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 1743,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.5229,
+    "suggested_angle": "news"
+  }
+]
