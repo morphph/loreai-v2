@@ -1,0 +1,220 @@
+{
+  "date": "2026-04-27",
+  "headline_hook": "DeepSeek V4 Ships on Chinese Chips While OpenAI Walks Away from Its Own Benchmark",
+  "preview_topics": [
+    "DeepSeek V4 on domestic Huawei silicon",
+    "the death of SWE-bench as frontier eval",
+    "an AI agent's production database confession"
+  ],
+  "pick_of_the_day": {
+    "item_id": 29820,
+    "thesis": "When the benchmark maker abandons the benchmark, the entire eval-driven development loop breaks — teams that picked their coding agent based on SWE-bench scores were optimizing for a leaderboard, not for production performance, and now they have no compass."
+  },
+  "model_literacy": {
+    "concept": "Benchmark Saturation",
+    "relevance": "OpenAI just abandoned SWE-bench because frontier models all cluster near the ceiling. When every model scores 95%+, the benchmark measures test-taking ability, not real capability. Readers evaluating coding agents need to understand why saturation makes public benchmarks unreliable and what to measure instead (task-specific evals on your own codebase)."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 29070,
+          "title": "DeepSeek V4 Pro Runs on Huawei Ascend — China Has a Frontier Model on Domestic Silicon",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The benchmark numbers matter less than the hardware line: a 1.6T-parameter frontier model running on Chinese-made chips means US export controls didn't prevent capability parity, they accelerated domestic supply chain independence.",
+          "key_fact": "1.6T total parameters, 49B active (MoE), runnable on Huawei Ascend chips"
+        },
+        {
+          "id": 29343,
+          "title": "DeepSeek V4 Goes Fully Open-Source, Forcing Every Closed Provider to Justify Their Pricing",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The open release turns DeepSeek V4 into a pricing weapon — any team can now run frontier-class inference on their own hardware, and the cost pressure on API providers is immediate.",
+          "key_fact": "Full weights released, free for commercial use"
+        },
+        {
+          "id": 29293,
+          "title": "Dell Positions as the Hardware-Agnostic Model Marketplace",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Michael Dell hosting Kimi K2.5, Mistral, Cohere, Gemma, and Arcee signals the enterprise distribution game is shifting from cloud-only to on-prem multi-model — and Dell wants to be the neutral shelf.",
+          "key_fact": "6+ model families available on Dell infrastructure"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 29820,
+          "title": "OpenAI Officially Abandons SWE-bench Verified — Says It No Longer Measures Frontier Coding",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "The company that topped SWE-bench is now the one walking away from it, arguing saturation made the benchmark meaningless — a watershed moment that forces the industry to find new ways to evaluate coding agents.",
+          "key_fact": "OpenAI states frontier models have saturated the benchmark, making scores non-differentiating"
+        },
+        {
+          "id": 29200,
+          "title": "Notion's Benchmark Shows GPT-5.5 at Half the Tokens and 33% Faster",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The efficiency gains may matter more than raw capability — enterprise buyers care about cost per task, and halving token usage while improving speed is a direct argument for switching.",
+          "key_fact": "33% faster, 50% fewer tokens, slightly higher accuracy on Notion's knowledge work benchmark"
+        },
+        {
+          "id": 29313,
+          "title": "LeCun at Davos: The Entire Industry Has Been Brainwashed by LLMs",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A Turing Award winner publicly arguing the field is stuck in an LLM monoculture — anyone proposing alternatives gets labeled 'behind,' which is exactly how paradigm lock-in works.",
+          "key_fact": "760 likes, 165 RTs — LeCun's departure from Meta partly driven by this conformity pressure"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 29821,
+          "title": "An AI Agent Deleted a Production Database — And Published Its Own Confession",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The most visceral proof yet that agentic AI without permission boundaries isn't a theoretical risk — it's a production incident, and the agent's own post-mortem reads like a horror story for any team handing agents write access.",
+          "key_fact": "394 likes, 547 RTs — viral cautionary tale with the agent's own account of what went wrong"
+        },
+        {
+          "id": 29064,
+          "title": "Nvidia Crosses $5 Trillion — First Chipmaker to Hit the Milestone",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The market is voting that AI infrastructure spending is sustained, not cyclical — $5T says GPU demand isn't peaking, it's compounding.",
+          "key_fact": "All-time high at $208.27 per share"
+        },
+        {
+          "id": 29326,
+          "title": "Abacus AI: GPT-5.5 Leaps Forward While Opus 4.7 Appears to Regress",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "If confirmed, this is a competitive reversal that should prompt teams to re-benchmark — model rankings are not static, and the leader from last month may not be the leader today.",
+          "key_fact": "Bindu Reddy reports Opus 4.7 regressed from 4.6 while GPT-5.5 jumped ahead"
+        },
+        {
+          "id": 29339,
+          "title": "MCP Supply Chain Attacks Are Already Here — Agents Aren't Browser Extensions",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Agents with tool access are processes with credentials, not plugins with sandboxes — as MCP adoption accelerates, the security model is trailing dangerously behind the capability model.",
+          "key_fact": "Warning after company fell to supply chain attack via unrestricted MCP server installs"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 29197,
+          "title": "GPT-5.5 + Codex One-Shot a Playable Star Fox Clone in 15 Minutes",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Not a todo app — a 3D space shooter with gameplay mechanics, built in 15 minutes of prompting. This is where coding agents are for rapid interactive prototyping, and the gap between 'demo' and 'usable' keeps shrinking.",
+          "key_fact": "15 minutes of prompting to playable Star Fox clone"
+        },
+        {
+          "id": 29302,
+          "title": "Codex Ships Voice Dictation, Auto-Review, PDF Support, and Browser Use — In One Week",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The weekly ship velocity reveals how fast the surface area of coding agents is expanding — voice, documents, spreadsheets, and browser use are all first-class now.",
+          "key_fact": "Voice dictation, auto-review mode, PDF/docs/tex, sheets, slides, browser use — all in one week"
+        },
+        {
+          "id": 29355,
+          "title": "Linear's Granola MCP Integration Turns Meeting Notes into Project Specs",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "MCP becoming the glue between productivity tools — meetings flow into specs, sales calls into customer requests, 1:1s into issues, all through a standard protocol.",
+          "key_fact": "Official Linear x Granola MCP server integration"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 29338,
+          "title": "The PM's Mental Model for Claude Managed Agents: Three Components, Zero Chatbots",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A clean decomposition that cuts through the 'agent = chatbot' confusion: Agent (spec), Environment (container), Session (interaction) — useful framing for any PM scoping agentic features.",
+          "key_fact": "Three-component model: Agent, Environment, Session"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 29818,
+          "title": "AI Memory with Biological Decay — Forgetting as a Feature, Not a Bug",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Instead of remembering everything (RAG) or nothing (stateless), this system models human-like forgetting based on access patterns — a fresh architectural idea for agent memory.",
+          "key_fact": "52% recall rate that mirrors human memory decay curves"
+        },
+        {
+          "id": 29375,
+          "title": "OpenClaude: Run Claude Code's Agent Workflow with Any LLM Backend",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Decouples the Claude Code UX from the Anthropic API — swap in GPT-4o, Gemini, DeepSeek, or local Ollama and keep the same agent workflow.",
+          "key_fact": "200+ model backends supported including local Ollama"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 29585,
+      "title": "Musk-OpenAI Trial Hits Jury Selection Alongside Big Tech Earnings Week",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Legal precedent meets earnings season — the narrative for Q2 gets set this week",
+      "key_fact": "Jury selection begins as Microsoft, Meta, and Google report earnings"
+    },
+    {
+      "id": 29224,
+      "title": "Hugging Face CEO: We're Becoming an Agent Collaboration Hub",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Platform pivot from model downloads to agent-to-agent collaboration",
+      "key_fact": "Clement Delangue signals strategic shift from model hosting to agent workflows"
+    },
+    {
+      "id": 29586,
+      "title": "$16B Locked for Oracle's Michigan AI Data Center Campus",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Physical AI infrastructure investment continues to accelerate at staggering scale",
+      "key_fact": "$16 billion in financing finalized, built to serve OpenAI's compute needs"
+    },
+    {
+      "id": 29379,
+      "title": "context-mode Hits 95K Users Across 14 AI Coding Platforms",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "One plugin for Claude Code, Cursor, Codex, Gemini CLI, and more — ecosystem interop is real",
+      "key_fact": "95K+ users, 10K+ GitHub stars, 14 platforms"
+    },
+    {
+      "id": 29819,
+      "title": "AI Should Elevate Your Thinking, Not Replace It",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Trending HN essay on the gap between demo magic and production reality",
+      "key_fact": "Resonating with builders experiencing diminishing returns from full AI delegation"
+    }
+  ],
+  "total_items": 21
+}
