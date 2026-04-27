@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Most PMs hear 'AI agent' and picture a chatbot. A Claude Managed Agent is three components and none of them are a chatbot.",
+    "url": "https://x.com/aakashgupta/status/2048126158122963062",
+    "source": "twitter:search:\"AI agent\" (framework OR tool OR SDK) -crypto -web3",
+    "x_engagement_24h": 18,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.0054,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "An AI agent deleted our production database. The agent's confession is below",
+    "url": "https://twitter.com/lifeof_jer/status/2048103471019434248",
+    "source": "hackernews",
+    "x_engagement_24h": 941,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.2823,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Linear Agent x @meetgranola: Connect the Granola MCP server to turn meeting notes into project specs",
+    "url": "https://x.com/linear/status/2048067704351781325",
+    "source": "twitter:search:\"MCP\" (implementation OR plugin OR server OR tool) min_faves:10 -crypto",
+    "x_engagement_24h": 87,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.0261,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "everything codex team shipped this week: - os wide voice dictation - auto-review mode - pdf, docs, tex - sheets, slides - browser use - gpt 5.5",
+    "url": "https://x.com/reach_vb/status/2047868495522885685",
+    "source": "twitter:@reach_vb",
+    "x_engagement_24h": 234,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.0702,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @MichaelDell: We've got all the models here: https://t.co/nVXnDLRZ4i Kimi K2.5, Mistral, Cohere, Arcee AI Trinity Large, Google Gemma,…",
+    "url": "https://x.com/_akhaliq/status/2048063285547634885",
+    "source": "twitter:@_akhaliq",
+    "x_engagement_24h": 982,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.294599999999999,
+    "suggested_angle": "news"
+  }
+]
