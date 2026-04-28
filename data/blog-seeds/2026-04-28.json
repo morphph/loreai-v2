@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "OpenAI open-sources Symphony — an agent orchestrator that assigns a Codex agent to every open issue",
+    "url": "https://x.com/OpenAIDevs/status/2048825010371039648",
+    "source": "twitter:@OpenAIDevs",
+    "x_engagement_24h": 2312,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 41.6936,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Gemma 4 E2B runs as a fully local browser agent via WebGPU — no server needed",
+    "url": "https://x.com/huggingface/status/2048850934952833106",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 3645,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 34.0935,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Xiaomi open-sources MiMo-V2.5 under MIT — agent-oriented model with 1000+ tool-call sequences",
+    "url": "https://x.com/huggingface/status/2048860410472771632",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 2129,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.6387,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Microsoft and OpenAI end their exclusive and revenue-sharing deal",
+    "url": "https://www.bloomberg.com/news/articles/2026-04-27/microsoft-to-stop-sharing-revenue-with-main-ai-partner-openai",
+    "source": "hackernews",
+    "x_engagement_24h": 1356,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.4068,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Google DeepMind and the Republic of Korea partner on frontier AI for scientific discovery",
+    "url": "https://deepmind.google/blog/announcing-our-partnership-with-the-republic-of-korea/",
+    "source": "rss:DeepMind Blog",
+    "x_engagement_24h": 766,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.2298,
+    "suggested_angle": "analysis"
+  }
+]
