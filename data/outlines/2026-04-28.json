@@ -1,0 +1,220 @@
+{
+  "date": "2026-04-28",
+  "headline_hook": "Microsoft Breaks Free from OpenAI as Autonomous Agents Flood the Stack",
+  "preview_topics": [
+    "the Microsoft-OpenAI restructuring",
+    "Symphony's one-agent-per-issue pipeline",
+    "browser-native AI with zero backend"
+  ],
+  "pick_of_the_day": {
+    "item_id": 30241,
+    "thesis": "Microsoft dropping exclusivity and revenue sharing isn't a breakup — it's a strategic admission that the AI layer is commoditizing, and the real moat is platform distribution, not model lock-in."
+  },
+  "model_literacy": {
+    "concept": "Agent Orchestration",
+    "relevance": "Symphony, MiMo-V2.5, and Dirac all represent different orchestration strategies — centralized task dispatch, long-horizon tool chaining, and lightweight terminal scaffolding. Understanding orchestration patterns matters because today's agent performance is bottlenecked by coordination design, not model capability."
+  },
+  "sections": [
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 30241,
+          "title": "Microsoft and OpenAI Dissolve Their Exclusive Partnership",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The defining AI partnership restructures — Microsoft drops exclusivity and revenue sharing, freeing both companies to compete openly",
+          "key_fact": "Microsoft will stop sharing revenue with OpenAI and end its exclusive cloud provider arrangement"
+        },
+        {
+          "id": 30025,
+          "title": "AlphaGo Creator Raises $1.1B — Europe's Largest Seed Round Ever",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "David Silver's Ineffable Intelligence signals that top RL/planning researchers are betting the next breakthrough comes from reasoning, not scaling",
+          "key_fact": "$1.1B seed from Sequoia and Lightspeed — largest European seed round in history"
+        },
+        {
+          "id": 30243,
+          "title": "Beijing Blocks Meta's Acquisition of Manus AI",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "China mirrors US AI investment restrictions, turning cross-border AI M&A into a geopolitical chessboard",
+          "key_fact": "China used regulatory authority to block Meta from acquiring Chinese AI startup Manus"
+        },
+        {
+          "id": 30242,
+          "title": "4TB of Voice Data Stolen from 40,000 AI Contractors at Mercor",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The AI training data supply chain just got its first massive breach — exactly the scenario the industry warned about",
+          "key_fact": "4TB of voice samples from 40,000 contractors exposed in the breach"
+        },
+        {
+          "id": 29854,
+          "title": "600 Google Employees Petition Against Pentagon Classified AI Deal",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Eight years after Project Maven, internal resistance to military AI contracts resurfaces at Google with renewed force",
+          "key_fact": "600 employees signed a letter to Sundar Pichai urging rejection of the deal"
+        }
+      ]
+    },
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 29923,
+          "title": "gpt-realtime-1.5 Turns Voice into a Full Application Controller",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Voice stops being a chat interface and becomes a UI controller — users can now manipulate application state naturally through speech",
+          "key_fact": "gpt-realtime-1.5 enables interactive voice-controlled application state management"
+        },
+        {
+          "id": 29935,
+          "title": "Xiaomi Open-Sources MiMo-V2.5 — Agent Model Built for 1,000+ Tool Calls",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "An MIT-licensed model purpose-built for ultra-long agentic sequences — with Day-0 vLLM support for immediate production use",
+          "key_fact": "Handles 1,000+ sequential tool calls with coherent long-horizon context under MIT license"
+        },
+        {
+          "id": 29938,
+          "title": "Gemma 4 Runs as a Fully Local Browser Agent via WebGPU",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "No backend, no API keys, no data leaving your machine — this is on-device AI agents made real in the browser",
+          "key_fact": "Complete local agent with native tool calling, powered by WebGPU — zero server dependency"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 29924,
+          "title": "OpenAI Open-Sources Symphony — One Codex Agent Per Open Issue",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Symphony turns your issue tracker into an autonomous development team, spinning up a Codex agent for every open ticket",
+          "key_fact": "Open-source orchestrator that automatically assigns Codex agents to repository issues"
+        },
+        {
+          "id": 29853,
+          "title": "GitHub Copilot Shifts to Consumption-Based Pricing",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The era of all-you-can-eat AI coding is ending — heavy Copilot users will pay more, light users less",
+          "key_fact": "Usage-based fees layered on top of base subscriptions replace flat-rate pricing"
+        },
+        {
+          "id": 29857,
+          "title": "Microsoft Ships VibeVoice — Open-Source Voice-to-Code Tool",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Voice-driven development gets a real, usable open-source tool — significant for accessibility and hands-free coding",
+          "key_fact": "Open-source voice-to-text coding tool endorsed by Simon Willison as actually usable"
+        },
+        {
+          "id": 29870,
+          "title": "Google and Kaggle Launch Free 5-Day AI Agents Vibe Coding Course",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A structured, free on-ramp for agent development backed by Kaggle's hands-on learning format",
+          "key_fact": "Free 5-day course specifically on building AI agents with vibe coding, registration now open"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 29975,
+          "title": "RL-Trained 'Conductor' Learns to Write Custom Prompts for Other Models",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Prompt engineering automated: an RL model learns to manage a pool of LLMs by writing optimized instructions for each one",
+          "key_fact": "Conductor model trained via RL to write custom prompts that outperform human-crafted ones across a model pool"
+        },
+        {
+          "id": 30244,
+          "title": "Dirac Tops TerminalBench with Gemini 3 Flash — Architecture Over Parameters",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A lightweight model with strong scaffolding beats heavier setups, proving agent architecture matters as much as the underlying model",
+          "key_fact": "Open-source terminal agent achieves #1 TerminalBench score using Gemini 3 Flash Preview"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 29982,
+          "title": "The Specs → GPT-Image-2 Mockup → Code Pipeline Beats Direct Code Gen",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Routing through a visual mockup before generating frontend code produces better results than any direct approach",
+          "key_fact": "Two-step workflow (spec → image → code) outperforms direct spec-to-code generation"
+        },
+        {
+          "id": 30004,
+          "title": "GPT Image 2 Unlocks Text-to-360° Panorama Generation",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Seamless 360° panoramas from text or image — practical for VR prototyping and architectural visualization",
+          "key_fact": "Text or image input generates seamless 360° panoramic output suitable for VR and immersive content"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 29875,
+          "title": "Building Scalable Web Apps with OpenAI's Open-Source Privacy Filter",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "HuggingFace goes beyond the model card to show production deployment patterns for PII detection at scale",
+          "key_fact": "Practical guide to integrating OpenAI's open-sourced PII detection model into production web apps"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 29886,
+      "title": "Anthropic Publishes Election Safeguards Update",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Setting a precedent for how frontier labs communicate election integrity policies",
+      "key_fact": "Public documentation of election safeguards ahead of global election cycles"
+    },
+    {
+      "id": 29867,
+      "title": "DeepMind and South Korea Formalize AI Partnership for Scientific Discovery",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A decade after AlphaGo's Seoul match, a government-level AI research partnership template emerges",
+      "key_fact": "Formal partnership focused on frontier AI for scientific discovery and economic growth"
+    },
+    {
+      "id": 30245,
+      "title": "Claude Pro Gates Opus Behind Extra-Usage Toggle",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Anthropic's most capable model becomes a paid add-on rather than a Pro default",
+      "key_fact": "Opus now requires extra usage to be enabled on Claude Pro plans"
+    },
+    {
+      "id": 30012,
+      "title": "Fig Founder Leaves AWS for Cognition's Devin Team",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A seasoned devtools founder's bet on where the agentic coding frontier is heading",
+      "key_fact": "Matt Schrage left AWS after 2.5 years building AI dev tools to join Cognition"
+    }
+  ],
+  "total_items": 21
+}
