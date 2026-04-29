@@ -1,0 +1,244 @@
+{
+  "date": "2026-04-29",
+  "headline_hook": "Claude Enters Blender, Mistral Ships Workflows, and a 60-Year Conjecture Falls",
+  "preview_topics": [
+    "Claude's creative-tool push into Blender",
+    "Mistral's production agent orchestration",
+    "GPT-5.4 cracks a 60-year math conjecture"
+  ],
+  "pick_of_the_day": {
+    "item_id": 30349,
+    "thesis": "A 60-year-old Erdős conjecture falling to AI-human collaboration isn't just a math milestone — it's the first clean proof that frontier models can contribute novel reasoning to open research problems rather than regurgitate training data, and it forces the field to reckon with what 'understanding' means when a machine helps prove a theorem."
+  },
+  "model_literacy": {
+    "concept": "Durable Execution",
+    "relevance": "Mistral's Workflows and Sakana's Fugu both launched with durability as a headline feature. Durable execution guarantees that a long-running agent process can survive crashes, restarts, and network failures by checkpointing state — the missing reliability layer that separates demo agents from production ones."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 30346,
+          "title": "Claude Gets a Blender Connector — Anthropic's First Move Into Creative Tooling",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Not just code anymore: Claude can now debug 3D scenes, build Blender plugins, and batch-modify objects via MCP — signaling Anthropic's push into creative professional workflows.",
+          "key_fact": "26,500+ likes on the announcement, making it Anthropic's most-engaged product tweet this quarter"
+        },
+        {
+          "id": 30362,
+          "title": "Mistral Launches Workflows — An Enterprise Orchestration Layer With Durability Built In",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The gap between agent demos and production reliability just got a vendor-backed bridge — Mistral's Workflows ships with fault tolerance, observability, and durable execution out of the box.",
+          "key_fact": "Public preview available now with built-in durability, observability, and fault-tolerance primitives"
+        },
+        {
+          "id": 30388,
+          "title": "Microsoft's VibeVoice Ships as the Open-Source Whisper Successor You Can Run Locally",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "MIT-licensed speech-to-text with speaker diarization that actually runs on a MacBook — Simon Willison confirms it works with 60GB RAM, 4-bit quantized.",
+          "key_fact": "Runs locally on Apple Silicon at 60GB RAM with 4-bit quantization and built-in speaker diarization"
+        },
+        {
+          "id": 30368,
+          "title": "Gemma 4 Drops an Apple Silicon-Optimized 31B Model",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Google's open model family gets a Mac-native variant — local inference just got a frontier-tier option tuned specifically for Apple hardware.",
+          "key_fact": "31B parameter model specifically optimized for Apple Silicon inference"
+        },
+        {
+          "id": 30414,
+          "title": "Sakana AI Opens Beta for Fugu Multi-Agent Orchestration",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "From the lab that popularized evolutionary model merging comes a lighter orchestration system — positioned for teams not ready to commit to a full platform play.",
+          "key_fact": "Beta launch from Sakana AI, known for evolutionary model merging research"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 30324,
+          "title": "Anthropic's Official Guide to Onboarding Claude Code Like a New Developer",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "17 years of development experience distilled into a framework for treating Claude Code like a new hire — CLAUDE.md, memory hooks, and structured skills turn a chatbot into a productive team member.",
+          "key_fact": "Official Claude blog post with a concrete onboarding framework: CLAUDE.md files, persistent memory, and skill definitions"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 30345,
+          "title": "Claude Code CLI Ships 50+ Fixes in Four Releases — The Polish Sprint Continues",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Faster resume, stable auth, and dozens of reliability fixes — Anthropic is aggressively smoothing the rough edges of its agentic coding tool.",
+          "key_fact": "50+ stability and performance fixes across four consecutive releases"
+        },
+        {
+          "id": 30351,
+          "title": "Codex Can Now Auto-Migrate Your Repos to GPT-5.5",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Model upgrade friction drops to a single command — Codex handles the migration diff so you don't have to.",
+          "key_fact": "Single-command automated migration from older GPT versions to GPT-5.5"
+        },
+        {
+          "id": 30480,
+          "title": "FigJam Gets MCP — Generate Architecture Diagrams Straight From Code",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Figma bridges the gap between codebase understanding and visual system design — agents can now read your repo and draw your architecture.",
+          "key_fact": "MCP integration generates ERDs and architecture diagrams from code in FigJam"
+        },
+        {
+          "id": 30376,
+          "title": "OpenMed's Privacy Filter Catches 55+ PII Categories vs. OpenAI's 8",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Healthcare AI pipelines need more than basic PII detection — OpenMed catches medical record numbers, blood types, and dozens more categories that generic filters miss.",
+          "key_fact": "55+ PII categories detected vs. 8 from OpenAI's model"
+        },
+        {
+          "id": 30646,
+          "title": "Transformers v5.7.0 Adds Day-1 Support for Poolside's Laguna Models",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Poolside's first open-weight MoE family gets immediate transformers support — the library continues to be the universal model interface.",
+          "key_fact": "Supports Laguna (Poolside's MoE family) and several other new architectures"
+        },
+        {
+          "id": 30653,
+          "title": "Ollama v0.22.0 Adds Nemotron 3 Omni and Laguna for Local Inference",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Two significant model families join the local-first ecosystem — the Ollama catalog keeps closing the gap with cloud-only offerings.",
+          "key_fact": "NVIDIA Nemotron 3 Omni and Poolside Laguna XS.2 now available locally"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 30349,
+          "title": "GPT-5.4 Pro Helps Crack a 60-Year-Old Erdős Conjecture",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "This isn't benchmark gaming — an AI contributed genuine novel reasoning to solve an open mathematical problem, forcing the field to confront what it means when machines help prove theorems.",
+          "key_fact": "60-year-old open Erdős problem solved with AI assistance from GPT-5.4 Pro"
+        },
+        {
+          "id": 30387,
+          "title": "GPT Co-Creator Alec Radford Releases Talkie — A 13B Model Trained on Pre-1931 English",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A fascinating experiment in what LLMs learn from historical language — 260B tokens of century-old text produce a model that thinks differently about English.",
+          "key_fact": "13B model trained exclusively on 260B tokens of pre-1931 English text"
+        },
+        {
+          "id": 30297,
+          "title": "NVIDIA's Nemotron 3 Nano Omni Handles Documents, Audio, and Video in One Model",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Purpose-built for agent workflows that need to process diverse input types — a single multimodal model with long context instead of a pipeline of specialists.",
+          "key_fact": "Single model handles documents, audio, and video with long-context support"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 30692,
+          "title": "OpenAI Models Land on Amazon Bedrock — The Multi-Cloud Era Begins",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The Microsoft exclusivity era is over — OpenAI going multi-cloud fundamentally changes how enterprises procure AI and gives buyers the leverage they've been waiting for.",
+          "key_fact": "Altman and AWS CEO Garman jointly announce OpenAI models on Bedrock via Stratechery interview"
+        },
+        {
+          "id": 30276,
+          "title": "OpenAI Bets That $8 ChatGPT Will Push Subscribers to 122 Million",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A massive bet that volume at lower price points beats premium retention — but the cannibalization of $20 Pro users could reshape the entire consumer AI business model.",
+          "key_fact": "Projects 122M subscribers this year via $8 ad-supported tier, acknowledging $20 Pro cannibalization"
+        },
+        {
+          "id": 30693,
+          "title": "Who Owns the Code Claude Code Wrote? The IP Question Gets Real",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "As agentic coding scales to enterprise adoption, the copyright ownership question becomes unavoidable — and the current legal framework has no clean answer.",
+          "key_fact": "Trending HN discussion with 275 RTs, legal analysis specific to Claude Code's output"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 30695,
+          "title": "VibeVoice Repo Hits GitHub Trending — MIT-Licensed Production Voice Pipeline",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The repo behind Microsoft's Whisper successor is trending — clone it, run it locally, and get speaker diarization without a cloud API.",
+          "key_fact": "MIT-licensed, trending on GitHub and Hacker News"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 30307,
+      "title": "Anthropic Opens Sydney Office, Hires ANZ General Manager",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "APAC enterprise expansion continues",
+      "key_fact": "Theo Hourmouzis named GM of Australia & New Zealand"
+    },
+    {
+      "id": 30638,
+      "title": "Claude Code v2.1.122 Adds Bedrock Service Tier Selection",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Bedrock tier selection and PR URL resume in /resume",
+      "key_fact": "v2.1.122 with alwaysLoad MCP config from v2.1.121"
+    },
+    {
+      "id": 30674,
+      "title": "Xiaomi's MiMo-V2.5 Agent Model Gains Real Adoption",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "MIT-licensed agent model optimized for 1,000+ tool calls keeps trending",
+      "key_fact": "2.7K downloads on HuggingFace, continued momentum from last issue"
+    },
+    {
+      "id": 30417,
+      "title": "Pika Launches Persistent AI Creative Agents",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Not one-shot generation — ongoing creative collaborators with memory",
+      "key_fact": "Agents retain style consistency and memory across sessions"
+    },
+    {
+      "id": 30275,
+      "title": "Musk Takes the Stand in OpenAI Trial",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Argues case sets precedent for charitable trust enforcement",
+      "key_fact": "Tuesday testimony; outcome could reshape nonprofit-to-profit AI transitions"
+    }
+  ],
+  "total_items": 24
+}
