@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Claude now connects to the tools creative professionals already use.  With the new Blender connector, you can debug a scene, build new tools, or batch-apply changes across every object, directly from ",
+    "url": "https://x.com/claudeai/status/2049143438281445811",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 28577,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 37.5731,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @HuggingModels: A new Gemma 4 model just dropped, and it's optimized for Apple Silicon.",
+    "url": "https://x.com/huggingface/status/2049149915717132509",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 946,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.2838,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Onboarding Claude Code like a new developer: Lessons from 17 years of development",
+    "url": "https://www.claude.com/blog/onboarding-claude-code-like-a-new-developer-lessons-from-17-years-of-development",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @ClaudeDevs: In the last four Claude Code CLI releases, we've shipped 50+ stability and performance fixes.  Faster resume, stable auth,…",
+    "url": "https://x.com/bcherny/status/2049230075799966179",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 1628,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.4884,
+    "suggested_angle": "comparison"
+  },
+  {
+    "topic": "OpenAI models coming to Amazon Bedrock: Interview with OpenAI and AWS CEOs",
+    "url": "https://stratechery.com/2026/an-interview-with-openai-ceo-sam-altman-and-aws-ceo-matt-garman-about-bedrock-managed-agents/",
+    "source": "hackernews",
+    "x_engagement_24h": 218,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.0654,
+    "suggested_angle": "news"
+  }
+]
