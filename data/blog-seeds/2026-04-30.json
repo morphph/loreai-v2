@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Claude Code hackathon winners announced — built with Opus 4.7",
+    "url": "https://x.com/claudeai/status/2049523899918934384",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 5090,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 34.527,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Deploying Claude across the enterprise with Claude Cowork",
+    "url": "https://www.claude.com/blog/new-guide-deploying-claude-across-the-enterprise-with-claude-cowork",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "HERMES.md in commit messages causes extra usage billing in Claude Code",
+    "url": "https://github.com/anthropics/claude-code/issues/53262",
+    "source": "hackernews",
+    "x_engagement_24h": 1315,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.3945,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude solves 23 biology problems that stumped expert panels",
+    "url": "https://x.com/AnthropicAI/status/2049624600741560340",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 640,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.192,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code v2.1.123 — OAuth 401 retry loop fix",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.123",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  }
+]
