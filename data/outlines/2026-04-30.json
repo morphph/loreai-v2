@@ -1,0 +1,244 @@
+{
+  "date": "2026-04-30",
+  "headline_hook": "Mistral Ships a Dense 128B While Anthropic Eyes a $900B Crown",
+  "preview_topics": [
+    "Mistral's dense model gambit",
+    "Anthropic's introspection breakthrough",
+    "the prompt injection wake-up call"
+  ],
+  "pick_of_the_day": {
+    "item_id": 30794,
+    "thesis": "Introspection adapters flip the alignment playbook from 'interpret the model from outside' to 'ask the model to report on itself' — if this scales, it turns safety from a red-team arms race into a first-party diagnostic, but the question is whether a misaligned model would cooperate with its own inspection."
+  },
+  "model_literacy": {
+    "concept": "Dense vs. Mixture-of-Experts (MoE) Architecture",
+    "relevance": "Mistral chose a fully dense 128B model over the MoE approach used by most frontier labs — understanding the tradeoff between dense (every parameter fires on every token, simpler to deploy) and MoE (sparse routing, cheaper inference at scale) explains why this architectural bet matters for local deployment and fine-tuning."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 31170,
+          "title": "Mistral Medium 3.5 Goes Full Dense at 128B — and Drops the Weights",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "In a field converging on MoE, Mistral bets on pure dense compute and open weights — a direct challenge to frontier labs and a gift to teams that want to self-host.",
+          "key_fact": "128B dense parameters, open weights on HuggingFace"
+        },
+        {
+          "id": 30852,
+          "title": "DeepSeek v4 Drops SOTA Open Base Models at 8% the Cost",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "DeepSeek didn't benchmaxx — they shipped frontier-class open weights with novel efficiency techniques and walked away, leaving post-training to the community.",
+          "key_fact": "8% of pro-tier cost with CSA, HCA, and mHC efficiency techniques"
+        },
+        {
+          "id": 31150,
+          "title": "NVIDIA Nemotron 3 Nano Omni: 30B Any-to-Any Multimodal Reasoning",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "NVIDIA enters the open multimodal space with a 30B model designed for agent workflows spanning text, audio, and video.",
+          "key_fact": "30B parameters, any-to-any modality with reasoning"
+        },
+        {
+          "id": 30748,
+          "title": "IBM Opens the Hood on How Granite 4.1 Was Built",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Rare transparency from an enterprise lab — IBM publishes its architecture, data curation, and training decisions for Granite 4.1.",
+          "key_fact": "Full technical breakdown of enterprise model training pipeline"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 30774,
+          "title": "Claude's API Skill Lands in CodeRabbit, JetBrains, Resolve AI, and Warp",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Claude-native workflows now live where developers already work — four major tool integrations at once signals Anthropic's distribution push.",
+          "key_fact": "Four simultaneous developer tool integrations"
+        },
+        {
+          "id": 30807,
+          "title": "OpenAI Adds WebSockets to Responses API for Faster Agent Loops",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Persistent connections keep response state warm across tool calls — the HTTP overhead was the real agent bottleneck, and now it's gone.",
+          "key_fact": "WebSocket support eliminates per-call HTTP overhead in agent loops"
+        },
+        {
+          "id": 30773,
+          "title": "Anthropic Publishes the Enterprise Playbook for Claude Cowork",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A practical deployment guide for scaling Claude from individual use to org-wide workflows — Anthropic is now competing on enterprise enablement, not just model quality.",
+          "key_fact": "Full enterprise deployment guide for team-wide Claude adoption"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 30794,
+          "title": "Anthropic's Introspection Adapters Let Models Self-Report Misalignment",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Instead of interpreting models from the outside, introspection adapters ask the model to report on its own training-acquired behaviors — a fundamental shift in the alignment monitoring paradigm.",
+          "key_fact": "Models can now self-report behaviors learned during training, including misalignment"
+        },
+        {
+          "id": 30793,
+          "title": "Claude Solves 23 Biology Problems That Stumped Expert Panels",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "On 99 real-data problems, Claude cracked 23 that human expert panels couldn't — concrete evidence that frontier models are becoming genuine research tools, not just assistants.",
+          "key_fact": "23 out of 99 problems solved where expert panels failed"
+        },
+        {
+          "id": 30891,
+          "title": "Meta's Tuna-2: Pixel Embeddings Beat Vision Encoders for Multimodal",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "If pixel-level embeddings can outperform traditional vision encoders, the entire multimodal pipeline may need rethinking — a potential paradigm shift in visual processing for LLMs.",
+          "key_fact": "Pixel embeddings outperform vision encoders on multimodal understanding"
+        },
+        {
+          "id": 30884,
+          "title": "Sakana's KAME Rethinks Voice AI: Speak While You Think",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A tandem architecture where a fast speech model replies instantly while a backend LLM injects knowledge in parallel — moving from 'think then speak' to real-time interleaving.",
+          "key_fact": "ICASSP 2026 paper, tandem fast-speech + backend-LLM architecture"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 30867,
+          "title": "OpenAI Engineers Break Down Multi-Agent Codex Patterns",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A full workshop on task splitting, subagent delegation, and context management across parallel agents — the practical playbook for multi-agent coding systems.",
+          "key_fact": "Covers subagent delegation and context management for parallel agent workflows"
+        },
+        {
+          "id": 30868,
+          "title": "Field Report: Everything Learned Training Frontier Small Models",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A practitioner's guide to data quality, synthetic data, distillation, and where small models still win — essential if you're fine-tuning rather than training from scratch.",
+          "key_fact": "Covers data quality, synthetic data, evals, and distillation for small models"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 30727,
+          "title": "Anthropic Draws $900B+ Valuation Interest — Would Leapfrog OpenAI",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "More than doubling its $380B February valuation in two months — if this closes, the safety-first lab becomes the world's most valuable AI company, rewriting the narrative about what the market rewards.",
+          "key_fact": "$900B+ valuation, up from $380B in February 2026"
+        },
+        {
+          "id": 31168,
+          "title": "Ramp's Sheets AI Exfiltrated Financial Data via Prompt Injection",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A real-world prompt injection vulnerability in a finance tool — a concrete reminder that AI features touching sensitive data need adversarial security review, not just functionality testing.",
+          "key_fact": "Prompt injection could exfiltrate financial data from Ramp's Sheets AI"
+        },
+        {
+          "id": 30747,
+          "title": "AI Evals Are Becoming the New Compute Bottleneck",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "As models get cheaper to run, properly evaluating them is scaling faster in cost and complexity — HuggingFace argues evaluation is now the binding constraint on AI development.",
+          "key_fact": "Evaluation costs scaling faster than training or inference costs"
+        },
+        {
+          "id": 30775,
+          "title": "Anthropic's Framework for Product Development in the Agentic Era",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Anthropic shares how product development changes when AI agents are first-class team members — a mental model for engineering leaders rethinking org design.",
+          "key_fact": "Internal Anthropic framework for agent-first product workflows"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 30795,
+          "title": "Claude Code Hackathon Winners Show What Opus 4.7 Can Do Under Pressure",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The winning projects from the Anthropic × Cerebral Valley hackathon — a snapshot of what developers build when they push the latest model hard in a competitive sprint.",
+          "key_fact": "4,875 likes, built on Opus 4.7"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 30801,
+      "title": "OpenAI DevDay Returns — San Francisco, September 29",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Mark your calendar if you're building on OpenAI's stack.",
+      "key_fact": "September 29, 2026, San Francisco"
+    },
+    {
+      "id": 30729,
+      "title": "Microsoft Cloud Accelerates, Copilot Sales Up 33%",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Enterprise AI adoption is real and growing — Copilot revenue proves it.",
+      "key_fact": "$82.9B revenue, 18% growth, Copilot sales +33%"
+    },
+    {
+      "id": 30857,
+      "title": "AI Tutoring Works — But Only With Teacher Support",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "New RCTs show AI-as-tutor with teacher support produces large gains; plain 'use AI' actually hurts.",
+      "key_fact": "RCT evidence: design pattern matters more than the tool"
+    },
+    {
+      "id": 31167,
+      "title": "HERMES.md in Commits Can Trigger Extra Claude Code Billing",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Watch your commit messages if you're managing Claude Code costs on large repos.",
+      "key_fact": "934 likes on the GitHub issue"
+    },
+    {
+      "id": 30809,
+      "title": "OpenAI Responses API Now Lets You Block Domains in Web Search",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Enterprises can finally control which sources agents cite.",
+      "key_fact": "Domain-level exclusion for web search results"
+    },
+    {
+      "id": 31109,
+      "title": "Claude Code v2.1.123 Fixes the OAuth 401 Retry Loop",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "If you hit unexplained 401s with CLAUDE_CODE_DISABLE_EXPERIMENTAL_BETAS=1, update now.",
+      "key_fact": "Fixes authentication loop when experimental betas are disabled"
+    }
+  ],
+  "total_items": 24
+}
