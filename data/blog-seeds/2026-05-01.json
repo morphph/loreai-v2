@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Claude Security is now in public beta for Claude Enterprise customers",
+    "url": "https://x.com/claudeai/status/2049898739783897537",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 14478,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 37.3434,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Gemini Embedding 2 — first natively multimodal embedding model now generally available",
+    "url": "https://x.com/GoogleAI/status/2049903687016063456",
+    "source": "twitter:@GoogleAI",
+    "x_engagement_24h": 805,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.2415,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Emollick on Mythos: not a cybersecurity model, an advanced general-purpose model good at cyber",
+    "url": "https://x.com/emollick/status/2049690406586044835",
+    "source": "twitter:@emollick",
+    "x_engagement_24h": 516,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.1548,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Enabling a new model for healthcare with AI co-clinician",
+    "url": "https://deepmind.google/blog/ai-co-clinician/",
+    "source": "rss:DeepMind Blog",
+    "x_engagement_24h": 787,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.2361,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Security is now in public beta",
+    "url": "https://www.claude.com/blog/claude-security-public-beta",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  }
+]
