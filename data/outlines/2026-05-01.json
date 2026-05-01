@@ -1,0 +1,228 @@
+{
+  "date": "2026-05-01",
+  "headline_hook": "Claude Ships a Security Scanner, OpenAI Gates GPT-5.5-Cyber, and China Opens a Trillion Parameters",
+  "preview_topics": [
+    "Claude Security's vulnerability scanner",
+    "government-gated frontier cyber models",
+    "the 98/2 rule of AI-assisted development"
+  ],
+  "pick_of_the_day": {
+    "item_id": 31262,
+    "thesis": "When Anthropic dissects a million real conversations, the sycophancy problem inverts — users aren't being misled by agreeable AI, they're actively shopping for validation, and that changes whether the fix lives in the model weights or the product design."
+  },
+  "model_literacy": {
+    "concept": "Prompt Caching",
+    "relevance": "Anthropic's Claude Code team reveals that prompt caching was the single biggest lever for cost and latency — understanding cache-hit mechanics is now table stakes for anyone building multi-turn agent systems on frontier APIs."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 31243,
+          "title": "Claude Security Enters Public Beta With Codebase Scanning and Auto-Patches",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Anthropic turns Claude into a security auditor that doesn't just flag vulnerabilities but validates them and writes fixes — collapsing the SAST-to-remediation pipeline into a single agent loop.",
+          "key_fact": "Available now in Claude Code on web for Enterprise customers"
+        },
+        {
+          "id": 31358,
+          "title": "GPT-5.5-Cyber Rolls Out to Critical Infrastructure Defenders First",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "OpenAI's first government-coordinated restricted release signals that frontier capability itself is becoming the access criterion — not every customer gets every model anymore.",
+          "key_fact": "11,338 likes on Altman's announcement; restricted to critical cyber defenders"
+        },
+        {
+          "id": 31295,
+          "title": "Gemini Embedding 2 Goes GA as Google's First Natively Multimodal Encoder",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A single embedding space for text, images, and video means retrieval pipelines no longer need separate encoders per modality — developers are already building visual shopping and video analysis tools.",
+          "key_fact": "First natively multimodal embedding model, now generally available"
+        },
+        {
+          "id": 31307,
+          "title": "China Open-Sources Ling-2: A Trillion-Parameter Model That Claims Better Token Efficiency",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A trillion-parameter open-weight model that reportedly beats leading US 'efficient' models on token efficiency — the open-source frontier race just added another zero.",
+          "key_fact": "Trillion-parameter scale under open-source license"
+        },
+        {
+          "id": 31316,
+          "title": "Hugging Face Launches Hugging Science for Scientific AI Models",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Formalizing the intersection of open-source AI and scientific research into a single discoverable hub — a bet that domain-specific model curation matters as much as model capability.",
+          "key_fact": "1,633 likes and 327 RTs; dedicated hub for scientific AI"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 31242,
+          "title": "Anthropic's Enterprise Agent Playbook: Orchestration, Guardrails, and Production Patterns",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "The official guide for teams deploying Claude agents at scale — covers the patterns that separate demo agents from production systems, including orchestration strategies and failure modes.",
+          "key_fact": "Official Anthropic playbook covering agent orchestration and guardrails"
+        },
+        {
+          "id": 31244,
+          "title": "Prompt Caching Is Everything: Hard-Won Lessons From Building Claude Code",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Anthropic's own engineering team found that prompt caching alone drove massive cost and latency improvements — if you're building multi-turn agent systems and not caching, you're leaving money on the table.",
+          "key_fact": "Prompt caching was the single biggest cost and latency lever"
+        },
+        {
+          "id": 31261,
+          "title": "The 98/2 Rule: AI Collapses 'Basically Works' to Near-Instant, But Polish Still Takes Real Time",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Anthropic's Felix Rieseberg recalibrates the 80/20 rule for AI-assisted development — the last 2% of quality still demands human time, and misestimating that gap is where projects slip.",
+          "key_fact": "80/20 compressed to 98/2 in AI-assisted workflows"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 31262,
+          "title": "What 1 Million Conversations Reveal About How People Actually Use Claude",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Anthropic opens the black box of user behavior at scale — the patterns in a million conversations reshape how you think about sycophancy, user intent, and what 'helpful' actually means in practice.",
+          "key_fact": "1M conversations analyzed for sycophancy patterns"
+        },
+        {
+          "id": 31215,
+          "title": "DeepMind's AI Co-Clinician: Multimodal Agents for Healthcare Beyond Chatbots",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Not another medical chatbot — DeepMind is researching how multimodal agents could actively support clinical workflows, with the rigor healthcare regulators will eventually demand.",
+          "key_fact": "Research initiative for AI supporting healthcare workers and patients"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 31598,
+          "title": "Anthropic TypeScript SDK v0.92.0 Ships Improved Managed Agents APIs",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The TS SDK update adds improved Managed Agents APIs and environment-variable header support — critical plumbing for anyone building agent orchestration on Anthropic's platform.",
+          "key_fact": "v0.92.0 with Managed Agents API improvements"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 31323,
+          "title": "Karpathy: LLMs Enable New App Categories, Not Just Faster Old Ones",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The mental model shift builders need — Karpathy argues that menugen, install-less tools, and personal companions are native LLM categories that couldn't exist before, not just accelerated versions of existing software.",
+          "key_fact": "Keynote at Sequoia Ascent; 2,173 likes"
+        },
+        {
+          "id": 31329,
+          "title": "Zig's AI Contribution Ban: PR Review Is About Growing People, Not Just Code Quality",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The Zig project's blanket ban on AI-assisted contributions reframes code review as mentorship — AI submissions short-circuit the feedback loop that grows contributors into maintainers.",
+          "key_fact": "Blanket ban on AI-assisted contributions"
+        },
+        {
+          "id": 31201,
+          "title": "Zuckerberg: We're Tracking Employee Activity Because You're Smarter Than Contractors",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Meta using employee computer activity for AI training because staff are 'smarter' than labelers raises the consent question that every company training on internal data is quietly dodging.",
+          "key_fact": "Meta tracking employee activity for AI training data"
+        },
+        {
+          "id": 31334,
+          "title": "Same Models, Different Products: The Microsoft-OpenAI Natural Experiment",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Mollick highlights the clearest proof yet that model capability is necessary but insufficient — identical model access produced wildly different products, confirming that product design and distribution are the real moats.",
+          "key_fact": "Microsoft and OpenAI share models but built different products"
+        },
+        {
+          "id": 31652,
+          "title": "Shai-Hulud Malware Found in PyTorch Lightning: Supply Chain Attacks Hit ML Infra",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A malicious dependency in one of the most popular AI training libraries is the wake-up call for ML teams that still treat pip install as safe by default.",
+          "key_fact": "Malicious dependency discovered in PyTorch Lightning"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 31654,
+          "title": "Pu.sh: A Full Coding Agent Harness in 400 Lines of Shell",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The anti-framework approach to agentic coding — worth studying for what you can strip away from agent harnesses and still get useful behavior.",
+          "key_fact": "400 lines of shell, full agent harness"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 31245,
+      "title": "Kepler's Verifiable AI for Regulated Finance: A Compliance Case Study",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "How compliance-heavy financial services actually ship Claude with verifiability requirements",
+      "key_fact": "Real-world regulated finance deployment"
+    },
+    {
+      "id": 31336,
+      "title": "Emollick: Mythos Is a General-Purpose Model Restricted for Capability, Not a Cyber Specialist",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Reframes the safety debate — capability itself triggers access restrictions, not specialization",
+      "key_fact": "General-purpose model restricted due to capability concerns"
+    },
+    {
+      "id": 31646,
+      "title": "IBM Granite 4.1 8B Hits HuggingFace Trending",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Compact enterprise-grade model for resource-constrained deployments",
+      "key_fact": "8B parameters, 11.4K downloads"
+    },
+    {
+      "id": 31421,
+      "title": "LLM-jp-4: Japanese Models Surpass GPT-4o on Native Benchmarks",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Japan's open-source 8B and 32B models trained on 12T tokens under open license",
+      "key_fact": "Surpasses GPT-4o on Japanese benchmarks"
+    },
+    {
+      "id": 30728,
+      "title": "AWS Posts 28% Growth — Fastest in Nearly Four Years",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "AI workloads driving cloud acceleration; enterprise AI spend is not plateauing",
+      "key_fact": "$37.6B quarter, 28% growth"
+    }
+  ],
+  "total_items": 22
+}
