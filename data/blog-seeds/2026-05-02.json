@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "One week since the launch of GPT-5.5, and it's already our strongest model launch yet. API revenue is growing more than 2x faster than any prior release, while Codex doubled revenue in under seven days",
+    "url": "https://x.com/OpenAI/status/2050250926888468929",
+    "source": "twitter:@OpenAI",
+    "x_engagement_24h": 6139,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 34.8417,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Sam Altman: use Codex or Claude Code, whatever works best for you — grateful we live in a time with such amazing tools",
+    "url": "https://x.com/sama/status/2050274547061129577",
+    "source": "twitter:@sama",
+    "x_engagement_24h": 15319,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 32.5957,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Cut Claude Code token usage by 50% with one CLAUDE.md config — teach it when to use cheap vs expensive models",
+    "url": "https://x.com/DeRonin_/status/2050194196007387175",
+    "source": "twitter:search",
+    "x_engagement_24h": 366,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.1098,
+    "suggested_angle": "comparison"
+  },
+  {
+    "topic": "Claude Code v2.1.126 ships project purge, gateway model picker, and dangerously-skip-permissions overhaul",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.126",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Code with Claude developer conference returns next week",
+    "url": "https://x.com/claudeai/status/2050252933866930339",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 5985,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 26.7955,
+    "suggested_angle": "news"
+  }
+]
