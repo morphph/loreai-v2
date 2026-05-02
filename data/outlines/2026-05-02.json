@@ -1,0 +1,220 @@
+{
+  "date": "2026-05-02",
+  "headline_hook": "GPT-5.5 Doubles Revenue While Grok Undercuts and Open Source Closes the Gap",
+  "preview_topics": [
+    "GPT-5.5's record-breaking first week",
+    "Grok 4.3's price-performance disruption",
+    "AI therapy's first rigorous clinical trial"
+  ],
+  "pick_of_the_day": {
+    "item_id": 31204,
+    "thesis": "The UK's head-to-head cyber evaluation reveals that government red teams — not public benchmarks — are becoming the real gatekeepers of frontier deployment, and the convergence between GPT-5.5 and Mythos suggests capability containment is now a when-not-if problem."
+  },
+  "model_literacy": {
+    "concept": "Model Distillation",
+    "relevance": "Today's distillation debate between HuggingFace's CEO and LeCun surfaces the core tension: every major lab used distillation to train, but restricting it now protects margins at the cost of open-source progress. Understanding distillation explains why open models like Kimi 2.6 are suddenly competitive — and why closed labs want to limit the technique."
+  },
+  "sections": [
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 31755,
+          "title": "GPT-5.5's First Week: 2x Revenue Growth, Codex Doubles in Days",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "OpenAI drops rare concrete revenue data — the fastest API growth in its history tells builders exactly how much demand frontier models command",
+          "key_fact": "API revenue growing 2x faster than any prior model launch; Codex doubled revenue in under 7 days"
+        },
+        {
+          "id": 31838,
+          "title": "Sam Altman Tells Developers: Use Claude Code If It Works Better",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "OpenAI's CEO publicly endorsing a competitor's tool marks a détente moment — the coding-tool war is settling into 'best tool wins' pragmatism",
+          "key_fact": "14,593 likes — most-engaged OpenAI executive tweet this week"
+        },
+        {
+          "id": 31876,
+          "title": "Open-Source Models Hit Closed-Model Parity on Batch Workloads",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Kimi 2.6 and GLM 5.1 matching closed models on batch jobs signals the beginning of enterprise API margin erosion",
+          "key_fact": "Enterprises shifting batch workloads to open-source; speed remains the only gap"
+        },
+        {
+          "id": 31865,
+          "title": "HuggingFace CEO: Labs That Trained by Distilling Are 'Pulling the Ladder'",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The distillation debate hits a nerve — every major lab benefited from the technique, and now restricting it looks like protectionism",
+          "key_fact": "LeCun's RT amplified the argument to the entire ML research community"
+        },
+        {
+          "id": 32131,
+          "title": "Spotify Creates 'Verified Human' Badges to Flag AI-Generated Music",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The first major platform to draw an explicit human/AI line in creative content — expect every streaming service to follow",
+          "key_fact": "Spotify is the first major music platform to introduce human/AI content distinction"
+        }
+      ]
+    },
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 31877,
+          "title": "Grok 4.3 Ships at Sonnet-Level Quality for 5x Less",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "xAI enters the mid-tier price war with a model that claims Sonnet 4.6 capability at one-fifth the cost — if benchmarks hold, the price floor just dropped again",
+          "key_fact": "Claims Sonnet 4.6-level performance at 5x lower cost and higher speed"
+        },
+        {
+          "id": 32082,
+          "title": "Diffusers 0.38 Brings Discrete Diffusion to Text Generation",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "LLaDA2 support means text generation via iterative refinement instead of autoregressive decoding — a fundamentally different paradigm now in the standard library",
+          "key_fact": "First mainstream library to ship discrete diffusion for language models"
+        },
+        {
+          "id": 31856,
+          "title": "NVIDIA Ships Quantized Kimi-K2.6 for Consumer GPUs",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The GPU vendor itself is publishing quantized checkpoints for open models — a clear signal that NVIDIA sees its future tied to the open-source ecosystem",
+          "key_fact": "NVFP4 and FP8 quantized checkpoints make frontier-competitive model runnable on consumer hardware"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 31820,
+          "title": "First Rigorous RCT Shows AI Therapy Works at Scale",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "A randomized trial with 6-month follow-up proves an AI chatbot improved mental health, sleep, and employment outcomes — the strongest causal evidence yet for AI-delivered therapy",
+          "key_fact": "0.3 standard deviation improvement sustained over 6 months with no increase in severe cases"
+        },
+        {
+          "id": 31204,
+          "title": "UK Safety Group: GPT-5.5 Matches Mythos in Cyber Attack Simulations",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Government evaluators running head-to-head cyber capability tests on frontier models — the results show convergence is happening faster than safety frameworks anticipated",
+          "key_fact": "GPT-5.5 completed a difficult corporate network attack simulation in 2 out of 10 attempts"
+        },
+        {
+          "id": 31315,
+          "title": "Qwen Open-Sources Interpretability Toolkit with Sparse Autoencoders",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Mechanistic interpretability research on frontier-class models is no longer gated behind major labs — Qwen-Scope lowers the barrier for the entire field",
+          "key_fact": "Sparse Autoencoders applied to Qwen3.5-27B, fully open-sourced"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 32073,
+          "title": "Claude Code v2.1.126: Project Purge and Gateway Model Picker",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Full state cleanup command and multi-model picker integration — daily Claude Code users should update for the QoL improvements alone",
+          "key_fact": "'claude project purge' for full state cleanup; gateway /v1/models integration"
+        },
+        {
+          "id": 31857,
+          "title": "Paperclip Now Searches Full Text Across All of arXiv and PubMed",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Full-text search across 150M abstracts replaces the patchwork of Google Scholar, Semantic Scholar, and manual arXiv browsing",
+          "key_fact": "Full papers from all of arXiv, PubMed Central, plus 150M abstracts"
+        },
+        {
+          "id": 31934,
+          "title": "AI CLI: Pipe Image, Video, and Text Generation in Your Terminal",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Unix philosophy meets multimodal AI — pipe generations together, compare models side by side, all from the terminal",
+          "key_fact": "Supports hundreds of models with inline previews and zero native dependencies"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 31911,
+          "title": "One CLAUDE.md Config Cut Token Usage by 50% in a Week",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A measured, reproducible result: routing Haiku for bulk work, Sonnet for research, and Opus for deep thinking halves your Claude Code bill",
+          "key_fact": "50% token reduction over one week using task-based model delegation"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 31728,
+          "title": "A Non-Technical PM Shipped a Complete App with Claude Code in Six Weeks",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The 'who can build software' boundary just moved again — a PM with no coding background shipped a stress management app end-to-end",
+          "key_fact": "Complete app from zero to shipped in six weeks using only Claude Code"
+        },
+        {
+          "id": 31914,
+          "title": "Gemma 4 Local Agentic Setup: Multimodal Agent with MCP Tool Discovery",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Google's practical notebook shows Gemma 4 running local agents with dynamic tool discovery — a hands-on guide you can clone and run today",
+          "key_fact": "Multimodal agent with GitHub MCP server for dynamic tool discovery"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 31749,
+      "title": "Code with Claude Developer Conference Returns Next Week",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Anthropic's dev conference is back — register before sessions fill",
+      "key_fact": "5,486 likes and 499 RTs; sessions for all levels"
+    },
+    {
+      "id": 31599,
+      "title": "Anthropic Bedrock SDK Fixes Silent Streaming Failure",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "If you run Claude on Bedrock, update — error events in chunk frames were silently swallowed",
+      "key_fact": "APIError now properly thrown for error events in chunk frames"
+    },
+    {
+      "id": 31817,
+      "title": "Mollick: Stop Thinking About AI as Individual Productivity",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Organizations are already superhuman — AI strategy should target organizational intelligence, not seat licenses",
+      "key_fact": "368 likes on the organizational-intelligence reframe"
+    },
+    {
+      "id": 31360,
+      "title": "GPT-5.5 Throws Itself a Party on May 5 at 5:55 PM",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Playful marketing doubling as a Codex capability demo — 5.7K likes",
+      "key_fact": "May 5 at 5:55 PM; Codex helps select attendees"
+    }
+  ],
+  "total_items": 21
+}
