@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "OpenAI Symphony + codebase harness = 5x coding agent outcomes",
+    "url": "https://x.com/jasonzhou1993/status/2050524139132445055",
+    "source": "twitter:search:\"coding agent\" (tip OR trick OR workflow OR setup)",
+    "x_engagement_24h": 432,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.1296,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "OpenAI Codex hatch-pet skill: create your own AI pet",
+    "url": "https://x.com/OpenAIDevs/status/2050299857974489153",
+    "source": "twitter:@OpenAIDevs",
+    "x_engagement_24h": 325,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.0975,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Code with Claude developer conference returns next week",
+    "url": "https://x.com/trq212/status/2050269362683343206",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 5985,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 18.7955,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "DeepSeek V4 Pro benchmarks surpass Opus 4.7 Medium",
+    "url": "https://x.com/bindureddy/status/2050672397515477026",
+    "source": "twitter:@bindureddy",
+    "x_engagement_24h": 325,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.0975,
+    "suggested_angle": "analysis"
+  },
+  {
+    "topic": "Real-time observability dashboard for Claude Code sessions via hooks + WebSocket",
+    "url": "https://x.com/GithubProjects/status/2050435135103987982",
+    "source": "twitter:search:\"MCP\" (implementation OR plugin OR server OR tool) min_faves:10 -crypto",
+    "x_engagement_24h": 184,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.0552,
+    "suggested_angle": "news"
+  }
+]
