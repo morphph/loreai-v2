@@ -1,0 +1,220 @@
+{
+  "date": "2026-05-03",
+  "headline_hook": "DeepSeek V4 Outruns Opus While a 250-Example LLM Cracks SWE-bench",
+  "preview_topics": [
+    "DeepSeek V4's open-source benchmark blitz",
+    "coding agents go creative",
+    "the 250-example SWE-bench surprise"
+  ],
+  "pick_of_the_day": {
+    "item_id": 32409,
+    "thesis": "A 1930-vintage architecture solving modern coding tasks with just 250 training examples demolishes the 'you need trillion-parameter models' assumption — if data quality trumps scale this decisively, the moat isn't compute, it's curation."
+  },
+  "model_literacy": {
+    "concept": "Scaling Laws vs. Data Efficiency",
+    "relevance": "Today's tiny-LLM-cracks-SWE-bench result and DeepSeek V4 Flash's speed-first approach both challenge the 'bigger is better' orthodoxy — understanding where scaling laws break down tells you when to reach for a frontier model and when a fine-tuned small model will outperform it for less."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 32388,
+          "title": "DeepSeek V4 Flash Ships as the Speed King for Batch Workloads",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "If you're running high-volume inference and paying per-token, this model just redrew the cost curve — faster than GPT-5.5 thinking and Opus 4.7 at a fraction of the latency.",
+          "key_fact": "Outpaces GPT-5.5 thinking and Opus 4.7 on throughput for simple use-cases at scale"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 32387,
+          "title": "DeepSeek V4 Pro Benchmarks Overtake Opus 4.7 Medium",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "The open-source frontier just pulled ahead of Anthropic's mid-tier model on independent benchmarks — the gap between open and closed keeps shrinking quarter over quarter.",
+          "key_fact": "V4 Pro surpasses Opus 4.7 Medium across multiple independent benchmark suites when properly configured"
+        },
+        {
+          "id": 32409,
+          "title": "Fine-Tuned Tiny LLM Solves SWE-bench on 250 Examples",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Researchers took an ancient, minimal-parameter architecture, fine-tuned it on just 250 examples, and it solved a real SWE-bench issue — a direct challenge to the assumption that coding ability requires massive scale.",
+          "key_fact": "250 training examples were enough for a tiny model to solve its first SWE-bench coding task"
+        },
+        {
+          "id": 31818,
+          "title": "o1 Outperforms Physicians Across Multiple Clinical Scenarios",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A rigorous study finds o1 beating doctors on medical benchmarks and real ER cases — the authors are now calling for prospective clinical trials, signaling the field is ready to move from demos to deployment.",
+          "key_fact": "Authors call for 'urgent need for prospective trials' based on consistent outperformance"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 32289,
+          "title": "Codex /hatch Skill Generates and Iterates on Sprite Sheets",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "OpenAI's Codex expands from utility coding into creative workflows — the /hatch skill builds pixel-art sprite sheets iteratively, showing what coding agents look like when they stop being just code completion.",
+          "key_fact": "First Codex skill targeting creative asset generation rather than software engineering"
+        },
+        {
+          "id": 32425,
+          "title": "Higgsfield MCP: Route Any Model Through Any Agent Tool",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A universal model-access layer that lets you call any model from Claude Code, Codex, or Opencode using your existing subscription — no separate API keys, no vendor lock-in.",
+          "key_fact": "Works across Claude Code, Codex, and Opencode with existing subscriptions"
+        },
+        {
+          "id": 32410,
+          "title": "Google Ships Agent Anomaly Detection for Enterprise Deployments",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Real-time anomaly detection using statistical models plus LLM-as-judge to flag suspicious agent reasoning — a governance primitive that enterprises need before they can deploy autonomous agents at scale.",
+          "key_fact": "Combines statistical anomaly detection with LLM-as-judge for real-time agent monitoring"
+        },
+        {
+          "id": 32076,
+          "title": "LangChain 1.3.0 Alpha: stream_events v3 and Human-in-the-Loop Middleware",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The new streaming protocol and HITL 'respond' decision in middleware give production agent systems the two primitives they've been missing: real-time event flow and human approval gates.",
+          "key_fact": "New stream_events v3 protocol and 'respond' middleware decision for human approval gates"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 32446,
+          "title": "OpenAI Symphony Setup That 5x'd Coding Agent Outcomes",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A practical guide showing how Playwright CLI, boot skills, and WORKFLOW.md combine to dramatically improve coding agent reliability — the patterns are framework-agnostic and you can copy them today.",
+          "key_fact": "5x improvement in coding agent outcomes using Playwright CLI + boot skills + WORKFLOW.md"
+        },
+        {
+          "id": 32635,
+          "title": "Why Your Agent Harness Belongs Outside the Sandbox",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "As teams ship more coding agents, the trust-boundary architecture decision matters — this post argues the harness should live outside the execution sandbox, not inside it.",
+          "key_fact": "Architecture pattern: harness outside sandbox, agent inside — separates orchestration from execution"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 31752,
+          "title": "Code with Claude Developer Conference Returns Next Week",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "5.4K likes on the announcement signals genuine developer anticipation — Anthropic's developer conference is becoming the can't-miss event for the coding agent ecosystem.",
+          "key_fact": "5,486 likes and 499 RTs — the highest-engagement AI developer event announcement this week"
+        },
+        {
+          "id": 32326,
+          "title": "How We Went From 'AI Is a Bubble' to 'Not Enough Data Centers' in Six Months",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Ethan Mollick highlights an Atlantic deep-dive explaining the narrative whiplash — agents are driving the demand explosion that made the bubble thesis obsolete.",
+          "key_fact": "Agent-driven compute demand is the key variable the bubble skeptics missed"
+        },
+        {
+          "id": 32378,
+          "title": "Jensen Huang Reframes the AI Safety Debate in Four Sentences",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Shared by LeCun to 4.6K likes — Huang's framing that 'AI matching human performance is the optimistic case' is a strategic narrative move from the compute infrastructure leader.",
+          "key_fact": "4,647 likes on LeCun's reshare — the highest-engagement AI policy take this week"
+        },
+        {
+          "id": 31688,
+          "title": "Meta Acquires Robotics AI Startup, Bets on Physical AI",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Meta buying a humanoid-robot AI startup signals serious investment in physical AI beyond social media and VR — the models help robots understand and adapt to human environments.",
+          "key_fact": "Acquisition targets AI models for humanoid robots adapting to human environments"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 32433,
+          "title": "Real-Time Observability Dashboard for Claude Code Sessions",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Open-source dashboard that hooks into Claude Code with WebSocket push and full MCP tool surface — finally gives teams visibility into what their coding agents are actually doing.",
+          "key_fact": "WebSocket-based real-time push with full MCP tool observability"
+        },
+        {
+          "id": 31762,
+          "title": "Codex Hatch-Pet: Install a Skill, Generate Your Own AI Pet",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "More than a toy — hatch-pet demonstrates Codex's extensibility model: skills as shareable, installable creative experiences that anyone can build and distribute.",
+          "key_fact": "Shows Codex skills as installable, shareable packages beyond utility coding"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 31781,
+      "title": "Google I/O Countdown: Vibe-Code Your Way to the Main Stage",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Developer challenge to build creative concepts with Gemini for a shot at the I/O keynote",
+      "key_fact": "Less than 3 weeks until Google I/O keynote"
+    },
+    {
+      "id": 31790,
+      "title": "DeepInfra Joins HuggingFace Inference Providers",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Cost-effective access to DeepSeek V4, Kimi-K2.6, GLM-5.1 and 100+ models via unified API",
+      "key_fact": "100+ models now available through HuggingFace's inference provider ecosystem"
+    },
+    {
+      "id": 31695,
+      "title": "Latent Space: Agents Breaking Containment Into Knowledge Work",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Coding agents expanding beyond software engineering into creative and knowledge work",
+      "key_fact": "Agent category expanding from pure coding into general knowledge work"
+    },
+    {
+      "id": 31858,
+      "title": "HuggingFace Named to TIME's 10 Most Influential AI Companies",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Open-source AI ecosystem gets mainstream validation",
+      "key_fact": "TIME 2026 recognition alongside closed-model incumbents"
+    },
+    {
+      "id": 32161,
+      "title": "Musk v. OpenAI Trial: Doom Bans, Meme Coins, and Governance Reveals",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Trial producing revelations about OpenAI's early internal culture and governance decisions",
+      "key_fact": "7 key highlights from ongoing trial reshaping OpenAI's origin narrative"
+    }
+  ],
+  "total_items": 21
+}
