@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "NanoClaw: lightweight OpenClaw alternative with multi-platform messaging, memory, and Anthropic Agents SDK",
+    "url": "https://github.com/qwibitai/nanoclaw",
+    "source": "github:trending:Agent/MCP tools",
+    "x_engagement_24h": 41257,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 41.3771,
+    "suggested_angle": "comparison"
+  },
+  {
+    "topic": "Ollama v0.23.0 ships Claude Desktop integration with Claude Cowork and Claude Code support",
+    "url": "https://github.com/ollama/ollama/releases/tag/v0.23.0",
+    "source": "github:release:ollama/ollama",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic in talks to buy AI chips from UK startup Fractile",
+    "url": "https://www.theinformation.com/articles/anthropic-talks-buy-ai-chips-u-k-startup",
+    "source": "rss:The Information",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Simon Willison: Quoting Anthropic",
+    "url": "https://simonwillison.net/2026/May/3/anthropic/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "How we made DeepSeek outperform Opus 4.7 — it's a harness problem, not a model problem",
+    "url": "https://x.com/MrAhmadAwais/status/2050956678502420612",
+    "source": "twitter:search:\"AI CLI\" OR \"AI terminal\" (tool OR release)",
+    "x_engagement_24h": 353,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.1059,
+    "suggested_angle": "tutorial"
+  }
+]
