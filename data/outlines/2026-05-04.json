@@ -1,0 +1,220 @@
+{
+  "date": "2026-05-04",
+  "headline_hook": "Ollama Ships Claude Desktop, o1 Beats ER Doctors, and Altman Doubles Down on Agents",
+  "preview_topics": [
+    "Ollama's Claude Desktop bridge",
+    "AI outperforming ER triage doctors",
+    "the harness trick that beat Opus 4.7"
+  ],
+  "pick_of_the_day": {
+    "item_id": 33089,
+    "thesis": "The 12-point diagnostic accuracy gap between o1 and ER doctors doesn't just validate clinical AI — it forces an uncomfortable reckoning with liability, regulation, and the politics of admitting machines outperform humans in life-or-death decisions."
+  },
+  "model_literacy": {
+    "concept": "Tool-Input Repair Layers",
+    "relevance": "Today's harness-beats-Opus story shows that most 'bad at tool calling' failures are malformed JSON or schema mismatches, not model limitations — a simple repair layer that validates and fixes tool inputs before execution can make a $2 model outperform a $60 one."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 33050,
+          "title": "Ollama v0.23 Bridges Local Inference to Claude Desktop",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Local-first AI just got its killer integration — Claude Cowork and Claude Code now run through Ollama, making on-device agent workflows a one-click setup",
+          "key_fact": "Native Claude Desktop integration with Claude Cowork and Claude Code support"
+        },
+        {
+          "id": 32836,
+          "title": "Codex Ships Its Biggest Sprint: GPT-5.5, Browser Control, and OS-Layer Ambitions",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "OpenAI is positioning Codex as a full operating system layer — browser control, Google Workspace, and dictation signal this isn't a coding tool anymore",
+          "key_fact": "GPT-5.5 integration, browser control, Sheets & Slides support, OS-wide dictation, and auto-review in a single two-week sprint"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 33089,
+          "title": "Harvard Trial: o1 Diagnoses 67% of ER Cases vs. 50-55% by Doctors",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "This isn't a benchmark — it's a controlled clinical trial with real patients, and the accuracy gap is large enough to force regulatory and liability conversations",
+          "key_fact": "67% diagnostic accuracy for o1 vs. 50-55% for triage doctors across 246-patient Harvard-affiliated trial"
+        },
+        {
+          "id": 32858,
+          "title": "OpenAI Alignment Team Publishes Interpretability and Safety Research Thread",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Multiple interpretability papers surfaced publicly rather than buried in arxiv — a signal of increased transparency from OpenAI's safety team",
+          "key_fact": "426 likes on the research thread highlighting multiple alignment and interpretability results"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 32812,
+          "title": "Altman Calls Agents SDK 2.0 'Underrated' — Read: Not Adopted Enough",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "When the CEO personally flags a product as underrated, it's a strategic signal — OpenAI wants to own the agent orchestration layer and adoption isn't where they need it",
+          "key_fact": "2,147 likes on Altman's tweet calling Agents SDK 2.0 underrated"
+        },
+        {
+          "id": 32163,
+          "title": "Anthropic Shops for AI Chips from UK Startup Fractile",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Diversifying chip supply beyond Google, Amazon, and Nvidia signals both explosive demand and strategic hedging as inference costs become the key battleground",
+          "key_fact": "Fractile specializes in inference-focused chips — directly targeting Claude API serving costs"
+        },
+        {
+          "id": 32132,
+          "title": "The Academy Draws the Line: AI-Generated Actors and Scripts Banned from Oscars",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The highest-profile creative industry policy decision yet — and it forces the question of where AI-assisted ends and AI-generated begins",
+          "key_fact": "Both AI-generated performances and screenwriting are now explicitly ineligible"
+        },
+        {
+          "id": 32672,
+          "title": "Simon Willison Unpacks Anthropic's Latest Messaging",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Willison's analysis consistently surfaces what matters most in dense corporate communications — worth reading for the subtext",
+          "key_fact": "Independent analysis of Anthropic's strategic communications"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 32835,
+          "title": "Codex Security Plugin Covers the Full AppSec Lifecycle",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "From PR scanning to threat modeling to automated fixes — Codex now directly competes with Claude Security's public beta, making agentic AppSec a two-horse race",
+          "key_fact": "5 AppSec workflows: scan, threat model, discovery, triage, and fix"
+        },
+        {
+          "id": 32906,
+          "title": "Zero-Dependency Agent Sandbox Connector: Just Read a Guide and Write the Code",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Fred Schott's 'shadcn for agent setup' pattern could become the standard — no npm packages, no third-party deps, just a guide your agent reads and implements",
+          "key_fact": "311 likes for a zero-dependency approach to agent-sandbox integration"
+        },
+        {
+          "id": 32887,
+          "title": "Lazyweb: 257K Real App Screenshots as MCP Design Intelligence",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Solving the 'every AI-generated UI looks the same' problem by grounding coding agents in 257K real-world design patterns via MCP",
+          "key_fact": "257K+ real app and web screenshots accessible through MCP for Claude and Codex"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 32899,
+          "title": "How a Tool-Input Repair Layer Made DeepSeek Outperform Opus 4.7",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "'Bad at tool calling' is almost always a harness bug — this breakdown shows exactly how a repair layer flipped the leaderboard",
+          "key_fact": "DeepSeek outperformed Opus 4.7 on tool-calling tasks after adding a tool-input repair layer"
+        },
+        {
+          "id": 32893,
+          "title": "You're Using 20% of MCP — Here Are the 5 Primitives Most Builders Miss",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Prompts, Resources, Sampling, Roots, and Notifications — the 80% of MCP that enables dynamic context injection and real-time event streams",
+          "key_fact": "5 MCP primitives beyond tool calling: Prompts, Resources, Sampling, Roots, Notifications"
+        },
+        {
+          "id": 32877,
+          "title": "Build a Personal Knowledge Base with CLAUDE.md in 45 Minutes",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A step-by-step workflow for turning CLAUDE.md into a compounding personal wiki — 491 likes signals builders want concrete setups, not theory",
+          "key_fact": "45-minute setup: raw dump → AI-organized wiki → auto-generated outputs"
+        },
+        {
+          "id": 32878,
+          "title": "Self-Improving Claude Code Skills: From 32/50 to 47/50 Overnight",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Automated eval loops that rewrite prompts, retest, and keep winners — prompt engineering graduating from manual iteration to automated optimization",
+          "key_fact": "A hook-writer skill improved from 32/50 to 47/50 accuracy through automated overnight optimization"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 32551,
+          "title": "NanoClaw: 28.5K-Star Agent Framework Connects WhatsApp, Telegram, Slack, and More",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The fastest-growing agent framework in weeks — containerized, security-first, multi-channel messaging on Anthropic's Agents SDK",
+          "key_fact": "28.5K GitHub stars, supports WhatsApp, Telegram, Slack, Discord, Gmail via Anthropic Agents SDK"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 33072,
+      "title": "SulphurAI Drops Sulphur-2-base Text-to-Video Model",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "New open-source text-to-video foundation model trending on HuggingFace",
+      "key_fact": "102 likes on HuggingFace, competes with CogVideo and Open-Sora"
+    },
+    {
+      "id": 33047,
+      "title": "LangChain-Anthropic v1.4.3 Fixes httpx Finalizer Bug",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Update if you're running LangChain + Anthropic in production with concurrent calls",
+      "key_fact": "Guards httpx finalizers in high-concurrency deployments"
+    },
+    {
+      "id": 32801,
+      "title": "Mollick: Douglas Adams Was the Most Accurate AI Prophet",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "AI that works best when emotionally manipulated — uncomfortably accurate",
+      "key_fact": "879 likes on Mollick's cultural observation about LLM interaction dynamics"
+    },
+    {
+      "id": 32667,
+      "title": "Palantir Earnings Will Test AI's Pricing Power in Enterprise Software",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Monday's report is a bellwether for the 'AI premium' in B2B valuations",
+      "key_fact": "Follows Google, Microsoft, and Amazon earnings showing AI fueling cloud revenues"
+    },
+    {
+      "id": 33070,
+      "title": "Z-Anime: Trending Anime-Style Text-to-Image Model",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Domain-specific image generation fine-tune gaining traction",
+      "key_fact": "113 likes, 1.6K downloads on HuggingFace"
+    }
+  ],
+  "total_items": 21
+}
