@@ -1,0 +1,228 @@
+{
+  "date": "2026-05-05",
+  "headline_hook": "DeepSeek V4 Pro Storms the Frontier While Claude Goes Creative and Unity Ships Agents",
+  "preview_topics": [
+    "DeepSeek's open-source frontier assault",
+    "Claude's creative pivot and enterprise auth stack",
+    "Unity's agentic AI open beta"
+  ],
+  "pick_of_the_day": {
+    "item_id": 33303,
+    "thesis": "DeepSeek V4 Pro beating Opus 4.7 and GPT 5.5 at 10x lower cost isn't just a benchmark win — it's proof that the open-source cost curve is compressing faster than closed labs can monetize, and enterprise buyers now have real leverage in pricing negotiations."
+  },
+  "model_literacy": {
+    "concept": "Mixture of Experts (MoE) and Inference Cost Economics",
+    "relevance": "DeepSeek V4 Pro's 10x cost advantage likely stems from aggressive MoE routing — only activating a fraction of total parameters per token. Understanding MoE explains why open models can match frontier quality at a fraction of the compute, and why 'parameter count' is no longer a useful proxy for capability."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 33149,
+          "title": "Anthropic Officially Positions Claude as a Creative Partner",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "This isn't a feature drop — it's a strategic expansion beyond coding and analysis into writing, design, and artistic collaboration, signaling Anthropic sees the creative market as a growth vector.",
+          "key_fact": "First official Anthropic push into creative use cases as a primary product category"
+        },
+        {
+          "id": 33335,
+          "title": "Unity Opens AI Beta to All Developers: In-Editor Agent, Gateway, and MCP",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The largest game engine just made agentic AI a first-class citizen — millions of Unity developers now have built-in agent tooling, model routing, and MCP server support without third-party plugins.",
+          "key_fact": "3,423 likes; supports any model via AI Gateway plus native MCP Server integration"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 33493,
+          "title": "Anthropic Python SDK v0.98.0 Lands Full Enterprise Auth Stack",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Managed Agents APIs, Workload Identity Federation, interactive OAuth, and auth profiles all in one release — this is the enterprise deployment story Anthropic has been building toward.",
+          "key_fact": "Workload Identity Federation + OAuth + auth profiles in a single SDK release"
+        },
+        {
+          "id": 33494,
+          "title": "TypeScript SDK Gets Matching Enterprise Auth Features",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Parity release ensures teams using both SDKs get identical Workload Identity Federation and OAuth capabilities — no more Python-first enterprise feature gaps.",
+          "key_fact": "Feature parity with Python SDK v0.98.0 for enterprise auth"
+        },
+        {
+          "id": 33137,
+          "title": "Gemini API Ships Event-Driven Webhooks for Async Jobs",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Push-based notifications replace wasteful polling for long-running Gemini jobs — a critical infrastructure fix for anyone running batch inference or long-context tasks.",
+          "key_fact": "Eliminates polling latency and compute waste for async Gemini API calls"
+        },
+        {
+          "id": 33491,
+          "title": "Claude Code v2.1.128: Zip Plugins, Channel Auth, and MCP Diagnostics",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Quality-of-life release for teams managing multi-plugin setups — .zip archives simplify distribution, /mcp tool-count helps debug bloated configurations.",
+          "key_fact": ".zip plugin archives + /mcp diagnostics + --channels for console auth"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 33303,
+          "title": "DeepSeek V4 Pro Claims Top Open-Source Spot, Beating Opus 4.7 and GPT 5.5",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "If benchmarks hold, this is the quarter open-source crossed the frontier threshold at 10x lower cost — the implications for enterprise procurement and closed-lab pricing are enormous.",
+          "key_fact": "Claims to outperform both Opus 4.7 and GPT 5.5 at 10x lower inference cost"
+        },
+        {
+          "id": 33225,
+          "title": "Blueprint-Bench 2: GPT 5.5 Leads, But Humans Still Win Handily",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "GPT 5.5, Gemini 3.1 Pro, and Opus 4.7 cluster tightly at the top — but the real finding is that humans significantly outperform all models, grounding hype about superhuman capabilities.",
+          "key_fact": "Humans still outperform all frontier models significantly on complex tasks"
+        },
+        {
+          "id": 33319,
+          "title": "DeepSeek V4's Self-Testing: Better Code, But Dangerous Overconfidence",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Writing its own tests improves pass rates but creates a false confidence loop when wrong — teams evaluating V4 for autonomous coding need to understand this failure mode.",
+          "key_fact": "Self-validation improves performance but increases overconfidence on incorrect solutions"
+        },
+        {
+          "id": 33260,
+          "title": "Mollick: Frontier Agent Benchmarks Are Becoming Unreliable and Unaffordable",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "As tasks get longer and agents get expensive, repeated benchmarking becomes prohibitively costly and results diverge between harness and API usage — we may be losing measurement signal at the worst time.",
+          "key_fact": "Significant result variance between harness and API usage on complex tasks"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 33264,
+          "title": "Context Engineering Is the Most Under-Engineered Layer in AI Coding",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Patrick Debois argues prompts, rules, and memory deserve the same rigor as model selection — as coding agents mature, context engineering separates production-grade setups from toy demos.",
+          "key_fact": "Context (prompts, rules, memory) is now the primary differentiator in agent quality"
+        },
+        {
+          "id": 33124,
+          "title": "Granite 4.1 3B vs. SVG Pelicans: What Tiny Open Models Can Actually Draw",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Simon Willison stress-tests IBM's 3-billion parameter model on visual generation — a practical benchmark of creative capability at the small-model frontier.",
+          "key_fact": "IBM Granite 4.1 3B tested on SVG generation tasks"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 33119,
+          "title": "Sierra Hits $150M ARR in Eight Quarters, Raises at $15B+",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Bret Taylor's AI customer service play just proved enterprise agent deployment is a real revenue category — $150M ARR in under two years is the fastest validation signal the agent economy has produced.",
+          "key_fact": "$950M raise at $15B+ valuation; $150M ARR in under 2 years"
+        },
+        {
+          "id": 33121,
+          "title": "White House Weighs New AI Model Guardrails via Executive Order",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The Trump administration considering new review processes for powerful models is a policy signal that could affect deployment timelines and compliance costs for frontier model users.",
+          "key_fact": "Potential executive order establishing review processes for powerful AI models"
+        },
+        {
+          "id": 33122,
+          "title": "Cisco Acquires Agent Security Startup Astrix",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "When Cisco starts buying agent security companies, the category is real — expect accelerating M&A as autonomous agent deployments create attack surfaces that existing security stacks don't cover.",
+          "key_fact": "First major networking giant acquisition in the agent security category"
+        },
+        {
+          "id": 33129,
+          "title": "The Other vs. The Utility: Should AI Be Clippy or Anton?",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Latent Space frames the fundamental product design tension as Claude, GPT, and Gemini actively diverge in personality — the answer shapes UX, trust, and retention.",
+          "key_fact": "Claude, GPT, and Gemini are diverging in character design philosophy"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 33280,
+          "title": "HuggingFace Model Visualizer: Explore Any Model Layer by Layer",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Plug in any HuggingFace model URL and explore its architecture at any granularity — invaluable before fine-tuning or deploying a model you haven't inspected.",
+          "key_fact": "2,295 likes; works with any HuggingFace model URL"
+        },
+        {
+          "id": 33313,
+          "title": "TinyFish: Free Web Search and Fetch MCP for Any Coding Agent",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Wire real-time web access into Claude Code, Codex, or Cursor in two steps — no API key required, no cost, just plug and search.",
+          "key_fact": "Free web search and fetch endpoints, two-step MCP setup"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 33136,
+      "title": "Google's AI April 2026 Recap: Everything You Missed",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "One-stop reference for Google's broad AI portfolio moves last month",
+      "key_fact": "Official monthly roundup from Google AI Blog"
+    },
+    {
+      "id": 33120,
+      "title": "Palantir Q1: Revenue Up 85% to $1.6B, Raises Outlook",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Enterprise AI platform spending is accelerating but market already priced it in",
+      "key_fact": "85% revenue growth, raised full-year guidance to 71%"
+    },
+    {
+      "id": 33495,
+      "title": "OpenAI Python SDK v2.34.0: Per-Endpoint Admin API Keys",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Fine-grained access control for teams managing multiple OpenAI services",
+      "key_fact": "Per-endpoint Admin API keys and external key IDs"
+    },
+    {
+      "id": 33255,
+      "title": "Mollick Notes Anthropic Co-Founder Citing Only Public Sources on AI Progress",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Implication: internal evidence is even more striking than what's publicly visible",
+      "key_fact": "879 likes on the observation about what's left unsaid"
+    }
+  ],
+  "total_items": 22
+}
