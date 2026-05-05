@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Cisco acquires agent security startup Astrix",
+    "url": "https://www.theinformation.com/briefings/cisco-acquire-agent-security-startup-astrix",
+    "source": "rss:The Information",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "GPT 5.5 leads Blueprint-Bench 2, followed by Gemini 3.1 Pro and Claude Opus 4.7",
+    "url": "https://x.com/OpenAIDevs/status/2051396306363678721",
+    "source": "twitter:@OpenAIDevs",
+    "x_engagement_24h": 153,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.0459,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Context engineering keynote: the most under-engineered layer in AI coding",
+    "url": "https://x.com/aiDotEngineer/status/2051065645610017222",
+    "source": "twitter:@aiDotEngineer",
+    "x_engagement_24h": 291,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.0873,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude for Creative Work",
+    "url": "https://www.anthropic.com/news/claude-for-creative-work",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code v2.1.128: zip plugins, channels, random session colors",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.128",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  }
+]
