@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "New for financial services: ready-to-run Claude agent templates for building pitches, conducting valuation reviews, closing the books at month-end, and more",
+    "url": "https://x.com/claudeai/status/2051679629488865498",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 21784,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 34.5352,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "The updated Agents SDK is now available in TypeScript, with support for sandbox agents and an open-source harness built in",
+    "url": "https://x.com/OpenAIDevs/status/2051725072873001338",
+    "source": "twitter:@OpenAIDevs",
+    "x_engagement_24h": 619,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.1857,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "As AI takes on work humans can't fully check, a capable model could deliberately hold back—and we'd never know. New Anthropic Fellows research finds that such a model can be trained to near-full capability",
+    "url": "https://x.com/AnthropicAI/status/2051718308702081047",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 1198,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.3594,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "New Anthropic Fellows research: Model Spec Midtraining (MSM)",
+    "url": "https://x.com/AnthropicAI/status/2051758528562364902",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 890,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.267,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Building a new enterprise AI services company with Blackstone, Hellman & Friedman, and Goldman Sachs",
+    "url": "https://www.anthropic.com/news/enterprise-ai-services-company",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25,
+    "suggested_angle": "news"
+  }
+]
