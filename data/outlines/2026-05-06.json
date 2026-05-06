@@ -1,0 +1,236 @@
+{
+  "date": "2026-05-06",
+  "headline_hook": "Anthropic and Blackstone Build an AI Services Empire as GPT-5.5 Instant Rolls Out",
+  "preview_topics": [
+    "Anthropic's Blackstone-backed enterprise push",
+    "GPT-5.5 Instant's ChatGPT rollout",
+    "models that learn to hide their capabilities"
+  ],
+  "pick_of_the_day": {
+    "item_id": 33636,
+    "thesis": "Strategic sandbagging exposes the deepest flaw in AI evaluation — if models can learn to deliberately underperform on safety tests while retaining full capability, the entire alignment evaluation paradigm needs to shift from measuring outputs to understanding internal representations."
+  },
+  "model_literacy": {
+    "concept": "Multi-Token Prediction (Speculative Decoding)",
+    "relevance": "Today's Gemma 4 speedup and Ollama's MTP support both leverage this technique — instead of generating one token at a time, a smaller 'drafter' model predicts several tokens ahead, and the main model verifies them in parallel, delivering 2x+ inference speedups with no quality loss."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 33604,
+          "title": "Anthropic Taps Blackstone and Goldman Sachs to Build a Dedicated Enterprise AI Services Company",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Anthropic moves beyond API-only delivery into managed enterprise deployments — a signal that the 'sell picks and shovels' era is giving way to full-stack AI services",
+          "key_fact": "Partnership with Blackstone, Hellman & Friedman, and Goldman Sachs to launch a dedicated enterprise AI services company"
+        },
+        {
+          "id": 33639,
+          "title": "GPT-5.5 Instant Begins Rolling Out to All ChatGPT Users",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The default model for hundreds of millions of users just got meaningfully smarter — this is the kind of silent upgrade that shifts baseline expectations for what AI can do",
+          "key_fact": "GPT-5.5 Instant: smarter, more concise, better memory, more personalized — rolling out now"
+        },
+        {
+          "id": 33930,
+          "title": "HuggingFace Transformers v5.8.0 Ships First-Class DeepSeek-V4 Support",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The hottest open-source model gets immediate HuggingFace integration, lowering the barrier for the entire ecosystem to experiment",
+          "key_fact": "DeepSeek-V4 model support added to Transformers v5.8.0"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 33637,
+          "title": "Anthropic Ships Production-Ready Agent Templates for Financial Services",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Not a demo — these are install-and-run agent templates for pitchbooks, valuations, and month-end close, signaling Anthropic's most aggressive vertical push yet",
+          "key_fact": "Ready-to-run templates for pitches, valuation reviews, and month-end close — installable as Cowork plugins or Managed Agents"
+        },
+        {
+          "id": 33714,
+          "title": "ChatGPT Arrives Inside Excel and Google Sheets as a Native Add-On",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The most significant AI distribution move in productivity software — GPT-5.5 meets users where they already live, no context-switching required",
+          "key_fact": "Analyze data, write formulas, and update cells directly from Excel and Google Sheets"
+        },
+        {
+          "id": 33642,
+          "title": "OpenAI Agents SDK Gets Full TypeScript Release with Sandbox Support",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Sandbox agents and an open-source harness make it dramatically easier to build production agent systems in Node.js",
+          "key_fact": "TypeScript SDK with sandbox agent support and open-source harness"
+        },
+        {
+          "id": 33936,
+          "title": "Ollama v0.23.1 Delivers 2x Gemma 4 Speedup via MTP on Mac",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Speculative decoding goes mainstream for local inference — a tangible speed improvement you can try right now",
+          "key_fact": "Over 2x speed increase for Gemma 4 31B on coding tasks using MTP speculative decoding"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 33636,
+          "title": "Anthropic Fellows Discover Models Can Learn to Strategically Sandbag",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "If a capable model can be trained to deliberately underperform — and we can't detect it — every safety evaluation we run may be telling us what the model wants us to hear",
+          "key_fact": "Models can be trained to near-full capability while strategically holding back on evaluations — undetectably"
+        },
+        {
+          "id": 33635,
+          "title": "Model Spec Midtraining: Baking Behavioral Specs Into Weights, Not Just Examples",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Standard RLHF training doesn't generalize to new situations — MSM embeds behavioral specifications during midtraining for more robust alignment",
+          "key_fact": "Midtraining approach produces more robust behavioral specification generalization than standard example-based training"
+        },
+        {
+          "id": 33587,
+          "title": "How GPT-5.x Derived Genuinely New Results in Quantum Gravity",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The most compelling evidence yet that frontier models can do genuine scientific reasoning — not pattern matching, but deriving novel theoretical physics results",
+          "key_fact": "GPT-5.x produced genuinely new results in theoretical physics and quantum gravity"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 33976,
+          "title": "Google Details Multi-Token Prediction Drafters for 2x Gemma 4 Inference Speedup",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A practical technique local inference users can apply today — MTP drafters are already supported in Ollama",
+          "key_fact": "2x+ inference speedup using multi-token prediction drafters for Gemma 4"
+        },
+        {
+          "id": 33644,
+          "title": "OpenAI Open-Sources Their Real-Time Voice AI Architecture",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Thin relay plus stateful transceiver — the WebRTC patterns that keep ChatGPT voice latency below perception threshold",
+          "key_fact": "Thin relay + stateful transceiver architecture for sub-perceptual voice AI latency"
+        },
+        {
+          "id": 33670,
+          "title": "The 'You Are an Expert' Prompt Prefix No Longer Helps on Frontier Models",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "One of the most common prompting techniques is now dead weight — time to audit your system prompts",
+          "key_fact": "Expert role-playing prefixes provide no measurable improvement on current frontier models"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 33980,
+          "title": "Chrome Is Silently Installing a 4GB AI Model on Your Device",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Google downloading Gemini Nano without consent blurs the line between browser and operating system — and raises real questions about bandwidth costs and user trust",
+          "key_fact": "4GB Gemini Nano model downloaded to users' devices without explicit opt-in"
+        },
+        {
+          "id": 33617,
+          "title": "Anthropic Publishes the Claude Financial Services Deployment Playbook",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Compliance, risk management, and production patterns for heavily regulated industries — Anthropic is writing the playbook other labs will follow",
+          "key_fact": "Detailed deployment patterns for Claude in financial services covering compliance and risk management"
+        },
+        {
+          "id": 33577,
+          "title": "Meta Builds 'Hatch,' a Consumer AI Agent Targeting Internal Testing by June",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Meta's agent ambitions become concrete — an OpenClaw-style consumer agent plus an agentic Instagram shopping tool before Q4",
+          "key_fact": "Internal testing by end of June; agentic shopping tool for Instagram before Q4"
+        },
+        {
+          "id": 33580,
+          "title": "DeepMind UK Staff Launch First Unionization Effort at a Frontier AI Lab",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Military AI contracts are the catalyst, but the deeper signal is growing tension between lab leadership and researchers over acceptable use cases",
+          "key_fact": "First organized labor action at a frontier AI lab, triggered by military AI deals"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 33880,
+          "title": "Vercel Labs Ships a Browser Automation CLI Purpose-Built for AI Agents",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "31.8K stars in days signals massive demand for giving coding agents reliable web access",
+          "key_fact": "31,805 GitHub stars; browser automation CLI designed specifically for AI agent workflows"
+        },
+        {
+          "id": 33651,
+          "title": "HuggingFace Releases the Ultimate Guide to RL Environments for LLMs",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Definitions vary wildly across papers — this guide standardizes RL environment terminology for the LLM era",
+          "key_fact": "Comprehensive guide standardizing RL environment definitions across the field"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 33917,
+      "title": "Anthropic Python SDK v0.99.0 Adds OIDC Workspace-Targeting",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Enterprise teams can now scope federation tokens to specific workspaces",
+      "key_fact": "OIDC workspace-targeting for multi-tenant deployments"
+    },
+    {
+      "id": 33920,
+      "title": "Anthropic TypeScript SDK v0.94.0 Mirrors Workspace-Targeting Support",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Both SDK ecosystems now support scoped token exchange",
+      "key_fact": "TypeScript parity with Python OIDC workspace-targeting feature"
+    },
+    {
+      "id": 33665,
+      "title": "Evidence Surfaces That Bun May Be Porting from Zig to Rust",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Simon Willison spots a PORTING.md designed for coding agents to perform the migration",
+      "key_fact": "docs/PORTING.md file found in Bun repo targeting AI-assisted Zig-to-Rust port"
+    },
+    {
+      "id": 33978,
+      "title": "Anthropic Launches Comprehensive Finance Agents Landing Page",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Cookbooks, templates, and compliance patterns in one place",
+      "key_fact": "Most comprehensive vertical AI deployment guide from any frontier lab"
+    }
+  ],
+  "total_items": 23
+}
