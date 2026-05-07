@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "We've agreed to a partnership with @SpaceX that will substantially increase our compute capacity.",
+    "url": "https://x.com/claudeai/status/2052060691893227611",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 102798,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 43.8394,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Live from Code with Claude: dreaming in Claude Managed Agents as a research preview. Outcomes, multiagent orchestration, and webhooks are now in public beta.",
+    "url": "https://x.com/claudeai/status/2052067399088664981",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 9366,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 35.809799999999996,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Google DeepMind partners with EVE Online developers to explore the next frontier of AI research in games",
+    "url": "https://x.com/GoogleDeepMind/status/2052011542707630461",
+    "source": "twitter:@GoogleDeepMind",
+    "x_engagement_24h": 1639,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.4917,
+    "suggested_angle": "analysis"
+  },
+  {
+    "topic": "AWS Agent Toolkit launches: 40+ skills, 3 agent plugins, Remote MCP server for 15,000+ AWS APIs",
+    "url": "https://x.com/clare_liguori/status/2052115538701394205",
+    "source": "twitter:search:\"MCP\" (implementation OR plugin OR server OR tool) min_faves:10 -crypto",
+    "x_engagement_24h": 396,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.1188,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Preview in Claude Code on desktop makes it easy to give Claude context. You can attach DOM elements or use the pencil tool to draw directly on your UI!",
+    "url": "https://x.com/amorriscode/status/2052065351673033079",
+    "source": "twitter:@amorriscode",
+    "x_engagement_24h": 172,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.0516,
+    "suggested_angle": "news"
+  }
+]
