@@ -1,0 +1,231 @@
+{
+  "date": "2026-05-07",
+  "headline_hook": "Anthropic Taps SpaceX for Compute, Ships Agents That Dream Between Sessions",
+  "preview_topics": [
+    "the SpaceX-Anthropic compute deal",
+    "agents that dream between sessions",
+    "OpenAI's open networking protocol"
+  ],
+  "pick_of_the_day": {
+    "item_id": 34116,
+    "thesis": "DeepMind choosing EVE Online as an alignment testbed signals that the hardest AI safety problems — emergent deception, coalition manipulation, long-term planning — can only be studied where they arise naturally among adversarial agents, not in sanitized benchmarks."
+  },
+  "model_literacy": {
+    "concept": "Asynchronous Agent Reasoning (Dreaming)",
+    "relevance": "Anthropic's 'dreaming' lets agents reason between sessions without user prompts — a fundamentally different compute paradigm from synchronous inference that today's managed agents announcement introduces to production."
+  },
+  "sections": [
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 34088,
+          "title": "Anthropic Partners with SpaceX for Colossus 1 Compute Access",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The biggest compute deal in AI history bypasses traditional cloud — Anthropic gets direct access to SpaceX's Colossus 1 supercomputer, signaling a new era of compute partnerships outside AWS/Azure/GCP.",
+          "key_fact": "94,395 likes on the announcement tweet — the most engagement any AI infrastructure deal has generated"
+        },
+        {
+          "id": 34095,
+          "title": "Claude Usage Limits Double Immediately After SpaceX Deal",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Anthropic translates the compute deal into user value within hours — peak throttling ends, 5-hour limits double.",
+          "key_fact": "5-hour usage limits doubled across all tiers"
+        },
+        {
+          "id": 34206,
+          "title": "DeepSeek Eyes $50B Valuation in First Fundraise",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The open-source frontier model business model gets its biggest investor validation yet — Chinese AI labs now command US-incumbent-level valuations.",
+          "key_fact": "$50 billion valuation for a company that gives its models away"
+        },
+        {
+          "id": 34018,
+          "title": "Silicon Valley Pivots from APIs to Full Services Companies",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Latent Space connects the week's dots: Anthropic enterprise services, Sierra's ARR, Meta's Hatch — AI labs are becoming services companies.",
+          "key_fact": "Sierra hit $150M ARR selling AI services, not APIs"
+        }
+      ]
+    },
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 34056,
+          "title": "Claude Managed Agents Ship Dreaming, Outcomes, and Multiagent Orchestration",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Agents that reason asynchronously between sessions — 'dreaming' is the most philosophically ambitious feature any AI platform has shipped. Outcomes and multiagent orchestration complete the production story.",
+          "key_fact": "Dreaming is in research preview; outcomes and multiagent orchestration in public beta"
+        },
+        {
+          "id": 34129,
+          "title": "HuggingFace Launches Agentic Robotics App Store",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The model hub playbook applied to physical AI — a marketplace with 300+ ready-to-deploy robot apps.",
+          "key_fact": "300+ apps across 10,000+ connected robots"
+        },
+        {
+          "id": 34201,
+          "title": "Tencent's Hy3 Captures #1 on OpenRouter by Usage Volume",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Developers are voting with their tokens — this free open-source model hit the top spot in two weeks. Usage volume beats benchmarks as a signal.",
+          "key_fact": "3.66T tokens consumed, +298% weekly volume surge"
+        },
+        {
+          "id": 34417,
+          "title": "Google Releases Gemma 4 31B Any-to-Any Assistant Model",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Multimodal input AND output in a single open model you can run locally — Google's strongest play in the local-deployment sweet spot.",
+          "key_fact": "31B parameters, any-to-any modality, runs locally"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 34104,
+          "title": "OpenAI Open-Sources MRC: A Networking Protocol Built for AI Training Clusters",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Five companies that compete on everything else agreed the networking layer isn't a moat — MRC could become the TCP/IP of GPU clusters.",
+          "key_fact": "Partnership spans AMD, Broadcom, Intel, Microsoft, and NVIDIA"
+        },
+        {
+          "id": 34217,
+          "title": "AWS Agent Toolkit Ships 15,000+ APIs via Single MCP Server",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The largest single MCP tool surface any cloud provider has shipped — 40 pre-built skills and 3 agent plugins.",
+          "key_fact": "15,000+ AWS APIs accessible through one Remote MCP server"
+        },
+        {
+          "id": 34385,
+          "title": "Anthropic Python SDK Hits v0.100.0 with Full Managed Agents Support",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Today's platform announcements are immediately usable in code — multiagent, outcomes, webhooks, and vault validation all land in one SDK release.",
+          "key_fact": "v0.100.0 milestone release"
+        },
+        {
+          "id": 34399,
+          "title": "Next.js 16.2.5 Patches High-Severity DoS and Middleware Bypass",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "If you're running Next.js in production, update now — DoS via Server Components and middleware bypass in App Router.",
+          "key_fact": "Two high-severity CVEs patched"
+        },
+        {
+          "id": 34098,
+          "title": "Claude Code Desktop Gets Visual Annotation and DOM Context",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Draw directly on your UI to give Claude context — bridges visual debugging and agent-assisted coding.",
+          "key_fact": "Pencil tool draws on live UI, DOM elements attach as context"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 34116,
+          "title": "DeepMind Partners with EVE Online as an AI Alignment Testbed",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "MMOs with emergent economies and social deception are the only environments complex enough to test agent memory, long-term planning, and manipulation detection at scale.",
+          "key_fact": "EVE Online has 20+ years of emergent player-driven economic and social dynamics"
+        },
+        {
+          "id": 34184,
+          "title": "SubQ Claims 50x Faster and 20x Cheaper Than Frontier Models",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Extraordinary efficiency claims with 12M context — if independently validated, this changes inference economics entirely. Big if.",
+          "key_fact": "Claims 50x speed, 20x cost reduction, 12M context window"
+        },
+        {
+          "id": 34029,
+          "title": "Correctness Before Corrections: Why First-Try RL Beats Iterative Fixing",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "ServiceNow shows that training agents to get code right the first time outperforms training them to self-repair — practical insight for code-gen pipeline design.",
+          "key_fact": "Correctness-first RL outperforms correction-based approaches in vLLM V0→V1"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 34443,
+          "title": "Tilde.run: Agent Sandbox with Transactional Filesystem",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Every file operation gets transactional semantics and version history — rollback any agent mistake instantly at the filesystem level.",
+          "key_fact": "Versioned filesystem with instant rollback for agent sandboxing"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 34087,
+      "title": "Code with Claude Keynote: Dreaming Announced Live",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The live event companion to today's Managed Agents blog post",
+      "key_fact": "8,803 likes on keynote tweet"
+    },
+    {
+      "id": 34142,
+      "title": "Mollick: SpaceX Deal Is a Blow to Grok's Frontier Ambitions",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "If SpaceX sells Colossus compute to Anthropic, what's left for xAI?",
+      "key_fact": "Implies xAI pivoting away from frontier training on Colossus 1"
+    },
+    {
+      "id": 34382,
+      "title": "Claude Code v2.1.132: Session IDs and 28 CLI Changes",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Subprocess tracing, alt-screen opt-out, pasting UX",
+      "key_fact": "28 CLI changes shipped alongside Code with Claude event"
+    },
+    {
+      "id": 34131,
+      "title": "Qwen3.6 35B Lands on HuggingFace",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Open models keep iterating in the 30-40B local deployment sweet spot",
+      "key_fact": "35B parameters, community fine-tune"
+    },
+    {
+      "id": 34071,
+      "title": "Multiagent Sessions API Docs Now Live",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Implementation patterns and beta headers for today's multiagent announcement",
+      "key_fact": "managed-agents-2026-04-01 beta header"
+    },
+    {
+      "id": 34445,
+      "title": "Official Anthropic Blog: SpaceX Deal Details and Limit Timeline",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The full blog post with compute timeline specifics the tweets don't cover",
+      "key_fact": "350 likes, 287 RTs on Hacker News"
+    }
+  ],
+  "total_items": 23
+}
