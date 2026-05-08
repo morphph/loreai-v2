@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Usage limits are up, effective today we're doubling Claude Code's 5-hour limits for Pro, Max, Team and seat-based Enterprise",
+    "url": "https://x.com/felixrieseberg/status/2052191114179047452",
+    "source": "twitter:@felixrieseberg",
+    "x_engagement_24h": 42993,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 10,
+    "composite_score": 61.8979,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "New Anthropic research: Natural Language Autoencoders. Models like Claude talk in words but think in numbers. Here, we train Claude to translate its activations into human-readable text.",
+    "url": "https://x.com/AnthropicAI/status/2052435436157452769",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 9014,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 47.7042,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude for Excel, PowerPoint, and Word are now generally available, and Claude for Outlook is in public beta.",
+    "url": "https://x.com/claudeai/status/2052445786651168849",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 22049,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 39.6147,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "We're sharing the research agenda of The Anthropic Institute, or TAI.",
+    "url": "https://x.com/AnthropicAI/status/2052385812881228218",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 2451,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 37.7353,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Collaborate with Claude across Excel, PowerPoint, Word and Outlook",
+    "url": "https://www.claude.com/blog/collaborate-with-claude-across-excel-powerpoint-word-and-outlook",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 37,
+    "suggested_angle": "news"
+  }
+]
