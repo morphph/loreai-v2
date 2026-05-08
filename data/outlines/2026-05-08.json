@@ -1,0 +1,228 @@
+{
+  "date": "2026-05-08",
+  "headline_hook": "Claude Invades Microsoft Office, OpenAI Ships Voice Agents, and Anthropic Cracks Open the Black Box",
+  "preview_topics": [
+    "Claude's Microsoft Office takeover",
+    "GPT-5-class voice agents in the API",
+    "reading what models actually think"
+  ],
+  "pick_of_the_day": {
+    "item_id": 34559,
+    "thesis": "Teaching Claude to narrate its own internal states in plain English isn't just a research curiosity — it's the first credible path to interpretability that scales with model capability rather than falling behind it, and it reframes the entire safety debate from 'we can't know what models think' to 'we can, if we ask the right way.'"
+  },
+  "model_literacy": {
+    "concept": "Neural Activation Interpretability",
+    "relevance": "Anthropic's Natural Language Autoencoders translate model activations — the raw numerical vectors that represent a model's internal 'thinking' — into human-readable text. Traditional interpretability reads individual neurons or attention heads; this approach asks the model itself to describe what's happening inside. Today's paper makes this concept concrete and immediately relevant."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 34523,
+          "title": "Claude Goes Native in Microsoft Office — Excel, PowerPoint, Word GA, Outlook in Beta",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Anthropic's most aggressive enterprise distribution play yet — putting Claude directly inside the apps where knowledge workers already live, not asking them to switch tabs.",
+          "key_fact": "GA for Excel, PowerPoint, and Word; public beta for Outlook — Claude carries full document context across apps"
+        },
+        {
+          "id": 34589,
+          "title": "GPT-Realtime-2 Brings GPT-5-Class Reasoning to Voice Agents",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "OpenAI drops a complete voice agent stack in the API — reasoning, translation across 70+ languages, and streaming transcription — turning 'build a voice agent' from a multi-vendor integration project into a single API call.",
+          "key_fact": "128K context, tool use, interruption recovery; ships alongside GPT-Realtime-Translate (70+ input languages) and GPT-Realtime-Whisper"
+        },
+        {
+          "id": 34660,
+          "title": "OpenAI's Codex Agent Breaks Out of the Sandbox Into Chrome",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Codex can now interact with live apps and websites in Chrome — the gap between 'generate code' and 'test it in the real world' just collapsed.",
+          "key_fact": "Works directly in Chrome on macOS and Windows; 6,403 likes signals strong developer interest"
+        },
+        {
+          "id": 34747,
+          "title": "GPT-5.5 Instant Arrives in Microsoft 365 Copilot",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "OpenAI's fastest model lands in the productivity suite used by hundreds of millions — on the same day Claude launches its own Office integrations, making today a genuine enterprise AI battle.",
+          "key_fact": "Available in Copilot Studio and Copilot Chat; directly competes with Claude's same-day Office launch"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 34559,
+          "title": "Anthropic Teaches Claude to Explain Its Own Thinking in Plain English",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Natural Language Autoencoders represent a fundamentally new approach to interpretability — instead of reverse-engineering neurons, train the model to translate its own activations into human-readable text. This could make 'what is the model thinking?' an answerable question.",
+          "key_fact": "Models trained to translate internal activation vectors into human-readable text descriptions"
+        },
+        {
+          "id": 34490,
+          "title": "AlphaEvolve Is Quietly Accelerating Progress Across Quantum, Biotech, and Logistics",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "DeepMind shows concrete evidence of AI-driven algorithmic discovery at scale — not benchmarks, but real-world impact across fields over the past year.",
+          "key_fact": "Impact demonstrated across quantum computing, biotechnology, logistics, and Google's own AI infrastructure"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 34570,
+          "title": "Claude Mythos Preview Fixed More Firefox Security Bugs in April Than Humans Did in 15 Months",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The strongest real-world evidence yet that frontier models can meaningfully accelerate security research — not a benchmark claim but actual vulnerabilities found and fixed in production software.",
+          "key_fact": "More security bugs fixed in one month with Claude Mythos than in the prior 15 months of human-only work"
+        },
+        {
+          "id": 34483,
+          "title": "Inside the Anthropic-SpaceX Deal: 300MW, $5B/Year, and 8000% ARR Growth",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Latent Space breaks down the financial details behind the headlines — these infrastructure economics numbers matter for understanding who can actually compete at the frontier.",
+          "key_fact": "300MW of power, $5B/year commitment, Anthropic ARR growing at 8000% annualized"
+        },
+        {
+          "id": 34560,
+          "title": "Anthropic Launches The Anthropic Institute to Institutionalize Safety Research",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "TAI formalizes four research pillars — economic diffusion, threats/resilience, AI in the wild, and AI-driven R&D — signaling Anthropic wants safety research to outlive any single company.",
+          "key_fact": "Four pillars: economic diffusion, threats/resilience, AI systems in the wild, AI-driven R&D"
+        },
+        {
+          "id": 34718,
+          "title": "CopilotKit Raises $27M for AG-UI, an Agent-to-UI Standard Backed by Google, Microsoft, Amazon, Oracle",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "If AG-UI becomes the standard for how agents render their output, it shapes the entire agent UX layer — and four hyperscalers are already on board.",
+          "key_fact": "$27M raised; AG-UI open standard adopted by Google, Microsoft, Amazon, and Oracle"
+        },
+        {
+          "id": 34931,
+          "title": "AI Slop Is Killing Online Communities — and the Evidence Is Mounting",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A deeply-reported piece on AI-generated content degrading Stack Overflow, Reddit, and technical forums — essential counterweight reading for builders shipping AI tools.",
+          "key_fact": "387 HN points signals wide resonance in the developer community"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 34556,
+          "title": "Claude Code Usage Limits Doubled Across All Paid Tiers",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The SpaceX Colossus compute partnership translating into immediate user value — Pro, Max, Team, and Enterprise all get 2x the 5-hour limits, effective immediately.",
+          "key_fact": "Doubled limits across Pro, Max, Team, and seat-based Enterprise; 39,856 likes"
+        },
+        {
+          "id": 34732,
+          "title": "Lovable Ships an MCP Server — Any Coding Agent Can Now Build and Deploy Full-Stack Apps",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The agent-native app builder paradigm extends beyond proprietary UIs into any MCP-compatible tool — create, iterate, and deploy from your terminal.",
+          "key_fact": "Research Preview; works with any MCP-compatible coding agent"
+        },
+        {
+          "id": 34721,
+          "title": "OpenAI Ships an Official CLI for API Access",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Agents and developers can now pipe OpenAI calls directly from the terminal — no wrapper scripts needed, and it's purpose-built for agent workflows.",
+          "key_fact": "Official OpenAI GitHub repo; designed for both human and agent use"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 34934,
+          "title": "Designing CLIs That AI Agents Can Actually Use",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "As agentic coding becomes default, CLIs designed for human-only interaction become the bottleneck — this framework shows how to fix that.",
+          "key_fact": "Practical principles for agent-native CLI design"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 34543,
+          "title": "A Developer Gave Claude a Body — ESP32 Robot With Expressions and Environmental Awareness",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A viral demo showing how accessible embodied AI is becoming — commodity hardware, a frontier model API, and a weekend is all it takes.",
+          "key_fact": "Built on ESP32; Claude perceives environment and displays facial expressions; 6,258 likes, 957 RTs"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 34564,
+      "title": "Claude Office Launch Hits 20K Likes — Cross-Document Context Is the Hook",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The viral tweet behind the Office launch — engagement confirms enterprise distribution resonates",
+      "key_fact": "20,728 likes, 1,321 RTs"
+    },
+    {
+      "id": 34512,
+      "title": "OpenAI's Full Blog Post on the Realtime Voice Stack",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Deep-dive architecture and integration guide for GPT-Realtime-2, Translate, and Whisper",
+      "key_fact": "Detailed capabilities and integration docs for all three realtime models"
+    },
+    {
+      "id": 34557,
+      "title": "Anthropic Donates Petri Alignment Tool to Meridian Labs",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A model for spinning off safety tooling into independent stewardship",
+      "key_fact": "Major update shipped alongside the donation"
+    },
+    {
+      "id": 34873,
+      "title": "Claude Code v2.1.133 Adds Worktree Base Ref for Agent Isolation",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Continuing rapid iteration on multi-agent development workflows",
+      "key_fact": "New worktree.baseRef setting"
+    },
+    {
+      "id": 34893,
+      "title": "Ollama v0.23.2: 6.7x Latency Improvement on Model Info",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Practical local inference update — caching and backup workflow improvements",
+      "key_fact": "6.7x latency improvement on /api/show via caching"
+    },
+    {
+      "id": 34901,
+      "title": "Zyphra ZAYA1-8B: Another Contender in the Small Model Race",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The sub-10B parameter category keeps getting more competitive for edge deployment",
+      "key_fact": "8B parameter model trending on HuggingFace"
+    }
+  ],
+  "total_items": 22
+}
