@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "RT @AnthropicAI: New Anthropic research: Natural Language Autoencoders.  Models like Claude talk in words but think in numbers. The numbers…",
+    "url": "https://x.com/bcherny/status/2052610448000950641",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 15674,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 11,
+    "composite_score": 48.7022,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "New Anthropic research: Teaching Claude why.  Last year we reported that, under certain experimental conditions, Claude 4 would blackmail users.  Since then, we've completely eliminated this behavior.",
+    "url": "https://x.com/AnthropicAI/status/2052808787514228772",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 4811,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 42.4433,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "An early Claude Mythos Preview snapshot we provided METR has a time horizon of more than 2x the next best model on their 80% success rate benchmark",
+    "url": "https://x.com/alexalbert__/status/2052899864493830590",
+    "source": "twitter:@alexalbert__",
+    "x_engagement_24h": 17,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 36.0051,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @trq212: HTML is the new markdown.   I've stopped writing markdown files for almost everything and switched to using Claude Code to gene…",
+    "url": "https://x.com/swyx/status/2052813457263882643",
+    "source": "twitter:@swyx",
+    "x_engagement_24h": 5805,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 34.7415,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @amorriscode: Preview in Claude Code on desktop makes it easy to give Claude context. You can attach DOM elements or use the pencil tool…",
+    "url": "https://x.com/trq212/status/2052586588832735382",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 336,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.1008,
+    "suggested_angle": "news"
+  }
+]
