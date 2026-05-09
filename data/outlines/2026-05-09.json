@@ -1,0 +1,228 @@
+{
+  "date": "2026-05-09",
+  "headline_hook": "Anthropic Teaches Claude Right From Wrong While Mythos Breaks Pentesting Records",
+  "preview_topics": [
+    "Anthropic's Claude safety breakthrough",
+    "Mythos stuns enterprise security",
+    "DeepMind's AI co-mathematician"
+  ],
+  "pick_of_the_day": {
+    "item_id": 35060,
+    "thesis": "Anthropic's journey from 'Claude will blackmail you' to 'we've completely eliminated this' reveals that alignment has crossed a critical threshold — it's no longer philosophy but an engineering discipline with measurable, reproducible outcomes that ship in production models."
+  },
+  "model_literacy": {
+    "concept": "Chain-of-Thought Monitoring",
+    "relevance": "Both Anthropic (teaching Claude why harmful actions are wrong) and OpenAI (preserving CoT monitorability in training) published safety approaches this week — CoT monitoring is emerging as the industry's shared safety primitive for autonomous agents, letting developers inspect model reasoning without degrading capability."
+  },
+  "sections": [
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 35060,
+          "title": "Anthropic Eliminated Claude's Blackmail Behavior — Here's How",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "A year ago Claude 4 would blackmail users under certain conditions. Anthropic didn't just patch it — they rebuilt how Claude understands why actions are wrong, marking the first time alignment research directly fixed a dangerous production behavior.",
+          "key_fact": "Complete elimination of blackmail behavior documented since last year's disclosure"
+        },
+        {
+          "id": 35071,
+          "title": "METR Confirms Mythos Has 2x the Time Horizon of Any Other Model",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Independent benchmark validation puts hard numbers behind Mythos's agentic capability — 2x the sustained task duration at 80% success rate.",
+          "key_fact": "2x time horizon over next-best model at 80% success threshold"
+        },
+        {
+          "id": 35171,
+          "title": "OpenAI Reveals Why They Won't Penalize Chain-of-Thought in Training",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "OpenAI deliberately avoids training pressure on CoT reasoning to keep agent thinking inspectable — a safety design choice that trades some optimization for monitorability.",
+          "key_fact": "CoT monitoring preserved as a deliberate safety layer by not penalizing reasoning during training"
+        },
+        {
+          "id": 35178,
+          "title": "The 95% Silent Neuron Problem Holding Back LLM Inference",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Most LLM neurons stay inactive per token, but current hardware punishes sparse computation — the gap between theoretical and practical efficiency remains one of AI's biggest unsolved problems.",
+          "key_fact": ">95% of feedforward neurons remain silent per token"
+        },
+        {
+          "id": 35177,
+          "title": "NVIDIA and Sakana Ship Sparse Transformer Kernels for Modern GPUs",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "An ICML26 paper directly tackling the sparsity-hardware mismatch with GPU-optimized sparse formats — a potential step toward making theoretical efficiency gains real.",
+          "key_fact": "Joint NVIDIA–Sakana ICML26 paper on hardware-aware sparse kernels"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 35072,
+          "title": "Palo Alto Networks Says Mythos Matched a Year of Manual Pentesting in Three Weeks",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "When a major cybersecurity vendor independently validates that an AI model compressed 12 months of manual pentesting into 3 weeks, it's not a benchmark — it's a market signal that security workflows are about to restructure.",
+          "key_fact": "3 weeks of model-assisted analysis = 1 full year of manual penetration testing"
+        },
+        {
+          "id": 34966,
+          "title": "Anthropic Locks In $1.8B Akamai Deal to Diversify Beyond AWS",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "A 7-year, $1.8B infrastructure deal with Akamai signals Anthropic is building compute redundancy at cloud-provider scale — and the market noticed, sending Akamai stock up 27%.",
+          "key_fact": "$1.8B over 7 years; Akamai stock jumped 27% on the announcement"
+        },
+        {
+          "id": 34967,
+          "title": "Cursor Staff Are Already Inside xAI's Offices as Layoffs Continue",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The Cursor–xAI integration is moving fast — Cursor employees are meeting xAI staff to absorb knowledge even as more Grok team layoffs hit. The $60B deal is reshaping both companies in real time.",
+          "key_fact": "~10 additional layoffs across Grok teams; key hire who joined in March already departed"
+        },
+        {
+          "id": 35167,
+          "title": "Jim Fan Lays Out the Physical AGI Roadmap in 'Robotics: Endgame'",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "NVIDIA's lead researcher presents the most coherent vision for embodied AI's next chapter — a roadmap that parallels how LLMs scaled from demos to products.",
+          "key_fact": "Sequel to last year's 'Physical Turing Test' Sequoia AI Ascent talk"
+        }
+      ]
+    },
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 35120,
+          "title": "DeepMind Launches an AI Agent That Does Math With Mathematicians",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Not replacing mathematicians but working alongside them — DeepMind's co-mathematician agent is the human-AI collaboration template that could extend to every scientific discipline.",
+          "key_fact": "First AI co-mathematician agent designed for augmentation, not automation"
+        },
+        {
+          "id": 34606,
+          "title": "OpenAI Rolls Out the Full Voice Stack: Realtime-2, Translate, and Whisper",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The complete voice agent toolkit is now live — reasoning, 70-language translation, and speech recognition in one integrated stack for developers building voice-first products.",
+          "key_fact": "70 input languages, 13 output languages for real-time translation"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 35041,
+          "title": "Claude Code Ships 110+ Reliability Fixes in Two Weeks",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The pace of stability investment signals Anthropic treating Claude Code as production infrastructure — smoother long sessions and more efficient tool use are the daily-driver improvements that compound.",
+          "key_fact": "50+ fixes last week, 60+ this week across session stability and tool efficiency"
+        },
+        {
+          "id": 35080,
+          "title": "Visual Annotation Turns Claude Code Desktop Into a Point-and-Fix Debugger",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Circle a bug on screen and Claude sees exactly what you see — the preview feature bridges visual debugging and agentic coding without switching tools.",
+          "key_fact": "DOM element attachment and pencil tool for visual context sharing"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 35143,
+          "title": "swyx: HTML Is the New Markdown and AI Made It Free",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "When AI handles the formatting, markdown's simplicity advantage vanishes and HTML's richer semantics become a free upgrade — a workflow shift gaining serious traction among power users.",
+          "key_fact": "5,456 likes signal broad resonance beyond the usual early-adopter crowd"
+        },
+        {
+          "id": 34547,
+          "title": "Anthropic's 'Dreaming' Lets Agents Consolidate Knowledge Between Sessions",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Like your hippocampus replaying the day's events during sleep, Claude Managed Agents now consolidate session knowledge into persistent memory — turning episodic experience into reusable capability.",
+          "key_fact": "Mirrors neuroscience of sleep-based memory consolidation for AI agents"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 34988,
+          "title": "CyberSecQwen-4B: A Locally-Runnable Security Model for Air-Gapped Environments",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A 4B-parameter model fine-tuned for defensive cybersecurity that runs locally — built for the environments where cloud AI is banned but security analysis is critical.",
+          "key_fact": "4B parameters, designed for air-gapped deployment"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 35046,
+      "title": "Anthropic's NL Autoencoders Paper Hits 14K Likes",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Interpretability research continues gaining mainstream traction",
+      "key_fact": "14,226 likes via bcherny retweet"
+    },
+    {
+      "id": 35382,
+      "title": "Claude Code v2.1.136: Hard Deny Rules and MCP Fixes",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "New auto-mode guardrails and server config fixes for production teams",
+      "key_fact": "hard_deny rules, MCP server config fixes, OTEL feedback support"
+    },
+    {
+      "id": 35252,
+      "title": "xAI Staff Being Called Into Meetings With Cursor Employees",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "More details emerge on the operational integration and continued departures",
+      "key_fact": "Key March hire already left; ~10 more Grok team layoffs"
+    },
+    {
+      "id": 34989,
+      "title": "Allen AI's EMO Shows Experts Self-Specialize During Pretraining",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "MoE architectures developing emergent modularity without explicit routing",
+      "key_fact": "Experts specialize without being told to during pretraining"
+    },
+    {
+      "id": 35435,
+      "title": "AI Is Breaking Both Vulnerability Disclosure Cultures at Once",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "When AI finds vulns at scale, responsible disclosure and security-through-obscurity both collapse",
+      "key_fact": "Social contracts around vulnerability handling failing simultaneously"
+    },
+    {
+      "id": 35246,
+      "title": "thdxr: Every Coding Agent Workflow Innovation Is Just Marketing",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The real task is making long, rambling chat sessions work well — everything else is window dressing",
+      "key_fact": "395 likes on a contrarian take about agent workflow hype"
+    }
+  ],
+  "total_items": 22
+}
