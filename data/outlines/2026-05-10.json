@@ -1,0 +1,236 @@
+{
+  "date": "2026-05-10",
+  "headline_hook": "Baidu Fires Back With Ernie-5.1 as Anthropic Teaches Claude Why",
+  "preview_topics": [
+    "Baidu's surprise Ernie-5.1 launch",
+    "Anthropic's alignment research breakthrough",
+    "frontier models running on your MacBook"
+  ],
+  "pick_of_the_day": {
+    "item_id": 35436,
+    "thesis": "Teaching Claude to understand the 'why' behind its behavioral rules — rather than memorizing them — reveals that alignment isn't a guardrail bolted on at the end; it's a reasoning capability that needs to be trained like any other skill, and the labs that figure this out first will build the models that enterprises actually trust."
+  },
+  "model_literacy": {
+    "concept": "Weight Quantization",
+    "relevance": "Antirez's ds4 runs DeepSeek v4 Flash at 2-bit precision on a 128GB Mac — quantization compresses model weights from 16-bit floats to fewer bits, trading small accuracy losses for 8-16x memory savings. It's the technique making 'frontier model on your laptop' a real option for developers who want to skip cloud API costs."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 35684,
+          "title": "Baidu Drops Ernie-5.1 on a Saturday — Claims It Beats DeepSeek V4 Pro",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "A surprise weekend launch that signals how fast Chinese labs are shipping — the frontier model race now has weekend drops",
+          "key_fact": "Claims benchmark scores above DeepSeek V4 Pro across multiple categories"
+        },
+        {
+          "id": 35119,
+          "title": "Google Previews a Gemini Health Coach That Reads Your Wearables",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "With I/O 11 days out, Google is using health as the consumer wedge for Gemini — wearables plus medical records is a bold integration play",
+          "key_fact": "Integrates wearable data, fitness apps, and medical records into a single Gemini-powered coach"
+        },
+        {
+          "id": 35224,
+          "title": "xAI Ships Grok Voice Think Fast 1.0 With Pre-Built Call Templates",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "xAI enters the voice agent market with turnkey templates — a direct shot at OpenAI's Realtime-2 stack",
+          "key_fact": "Pre-built templates for medical offices, restaurants, and help desks with noise and accent handling"
+        },
+        {
+          "id": 35871,
+          "title": "HiDream Brings Chain-of-Thought Reasoning to Image Generation",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The o1-style 'think before you act' paradigm now applied to image generation — early but worth tracking",
+          "key_fact": "First image model to use explicit chain-of-thought reasoning before generating, trending on HuggingFace"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 35436,
+          "title": "Anthropic's New Research: Teaching Claude to Understand Why Rules Exist",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "This is the alignment fix — training models to reason about behavioral guidelines instead of memorizing them changes how we think about AI safety as a capability, not a constraint",
+          "key_fact": "Builds on earlier findings that Claude could exhibit misaligned reasoning under certain conditions"
+        },
+        {
+          "id": 35649,
+          "title": "One Developer Reproduced 35 Years of Schmidhuber's Papers With AI Coding Tools",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Both a validation that AI coding assistants can handle real research reproduction and a remarkable archive of reproducible ML history",
+          "key_fact": "Full implementations including VAE and RNN world models spanning 1990-2025"
+        },
+        {
+          "id": 35653,
+          "title": "Continuous Diffusion Models for Language — A Non-Autoregressive Path for LLMs",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "If continuous diffusion scales for text the way it did for images, the autoregressive paradigm gets a real competitor",
+          "key_fact": "Applies continuous diffusion processes to language modeling instead of token-by-token generation"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 35641,
+          "title": "Altman Crowdsources the Next Model's Priorities — 6K Likes and Counting",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Two weeks after GPT-5.5 and Altman is already asking what's next — the replies are a real-time map of what builders actually want from frontier models",
+          "key_fact": "6,346 likes and hundreds of detailed developer replies on model improvement priorities"
+        },
+        {
+          "id": 35477,
+          "title": "Anthropic Growing 10x/Year While Competitors Cut 10%+ of Staff",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The industry is bifurcating — Anthropic's growth trajectory vs. widespread layoffs signals a winner-take-most dynamic forming in frontier AI",
+          "key_fact": "10x annual growth rate at Anthropic contrasted with 10%+ headcount reductions elsewhere"
+        },
+        {
+          "id": 35893,
+          "title": "Meta's AI Pivot Is Making Its Own Employees Miserable",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The human cost of big-company AI transformations — traditional product teams sidelined as AI initiatives consume all oxygen",
+          "key_fact": "NYT investigation documenting internal friction as non-AI teams lose resources and headcount"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 35670,
+          "title": "The Redis Creator Built a Custom Engine to Run Frontier Models on a Mac",
+          "section": "BUILD",
+          "prominence": "hero",
+          "angle": "Antirez's ds4 runs DeepSeek v4 Flash with 1M context locally via 2-bit quantization — frontier inference without cloud APIs is now a weekend project for a skilled engineer",
+          "key_fact": "Runs a quasi-frontier model with 1M context window on a 128GB Mac using 2-bit quantization"
+        },
+        {
+          "id": 35186,
+          "title": "Real-Time Voice Translation for Zoom and Meet via GPT-Realtime-2",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A CLI that intercepts your mic and translates Japanese to English live on video calls — showing what the voice stack enables beyond chatbots",
+          "key_fact": "Uses GPT-Realtime-2 with custom audio routing for live meeting translation"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 35126,
+          "title": "HuggingFace Open-Sources an Automated ML Research Intern",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "An AI that reads papers and extracts key findings — could dramatically cut literature review time for researchers",
+          "key_fact": "Reads papers, extracts key findings, and synthesizes insights automatically"
+        },
+        {
+          "id": 35703,
+          "title": "Anthropic Launches Claude Certified Architect — AI Engineering Gets Its First Credential",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "AI engineering is formalizing as a discipline — this credential covers agentic workflows, MCP, memory, and production reliability",
+          "key_fact": "Covers agentic workflows, MCP tool integration, context and memory management, and structured output"
+        },
+        {
+          "id": 35251,
+          "title": "GitHub Deprecates Grok Code Fast 1 From Copilot — Migrate by May 15",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Five days to migrate if you're using Grok in Copilot — your options are GPT-5 mini or Claude Haiku 4.5",
+          "key_fact": "Deprecation date: May 15, 2026; replacement options: GPT-5 mini or Claude Haiku 4.5"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 35895,
+          "title": "Why WebRTC Is the Wrong Transport for OpenAI's Realtime API",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Anyone building voice agents on Realtime-2 needs to understand why WebRTC is a poor fit and what alternatives exist",
+          "key_fact": "Deep technical analysis of transport layer tradeoffs published right after this week's Realtime-2 launch"
+        },
+        {
+          "id": 35637,
+          "title": "The Multi-Agent Architecture That Actually Ran for 16 Days Straight",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Factory AI's key insight: validation contracts written before implementation are what keep long-running agent systems on track",
+          "key_fact": "16-day continuous production run using orchestrators, workers, and validators"
+        },
+        {
+          "id": 35695,
+          "title": "You're Losing 73% of Your Claude Code Tokens — Here's Where They Go",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "14% consumed by CLAUDE.md before any code runs, 13% re-reading conversation history — practical optimization targets",
+          "key_fact": "14% of tokens go to CLAUDE.md, 13% to conversation history re-reads"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 35539,
+      "title": "Developer Adds Claude and Memory to Anthropic's Conference Tamagotchi",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Fun hardware hack from Code with Claude conference",
+      "key_fact": "Personalized memory plus Claude added to the tamagotchi Anthropic handed out"
+    },
+    {
+      "id": 35849,
+      "title": "Claude Code v2.1.137-138 Fixes Windows VSCode Extension",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Patch release unblocking Windows users",
+      "key_fact": "v2.1.137 fixes VSCode extension failing to activate on Windows"
+    },
+    {
+      "id": 35150,
+      "title": "Gemini 3.1 Flash Lite Graduates to General Availability",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Another option in the fast-and-cheap model tier",
+      "key_fact": "Pricing appears unchanged from preview per Simon Willison"
+    },
+    {
+      "id": 35157,
+      "title": "Mollick: AI Displacement Will Follow Guild Lines, Not Capability Lines",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Professions with guilds get protection; coders and analysts don't",
+      "key_fact": "AMA and Bar Association ensure human requirements; no equivalent guild exists for tech workers"
+    },
+    {
+      "id": 35896,
+      "title": "The AI Chatbot Is the New Carousel — A Freelancer's Field Report",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Ground-level view of how AI hype reshapes everyday client requests",
+      "key_fact": "Every client now asks for a chatbot the way they used to ask for a carousel"
+    }
+  ],
+  "total_items": 23
+}
