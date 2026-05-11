@@ -1,0 +1,223 @@
+{
+  "date": "2026-05-11",
+  "headline_hook": "Frontier Models Start Regressing as DeepSeek Eyes a Record $7B Round",
+  "preview_topics": [
+    "the great model regression debate",
+    "DeepSeek's $7.35B war chest",
+    "Shopify's public-only AI agent trick"
+  ],
+  "pick_of_the_day": {
+    "item_id": 36099,
+    "thesis": "The simultaneous regression of Opus 4.7, Gemini 3.1, and Sonnet 4.6 isn't a fluke — it's the first evidence that scaling-era assumptions about monotonic improvement are breaking down, and the industry's entire competitive logic depends on a premise that may no longer hold."
+  },
+  "model_literacy": {
+    "concept": "Capability Regression in Model Generations",
+    "relevance": "Today's lead story claims newer models are getting worse. Understanding why this happens — training data contamination, RLHF over-optimization, capability trade-offs during alignment — helps builders decide whether to auto-upgrade or pin model versions."
+  },
+  "sections": [
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 36099,
+          "title": "The Next Model Might Actually Be Worse: Frontier AI Hits a Regression Wall",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Specific regressions across Anthropic, Google, and OpenAI suggest the 'each generation is better' assumption is breaking — builders need version-pinning strategies now",
+          "key_fact": "Opus 4.7, Gemini 3.1, and Sonnet 4.6 all cited as regressions from their predecessors"
+        },
+        {
+          "id": 35689,
+          "title": "DeepSeek Targets $7.35B in Largest-Ever Chinese AI Fundraise",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The efficiency lab that embarrassed Big Tech with R1 is now raising more than most of them — this round transforms DeepSeek from research curiosity to commercial threat",
+          "key_fact": "$7.35B would be the largest Chinese AI funding round ever, with product hires coming from ByteDance"
+        },
+        {
+          "id": 36033,
+          "title": "GGUF Model Creation Is Exploding — The Local AI Movement Has Data Now",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "HuggingFace CEO shares month-over-month GGUF creation data showing local AI adoption is accelerating, not just vibes",
+          "key_fact": "8 months of accelerating GGUF model creation tracked on HuggingFace"
+        },
+        {
+          "id": 36316,
+          "title": "The Case for Making Local AI the Default, Not the Exception",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A 439-point HN essay argues privacy, latency, and cost all favor local-first AI — and the GGUF data proves the ecosystem is ready",
+          "key_fact": "439 HN upvotes and 220 retweets signal broad developer agreement"
+        },
+        {
+          "id": 35438,
+          "title": "Nvidia Commits $40B to AI Equity Deals in 2026 Alone",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The GPU monopolist is converting hardware dominance into an investment empire — no longer just selling shovels, now buying the mines",
+          "key_fact": "$40 billion in AI equity investments committed in a single year"
+        },
+        {
+          "id": 35669,
+          "title": "Google I/O Will Decide Whether Gemini Is a Product or an Infrastructure Play",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Either Gemini models deliver competitive quality across multiple fronts, or Google's AI narrative shifts permanently to compute and data centers",
+          "key_fact": "Google I/O this month — the most consequential event for Google's AI competitive positioning"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 36044,
+          "title": "'Kubernetes The Hard Way' Now Has an AI Engineering Equivalent",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "swyx's comparison to the definitive infra guide signals this resource could become the canonical hands-on curriculum for AI engineers — 623 likes from a notoriously picky recommender",
+          "key_fact": "623 likes from swyx, who rarely gives 'K8s Hard Way'-level endorsements"
+        },
+        {
+          "id": 36050,
+          "title": "Shopify's AI Agent Only Works in Public Channels — And That's the Point",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "By forcing AI interactions into public Slack, Shopify turns every prompt into a learning moment — the same trick that made Midjourney's Discord-only era so effective",
+          "key_fact": "535 likes; employees learn prompting by watching each other's public interactions"
+        },
+        {
+          "id": 36139,
+          "title": "The Hidden Token Tax: MCP Setups Burn 55K Tokens Before Any Work Starts",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Concrete cost analysis shows Playwright MCP eats 13.7K tokens, Chrome DevTools 18K — multi-server setups silently destroy your context budget",
+          "key_fact": "A 5-server MCP setup consumes 55K tokens in tool descriptions alone"
+        },
+        {
+          "id": 35894,
+          "title": "The Unreasonable Effectiveness of HTML as Claude Code's Output Format",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Building on the 'HTML is the new markdown' thesis — a 405-point deep dive into why HTML beats other formats for agentic code output",
+          "key_fact": "405 HN points; HTML as primary output format for Claude Code workflows"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 35584,
+          "title": "GPT-Realtime-2 Goes Enterprise: Voice Control Meets CRM Workflows",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "OpenAI moves its voice API from demo to workflow — a concrete CRM integration shows the path from 'cool voice feature' to 'enterprise tool'",
+          "key_fact": "813 likes; full CRM voice control integration walkthrough from OpenAI Devs"
+        },
+        {
+          "id": 36142,
+          "title": "GBrain Ships MCP Thin Client: One Server, Everything Connects",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "MCP crosses from developer curiosity to infrastructure — run one home server and let all your tools connect via the protocol",
+          "key_fact": "432 likes; Garry Tan endorsement signals mainstream MCP adoption"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 36084,
+          "title": "Codex Autonomously Files Expense Reports — Invoices, Spreadsheets, Forms, All of It",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "An OpenAI employee documents Codex handling real multi-step admin work across Drive, Gmail, and Chrome — the most convincing agent utility demo beyond coding",
+          "key_fact": "Full autonomous workflow: download invoices → update spreadsheets → fill forms"
+        },
+        {
+          "id": 36108,
+          "title": "Paste a GitHub Repo, Get an Interactive Knowledge Graph of Every Function",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Open-source tool turns any repo into a D3.js graph of function calls with natural language querying — practical onboarding for unfamiliar codebases",
+          "key_fact": "Generates interactive knowledge graphs with natural language search"
+        }
+      ]
+    },
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 35671,
+          "title": "May's Model Power Rankings: GPT 5.5 Leads Code, Grok 4.3 Tops Truth-Seeking",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Monthly snapshot shows the frontier is fragmenting — no single model leads every category, and 'everything will change after Google I/O'",
+          "key_fact": "GPT 5.5 coding, Grok 4.3 truth-seeking, DeepSeek v4 open-source, SeeDance 2.0 video"
+        },
+        {
+          "id": 35540,
+          "title": "Anthropic Announces Back-to-Back SF Hackathons for Next Week",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Boris Cherny signal-boosts with 1.7K likes — Anthropic leans hard into developer community building",
+          "key_fact": "1,775 likes; multiple hackathons in San Francisco next week"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 36052,
+      "title": "Mollick: AI Adoption Has Left San Francisco",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The craziest AI use cases are now in science, law, and education — not SF startups",
+      "key_fact": "414 likes; AI users in every industry with access to the same models"
+    },
+    {
+      "id": 36064,
+      "title": "Altman Teases 'Goblin' as Next OpenAI Model Name",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "With 5.8K likes, the naming tease hints at a lighter brand direction post-GPT-5.5",
+      "key_fact": "5,816 likes on a model-naming joke tweet"
+    },
+    {
+      "id": 36053,
+      "title": "The Consequential Personification of Claude",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Mollick examines how giving AI a human name and character shapes user behavior",
+      "key_fact": "323 likes; touches name, training philosophy, and fanfiction"
+    },
+    {
+      "id": 36319,
+      "title": "PS3 Emulator Devs Beg People to Stop Sending AI-Generated PRs",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "RPCS3 maintainers hit with a wave of low-quality AI PRs — the 'AI slop' problem reaches open source",
+      "key_fact": "Public pushback from established open-source maintainers"
+    },
+    {
+      "id": 35713,
+      "title": "Use Subagents to Stop Burning Your Main Context Window",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Practical guide to splitting research, testing, and browsing into separate agent contexts",
+      "key_fact": "Dedicated subagents for research, testing, and browser tasks"
+    },
+    {
+      "id": 35848,
+      "title": "Claude Code v2.1.138 Ships More Stability Fixes",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Continuing the aggressive 110+ fix push from the past two weeks",
+      "key_fact": "v2.1.138 release with internal stability improvements"
+    }
+  ],
+  "total_items": 22
+}
