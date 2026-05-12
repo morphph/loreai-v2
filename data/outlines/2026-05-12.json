@@ -1,0 +1,236 @@
+{
+  "date": "2026-05-12",
+  "headline_hook": "Claude Code Ships Multi-Agent View While OpenAI Launches a Deployment Army",
+  "preview_topics": [
+    "Claude Code's agent orchestration upgrade",
+    "OpenAI's enterprise deployment pivot",
+    "Karpathy's HTML-as-output pattern"
+  ],
+  "pick_of_the_day": {
+    "item_id": 36431,
+    "thesis": "OpenAI creating a majority-owned deployment subsidiary signals that API revenue alone can't capture enterprise value — the real margin lives in the last mile of integration, and this move reshapes the competitive landscape from 'best model wins' to 'best deployment partner wins.'"
+  },
+  "model_literacy": {
+    "concept": "Context Engineering",
+    "relevance": "Today's agent view launch and agentic search coverage both tackle the same core problem: routing the right information into the right context window at the right time. Context engineering — structuring, selecting, and compressing information for LLM consumption — is why multi-session agents need dashboards and why most agent failures are retrieval failures, not reasoning failures."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 36392,
+          "title": "Claude Code Gets Agent View: One Dashboard for All Your AI Sessions",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The tmux-for-AI-agents moment — Claude Code now lets you spin up, monitor, and switch between multiple agent sessions from a single dashboard, turning solo coding into parallel orchestration.",
+          "key_fact": "Ships as research preview in Claude Code v2.1.139"
+        },
+        {
+          "id": 36393,
+          "title": "Anthropic Launches Native Claude API on AWS — No Bedrock Required",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "AWS customers can now access Claude's full API stack — Messages, Files, Managed Agents, code execution — with native AWS billing and IAM, breaking the Bedrock-only constraint that limited enterprise deployments.",
+          "key_fact": "Full Messages API, Files API, Managed Agents, and code execution via AWS billing"
+        },
+        {
+          "id": 36430,
+          "title": "OpenAI Launches Daybreak to Put Frontier Models on Cyber Defense",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "OpenAI enters cybersecurity with Daybreak, combining frontier models and Codex with security partners — days after Anthropic's Mythos pentesting results, both labs are racing to own the security vertical.",
+          "key_fact": "4,630 likes, combines Codex with security partner integrations"
+        },
+        {
+          "id": 36442,
+          "title": "Qwen Ships WebWorld: Open Models Purpose-Built for Web Agents",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The first serious open-source web agent models drop at 8B/14B/32B under Apache 2.0 — web automation tasks that required proprietary APIs now have a competitive open alternative.",
+          "key_fact": "+9.9% on MiniWob++, +10% on WebArena over prior open models"
+        },
+        {
+          "id": 36692,
+          "title": "MiniCPM-V-4.6 Continues the Compact Multimodal Push",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "OpenBMB's latest compact vision-language model keeps punching above its weight class on multimodal benchmarks, extending the case for capable local inference.",
+          "key_fact": "Latest in MiniCPM series known for outperforming size class on benchmarks"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 36674,
+          "title": "Claude Code v2.1.139: /goal Turns Single Sessions into Autonomous Loops",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Beyond agent view, the real power move is /goal — set a completion condition and Claude keeps working across turns until it's met, in interactive mode, -p flag, and Remote Control. Claude Code is now a genuine multi-agent orchestrator.",
+          "key_fact": "/goal works across interactive mode, -p flag, and Remote Control"
+        },
+        {
+          "id": 36433,
+          "title": "Codex Gets a Native OpenAI Plugin for Building AI Apps",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Codex can now call OpenAI APIs directly through a built-in plugin, killing the docs-to-code copy-paste loop for anyone building on the OpenAI stack.",
+          "key_fact": "1,580 likes, removes copy-paste loop between API docs and code"
+        },
+        {
+          "id": 36675,
+          "title": "Anthropic Python SDK v0.101.0 Adds Native AWS Client",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The SDK-level support that makes Claude Platform on AWS immediately usable in production code — import, configure, ship.",
+          "key_fact": "Native AWS client support matching the new Claude Platform on AWS"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 36457,
+          "title": "Karpathy Validates HTML as the New LLM Output Format",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "With 9.4K likes, Karpathy's tip crystallizes a pattern builders are already discovering: ask LLMs to render responses as HTML for slideshows, visualizations, and structured docs instead of plain markdown.",
+          "key_fact": "9,452 likes — builds on swyx's 'HTML is the new markdown' thesis"
+        },
+        {
+          "id": 36465,
+          "title": "Simon Willison Puts LLMs in a Unix Shebang Line",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Write executable scripts in plain English by using LLM CLI tools in shebang lines — a small hack that opens up YAML templates and natural-language scripting workflows.",
+          "key_fact": "Works with his LLM CLI tool, supports YAML template hooks"
+        },
+        {
+          "id": 36480,
+          "title": "Agentic Search Is 80% of Context Engineering",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Leonie's workshop argues most agent failures are retrieval failures — covering when to use shell tools, semantic search, query execution, and agent skills, and when each breaks.",
+          "key_fact": "237 likes, covers full tool landscape for context engineering"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 36470,
+          "title": "Mollick Flags AI's Creative Convergence Problem",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "AI models converge on similar ideas, limiting their utility for science and creative work — but a new paper shows you can optimize specifically for creative variation, a capability dimension the major labs haven't prioritized.",
+          "key_fact": "New paper demonstrates models can be optimized for creativity as a distinct capability"
+        },
+        {
+          "id": 36464,
+          "title": "Lilian Weng Reveals the 137-Page Logbook Behind a Training Run",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "12 versions, 137 pages of documentation for one training run — a rare look at how much human coordination and iteration goes into frontier model development beyond the compute.",
+          "key_fact": "12 versions, 137 pages of documentation for a single training run"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 36431,
+          "title": "OpenAI Creates a Deployment Subsidiary to Win the Enterprise Last Mile",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "OpenAI brings together 19 investment firms and consultancies in a majority-owned subsidiary — a strategic bet that being the best model provider isn't enough, and the real enterprise value is in deployment and integration.",
+          "key_fact": "19 investment firms and consultancies in a majority-owned subsidiary"
+        },
+        {
+          "id": 36718,
+          "title": "Google Confirms Criminal Hackers Used AI to Find a Major Vulnerability",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The threshold from theoretical risk to confirmed real-world exploitation has been crossed — directly validating the urgency behind both OpenAI's Daybreak and Anthropic's Mythos security work.",
+          "key_fact": "NYT report confirming AI-assisted vulnerability discovery by criminal hackers"
+        },
+        {
+          "id": 36511,
+          "title": "Gemini Flash 3.2 All But Confirmed for Google I/O",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Flash 3.2 has already replaced GPT 5.5 low in 70% of scheduled jobs — if it delivers at I/O, the cost-performance equation shifts dramatically for high-volume inference.",
+          "key_fact": "Already replacing GPT 5.5 low in 70% of scheduled jobs"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 36720,
+          "title": "Training an LLM in Swift: From Gigaflops to Teraflops",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A deep technical walkthrough of implementing LLM training in Swift, optimizing matrix multiplication step by step — practical systems knowledge for anyone curious about what's beneath PyTorch.",
+          "key_fact": "Covers full optimization path from gigaflops to teraflops in Swift"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 36419,
+      "title": "Agent view announcement hits 10K likes on X",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Claude Code's most engaged feature launch tweet",
+      "key_fact": "10,169 likes, 640 RTs"
+    },
+    {
+      "id": 36418,
+      "title": "Claude's Constitution is now an audiobook",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Narrated by authors Amanda Askell and Joe Carlsmith with Q&A",
+      "key_fact": "First AI lab to make its alignment document listenable"
+    },
+    {
+      "id": 36459,
+      "title": "Consensus raises $30M to build the AI OS for research",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "2.5M researchers already on platform, swyx-endorsed",
+      "key_fact": "$30M raise with 2.5M active researchers"
+    },
+    {
+      "id": 36354,
+      "title": "Capital, not compute, is the real AI bottleneck",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "McKinsey projects $7T needed for 156 GW of data center demand by 2030",
+      "key_fact": "$7T investment needed by 2030"
+    },
+    {
+      "id": 36678,
+      "title": "LangChain Core hits 1.4.0 milestone",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Pydantic v1 import fixes, 1.x line stabilizing",
+      "key_fact": "Major version bump for LangChain Core"
+    },
+    {
+      "id": 36719,
+      "title": "Interfaze claims a new transformer architecture for accuracy at scale",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Early-stage architecture innovation worth tracking",
+      "key_fact": "New transformer variant claiming improved accuracy-at-scale"
+    }
+  ],
+  "total_items": 23
+}
