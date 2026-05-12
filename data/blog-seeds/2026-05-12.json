@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "New in Claude Code: agent view",
+    "url": "https://x.com/claudeai/status/2053940934736228454",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 10809,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 36.2427,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Agent view in Claude Code",
+    "url": "https://www.claude.com/blog/agent-view-in-claude-code",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code v2.1.139 ships agent view and /goal command",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.139",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Introducing the Claude Platform on AWS",
+    "url": "https://www.claude.com/blog/claude-platform-on-aws",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 20,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Interfaze: a new model architecture built for high accuracy at scale",
+    "url": "https://interfaze.ai/blog/interfaze-a-new-model-architecture-built-for-high-accuracy-at-scale",
+    "source": "hackernews",
+    "x_engagement_24h": 127,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.0381,
+    "suggested_angle": "news"
+  }
+]
