@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Boris Cherny books flights with Claude Cowork + Opus 4.7",
+    "url": "https://x.com/bcherny/status/2053994083497238712",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 2860,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 45.858000000000004,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Code with Claude hardware giveaways — tiny computers, delightful builds",
+    "url": "https://x.com/claudeai/status/2054257324278132893",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 2118,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 45.635400000000004,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code 'claude agents' command — control plane in your terminal",
+    "url": "https://x.com/_catwu/status/2053999857799672111",
+    "source": "twitter:@_catwu",
+    "x_engagement_24h": 557,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 45.1671,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Code w/ Claude SF 2026: Building on the AI exponential",
+    "url": "https://www.claude.com/blog/code-w-claude-sf-2026-sf",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 45,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude for the legal industry",
+    "url": "https://www.claude.com/blog/claude-for-the-legal-industry",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 45,
+    "suggested_angle": "news"
+  }
+]
