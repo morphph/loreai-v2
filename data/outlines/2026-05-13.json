@@ -1,0 +1,228 @@
+{
+  "date": "2026-05-13",
+  "headline_hook": "Opus 4.7 Goes Fast, OpenAI Ships Symphony, and DeepMind Kills the Mouse Pointer",
+  "preview_topics": [
+    "Opus 4.7's 2.5x fast mode",
+    "the multi-agent IDE war heats up",
+    "DeepMind's post-cursor interfaces"
+  ],
+  "pick_of_the_day": {
+    "item_id": 36844,
+    "thesis": "DeepMind's AI pointer isn't a UX experiment — it's a bet that the next computing paradigm will bypass chat entirely, and whoever owns the interaction layer owns the platform."
+  },
+  "model_literacy": {
+    "concept": "Speculative Decoding",
+    "relevance": "Opus 4.7 fast mode promises 2.5x speed at the same quality tier — speculative decoding is the key technique that makes this possible by drafting tokens with a smaller model and verifying them in batch with the full model."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 36826,
+          "title": "Opus 4.7 Gets a Fast Lane — 2.5x Speed Boost Hits API and Claude Code",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Premium-tier speed gains matter most for agentic workflows where latency compounds across dozens of tool calls per session",
+          "key_fact": "2.5x faster output at the same $30/$150 per 1M token pricing"
+        },
+        {
+          "id": 36811,
+          "title": "Opus 4.7 Fast Mode API Docs Drop — Waitlist Required",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Set speed: fast with the beta header — same rate limits as Opus 4.6 fast mode, but you'll need waitlist access",
+          "key_fact": "Uses existing Opus 4.6 fast mode pricing and rate limits"
+        },
+        {
+          "id": 36797,
+          "title": "Anthropic Makes Its First Vertical Play — Claude for Legal",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Moving from general-purpose to industry-specific signals Anthropic sees more margin in vertical solutions than horizontal platform fees",
+          "key_fact": "Legal industry worth $1T+ globally"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 36840,
+          "title": "OpenAI Ships Symphony — Every Task Gets Its Own Codex Agent",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Symphony auto-spawns a Codex agent per task, directly challenging Claude Code's agent view launched last week — the multi-agent IDE war is now a two-front fight",
+          "key_fact": "Each open task automatically gets a dedicated Codex agent"
+        },
+        {
+          "id": 36834,
+          "title": "'claude agents' — The Terminal Control Plane You Didn't Know You Had",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Run from your root directory to get a dashboard across all Claude Code sessions — hit left-arrow from any CLI to register it",
+          "key_fact": "Aggregates all running agent sessions into one terminal view"
+        },
+        {
+          "id": 36967,
+          "title": "This MCP Server Cuts Claude Code Tool Calls by 94% with a Local Knowledge Graph",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Indexes your codebase into a queryable graph so the agent stops scanning files — supports 19 languages, fully local, no API keys",
+          "key_fact": "94% reduction in tool calls via codebase knowledge graph"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 36844,
+          "title": "DeepMind Reimagines the Mouse Pointer — Gestures, Speech, and Gemini Take Over",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "The 50-year-old pointer paradigm gets its first serious AI challenger — motion, speech, and natural gestures directing Gemini on-screen hint at post-cursor computing",
+          "key_fact": "4,414 likes — DeepMind's most-engaged research demo this quarter"
+        },
+        {
+          "id": 36913,
+          "title": "GPT 5.5 Breaks ProgramBench — And the Two Settings Picked Different Languages",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The first model to solve a ProgramBench task, and the high/xhigh settings independently chose different programming languages — approach diversity matters",
+          "key_fact": "First model to solve any ProgramBench task"
+        },
+        {
+          "id": 36906,
+          "title": "Sakana's KAME Takes a Different Path to Real-Time Voice — Tandem Architecture",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "While OpenAI and xAI bet on single-model voice, KAME uses tandem architecture to enhance knowledge in real-time speech — the voice AI design space is forking",
+          "key_fact": "Tandem architecture eliminates need for separate knowledge injection"
+        },
+        {
+          "id": 36759,
+          "title": "Thinking Machines Kills the Voice Activity Detector with Native Interaction Models",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "TML-Interaction-Small handles turn-taking natively instead of bolting on VAD — a fundamental architecture choice for anyone building voice agents",
+          "key_fact": "276B-A12B model eliminates traditional VAD entirely"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 36818,
+          "title": "Boris Cherny Books Flights End-to-End with Claude Cowork + Opus 4.7",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The Claude Code creator says Opus 4.7 crossed a usability threshold — agentic tasks that used to fail now complete reliably",
+          "key_fact": "End-to-end flight booking without human intervention"
+        },
+        {
+          "id": 36876,
+          "title": "Your Claude Code Sessions Might Be Eating 30GB of RAM",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Willison caught Claude Code processes consuming 30GB on his Mac — if you're running multiple sessions, check Activity Monitor before your machine crawls",
+          "key_fact": "Largest single process hit 7.8GB, total ~30GB across sessions"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 36796,
+          "title": "Code with Claude SF — Anthropic's Developer Ecosystem Gets Its Flagship Moment",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Anthropic's first major developer event signals they're building a developer ecosystem play, not just shipping models — the roadmap hints matter more than the demos",
+          "key_fact": "Flagship developer event with roadmap signals and ecosystem direction"
+        },
+        {
+          "id": 36879,
+          "title": "Mollick: ChatGPT Quietly Killed Study Mode, and That's a Problem",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Evidence shows AI in assistant mode hurts learning — Study Mode was OpenAI's easy fix, and they removed it. Claude and Gemini still have theirs.",
+          "key_fact": "Research shows assistant-mode AI degrades learning outcomes"
+        },
+        {
+          "id": 36882,
+          "title": "The ASI Heuristic: Watch the Consulting Teams, Not the Benchmarks",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Mollick's razor — as long as labs need forward-deployed engineering teams to make AI useful, ASI is further than marketing suggests",
+          "key_fact": "Labs still employ large consulting/FDE teams to make AI work in practice"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 36798,
+          "title": "Anthropic's Security Team Built Their Threat Detection Platform with Claude Code",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Anthropic dogfooding Claude Code for internal cybersecurity — concrete patterns for security teams looking to adopt agentic coding tools",
+          "key_fact": "Full threat detection platform built with Claude Code internally"
+        },
+        {
+          "id": 37137,
+          "title": "Needle: Gemini's Tool Calling Distilled into a 26M Parameter Model",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "If tool-calling can be shrunk 1000x, the cost structure for agent architectures changes — local tool routing becomes viable",
+          "key_fact": "26M parameters replicating Gemini's tool-calling capability"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 36484,
+      "title": "Altman Frames Daybreak as OpenAI's Cybersecurity Vertical",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Altman's direct framing adds context to yesterday's Daybreak coverage",
+      "key_fact": "Combines frontier models with Codex for cyber defense"
+    },
+    {
+      "id": 36931,
+      "title": "Gemini Omni Rumored for Google I/O — Advanced Video Model Incoming",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Google positioning multimodal interaction as its I/O headline",
+      "key_fact": "Reportedly features advanced video editing and world understanding"
+    },
+    {
+      "id": 36823,
+      "title": "Code with Claude Hardware Giveaways Spawn Creative Tiny Builds",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Attendees built surprisingly creative things on hardware-constrained machines",
+      "key_fact": "122 RTs — community loved the tiny computer builds"
+    },
+    {
+      "id": 37088,
+      "title": "Claude Code v2.1.140 — Agent Colors and Stability Fixes",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Incremental improvements: agent subtype matching, /goal fix, color palette update",
+      "key_fact": "Fixes /goal hanging issue from last week"
+    },
+    {
+      "id": 37093,
+      "title": "LangChain 1.3.0 Ships v3 Stream Events for Agents",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Major version bump changes how agent execution data flows — update your stream handlers",
+      "key_fact": "v3 event streaming API for LangChain agents"
+    }
+  ],
+  "total_items": 22
+}
