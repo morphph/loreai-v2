@@ -1,0 +1,236 @@
+{
+  "date": "2026-05-14",
+  "headline_hook": "Claude Code Lifts Limits, OpenAI Fires Back With Free Codex, and Mythos Cracks the Uncrackable",
+  "preview_topics": [
+    "Claude Code's 50% usage boost and bundled agent credits",
+    "OpenAI's aggressive two-month Codex gambit",
+    "the Mythos responsible-release dilemma"
+  ],
+  "pick_of_the_day": {
+    "item_id": 37241,
+    "thesis": "Mythos solving both UK AISI cyber ranges isn't just a capability milestone — it's the first real-world test of whether Anthropic's government-approval release strategy can survive when rivals ship equivalent capabilities without guardrails."
+  },
+  "model_literacy": {
+    "concept": "Context Engineering vs. Finetuning",
+    "relevance": "Today's 'End of Finetuning' thesis argues prompt caching, in-context learning, and context engineering are closing the gap — directly relevant as Anthropic bundles SDK credits that make long-context API calls cheaper and Claude Code's limit increase encourages heavier context usage."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 37248,
+          "title": "Claude Code Weekly Limits Jump 50% Through July 13",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The single biggest friction point for Claude Code power users just got a major relief valve — every paid tier gets 50% more runway, and Anthropic is betting that higher limits convert free-tier experimenters into paying builders.",
+          "key_fact": "50% increase across all paid tiers, effective immediately through July 13"
+        },
+        {
+          "id": 37252,
+          "title": "Anthropic Bundles Agent SDK Credits Into Every Paid Plan Starting June 15",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "By subsidizing Agent SDK usage for all paid subscribers — covering scripts, headless runs, and third-party apps — Anthropic is seeding the agent ecosystem the way AWS seeded cloud adoption with free-tier credits.",
+          "key_fact": "Monthly Agent SDK credit included in paid Claude plans starting June 15, covering claude -p and third-party apps"
+        },
+        {
+          "id": 37335,
+          "title": "NVIDIA Drops AnyFlow — Flexible-Step Video Diffusion on HuggingFace",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "NVIDIA's first open video diffusion model lets you trade off quality vs. speed at inference time with any-step generation — a meaningful new option for teams priced out of Sora.",
+          "key_fact": "Any-step text-to-video diffusion model, open-weight on HuggingFace"
+        },
+        {
+          "id": 37336,
+          "title": "holaOS Beta Ships the First Agent-Native Operating System",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "An early bet on what a purpose-built OS for AI agents looks like — less 'run an agent in a VM' and more 'the OS assumes agents are first-class citizens.'",
+          "key_fact": "Beta 0.1 released, evolved from open-source agent computer project"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 37259,
+          "title": "Claude Code Desktop Now Defaults to Remote Control On",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A quiet UX win: the desktop app enables remote monitoring by default, so you can kick off a Claude Code session on your workstation and check in from your phone.",
+          "key_fact": "Remote control enabled by default in latest desktop release"
+        },
+        {
+          "id": 37530,
+          "title": "Claude Code v2.1.141: Desktop Notifications, Summarize-Up-To-Here, 61 Changes",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The hook terminalSequence for desktop notifications and 'Summarize up to here' for context management are the two quality-of-life features power users will notice immediately.",
+          "key_fact": "61 CLI changes including hook-based desktop notifications and context summarization"
+        },
+        {
+          "id": 37532,
+          "title": "Anthropic Python SDK v0.102.0 Adds Cache Diagnostics and Managed Agent Types",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "If you're optimizing prompt caching or building managed agents, this release adds the introspection APIs you've been waiting for.",
+          "key_fact": "New BetaManagedAgentsSearchResultBlock types and cache diagnostics beta"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 37218,
+          "title": "Anthropic Publishes the Official Playbook for Computer Use With Claude",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The definitive guide for browser automation agents — not a feature announcement but a practical 'here's how to actually build this' from the team that ships the capability.",
+          "key_fact": "Official best-practices guide covering computer and browser use patterns"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 37241,
+          "title": "UK AISI Confirms Mythos Preview Solved Both Cyber Ranges — Including the 'Impossible' One",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Mythos didn't just score well on a benchmark — it solved Cooling Tower end-to-end, a cyber range no model had ever completed. This is a concrete capability jump that moves the conversation from 'could AI hack?' to 'AI can hack.'",
+          "key_fact": "First model to solve both UK AISI cyber ranges end-to-end, including Cooling Tower"
+        },
+        {
+          "id": 37175,
+          "title": "The Information: Mythos Shows 'Notable Capability Jumps' in Finding Novel Vulnerabilities",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Beyond the cyber range results, Mythos is reportedly discovering previously unknown vulnerabilities — and Anthropic's decision to route release through government approval raises the stakes on how frontier capabilities get distributed.",
+          "key_fact": "Notable capability jumps in finding undiscovered vulnerabilities, per The Information"
+        },
+        {
+          "id": 37347,
+          "title": "LeCun: Reliable Agents Are Impossible Without World Models",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "LeCun doubles down on his core thesis — LLMs can't predict consequences of actions, so the current agent-building wave is building on sand. A direct challenge to everyone shipping agents this week.",
+          "key_fact": "Claims LLMs fundamentally cannot predict action consequences without architectural changes"
+        },
+        {
+          "id": 37182,
+          "title": "Latent Space Declares 'The End of Finetuning'",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The argument: context engineering, prompt caching, and in-context learning have closed the gap that finetuning used to fill. If true, a lot of ML engineering teams are investing in the wrong thing.",
+          "key_fact": "Thesis: context engineering makes finetuning obsolete for most production use cases"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 37329,
+          "title": "Sam Altman Offers Two Free Months of Codex to Poach Claude Code Users",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "OpenAI isn't just competing on features — they're buying market share with a zero-cost trial for any company willing to switch. The timing, hours after Anthropic's limit increase, makes the coding-tool war feel personal.",
+          "key_fact": "2-month free Codex trial for companies switching from competing tools, 12,959 likes"
+        },
+        {
+          "id": 37174,
+          "title": "Microsoft Testifies It Spent More Than $100 Billion on OpenAI",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The $13B investment was the headline number — but infrastructure, compute, and operational costs push the real total past $100B by fiscal year end. The scale of Microsoft's bet is now on the public record.",
+          "key_fact": "Total spend exceeds $100B including investment plus infrastructure, per court testimony"
+        },
+        {
+          "id": 37312,
+          "title": "Mollick: Can Anthropic's Cautious Mythos Strategy Survive If Rivals Ship Without Guardrails?",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "If Google and OpenAI release cyber-capable models without government approval gates, Anthropic's responsible approach becomes a competitive tax. The responsible-AI dilemma playing out in real time.",
+          "key_fact": "Questions whether government-approval path is sustainable if competitors skip it"
+        },
+        {
+          "id": 37176,
+          "title": "Modal Raises at $4.5B as Agent Infrastructure Revenue Surges",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "80% valuation jump in months — the picks-and-shovels play for AI agents is generating real revenue, not just pitch-deck projections.",
+          "key_fact": "Valuation jumps to $4.5B, up 80% in months on surging GPU rental and agent infra revenue"
+        },
+        {
+          "id": 37372,
+          "title": "Ex-DeepMind Researcher Raises $650M for Recursive AI at $4.65B",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Tim Rocktäschel's Recursive builds AI systems that 'experiment on how to safely improve themselves' — the safety-first startup category is now attracting nine-figure rounds from serious investors.",
+          "key_fact": "$650M raise at $4.65B valuation, team from Meta, OpenAI, Google, DeepMind"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 37282,
+          "title": "Run Qwen3-35B as a 24/7 AI Researcher on Your Laptop — For Free",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A 35B mixture-of-experts model running locally via llama.cpp at 4-bit quant — capable enough for research tasks, cheap enough to run nonstop. The cloud-vs-local gap keeps shrinking.",
+          "key_fact": "Qwen3-35B-A3B runs locally via llama.cpp at 4-bit quantization with zero API cost"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 37538,
+      "title": "HuggingFace Transformers v5.8.1 Patches DeepSeek V4 Integration",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "If you're running DeepSeek V4, update now — continuous batching and weight conversion bugs fixed.",
+      "key_fact": "Patch release fixing DeepSeek V4 integration bugs"
+    },
+    {
+      "id": 37334,
+      "title": "Sakana's KAME: Fast Model Talks While Reasoning Model Thinks",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Tandem architecture for voice agents — instant replies while the slow model catches up.",
+      "key_fact": "Fast speech model replies instantly, backend LLM injects knowledge in parallel"
+    },
+    {
+      "id": 37355,
+      "title": "Open-Source Is Ruthlessly Out-Innovating the Trillion-Dollar Labs",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "DeepSeek's SSD KV cache, TurboQuant, Kimi K2 memory tricks — the cost advantage is compounding.",
+      "key_fact": "Open-source inference innovations outpacing closed labs on cost efficiency"
+    },
+    {
+      "id": 37310,
+      "title": "Mollick: Where Is Google in the AI IDE Race?",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Antigravity hasn't posted in a month — the three-way IDE war may already be a two-player game.",
+      "key_fact": "Google conspicuously absent from Claude Cowork / Codex local AI app race"
+    },
+    {
+      "id": 37379,
+      "title": "Awesome AI Engineering: 200+ Curated Resources From Major Labs",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Interviews, system design, deployment patterns from Anthropic, OpenAI, Meta, Netflix, and more.",
+      "key_fact": "200+ curated resources covering AI engineering across major companies"
+    }
+  ],
+  "total_items": 23
+}
