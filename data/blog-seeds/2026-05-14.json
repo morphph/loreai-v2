@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Starting June 15, paid Claude plans include a monthly Claude Agent SDK credit",
+    "url": "https://x.com/alexalbert__/status/2054613082589298899",
+    "source": "twitter:@alexalbert__",
+    "x_engagement_24h": 772,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 37.2316,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "UK AISI: Mythos Preview is the first model to solve both cyber ranges end-to-end",
+    "url": "https://x.com/bcherny/status/2054617810253615147",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 739,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.2217,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Best practices for computer and browser use with Claude",
+    "url": "https://www.claude.com/blog/best-practices-for-computer-and-browser-use-with-claude",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code on desktop makes remote control on by default",
+    "url": "https://x.com/amorriscode/status/2054423183819002123",
+    "source": "twitter:@amorriscode",
+    "x_engagement_24h": 408,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.1224,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code v2.1.141 released",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.141",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25,
+    "suggested_angle": "news"
+  }
+]
