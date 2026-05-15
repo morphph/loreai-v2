@@ -1,0 +1,244 @@
+{
+  "date": "2026-05-15",
+  "headline_hook": "Anthropic Drops $200M on Global Health as Gemini Flash Rewrites the Cost Equation",
+  "preview_topics": [
+    "Anthropic's $200M Gates Foundation bet",
+    "Gemini Flash's 92%-at-15x-less gambit",
+    "Claude's small business and developer push"
+  ],
+  "pick_of_the_day": {
+    "item_id": 37787,
+    "thesis": "If a model can hit 92% of frontier performance at 15-20x cheaper, the premium for that last 8% becomes the defining question of the AI business model — and most production workloads won't pay it."
+  },
+  "model_literacy": {
+    "concept": "Model Distillation",
+    "relevance": "Gemini 3.2 Flash likely uses distillation from larger Gemini models to hit 92% of GPT 5.5's performance in a fraction of the parameters — understanding this technique explains why smaller models keep closing the gap on frontier performance and why the inference cost curve keeps breaking."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 37644,
+          "title": "Claude Goes Main Street: Anthropic Launches Small Business Tier",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Anthropic's second vertical play in two weeks signals a deliberate march from enterprise down to Main Street — and a bet that non-technical users are ready for AI agents",
+          "key_fact": "Dedicated Claude tier for small business owners with simplified onboarding and business-specific workflows"
+        },
+        {
+          "id": 37698,
+          "title": "Claude Code Weekly Limits Jump 50% Through July",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The biggest quality-of-life bump this week for power users — Anthropic is buying goodwill while capacity scales",
+          "key_fact": "50% increase across all paid tiers, valid through July 13, nearly 21K likes"
+        },
+        {
+          "id": 37686,
+          "title": "Every Paid Claude Plan Gets Monthly API Credits Starting June 15",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Anthropic subsidizes its own ecosystem — every paid user gets programmatic credits for Agent SDK and third-party apps",
+          "key_fact": "Monthly credits for Agent SDK, claude -p, and third-party app usage included in all paid plans"
+        },
+        {
+          "id": 38016,
+          "title": "Codex Lands in the ChatGPT Mobile App",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Coding agents break free of the desktop — OpenAI bets developers want to review and kick off tasks from their phone",
+          "key_fact": "Full Codex agent functionality now accessible from ChatGPT mobile"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 37971,
+          "title": "Claude Code v2.1.142 Packs Agent Orchestration Primitives",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "New CLI flags for agent spawning, model selection, and plugin support — Claude Code is becoming the multi-agent orchestrator Anthropic needs it to be",
+          "key_fact": "--add-dir, --settings, --mcp-config, --model flags for agents; fast mode defaults to Opus 4.7"
+        },
+        {
+          "id": 37714,
+          "title": "OpenAI Cracks the Windows Sandboxing Problem for Codex",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Windows developers no longer have to choose between security and usability — Codex's new sandbox keeps agents useful without full machine access",
+          "key_fact": "Custom sandboxing approach that avoids the constant-approval-prompt trap on Windows"
+        },
+        {
+          "id": 37832,
+          "title": "AWS Ships an Official MCP Server with Full API Coverage",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "When AWS builds official MCP support, the protocol graduates from experiment to enterprise standard",
+          "key_fact": "Full AWS API coverage, sandboxed script execution, real-time documentation access"
+        },
+        {
+          "id": 37837,
+          "title": "Vercel's ai-cli: Every AI Model from Your Terminal",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Rauchg's pitch: one npm install gives you a universal model interface — images, video, and text through AI Gateway",
+          "key_fact": "npm i -g ai-cli for access to every model via Vercel AI Gateway"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 37666,
+          "title": "The Official Guide to Claude Code in Large Codebases",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "Anthropic's own team publishes the reference doc for CLAUDE.md setup, context management, and multi-agent patterns — if you're past hobby-project scale, bookmark this",
+          "key_fact": "Covers CLAUDE.md conventions, context window management, and multi-agent orchestration patterns for monorepos"
+        },
+        {
+          "id": 37635,
+          "title": "Inside Async Continuous Batching: The Engine Behind Fast LLM Serving",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "HuggingFace explains the serving optimization powering vLLM and TGI latency wins — essential reading for self-hosted model operators",
+          "key_fact": "Detailed breakdown of async continuous batching technique used in vLLM and TGI"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 37787,
+          "title": "Gemini 3.2 Flash Rumors: 92% of GPT 5.5 at 15-20x Cheaper",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "If confirmed at Google I/O, Flash doesn't just compete on price — it collapses the value proposition of frontier inference for most production workloads",
+          "key_fact": "92% of GPT 5.5 coding and reasoning performance, 15-20x cheaper inference, sub-200ms latency"
+        },
+        {
+          "id": 37804,
+          "title": "Mythos Found 250 Vulnerabilities Where Prior Models Found 22",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "An 11x improvement in security vulnerability detection explains Anthropic's cautious release strategy — this isn't incremental progress",
+          "key_fact": "250 vs 22 vulnerabilities in the same open-source codebase; 11x improvement over prior models"
+        },
+        {
+          "id": 37634,
+          "title": "IBM's Granite Embedding: Best Sub-100M Retrieval Model, Apache 2.0",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "For RAG pipelines that need multilingual retrieval without a GPU cluster, IBM just hit the quality-size-licensing sweet spot",
+          "key_fact": "Sub-100M parameters, 32K context, Apache 2.0, state-of-the-art multilingual retrieval"
+        },
+        {
+          "id": 37749,
+          "title": "Two Independent Assessments Confirm: Past the AI Capability Inflection",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "METR and UK AISI — both safety-focused evaluators — independently place current AI capability past the exponential inflection point",
+          "key_fact": "Both METR and UK AISI assessments now show AI growth past the inflection point on the exponential curve"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 37643,
+          "title": "Anthropic's $200M Gates Foundation Play: Safety Lab as Global Infrastructure",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "This isn't charity — it's Anthropic positioning safety-first AI as essential infrastructure for global development, from health to agriculture to education",
+          "key_fact": "$200M in grants, credits, and technical support across global health, education, and agriculture"
+        },
+        {
+          "id": 37694,
+          "title": "Anthropic's US-China AI Paper Drops as Trump Meets Xi",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The timing is deliberate — Anthropic argues democratic allies hold the frontier lead today and lays out what maintaining it requires",
+          "key_fact": "Position paper on US-China AI competition published during Trump-Xi summit"
+        },
+        {
+          "id": 37665,
+          "title": "Anthropic Publishes the AI-Native Startup Founder's Playbook",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Architecture decisions, fine-tune vs context-engineer trade-offs, and model dependency management — strategic advice from the team building the models",
+          "key_fact": "Comprehensive guide covering architecture, fine-tuning decisions, and model dependency strategy"
+        },
+        {
+          "id": 37779,
+          "title": "Andrew Ng and Yann LeCun Push Back on the AI Jobpocalypse",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Two of AI's most respected voices argue the historical pattern holds — technology creates more jobs than it destroys",
+          "key_fact": "5,096 likes, 1,163 RTs; backed by historical technology adoption precedent"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 37693,
+          "title": "Claude Cowork Turns a Floor Plan into a Walkable 3D Apartment",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Floor plan → 3D planner → email receipt parsing → furniture placement → walkthrough mode, all one-shot — creative coding that redefines 'productivity tool'",
+          "key_fact": "One-shot generation: floor plan to interactive 3D walkthrough with furniture from parsed email receipts"
+        },
+        {
+          "id": 37760,
+          "title": "Open-Source Models Are Catching Up — GLM 5.1 Takes the Lead",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "GLM 5.1 tops the Artificial Analysis intelligence index over closed models — weight access means quantize, fine-tune, and deploy to edge without data leaving your infra",
+          "key_fact": "GLM 5.1 leads the Artificial Analysis intelligence index over all closed-source models"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 37533,
+      "title": "Anthropic TS SDK v0.96.0: Managed Agent Types + Cache Diagnostics",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Missing managed agent types for TypeScript finally ship",
+      "key_fact": "BetaManagedAgentsSearchResultBlock types and cache diagnostics beta"
+    },
+    {
+      "id": 37979,
+      "title": "Ollama v0.24.0 Gets Codex Integration",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Local model runners connecting to cloud coding agents via ollama launch",
+      "key_fact": "Codex app integration and MLX memory trace logging"
+    },
+    {
+      "id": 37619,
+      "title": "Figma's AI Pricing Sticks: Revenue Jumps 46% to $333M",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Proof that AI features translate to revenue acceleration, not just engagement",
+      "key_fact": "Q1 revenue $333M, up 46% YoY, accelerating from 40% last quarter"
+    },
+    {
+      "id": 38020,
+      "title": "A Developer's Honest Take: AI Is Making Me Dumb",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The cognitive atrophy counterpoint hits 387 HN points",
+      "key_fact": "387 HN points, 236 RTs — resonating widely among developers"
+    }
+  ],
+  "total_items": 24
+}
