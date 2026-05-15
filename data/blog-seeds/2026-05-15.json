@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "How Claude Code works in large codebases: Best practices and where to start",
+    "url": "https://www.claude.com/blog/how-claude-code-works-in-large-codebases-best-practices-and-where-to-start",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 37,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Claude Code weekly limits increasing 50% through July 13",
+    "url": "https://x.com/alexalbert__/status/2054649016814837948",
+    "source": "twitter:@alexalbert__",
+    "x_engagement_24h": 22919,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 35.8757,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Cowork turns a floor plan into a walkable 3D apartment planner — one-shot",
+    "url": "https://x.com/felixrieseberg/status/2054690676076609657",
+    "source": "twitter:@felixrieseberg",
+    "x_engagement_24h": 552,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.165599999999998,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code v2.1.142: new agent flags, Opus 4.7 fast mode default",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.142",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 28,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Paid Claude plans get monthly programmatic usage credits starting June 15",
+    "url": "https://x.com/bcherny/status/2054655192105373753",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 12840,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 23.852,
+    "suggested_angle": "news"
+  }
+]
