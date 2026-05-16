@@ -1,0 +1,228 @@
+{
+  "date": "2026-05-16",
+  "headline_hook": "A 3B Model Wins Math Gold While OpenAI Cracks Open Zed and MCP Faces a 10x Reality Check",
+  "preview_topics": [
+    "a 3B-parameter model that wins Olympiad gold",
+    "the 10x token gap between MCP and code-first agents",
+    "Anthropic's $200M Gates Foundation commitment"
+  ],
+  "pick_of_the_day": {
+    "item_id": 38260,
+    "thesis": "The 10x token efficiency gap between SDK-native and MCP-based agent designs isn't just a cost story — it reveals that the industry's rush to standardize tool interfaces may be optimizing for interoperability at the expense of the thing agents actually need most: tight, predictable control flow."
+  },
+  "model_literacy": {
+    "concept": "Mixture of Experts (MoE) and Active Parameters",
+    "relevance": "Today's 30B-A3B reasoning model achieves gold-medal math with only 3B active parameters out of 30B total — MoE architectures route each token to a subset of 'expert' sub-networks, meaning you get frontier-class reasoning at consumer-hardware inference cost. Understanding active vs. total params is now essential for evaluating any model's real deployment footprint."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 38133,
+          "title": "OpenAI Lets ChatGPT Subscribers Code Inside Zed — No Codex Sub Required",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Collapsing the paywall between ChatGPT and dev tooling — OpenAI is betting that existing subscribers will try AI coding if the friction is zero.",
+          "key_fact": "ChatGPT subscribers can now use their existing plan inside Zed's agent with the same rate limits as Codex"
+        },
+        {
+          "id": 38153,
+          "title": "A 30B Model With Only 3B Active Parameters Hits Olympiad Gold in Math and Physics",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Frontier reasoning on consumer hardware — this MoE model proves you don't need trillion-parameter scale to win gold medals.",
+          "key_fact": "30B-A3B mixture-of-experts with only 3B active parameters reaches gold-medal level on both physics and math Olympiad evaluations"
+        },
+        {
+          "id": 38151,
+          "title": "Microsoft Drops Lens: A 3.8B Text-to-Image Model Built for Training Efficiency",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A lightweight open image gen option for teams that can't afford Flux-scale compute budgets.",
+          "key_fact": "3.8B parameters, designed for efficient training and high-quality generation on modest hardware"
+        },
+        {
+          "id": 38270,
+          "title": "xAI Finishes Training Grok V9 at 1.5 Trillion Parameters",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Musk's lab triples Grok's parameter count and signals Cursor fine-tuning is next — another frontier player entering the coding agent arena.",
+          "key_fact": "1.5 trillion parameters, 3x larger than Grok V8, with Cursor training data still to be added"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 38137,
+          "title": "Codex Goes Mobile Inside ChatGPT — Setup Guides Are Already Circulating",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The mobile coding agent pattern is maturing from novelty to daily workflow — developers are documenting real setup flows.",
+          "key_fact": "Codex integration directly inside the ChatGPT mobile app with community-built walkthrough guides"
+        },
+        {
+          "id": 38394,
+          "title": "Claude Code v2.1.143 Adds Plugin Dependency Enforcement and Worktree Isolation",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Meaningful infrastructure for multi-agent workflows — plugins now declare dependencies and background agents get isolated worktrees.",
+          "key_fact": "New: plugin dependency enforcement, projected context cost in marketplace, worktree background isolation"
+        },
+        {
+          "id": 38257,
+          "title": "Supabase Ships an Official Plugin for AI Coding Agents",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Database-as-a-service just became agent-native — one plugin works across Codex, Claude Code, Cursor, and Gemini CLI.",
+          "key_fact": "MCP + skills plugin supporting Codex, Claude Code, Cursor, and Gemini CLI out of the box"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 38260,
+          "title": "Hard Numbers: MCP Uses 10x More Tokens Than Code-First Agent Design on the Same API",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "Cloudflare's code-mode thesis gets a concrete stress test — the SDK path was 1 step and 15k tokens vs. MCP's 4 steps and 158k on monday.com's GraphQL API.",
+          "key_fact": "SDK: 1 step, 15k tokens. MCP server: 4 steps, 158k tokens — 10x efficiency gap on the same task"
+        },
+        {
+          "id": 38171,
+          "title": "Simon Willison: Coding Agents Make 'Port It, Then Port It Back' Economically Rational",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "When porting a native app to React Native costs less than a meeting, build-vs-rewrite economics flip entirely.",
+          "key_fact": "Porting native mobile apps to React Native and back is now cheap enough to be throwaway work"
+        },
+        {
+          "id": 38242,
+          "title": "The Small But Meaningful Gaps Between Claude Code and Codex CLIs",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A developer's side-by-side comparison of skill names, built-ins, and feature gaps — practical intel for teams picking a coding agent.",
+          "key_fact": "Different skill names, different built-ins (docs, browser testing), subtle feature gaps between the two CLIs"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 37703,
+          "title": "UK AISI Confirms Mythos Preview Is First Model to Solve Both Cyber Ranges End-to-End",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "No model had ever cleared both ranges before — the developer community is independently amplifying this as a genuine capability inflection.",
+          "key_fact": "First model to solve both UK AISI cyber ranges end-to-end; no prior model had done it"
+        },
+        {
+          "id": 38197,
+          "title": "LeCun's Useful Framework: LLMs Excel Where Language IS the Reasoning, Not Just the Description",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A practical lens for deciding where to deploy LLMs vs. other approaches — math and code are native, physical reasoning is not.",
+          "key_fact": "LLMs are strongest where language is the substrate of reasoning (math, code), weakest where it merely describes reasoning"
+        },
+        {
+          "id": 38018,
+          "title": "Ontario Auditors Find AI Medical Note-Takers Routinely Get Basic Clinical Facts Wrong",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Real audit data from government reviewers, not a lab benchmark — a sobering counterpoint to the AI healthcare success narrative.",
+          "key_fact": "Government auditors documented routine factual errors in AI-generated clinical notes"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 37695,
+          "title": "Anthropic Commits $200M to the Gates Foundation for Global Health, Education, and Agriculture",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The largest philanthropic commitment from any AI lab — positioning safety-focused AI as global development infrastructure, not just a Bay Area product.",
+          "key_fact": "$200M in grants, Claude credits, and technical support across global health, life sciences, education, agriculture, and economic mobility"
+        },
+        {
+          "id": 38050,
+          "title": "OpenAI Merges ChatGPT, Codex, and API Teams Under Brockman's Unified-App Vision",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Every OpenAI product collapsing into one surface while Fidji Simo is on leave — a direct organizational bet that convergence beats specialization.",
+          "key_fact": "Greg Brockman now oversees unified product org spanning ChatGPT, Codex, and API during Fidji Simo's leave"
+        },
+        {
+          "id": 38091,
+          "title": "Anthropic Publishes Legal Industry Deployment Case Study for Claude",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Follows the 'Claude for Legal' launch by three days — concrete enterprise adoption evidence for AI's fastest-growing vertical.",
+          "key_fact": "Deployment case study deepening Anthropic's legal vertical play, following the May 13 Claude for Legal launch"
+        },
+        {
+          "id": 38174,
+          "title": "Mollick: Codex Still Treats Non-Coders as Less Competent, Not Differently Competent",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A sharp UX critique — AI 'everything apps' default to developer complexity instead of designing distinct interfaces for distinct users.",
+          "key_fact": "475 likes on the argument that Codex's developer-coded interface fails as an everything-app for non-technical users"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 38440,
+          "title": "Watch a Neural Net Learn Snake in Real Time — Interactive PPO Visualization",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "In-browser RL training visualization — bookmark this for the next time you need to explain reinforcement learning to a colleague.",
+          "key_fact": "Real-time, interactive PPO training visualization running entirely in the browser"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 38439,
+      "title": "Hashimoto Calls Out 'AI Psychosis' in Companies Making Irrational Bets",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "HashiCorp founder's viral thread on organizational AI delusion",
+      "key_fact": "612 likes, 283 RTs — widespread resonance on corporate AI irrationality"
+    },
+    {
+      "id": 37626,
+      "title": "Abridge Has Processed 100M Doctor Visits, Saves Clinicians 10-20 Hours/Week",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Concrete scale numbers from AI healthcare that's actually shipping",
+      "key_fact": "100M doctor visits processed, 10-20 hours saved per clinician per week"
+    },
+    {
+      "id": 37627,
+      "title": "Latent Space Breaks Down the Codex-vs-Claude Business Model War",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Deep analysis of metered usage and competitive dynamics in coding agents",
+      "key_fact": "Covers Anthropic's new metered programmatic usage alongside the Codex launch"
+    },
+    {
+      "id": 38213,
+      "title": "Next Week's Showdown: GPT 5.6 vs Gemini 3.2 Announcements Expected",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Frontier model releases accelerating into a weekly cadence",
+      "key_fact": "Both Google and OpenAI expected to announce next week"
+    }
+  ],
+  "total_items": 22
+}
