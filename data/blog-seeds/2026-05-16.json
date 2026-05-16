@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "RT @rileybrown: OpenAI released Codex Mobile App Directly on ChatGPT  Here's everything you need to know: 1. How to set it up 2. How to ful…",
+    "url": "https://x.com/OpenAIDevs/status/2055270313508884588",
+    "source": "twitter:@OpenAIDevs",
+    "x_engagement_24h": 684,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 36.2052,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "We're partnering with the Gates Foundation, committing $200 million in grants, Claude credits, and technical support to programs in global health, life sciences, education, agriculture, and economic m",
+    "url": "https://x.com/AnthropicAI/status/2054941901900611787",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 2285,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.6855,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @stingning: We're releasing a 30B-A3B reasoning model that reaches gold-medal level across both physics and math Olympiad evaluations: I…",
+    "url": "https://x.com/huggingface/status/2055333128852410587",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 790,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.237,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @HuggingPapers: Microsoft just released Lens on Hugging Face  A 3.8B parameter text-to-image model delivering efficient training and hig…",
+    "url": "https://x.com/huggingface/status/2055375667647189207",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 182,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.0546,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Deploying Claude across the legal industry",
+    "url": "https://www.claude.com/blog/deploying-claude-across-the-legal-industry",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  }
+]
