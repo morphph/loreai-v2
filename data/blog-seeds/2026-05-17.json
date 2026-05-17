@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "ANTHROPIC JUST DROPPED A 2-HOUR MASTERCLASS ON CLAUDE AGENTS  • Taught by the engineer behind Claude Code and autonomous agent workflows • Covers terminal access, memory systems, hooks, hallucination ",
+    "url": "https://x.com/RoundtableSpace/status/2055706092169310247",
+    "source": "twitter:search:\"claude code\" (hook OR hooks OR keybinding) -crypto",
+    "x_engagement_24h": 134,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 45.0402,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Zerostack – A Unix-inspired coding agent written in pure Rust",
+    "url": "https://crates.io/crates/zerostack/1.0.0",
+    "source": "hackernews",
+    "x_engagement_24h": 101,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 37.0303,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "multica-ai/multica: The open-source managed agents platform. Turn coding agents into real teammates — assign tasks, track progress, compound skills.",
+    "url": "https://github.com/multica-ai/multica",
+    "source": "github:trending:Agent/MCP tools",
+    "x_engagement_24h": 32342,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.7026,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "HomeClaw lets you use any agent to control your Apple Home. It has a CLI, MCP and @openclaw Plugin. You can literally do anything from the command line and agent including creating and importing scene",
+    "url": "https://x.com/OmarShahine/status/2055707450125500514",
+    "source": "twitter:search:\"MCP\" (implementation OR plugin OR server OR tool) min_faves:10 -crypto",
+    "x_engagement_24h": 216,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.0648,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "SANA-WM, a 2.6B open-source world model for 1-minute 720p video",
+    "url": "https://nvlabs.github.io/Sana/WM/",
+    "source": "hackernews",
+    "x_engagement_24h": 402,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.1206,
+    "suggested_angle": "news"
+  }
+]
