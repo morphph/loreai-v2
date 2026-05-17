@@ -1,0 +1,228 @@
+{
+  "date": "2026-05-17",
+  "headline_hook": "OpenAI Patches a Broken Codex, a 3B Model Takes Olympiad Gold, and AI Kills CTF",
+  "preview_topics": [
+    "the GPT-5.5 Codex regression saga",
+    "Olympiad gold with 3B active parameters",
+    "why the CTF scene just died"
+  ],
+  "pick_of_the_day": {
+    "item_id": 38851,
+    "thesis": "The death of CTF competitions isn't a security niche story — it's the first domino in every competitive skill domain where AI can iterate faster than humans, and the communities that built their identity around those skills face an existential choice between gatekeeping and reinvention."
+  },
+  "model_literacy": {
+    "concept": "Mixture of Experts (MoE) and Active Parameters",
+    "relevance": "Today's 30B-A3B reasoning model hits Olympiad gold using only 3B of its 30B parameters per forward pass. MoE routes each input to a small subset of specialized 'expert' sub-networks, slashing inference cost while maintaining capacity. This is why a model can be '30B' in knowledge but '3B' in compute — and why the parameter count on the label is increasingly misleading."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 38593,
+          "title": "A 30B Model With 3B Active Parameters Just Won Olympiad Gold in Physics and Math",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "MoE efficiency isn't theoretical anymore — this model proves you can match frontier reasoning at a fraction of the inference cost, and it's open-weights",
+          "key_fact": "30B total parameters, only 3B active per forward pass, gold-medal level on both physics and math Olympiad evaluations"
+        },
+        {
+          "id": 38849,
+          "title": "NVIDIA Drops SANA-WM: Open-Source World Model for 1-Minute 720p Video",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Video generation just got an open-source baseline that actually produces watchable output — 2.6B params, 720p, one full minute",
+          "key_fact": "2.6B parameters, 1-minute 720p video generation, fully open-source from NVIDIA Labs"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 38597,
+          "title": "OpenAI Found and Fixed a 48-Hour Capability Regression in GPT-5.5 Codex",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Rare production transparency: frontier models degrade silently, and OpenAI just showed what catching and fixing that looks like in real time",
+          "key_fact": "Two bugs caused ~48 hours of degraded GPT-5.5 performance in Codex; 7,467 likes signals how many developers felt the regression firsthand"
+        },
+        {
+          "id": 38851,
+          "title": "Frontier AI Has Broken the Open CTF Format — and the Scene Knows It",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "When competitors spend more time prompting than hacking, the competition measures a different skill entirely — CTF is the canary for every domain where AI can brute-force iteration",
+          "key_fact": "Teams now spend more time prompting AI models than applying security skills; the open CTF format is considered fundamentally compromised"
+        },
+        {
+          "id": 38619,
+          "title": "Gemini Pro Rumored at GPT-5.5 Coding Level — at Half the Price",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Google's price-performance squeeze continues: if the rumor holds, the frontier coding tier just got a 50% cost cut overnight",
+          "key_fact": "$12/1M output tokens, rumored GPT-5.5-level coding, more than 50% cheaper than competitors"
+        },
+        {
+          "id": 38636,
+          "title": "Ex-xAI Cofounder Raising $1B at $5B Valuation for River AI — Before Building Anything",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The talent premium in frontier AI has become its own investable asset class — a $5B pre-product valuation says more about the market than the company",
+          "key_fact": "$1B raise, $5B valuation, General Catalyst leading, no product yet"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 38529,
+          "title": "PrimeIntellect Lets Claude Code and Codex Run Autonomously on AI Research Tasks",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "This isn't agents writing code — it's agents doing science. PrimeIntellect's experiment is the clearest signal yet that frontier agents can contribute to research, not just engineering",
+          "key_fact": "Claude Code (Opus 4.7) and Codex (GPT 5.5) ran autonomously on AI research tasks with concrete outputs"
+        },
+        {
+          "id": 38632,
+          "title": "Anthropic's Mythos Found 250 Security Vulnerabilities Where Prior Models Found 22",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The 11x multiplier in vulnerability discovery explains Anthropic's cautious release strategy — and raises the bar for what 'responsible deployment' means at the frontier",
+          "key_fact": "250 vulnerabilities found vs. 22 by prior frontier models — an 11x improvement that drove Anthropic's phased release decision"
+        },
+        {
+          "id": 38605,
+          "title": "Energy-Based Models Are Back — LeCun's Structural Verification Thesis Gets Traction",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "LeCun has been saying for years that AI needs to check structure before generating — now practical EBM implementations are arriving to prove him right",
+          "key_fact": "EBMs verify structural consistency before generation, contrasting with autoregressive models that generate first and hope for coherence"
+        },
+        {
+          "id": 38175,
+          "title": "The Second Scaling Law Remains Undefeated: More Thinking Tokens, Better Results, No Plateau",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Test-time compute scaling shows no diminishing returns across hacking, math, and science — the ceiling on inference-time improvement hasn't appeared yet",
+          "key_fact": "Consistent improvement from additional thinking tokens across all tested domains with no observed plateau"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 38596,
+          "title": "Codex Can Now Daisy-Chain Multiple Computers Through ChatGPT",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Codex evolves from single-device coding agent to multi-machine orchestration layer — control multiple computers from one ChatGPT session",
+          "key_fact": "Codex can control additional computers through ChatGPT without switching devices, enabling multi-machine agent workflows"
+        },
+        {
+          "id": 38652,
+          "title": "HomeClaw Ships CLI + MCP + OpenClaw Plugin for Apple Home Automation",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Smart home control goes fully agent-native — natural language commands through any agent that speaks MCP or OpenClaw",
+          "key_fact": "CLI, MCP server, and OpenClaw plugin for complete Apple Home control including scene creation and import"
+        },
+        {
+          "id": 38669,
+          "title": "Open Code + Qwen 3.6 Plus: A Completely Free Coding Agent Stack",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "No subscription, no credit card — an open-source coding agent plugged into a flagship model during its free preview window",
+          "key_fact": "Zero-cost coding agent setup using Open Code with Qwen 3.6 Plus during its free preview period"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 38852,
+          "title": "DeepSeek-V4-Flash Makes Steering Vectors Practical Again",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Modify model behavior at inference time without fine-tuning — DeepSeek's architecture makes this old technique newly viable for production use",
+          "key_fact": "Steering vectors add activation vectors at inference time to change model behavior, and V4-Flash's architecture makes them reliable enough to use seriously"
+        },
+        {
+          "id": 38648,
+          "title": "Anthropic Drops a 2-Hour Masterclass on Building Claude Agents",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The engineer behind Claude Code teaches memory systems, hooks, and hallucination mitigation — straight from the source",
+          "key_fact": "2-hour masterclass covering terminal access, memory systems, hooks, and hallucination mitigation for Claude agent workflows"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 38773,
+          "title": "Multica: Open-Source Platform That Turns Coding Agents Into Managed Teammates",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Agent orchestration gets an open-source alternative — assign tasks, track progress, and compound skills across multiple coding agents",
+          "key_fact": "28,848 GitHub stars, open-source managed agents platform with task assignment and progress tracking"
+        },
+        {
+          "id": 38847,
+          "title": "Zerostack Hits v1.0: A Unix-Philosophy Coding Agent in Pure Rust",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Composable pipelines instead of monolithic sessions — Unix philosophy applied to coding agents, built in Rust for performance",
+          "key_fact": "v1.0 release, pure Rust, treats agent operations as composable Unix-style pipelines"
+        },
+        {
+          "id": 38586,
+          "title": "Building a Personal AI Agent: Motivation, Architecture, and What It Actually Means",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A practitioner's full-stack breakdown of the personal agent trend — why they built one, what decisions mattered, and where it's heading",
+          "key_fact": "1,157 likes; covers architecture decisions and practical implications of the personal-agent paradigm"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 38474,
+      "title": "Cerebras IPOs at $60B — AI Chips Get a Public Comparator Beyond NVIDIA",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Wafer-scale architecture thesis meets market scrutiny",
+      "key_fact": "$60B IPO valuation"
+    },
+    {
+      "id": 38642,
+      "title": "Chinese Grey Markets Selling Claude API Access at 10% of List Price",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Oxford researchers document an API supply chain vulnerability",
+      "key_fact": "90% discount via promo credit and free-trial account pools"
+    },
+    {
+      "id": 38469,
+      "title": "Warelay Rebrands to OpenClaw — Simon Willison Has the Context",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The AI assistant platform gets a new identity",
+      "key_fact": "Covered by Simon Willison's blog"
+    },
+    {
+      "id": 38660,
+      "title": "Microsoft Releases a Free 15-Lesson Course on Building Production AI Agents",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Agentic RAG, multi-agent, MCP, A2A — all with code and videos",
+      "key_fact": "15+ lessons covering production agent patterns end-to-end"
+    }
+  ],
+  "total_items": 22
+}
