@@ -1,0 +1,207 @@
+{
+  "date": "2026-05-18",
+  "headline_hook": "Anthropic Overtakes OpenAI in Enterprise While LeCun Gives World Models 18 Months",
+  "preview_topics": [
+    "Anthropic's enterprise spending surge",
+    "LeCun's world-model countdown",
+    "the real cost of local inference"
+  ],
+  "pick_of_the_day": {
+    "item_id": 38939,
+    "thesis": "The Ramp data doesn't just show Anthropic winning enterprise wallets — it reveals that corporate AI adoption has silently crossed from experimentation budgets to production infrastructure line items, and that transition favors the vendor who ships the best coding tools, not the best chatbot."
+  },
+  "model_literacy": {
+    "concept": "Model Routing",
+    "relevance": "Today's agent swarms piece shows teams assigning Opus for UI, GPT-5.5 for backend, and Gemini for vision. Model routing — dispatching tasks to specialized models by capability and cost — is becoming the default multi-agent architecture, and understanding the routing tradeoffs is essential for anyone building compound AI systems."
+  },
+  "sections": [
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 38939,
+          "title": "Anthropic Beats OpenAI in Enterprise Spend for the First Time — Ramp Has the Receipts",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "First hard financial data from a major spend-tracking platform showing the B2B throne has changed hands — this is the enterprise tipping point everyone debated",
+          "key_fact": "Ramp corporate card data shows Anthropic overtaking OpenAI in business adoption for the first time"
+        },
+        {
+          "id": 38946,
+          "title": "Anthropic's Own Engineer Asks Twitter: Where Does Claude Still Lose?",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "A 1,260-like thread of real user frustrations is the most honest capability map of Claude's gaps — and a signal that Anthropic is weaponizing public feedback as a product roadmap",
+          "key_fact": "1,260 likes on a thread cataloguing exactly when developers reach for competing models"
+        },
+        {
+          "id": 39240,
+          "title": "Contrarian Take Gains Steam: AI Won't Actually Make Your Processes Faster",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The bottleneck was never the code — it's the meetings, approvals, and alignment loops that AI can't compress",
+          "key_fact": "471 likes, 335 RTs on HN-viral post arguing AI accelerates execution but not coordination"
+        },
+        {
+          "id": 39241,
+          "title": "Gruber: AI Is Infrastructure, Not a Product Category",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The Daring Fireball framing directly challenges the standalone AI app investment thesis and validates Apple's embed-everywhere approach",
+          "key_fact": "Argues AI should be embedded technology rather than standalone product — aligns with Apple's strategy"
+        },
+        {
+          "id": 38442,
+          "title": "ArXiv Drops the Hammer: One-Year Ban for Fully AI-Generated Papers",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The world's largest preprint server just created the first real enforcement mechanism against academic AI slop",
+          "key_fact": "1-year author ban for papers where AI did all the intellectual work"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 38999,
+          "title": "LeCun Sets the Clock: Hierarchical World Models in 12–18 Months",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Meta's chief AI scientist puts a concrete deadline on his long-standing thesis — if FAIR delivers, it's the biggest paradigm shift since transformers",
+          "key_fact": "12–18 month timeline for a general training method for hierarchical world models"
+        },
+        {
+          "id": 39242,
+          "title": "Running Local LLMs on Apple Silicon Actually Costs More Than Cloud APIs",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "When you factor in hardware amortization and electricity, the 'local is free' narrative collapses — and the math is worse than you think",
+          "key_fact": "Detailed cost analysis shows Apple Silicon inference is more expensive per token than OpenRouter"
+        },
+        {
+          "id": 38479,
+          "title": "The Open Model Flood: Gemma 4, DeepSeek V4, Kimi K2.6, MiMo 2.5, GLM-5.1 All Drop",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Nathan Lambert calls it the most eventful month for open-weight releases in AI history — the frontier is no longer a closed-lab monopoly",
+          "key_fact": "Five major open-weight model families released in a single month"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 39042,
+          "title": "Anthropic Quietly Ships claude-code-setup: One Plugin to Wire Your Entire Dev Environment",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Auto-configures hooks, skills, MCP servers, and subagents — turns vanilla Claude Code into a fully-wired AI IDE with one install",
+          "key_fact": "Official Anthropic plugin that scans your project and auto-configures the full Claude Code stack"
+        },
+        {
+          "id": 38771,
+          "title": "DeepSeek-TUI: A Terminal Coding Agent Built for DeepSeek Models",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The Claude Code / Codex UX pattern is now model-agnostic — this DeepSeek-native terminal agent proves the coding agent form factor is commoditizing fast",
+          "key_fact": "30,514 GitHub stars for a terminal-based coding agent purpose-built for DeepSeek"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 38976,
+          "title": "Mollick: AI Consumer Products Need Pre-Built Skills, Not Open-Ended Chat",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The core UX insight for anyone building AI tools for non-experts: guided workflows beat blank text boxes every time",
+          "key_fact": "ChatGPT for personal finance fails because users need structured skills, not a chat prompt"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 38982,
+          "title": "Singapore's Foreign Minister Builds His Own AI Agent on a Raspberry Pi",
+          "section": "BUILD",
+          "prominence": "hero",
+          "angle": "A sitting cabinet minister building an AI agent and chatting with it daily via Telegram is the clearest signal yet that AI literacy is now a leadership requirement",
+          "key_fact": "Built NanoClaw AI agent on a Raspberry Pi, uses it daily via Telegram"
+        },
+        {
+          "id": 39059,
+          "title": "narrator-ai-cli-skill: One Prompt Generates Full Movie Narration Videos",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Open-source CLI that plugs into Claude Code and auto-generates movie commentary videos — script, voices, templates, BGM — built for the Chinese short-video content pipeline",
+          "key_fact": "63 voice options, 90+ templates, end-to-end movie narration video generation from a single prompt"
+        },
+        {
+          "id": 39121,
+          "title": "Bindu: Open-Source Identity and Payments Infrastructure for AI Agents",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Solving the 'how do agents pay each other' problem that blocks autonomous multi-agent systems from going production",
+          "key_fact": "6,094 GitHub stars for agent-to-agent identity, communication, and payments layer"
+        },
+        {
+          "id": 38850,
+          "title": "Can Claude Actually Make You Money on Open-Source Bounties? One Dev Tried.",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Honest writeup of the actual economics of AI-assisted bounty hunting — what worked, what didn't, and whether it's worth the time",
+          "key_fact": "Practical experiment testing Claude as an automated open-source bounty hunter"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 38441,
+      "title": "The Widening Gap Between AI Haves and Have-Nots",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Industry vibes souring as the value-capture gap widens",
+      "key_fact": "TechCrunch analysis of which companies are capturing AI value vs. just spending"
+    },
+    {
+      "id": 39001,
+      "title": "Key LLM Reasoning Researcher Departs Meta FAIR",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Talent movement from big labs often signals incoming startups",
+      "key_fact": "KempeLab leaves after leading Meta's LLM reasoning research"
+    },
+    {
+      "id": 38637,
+      "title": "Clara Health Raises $660M for AI-Powered Primary Care",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "One of the largest AI healthcare raises — can prescribe, HIPAA-compliant",
+      "key_fact": "$660M raise for AI doctor with licensed providers"
+    },
+    {
+      "id": 38973,
+      "title": "Mollick Tests GPT-5.5 Pro on Academic Humor — It's Actually Funny",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Frontier models crossing into creative territory previously considered AI-hard",
+      "key_fact": "GPT-5.5 Pro generates genuinely creative humor using linguistics techniques"
+    },
+    {
+      "id": 38618,
+      "title": "Agent Swarms: Opus for Frontend, GPT-5.5 for Backend, Gemini for Vision",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Multi-model routing becoming the default agent architecture",
+      "key_fact": "Pattern of routing agent tasks to specialized models by capability and cost"
+    }
+  ],
+  "total_items": 20
+}
