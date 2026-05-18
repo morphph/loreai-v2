@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "DeepSeek-TUI: Terminal Coding Agent Purpose-Built for DeepSeek Models",
+    "url": "https://github.com/Hmbown/DeepSeek-TUI",
+    "source": "github:trending",
+    "x_engagement_24h": 33075,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.9225,
+    "suggested_angle": "analysis"
+  },
+  {
+    "topic": "Anthropic Engineer Publicly Solicits Claude Frustrations: 'When Do You Reach for Other Models?'",
+    "url": "https://x.com/trq212/status/2055836702695116975",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 1335,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.4005,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "LeCun: Within 12–18 Months We'll Have a General Method for Training Hierarchical World Models",
+    "url": "https://x.com/ylecun/status/2056020151053492412",
+    "source": "twitter:@ylecun",
+    "x_engagement_24h": 935,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.2805,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic Beats OpenAI in Business Adoption for the First Time — Ramp Data",
+    "url": "https://x.com/bcherny/status/2055822613352759739",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 879,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.2637,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic Quietly Drops claude-code-setup: Official Plugin That Configures Your Entire Dev Environment",
+    "url": "https://x.com/eng_khairallah1/status/2056081357374378410",
+    "source": "twitter:search",
+    "x_engagement_24h": 207,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.0621,
+    "suggested_angle": "tutorial"
+  }
+]
