@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "You can now create more with Claude Design.  We've doubled token limits across every plan.",
+    "url": "https://x.com/claudeai/status/2056460045756309820",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 10590,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 32.177,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Next stop: London. Register to tune in tomorrow for deep dives, demos, and conversations with the teams behind Claude",
+    "url": "https://x.com/claudeai/status/2056328149940543808",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 2871,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.8613,
+    "suggested_angle": "analysis"
+  },
+  {
+    "topic": "RT @petergyang: Here's my new episode with @alexalbert__, who shared an inside look at how Anthropic is building the next Claude",
+    "url": "https://x.com/alexalbert__/status/2056182002731339844",
+    "source": "twitter:@alexalbert__",
+    "x_engagement_24h": 153,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.0459,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "a prompt I've been using a lot recently: implement <SPEC> and while you do, keep a running implementation-notes.html file with decisions you had to make weren't in the spec",
+    "url": "https://x.com/trq212/status/2056415973125796184",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 5837,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 17.7511,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic is acquiring @stainlessapi, an SDK and MCP server platform that has powered every Anthropic SDK since the earliest days of our API.  Read more: https://t.co/ZQbsZKnicv",
+    "url": "https://x.com/AnthropicAI/status/2056419620643541012",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 2237,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.6711,
+    "suggested_angle": "news"
+  }
+]
