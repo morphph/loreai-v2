@@ -1,0 +1,236 @@
+{
+  "date": "2026-05-19",
+  "headline_hook": "Anthropic Swallows Stainless, Claude Doubles Down, and Google Readies Its I/O Answer",
+  "preview_topics": [
+    "Anthropic's Stainless acquisition play",
+    "cache diagnostics for prompt engineers",
+    "Google I/O's competitive reset"
+  ],
+  "pick_of_the_day": {
+    "item_id": 39334,
+    "thesis": "Anthropic acquiring its own SDK layer reveals that the real AI moat isn't the model — it's owning the developer surface area between the model and every app that calls it."
+  },
+  "model_literacy": {
+    "concept": "Prompt Cache Prefix Matching",
+    "relevance": "With cache diagnostics now exposing exactly where your prompt prefix diverges, understanding how prefix-based caching works — and why a single changed token invalidates everything after it — is the difference between 90% cache hits and 10%."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 39334,
+          "title": "Anthropic Acquires Stainless to Own Its SDK and MCP Stack",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Anthropic buys the company that has built every Anthropic SDK since day one — vertical integration of the developer tooling layer signals that controlling how developers call your model matters as much as the model itself.",
+          "key_fact": "Stainless has powered every Anthropic SDK since the earliest API days"
+        },
+        {
+          "id": 39335,
+          "title": "Claude Design Doubles Token Limits Across Every Plan",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Doubling token limits for design workflows removes the biggest friction point for power users — longer sessions, fewer interruptions, more complex outputs in a single pass.",
+          "key_fact": "10K+ likes and 2x token ceiling across all tiers including free"
+        },
+        {
+          "id": 39387,
+          "title": "Sam Altman Says ChatGPT Just Got 'Soooo Much Better'",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Altman personally endorsing a ChatGPT update with 10K likes suggests a meaningful capability jump tied to the GPT-5.5 unification push.",
+          "key_fact": "10,678 likes — Altman's highest-engagement product endorsement in months"
+        },
+        {
+          "id": 39350,
+          "title": "GPT-5.5-Pro Models a Chandelier in CAD",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "AI generating functional 3D engineering models moves the frontier from text and code into physical design — professional CAD workflows are now on the table.",
+          "key_fact": "Full chandelier model generated in ForgeCAD, not just a sketch"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 39323,
+          "title": "Anthropic Ships Cache Diagnostics: See Exactly Why Your Prompt Cache Missed",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "No more guessing why your cache hit rate dropped — pass a previous message ID and the API tells you the exact token where your prefix diverged. This changes how you debug production Claude apps.",
+          "key_fact": "New cache_miss_reason field reports exact divergence point in public beta"
+        },
+        {
+          "id": 39322,
+          "title": "Claude's Web Search Tool Now Returns Structured SEC Filing Data",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Financial research agents just got a major upgrade — structured SEC data with citations baked into the web search tool, no custom scraping needed.",
+          "key_fact": "Rich structured data for SEC filings with source citations"
+        },
+        {
+          "id": 39360,
+          "title": "llama.cpp Lands Multi-Token Prediction for Qwen3.6",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "MTP in llama.cpp predicts multiple tokens per forward pass, dramatically boosting inference throughput for the Qwen3.6 family on consumer GPUs.",
+          "key_fact": "722 likes and 108 RTs — the local AI community is paying attention"
+        },
+        {
+          "id": 39283,
+          "title": "PaddleOCR 3.5 Drops the PaddlePaddle Dependency, Runs on Transformers",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The most-used open-source OCR library now runs on a standard HuggingFace Transformers backend — removing the biggest friction point for integration into existing ML pipelines.",
+          "key_fact": "No longer requires PaddlePaddle framework — standard Transformers backend"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 39340,
+          "title": "The 'Implementation Notes' Prompt That Makes Agent Decisions Auditable",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Tell the agent to maintain a running HTML log of every decision it made that wasn't in the spec — turns implicit tradeoffs into an auditable artifact you can review after the run.",
+          "key_fact": "5,556 likes — one of the highest-engagement prompting tips this month"
+        },
+        {
+          "id": 39650,
+          "title": "Fighting AI Bot Spam in GitHub With Git's --author Flag",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A lightweight defense against low-quality AI-generated PRs using Git's existing --author flag — no new tooling required, works today.",
+          "key_fact": "183 RTs signals this hit a nerve in the open-source maintainer community"
+        },
+        {
+          "id": 39375,
+          "title": "Your AI Outputs Are Leaking Revision History — Here's How to Catch It",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Mollick flags a subtle quality issue: models leaving behind traces of their own editing process in final outputs. A practical QA check for any AI-generated content workflow.",
+          "key_fact": "Slide footers, 'improved version' artifacts, and edit trail contamination"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 39284,
+          "title": "IBM and HuggingFace Launch the Open Agent Leaderboard",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Finally a standardized benchmark for comparing open-source AI agents across tasks — the community has been flying blind on agent capabilities until now.",
+          "key_fact": "First cross-architecture, cross-task agent benchmark from a major lab"
+        },
+        {
+          "id": 39369,
+          "title": "Sutton's Bitter Lesson in 26 Words Is Resonating Again",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "At 4K+ likes, Sutton's distilled thesis — computation beats hand-engineered knowledge — is hitting different as open models close the gap with sheer scale.",
+          "key_fact": "4,152 likes and 567 RTs — the most-shared research framing this week"
+        },
+        {
+          "id": 39368,
+          "title": "MaxSim Kernel Removes the ColBERT Retrieval Bottleneck",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "If you're running late-interaction retrieval (ColBERT, PyLate) in production RAG, the main performance bottleneck just got solved.",
+          "key_fact": "Released on HuggingFace — drop-in kernel replacement"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 39354,
+          "title": "Google I/O Tomorrow: The Event That Could Reshuffle the AI Leaderboard",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "With Gemini 3.2 expected and Google positioned as 'clear third place' in the foundation model race, tomorrow's I/O is less a product launch and more a survival proof.",
+          "key_fact": "DeepMind promising 'breakthroughs' — not incremental updates"
+        },
+        {
+          "id": 39337,
+          "title": "Alex Albert Gives an Inside Look at How the Next Claude Is Being Built",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "First-hand insight from Anthropic's team on research process, capability priorities, and the design philosophy driving Claude's next iteration.",
+          "key_fact": "Covers both technical roadmap and organizational decision-making"
+        },
+        {
+          "id": 39255,
+          "title": "MIT Tech Review Frames Google as 'Clear Third Place' Heading Into I/O",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Useful framing for evaluating whatever Google ships tomorrow — the question isn't what they announce, it's whether it closes the gap.",
+          "key_fact": "Positions I/O as a must-deliver moment, not a routine keynote"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 39365,
+          "title": "SAM Gets Ported to Apple Silicon With 1.25x Speedup on MLX",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The local inference ecosystem is maturing past text — Segment Anything now runs natively on Apple hardware, and the 1.25x speedup is just the starting point.",
+          "key_fact": "1.25x inference speed increase on MLX vs. baseline"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 39336,
+      "title": "Anthropic's London Event: Deep Dives and Demos Tomorrow",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Register for live Claude team sessions",
+      "key_fact": "2,659 likes — high anticipation for previews"
+    },
+    {
+      "id": 39616,
+      "title": "crewAI 1.14.5 Deprecates Old Executor, Adds State Restore",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Breaking change: new AgentExecutor + checkpoint resume",
+      "key_fact": "restore_from_state_id enables workflow checkpointing"
+    },
+    {
+      "id": 39282,
+      "title": "Fine-Tuning NVIDIA Cosmos for Robot Video Generation",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "LoRA/DoRA fine-tuning for world models in robotics",
+      "key_fact": "Sim-to-real transfer without full retraining"
+    },
+    {
+      "id": 39652,
+      "title": "Agora-1: A World Model Built for Multi-Agent Coordination",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Agents sharing a learned environment model",
+      "key_fact": "Moves beyond isolated context windows"
+    },
+    {
+      "id": 39339,
+      "title": "Staying in the Loop With Long-Running Agents",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Human oversight patterns for multi-hour agent sessions",
+      "key_fact": "365 likes on the human-in-the-loop discussion"
+    }
+  ],
+  "total_items": 23
+}
