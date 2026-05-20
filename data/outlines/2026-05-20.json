@@ -1,0 +1,247 @@
+{
+  "date": "2026-05-20",
+  "headline_hook": "Karpathy Joins Anthropic as Google Fires Its Biggest AI Salvo at I/O",
+  "preview_topics": [
+    "Karpathy's leap to Anthropic",
+    "Google's Gemini 3.5 and Omni double launch",
+    "Claude agents enter enterprise VPCs"
+  ],
+  "pick_of_the_day": {
+    "item_id": 39694,
+    "thesis": "DeepMind's cell rejuvenation result marks the moment AI-for-science graduates from benchmark theater to actual biological discovery — and the implications for how we fund and evaluate AI research are enormous."
+  },
+  "model_literacy": {
+    "concept": "Multi-Token Prediction (MTP)",
+    "relevance": "Today's llama.cpp speed gains come from MTP — predicting several tokens at once instead of one-by-one. As Qwen3.6 and other models adopt MTP natively, understanding why it speeds up inference without sacrificing quality helps readers evaluate local-model performance claims."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 39703,
+          "title": "Gemini 3.5 lands: Google's sharpest model yet goes all-in on agents",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Google's new flagship model family is optimized for agentic workflows and coding — a direct shot at Claude and GPT's developer strongholds",
+          "key_fact": "Gemini 3.5 Flash positioned as the strongest agent and coding model in Google's lineup"
+        },
+        {
+          "id": 39696,
+          "title": "Gemini Omni: Google's first create-anything-from-anything model",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "A single model that ingests any modality and generates any modality, starting with video — Google's bet that the future is unified multimodal, not specialized pipelines",
+          "key_fact": "First Google model designed for cross-modal generation, launching with video capabilities"
+        },
+        {
+          "id": 39699,
+          "title": "Google I/O 2026: the full AI product carpet bomb",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Beyond the headline models — Workspace upgrades, Chrome agent tools, Project Genie, and more make this Google's densest AI product launch ever",
+          "key_fact": "Largest single-day AI product announcement in Google's history"
+        },
+        {
+          "id": 39695,
+          "title": "Project Genie turns Street View into playable 3D worlds",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Google's world-simulation model now generates interactive environments from real Street View locations — available to AI Ultra subscribers",
+          "key_fact": "Generates interactive 3D environments from real-world Street View data"
+        },
+        {
+          "id": 39782,
+          "title": "OpenAI launches compute futures: reserve your GPU capacity in advance",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Guaranteed Capacity turns AI compute into a forward-contract commodity — enterprises can now lock in rate-limited-free access, like buying cloud reserved instances",
+          "key_fact": "Enterprise customers can pre-reserve compute capacity with long-term contracts"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 39732,
+          "title": "Claude agents break out of the cloud: self-hosted sandboxes hit public beta",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Self-hosted sandboxes and MCP tunnels remove the top enterprise blocker — agents now run inside your infrastructure perimeter, not Anthropic's",
+          "key_fact": "Self-hosted sandboxes (public beta) and MCP tunnels (research preview) for private infrastructure"
+        },
+        {
+          "id": 39783,
+          "title": "OpenAI adopts Google's SynthID: rivals cooperate on AI image provenance",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Cross-company adoption of watermarking standards signals AI provenance is becoming table stakes, not a differentiator",
+          "key_fact": "C2PA Content Credentials plus SynthID watermarking on all OpenAI-generated images"
+        },
+        {
+          "id": 39882,
+          "title": "Chrome DevTools gets an agent mode for AI-assisted debugging",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Your coding agent can now use Chrome DevTools to test, emulate users, and catch bugs — closing a key gap in agent-driven web development",
+          "key_fact": "Agents can interact with browser DevTools capabilities before shipping code"
+        },
+        {
+          "id": 39698,
+          "title": "Gemini for Science: purpose-built AI tools for researchers",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Google expands its science-specific AI toolkit with dedicated Gemini capabilities built for researchers, not general-purpose models repurposed for labs",
+          "key_fact": "Suite of science-specific AI tools built on Gemini for research workflows"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 39694,
+          "title": "DeepMind's AI discovers genetic switches that reverse cellular aging",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Co-Scientist found novel genetic factors that actually rejuvenate human cells in the lab — this is not a benchmark, it is a biological result",
+          "key_fact": "AI-discovered genetic factors successfully rejuvenated human cells"
+        },
+        {
+          "id": 39757,
+          "title": "Cloudflare stress-tests Anthropic's Mythos across 50 real repos",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The first major independent security audit of Mythos on production codebases validates last week's 11x vulnerability discovery claims",
+          "key_fact": "Weeks-long test across 50 Cloudflare repositories confirms Mythos security findings"
+        },
+        {
+          "id": 39813,
+          "title": "HuggingFace's Carbon: a DNA model 275x faster than anything else",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Fast enough to process an entire human genome efficiently — this speedup does not just accelerate existing genomics workflows, it enables entirely new ones",
+          "key_fact": "275x faster than the next best DNA foundation model"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 39829,
+          "title": "Karpathy joins Anthropic — the talent war's biggest move this year",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The most influential AI educator and former Tesla AI lead choosing Anthropic over a return to OpenAI sends a signal about where frontier research energy is shifting",
+          "key_fact": "Former Tesla AI head and OpenAI co-founder joins Anthropic"
+        },
+        {
+          "id": 39712,
+          "title": "KPMG deploys Claude to 276,000 employees — Anthropic's Big Four sweep continues",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Combined with PwC's expanded partnership, Anthropic now has two of the Big Four locked in — enterprise AI adoption is being decided by consulting firms, not tech blogs",
+          "key_fact": "276,000+ employees getting Claude access in one of the largest single-company AI rollouts"
+        },
+        {
+          "id": 39649,
+          "title": "Anthropic acquires Stainless: vertically integrating the developer surface",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Stainless already powered Anthropic's SDKs and MCP servers — bringing them in-house is vertical integration of the entire developer experience layer",
+          "key_fact": "Stainless powers Anthropic's SDKs and MCP infrastructure"
+        },
+        {
+          "id": 40113,
+          "title": "Mistral acquires Emmi AI as European AI consolidation accelerates",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Mistral follows Anthropic's vertical integration playbook — acquiring to build a full-stack platform, not just a model provider",
+          "key_fact": "Acquisition aimed at building full-stack AI platform, mirroring Anthropic's Stainless move"
+        },
+        {
+          "id": 39290,
+          "title": "PwC goes deeper on Claude for deals, tech builds, and enterprise ops",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Expanded partnership puts Claude at the center of PwC's deal execution and technology buildout — the second Big Four firm going all-in",
+          "key_fact": "Claude deployed for technology building, deal execution, and enterprise function reinvention"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 39731,
+          "title": "The unreasonable effectiveness of HTML as Claude Code's output format",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Anthropic's own team reveals that HTML output dramatically improves Claude Code's agent workflows — a practical technique developers can apply today",
+          "key_fact": "Official Anthropic blog post on HTML as a surprisingly effective agent output format"
+        },
+        {
+          "id": 40118,
+          "title": "TLA+ meets LLMs: formal verification enters the AI coding era",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "As AI-generated code scales, formal verification becomes more important not less — this guide shows how to use LLMs to write TLA+ specifications",
+          "key_fact": "Practical guide to using AI for writing and verifying formal specifications"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 39852,
+      "title": "llama.cpp adds Multi-Token Prediction for Qwen3.6 — big local speed gains",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "MTP support brings meaningful local inference speedups with community benchmarks to prove it",
+      "key_fact": "Significant performance jump for Qwen3.6 local inference"
+    },
+    {
+      "id": 40065,
+      "title": "Claude Code v2.1.145: session listing, OTEL traces, status line upgrades",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Power-user quality-of-life: JSON session listing for tmux scripting, better subagent tracing",
+      "key_fact": "JSON session listing, improved OTEL trace parenting, GitHub repo in status line"
+    },
+    {
+      "id": 39705,
+      "title": "HuggingFace launches the Ettin Reranker family for RAG pipelines",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "New reranker option for your retrieval stack",
+      "key_fact": "New model family targeting RAG pipeline reranking quality"
+    },
+    {
+      "id": 39684,
+      "title": "Simon Willison: Gemini 3.5 Flash costs 3x more but still undercuts GPT-5.5",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Independent pricing analysis cuts through the I/O hype",
+      "key_fact": "3x predecessor pricing, still cheaper than GPT-5.5 or Opus 4.7"
+    },
+    {
+      "id": 40085,
+      "title": "ByteDance drops Lance: another any-to-any multimodal model enters the ring",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Open-weight alternative to Gemini Omni's unified multimodal approach",
+      "key_fact": "Any-to-any multimodal model trending on HuggingFace"
+    },
+    {
+      "id": 39697,
+      "title": "Google announces Antigravity 2.0 at I/O",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Part of the broader Gemini ecosystem expansion from I/O",
+      "key_fact": "New DeepMind product in the Gemini platform family"
+    }
+  ],
+  "total_items": 25
+}
