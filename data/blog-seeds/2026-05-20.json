@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Karpathy joins Anthropic",
+    "url": "https://x.com/karpathy/status/2056753169888334312",
+    "source": "twitter:@karpathy",
+    "x_engagement_24h": 123936,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 54.1808,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Introducing Gemini Omni",
+    "url": "https://deepmind.google/blog/introducing-gemini-omni/",
+    "source": "rss:DeepMind Blog",
+    "x_engagement_24h": 7125,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 31.1375,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Google rolls out Chrome DevTools for AI agents",
+    "url": "https://x.com/Google/status/2056850826539516095",
+    "source": "twitter:search:\"AI agent\" (framework OR tool OR SDK) -crypto -web3",
+    "x_engagement_24h": 63,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.018900000000002,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Gemini for Science: AI experiments and tools for a new era of discovery",
+    "url": "https://deepmind.google/blog/gemini-for-science-ai-experiments-and-tools-for-a-new-era-of-discovery/",
+    "source": "rss:DeepMind Blog",
+    "x_engagement_24h": 966,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.2898,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "KPMG integrates Claude across its core business and workforce of more than 276,000",
+    "url": "https://www.anthropic.com/news/anthropic-kpmg",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25,
+    "suggested_angle": "news"
+  }
+]
