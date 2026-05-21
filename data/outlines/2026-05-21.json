@@ -1,0 +1,236 @@
+{
+  "date": "2026-05-21",
+  "headline_hook": "OpenAI Cracks an 80-Year Math Conjecture While Spotify Ships 4,500 Claude-Powered Deploys Daily",
+  "preview_topics": [
+    "OpenAI's landmark math discovery",
+    "Spotify's Claude deployment machine",
+    "Google I/O's 100-product blitz"
+  ],
+  "pick_of_the_day": {
+    "item_id": 40244,
+    "thesis": "A general-purpose model disproving a conjecture that stumped mathematicians for 80 years signals that scaled reasoning — not domain-specific solvers — may be the viable path to scientific discovery, and that changes how we should think about funding and organizing research itself."
+  },
+  "model_literacy": {
+    "concept": "Diffusion Language Models",
+    "relevance": "NVIDIA's Nemotron diffusion model generates multiple tokens simultaneously rather than one-at-a-time — today's release makes this the right moment to understand why this architectural bet could reshape inference economics and break the autoregressive bottleneck."
+  },
+  "sections": [
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 40244,
+          "title": "OpenAI Model Disproves 80-Year-Old Math Conjecture Autonomously",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "First time a general-purpose AI has produced an original mathematical discovery of this magnitude — not verification, not search, but a novel disproof",
+          "key_fact": "Disproved a conjecture on the planar unit distance problem posed by Erdős in 1946"
+        },
+        {
+          "id": 40295,
+          "title": "NVIDIA's Diffusion Language Models Generate All Tokens at Once",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A fundamentally different architecture that could break the autoregressive bottleneck and reshape how we think about inference speed",
+          "key_fact": "Nemotron-Labs-Diffusion generates multiple tokens simultaneously instead of sequential decoding"
+        },
+        {
+          "id": 40340,
+          "title": "NanoGPT-Bench Tests Whether Coding Agents Can Actually Do Research",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "First serious benchmark for agent-as-researcher — testing R&D capabilities, not just code completion",
+          "key_fact": "Evaluates agents on actual AI research problems, not standard coding benchmarks"
+        }
+      ]
+    },
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 40166,
+          "title": "Google I/O 2026: 100 Announcements From Gemini Omni to Universal Cart",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The everything-at-once strategy — Google ships Gemini 3.5 Flash, Antigravity, and 98 other products in a single keynote, daring developers to keep up",
+          "key_fact": "100 product announcements including Gemini Omni, Gemini 3.5 Flash, and Universal Cart"
+        },
+        {
+          "id": 40286,
+          "title": "Cohere Ships Command A+ — MoE Model Built for Hardware-Constrained Enterprise",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Cohere's bet that enterprise buyers care more about running on minimal hardware than topping benchmarks",
+          "key_fact": "MoE architecture optimized specifically for deployment on limited hardware"
+        },
+        {
+          "id": 40577,
+          "title": "Alibaba's Qwen3.7-Max Claims Agent Frontier at Flash-Tier Pricing",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Open-weight models keep compressing the gap with closed APIs — now claiming to beat Gemini Flash 3.5 at lower cost",
+          "key_fact": "Claims to outperform Gemini Flash 3.5 while undercutting on price"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 40219,
+          "title": "Spotify's Chief Architect Reveals 4,500 Claude-Powered Deployments Per Day",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The most concrete large-scale AI deployment story yet — real architecture details from a company doing thousands of daily deploys with Claude in the loop",
+          "key_fact": "4,500 deployments per day powered by Claude across Spotify's engineering org"
+        },
+        {
+          "id": 40218,
+          "title": "Microsoft Engineers Publicly Build Agents With Claude, Not Copilot",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Microsoft's own developers choosing Claude for agent work is the clearest signal yet that multi-provider is the enterprise reality, not vendor lock-in",
+          "key_fact": "Microsoft senior AI developer presented Claude-based agent architecture at Code with Claude London"
+        },
+        {
+          "id": 40314,
+          "title": "Simon Willison's 12K-Like Thread Exposes Gemini's Product Fragmentation",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Google shipped 100 things at I/O but developers still can't figure out which Gemini product to use — the DX gap undermines the launch blitz",
+          "key_fact": "11,935 likes on a thread about confusing personal vs workspace, AI Studio vs Cloud fragmentation"
+        },
+        {
+          "id": 40251,
+          "title": "OpenAI Offers $2M in Tokens to Every YC Startup This Batch",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Platform lock-in via free tokens — OpenAI is buying the next generation of startups before they even evaluate alternatives",
+          "key_fact": "$2M in API tokens offered to each startup in the current YC batch"
+        },
+        {
+          "id": 40292,
+          "title": "HuggingFace Co-Founder Maps How AI Is Restructuring Software Itself",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Thomas Wolf's long-form analysis goes beyond 'AI helps coding' to argue the entire software industry structure is shifting",
+          "key_fact": "Analyzes structural shifts in development workflows and business models driven by AI"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 40220,
+          "title": "Anthropic's New Guide Takes Computer Use From Demo to Production",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The gap between 'Claude can click buttons' and 'Claude reliably automates our UI workflows' — this guide bridges it with real error handling and reliability patterns",
+          "key_fact": "Production guide covering error handling, reliability patterns, and deployment lessons for Computer Use"
+        },
+        {
+          "id": 40538,
+          "title": "Transformers v5.9.0 Adds Native Cohere Command A+ MoE Support",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "If you want to run Cohere's new model locally, this is the release that makes it possible",
+          "key_fact": "Adds Cohere2Moe architecture support for local inference"
+        },
+        {
+          "id": 40383,
+          "title": "Kapso MCP Gives Your AI Agent a WhatsApp Number",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Dead simple MCP integration for the communication channel where your customers actually are",
+          "key_fact": "Add an MCP server, get a WhatsApp number for your agent"
+        },
+        {
+          "id": 40066,
+          "title": "Claude Code v2.1.144 Ships Background Session Resume and Mid-Chat Model Switching",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Two quality-of-life upgrades that matter for power users running multi-hour agent sessions",
+          "key_fact": "/resume for background sessions and /model for mid-conversation model switching"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 40196,
+          "title": "How Claude Cowork Runs a 4,000-Account Sales Book — The Full Playbook",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "First concrete case study of Claude Cowork in enterprise sales — not theory but an actual workflow managing thousands of accounts",
+          "key_fact": "Anthropic sales leader manages 4,000 accounts with Claude Cowork assistance"
+        },
+        {
+          "id": 40581,
+          "title": "Why Structural Backpressure Beats Smarter Agents in Coding Loops",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Formal verification gates as quality control for AI coding — the argument that constraints beat intelligence for reliability",
+          "key_fact": "Demonstrates that structural constraints outperform smarter models for reliable agent coding"
+        },
+        {
+          "id": 39755,
+          "title": "Anthropic's Playbook for Running Claude Code Across Hundreds of Engineers",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Team configuration, permission management, and cost control patterns from organizations already at scale",
+          "key_fact": "Covers team config, permissions, and cost control for large engineering orgs"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 40154,
+          "title": "Railway's CEO: 3M Users, 100K Signups/Week, and Why PRs Are Dying",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "What agent-native infrastructure actually looks like — Railway's thesis that the PR-based workflow is a casualty of the agent era",
+          "key_fact": "3M users, 100K signups/week, $200K+ in coding agent infrastructure spend"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 40315,
+      "title": "Mollick: From 'Strawberry' to Solved Conjectures in Two Years",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The pace-of-progress frame that puts the OpenAI math result in context",
+      "key_fact": "June 2024 models couldn't count letters; May 2026 models solve 80-year conjectures"
+    },
+    {
+      "id": 40580,
+      "title": "BBC: Adversarial Prompt Injection Is Now an SEO Problem",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "AI search manipulation goes mainstream — Google quietly fighting back",
+      "key_fact": "BBC investigation into SEO manipulation of Google's AI Mode results"
+    },
+    {
+      "id": 40555,
+      "title": "Marlin-2B: A 2B-Parameter Video Understanding Model You Can Run Locally",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Multimodal video-to-text at a size that fits on consumer hardware",
+      "key_fact": "2B parameters handles video understanding tasks"
+    },
+    {
+      "id": 39764,
+      "title": "Anthropic Brings Philosophers and Ethicists Into AI Character Formation",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Treating alignment as a humanities question, not just a technical one",
+      "key_fact": "Dialogues with scholars, philosophers, and clergy on how good character forms in AI"
+    }
+  ],
+  "total_items": 23
+}
