@@ -10,6 +10,13 @@ npm run build        # Production build (SSG)
 npm test             # Vitest (must pass before commit)
 npm run lint         # ESLint
 
+## NEVER
+- Never skip failing tests or comment out lint rules to make the build pass
+- Never rewrite prompts in `skills/` from scratch — iterate only (battle-tested)
+- Never import Next.js modules inside pipeline scripts (they are server-only)
+- Never edit `.env*` files via Claude (PreToolUse hook blocks these — change manually)
+- Never commit pipeline changes without running `validate-pipeline.ts`
+
 ## Backpressure (Quality Gates)
 Before ANY commit, ALL of these must pass:
 1. npm run build          — SSG build succeeds
@@ -27,8 +34,20 @@ Newsletter: "sharp tech insider briefing a busy founder over coffee"
 Blog: "senior engineer explaining to a smart colleague"
 Chinese: NOT translation. Independent creation. WeChat-group tone.
 
-## Prompts
-skills/ contains battle-tested prompts. NEVER rewrite from scratch. Iterate only.
+## Skills, Agents & Prompts
+
+**`.claude/skills/`** (invoke via `/<name>`):
+| Skill | When |
+|-------|------|
+| commit-with-gates | Run all gates + commit. User-only (no auto-invoke). |
+| implement-spec | Spec doc → production code with validation. |
+| import-blog | Import an offline-written blog article into LoreAI. |
+| pipeline-flow | Generate up-to-date pipeline flow HTML diagram. |
+| pipeline-health | Weekly health check or scheduled Telegram summary. |
+
+**`.claude/agents/`**: `pipeline-reviewer` — auto-invoked after editing `scripts/*.ts`, cross-checks against `.claude/known-issues.md`.
+
+**`skills/`** (root, 19 prompts): blog-en/zh, email-en/zh, newsletter-*, seo-*, topic-blog-*, video-to-blog-zh, entity-extraction, keyword-grouping, flagship-*. See NEVER list — iterate only.
 
 ## Newsletter Quality Guardrails
 See `.claude/known-issues.md` for the full list of known newsletter bugs.
@@ -73,3 +92,24 @@ last-updated: YYYY-MM-DD
 depends-on: []
 ---
 ```
+
+## Documentation Layers
+
+| What changed | Update where |
+|-------------|-------------|
+| Project-wide convention (every session) | CLAUDE.md (this file) |
+| Rule for specific paths | `.claude/rules/{name}.md` with `paths:` glob (none yet) |
+| Skill / agent behavior | Inside the SKILL.md / agent .md, NOT here |
+| Pipeline architecture | `docs/specs/PIPELINE.md` + `docs/context/PIPELINE-STATUS.md` |
+| Newsletter known bugs | `.claude/known-issues.md` (loaded by pipeline-reviewer) |
+
+Principle: **CLAUDE.md declares WHAT exists. Details live in the file the change affects.**
+
+## Compact Instructions
+
+When compressing context, preserve in priority order:
+1. NEVER list and Backpressure gates — always re-check before acting
+2. Pipeline architecture and `known-issues.md` references
+3. Which files have been modified and key changes made
+4. Current task state and open TODOs
+5. Tool outputs can be discarded — keep only pass/fail status
