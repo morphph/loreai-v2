@@ -31,7 +31,7 @@ Chinese: NOT translation. Independent creation. WeChat-group tone.
 skills/ contains battle-tested prompts. NEVER rewrite from scratch. Iterate only.
 
 ## Newsletter Quality Guardrails
-See `.Codex/known-issues.md` for the full list of known newsletter bugs.
+See `.claude/known-issues.md` for the full list of known newsletter bugs.
 Key rules: no stale news (>48h), no cross-day repeats, no attribution guessing, no short titles, no ZH punctuation mixing.
 
 ## Known Gotchas
