@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Microsoft Senior AI developer showed how they build AI agents with Claude at Microsoft",
+    "url": "https://x.com/bcherny/status/2057181802360438992",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 1778,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 37.5334,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Computer use turns Claude into an agent that can operate real UIs — new production guide",
+    "url": "https://x.com/bcherny/status/2057071400343437810",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 2090,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 36.627,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "How an Anthropic sales leader uses Claude Cowork to run a 4,000-account book",
+    "url": "https://www.claude.com/blog/how-an-anthropic-sales-leader-uses-claude-cowork-to-run-a-4-000-account-book",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Spotify's Chief Architect just showed how they ship 4,500 deployments/day with Claude",
+    "url": "https://x.com/bcherny/status/2057071805664288917",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 5676,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 30.7028,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Qwen3.7-Max: The Agent Frontier",
+    "url": "https://qwen.ai/blog?id=qwen3.7",
+    "source": "hackernews",
+    "x_engagement_24h": 829,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.2487,
+    "suggested_angle": "news"
+  }
+]
