@@ -1,0 +1,236 @@
+{
+  "date": "2026-05-22",
+  "headline_hook": "Claude Gets a Design Studio, OpenAI Cracks Erdős, and Trump Reaches for the Brakes",
+  "preview_topics": [
+    "Claude's enterprise design push",
+    "Trump's proposed 90-day model freeze",
+    "disproving Erdős for less than three lattes"
+  ],
+  "pick_of_the_day": {
+    "item_id": 40841,
+    "thesis": "A 90-day government review window won't slow the frontier labs that already move in quarterly cycles — it will calcify their lead by pricing open-source competitors and startups out of the compliance overhead game."
+  },
+  "model_literacy": {
+    "concept": "Test-Time Compute (Thinking Tokens)",
+    "relevance": "Anthropic's SDK now exposes thinking token counts in streaming — a sign that variable inference-time compute is becoming a first-class cost and quality lever. Understanding that a model can 'think harder' on difficult problems (and bill you accordingly) matters as extended thinking moves from lab curiosity to production budget line item."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 40703,
+          "title": "Claude Design Arrives: Anthropic Bets Big on Visual Prototyping",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Anthropic isn't just adding a design tool — it's redefining Claude as a prototyping partner that competes with Figma-copilot workflows, not just chatbots",
+          "key_fact": "5,784 likes and 179 RTs on the showcase thread — highest engagement of any Claude feature launch this quarter"
+        },
+        {
+          "id": 40664,
+          "title": "Claude Plugs Into Enterprise Compliance and Security Stacks",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Anthropic tackles the 'we can't govern this like other SaaS' objection head-on with compliance API integrations for IT and security teams",
+          "key_fact": "New compliance API partnerships cover the governance gap that blocked Claude adoption in regulated enterprises"
+        },
+        {
+          "id": 40831,
+          "title": "ChatGPT Moves Into PowerPoint — Native Slide Creation, Not Just Suggestions",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "OpenAI deepens the Office integration play: creating editable .pptx files puts ChatGPT in the daily enterprise workflow loop, not just the creative brainstorming one",
+          "key_fact": "1,554 likes — signals genuine user demand for AI-native document creation over AI-assisted editing"
+        },
+        {
+          "id": 40865,
+          "title": "Alibaba Drops Qwen3.7-Max, Built Specifically for Coding Agents",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Alibaba's not just releasing another model — it's explicitly optimizing for agent orchestration and MCP, going head-to-head with Claude and GPT on the autonomous coding use case",
+          "key_fact": "Purpose-built for long-horizon autonomous execution and MCP orchestration"
+        },
+        {
+          "id": 40838,
+          "title": "Tencent Open-Sources Hy-MT2: SOTA Translation Across 33 Languages",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Fully open-source 7B and 30B translation models that hit SOTA among open-source — if you're paying per-token for translation APIs, your cost calculus just changed",
+          "key_fact": "7B and 30B-A3B parameter models achieving state-of-the-art across 33 languages"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 40689,
+          "title": "Claude Code's /usage Command Finally Shows Where Your Tokens Go",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "When skills, agents, and MCP servers all eat from the same token budget, knowing which component costs what changes how you architect your setup",
+          "key_fact": "3,862 likes — token spend visibility broken down by skills, agents, MCPs, and plugins"
+        },
+        {
+          "id": 40995,
+          "title": "Claude Code v2.1.147: Pinned Sessions Survive Idle, /code-review Lands",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Pinned background sessions that auto-restart on updates solve the context-loss problem that made long-running agent workflows fragile",
+          "key_fact": "/simplify renamed to /code-review with effort levels and inline GitHub commenting"
+        },
+        {
+          "id": 40997,
+          "title": "Anthropic Python SDK Exposes Thinking Token Counts in Streaming",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "If you're running extended thinking in production, you can now monitor thinking token spend per streaming response — critical for cost budgeting",
+          "key_fact": "v0.104.0 adds beta estimated thinking token counts in streaming deltas"
+        },
+        {
+          "id": 40735,
+          "title": "Google Antigravity Gets 30+ Life Science Database Integrations",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Researchers who previously needed separate tools for each database can now query across 30+ life science datasets from a single agent interface",
+          "key_fact": "30+ major life science databases integrated into Google's Antigravity platform"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 40841,
+          "title": "Trump's Proposed 90-Day AI Review Window Would Reshape the Release Race",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "A mandatory government review before model releases doesn't just add delay — it restructures competitive dynamics around who can absorb compliance costs and who gets priced out",
+          "key_fact": "OpenAI and Anthropic reportedly pledging cooperation; open-source and international competitors face the biggest disruption"
+        },
+        {
+          "id": 40665,
+          "title": "How Security Teams Are Actually Using Opus: Threat Detection to Incident Response",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Real case studies move the cybersecurity AI conversation from 'can it work' to 'here's the deployment pattern' — threat detection, vuln analysis, and incident response",
+          "key_fact": "Multiple partner case studies covering production security workflows with Opus"
+        },
+        {
+          "id": 40782,
+          "title": "Disproving Erdős Cost Less Energy Than Three Almond Milk Lattes",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Mollick's resource accounting reframes the 'AI compute is too expensive' narrative — 0.6–6.3 kWh to crack an 80-year conjecture is remarkably cheap for the magnitude of the result",
+          "key_fact": "0.6–6.3 kWh of electricity and 3–31 liters of water to disprove a central conjecture in discrete geometry"
+        },
+        {
+          "id": 40616,
+          "title": "Daytona Hits 850K Daily Sandbox Runs as the Default Agent Infrastructure Layer",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "74% month-over-month growth signals that coding agents need a dedicated compute layer, and Daytona is winning that race by default",
+          "key_fact": "850K daily sandbox runs, 74% MoM growth"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 40576,
+          "title": "OpenAI's Model Disproves an 80-Year-Old Erdős Conjecture in Discrete Geometry",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Not a benchmark win — an actual mathematical contribution that changes a field. The full technical write-up reveals what the model did and what human mathematicians couldn't",
+          "key_fact": "Disproved a central conjecture in discrete geometry that stood for 80 years; 634 likes, 437 RTs"
+        },
+        {
+          "id": 40754,
+          "title": "Mosaic Pushes the Pareto Frontier of ML Weather Forecasting",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Matching the best deterministic forecasters while providing calibrated uncertainty — in operational meteorology, knowing how confident you should be matters as much as the prediction itself",
+          "key_fact": "Probabilistic model achieves deterministic-matching accuracy with calibrated uncertainty estimates"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 40893,
+          "title": "40K Stars: A Repo of Leaked System Prompts from Every Major AI Lab",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Whether you see it as a security concern or a masterclass, reading how Opus 4.7, ChatGPT 5.5, and Gemini 3.5 are actually prompted reveals production prompt engineering that no tutorial teaches",
+          "key_fact": "40,549 likes and 6,743 RTs; covers Opus 4.7, Sonnet 4.6, ChatGPT 5.5, Gemini 3.5 Flash, and more"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 40611,
+          "title": "Datasette Agent: Simon Willison Ships AI-Powered Database Exploration",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "An AI agent that autonomously explores, queries, and analyzes unfamiliar databases — practical for anyone who inherits a dataset and needs to make sense of it fast",
+          "key_fact": "Combines Datasette with an autonomous agent for database exploration and analysis"
+        },
+        {
+          "id": 40760,
+          "title": "physics-intern: A Simple Harness That Doubles Gemini's Physics Scores",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Pushing Gemini 3.1 Pro from 17.7% to 31% on physics problems with structured prompting shows how much performance is still left on the table in evaluation methodology",
+          "key_fact": "17.7% → 31% accuracy improvement through structured evaluation prompting alone"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 40717,
+      "title": "OpenAI Codex Gets 'Goals' for Structured Agent Task Management",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "High-level objectives that Codex works toward autonomously",
+      "key_fact": "Enable via codex features enable goals"
+    },
+    {
+      "id": 40839,
+      "title": "Kimi K2.6: Open-Source Model That Codes, Designs, and Runs 100 Agents",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Moonshot's open-source contender with multi-agent orchestration at lower cost",
+      "key_fact": "Top-tier coding and design with 100-agent concurrent orchestration"
+    },
+    {
+      "id": 40778,
+      "title": "Simon Willison Asks: What Exactly Is Google's 'Antigravity'?",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The naming confusion matters — developers need to know what they're building on",
+      "key_fact": "Is it a generic agent harness or a specific product?"
+    },
+    {
+      "id": 40407,
+      "title": "Cursor Ships Automations: No-Repo and Multi-Repo Agent Workflows",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Agent workflows that work across repos or without one — 50% off launch",
+      "key_fact": "50% off promo for first 7 days"
+    },
+    {
+      "id": 40622,
+      "title": "DeepMind Launches Asia Pacific Accelerator for Environmental AI",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Climate, disaster response, and conservation AI applications in APAC",
+      "key_fact": "Google positions AI as critical infrastructure for sustainability"
+    }
+  ],
+  "total_items": 23
+}
