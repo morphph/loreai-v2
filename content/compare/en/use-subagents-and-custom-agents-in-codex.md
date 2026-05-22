@@ -1,113 +1,180 @@
 ---
-title: "Subagents in Codex vs Claude Code: Which Multi-Agent Coding System Wins?"
+title: "Claude Code Subagents vs Codex Custom Agents: Which Multi-Agent Approach Wins?"
 slug: use-subagents-and-custom-agents-in-codex
-description: "Compare subagents and custom agents in Codex vs Claude Code. Architecture, customization, and real workflow differences for multi-agent coding."
-item_a: OpenAI Codex
-item_b: Claude Code
+description: "Compare subagents and custom agents in Codex vs Claude Code. Architecture, workflows, and which multi-agent approach fits your team."
+item_a: Claude Code Subagents
+item_b: Codex Custom Agents
 category: tools
 related_glossary: [agent-sdk, agentic-coding]
-related_blog: [claude-code-agent-teams, codex-complete-guide, claude-code-subagents-examples, claude-code-extension-stack-skills-hooks-agents-mcp]
+related_blog: [claude-code-subagents-examples, codex-complete-guide, claude-code-agent-teams]
 related_compare: []
+related_faq: []
 related_topics: [codex]
 lang: en
 ---
 
-# Subagents in Codex vs Claude Code: Which Multi-Agent Coding System Wins?
+<!--
+Pre-Draft Planning:
+1. Target keyword: use subagents and custom agents in codex
+2. Page type: compare
+3. Keyword intent: commercial — developers evaluating which multi-agent platform to adopt
+4. Likely official-doc competitor: OpenAI Codex docs on agent configuration; Anthropic Claude Code docs on agent teams
+5. Likely non-official competitor pattern: thin "Codex vs Claude Code" listicles that compare surface features without explaining the agent architecture differences
+6. LoreAI standout angle: We break down the actual multi-agent execution models — how subagents spawn, what custom agents can configure, where each approach fails — and give a concrete recommendation by team type and project scale
+-->
 
-**TL;DR:** **Claude Code wins on customization and local control** — its subagent system lets you define specialized agent types with custom prompts, tools, and isolation modes directly in your repo. **Codex wins on simplicity and cloud-native execution** — it spins up sandboxed environments automatically and requires less configuration to get parallel tasks running. If you need deeply customizable multi-agent workflows wired into your engineering process, choose Claude Code. If you want managed, cloud-hosted parallel task execution with minimal setup, choose Codex.
+# Claude Code Subagents vs Codex Custom Agents: Which Multi-Agent Approach Wins?
 
-## Overview: OpenAI Codex Agents
+**TL;DR:** **Claude Code subagents** win for real-time, interactive multi-agent workflows where you need parallel task execution inside a single coding session. **Codex custom agents** win for asynchronous, batch-style work where you define agent behavior upfront and let it run in a cloud sandbox. Choose Claude Code if you want fine-grained control mid-task; choose Codex if you want fire-and-forget delegation.
 
-**OpenAI Codex** is a cloud-based [agentic coding](/glossary/agentic-coding) platform that runs tasks in isolated sandboxed environments on OpenAI's infrastructure. Each Codex task spins up a containerized environment with your repository cloned, installs dependencies, and executes the assigned work — whether that's implementing a feature, fixing a bug, or answering a codebase question. Codex operates asynchronously: you assign a task, and it runs in the background while you continue working.
+If you want to **use subagents and custom agents in Codex** or Claude Code effectively, the decision comes down to how your team works: synchronous terminal sessions or asynchronous cloud tasks. Both platforms have invested heavily in multi-agent capabilities, but they've taken fundamentally different architectural paths. This guide breaks down the execution models, configuration surfaces, and real-world tradeoffs so you can pick the right tool — or combine both.
 
-Codex's approach to multi-agent work is implicit rather than explicit. You don't configure "subagents" — you create multiple tasks, each running independently in its own sandbox. The platform handles parallelism at the task level. For teams on ChatGPT Pro, Plus, or Team plans, this means spinning up several Codex tasks simultaneously, each producing a PR or answer. For a deeper look at Codex's architecture and capabilities, see our [Codex complete guide](/blog/codex-complete-guide).
+## Overview: Claude Code Subagents
 
-## Overview: Claude Code Agents
+Claude Code's subagent system lets a primary agent spawn specialized child agents that work in parallel during a single coding session. Each subagent gets its own context window and toolset, operating as an independent worker that reports results back to the orchestrating agent.
 
-**Claude Code** is Anthropic's terminal-based AI coding agent that runs locally in your development environment with full shell access. Its [agent teams](/blog/claude-code-agent-teams) system is an explicit, programmable multi-agent architecture — you spawn named subagents with specific roles, tools, and isolation levels directly from your workflow.
+The architecture is built around [agent teams](/blog/claude-code-agent-teams) — a feature that became central to Claude Code's approach to large-scale refactoring and multi-file tasks. When you give Claude Code a complex instruction like "refactor the auth module, update all imports, and fix the tests," the primary agent can spawn an Explore agent to locate files, a Plan agent to design the approach, and worker agents to execute changes in parallel across different parts of the codebase.
 
-Claude Code's subagent system is deeply integrated into its [extension stack](/blog/claude-code-extension-stack-skills-hooks-agents-mcp). You define agent types (Explore, Plan, code-reviewer, and custom types) that inherit different tool sets and permissions. Subagents can run in the foreground (blocking until results return) or background (notifying on completion), and can operate in isolated git worktrees to prevent file conflicts. This makes Claude Code's multi-agent approach a programmable framework rather than a managed service.
+Subagents are typed. Claude Code ships with built-in agent types — Explore for read-only search, Plan for architecture design, code-reviewer for quality checks, and general-purpose for catch-all tasks. You can also define custom agents via `.claude/agents/` files in your repo, giving them specific instructions, tool access, and behavioral constraints. This means the multi-agent system is both opinionated out of the box and extensible for team-specific workflows.
+
+The key constraint: Claude Code subagents run locally. They share your machine's resources, your shell environment, and your file system. This makes them fast and deeply integrated but limits horizontal scaling.
+
+## Overview: Codex Custom Agents
+
+[OpenAI's Codex](/blog/codex-complete-guide) takes a different approach to multi-agent work. Rather than spawning subagents within a live session, Codex runs each task as an isolated agent in a cloud sandbox. Custom agents in Codex are configured through the ChatGPT interface or API, where you define the agent's instructions, environment setup, and repository access before dispatching it.
+
+Codex custom agents execute asynchronously. You submit a task — "add input validation to all API endpoints" — and Codex spins up a sandboxed environment with your repo cloned, dependencies installed, and the agent running independently. It produces a pull request or diff when finished, which you review after the fact. This is fundamentally different from Claude Code's interactive model.
+
+The customization surface in Codex centers on system instructions and environment configuration. You can specify which files the agent should focus on, what coding conventions to follow, and how to handle testing. The [Codex VS Code extension](/blog/codex-vscode) adds a tighter feedback loop, letting you dispatch tasks from your editor and review results inline, but the execution still happens in the cloud.
+
+Codex's strength is parallelism at the task level. You can dispatch multiple independent agents simultaneously — one fixing bugs, another writing tests, a third updating documentation — each running in its own sandbox without resource contention.
 
 ## Feature Comparison
 
-| Feature | OpenAI Codex | Claude Code | Winner |
-|---------|-------------|-------------|--------|
-| **Execution environment** | Cloud sandbox (container per task) | Local terminal + optional worktrees | Depends on need |
-| **Agent customization** | Task-level prompts, `AGENTS.md` guidance | Named agent types, custom tools, SKILL.md | **Claude Code** |
-| **Parallelism model** | Multiple independent cloud tasks | Foreground/background subagents in one session | **Claude Code** |
-| **Isolation** | Full container isolation per task | Git worktree isolation or shared workspace | **Codex** |
-| **Setup required** | Connect GitHub repo, assign tasks | Configure agent types, skills, hooks locally | **Codex** |
-| **Result format** | PR or text answer per task | In-session tool results, commits, or reports | Tie |
-| **Offline / air-gapped** | No — requires OpenAI cloud | Yes — runs locally | **Claude Code** |
-| **Pricing** | Included with ChatGPT Pro/Plus/Team | Usage-based API billing | Depends on volume |
+| Feature | Claude Code Subagents | Codex Custom Agents | Winner |
+|---------|----------------------|---------------------|--------|
+| **Execution model** | Local, synchronous, interactive | Cloud, asynchronous, fire-and-forget | Depends on workflow |
+| **Agent spawning** | Dynamic — primary agent spawns as needed | Manual — user dispatches each task | Claude Code |
+| **Built-in agent types** | Explore, Plan, code-reviewer, general-purpose | Single general-purpose type with custom instructions | Claude Code |
+| **Custom agent definition** | `.claude/agents/` files in repo | System instructions via UI or API | Tie |
+| **Parallel execution** | Shares local resources (CPU, memory) | Independent cloud sandboxes | Codex |
+| **Context sharing** | Subagents inherit project context via CLAUDE.md | Each agent gets fresh repo clone | Claude Code |
+| **Git integration** | Direct — stages, commits, pushes in real-time | Produces PRs for review after completion | Tie |
+| **Cost model** | Token-based API billing (per agent) | Included in ChatGPT Pro/Team subscription | Codex |
+| **Isolation** | Optional git worktree isolation | Full sandbox isolation by default | Codex |
+| **Iteration speed** | Real-time feedback, mid-task correction | Review after completion, re-dispatch if wrong | Claude Code |
 
-## Agent Customization: Detailed Analysis
+## Use Subagents and Custom Agents in Codex: The Execution Model Difference
 
-The most significant difference between these platforms is how much control you get over agent behavior. This matters because real engineering workflows demand specialized agents — a code reviewer needs different instructions, tools, and risk tolerance than a test generator.
+The most important distinction between these platforms is not feature lists — it is how agents execute. Claude Code subagents and Codex custom agents represent two fundamentally different philosophies about how AI should collaborate with developers, and choosing the wrong model for your workflow creates friction that no configuration can fix.
 
-**Codex** supports customization through an `AGENTS.md` file in your repository root, similar to Claude Code's `CLAUDE.md`. This file provides high-level instructions that Codex reads before executing any task. You can specify coding conventions, testing requirements, and architectural preferences. However, you don't define distinct agent *types* — every Codex task uses the same agent configuration. The customization is project-wide, not per-agent-role.
+**Claude Code's synchronous model** means you are in the loop. When the primary agent spawns an Explore subagent to search your codebase, it waits for results and adapts its plan in real-time. If the Explore agent finds an unexpected dependency, the primary agent can change course immediately — spawning a different worker, asking you for clarification, or revising its approach. This creates a tight feedback loop where the agent's behavior evolves during execution.
 
-**Claude Code** takes a fundamentally different approach. Its subagent system lets you define multiple agent types, each with its own tool access and behavioral profile. Built-in types include `Explore` (read-only search), `Plan` (architecture without edits), and `code-reviewer` (review focus). You can create custom agent types by defining new configurations. Each subagent receives a self-contained prompt briefing — it starts with no memory of the parent conversation, so you control exactly what context it sees. For practical examples of subagent patterns in action, see our [Claude Code subagents examples](/blog/claude-code-subagents-examples).
+The [Claude Code extension stack](/blog/claude-code-extension-stack-skills-hooks-agents-mcp) makes this even more powerful. Subagents respect the same CLAUDE.md instructions, skill files, hooks, and MCP server connections as the primary agent. A subagent spawned to review code follows your team's review checklist. A subagent writing tests follows your testing conventions. There's no configuration drift between agents because they share the same project context layer.
 
-Claude Code's [SKILL.md system](/blog/5-claude-code-skills-i-use-every-single-day) adds another layer: you can encode reusable task instructions that agents invoke, creating a library of specialized behaviors that travel with your repository. Codex has no equivalent to skill files — task specialization happens entirely through the prompt you write when assigning the task.
+**Codex's asynchronous model** optimizes for throughput over interaction. Each agent runs independently in a clean sandbox, which means you can dispatch five tasks and come back to five pull requests. The tradeoff is that each agent works in isolation — it cannot ask you questions mid-task, cannot coordinate with other running agents, and cannot adapt if it discovers something unexpected. If the agent goes down the wrong path, you find out when you review the output.
 
-**Verdict on customization:** Claude Code offers dramatically more agent customization. If your workflow benefits from specialized agent roles with different capabilities, Claude Code's architecture is purpose-built for it.
+This distinction matters most for exploratory work. If you're not sure exactly what needs to change — debugging a subtle issue, refactoring code where the scope isn't clear, or working through a design decision — Claude Code's interactive subagents let the AI collaborate with you in real-time. If you know exactly what you want and can specify it upfront, Codex's fire-and-forget model saves you from sitting in a terminal watching agents work.
 
-## Execution Model and Isolation: Detailed Analysis
+## Agent Configuration and Customization: Depth vs Simplicity
 
-How and where agents run determines your security posture, speed, and debugging experience. This is where Codex and Claude Code make opposite architectural bets.
+Both platforms let you customize agent behavior, but the configuration surfaces differ significantly in depth and complexity. This is where team size and engineering culture become deciding factors.
 
-**Codex runs in the cloud.** Each task gets a fresh container with your repo cloned and dependencies installed. The agent operates in a network-disabled sandbox by default — it cannot make outbound requests, which limits supply-chain risks. This isolation is strong and automatic: you don't configure it, and agents from different tasks cannot interfere with each other's file state. The tradeoff is latency — environment setup adds overhead, and you're waiting on cloud infrastructure rather than local compute.
+**Claude Code custom agents** are defined as markdown files in `.claude/agents/` within your repository. Each file specifies the agent's name, description, available tools, and behavioral instructions. Because these files live in your repo, they're version-controlled, reviewed in PRs, and shared across the team automatically. You can reference [skill files](/blog/claude-code-subagents-examples) to compose agent behavior from reusable instruction modules.
 
-**Claude Code runs locally.** Subagents execute in your terminal environment with access to your actual filesystem, tools, and shell. The `isolation: "worktree"` option creates a temporary git worktree so a subagent works on an isolated copy of the repo — changes only merge if the agent produces results. Without worktree isolation, subagents share the parent's working directory, which is faster but risks file conflicts during parallel execution.
+A Claude Code custom agent definition might specify that a `pipeline-reviewer` agent should only have read access (no Edit or Write tools), should always check against a known-issues registry, and should format output as a checklist. This level of tool-access control lets you create agents that are genuinely constrained — not just instructed to behave a certain way, but architecturally limited in what they can do.
 
-The practical implication: Codex is safer by default for untrusted or high-risk operations because cloud sandboxing enforces isolation at the infrastructure level. Claude Code is faster and more flexible because local execution eliminates container startup time and gives agents access to your full development environment — custom scripts, local databases, hardware-specific tooling.
+The tradeoff is complexity. Defining effective custom agents requires understanding Claude Code's tool system, context propagation model, and agent type hierarchy. There's a learning curve, and poorly configured agents can be worse than no agents at all.
 
-For teams evaluating security trade-offs in agent workflows, our coverage of [Claude Code security scanning](/blog/claude-code-security-vulnerability-scanning) and the broader [agent harness architecture](/blog/agent-harnesses-2026) provides additional context on how each platform handles trust boundaries.
+**Codex custom agents** are simpler to configure. You write system instructions in natural language — "Follow the Google TypeScript style guide, always add unit tests for new functions, focus on the src/api/ directory" — and Codex applies them to the agent's behavior. The configuration happens through the ChatGPT UI or API, which is more accessible but less powerful.
 
-## When to Choose Codex
+Codex doesn't offer tool-level access control for custom agents. You can't restrict an agent to read-only mode or prevent it from modifying certain files at the platform level. The agent's behavior is guided by instructions rather than enforced by architecture. For teams that need strict guardrails — compliance-sensitive codebases, monorepos with protected paths — this is a real limitation.
 
-Choose Codex if your team values **managed simplicity and strong default isolation**:
+Where Codex excels is onboarding speed. A developer can configure a custom agent in minutes through the UI without learning a configuration format or committing files to the repo. For smaller teams or individual developers, this accessibility advantage is significant.
 
-- **Async task delegation**: You want to fire off multiple independent coding tasks and review the PRs later — Codex's cloud model is built for this "assign and check back" workflow
-- **Minimal local setup**: Your team doesn't want to maintain local agent configurations, skill files, or hook scripts — Codex works after connecting your GitHub repo
-- **Security-sensitive environments**: The network-disabled sandbox model gives you strong isolation guarantees without configuration. See our [Codex for open source](/blog/codex-for-open-source) coverage for how this applies to public repositories
-- **GitHub-centric workflows**: Codex produces PRs natively and integrates directly with GitHub's review flow
+## Parallel Execution and Scaling
 
-Codex is strongest when you want parallel task execution without building an agent orchestration layer yourself.
+Parallel execution is where the architectural differences between these platforms become most visible in daily use. Both support running multiple agents simultaneously, but the constraints and performance characteristics differ substantially.
 
-## When to Choose Claude Code
+**Claude Code subagents** run on your local machine. When the primary agent spawns three worker agents to edit different parts of your codebase, they share your CPU, memory, and file system. Claude Code mitigates file conflicts through git worktree isolation — each subagent can operate on an isolated copy of the repo — but the resource ceiling is your local hardware. On a powerful development machine, this works well for 3-5 parallel agents. Beyond that, you'll hit context window limits and resource contention.
 
-Choose Claude Code if your workflow demands **deep customization and local control**:
+The upside is speed. Local execution means no network latency, no waiting for cloud environments to spin up, and no cold starts. A subagent spawned to search your codebase returns results in seconds because it's reading files directly from disk.
 
-- **Specialized agent roles**: You need a code reviewer, a test generator, a documentation writer, and a security scanner — each with different tool access and behavioral instructions. Claude Code's named agent types support this natively
-- **Complex orchestration**: Parent agents that spawn subagents based on intermediate results, fan out parallel research, then synthesize findings — Claude Code's foreground/background execution model handles this
-- **Local tool integration**: Your agents need access to local databases, custom CLI tools, proprietary scripts, or hardware that can't run in a cloud sandbox
-- **Skill reuse across teams**: The SKILL.md system lets you version-control agent behaviors alongside your code, ensuring consistent AI behavior across team members
+**Codex custom agents** run in independent cloud sandboxes. Each agent gets its own compute resources, its own clone of the repo, and its own isolated environment. You can dispatch ten agents simultaneously without worrying about local resource limits. Each sandbox sets up the environment from scratch — cloning the repo, installing dependencies, configuring tools — which adds startup latency but guarantees clean isolation.
 
-Claude Code is strongest when multi-agent coding is a core part of your engineering process, not just an occasional task offload.
+The practical limit for Codex parallelism is your subscription tier and queue priority, not your hardware. During peak hours, agents may queue before execution starts. During off-peak hours, you can run many agents simultaneously with minimal wait.
+
+For [agentic coding](/glossary/agentic-coding) workflows that involve large-scale changes — migrating a codebase from one framework to another, adding tests across dozens of modules, or applying a code style change across hundreds of files — Codex's cloud-based parallelism is the stronger approach. For focused, interactive sessions where you need 2-3 agents collaborating on a single coherent task, Claude Code's local subagents are faster and more coordinated.
+
+## Context and Knowledge Sharing Between Agents
+
+How agents share knowledge about your codebase directly affects output quality. An agent that understands your project conventions produces better code than one working from a generic system prompt.
+
+**Claude Code's context model** is hierarchical and persistent. The primary agent loads your CLAUDE.md file, skill definitions, and project context at session start. When it spawns a subagent, that subagent inherits the project context automatically. A custom agent defined in `.claude/agents/` can reference additional skill files, adding layer-specific knowledge. This means every agent in a Claude Code session understands your coding standards, architecture decisions, and naming conventions without you repeating them.
+
+The [Agent SDK](/glossary/agent-sdk) underlying Claude Code's multi-agent system handles context propagation transparently. When a primary agent briefs a subagent, it includes relevant findings from earlier in the session — files already read, decisions already made, constraints already discovered. This prevents subagents from duplicating work or contradicting earlier decisions.
+
+**Codex's context model** is task-scoped. Each agent starts fresh with the repo clone and the system instructions you provided. There's no automatic knowledge sharing between simultaneously running agents. If Agent A discovers that a dependency is pinned to a specific version, Agent B working on a related task won't know unless you included that information in the instructions.
+
+This makes Codex agents more predictable — each one operates from a clean, known state — but less adaptive. For tasks that are truly independent (add tests to module A, fix a bug in module B), the isolation is fine. For tasks that interact (refactor the data layer, then update the API endpoints that depend on it), the lack of inter-agent communication means you need to sequence tasks manually rather than running them in parallel.
+
+## When to Choose Claude Code Subagents
+
+Choose Claude Code's subagent system when your work requires real-time collaboration between you and the AI, or between multiple AI agents working on related parts of a task.
+
+**Best scenarios for Claude Code subagents:**
+
+- **Complex refactoring** where the scope isn't fully known upfront. The primary agent can explore, plan, and delegate dynamically as it discovers the true scope of changes.
+- **Interactive debugging** where you need agents to investigate, report findings, and adjust the debugging strategy in real-time based on what they discover.
+- **Tightly coupled changes** that span multiple files but need to be coordinated — renaming a core interface and updating every consumer, for example.
+- **Team workflows** where custom agents are version-controlled and code-reviewed alongside the codebase. The `.claude/agents/` system integrates agent definitions into your existing development process.
+- **Sessions where you want to stay in control**. Claude Code's synchronous model means you can redirect, cancel, or refine agent behavior at any point during execution.
+
+If you're already using Claude Code for daily development, subagents are a natural extension. The [complete guide to Claude Code](/blog/claude-code-complete-guide) covers how agent teams fit into broader workflows. For practical examples of subagent patterns, see our [Claude Code subagents examples](/blog/claude-code-subagents-examples).
+
+## When to Choose Codex Custom Agents
+
+Choose Codex when your tasks are well-defined, independent, and benefit from asynchronous execution. Codex's strength is turning a backlog of coding tasks into a queue of pull requests.
+
+**Best scenarios for Codex custom agents:**
+
+- **Batch task processing** — you have 15 modules that need the same kind of update (add error handling, add tests, update imports). Dispatch 15 agents and review 15 PRs.
+- **Overnight work queues** — submit tasks at end of day, review results the next morning. Codex runs while you sleep.
+- **Teams with mixed skill levels**. Codex's UI-based configuration is more accessible than Claude Code's file-based agent definitions. Junior developers can dispatch tasks without learning a configuration format.
+- **Large-scale codebase sweeps** where you need more parallel capacity than a single machine provides. Codex's cloud sandboxes scale horizontally without local resource constraints.
+- **Isolated, well-scoped tasks** where each task has clear inputs and expected outputs — the kind of work where you'd write a detailed ticket before handing it to a human developer.
+
+The [Codex for open source](/blog/codex-for-open-source) program demonstrates this model well — maintainers dispatch agents to handle issue triage, documentation updates, and dependency bumps across repos they maintain.
 
 ## Verdict
 
-**For most teams starting with multi-agent coding, Codex offers a faster on-ramp** — assign tasks, get PRs, minimal configuration. Its cloud sandbox model eliminates environment concerns entirely.
+**For interactive, exploratory development sessions: choose Claude Code subagents.** The synchronous execution model, built-in agent types, and deep context sharing make it the stronger platform when you need agents that collaborate with each other and with you in real-time. The `.claude/agents/` system gives teams a version-controlled, reviewable way to encode agent behavior.
 
-**For teams that need programmable, customizable agent workflows, Claude Code is the more powerful platform.** The ability to define agent types with different tools, run them in isolated worktrees, compose them with skills and hooks, and orchestrate parent-child agent relationships gives you a multi-agent framework rather than just a task runner. The investment in configuration pays off when your agents need to behave differently based on role and context.
+**For batch processing and async task delegation: choose Codex custom agents.** The cloud sandbox model, simple configuration surface, and horizontal scaling make it the better fit when you have well-defined tasks that can run independently.
 
-If you're exploring either platform, start with a concrete workflow — code review, test generation, or refactoring — and evaluate how each handles your specific agent customization needs. Our [detailed subagent examples](/blog/claude-code-subagents-examples) show real patterns for Claude Code, and the [Codex VS Code extension guide](/blog/codex-vscode) covers Codex's integration model.
+Many teams will use both. Claude Code for the daily interactive session — debugging, refactoring, feature development — and Codex for the overnight batch of well-scoped tasks. The platforms aren't mutually exclusive, and the multi-agent landscape is evolving rapidly. What matters is matching the execution model to your workflow, not picking a single winner.
 
 ## Frequently Asked Questions
 
-### Can Codex run multiple agents in parallel?
-Yes. Each Codex task runs in its own cloud sandbox independently. You assign multiple tasks simultaneously, and they execute in parallel on OpenAI's infrastructure — no local resource contention. Results come back as separate PRs or text responses.
+### Can you use Claude Code subagents and Codex custom agents in the same project?
 
-### Does Claude Code support custom agent types beyond the built-in ones?
-Yes. Claude Code's subagent system includes built-in types like Explore, Plan, and code-reviewer, and you can define custom agent types with specific tool access, prompts, and isolation modes. Combined with SKILL.md files, you can create a library of specialized agent behaviors.
+Yes. The tools operate independently — Claude Code runs locally in your terminal while Codex runs in cloud sandboxes. You can use Claude Code for interactive development during the day and dispatch Codex agents for batch tasks overnight. Both connect to the same Git repository, so results from either platform appear as commits or PRs in your normal workflow.
 
-### Which platform is better for enterprise security requirements?
-Codex's cloud sandbox with network isolation provides stronger default security boundaries — agents cannot make outbound requests or modify your local environment. Claude Code runs locally with full shell access, which offers more flexibility but requires careful permission configuration. Both platforms support review-before-commit workflows.
+### How many subagents can Claude Code run in parallel?
 
-### Can I use both Codex and Claude Code together?
-Yes, and this is a practical approach for many teams. Use Codex for async, independent task delegation (bug fixes, feature scaffolding) and Claude Code for interactive, multi-step agent workflows that need local tool access and deep customization. The two platforms don't conflict — they address different points in the agent-assisted development spectrum.
+Claude Code doesn't enforce a hard limit on parallel subagents, but practical performance depends on your local machine's resources and the context window budget. Most workflows run 2-5 subagents effectively. Beyond that, context window fragmentation and resource contention reduce quality. Git worktree isolation helps with file-level conflicts but doesn't eliminate resource sharing.
+
+### Do Codex custom agents share context with each other?
+
+No. Each Codex agent runs in an isolated sandbox with its own repo clone and environment. Agents dispatched simultaneously cannot communicate or share discoveries. If tasks are interdependent, you need to sequence them manually — wait for Agent A to finish, then dispatch Agent B with the updated codebase.
+
+### Which platform is cheaper for multi-agent workflows?
+
+Codex custom agents are included in ChatGPT Pro and Team subscriptions, making them effectively flat-rate for batch work. Claude Code subagents bill per-token for each agent spawned, so costs scale with usage. For high-volume batch processing, Codex's subscription model is typically cheaper. For focused interactive sessions with a few subagents, Claude Code's per-token cost is often modest.
+
+### Can you define custom agent types in Codex like Claude Code's Explore or Plan agents?
+
+Codex doesn't offer typed agents with different tool-access profiles. Custom agents in Codex are configured through natural language instructions rather than architectural constraints. You can instruct an agent to "only read files, don't make changes," but this is behavioral guidance, not enforced at the platform level. Claude Code's agent type system provides stronger guarantees about what each agent can and cannot do.
 
 ---
 
