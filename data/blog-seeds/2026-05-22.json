@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Qwen3.7-Max: Alibaba's proprietary model built for the agent era",
+    "url": "https://x.com/Ali_TongyiLab/status/2057455215365038212",
+    "source": "twitter:@Ali_TongyiLab",
+    "x_engagement_24h": 267,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 45.0801,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "An OpenAI model has disproved a central conjecture in discrete geometry",
+    "url": "https://openai.com/index/model-disproves-discrete-geometry-conjecture/",
+    "source": "hackernews",
+    "x_engagement_24h": 1071,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.3213,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Mosaic: probabilistic weather model shifts the Pareto frontier of ML weather forecasting",
+    "url": "https://x.com/huggingface/status/2057562560065421398",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 1157,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.347099999999998,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude now works with more security and compliance tools",
+    "url": "https://www.claude.com/blog/compliance-api-security-partners",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Design: tinkering, prototyping, and seeing what happens",
+    "url": "https://x.com/claudeai/status/2057487463518548073",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 5963,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 22.788899999999998,
+    "suggested_angle": "news"
+  }
+]
