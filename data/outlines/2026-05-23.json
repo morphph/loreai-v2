@@ -1,0 +1,220 @@
+{
+  "date": "2026-05-23",
+  "headline_hook": "MCP Drops Sessions, Microsoft Drops Claude Code, and GPT-5.2 Passes Peer Review",
+  "preview_topics": [
+    "the MCP stateless protocol overhaul",
+    "Microsoft's Claude Code cost reckoning",
+    "AI peer review at Nature caliber"
+  ],
+  "pick_of_the_day": {
+    "item_id": 41309,
+    "thesis": "Microsoft's Claude Code retreat is the first real-world verdict on usage-based vs. seat-based pricing at enterprise scale — and it reveals that even the best developer tool loses when finance sees an uncapped meter running across thousands of engineers."
+  },
+  "model_literacy": {
+    "concept": "Stateless vs. Stateful Protocols",
+    "relevance": "MCP dropping its handshake and session ID mirrors HTTP's own evolution from persistent connections to stateless requests. Understanding why eliminating server-side session state enables horizontal scaling and load-balancer simplicity explains why this protocol change matters more than any single new MCP feature."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 41367,
+          "title": "MCP Goes Stateless: The Biggest Protocol Shake-Up Since Launch",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Dropping the handshake and session ID means any MCP request can hit any server instance — a fundamental scalability unlock that rewrites how every MCP integration is architected.",
+          "key_fact": "First-class extensions (MCP Apps, Tasks), formal deprecation policy, and auth hardening ship alongside the stateless redesign"
+        },
+        {
+          "id": 41326,
+          "title": "ChatGPT Voice Mode Now Fills Out Your Forms",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Photograph a form, dictate answers, get a completed PDF — a multimodal workflow that bypasses the keyboard entirely and hints at where consumer AI UX is heading.",
+          "key_fact": "Combines image understanding + voice mode into a single end-to-end document workflow"
+        },
+        {
+          "id": 41237,
+          "title": "SynthID Watermarking Expands — Now Ask Gemini If Content Is AI-Made",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Google adds partners and a direct detection query to Gemini, accelerating the AI provenance ecosystem faster than most predicted.",
+          "key_fact": "Users can now ask Gemini directly whether content was AI-generated"
+        },
+        {
+          "id": 41502,
+          "title": "Claude Code v2.1.149 Finally Shows Where Your Tokens Go",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The /usage command now breaks down costs by skills, subagents, plugins, and MCP servers — visibility that developers have been requesting since agentic workflows started burning unpredictable token counts.",
+          "key_fact": "Per-category cost breakdown across skills, subagents, plugins, and individual MCP servers"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 40687,
+          "title": "Claude's Compliance API Plugs Into Your Existing Security Stack",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Enterprise teams can now govern Claude usage with the same compliance tooling they already run — removing the biggest blocker for security-sensitive rollouts.",
+          "key_fact": "Integrates with major security and compliance platforms already in enterprise IT stacks"
+        },
+        {
+          "id": 40998,
+          "title": "TypeScript SDK v0.98.0 Exposes Thinking Token Counts in Streaming",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Matching a Python SDK feature from v0.104.0, streaming thinking-block deltas now include estimated token counts — essential for cost monitoring in production agent loops.",
+          "key_fact": "Estimated thinking token counts now available in streaming thinking-block deltas"
+        },
+        {
+          "id": 41505,
+          "title": "Python SDK v0.104.1 Patches a Silent Data Loss Bug in Streaming Compaction",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A subtle bug where encrypted_content wasn't carried through the compaction accumulator could silently drop data in long-running agent sessions — worth an immediate upgrade if you use context compaction.",
+          "key_fact": "encrypted_content was being dropped during streaming compaction accumulation"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 41265,
+          "title": "swyx Ran a Coding Agent for 16 Hours and Got 103 Commits of Pure Refactor",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "Same app, completely different codebase quality — a concrete demonstration that 'refactor everything overnight' is now a real operation, not a fantasy, and it changes how teams should think about technical debt.",
+          "key_fact": "103 commits in 16 hours: fragile MVP → e2e-tested, parallelizable, production-ready repo"
+        },
+        {
+          "id": 41207,
+          "title": "Boris Cherny: Most People Still Haven't Used a Coding Agent",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The gap between early adopters and everyone else is widening, not closing — and making agents accessible to non-power-users is an unsolved problem worth more attention.",
+          "key_fact": "Argues most people still haven't touched coding agents despite widespread industry hype"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 40780,
+          "title": "GPT-5.2 Reviews Papers as Well as Nature's Top Reviewers — With Caveats",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "45 scientists, 469 hours, 82 papers — and AI peer review reaches parity with top human reviewers. If this holds, the bottleneck on scientific publishing shifts from reviewer availability to editorial judgment.",
+          "key_fact": "45 scientists spent 469 hours evaluating GPT-5.2 reviews across 82 papers; competitive with top-rated Nature reviewers"
+        },
+        {
+          "id": 41559,
+          "title": "Domain-Camouflaged Prompt Injections Evade Detection in Multi-Agent Systems",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A new attack class disguises prompt injections as domain-appropriate content — the exact attack surface that matters most as agent orchestration goes mainstream.",
+          "key_fact": "Injections camouflaged as domain-appropriate content evade current detection methods"
+        },
+        {
+          "id": 41341,
+          "title": "SMDD-Bench: Can AI Agents Actually Do Drug Design? (Not Really, Yet)",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "502 agentic tasks across 5 real drug-design workflows — not toy QA — reveal large gaps between frontier models and practical medicinal chemistry.",
+          "key_fact": "502 tasks across 5 real drug-design workflows with strict oracle budgets; first end-to-end agentic pharma benchmark"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 41309,
+          "title": "Microsoft Reportedly Pulls Internal Claude Code Licenses Over Runaway Costs",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "After engineers publicly chose Claude Code over Copilot, Microsoft killed the licenses — a vivid stress test of whether token-based billing survives enterprise scale, and a warning shot for every usage-priced AI tool.",
+          "key_fact": "17,840 likes; token-based billing reportedly made costs untenable at enterprise scale vs. seat-based Copilot licensing"
+        },
+        {
+          "id": 41106,
+          "title": "Anthropic Shares Early Project Glasswing Learnings on Frontier AI Cybersecurity",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Concrete learnings from collaborative AI cybersecurity partners — signaling how frontier labs intend to handle shared threat intelligence rather than siloed security.",
+          "key_fact": "Early update with partner learnings from Anthropic's collaborative AI cybersecurity initiative"
+        },
+        {
+          "id": 41085,
+          "title": "Exa, Modal, and TurboPuffer All Hit Unicorn Status Simultaneously",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Search, serverless GPU, and vector DB all crossing $1B at once — confirming that AI infrastructure, not applications, is where durable value is accruing right now.",
+          "key_fact": "Three AI infra companies (Exa, Modal, TurboPuffer) reached unicorn status simultaneously"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 41484,
+          "title": "Lucarne: Approve Coding Agent Actions From Your Phone",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A zero-intrusion mobile bridge for Claude, Codex, and Pi sessions via Telegram/WeChat — solving the 'left my laptop but the agent needs approval' problem without SDK changes.",
+          "key_fact": "No hooks, no MCP, no SDK changes — works via Telegram or WeChat"
+        },
+        {
+          "id": 41556,
+          "title": "Models.dev: An Open-Source Database of Every AI Model's Specs and Pricing",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A structured, programmatic reference for model routing, cost estimation, and capability matching — the kind of utility that every agent system ends up building internally.",
+          "key_fact": "Open-source structured database covering specs, pricing, and capabilities across all major AI models"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 41214,
+      "title": "Genspark's CTO: In This Market, Team Execution Beats Model Choice",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Why Genspark built on Claude and why picking your AI stack matters less than how fast your team ships",
+      "key_fact": "CTO Kay Zhu argues team execution > model choice in a commoditizing market"
+    },
+    {
+      "id": 41183,
+      "title": "How Anthropic's Own Finance Team Uses Claude for FP&A",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A concrete blueprint for finance teams evaluating LLM adoption beyond chatbot demos",
+      "key_fact": "Inside look at Anthropic's internal FP&A workflows powered by Claude"
+    },
+    {
+      "id": 41558,
+      "title": "Anna's Archive Publishes an llms.txt Manifesto",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A provocative take on how the web is restructuring itself around LLM consumption patterns",
+      "key_fact": "Argues AI systems should be transparent about what they can and cannot access"
+    },
+    {
+      "id": 41081,
+      "title": "FTC Fines Companies Nearly $1M for 'Active Listening' AI Ad Targeting",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A clear regulatory line that AI-powered ambient audio surveillance marketing is not acceptable",
+      "key_fact": "Cox Media Group and two firms fined for AI service that monitored ambient audio for ad targeting"
+    }
+  ],
+  "total_items": 21
+}
