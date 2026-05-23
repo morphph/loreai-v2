@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Microsoft reportedly cancels internal Claude Code licenses over token-based billing costs",
+    "url": "https://x.com/ylecun/status/2057782982757257330",
+    "source": "twitter:@ylecun",
+    "x_engagement_24h": 21391,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 35.4173,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code v2.1.149: /usage Shows Per-Category Cost Breakdown",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.149",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 77,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.0231,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "How Anthropic's finance team uses Claude to shape the narrative behind the numbers",
+    "url": "https://www.claude.com/blog/how-anthropics-finance-team-uses-claude-to-shape-the-narrative-behind-the-numbers",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Anthropic TypeScript SDK v0.98.0: Thinking Token Counts in Streaming",
+    "url": "https://github.com/anthropics/anthropic-sdk-typescript/releases/tag/sdk-v0.98.0",
+    "source": "github:release:anthropics/anthropic-sdk-typescript",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Big fan of teaching more people the basics of using Claude Code in an accessible way",
+    "url": "https://x.com/bcherny/status/2057876668501434603",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 1804,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 20.5412,
+    "suggested_angle": "news"
+  }
+]
