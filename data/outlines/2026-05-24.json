@@ -1,0 +1,228 @@
+{
+  "date": "2026-05-24",
+  "headline_hook": "Glasswing Delivers, NVIDIA Rethinks Text Generation, and Every Lab Ships Agents",
+  "preview_topics": [
+    "Glasswing's first cybersecurity results",
+    "NVIDIA's diffusion language models",
+    "the model-lab-to-agent-lab pivot"
+  ],
+  "pick_of_the_day": {
+    "item_id": 41596,
+    "thesis": "The simultaneous pivot from model labs to agent labs isn't a coincidence — it's an industry-wide admission that raw capability has hit diminishing returns and the real value layer is orchestration, not parameters."
+  },
+  "model_literacy": {
+    "concept": "Diffusion Language Models",
+    "relevance": "NVIDIA's Nemotron generates all tokens simultaneously instead of one-by-one — understanding how diffusion applies to text (not just images) explains why this could break the autoregressive speed ceiling."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 41528,
+          "title": "Tencent Ships 1.8B Translation Model That Runs on Your Phone",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The Hy-MT2 family now spans 1.8B to 30B — the small end is edge-deployable across 33 languages, giving enterprises a private translation option.",
+          "key_fact": "1.8B parameters, 33 languages, edge-deployable"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 41331,
+          "title": "Claude Code 2.1.149 Drops 26 CLI Changes",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The meatiest update in weeks: /usage cost breakdowns, PowerShell security hardening, and a bash find stability fix that was biting power users.",
+          "key_fact": "26 CLI changes including /usage cost breakdown"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 41274,
+          "title": "Gemini Omni Doesn't Just Generate Video — It Edits It Natively",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "True multimodality means Gemini can edit existing footage, not just generate from scratch — the 1896 train film demo shows a workflow no other model offers.",
+          "key_fact": "Native video editing via full multimodal architecture, not a generation pipeline"
+        },
+        {
+          "id": 41784,
+          "title": "Turn Your Repeated Agent Prompts Into Reusable Skills",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Meta-optimization that compounds: ask Codex to extract recurring prompt patterns into skills and subagents so you stop repeating yourself.",
+          "key_fact": "Codex can analyze past sessions to auto-generate reusable skills"
+        },
+        {
+          "id": 41802,
+          "title": "A Practitioner's Model Picker: Opus for Frontend, GPT 5.5 for Backend",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Production-tested model recommendations across 8 categories — cuts through benchmark noise with what actually works in real codebases.",
+          "key_fact": "Opus 4.7 for frontend, GPT 5.5 xHigh for backend, Flash 3.5 for vision"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 41554,
+          "title": "Project Glasswing Publishes Its First Cybersecurity Findings",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Anthropic's collaborative AI cybersecurity initiative moves from press release to technical results — the methodology for cross-lab threat intelligence sharing is the real story.",
+          "key_fact": "First detailed technical findings from multi-lab cybersecurity collaboration"
+        },
+        {
+          "id": 41611,
+          "title": "NVIDIA's Nemotron Generates All Tokens at Once With Diffusion",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Diffusion-based language models skip the one-token-at-a-time bottleneck entirely — NVIDIA's architecture details and benchmarks show this isn't theoretical anymore.",
+          "key_fact": "Simultaneous token generation via diffusion, with published benchmarks"
+        },
+        {
+          "id": 41792,
+          "title": "Ganguli's Framework for Unifying Physics, Neuroscience, and AI",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "LeCun-boosted paper proposes a cross-disciplinary science of intelligence — could reshape how we think about architectures beyond transformers.",
+          "key_fact": "Unified framework across physics, neuroscience, and AI"
+        },
+        {
+          "id": 41555,
+          "title": "Antigravity 2.0 Tops the First 3D Architecture LLM Benchmark",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A new OpenSCAD benchmark measures LLMs on 3D architectural generation — the capability gap between text generation and physical-world design is narrowing.",
+          "key_fact": "Google's Antigravity 2.0 leads new OpenSCAD architectural benchmark"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 41596,
+          "title": "Every Model Lab Is Now an Agent Lab — and That Changes Everything",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Latent Space crystallizes the week's pattern: Anthropic, OpenAI, Google, and Alibaba are all shipping agent products. The competitive axis has shifted from benchmarks to workflows.",
+          "key_fact": "All major labs now ship agent products, not just models"
+        },
+        {
+          "id": 41307,
+          "title": "The Unsolved Agent Problem: What Happens When It Needs to Move Money?",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Tool calling is solved. Financial transactions are not. The trust infrastructure gap for agents handling payments, invoices, and transfers is the real bottleneck.",
+          "key_fact": "No clean standard for agent financial transactions exists"
+        },
+        {
+          "id": 41101,
+          "title": "Specialization Beats Scale — But Most Procurement Ignores It",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Smaller fine-tuned models outperform frontier APIs on specific enterprise tasks — the buy-vs-build math changes when you measure task performance, not benchmarks.",
+          "key_fact": "Specialized smaller models outperform general frontier models on specific tasks"
+        },
+        {
+          "id": 41737,
+          "title": "DeepMind Expands Singapore AI Partnership for Science and Healthcare",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A concrete template for national-level AI deployment with safety guardrails — pandemic prep, drug discovery, and healthcare at government scale.",
+          "key_fact": "Expanded partnership covers scientific discovery, pandemic preparedness, healthcare"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 41954,
+          "title": "CodeWhale Brings Claude Code-Style Agents to DeepSeek Models",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "33K+ stars for a terminal coding agent that runs on DeepSeek — massive demand for local-first, open-model agent workflows is real.",
+          "key_fact": "33,856 GitHub stars, runs DeepSeek models locally in terminal"
+        },
+        {
+          "id": 41271,
+          "title": "Simon Willison Ships Datasette Agent for Conversational Data Exploration",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "An AI agent that autonomously explores and queries databases via Datasette — plugin-extensible and immediately useful for interrogating unfamiliar data.",
+          "key_fact": "Alpha release, plugin-extensible, works with any Datasette instance"
+        },
+        {
+          "id": 41763,
+          "title": "Kakuna: Agent Skills That Only Know How to Harden Your Code",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The 'maintenance factory' concept: point Kakuna at a repo and it returns hardened code plus an audit trail. Agents doing the boring-but-critical work.",
+          "key_fact": "Focused agent skills for automated codebase hardening with audit output"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 41717,
+      "title": "Anthropic Shares Partner Progress From Glasswing's First Month",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Partner learnings from collaborative cybersecurity initiative",
+      "key_fact": "7,471 likes on partner progress update"
+    },
+    {
+      "id": 41288,
+      "title": "Sam Altman Crowdsources What Problems OpenAI Should Solve Next",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "11K likes shaping OpenAI's product roadmap in public",
+      "key_fact": "11,440 likes, top replies reveal developer priorities"
+    },
+    {
+      "id": 41830,
+      "title": "12 Claude Code Concepts Every Daily User Should Know",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Comprehensive power-user guide getting traction in Spanish dev community",
+      "key_fact": "451 likes covering CLAUDE.md, Rules, Skills, Hooks, MCP"
+    },
+    {
+      "id": 41984,
+      "title": "Claude Code v2.1.150 Ships Infrastructure Update",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Internal improvements, no user-facing changes",
+      "key_fact": "Maintenance release, keeps cadence visible"
+    },
+    {
+      "id": 41096,
+      "title": "Google I/O 2026 Dialogues Stage Recap",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Strategic discussions on AI, quantum, robotics from industry leaders",
+      "key_fact": "Forward-looking themes behind the product announcements"
+    },
+    {
+      "id": 41080,
+      "title": "AI Memory Shortage Is Repricing Consumer Electronics",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Second-order effect of AI infrastructure buildout hitting hardware costs",
+      "key_fact": "Memory demand from AI training repricing electronics across the board"
+    }
+  ],
+  "total_items": 22
+}
