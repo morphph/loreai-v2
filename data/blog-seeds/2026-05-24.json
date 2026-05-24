@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Hmbown/CodeWhale: Coding agent for DeepSeek models that runs in your terminal",
+    "url": "https://github.com/Hmbown/CodeWhale",
+    "source": "github:trending:Agent/MCP tools",
+    "x_engagement_24h": 36758,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 35.0274,
+    "suggested_angle": "analysis"
+  },
+  {
+    "topic": "[AINews] All Model Labs are now Agent Labs",
+    "url": "https://www.latent.space/p/ainews-all-model-labs-are-now-agent",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "I released the first alpha of Datasette Agent - a conversational AI assistant for Datasette",
+    "url": "https://x.com/simonw/status/2057554315821371543",
+    "source": "twitter:@simonw",
+    "x_engagement_24h": 214,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.0642,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @AnthropicAI: Last month we launched Project Glasswing, our collaborative AI cybersecurity initiative. Since then, we and our partners h…",
+    "url": "https://x.com/bcherny/status/2058295706813657205",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 8026,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 19.4078,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Si usás Claude Code todos los días, hay 12 conceptos que te van a ayudar muchísimo",
+    "url": "https://x.com/santtiagom_/status/2058208825656668375",
+    "source": "twitter:search:\"claude code\" (hook OR hooks OR keybinding) -crypto",
+    "x_engagement_24h": 505,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.1515,
+    "suggested_angle": "news"
+  }
+]
