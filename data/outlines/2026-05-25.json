@@ -1,0 +1,228 @@
+{
+  "date": "2026-05-25",
+  "headline_hook": "Anthropic Races Past $900B While Hackers Target Your CLAUDE.md",
+  "preview_topics": [
+    "Anthropic's $900B leap",
+    "supply-chain attacks on agent configs",
+    "the Claude Code trick power users swear by"
+  ],
+  "pick_of_the_day": {
+    "item_id": 42272,
+    "thesis": "The files we created to make AI agents useful — CLAUDE.md, .cursorrules — are becoming the newest supply chain attack surface, and most teams have zero review process for them because they look like harmless documentation."
+  },
+  "model_literacy": {
+    "concept": "Constraint Decay",
+    "relevance": "Today's research paper formalizes how LLM agents progressively forget requirements during complex code generation — directly relevant as readers adopt the multi-agent workflows featured in this issue."
+  },
+  "sections": [
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 42178,
+          "title": "The One Claude Code Setting That Changes Everything",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "Boris Cherny's most-liked tip ever: auto mode enables multi-clauding workflows that most power users haven't discovered yet.",
+          "key_fact": "3,826 likes — his highest-engagement Claude Code tip to date"
+        },
+        {
+          "id": 42217,
+          "title": "GPT-5.5 Pro Turns Out to Be a Ruthless Fact-Checker",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Ethan Mollick stress-tested GPT-5.5 Pro on entire book chapters and found it hunts down references with surprising accuracy.",
+          "key_fact": "Can fact-check full chapters, though it tends to over-nuance edge cases"
+        },
+        {
+          "id": 42185,
+          "title": "The 'Please Save Me Money' Prompt That Actually Works",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Budget-conscious developers discovered that literally asking Claude to reduce costs produces measurably cheaper outputs.",
+          "key_fact": "1,023 likes from a single cost-optimization trick"
+        },
+        {
+          "id": 42224,
+          "title": "The Self-Improving Codex Prompt Now Mines Your Session History",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A refined meta-prompt that auto-generates skills and subagents from your Codex session patterns — the prompt engineering community iterating in public.",
+          "key_fact": "2,216 likes; evolved overnight from yesterday's viral version"
+        },
+        {
+          "id": 42274,
+          "title": "Anthropic Publishes Its Internal Claude Code Playbook",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The official engineering workflow guide covers context files, hooks, subagents, and custom commands — the gap between stock and tuned setups is enormous.",
+          "key_fact": "Free guide more useful than paid Claude Code courses"
+        },
+        {
+          "id": 42181,
+          "title": "Claude Is Writing Illustrated Home Repair Manuals Now",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Felix Rieseberg uses Claude to generate problem-specific illustrated instruction manuals for real-world home engineering — a multimodal use case beyond coding.",
+          "key_fact": "Generates custom diagrams and step-by-step instructions for physical problems"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 42272,
+          "title": "Hackers Are Submitting Malicious CLAUDE.md Files to Popular Repos",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Socket Security documents a new supply chain attack vector — poisoned .cursorrules and CLAUDE.md files in PRs that hijack AI coding agents. The agent-era equivalent of dependency confusion.",
+          "key_fact": "Active attacks targeting popular AI agent repositories right now"
+        },
+        {
+          "id": 41825,
+          "title": "Anthropic Closes $30B Round at $900B+, Surpassing OpenAI",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Anthropic reportedly passes OpenAI's $852B valuation to become the world's most valuable AI startup — a 2.4x jump in three months.",
+          "key_fact": "$900B+ valuation, up from ~$375B three months ago"
+        },
+        {
+          "id": 42466,
+          "title": "Memory Now Eats Two-Thirds of AI Chip Costs",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Epoch AI data reveals a structural shift in chip economics — memory dominates component costs, explaining why memory-efficient architectures are suddenly everyone's priority.",
+          "key_fact": "Memory share of AI chip costs approaching 66%"
+        },
+        {
+          "id": 42247,
+          "title": "June's Model Calendar: Gemini 3.5, GPT 5.6, Sonnet 4.7",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A roadmap of expected June releases for teams deciding when to lock model versions — the density suggests a coordinated competitive sprint.",
+          "key_fact": "At least four major model releases expected in a single month"
+        },
+        {
+          "id": 42265,
+          "title": "YC Publishes Its AI Startup Wishlist for Summer 2026",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Y Combinator's new RFS telegraphs where the most influential accelerator is placing bets — a signal for founders and investors alike.",
+          "key_fact": "Public list of million-dollar AI startup ideas YC wants to fund"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 42465,
+          "title": "DeepSeek Reasonix: A Coding Agent That Leads With Price",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "DeepSeek launches a native coding agent optimized for caching efficiency — positioning directly against Claude Code and Codex on cost.",
+          "key_fact": "High caching hit rates designed to undercut competitor pricing"
+        },
+        {
+          "id": 42287,
+          "title": "Coral Replaces MCP Tool Glue With a Single SQL Interface",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Query APIs, files, and data sources with SQL instead of wiring up individual MCP tools — benchmarks show 20% more accurate and 2x cheaper.",
+          "key_fact": "20% accuracy gain and 2x cost reduction vs. direct MCP providers"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 42396,
+          "title": "Obsidian Gets Agent Skills — and 32K Stars Agree",
+          "section": "BUILD",
+          "prominence": "hero",
+          "angle": "Kepano ships agent skills that teach AI to work with Markdown, Bases, JSON Canvas, and CLI inside Obsidian — the knowledge-management-meets-agents workflow people have been waiting for.",
+          "key_fact": "32,853 GitHub stars, fastest-trending AI repo this week"
+        }
+      ]
+    },
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 42452,
+          "title": "Meituan Open-Sources a SOTA Talking-Avatar Model Under MIT",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "LongCat Video Avatar 1.5 may be the best open-source video avatar model yet — and the MIT license means commercial use is unrestricted.",
+          "key_fact": "MIT-licensed, state-of-the-art talking-avatar generation"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 42467,
+          "title": "New Paper: Your Coding Agent Forgets Requirements Mid-Task",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Researchers formalize 'constraint decay' — the progressive loss of requirements during multi-file code generation — and it explains a failure mode every agent user has felt.",
+          "key_fact": "LLM agents systematically degrade on backend code as complexity increases"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 42011,
+      "title": "Tencent Drops a 33-Language Translation Model You Can Self-Host",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Hy-MT2-7B: mid-range translation model, 33 languages, efficient enough for self-hosting",
+      "key_fact": "7B params, 33 languages, open weights"
+    },
+    {
+      "id": 42058,
+      "title": "Datasette 1.0a30 Ships With Agent and Fixture Plugins",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Simon Willison's SQLite explorer inches toward 1.0 with new agent integrations",
+      "key_fact": "datasette-agent and datasette-fixtures released alongside"
+    },
+    {
+      "id": 42293,
+      "title": "Ollama + Codex = Fully Local AI Coding Agent",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Run OpenAI's coding agent on your laptop with zero cloud dependency",
+      "key_fact": "Ollama 0.24+ required, no code leaves your machine"
+    },
+    {
+      "id": 42222,
+      "title": "David Ha: AI Won't Replace Engineers — Jevons Paradox Says More, Not Fewer",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Sakana AI CRO argues 10x productivity expands the problem space, not the unemployment line",
+      "key_fact": "Sakana is actively hiring, putting money where the thesis is"
+    },
+    {
+      "id": 42216,
+      "title": "The 'Tells' of AI Content Are Becoming Obvious to Everyone",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Mollick: daily AI users are developing pattern recognition that spots AI output instantly",
+      "key_fact": "Cultural shift signal for content strategy teams"
+    },
+    {
+      "id": 42061,
+      "title": "Armin Ronacher on AI's Impact on Developer Tooling",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The Flask/Ruff creator's perspective, surfaced by Simon Willison",
+      "key_fact": "Notable take from one of Python's most respected toolsmiths"
+    }
+  ],
+  "total_items": 22
+}
