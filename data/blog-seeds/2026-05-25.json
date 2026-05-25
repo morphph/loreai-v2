@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "kepano/obsidian-skills: Agent skills for Obsidian",
+    "url": "https://github.com/kepano/obsidian-skills",
+    "source": "github:trending:Agent/MCP tools",
+    "x_engagement_24h": 35145,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 39.5435,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "DeepSeek Reasonix — native coding agent with high caching and low cost",
+    "url": "https://esengine.github.io/DeepSeek-Reasonix/",
+    "source": "hackernews",
+    "x_engagement_24h": 584,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.1752,
+    "suggested_angle": "analysis"
+  },
+  {
+    "topic": "Attackers submitting PRs to add malicious .cursorrules / CLAUDE.md files to popular AI agent repos",
+    "url": "https://x.com/SocketSecurity/status/2058565155340853420",
+    "source": "twitter:search:\"CLAUDE.md\" (tip OR trick OR setup OR config)",
+    "x_engagement_24h": 89,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.026699999999998,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "People often ask what my biggest tip is for getting the most out of Claude Code.  These days my #1 tip is: use auto mode",
+    "url": "https://x.com/bcherny/status/2058519809214607704",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 4027,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 26.2081,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "UPDATE: Self-improvement prompt for Codex — look across sessions, Memories, and Chronicle to identify patterns",
+    "url": "https://x.com/reach_vb/status/2058538305872949490",
+    "source": "twitter:@reach_vb",
+    "x_engagement_24h": 2384,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.7152,
+    "suggested_angle": "news"
+  }
+]
