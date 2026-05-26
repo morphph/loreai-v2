@@ -1,0 +1,212 @@
+{
+  "date": "2026-05-26",
+  "headline_hook": "The Pope Summons AI Safety, DeepMind Ships a Math Agent, and You Can Build a Robot for $2,500",
+  "preview_topics": [
+    "Chris Olah at the papal encyclical",
+    "DeepMind's agentic theorem prover",
+    "ClickUp's agent-substitution layoffs"
+  ],
+  "pick_of_the_day": {
+    "item_id": 42469,
+    "thesis": "ClickUp replacing hundreds of employees with thousands of AI agents is the first time a major SaaS company has publicly framed layoffs as an agent-substitution strategy — and the playbook it's writing will be copied by every mid-market software company within 18 months."
+  },
+  "model_literacy": {
+    "concept": "On-Policy Distillation",
+    "relevance": "With task-specific small models outperforming frontier generalists by 4-8x, on-policy distillation — where a student model learns from its own outputs corrected by a teacher — is the technique making those speed gains possible. It's why MiniCPM5 can pack multimodal capabilities into 1B parameters."
+  },
+  "sections": [
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 42577,
+          "title": "Chris Olah Addresses the Vatican on AI Safety — A First for the Industry",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "An AI lab co-founder speaking at a papal encyclical presentation signals that frontier AI safety has reached the highest levels of global moral authority — this isn't a tech conference, it's a civilizational conversation.",
+          "key_fact": "First AI researcher invited to present at a papal encyclical ceremony"
+        },
+        {
+          "id": 42640,
+          "title": "Anthropic Reportedly Closing $30B+ Round at $900B+ Valuation",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "If confirmed, Anthropic becomes the most valuable private AI company — proof that safety-focused labs can compete commercially, not just morally.",
+          "key_fact": "$900B+ valuation, $30B+ round"
+        },
+        {
+          "id": 42469,
+          "title": "ClickUp Replaces Hundreds of Employees with AI Agents",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The first major SaaS company to publicly frame mass layoffs as an agent-substitution strategy — the labor-displacement story just went from theoretical to operational.",
+          "key_fact": "Hundreds of employees replaced with thousands of AI agents"
+        },
+        {
+          "id": 42470,
+          "title": "TechCrunch: The Pope's AI Encyclical Isn't Really About AI",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Read alongside Olah's remarks — the Church sees concentrated power and eroding democracy, the labs see alignment. The gap between these framings is the real story.",
+          "key_fact": "Encyclical titled 'Magnifica humanitas' uses AI as lens for older power-concentration problems"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 42581,
+          "title": "DeepMind Ships AlphaProof Nexus — Research-Level Math Goes Agentic",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "DeepMind's theorem-proving capabilities are now wrapped in an agentic framework anyone can use — this is the productization of the Erdős-conjecture work, and it makes research-level math a callable tool.",
+          "key_fact": "Agentic framework for research-level mathematical theorem proving"
+        },
+        {
+          "id": 42520,
+          "title": "Anthropic Publishes First Glasswing Progress Report",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The first public accounting of what Anthropic's frontier AI cybersecurity initiative has actually discovered — moving from early partner learnings to concrete findings.",
+          "key_fact": "First formal progress report on Project Glasswing's cybersecurity findings"
+        },
+        {
+          "id": 42601,
+          "title": "On-Policy Distillation: The Post-Training Technique Everyone Is Using",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The clearest explanation yet of why on-policy distillation — student learns from its own outputs corrected by a teacher — is becoming the default post-training recipe.",
+          "key_fact": "Outperforms traditional distillation; becoming the default post-training method"
+        }
+      ]
+    },
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 42583,
+          "title": "HuggingFace Drops LeRobot — A $2,500 Open-Source Humanoid You Can Build",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "HuggingFace is doing for robotics what it did for NLP — full open-source hardware + software stack at hobbyist pricing. The barrier to entry for humanoid robotics just collapsed.",
+          "key_fact": "$2,500 for a full humanoid robot kit with open-source stack"
+        },
+        {
+          "id": 42201,
+          "title": "6-Person Team Ships Task-Specific Models 4-8x Faster Than Frontier Labs",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "500K downloads prove the specialization thesis isn't just benchmarks — small teams building narrow models can genuinely outrun OpenAI and Anthropic on speed for defined tasks.",
+          "key_fact": "4-8x faster than frontier generalists, 500K downloads"
+        },
+        {
+          "id": 42197,
+          "title": "LongCat Releases SOTA Talking-Avatar Model Under MIT License",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The open-source avatar generation space just got another strong contender — developers building video agents now have real options without vendor lock-in.",
+          "key_fact": "MIT licensed, likely state-of-the-art for open talking-avatar generation"
+        },
+        {
+          "id": 42820,
+          "title": "MiniCPM5 Packs Multimodal Into 1B Parameters",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Small enough to run on phones and edge devices with full multimodal capabilities — the capable-tiny-model trend keeps accelerating.",
+          "key_fact": "1B-parameter multimodal model, trending on HuggingFace"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 42632,
+          "title": "Hermes Agent Adds OpenHands Orchestration — Mix Coding Agents in One Workflow",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The first agent-of-agents tool that lets you orchestrate Claude Code, Codex, and OpenHands together via installable skills — multi-provider agent coordination is now a real workflow.",
+          "key_fact": "First tool to mix coding agents from different providers in a single workflow"
+        },
+        {
+          "id": 42624,
+          "title": "Agent Swarms: One Prompt Routes Tasks to Gemini, Opus, and GPT",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The 'best model for each subtask' pattern is becoming a real architecture — assign coding to Opus, research to Gemini, testing to GPT, all from a single prompt.",
+          "key_fact": "Multi-model orchestration: Gemini 3.1 Pro, Opus 4.7, GPT 5.5 in one system"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 42516,
+          "title": "HuggingFace Publishes the Definitive Agent Terminology Glossary",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Harness vs. scaffold vs. agent vs. tool — as architectures get complex, imprecise terminology causes real engineering bugs. This is the reference to bookmark.",
+          "key_fact": "Definitive glossary distinguishing harness, scaffold, agent, and tool"
+        },
+        {
+          "id": 42676,
+          "title": "How to Let a Sandboxed Coding Agent Test Changes in Your Browser",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Solves the 'secure but usable' problem — run Claude Code in a remote VM sandbox while still testing UI changes locally via port forwarding.",
+          "key_fact": "Port forwarding from sandboxed remote VM to local browser for agent testing"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 42785,
+          "title": "Louis Rossmann Open-Sources His Anti-AI-Slop CLAUDE.md",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A portable CLAUDE.md plus skills that force Claude away from generic AI tone — a practical template for anyone fighting slop in their own writing output.",
+          "key_fact": "Complete CLAUDE.md + skills config for authentic voice, open-sourced on GitHub"
+        },
+        {
+          "id": 42028,
+          "title": "Amazon's Bee AI Wearable: Same Privacy Tension, Different Distribution",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Same convenience-vs-privacy tension that killed Humane, but Amazon's distribution advantage could be the difference this time.",
+          "key_fact": "Hands-on review of Amazon's new AI wearable device"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 42032,
+      "title": "Hackers Are Exploiting Chatbot 'Personalities' — A New Attack Surface",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Adversarial attacks evolving from jailbreaks to exploiting the character layer",
+      "key_fact": "New attack vector targeting behavioral instructions, not model weights"
+    },
+    {
+      "id": 42027,
+      "title": "Even Google Is Making Up AI Security as It Goes",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "If the deepest security bench in tech doesn't have a playbook, neither do you",
+      "key_fact": "TechCrunch analysis of Google's real-time AI security improvisation"
+    },
+    {
+      "id": 42572,
+      "title": "Clawd Easter Egg: Scroll Down in Claude Code Mobile and the Mascot Comes Alive",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Anthropic investing in developer delight beyond pure functionality",
+      "key_fact": "Hidden animation in Claude Code iPhone app"
+    }
+  ],
+  "total_items": 20
+}
