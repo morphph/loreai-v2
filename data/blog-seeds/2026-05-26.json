@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Hermes Agent adds OpenHands orchestration skill — multi-agent coordination across Claude Code, Codex, and more",
+    "url": "https://x.com/Teknium/status/2059038964552745378",
+    "source": "twitter:@Teknium",
+    "x_engagement_24h": 205,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.0615,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Harness, Scaffold, and the AI Agent Terms Worth Getting Right",
+    "url": "https://huggingface.co/blog/agent-glossary",
+    "source": "rss:HuggingFace Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Agent Swarms: combine Gemini 3.1 Pro, Opus 4.7 and GPT 5.5 in multi-agent systems with one prompt",
+    "url": "https://x.com/bindureddy/status/2058674321179222437",
+    "source": "twitter:@bindureddy",
+    "x_engagement_24h": 1332,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.3996,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic co-founder Chris Olah was invited to speak at today's presentation of Pope Leo XIV's encyclical \"Magnifica humanitas.\"",
+    "url": "https://x.com/AnthropicAI/status/2058983299092009421",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 2681,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.804299999999998,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "MiniCPM5-1B: a 1B-parameter multimodal model trending on HuggingFace",
+    "url": "https://huggingface.co/openbmb/MiniCPM5-1B",
+    "source": "huggingface:trending",
+    "x_engagement_24h": 137,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.0411,
+    "suggested_angle": "news"
+  }
+]
