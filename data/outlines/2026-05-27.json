@@ -1,0 +1,212 @@
+{
+  "date": "2026-05-27",
+  "headline_hook": "Anthropic Opens Its Agent Containment Playbook as Copilot Proves Why You Need One",
+  "preview_topics": [
+    "Anthropic's agent containment architecture",
+    "the missing productivity data on coding agents",
+    "non-engineers shipping real products with Claude"
+  ],
+  "pick_of_the_day": {
+    "item_id": 42868,
+    "thesis": "Anthropic publishing its containment architecture on the same day Copilot gets caught exfiltrating files isn't coincidence — it's the clearest proof yet that the gap between knowing how to sandbox agents and actually shipping sandboxed agents is the defining security challenge of the agentic era."
+  },
+  "model_literacy": {
+    "concept": "Agent Sandboxing vs. Capability Isolation",
+    "relevance": "Today's Anthropic containment post and Copilot exfiltration story show two sides of the same coin: sandboxing restricts what an agent can access, capability isolation restricts what it can do with that access. Most agent frameworks only do one. Understanding the difference is critical as agents get file system and network access by default."
+  },
+  "sections": [
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 42886,
+          "title": "Anthropic's Containment Architecture: How They Actually Sandbox Claude",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "The first public deep-dive from a frontier lab on how they contain agents across Claude Code, computer use, and MCP — this is the reference implementation every team shipping agents should study.",
+          "key_fact": "Covers containment across three distinct agent surfaces: Claude Code, computer use, and MCP integrations"
+        },
+        {
+          "id": 42950,
+          "title": "The 'Folder + Scripts + HTML' Pattern for Non-Technical Claude Code Users",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Drop files in a directory, tell Claude Code to write scripts and output HTML — the simplest possible workflow is becoming the default for non-engineers.",
+          "key_fact": "1,200+ likes confirm the pattern is resonating beyond the developer audience"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 42868,
+          "title": "Microsoft Copilot Cowork Can Exfiltrate Your Files",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Simon Willison documents a concrete file exfiltration path in Copilot Cowork — the same day Anthropic publishes how they prevent exactly this. The contrast is damning.",
+          "key_fact": "Concrete demonstration of agent-mediated data exfiltration in a shipping Microsoft product"
+        },
+        {
+          "id": 42980,
+          "title": "Paul Graham: AI-Written Emails Feel Like Being Lied To",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "As AI writing tools proliferate, the authenticity signal is becoming the scarcest commodity in communication — and PG just named the feeling everyone has.",
+          "key_fact": "2,012 likes on the observation that human-signed, AI-written emails break a social contract"
+        },
+        {
+          "id": 42889,
+          "title": "Chris Olah Responds to the Pope's AI Encyclical",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The first direct response from a frontier lab co-founder to the Vatican's AI encyclical — bridging mechanistic interpretability with the call for 'intelligible AI.'",
+          "key_fact": "Connects Anthropic's interpretability research to the Pope's 'Magnifica humanitas' framework"
+        },
+        {
+          "id": 43225,
+          "title": "Stack Overflow's Forum Is Dead — But the Company Pivoted",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Q&A traffic cratered post-AI, but Stack Overflow pivoted to enterprise data licensing for AI training — the first major knowledge platform to complete its AI-era transformation.",
+          "key_fact": "Company survives by licensing its data to train the models that killed its traffic"
+        },
+        {
+          "id": 42867,
+          "title": "Simon Willison on 'The Pressure' to Adopt AI Tools",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "When the person who tries every AI tool says the pace is unsustainable, it's worth reading — Willison names the compounding pressure developers feel to keep up.",
+          "key_fact": "Written by the most consistent chronicler of the AI developer experience"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 42984,
+          "title": "Mollick: We Have Zero Rigorous Productivity Data on Autonomous Coding Agents",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Every coding-agent productivity study predates the Claude Code/Codex era. We're making billion-dollar tooling bets with no rigorous measurement — the biggest gap in AI research right now.",
+          "key_fact": "All existing studies predate December 2025, when autonomous coding agents shipped"
+        },
+        {
+          "id": 42854,
+          "title": "MIT Tech Review: The AI Jobs Hysteria Doesn't Match the Data",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Despite layoff headlines from Coinbase, Meta, and Cisco, evidence of large-scale AI job displacement remains thin — the narrative-data gap is widening.",
+          "key_fact": "Scant evidence of large-scale displacement despite months of AI-layoff headlines"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 42945,
+          "title": "Claude Code's /goal: A Second Model Checks When You're Actually Done",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The agent doing the work shouldn't judge its own completion — /goal adds a separate model as a completion checker for concrete finish conditions.",
+          "key_fact": "Addresses a real agent failure mode: premature task completion"
+        },
+        {
+          "id": 43038,
+          "title": "Expo Ships a Public MCP Server for React Native Developers",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "MCP moves from protocol spec to daily tooling — Expo's server connects coding assistants to docs, build logs, crash reports, and simulator control.",
+          "key_fact": "Covers Expo docs, build logs, TestFlight crash reports, and simulator control"
+        },
+        {
+          "id": 42954,
+          "title": "GPT-5.5 + Codex Takes On Enterprise Document Parsing at Databricks",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The unglamorous but high-value work of parsing messy customer documents — a signal of where enterprise agent usage is actually concentrating.",
+          "key_fact": "Databricks using Codex for complex document parsing in production"
+        }
+      ]
+    },
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 42965,
+          "title": "NVIDIA PiD: 4x Super-Resolution Straight from Model Latents",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "No separate upscaling pipeline needed — PiD works directly in pixel space from latents, with weights already on HuggingFace.",
+          "key_fact": "4x upscaling without a separate super-resolution model"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 42948,
+          "title": "Six Real Products Built by Non-Engineers Using Claude",
+          "section": "BUILD",
+          "prominence": "hero",
+          "angle": "From illustrated home repair manuals to business dashboards — 7K+ likes prove Claude is resonating far beyond the developer audience as a creation tool.",
+          "key_fact": "7,244 likes — the highest engagement of any item today"
+        },
+        {
+          "id": 43060,
+          "title": "ADHD: Tree-of-Thought with Pruning, Built on Claude Agent SDK",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Tree-of-thought has been theory — this open-source skill makes it a drop-in for creative and interdisciplinary agent work via the Claude Agent SDK.",
+          "key_fact": "Fans out parallel thoughts under different cognitive frames, scores and prunes automatically"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 43035,
+      "title": "Codex CLI 0.134.0: History Search, Unified Profiles, MCP OAuth",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Profile unification across CLI/TUI/sandbox is the real QoL win",
+      "key_fact": "Adds searchable history with content previews and per-server MCP OAuth"
+    },
+    {
+      "id": 43219,
+      "title": "Microsoft Drops 'Lens' Text-to-Image Model on HuggingFace",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Another major lab publishing open-weight image generation",
+      "key_fact": "673 downloads on day one"
+    },
+    {
+      "id": 43226,
+      "title": "DeepSWE: A Contamination-Free Benchmark for Coding Agents",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Designed to fix SWE-bench's data contamination problem",
+      "key_fact": "Could reset coding agent leaderboards if adopted"
+    },
+    {
+      "id": 43057,
+      "title": "Rezonant Alter: Point at Your Product, Voice a Change, Ship to Agent",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The product-to-code feedback loop keeps shrinking",
+      "key_fact": "Replaces the screenshot-with-arrows-in-Figma workflow"
+    },
+    {
+      "id": 43185,
+      "title": "Anthropic TypeScript SDK v0.98.1 Fixes Skill Upload Path Bug",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Patch for directory prefix loss in skills.versions.create",
+      "key_fact": "Prevents silent path corruption in uploaded skill files"
+    }
+  ],
+  "total_items": 20
+}
