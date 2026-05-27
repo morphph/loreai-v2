@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "The basic trick to using Claude Code for non-technical work: put files in a folder and tell it to write scripts + make HTML",
+    "url": "https://x.com/trq212/status/2059363113963540788",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 1237,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.3711,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code's /goal: a separate model checks your completion condition after every turn",
+    "url": "https://x.com/adocomplete/status/2059296883164803533",
+    "source": "twitter:@adocomplete",
+    "x_engagement_24h": 216,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 28.0648,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "How we contain Claude across products",
+    "url": "https://www.anthropic.com/engineering/how-we-contain-claude",
+    "source": "blog:Anthropic Engineering",
+    "x_engagement_24h": 1087,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.3261,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Ethan Mollick: We have no good tests of autonomous coding tool productivity",
+    "url": "https://x.com/emollick/status/2059118330472972331",
+    "source": "twitter:@emollick",
+    "x_engagement_24h": 718,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.215400000000002,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Microsoft Lens: a new text-to-image model on HuggingFace",
+    "url": "https://huggingface.co/microsoft/Lens",
+    "source": "huggingface:trending",
+    "x_engagement_24h": 101,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.0303,
+    "suggested_angle": "news"
+  }
+]
