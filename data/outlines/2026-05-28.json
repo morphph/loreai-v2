@@ -1,0 +1,244 @@
+{
+  "date": "2026-05-28",
+  "headline_hook": "Claude Ships a Security Stack, Google Drops Multimodal Embeddings, and a CVE Exposes the Entire AI Infra",
+  "preview_topics": [
+    "Anthropic's agent security trifecta",
+    "Google's unified embedding space for text, images, and video",
+    "the zero-auth CVE haunting every FastAPI-based AI server"
+  ],
+  "pick_of_the_day": {
+    "item_id": 43050,
+    "thesis": "CVE-2026-48710 is the wake-up call the AI infrastructure community has been ignoring — while we debate theoretical alignment risks, the actual stack running production AI (FastAPI, vLLM, LiteLLM, MCP servers) is sitting on the open internet with zero authentication, and Anthropic's same-day security blitz reads like they already knew."
+  },
+  "model_literacy": {
+    "concept": "Zero Trust Architecture for AI Agents",
+    "relevance": "Today's newsletter features both Anthropic's zero-trust agent framework and a CVE proving that perimeter-based security has already failed for AI infrastructure — understanding zero trust (verify every request, assume breach, least-privilege access) is now table stakes for anyone deploying agents or MCP servers."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 43345,
+          "title": "Claude Marketplace Opens: Spend Commitments Now Buy Third-Party Claude Apps",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Anthropic turns its enterprise contracts into a platform moat — existing spend commitments now flow to Augment, CodeRabbit, Hebbia, and more, locking in the ecosystem.",
+          "key_fact": "Launch partners include Augment, Bolt, CodeRabbit, Hebbia, and Legora"
+        },
+        {
+          "id": 43359,
+          "title": "Gemini Embedding 2: One Model for Text, Images, and Video",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Google DeepMind ships a single embedding model that handles text, images, and video in one space — every RAG pipeline and multimodal search system just got a drop-in upgrade path.",
+          "key_fact": "Native multimodal: text + image + video in a single embedding space"
+        },
+        {
+          "id": 43366,
+          "title": "RF-DETR Lands in HuggingFace Transformers, Outguns YOLO",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "State-of-the-art real-time detection and segmentation is now a pip install away — and it beats YOLO variants on both tasks.",
+          "key_fact": "SOTA on both real-time detection and segmentation benchmarks"
+        },
+        {
+          "id": 43430,
+          "title": "Android AppFunctions API: Your App Is Now an MCP Server for Gemini",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Google takes MCP mobile-native — any Android app can expose functions to Gemini and other on-device assistants via a Jetpack library.",
+          "key_fact": "Jetpack library turns any Android app into an on-device MCP server"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 43338,
+          "title": "Claude Code Ships a Real-Time Security Scanner — 16K Likes in Hours",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Shift-left security for AI-assisted coding is here — the plugin catches vulnerabilities as you write code, not after you ship it. The 16K-like reception says this was overdue.",
+          "key_fact": "15,995 likes and 1,482 RTs — highest-engagement Claude Code announcement this month"
+        },
+        {
+          "id": 43351,
+          "title": "OpenAI Enables Private MCP Servers via Outbound-Only HTTPS",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Teams can now keep MCP servers behind their firewall while still connecting to ChatGPT, Codex, and the Responses API — the security model enterprise IT has been waiting for.",
+          "key_fact": "Outbound-only HTTPS means no inbound ports, no public exposure"
+        },
+        {
+          "id": 43348,
+          "title": "Claude Code Gets a Reliability and Responsiveness Overhaul",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Infrastructure work that compounds for every active user daily — the kind of improvement you feel more than you read about.",
+          "key_fact": "Wave of reliability and responsiveness improvements across Claude Code"
+        },
+        {
+          "id": 43600,
+          "title": "Claude Code v2.1.152: /code-review --fix Applies Findings to Your Working Tree",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The --fix flag turns code review from a read-only report into an automated fixer — review findings go straight into your working tree.",
+          "key_fact": "New: /code-review --fix, /simplify, disallowed-tools in skill frontmatter"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 43316,
+          "title": "Anthropic's Playbook: Using LLMs to Find Your Vulnerabilities Before Attackers Do",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A practical guide from Anthropic on weaponizing LLMs for defensive security — the companion piece to today's zero-trust framework and security plugin.",
+          "key_fact": "Covers static analysis augmentation, vulnerability pattern detection, and security review workflows"
+        },
+        {
+          "id": 43318,
+          "title": "Zero Trust for AI Agents: Trust Boundaries and Credential Management",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Anthropic extends its security framework from containment to trust — every agent action should be verified, every credential scoped, every boundary explicit.",
+          "key_fact": "Applies Zero Trust principles specifically to agentic AI credential management"
+        },
+        {
+          "id": 43272,
+          "title": "Delta Weight Sync: Ship Trillion-Parameter Models Without Shipping Trillions of Parameters",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "HuggingFace's TRL now syncs only weight deltas during training — a simple idea that slashes storage and bandwidth for large-scale fine-tuning.",
+          "key_fact": "Only syncs weight changes instead of full checkpoints"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 43398,
+          "title": "Diffusion-Inspired Training: Breaking Networks Into Independently Trainable Blocks",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "If the forward pass can be treated like diffusion denoising, training blocks become independent — which could shatter the GPU memory wall that currently makes frontier training a billionaires-only game.",
+          "key_fact": "Treats the forward pass as a diffusion denoising process to enable block-independent training"
+        },
+        {
+          "id": 43050,
+          "title": "BadHost CVE-2026-48710: Clinical Trial Databases and MCP Servers Found Wide Open",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Researchers scanned the internet for one CVE and found the entire AI infrastructure stack — vLLM, LiteLLM, MCP servers, PII APIs — exposed with zero authentication.",
+          "key_fact": "Clinical trial databases, email mailboxes, and PII APIs accessible with zero auth"
+        },
+        {
+          "id": 43408,
+          "title": "ESMFold2: SOTA Protein Structure From Single Sequences, No MSA Required",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The bitter lesson hits protein biology — more compute and data beats hand-crafted evolutionary features for structure prediction.",
+          "key_fact": "Achieves SOTA without multiple sequence alignment (MSA)"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 43401,
+          "title": "OpenAI Sunsets GPT-5.2 and GPT-5.3-Codex on June 2 — 5 Days to Migrate",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "If your workflows are pinned to these models, the clock is ticking — OpenAI is simplifying its compute fleet and you have until Monday.",
+          "key_fact": "June 2nd sunset date — 5 days from today"
+        },
+        {
+          "id": 42957,
+          "title": "SynthID Crosses 100B Watermarks as OpenAI and ElevenLabs Join the Standard",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "AI content watermarking just went from Google's solo project to an industry standard — with OpenAI, ElevenLabs, and Kakao on board, the 'was this AI-generated' question gets a real answer.",
+          "key_fact": "100B+ pieces of content watermarked; OpenAI, ElevenLabs, and Kakao now adopting"
+        },
+        {
+          "id": 43645,
+          "title": "Simon Willison: Anthropic and OpenAI Have Crossed the Product-Market Fit Line",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The token economy has shifted from experimental budget to required line item — Willison argues we've passed the point of no return for AI spend.",
+          "key_fact": "AI tokens are now a required budget line item, not an experimental one"
+        },
+        {
+          "id": 43319,
+          "title": "Code w/ Claude London: How Teams Are Restructuring Around AI Agents",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Anthropic's London event reveals how early-adopter teams are actually reorganizing their development workflows — not just adding AI tools, but changing team structure.",
+          "key_fact": "Recap from Anthropic's London developer event on AI-native workflows"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 43317,
+          "title": "CodeRabbit's Claude-Powered Agent Orchestration: A Production Multi-Agent Case Study",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "How a company processing millions of code reviews built their multi-agent orchestration layer on Claude — real architecture decisions, not a toy demo.",
+          "key_fact": "Production system handling millions of code reviews via multi-agent orchestration"
+        },
+        {
+          "id": 43354,
+          "title": "Self-Improving Tax Agents: When Codex Learns From Its Own Mistakes",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The feedback loop is the real story — human reviewers fix errors, Codex traces the failure, and the workflow improves itself. A pattern worth stealing.",
+          "key_fact": "Error traces from human reviewers feed back into automated workflow improvement"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 43646,
+      "title": "DuckDuckGo Traffic Spikes 28% After Google Promotes AI Mode",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A meaningful user segment is actively fleeing AI-augmented search",
+      "key_fact": "28% traffic increase in one week"
+    },
+    {
+      "id": 43396,
+      "title": "OpenAI Foundation Commits $250M to Measuring AI's Impact on Quality of Life",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Sam Altman pre-positions for regulatory conversations with a quarter-billion-dollar commitment",
+      "key_fact": "$250M initial commitment"
+    },
+    {
+      "id": 43382,
+      "title": "Inside the Transformer: The Best Single-Resource Explainer of Token Flow",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A comprehensive trace of a token's journey through embedding, attention, FFN, and output",
+      "key_fact": "Shared by swyx, 893 likes — best transformer explainer of 2026"
+    },
+    {
+      "id": 43270,
+      "title": "ITBench-AA: Frontier Models Score Below 50% on Enterprise IT Tasks",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A reality check on autonomous IT agents vs. the marketing",
+      "key_fact": "All frontier models below 50% on enterprise agentic IT tasks"
+    }
+  ],
+  "total_items": 24
+}
