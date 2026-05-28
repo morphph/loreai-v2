@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "How CodeRabbit used Claude to build an agent orchestration system",
+    "url": "https://www.claude.com/blog/how-coderabbit-used-claude-to-build-an-agent-orchestration-system",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 41,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Claude Code reliability and responsiveness improvements",
+    "url": "https://x.com/trq212/status/2059702829791551706",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 6784,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 31.0352,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Marketplace launches with Augment, Bolt, CodeRabbit, Hebbia, and Legora",
+    "url": "https://x.com/claudeai/status/2059662933924123044",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 2366,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.7098,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Code w/ Claude London 2026: Rethinking how we build",
+    "url": "https://www.claude.com/blog/code-w-claude-london-2026-rethinking-how-we-build",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "OpenAI sunsetting GPT-5.2 and GPT-5.3-Codex on June 2nd",
+    "url": "https://x.com/reach_vb/status/2059655350886772778",
+    "source": "twitter:@reach_vb",
+    "x_engagement_24h": 3820,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 26.146,
+    "suggested_angle": "news"
+  }
+]
