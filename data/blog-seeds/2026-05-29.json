@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Claude Opus 4.8 benchmarks and honesty improvements",
+    "url": "https://x.com/bcherny/status/2060048873440129073",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 4354,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 30.3062,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Dynamic workflows: orchestrate 100s of agents in Claude Code",
+    "url": "https://x.com/_catwu/status/2060054180379689074",
+    "source": "twitter:@_catwu",
+    "x_engagement_24h": 4212,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 29.2636,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Introducing Claude Opus 4.8",
+    "url": "https://www.anthropic.com/news/claude-opus-4-8",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code v2.1.154: Opus 4.8, dynamic workflows, fast mode price drop",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.154",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Mistral Vibe ships as AI agent for productivity and coding",
+    "url": "https://x.com/MistralAI/status/2060012083748430213",
+    "source": "twitter:@MistralAI",
+    "x_engagement_24h": 768,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.2304,
+    "suggested_angle": "news"
+  }
+]
