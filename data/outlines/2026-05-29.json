@@ -1,0 +1,236 @@
+{
+  "date": "2026-05-29",
+  "headline_hook": "Anthropic Ships Opus 4.8, Raises $65B, and Unleashes Multi-Agent Workflows",
+  "preview_topics": [
+    "Opus 4.8's self-correcting code agents",
+    "deterministic multi-agent orchestration in Claude Code",
+    "Mistral's quiet industrial AI play"
+  ],
+  "pick_of_the_day": {
+    "item_id": 43744,
+    "thesis": "The leap from single-agent coding to deterministic multi-agent orchestration doesn't just make AI faster — it redraws the line on what's 'too complex for AI' and turns the solo developer into a project manager commanding a fleet."
+  },
+  "model_literacy": {
+    "concept": "Adaptive Thinking (Dynamic Token Budget Allocation)",
+    "relevance": "Opus 4.8 dynamically allocates reasoning tokens based on problem complexity — spending more on hard subproblems, less on routine ones. This is the same efficiency principle that makes multi-agent workflows viable: not every subtask deserves the same compute budget."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 43703,
+          "title": "Claude Opus 4.8 Sets a New Ceiling for Coding Agents",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "SWE-bench Pro jumps 5 points, adaptive thinking ships as default, and 1M context is standard — Anthropic just redefined what a coding model should do out of the box.",
+          "key_fact": "SWE-bench Pro: 64.3 → 69.2"
+        },
+        {
+          "id": 43693,
+          "title": "Google I/O 2026 Wraps with Gemini Omni and a Dozen Drops",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The Gemini 3.5 Flash demos stole the show, but the real signal is Google going all-in on multimodal-native models across every surface.",
+          "key_fact": "12 major announcements including Gemini Omni and Gemini 3.5 Flash"
+        },
+        {
+          "id": 43828,
+          "title": "Mistral Vibe Enters the Coding Agent Race",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Work mode, Code mode, and long-horizon tasks — Mistral's unified agent makes the coding assistant market a four-way fight.",
+          "key_fact": "Fourth serious contender alongside Claude Code, Codex, and Devin"
+        },
+        {
+          "id": 43838,
+          "title": "Liquid AI Ships an 8B Model That Only Runs 1B Parameters",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A non-transformer architecture with 8B params but only 1B active at inference — if benchmarks hold, this is the efficiency breakthrough on-device AI has been waiting for.",
+          "key_fact": "8B parameters, 1B active at inference"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 43744,
+          "title": "Claude Code Gets Dynamic Workflows: Hundreds of Agents, One Deterministic Plan",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Say 'workflow' and Claude Code spawns a coordinated fleet of subagents with a strict execution plan — this turns single-agent coding into orchestrated multi-agent engineering.",
+          "key_fact": "Tens to hundreds of parallel subagents with deterministic execution"
+        },
+        {
+          "id": 43919,
+          "title": "Chrome DevTools MCP 1.0 Gives AI Agents Browser Eyes",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "AI agents can write frontend code but can't see if it works — Chrome DevTools MCP closes that gap with runtime debugging, emulation, and automated Lighthouse audits.",
+          "key_fact": "Official 1.0 release at Google I/O"
+        },
+        {
+          "id": 44100,
+          "title": "Anthropic SDKs Ship Same-Day Opus 4.8 and Mid-Conversation System Support",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Python and TypeScript SDKs both updated — if you're on the API, update before switching models to get mid-conversation system blocks and output token breakdowns.",
+          "key_fact": "v0.105.0 with Opus 4.8 + mid-conversation system blocks"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 43760,
+          "title": "Mid-Conversation System Messages Land Without Breaking Prompt Cache",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Agent builders can now update tool definitions, permissions, or context mid-task without paying the cache-miss penalty — this unblocks a whole class of long-running agent architectures.",
+          "key_fact": "System-level instruction injection that preserves prompt cache"
+        },
+        {
+          "id": 43782,
+          "title": "Opus 4.8's Honesty Trick: It Tells You When It's Wrong",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The model actively flags uncertainty and catches flaws in its own code before returning it — self-awareness in coding agents just became a shipping feature, not a research aspiration.",
+          "key_fact": "Proactive uncertainty disclosure and self-caught code flaws"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 43863,
+          "title": "AI Writing Has a Narrative Fingerprint That Style Transfer Can't Hide",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "New research shows AI narrative patterns go deeper than em-dashes — fundamental structural differences persist even when you ask it to mimic different styles.",
+          "key_fact": "Style prompting barely changes the underlying AI narrative fingerprint"
+        },
+        {
+          "id": 43836,
+          "title": "Paris 2.0 Proves You Can Train Video Models Without a Mega-Cluster",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Decentralized training for video generation — if the benchmarks hold, this changes who can afford to build frontier video AI.",
+          "key_fact": "First decentralized-trained video generation model"
+        },
+        {
+          "id": 43878,
+          "title": "NVIDIA LocateAnything Finds Objects from Natural Language Descriptions",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "An open-vocabulary detector that finds anything you can describe — no predefined categories. Trending #1 on HuggingFace for a reason.",
+          "key_fact": "CVPR 2026 paper, trending #1 on HuggingFace"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 43790,
+          "title": "Anthropic Raises $65B at $965B — The Largest Private AI Round Ever",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Anthropic surpasses OpenAI's valuation to become the world's most valuable AI startup. The capital concentration in frontier AI is now staggering.",
+          "key_fact": "$65B round at $965B valuation, led by Altimeter, Dragoneer, Greenoaks, Sequoia"
+        },
+        {
+          "id": 43829,
+          "title": "Mistral Goes Vertical: Airbus, BMW, and EDF in Production",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "While frontier labs chase benchmarks, Mistral is deploying in aerospace, automotive, and energy — European AI carving its niche where regulatory proximity is a moat.",
+          "key_fact": "Production deployments at Airbus, BMW, EDF announced at The AI Now Summit"
+        },
+        {
+          "id": 43687,
+          "title": "Cognition Says 80% of Devin's Commits Ship to Production",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Spec-to-PR workflows, agent memory architecture, and a fresh $1B raise at $26B — Cognition makes its case that async coding agents are already production-grade.",
+          "key_fact": "80% production commit rate, $1B raise at $26B valuation"
+        },
+        {
+          "id": 43353,
+          "title": "OpenAI Sunsetting GPT-5.2 and GPT-5.3-Codex in 4 Days",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "GPT-5.2 and GPT-5.3-Codex go dark June 2. If your workflows are pinned to either model, migrate this week — not Monday.",
+          "key_fact": "Sunset date: June 2, 2026"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 43848,
+          "title": "The Full Local AI Audio Stack Is Now Viable",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Parakeet for STT, Qwen3-TTS for synthesis, Gemma 4 for LLM — all running locally via llama.cpp on consumer hardware. No cloud API needed.",
+          "key_fact": "Complete STT + TTS + LLM stack running on consumer hardware"
+        },
+        {
+          "id": 43924,
+          "title": "Open-Source Platform for JEPA and World Models Research Drops",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "After a year of development, a scalable platform built on the JEPA architecture LeCun has been championing — now anyone can experiment with world models.",
+          "key_fact": "First open-source scalable JEPA research platform"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 43812,
+      "title": "How Claude Code's Workflow Engine Ensures Deterministic Multi-Agent Execution",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Engineering lead explains the orchestration plan that keeps hundreds of agents in order",
+      "key_fact": "3,850 likes — deterministic execution across hundreds of agents"
+    },
+    {
+      "id": 43850,
+      "title": "Developers React: Mid-Conversation System Messages Were the Missing Piece",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "swyx captures why cache-preserving instruction updates unblock long-running agents",
+      "key_fact": "Previously impossible to update instructions without cache miss"
+    },
+    {
+      "id": 44097,
+      "title": "Claude Code v2.1.154 Brings It All Together",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Opus 4.8 default, dynamic workflows, fast mode price drop, /effort xhigh",
+      "key_fact": "Fast mode cost reduced significantly"
+    },
+    {
+      "id": 43644,
+      "title": "YouTube Will Auto-Detect and Label AI-Generated Videos",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Platform detection replaces creator self-disclosure — your labeling workflow is about to change",
+      "key_fact": "Automatic detection, not voluntary disclosure"
+    },
+    {
+      "id": 43961,
+      "title": "Microsoft 365 Copilot Adds Claude Opus 4.8 Across Office Apps",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Anthropic models now in Excel, PowerPoint, and Copilot Studio — multi-model enterprise in action",
+      "key_fact": "Rolling out to Chat, Excel, PowerPoint, and Copilot Studio"
+    }
+  ],
+  "total_items": 23
+}
