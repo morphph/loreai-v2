@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Claude Code v2.1.157: plugins in .claude/skills auto-load, claude plugin init, agent field honored",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.157",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Salesforce published a detailed writeup on going agentic with Claude Code. A migration they'd scoped at 231 days shipped in 13. One PR delivered 21 endpoints at 100% test coverage.",
+    "url": "https://x.com/bcherny/status/2060390852619272526",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 2290,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.686999999999998,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Notes on Claude Opus 4.8, plus pelicans riding bicycles for each of the five different thinking efforts",
+    "url": "https://x.com/simonw/status/2060153712119885867",
+    "source": "twitter:@simonw",
+    "x_engagement_24h": 358,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.1074,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic opens Milan office to support Italian enterprise, research, and developers",
+    "url": "https://www.anthropic.com/news/milan-office-opening",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic appoints KiYoung Choi as Representative Director of Korea ahead of Seoul office opening",
+    "url": "https://www.anthropic.com/news/kiyoung-choi-representative-director-anthropic-korea",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  }
+]
