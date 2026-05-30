@@ -1,0 +1,247 @@
+{
+  "date": "2026-05-30",
+  "headline_hook": "A 231-Day Migration Ships in 13 While OpenAI Goes Biodefense",
+  "preview_topics": [
+    "Salesforce's 13-day Claude Code blitz",
+    "OpenAI's Rosalind biodefense program",
+    "silent bugs eating RL training loops"
+  ],
+  "pick_of_the_day": {
+    "item_id": 44290,
+    "thesis": "Salesforce's 231-to-13-day migration isn't a speed trick — it's the first hard proof that agentic coding compresses enterprise timelines by an order of magnitude, forcing every engineering org to rethink how they scope, staff, and schedule projects."
+  },
+  "model_literacy": {
+    "concept": "Reward Signal Leakage in Agentic RL",
+    "relevance": "Today's warning about silently broken RL training loops connects directly — when agents learn to exploit reward signals rather than solve tasks, training metrics look healthy while the model learns nothing useful. Understanding this failure mode is critical as more teams fine-tune agents with RL."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 44221,
+          "title": "OpenAI Deploys GPT-Rosalind for Government Biodefense",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "AI safety extends beyond model alignment — OpenAI is now applying frontier models to biological threat detection for US allies",
+          "key_fact": "Dedicated biodefense program with government-tier GPT access for biological threat monitoring"
+        },
+        {
+          "id": 44193,
+          "title": "Google Drops 9 Video Demos of Gemini Omni and 3.5 in Action",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Move past I/O keynote slides — these demos show what Gemini's multimodal stack actually does when you point a camera at the real world",
+          "key_fact": "9 practical demo videos spanning Gemini Omni and Gemini 3.5 capabilities"
+        },
+        {
+          "id": 44397,
+          "title": "NVIDIA Releases Optimized Kokoro TTS at 82M Parameters",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Production-quality speech synthesis small enough to run locally — the local audio stack just got a serious upgrade",
+          "key_fact": "82M parameter model optimized for lightweight, local deployment"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 44348,
+          "title": "llama.cpp Gets a Proper Home — From Hack Project to Infrastructure",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The project that democratized local AI inference now has centralized docs and downloads — a maturation milestone for the entire local-AI ecosystem",
+          "key_fact": "Official website with centralized documentation, downloads, and community resources"
+        },
+        {
+          "id": 44330,
+          "title": "Codex Gets Computer Use on Windows — Write, Test, Debug in One Loop",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Codex can now test and debug apps by actually using them on Windows — closing the write-verify gap that kept agentic coding semi-manual",
+          "key_fact": "Computer use integration lets Codex test apps, debug flows, and review work on Windows"
+        },
+        {
+          "id": 44292,
+          "title": "Claude Code Reliability Push Continues With Infrastructure Overhaul",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The kind of infrastructure work that doesn't make headlines but compounds daily for the tool's growing user base",
+          "key_fact": "13,380 likes signal the size of the active user base feeling these improvements"
+        },
+        {
+          "id": 44617,
+          "title": "Claude Code v2.1.157: Skills Auto-Load, Plugin Init Scaffolding",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Plugins in .claude/skills directories now auto-load without marketplace setup — the skill ecosystem friction just dropped to near zero",
+          "key_fact": "claude plugin init scaffolds new plugins; agent field now honored in skill definitions"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 44357,
+          "title": "Your Agentic RL Training Loop Is Probably Silently Broken",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "HuggingFace CEO flags a widespread failure mode with no error signal — if you're training agents with RL, stop and check",
+          "key_fact": "Silent failure mode affects most teams training agentic LLMs with RL right now"
+        },
+        {
+          "id": 44374,
+          "title": "Hands-On With Opus 4.8: Testing All Five Thinking Effort Levels",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Simon Willison's independent evaluation calibrates expectations beyond launch-day hype — practical notes on when each effort level actually helps",
+          "key_fact": "Systematic testing across all five thinking effort levels with concrete examples"
+        },
+        {
+          "id": 44196,
+          "title": "PyTorch Profiling from Zero: A Practical torch.profiler Guide",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "If you're training models without profiling, you're burning compute you could save — this guide gets you from zero to actionable traces",
+          "key_fact": "Beginner-to-practical guide covering torch.profiler setup, trace reading, and optimization"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 44411,
+          "title": "Aleph Prover Formally Verifies OpenAI's Erdős Disproof",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "AI-assisted math moves from generating proofs to machine-checking landmark results — formal verification adds a new layer of rigor to AI mathematics",
+          "key_fact": "Machine-checked formal verification of OpenAI's disproof of the Erdős planar unit problem"
+        },
+        {
+          "id": 44672,
+          "title": "Liquid AI's Non-Transformer: 8B Params, 1B Active, 38T Tokens",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A serious alternative to transformers with real scale numbers — 8B total parameters but only 1B active at inference time",
+          "key_fact": "8B-parameter MoE with 1B active parameters, trained on 38 trillion tokens"
+        },
+        {
+          "id": 44675,
+          "title": "The Mysterious Hy3 Model Dominating OpenRouter Rankings",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "An unknown model is crushing established players on OpenRouter — either a genuine breakthrough or a masterclass in benchmark gaming",
+          "key_fact": "Leading OpenRouter rankings by a large margin with no known lab affiliation"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 44290,
+          "title": "Salesforce Shipped a 231-Day Migration in 13 With Claude Code",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The first major enterprise case study with hard ROI numbers — 231 days scoped, 13 days shipped, one PR with 21 endpoints at 100% test coverage",
+          "key_fact": "231-day migration completed in 13 days; single PR delivered 21 endpoints at 100% test coverage"
+        },
+        {
+          "id": 44372,
+          "title": "Simon Willison Debunks the Viral Uber AI Budget Story",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A reminder that AI industry narratives often outrun the facts — the viral Uber story rests on shakier foundations than Twitter assumed",
+          "key_fact": "Investigation found the widely-shared claims built on very shaky factual foundations"
+        },
+        {
+          "id": 44373,
+          "title": "Anthropic Hits $47B Run-Rate — Fastest Revenue Scaling in History",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "From $30B to $47B run-rate — Axios says no company in any industry has ever scaled organic revenue this fast at this level",
+          "key_fact": "$30B to $47B run-rate growth; described as unprecedented organic revenue scaling"
+        },
+        {
+          "id": 44378,
+          "title": "GPT-5 Pro's Quiet Dominance on the Hardest Problems",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Mollick notes GPT-5 Pro has been unchallenged on single-shot frontier reasoning for nearly a year — a data point for anyone choosing models",
+          "key_fact": "Consistent top performance on hardest single-shot problems since last summer with no real competition"
+        },
+        {
+          "id": 44668,
+          "title": "Inside Mistral's AI Now Summit: Strategy, Deals, and Positioning",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Full context on Mistral's enterprise play — Airbus, BMW, EDF partnerships and the strategic positioning behind them",
+          "key_fact": "Detailed summit notes covering Mistral's enterprise strategy and major partnership announcements"
+        },
+        {
+          "id": 44426,
+          "title": "Carmack: AI Writing Tools Improve Your Prose but Kill Your Voice",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The core tension every AI writing product must solve — objectively better text that sounds like nobody in particular",
+          "key_fact": "Gmail's AI suggestions are improvements but systematically strip authorial voice"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 43705,
+      "title": "Anthropic Opens Milan Office for European Enterprise Push",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Sixth European office, targeting regulated markets",
+      "key_fact": "Milan joins London, Dublin, and others in Anthropic's European expansion"
+    },
+    {
+      "id": 43706,
+      "title": "Anthropic Appoints Korea Lead Ahead of Seoul Office",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Asia-Pacific enterprise expansion with senior local hire",
+      "key_fact": "KiYoung Choi named Representative Director for Anthropic Korea"
+    },
+    {
+      "id": 44101,
+      "title": "Anthropic TypeScript SDK v0.100.0: Opus 4.8 + System Blocks",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Update before using new Opus 4.8 features",
+      "key_fact": "Adds Opus 4.8 support, mid-conversation system blocks, output_tokens_details"
+    },
+    {
+      "id": 44398,
+      "title": "NVIDIA Ships Official GLM5.1-NVFP4 Quantization",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Official optimized release for NVIDIA hardware",
+      "key_fact": "GLM5.1 quantized to NVFP4 format by NVIDIA"
+    },
+    {
+      "id": 44657,
+      "title": "StepFun AI Drops Step-3.7-Flash Multimodal Model",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Another speed-optimized multimodal entry to benchmark",
+      "key_fact": "1.4K downloads on HuggingFace at launch"
+    },
+    {
+      "id": 44148,
+      "title": "Continue? Y/N — A Game About AI Permission Fatigue",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "60-second game satirizing the daily permission prompt grind",
+      "key_fact": "224 HN upvotes — developers deeply identify with the frustration"
+    }
+  ],
+  "total_items": 25
+}
