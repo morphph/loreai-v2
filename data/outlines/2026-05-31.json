@@ -1,0 +1,236 @@
+{
+  "date": "2026-05-31",
+  "headline_hook": "Claude Code Ships Agent Orchestration While Surya OCR 2 Tops Models 5× Its Size",
+  "preview_topics": [
+    "Claude Code's dynamic workflow engine",
+    "OpenRouter's $113M multi-model bet",
+    "the UK opens its AI safety playbook"
+  ],
+  "pick_of_the_day": {
+    "item_id": 45151,
+    "thesis": "OpenRouter's $113M raise confirms that the model layer is commoditizing faster than anyone expected — the real moat isn't making models, it's the routing intelligence that picks the right one for each task, and that reshapes how every builder should think about vendor lock-in."
+  },
+  "model_literacy": {
+    "concept": "Deterministic vs. Autonomous Agent Orchestration",
+    "relevance": "Claude Code's dynamic workflows generate a deterministic script before execution rather than letting the agent improvise each step — today's news on workflows, Tool Search, and effort-level control all reflect the industry shifting from 'let the model figure it out' to structured orchestration with explicit control surfaces."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 44355,
+          "title": "Surya OCR 2 Hits 83% on OlmOCR — Best Under 3B, 91 Languages",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Practical OCR that runs on modest hardware just leapfrogged models 5× its size — if you've been waiting for on-device document understanding, the math finally works.",
+          "key_fact": "83.3% on OlmOCR benchmark, top score for any model under 3B parameters"
+        },
+        {
+          "id": 44326,
+          "title": "OpenAI Deploys Rosalind for Allied Government Biodefense",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "AI moving from productivity tooling into national security infrastructure — this is what 'dual-use' looks like when governments are the customer.",
+          "key_fact": "Expanding GPT-Rosalind access to allied government partners for pandemic preparedness"
+        },
+        {
+          "id": 44301,
+          "title": "Opus 4.8: The Coding Model That Knows When to Stop",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Felix Rieseberg's firsthand take cuts through benchmarks — Opus 4.8's real edge is judgment about scope and steering, not raw performance.",
+          "key_fact": "Strongest coding model with notably better judgment on task scope"
+        },
+        {
+          "id": 44838,
+          "title": "Koji: The AI Tutor That Makes Kids Think Instead of Copy",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "10K+ likes signal this hit the nerve of every parent worried AI makes kids dumber — Koji's approach guides reasoning instead of dispensing answers.",
+          "key_fact": "10,938 likes, designed to build understanding rather than give answers"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 44293,
+          "title": "Inside Claude Code's Dynamic Workflows: Deterministic Scripts, Parallel Agents",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The engineering lead explains the architecture — Claude generates a deterministic orchestration script then fans out across parallel agents, not the chat-loop-picks-next-tool pattern everyone assumes.",
+          "key_fact": "9,701 likes; Claude writes the orchestration script, then executes it across parallel agents"
+        },
+        {
+          "id": 45105,
+          "title": "Claude Code Auto Mode Lands on Bedrock, Vertex, and Foundry",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Enterprise teams on non-direct API were locked out of Claude Code's most autonomous mode — that gate just opened for Opus 4.7/4.8.",
+          "key_fact": "Auto mode now available on all three major cloud provider integrations"
+        },
+        {
+          "id": 44328,
+          "title": "Codex Gets Persistent Visual Identicons for Background Agents",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A small UX detail that matters when you're juggling multiple concurrent agents — stable pixel identicons across tabs and transcripts.",
+          "key_fact": "Stable identicons persist across tabs and transcripts"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 44291,
+          "title": "Claude Code Now Lets You Dial Effort Level Per Task",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The /effort command and Cowork integration give you a practical lever for the speed-vs-depth tradeoff — stop paying for deep thinking on trivial changes.",
+          "key_fact": "Granular effort control via /effort command and Cowork mode"
+        },
+        {
+          "id": 44971,
+          "title": "Hermes Agent Adds On-Demand Tool Schema Loading for MCP",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "With 15+ MCP servers, tool schemas devour context before the agent does any work — loading on-demand is a pattern every MCP-heavy setup should steal.",
+          "key_fact": "Tool Search loads MCP schemas on-demand instead of upfront context consumption"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 44858,
+          "title": "UK AI Safety Institute Open-Sources Its Evaluation Datasets",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Government-grade safety evals are now public and reproducible — anyone can now audit and build on the methodology the UK uses to test frontier models.",
+          "key_fact": "Full evaluation datasets and methodology released publicly"
+        },
+        {
+          "id": 44708,
+          "title": "Simon Willison Breaks Down How Anthropic Contains Claude Across Products",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Practical security architecture for multi-product LLM deployment — the containment patterns here apply to anyone shipping AI in more than one surface.",
+          "key_fact": "Detailed analysis of Anthropic's cross-product containment architecture"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 45151,
+          "title": "OpenRouter Raises $113M to Be the Routing Layer for Multi-Model AI",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The model routing layer just raised a war chest — a $113M signal that multi-model is the default architecture, not a hedging strategy.",
+          "key_fact": "$113M Series B for the platform routing across Claude, GPT, Gemini, and dozens more"
+        },
+        {
+          "id": 44886,
+          "title": "Mollick: Organizations Are Underinvesting in AI Capacity-Building",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The split between 'build things with AI' and 'build capacity to build things with AI' — most orgs are all-in on the first and ignoring the second.",
+          "key_fact": "Two categories of AI investment: building things vs. building capacity to build things"
+        },
+        {
+          "id": 44673,
+          "title": "Is AI-Generated Code Recreating Frontend's Lost Decade?",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A sharp argument that AI code generation is producing jQuery-era complexity debt at 10× speed — worth reading whether you agree or not.",
+          "key_fact": "Essay draws parallels between jQuery/Angular/React churn and AI-generated code complexity"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 44473,
+          "title": "webstandards.dev: A Source-Cited Spec for SEO, A11y, Security, and Agent-Readiness",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Joost de Valk's comprehensive reference where every claim cites a source — replace your team's ad-hoc checklist with this.",
+          "key_fact": "Platform-agnostic spec covering SEO, accessibility, security, and AI agent readiness"
+        },
+        {
+          "id": 44847,
+          "title": "OpenAI Voice Hack Night: 4 Realtime Voice Agents Built in 6 Hours",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The voice AI developer loop is now fast enough for hackathon-quality builds in a single evening — the gap between demo and product is shrinking.",
+          "key_fact": "4 production-quality realtime voice agent projects built in 6 hours"
+        },
+        {
+          "id": 44356,
+          "title": "Gradio 'Build Small' Hackathon: Max 32B Params, Must Fit on a Laptop",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A refreshing constraint-driven hackathon — when you can't scale, you optimize. Sponsored by OpenAI, NVIDIA, and OpenBMB.",
+          "key_fact": "Max 32B parameters, must fit on a laptop; sponsored by OpenAI, NVIDIA, OpenBMB"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 44663,
+      "title": "PaddleOCR-VL-1.6: Vision-Language OCR for Complex Layouts",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "VL approach to OCR — combines image understanding with text extraction",
+      "key_fact": "New vision-language OCR model from PaddlePaddle"
+    },
+    {
+      "id": 44661,
+      "title": "Liquid AI's Non-Transformer Now Runs via llama.cpp",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "8B/1B-active model in GGUF format — run the most efficient non-transformer on your laptop",
+      "key_fact": "LFM2.5-8B-A1B now available in GGUF for local inference"
+    },
+    {
+      "id": 44618,
+      "title": "Claude Code Patch: Opus 4.8 Thinking Block Fix",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "If you hit API errors after switching to Opus 4.8, update to v2.1.156",
+      "key_fact": "Fixes modified thinking blocks causing API errors"
+    },
+    {
+      "id": 44623,
+      "title": "Anthropic TS SDK v0.100.1: Streaming Compaction Fix",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Prevents silent data loss with encrypted_content on streaming compaction blocks",
+      "key_fact": "Fixes encrypted_content handling during beta compaction streaming"
+    },
+    {
+      "id": 44620,
+      "title": "Anthropic Python SDK Adds Trusted Publishing for PyPI",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Supply chain security — ensures you install the real SDK, not a typosquat",
+      "key_fact": "Trusted Publishing for PyPI in v0.105.2"
+    },
+    {
+      "id": 44670,
+      "title": "Tiny-vLLM: Hackable C++/CUDA Inference Engine",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "vLLM-level ambitions in a codebase small enough to read and modify",
+      "key_fact": "From-scratch LLM inference in C++ and CUDA"
+    }
+  ],
+  "total_items": 23
+}
