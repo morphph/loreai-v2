@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Claude Code Dynamic Workflows: Claude writes orchestration scripts on the fly, spins up parallel agents",
+    "url": "https://x.com/bcherny/status/2060167774727532653",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 10572,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 28.171599999999998,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "OpenAI Voice Hack Night finalists: 4 realtime voice agent projects in 6 hours",
+    "url": "https://x.com/OpenAIDevs/status/2060768476386689253",
+    "source": "twitter:@OpenAIDevs",
+    "x_engagement_24h": 287,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.086100000000002,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code now lets you configure effort level and adaptive thinking directly",
+    "url": "https://x.com/bcherny/status/2060336136166273521",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 153,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.0459,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code v2.1.158: Auto Mode on Bedrock, Vertex, and Foundry",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.158",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code v2.1.156: Fix for Opus 4.8 thinking block API errors",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.156",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 20,
+    "suggested_angle": "news"
+  }
+]
