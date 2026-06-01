@@ -1,0 +1,212 @@
+{
+  "date": "2026-06-01",
+  "headline_hook": "OpenAI Goes Physical While GPT-5.5 Tops the Hardest Coding Benchmark",
+  "preview_topics": [
+    "OpenAI's robotics hiring blitz",
+    "GPT-5.5's long-horizon coding dominance",
+    "SoftBank's €75B European compute bet"
+  ],
+  "pick_of_the_day": {
+    "item_id": 45374,
+    "thesis": "A 5B-parameter open-source model trained on 27K hours of real robot data proves the sim-to-real gap is a data problem, not a scale problem — and that reshapes who gets to build useful robots."
+  },
+  "model_literacy": {
+    "concept": "World Models in Robotics",
+    "relevance": "With OpenAI hiring for physical AI and τ0-WM releasing a unified video-action model, today's news hinges on world models — neural networks that predict how the physical world changes in response to actions, bridging perception and control in a single architecture."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 45329,
+          "title": "OpenAI Is Building Robots — and Hiring the Team to Do It",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Sam Altman formally enters the physical-AI race, signaling OpenAI sees embodiment as a core frontier alongside language and reasoning",
+          "key_fact": "Hiring across full-stack hardware, ops, systems, and ML for robot manufacturing"
+        },
+        {
+          "id": 45374,
+          "title": "τ0-WM: A 5B Open-Source World Model Trained on 27K Hours of Real Robots",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The largest open-source robotic foundation model to date unifies video generation and action control — a template for how the robotics field catches up to language models",
+          "key_fact": "5B parameters, 27,300 hours of real-robot teleoperation and egocentric video data"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 45339,
+          "title": "GPT-5.5 Hits 70% on DeepSWE — at Half the Cost and Speed of Opus 4.8",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "The first hard benchmark where OpenAI decisively leads on long-horizon coding, and the efficiency gap matters more than the accuracy gap",
+          "key_fact": "70% pass@1 vs 58% for Opus 4.8, using ~3x fewer tokens at half the cost and wall-clock time"
+        },
+        {
+          "id": 45581,
+          "title": "ChatGPT for Google Sheets Can Be Exploited to Steal Your Data",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "PromptArmor shows that every LLM tool integration is an attack surface — and the most popular ones are shipping faster than they're being secured",
+          "key_fact": "Data exfiltration and phishing demonstrated in the widely-used ChatGPT Google Sheets plugin"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 45076,
+          "title": "Codegraph: Pre-Indexed Knowledge Graphs That Cut Agent Token Burn",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A codebase indexer that works with every major AI coding agent — fewer tokens, fewer tool calls, 100% local",
+          "key_fact": "34,000+ GitHub stars; compatible with Claude Code, Codex, Cursor, and Gemini"
+        },
+        {
+          "id": 45317,
+          "title": "Codex Desktop Quietly Killed Its Most-Used Power Feature",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Simon Willison flags the silent removal of 'Copy as Markdown' transcript export — a cautionary tale about shipping fast and breaking power-user trust",
+          "key_fact": "Willison called transcript export his single most-used Codex capability"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 44678,
+          "title": "SoftBank Bets €75 Billion on French AI Infrastructure",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The largest single AI infrastructure commitment in European history turns the compute buildout into an explicitly geopolitical race",
+          "key_fact": "Up to €75B for 5GW of data center capacity in France"
+        },
+        {
+          "id": 44710,
+          "title": "Simon Willison Says He's Retiring From Tech to Live Offline",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Whether sincere or satirical, when the AI developer community's most prolific voice walks away, it's worth asking what he saw",
+          "key_fact": "Willison shaped how an entire generation of developers thinks about LLM tooling"
+        },
+        {
+          "id": 45184,
+          "title": "Willison Considers Cancelling His AI Subscription — and That's the Point",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "When someone this deep in the ecosystem questions the value proposition, it reveals the gap between AI capability and AI utility for power users",
+          "key_fact": "Published one day after his retirement post, creating an intentional narrative arc"
+        },
+        {
+          "id": 45354,
+          "title": "1.5 Billion Chinese Users Are Quietly Winning the Open-Source AI Race",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A contrarian argument that the West's obsession with closed-model scaling is blinding it to the open-source ecosystem being battle-tested at nation-scale",
+          "key_fact": "1.5 billion users actively improving open-source models in China"
+        },
+        {
+          "id": 45580,
+          "title": "What If Remote Work, Not AI, Broke Junior Hiring?",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "FT's counter-narrative argues the junior hiring crisis is a mentorship and on-ramp problem, not an automation one",
+          "key_fact": "FT front-page analysis attributing weak junior pipelines to remote work's erosion of in-person mentorship"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 45321,
+          "title": "Mollick: The Future Isn't Autonomous Agents — It's Agents That Ask Better Questions",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A practical framework for agent UX design: the real unlock is knowing when to interrupt, not when to keep going",
+          "key_fact": "Argues agents should interrupt when stuck, uncertain, or facing consequential decisions"
+        },
+        {
+          "id": 44709,
+          "title": "Run Full Python Web Apps in the Browser — No Server Required",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Pyodide + service workers let you ship ASGI apps entirely client-side, opening the door to zero-infrastructure AI demos",
+          "key_fact": "Full Python ASGI framework running in-browser via Pyodide and service workers"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 45402,
+          "title": "TradingView + Claude MCP: Autonomous Chart Analysis in 5 Minutes",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A viral demo showing MCP's potential beyond code editors — a Claude agent drawing technical analysis on live trading charts",
+          "key_fact": "5 minutes from setup to autonomous chart annotation using TradingView's MCP server"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 45582,
+      "title": "Odysseus: Self-Hosted AI Workspace for Privacy-First Teams",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Another entry in the growing self-hosted ChatGPT alternative space",
+      "key_fact": "Hit the HN front page; no data leaves your infrastructure"
+    },
+    {
+      "id": 45399,
+      "title": "Flutter Gets Its First AI-Native Debugging MCP Server",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "First dedicated mobile-framework MCP server to gain real traction",
+      "key_fact": "Real-time debug, profile, and optimize running Flutter apps via AI agents"
+    },
+    {
+      "id": 45579,
+      "title": "The New Economics of Prototyping in the AI Era",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Practitioner argues AI compressed prototyping from days to hours, changing what's worth building",
+      "key_fact": "Front-page HN discussion on compressed experimentation cycles"
+    },
+    {
+      "id": 44713,
+      "title": "Forward Deployed Engineers: The Role Everyone Will Hire Next Quarter",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Latent Space highlights the new hybrid role bridging AI capability and customer deployment",
+      "key_fact": "Emerging job archetype at the intersection of ML engineering and field engineering"
+    },
+    {
+      "id": 45152,
+      "title": "Open Envelope: A Standard Schema for Multi-Agent Teams",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Early-stage open standard for how agents discover each other and hand off tasks",
+      "key_fact": "Addresses the gap: no standard way to describe agent team compositions"
+    },
+    {
+      "id": 45383,
+      "title": "AI Interview Codex: The Open-Source ML/AI Interview Prep Guide",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Comprehensive repo with notebooks and study plans for the current AI engineer hiring wave",
+      "key_fact": "Covers ML coding, system design, LLM/GenAI, DSA, and MLOps prep"
+    }
+  ],
+  "total_items": 20
+}
