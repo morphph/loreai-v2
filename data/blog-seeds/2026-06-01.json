@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "codegraph: Pre-indexed code knowledge graph for Claude Code, Codex, Gemini, Cursor, and more — fewer tokens, 100% local",
+    "url": "https://github.com/colbymchenry/codegraph",
+    "source": "github:trending:Agent/MCP tools",
+    "x_engagement_24h": 36414,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 27.9242,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Simon Willison: OpenAI's Codex Desktop quietly removed 'Copy as Markdown' for exporting chat transcripts",
+    "url": "https://x.com/simonw/status/2061158636311958005",
+    "source": "twitter:@simonw",
+    "x_engagement_24h": 807,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.2421,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Flutter Agent Lens MCP Server — debug, profile, and optimize running Flutter apps with AI agents",
+    "url": "https://x.com/HuyNguyenTw/status/2060965330391118202",
+    "source": "twitter:@HuyNguyenTw",
+    "x_engagement_24h": 133,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.0399,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "OpenAI Robotics is hiring, looking for exceptional full-stack hardware, ops, systems, and ML engineers to help us program and manufacture robots that are useful for society.",
+    "url": "https://x.com/sama/status/2061117302528188712",
+    "source": "twitter:@sama",
+    "x_engagement_24h": 9313,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 19.7939,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "GPT-5.5 is #1 on DeepSWE, a hard long-horizon coding benchmark — 70% pass@1 vs 58% for Claude Opus 4.8",
+    "url": "https://x.com/reach_vb/status/2060865517628379466",
+    "source": "twitter:@reach_vb",
+    "x_engagement_24h": 713,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.213900000000002,
+    "suggested_angle": "comparison"
+  }
+]
