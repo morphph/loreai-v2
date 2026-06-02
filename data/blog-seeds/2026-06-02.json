@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Why Video Agent models are next — Ethan He, xAI Grok Imagine",
+    "url": "https://www.latent.space/p/video-agents",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 41,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "AI Agent Guidelines for CS336 at Stanford",
+    "url": "https://github.com/stanford-cs336/assignment1-basics/blob/main/CLAUDE.md",
+    "source": "hackernews",
+    "x_engagement_24h": 406,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.1218,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Introducing Mellum2: A 12B Mixture-of-Experts Model by JetBrains",
+    "url": "https://huggingface.co/blog/JetBrains/mellum2-launch",
+    "source": "rss:HuggingFace Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "OpenAI frontier models and Codex are now generally available on AWS",
+    "url": "https://x.com/OpenAI/status/2061564502160892138",
+    "source": "twitter:@OpenAI",
+    "x_engagement_24h": 2485,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 24.7455,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic has confidentially submitted a draft S-1 registration statement to the Securities and Exchange Commission.",
+    "url": "https://x.com/AnthropicAI/status/2061478052257841495",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 19302,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 18.790599999999998,
+    "suggested_angle": "news"
+  }
+]
