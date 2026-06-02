@@ -1,0 +1,220 @@
+{
+  "date": "2026-06-02",
+  "headline_hook": "Anthropic Files Its S-1, OpenAI Ships to AWS, and Someone Hacked Instagram by Asking Nicely",
+  "preview_topics": [
+    "Anthropic's path to IPO",
+    "OpenAI's AWS general availability push",
+    "AI agents as the new attack surface"
+  ],
+  "pick_of_the_day": {
+    "item_id": 45613,
+    "thesis": "When your AI support agent IS the security vulnerability, traditional threat models break down — every company rushing to deploy customer-facing AI agents just got a live preview of what happens when the attack surface is a conversation."
+  },
+  "model_literacy": {
+    "concept": "Prompt Injection vs. Social Engineering",
+    "relevance": "Today's Meta AI hack and Claude Code supply chain attack stories both exploit the same root cause: AI systems that can't distinguish trusted instructions from adversarial input. Understanding the taxonomy — direct injection, indirect injection, social engineering of AI agents — is essential as agents gain real-world permissions."
+  },
+  "sections": [
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 45710,
+          "title": "Anthropic Confidentially Files S-1 — the IPO Clock Starts",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The first frontier AI lab to file for an IPO signals that Anthropic believes its revenue trajectory can survive public-market scrutiny — and sets the valuation benchmark every other AI company will be measured against.",
+          "key_fact": "Confidential S-1 filed with the SEC"
+        },
+        {
+          "id": 45613,
+          "title": "Hackers Social-Engineered Meta's AI Into Handing Over Instagram Accounts",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "No exploits, no zero-days — attackers just asked Meta's AI support agent nicely and got access to high-profile accounts. This is the most concrete proof yet that deployed AI agents are a novel attack surface.",
+          "key_fact": "AI support agent granted account access via persuasive prompts alone"
+        },
+        {
+          "id": 45623,
+          "title": "Open and Closed Models Are Scaling on Different Exponentials",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Interconnects frames the open-vs-closed debate not as a quality gap but as two fundamentally different value curves — essential reading for anyone choosing their model strategy.",
+          "key_fact": "Marginal intelligence gains drive value differently across open and closed ecosystems"
+        },
+        {
+          "id": 46004,
+          "title": "Florida Sues OpenAI Over AI Safety Risks",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A state-level lawsuit against OpenAI could set precedent for how US states regulate AI independently of federal action — watch for copycat filings.",
+          "key_fact": "First major US state lawsuit targeting a frontier AI lab directly"
+        }
+      ]
+    },
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 45715,
+          "title": "OpenAI Models and Codex Go GA on Amazon Bedrock",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "OpenAI shipping through AWS means enterprises can now access GPT and Codex inside their existing security and compliance stack — the cloud-provider model-hosting war just escalated.",
+          "key_fact": "Generally available on AWS with full Bedrock governance integration"
+        },
+        {
+          "id": 45741,
+          "title": "NVIDIA Drops Cosmos 3 — Fully Open Omnimodel for Physical AI",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The first fully open model with native video, image, and robot action understanding — NVIDIA's open-source counterweight to the proprietary robotics AI push.",
+          "key_fact": "Handles video, images, and robot actions in a single open model"
+        },
+        {
+          "id": 45630,
+          "title": "JetBrains Releases Mellum2: A 12B MoE Model Built for IDEs",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The IDE maker building its own brain — purpose-built for code understanding with Kotlin/Java-first priorities that generic models can't match.",
+          "key_fact": "12B parameter Mixture-of-Experts architecture"
+        },
+        {
+          "id": 45718,
+          "title": "OpenAI Demos a Voice-First Agentic Mobile OS",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Users talk, agents act across the entire phone — OpenAI is building toward an OS-level AI layer, not just another app.",
+          "key_fact": "Voice-first mobile OS with cross-app agent capabilities"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 45712,
+          "title": "Anthropic Resets All Pro and Max Rate Limits",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "If Claude Code has been throttling you, your limits are fresh — Anthropic also fixed the bug causing premature limit hits.",
+          "key_fact": "5-hour and weekly limits reset for all Pro and Max users"
+        },
+        {
+          "id": 45759,
+          "title": "Codex Python SDK Turns Codex Into a Programmable Building Block",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Embed Codex directly in Python apps — threads, streaming, image input, sandbox control. Codex just became an API, not just a product.",
+          "key_fact": "Full programmatic control: threads, turns, streaming, resume, sandbox access"
+        },
+        {
+          "id": 45956,
+          "title": "OpenAI Python SDK v2.40.0 Adds Native Bedrock Responses Support",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The SDK-level integration that makes today's OpenAI-on-AWS announcement immediately usable — both Python and Node covered.",
+          "key_fact": "Native Bedrock Responses support in official SDKs"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 45625,
+          "title": "How Google Used Gemini to Build I/O 2026",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A rare behind-the-scenes look at how a frontier lab dogfoods its own model at scale — from content creation to technical demos.",
+          "key_fact": "Gemini used across Google's I/O production pipeline"
+        },
+        {
+          "id": 46002,
+          "title": "Stanford CS336 Ships Official CLAUDE.md Guidelines for AI Agent Use",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A top CS program codifying what AI agents can and can't do on assignments — this will be the template other universities copy.",
+          "key_fact": "Rules for AI agent scope, citation, and academic integrity in coursework"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 45789,
+          "title": "Qwen3.5 Trained With Agentic RL Matches GPT-5.5 in Tool Use",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Post-training on real MCP-server-based agentic RL environments teaches general tool-use capabilities that transfer to unseen benchmarks — not just benchmark tricks.",
+          "key_fact": "Qwen3.5-122B matches GPT-5.5 on tool-use tasks after agentic RL"
+        },
+        {
+          "id": 45618,
+          "title": "Why Video Agent Models Are Next — Inside xAI's Grok Imagine",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The engineer who built Grok Imagine in 3 months explains why video agents are the next frontier and why video generation vs. world models is the wrong dichotomy.",
+          "key_fact": "Grok Imagine built in 3 months; video agents framed as the next capability frontier"
+        },
+        {
+          "id": 45631,
+          "title": "IBM Research: Enterprise AI Is Bottlenecked by Agent Logic, Not Model Capability",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The missing piece isn't smarter models — it's the orchestration, memory, and decision-making layers that make AI reliable at enterprise scale.",
+          "key_fact": "Agent logic (orchestration, memory, decisions) identified as the enterprise adoption bottleneck"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 45960,
+          "title": "LangGraph 1.2.3 Adds Named Subagents and v3 Streaming",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Named tool-dispatched subagents make multi-agent orchestration observable and debuggable — the subagent naming alone is worth the update.",
+          "key_fact": "v3 streaming support for RemoteGraph plus named subagent dispatch"
+        },
+        {
+          "id": 45943,
+          "title": "ai-rules-sync: One Config File to Rule All Your AI Coding Agents",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Syncs CLAUDE.md, .cursorrules, Copilot, and Windsurf configs from a single source — zero dependencies, solves the multi-tool config drift problem.",
+          "key_fact": "Supports 7 AI coding tools from one source of truth"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 45804,
+      "title": "Supply Chain Attacks Target Claude Code Hooks and VS Code Tasks",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Malicious SessionStart hooks and VS Code task injection — AI dev tooling attack vectors are real",
+      "key_fact": "Specific attack vectors in Claude Code settings.json and VS Code tasks"
+    },
+    {
+      "id": 45743,
+      "title": "From Soumith's Local AI Dream to PewDiePie Shipping a Vibecoded AI Suite",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The vision-to-shipping gap collapsed in 16 months — anyone can build now",
+      "key_fact": "PewDiePie's AI suite hit #1 on HN with 10K+ stars"
+    },
+    {
+      "id": 45747,
+      "title": "Mollick: The AI Usefulness Debate Is Over, Now It's About Organizational Scaling",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Enterprise leaders confirm real value — the question is individual-to-firm transformation",
+      "key_fact": "Adoption inflection point: from 'does it work' to 'how do we scale it'"
+    }
+  ],
+  "total_items": 21
+}
