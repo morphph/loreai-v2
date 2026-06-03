@@ -1,0 +1,236 @@
+{
+  "date": "2026-06-03",
+  "headline_hook": "Microsoft Ships Its First Coding Model as Anthropic Files to Go Public",
+  "preview_topics": [
+    "Microsoft's surprise foundation model for code",
+    "Claude Code's deterministic workflow engine",
+    "why 17x more AI code only ships 30% more product"
+  ],
+  "pick_of_the_day": {
+    "item_id": 46192,
+    "thesis": "The 17.3x throughput gap isn't a tool limitation — it's empirical proof that the real bottleneck in software delivery was never writing code, and organizations betting on AI-generated volume without rethinking review, testing, and release pipelines are buying a faster engine for a car stuck in traffic."
+  },
+  "model_literacy": {
+    "concept": "Deterministic vs. Agentic Orchestration",
+    "relevance": "Claude Code's new workflow system uses fixed control flow (loops, pipelines, barriers) with AI agents only at the leaves — today's blog explains why predictable structure around unpredictable intelligence beats letting agents decide their own next steps."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 46461,
+          "title": "Microsoft enters the foundation model race with MAI-Code-1-Flash",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Microsoft finally decouples from OpenAI dependency with its own coding model — the partnership isn't dead, but the insurance policy is now public.",
+          "key_fact": "First Microsoft-built foundation model, benchmarks competitive with established coding models"
+        },
+        {
+          "id": 46145,
+          "title": "OpenAI turns Codex into a role-based specialist platform",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Codex plugins evolve from individual tools to full role-based specialists — OpenAI is betting that AI coding's next phase is vertical, not horizontal.",
+          "key_fact": "62 app integrations, 110 skills, one-click install for sales/analytics/design/production roles"
+        },
+        {
+          "id": 46143,
+          "title": "Claude Mythos Preview expands to 150 more organizations",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Anthropic's most capable model tier moves from exclusive preview to broader access — the signal that Mythos is nearing general availability.",
+          "key_fact": "~150 additional organizations now have access"
+        },
+        {
+          "id": 46159,
+          "title": "Google DeepMind launches Co-Scientist for multi-agent research",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A Gemini-based system that generates, debates, and evolves hypotheses — Google's clearest bet that AI should be a research collaborator, not just a search engine.",
+          "key_fact": "Multi-agent system that autonomously generates and debates research hypotheses"
+        },
+        {
+          "id": 46161,
+          "title": "H Company drops Holo 3.1 — open-source local computer-use",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "GUI automation without cloud dependency — the first credible open-source challenger to Anthropic's computer-use that runs entirely on your machine.",
+          "key_fact": "Fully local execution, no cloud calls required for computer-use tasks"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 46102,
+          "title": "Claude Code ships deterministic multi-agent workflows",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The official architecture for when you need predictable orchestration — pipelines, barriers, and fan-out with AI at the leaves, not the steering wheel.",
+          "key_fact": "New primitives: pipeline() for streaming stages, parallel() for barriers, phase() for progress tracking"
+        },
+        {
+          "id": 46117,
+          "title": "Claude API stops billing for refusal responses",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Requests returning stop_reason=refusal with no output are now free — a quiet cost-saving win for anyone running safety-filtered workloads at scale.",
+          "key_fact": "Zero-cost refusals eliminate a common production pain point"
+        },
+        {
+          "id": 46411,
+          "title": "Claude Code v2.1.161 adds OTEL metric labels and agent progress",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "OTEL resource attributes now slice as metric labels — finally lets teams track token spend by repo, team, or workflow without custom instrumentation.",
+          "key_fact": "OTEL labels for usage slicing, agent done/total progress counts, collapsed MCP connectors"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 46139,
+          "title": "When to use pipelines vs. parallel in Claude Code workflows",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The practical companion to the official blog — real examples of pipeline vs. barrier decisions from Anthropic engineers who built the system.",
+          "key_fact": "Pipeline = no barrier between stages (default); parallel = await all before continuing"
+        },
+        {
+          "id": 46141,
+          "title": "How Anthropic engineers stay in the loop with Claude's work",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Internal practices for reviewing AI-generated work from the team that uses Claude Code more than anyone — review patterns that scale beyond 'read every diff.'",
+          "key_fact": "7,872 likes — the most-engaged Anthropic engineering thread this week"
+        },
+        {
+          "id": 46463,
+          "title": "Kapa.ai's approach to making images searchable in RAG",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "One of RAG's hardest unsolved problems gets a production-grade solution — how to make diagrams and screenshots retrievable alongside text.",
+          "key_fact": "Production system indexing images for retrieval in documentation RAG"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 46192,
+          "title": "17.3x more code, only 30% more shipped — the AI throughput paradox",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "GitHub data proves AI agents massively increase raw output, but human bottlenecks in review and release mean actual product velocity barely moves. The implications for how we structure engineering orgs are enormous.",
+          "key_fact": "17.3x code generation increase vs. ~30% actual release velocity increase"
+        },
+        {
+          "id": 46190,
+          "title": "Gemini beats law professors 75% of the time in blind eval",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Blind evaluation with professors as both question-setters and judges — and the AI was rated less harmful than human answers. The legal profession's 'it can't do nuance' defense just got weaker.",
+          "key_fact": "75% win rate in blind matchups, rated LESS harmful than human responses"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 46101,
+          "title": "Anthropic's playbook for running an AI-native engineering org",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Not theory — operational frameworks from the team building Claude on how to restructure engineering around AI. Required reading if you manage engineers in 2026.",
+          "key_fact": "Published frameworks from Anthropic's own engineering org restructuring"
+        },
+        {
+          "id": 46003,
+          "title": "Anthropic files draft S-1 with the SEC",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The IPO is officially in motion — when the public filing drops, it will be the most transparent financial look inside a frontier AI lab ever published.",
+          "key_fact": "Confidential draft S-1 submitted; public filing will reveal revenue and cost structure"
+        },
+        {
+          "id": 46467,
+          "title": "Trump signs the downsized AI Executive Order",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "After weeks of reversals, the final order is significantly lighter than early drafts — a regulatory ceiling that frontier labs can comfortably operate under through 2026.",
+          "key_fact": "Substantially downsized from earlier drafts, signals lighter regulatory touch"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 46051,
+          "title": "Inside Holo 3.1's architecture for fast local computer-use",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The technical deep dive companion to today's launch — how H Company achieved usable speed without cloud roundtrips for GUI automation.",
+          "key_fact": "Full architecture breakdown of the local inference pipeline"
+        },
+        {
+          "id": 46443,
+          "title": "JetBrains Mellum2 — a thinking MoE code model that fits on consumer hardware",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Only 2.5B active parameters at inference with thinking capabilities — JetBrains is building toward IDE-integrated code intelligence that doesn't need a GPU cluster.",
+          "key_fact": "12B total params, 2.5B active (MoE), thinking-enabled, on HuggingFace"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 46205,
+      "title": "Codex Mobile gets Face ID, Windows SSH, side conversations",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Mobile Codex becomes a real steering interface, not just a viewer",
+      "key_fact": "Face ID lock, SSH to Windows, /side command for branching"
+    },
+    {
+      "id": 46134,
+      "title": "Anthropic publicly backs the new AI Executive Order",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Rare direct policy positioning — commits to supporting implementation",
+      "key_fact": "First frontier lab to publicly endorse the downsized order"
+    },
+    {
+      "id": 46039,
+      "title": "GitHub's COO lays out the platform's agent strategy",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "How GitHub plans to become the OS for AI coding agents",
+      "key_fact": "Kyle Daigle interview on Latent Space podcast"
+    },
+    {
+      "id": 45738,
+      "title": "NVIDIA Cosmos 3 weights land on HuggingFace",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Most capable open foundation model for robotics and physical AI",
+      "key_fact": "Full weights and training code now publicly available"
+    },
+    {
+      "id": 46137,
+      "title": "Legora's 'rising tide' thesis for building legal AI on Claude",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Each model upgrade automatically improves the product — no retraining",
+      "key_fact": "2,086 likes on the case study thread"
+    }
+  ],
+  "total_items": 23
+}
