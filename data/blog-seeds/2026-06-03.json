@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Claude Code v2.1.161 — OTEL metrics labels, agent progress, MCP improvements",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.161",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 11,
+    "composite_score": 53,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Deep dive into Claude Code workflows best practices",
+    "url": "https://x.com/trq212/status/2061907538741006796",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 2031,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.6093,
+    "suggested_angle": "analysis"
+  },
+  {
+    "topic": "A harness for every task: dynamic workflows in Claude Code",
+    "url": "https://www.claude.com/blog/a-harness-for-every-task-dynamic-workflows-in-claude-code",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude API no longer bills for refusal responses",
+    "url": "https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/handle-streaming-refusals",
+    "source": "docs:Platform Release Notes",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Holo 3.1 — open-source local computer-use agent from H Company",
+    "url": "https://x.com/huggingface/status/2061912525147357379",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 918,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.275399999999998,
+    "suggested_angle": "news"
+  }
+]
