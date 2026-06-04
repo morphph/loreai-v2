@@ -1,0 +1,228 @@
+{
+  "date": "2026-06-04",
+  "headline_hook": "Gemma 4 Drops Encoder-Free, Ideogram Goes Open-Weight, and Anthropic Maps Real AI Attacks",
+  "preview_topics": [
+    "Gemma 4's encoder-free multimodal bet",
+    "how attackers actually use AI in the wild",
+    "the $1,500/month AI pricing signal"
+  ],
+  "pick_of_the_day": {
+    "item_id": 46528,
+    "thesis": "832 real-world malicious accounts mapped onto MITRE ATT&CK reveal that the actual AI threat surface looks nothing like the hypothetical risks dominating policy debates — and the gap between perceived and real AI-enabled attacks should force every security team to reprioritize."
+  },
+  "model_literacy": {
+    "concept": "Encoder-Free Multimodal Architecture",
+    "relevance": "Gemma 4 processes text, images, and video through a single decoder-only transformer — no separate vision encoder, no CLIP adapter, no modality-specific heads. Understanding why this matters: fewer moving parts means easier fine-tuning, smaller deployment footprint, and one unified attention space where the model can reason across modalities natively instead of stitching representations together."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 46630,
+          "title": "Gemma 4 12B Ships Encoder-Free Multimodal With Open Weights",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Google bets that the future of multimodal is one architecture, not bolted-on encoders — and gives it away for free with Ollama support on day one",
+          "key_fact": "12B parameter encoder-free model handling text, images, and video in a single architecture with open weights"
+        },
+        {
+          "id": 46637,
+          "title": "Ideogram 4.0 Goes Open-Weight in a Major Strategy Reversal",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The previously closed-only image generator drops its best model as downloadable, fine-tunable weights — a competitive response to Flux and Stable Diffusion's open ecosystem momentum",
+          "key_fact": "Claimed best open image generation model, fully downloadable and fine-tunable"
+        },
+        {
+          "id": 46546,
+          "title": "OpenAI Expands GPT-Rosalind for Enterprise Life Sciences",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Purpose-built AI for drug discovery signals OpenAI's push into vertical-specific models — not every problem needs a generalist",
+          "key_fact": "Combines GPT-5.5 agentic coding with domain-specific drug discovery and experimental workflow intelligence"
+        },
+        {
+          "id": 46527,
+          "title": "Anthropic Formalizes Its Partner Ecosystem With Services Track",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The shift from product to platform play — Anthropic now has certified implementation partners, echoing the enterprise playbook that made AWS and Salesforce ecosystems sticky",
+          "key_fact": "New services track and partner hub for certified Claude implementation partners"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 46528,
+          "title": "Anthropic Maps a Year of Real AI-Enabled Attacks to MITRE ATT&CK",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Not a red-team exercise or a thought experiment — 832 actual malicious accounts analyzed and mapped to a framework every security team already uses",
+          "key_fact": "832 malicious accounts examined, mapped to MITRE ATT&CK framework — the most comprehensive public dataset of real AI-enabled attack activity"
+        },
+        {
+          "id": 46655,
+          "title": "Microsoft MAI Tech Report Reveals Zero Synthetic Data Training",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "One of the most transparent frontier model reports yet — the zero-synthetic-data revelation challenges the industry assumption that synthetic data is table stakes",
+          "key_fact": "MAI trained with zero synthetic data, bucking the industry trend"
+        },
+        {
+          "id": 46639,
+          "title": "What Is Mid-Training and Why It Explains Model Divergence",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The stage between pre-training and RLHF is where models like Gemma 4 and MAI get their differentiated capabilities — and most builders don't know it exists",
+          "key_fact": "Mid-training on curated domain data explains performance differences between models with similar parameter counts"
+        },
+        {
+          "id": 46505,
+          "title": "Axiom Math Pushes Toward Provably Correct AI Outputs",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Formal verification applied to generation — moving from 'probably correct' to 'provably correct' for reliability-critical applications",
+          "key_fact": "Verified generation and compounding intelligence via formal mathematical verification"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 46568,
+          "title": "Inside Claude Code's Skills Architecture: The Missing Manual",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "Anthropic's own engineers explain how skills compose and chain — the architecture doc that Claude Code power users have been waiting for",
+          "key_fact": "First-party deep dive into reusable, composable agent behaviors inside Claude Code"
+        },
+        {
+          "id": 46567,
+          "title": "Anthropic Replaces Internal Dashboards With Conversational Analytics",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Dogfooding case study with transferable patterns — if Anthropic's own data teams are replacing dashboards with Claude queries, your team probably can too",
+          "key_fact": "Internal teams using Claude for self-service data analytics as a dashboard replacement"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 46569,
+          "title": "Claude Cowork Gets Its Official Multi-Agent Playbook",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The agent tab that spawns sub-agents and loops — now with official patterns for when to delegate vs. when to do it yourself",
+          "key_fact": "Official best practices for multi-agent delegation via the Cowork agent tab"
+        },
+        {
+          "id": 46889,
+          "title": "Transformers v5.10.1 Ships Native Gemma 4 Support",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Day-one framework support makes Gemma 4 immediately usable in existing pipelines — the kind of ecosystem coordination that turns a model launch into an adoption event",
+          "key_fact": "Native Gemma 4 12B support including multi-token prediction in transformers v5.10.1"
+        },
+        {
+          "id": 46880,
+          "title": "Claude Code v2.1.162 Adds Agent Visibility and Effort Persistence",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Small but practical: waitingFor shows what's blocking your agents, and /effort finally persists across sessions",
+          "key_fact": "waitingFor agent visibility, persistent /effort setting, and Grep/Glob fixes on native builds"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 46934,
+          "title": "Uber's $1,500/Month AI Cap Is the Pricing Signal Everyone Needed",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The first public data point from a major employer on what AI coding tools are actually worth per developer — every SaaS pricing conversation just got a reference point",
+          "key_fact": "$1,500/month per-employee AI tool spending cap at Uber"
+        },
+        {
+          "id": 46662,
+          "title": "Claude Mythos Already Beat Superforecasters' Year-End Predictions",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Hitting the 3-4 hour METR task horizon seven months early — the expert consensus on AI capability timelines is systematically too slow",
+          "key_fact": "3-4 hour autonomous task horizon achieved in May, beating best superforecaster predictions for end of 2026"
+        },
+        {
+          "id": 46933,
+          "title": "Ted Chiang Makes His Definitive Case Against AI Consciousness",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The most respected voice at the intersection of AI and literature takes his argument to The Atlantic — this will shape public perception whether the technical community agrees or not",
+          "key_fact": "Definitive argument against AI consciousness published in The Atlantic"
+        },
+        {
+          "id": 46707,
+          "title": "Meta Builds $200/Month Consumer Vibe-Coding Agent 'Hatch'",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Another major lab enters describe-and-build territory — the convergence on consumer AI app creation is accelerating faster than the pricing models can keep up",
+          "key_fact": "Internal docs reveal consumer-facing vibe-coding agent priced up to $200/month"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 46912,
+          "title": "Gemma 4 12B Instruction-Tuned Model Live on HuggingFace",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Already the fastest trending model today with Unsloth GGUF quantizations ready for local deployment — the open-source ecosystem moved in hours, not days",
+          "key_fact": "156 likes and climbing with GGUF quantizations already available from Unsloth"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 46135,
+      "title": "Anthropic Expands Glasswing to 150 More Orgs",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Mythos Preview widens across 15+ countries",
+      "key_fact": "150+ organizations added to Claude Mythos Preview access"
+    },
+    {
+      "id": 46883,
+      "title": "OpenAI Python SDK Adds Built-In Moderation Endpoints",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Content filtering without external tools for Responses and Chat APIs",
+      "key_fact": "Moderation endpoints for both Responses and Chat Completions APIs in v2.41.0"
+    },
+    {
+      "id": 46517,
+      "title": "DPO Beyond Chatbots: Alignment for Code, Summaries, and Structured Output",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Practical guide to using preference optimization outside conversational AI",
+      "key_fact": "DPO applied to code generation, summarization, and structured outputs without RLHF complexity"
+    },
+    {
+      "id": 46672,
+      "title": "Sam Altman Backs New AI Executive Order",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Unusually unified industry consensus on the regulation balance",
+      "key_fact": "Altman calls the frontier development vs. safety balance 'right'"
+    }
+  ],
+  "total_items": 22
+}
