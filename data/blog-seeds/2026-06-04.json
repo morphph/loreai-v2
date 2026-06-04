@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Introducing the Services Track and Partner Hub of the Claude Partner Network",
+    "url": "https://www.anthropic.com/news/services-track-partner-hub",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "How Anthropic enables self-service data analytics with Claude",
+    "url": "https://www.claude.com/blog/how-anthropic-enables-self-service-data-analytics-with-claude",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Superforecasters predicted 3-4h METR task horizon by year-end — Claude Mythos hit it in May",
+    "url": "https://x.com/emollick/status/2062235461364445204",
+    "source": "twitter:@emollick",
+    "x_engagement_24h": 380,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.114,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Lessons from building Claude Code: How we use skills",
+    "url": "https://www.claude.com/blog/lessons-from-building-claude-code-how-we-use-skills",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Claude Code v2.1.162 — waitingFor, /effort persistence, Grep/Glob fixes",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.162",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  }
+]
