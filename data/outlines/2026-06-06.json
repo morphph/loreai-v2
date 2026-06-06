@@ -1,0 +1,236 @@
+{
+  "date": "2026-06-06",
+  "headline_hook": "Claude Turns Chemist, Gemma 4 Ships QAT, and Opus 4.1 Gets a Death Date",
+  "preview_topics": [
+    "Claude matching chemists at NMR spectroscopy",
+    "Gemma 4's quantization-aware checkpoints",
+    "the Opus 4.1 retirement countdown"
+  ],
+  "pick_of_the_day": {
+    "item_id": 47564,
+    "thesis": "When a model matches domain experts at interpreting raw NMR spectra — not answering textbook questions — we've crossed from AI-as-tutor to AI-as-colleague in hard science, and the implications for drug discovery and materials science pipelines are immediate."
+  },
+  "model_literacy": {
+    "concept": "Quantization-Aware Training (QAT)",
+    "relevance": "Gemma 4's QAT checkpoints trained with quantization baked in from the start, not bolted on after — today's release is a good moment to understand why QAT models hold quality at INT4/INT8 while post-hoc methods like GPTQ and AWQ degrade."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 47567,
+          "title": "Claude Cowork Doubles Rate Limits for the Next 30 Days",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Time-boxed window to stress-test multi-agent workflows on real projects before limits snap back — teams should front-load their most ambitious Cowork experiments now.",
+          "key_fact": "5-hour rate limits doubled across all Cowork tiers for one month"
+        },
+        {
+          "id": 47607,
+          "title": "Gemma 4 QAT Checkpoints Land on Hugging Face Across All Sizes",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Google ships models trained with quantization in mind rather than compressed after the fact — expect meaningfully better INT4/INT8 quality than standard GPTQ or AWQ conversions.",
+          "key_fact": "All Gemma 4 model sizes available with quantization-aware trained weights"
+        },
+        {
+          "id": 47603,
+          "title": "Google Ships Nano Banana 2, Co-Scientist, and Dreambeans in One Week",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Three GA releases in a single week signals Google's shipping cadence is now matching its announcement cadence.",
+          "key_fact": "Nano Banana 2 GA via Gemini API, Co-Scientist for structured scientific hypotheses"
+        },
+        {
+          "id": 47907,
+          "title": "Higgs Audio v3 — A 4B TTS Model Small Enough to Self-Host",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "BosonAI's 4B-parameter TTS model is compact enough for on-prem deployment while trending hard on community benchmarks.",
+          "key_fact": "4B parameters — small enough for single-GPU self-hosting"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 47564,
+          "title": "Opus 4.7 Matches Human Experts at NMR Spectroscopy — Not Textbook Questions, Real Spectra",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "The first convincing evidence that frontier models can do real analytical chemistry — interpreting raw spectral data, not regurgitating known structures.",
+          "key_fact": "Opus 4.7 matches or exceeds expert chemists on NMR spectral interpretation"
+        },
+        {
+          "id": 47650,
+          "title": "Sakana AI Opens the First Lab Dedicated to Recursive Self-Improvement",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The evolutionary model merging team now has a dedicated RSI Lab in Tokyo — making open-ended self-improvement an explicit research agenda rather than a side project.",
+          "key_fact": "First dedicated lab with recursive self-improvement as its stated mission"
+        },
+        {
+          "id": 47643,
+          "title": "NVIDIA's NitroGen Wins CVPR Honorable Mention for Physics-General Embodied Agents",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Four years from MineDojo to agents that transfer across multiple physics simulations — NVIDIA's embodied AI roadmap is delivering on generalization.",
+          "key_fact": "CVPR 2026 Best Paper Honorable Mention"
+        },
+        {
+          "id": 47628,
+          "title": "Cog Ships 100-Hour Agent Evals With Financial Guarantees on Accuracy",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "First company confident enough to put money behind agent evaluation results — evals run 6x longer than METR's 16-hour ceiling using GPT-5 to estimate human-equivalent time.",
+          "key_fact": "100-hour agent benchmarks with financial accuracy guarantees"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 47542,
+          "title": "Opus 4.1 Gets a Hard Retirement Date: August 5, 2026",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "If you're still pinned to claude-opus-4-1 in production, the migration clock is now ticking — two months to move to Opus 4.8 or face breakage.",
+          "key_fact": "Hard deprecation date: August 5, 2026"
+        },
+        {
+          "id": 47729,
+          "title": "TanStack AI Adds First-Class MCP Support With CLI Typegen",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Managed server lifecycle, pooled connections, and CLI-generated types — the MCP integration layer you'd otherwise hand-build for React/Vue/Solid apps.",
+          "key_fact": "Standalone or pooled MCP connections with TypeScript type generation"
+        },
+        {
+          "id": 47527,
+          "title": "The Official Claude Cowork Product Guide Drops",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Definitive playbook for multi-agent delegation patterns — pairs perfectly with today's doubled limits for teams ready to go deep on Cowork.",
+          "key_fact": "Official guide covering team delegation patterns and best practices"
+        },
+        {
+          "id": 47873,
+          "title": "Anthropic TypeScript SDK v0.101.0 Adds Middleware Support",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Intercept, transform, or log requests and responses without wrapping the client — clean extensibility for observability and retry logic.",
+          "key_fact": "New middleware API for request/response interception"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 47462,
+          "title": "Your RL Environment Might Be Sabotaging Your Model",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Latent Space catalogs specific RL environment anti-patterns from real training trajectories — if you're fine-tuning with RL, check your harness against this list.",
+          "key_fact": "Documented anti-patterns that actively make trained models worse"
+        },
+        {
+          "id": 47528,
+          "title": "How an Anthropic Sales Lead Rebuilt GTM Workflows With Claude Code",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Internal case study proving non-engineers can use Claude Code to automate real business workflows — patterns directly applicable to sales and ops teams.",
+          "key_fact": "Non-engineering team member automated GTM workflows end-to-end"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 47703,
+          "title": "Reports Surface of Claude API Returning Another User's Output During Outage",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Unconfirmed cross-tenant data leakage during today's elevated-error window — Anthropic hasn't confirmed a leak, but teams sending sensitive data through the API should monitor closely.",
+          "key_fact": "Anthropic status page confirmed elevated errors; data leak unconfirmed"
+        },
+        {
+          "id": 47674,
+          "title": "Mythos Pricing Leak: $70/M Output Tokens and the Coming Frontier Tax",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "At 3.5x current Opus pricing, the frontier is creating real market segmentation — teams need to decide which tasks are worth frontier spend and which aren't.",
+          "key_fact": "$70 per 1M output tokens — 3.5x current Opus pricing"
+        },
+        {
+          "id": 47921,
+          "title": "Did Claude Actually Increase Bugs in rsync? An Independent Analysis",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "High-engagement analysis of AI-authored code quality in critical infrastructure — a useful data point as AI-written code percentages climb across the industry.",
+          "key_fact": "Independent analysis with 270 likes and 259 RTs on the findings"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 47908,
+          "title": "NVIDIA Nemotron 3 Ultra 550B BF16 Weights Now Downloadable",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Full BF16 weights for the 550B MoE model are live — 9K+ downloads already as the community stress-tests NVIDIA's open agent backbone.",
+          "key_fact": "9,125 downloads in the first day"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 47592,
+      "title": "OpenAI Redesigns API Platform Navigation",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Faster endpoint and docs discovery for teams building on OpenAI.",
+      "key_fact": "Full navigation overhaul of the API platform"
+    },
+    {
+      "id": 47576,
+      "title": "Fix Incoming for Opus 4.7 and 4.8 Performance Issues",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Anthropic engineer confirms a patch is in the pipeline.",
+      "key_fact": "Active work on fixes for degraded performance and errors"
+    },
+    {
+      "id": 47871,
+      "title": "Python SDK v0.106.0 Marks Opus 4.1 Deprecated, Fixes Foundry Client",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Update if you use Foundry routing — copy()/with_options() was broken.",
+      "key_fact": "Foundry client copy()/with_options() fix"
+    },
+    {
+      "id": 47880,
+      "title": "Vercel AI SDK Canary Adds Unified Voice API Across OpenAI, Google, xAI",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Speech-to-speech support abstracted across three providers in one interface.",
+      "key_fact": "Experimental Realtime API in canary channel"
+    },
+    {
+      "id": 47923,
+      "title": "Lowfat — CLI Filter That Claims 91.8% LLM Token Savings",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Strips irrelevant content before piping to LLMs — useful for large files and logs.",
+      "key_fact": "91.8% token reduction claimed"
+    }
+  ],
+  "total_items": 23
+}
