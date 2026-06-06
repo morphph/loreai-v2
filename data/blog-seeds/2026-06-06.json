@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "New Anthropic Science Blog: Making Claude a chemist — Opus 4.7 matches experts at NMR spectroscopy",
+    "url": "https://x.com/AnthropicAI/status/2062979607448682731",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 1824,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 41.547200000000004,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "How one Anthropic seller rebuilt his team's workflows with Claude Code",
+    "url": "https://www.claude.com/blog/how-anthropic-uses-claude-gtm-engineering",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 41,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Reports of Claude API returning another user's inference output during outage",
+    "url": "https://x.com/kimmonismus/status/2062997809067139468",
+    "source": "twitter:search:\"Claude API\" OR \"OpenAI API\" (update OR release OR new)",
+    "x_engagement_24h": 96,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 37.028800000000004,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Opus 4.1 deprecated — retirement scheduled August 5, 2026",
+    "url": "https://platform.claude.com/docs/en/about-claude/models/migration-guide#migrating-from-claude-opus-47",
+    "source": "docs:Platform Release Notes",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 37,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "The Claude Cowork product guide",
+    "url": "https://www.claude.com/blog/the-claude-cowork-product-guide",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "tutorial"
+  }
+]
