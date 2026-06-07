@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Anthropic publishes internal data on recursive self-improvement — Claude accelerating AI development",
+    "url": "https://x.com/bcherny/status/2063284026086232349",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 32369,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 54.7107,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code v2.1.166 adds fallback model setting and glob pattern deny rules",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.166",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 45,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "25+ notable open-weight model drops in one week — the most insane week for open AI",
+    "url": "https://x.com/huggingface/status/2063098373452783898",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 2113,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 37.6339,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "MisoTTS — new text-to-speech model trending on HuggingFace",
+    "url": "https://huggingface.co/MisoLabs/MisoTTS",
+    "source": "huggingface:trending",
+    "x_engagement_24h": 109,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 37.0327,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Harness-1: a 20B search agent trained with state-externalizing harness — frontier-level long-horizon search",
+    "url": "https://x.com/huggingface/status/2063389490933113202",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 791,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.2373,
+    "suggested_angle": "news"
+  }
+]
