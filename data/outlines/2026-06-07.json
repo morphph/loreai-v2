@@ -1,0 +1,231 @@
+{
+  "date": "2026-06-07",
+  "headline_hook": "25 Open-Weight Models Ship in One Week While a 20B Agent Cracks Frontier Search",
+  "preview_topics": [
+    "the open-weight model avalanche",
+    "a 20B agent that outpunches its weight class",
+    "Meta's AI chatbot security breach"
+  ],
+  "pick_of_the_day": {
+    "item_id": 48080,
+    "thesis": "Harness-1 matching frontier search at 20B parameters by externalizing state proves the next leap in AI agents won't come from scaling context windows — it'll come from rethinking what the model needs to hold in its head at all."
+  },
+  "model_literacy": {
+    "concept": "State Externalization in Agent Architectures",
+    "relevance": "Harness-1 achieves frontier-level long-horizon search by offloading working memory to external storage instead of cramming everything into context. As today's open-weight avalanche puts capable base models in everyone's hands, state externalization may matter more than parameter count for building agents that actually work."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 48080,
+          "title": "Harness-1 Cracks Frontier Search With Just 20B Parameters",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "A state-externalizing architecture lets a model 10x smaller than GPT-class compete on long-horizon search — the implications for agent design are enormous",
+          "key_fact": "20B parameter model achieves frontier-level performance on long-horizon search benchmarks"
+        },
+        {
+          "id": 48050,
+          "title": "Claude Cowork Doubles Usage Limits for the Next Month",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Anthropic is betting that higher ceilings drive stickier adoption — the doubled limits are live now for all Cowork users",
+          "key_fact": "2x usage limits active through early July"
+        },
+        {
+          "id": 48163,
+          "title": "NVIDIA Open-Sources Its Flagship AI Model — Weights, Data, and All",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Jensen ships four layers of openness: model, weights, training data, and methodology — the most transparent major lab release yet",
+          "key_fact": "Full training data and methodology released alongside model weights"
+        },
+        {
+          "id": 48380,
+          "title": "Google Magenta Realtime 2 Hits HuggingFace With 10K Downloads",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Google's Magenta team drops a real-time text-to-audio model that's already trending — generative audio just got another serious player",
+          "key_fact": "9.4K downloads within days of release"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 48336,
+          "title": "Claude Code Gets Fallback Models and Glob Deny Rules",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The most substantive Claude Code release this cycle: chain up to 3 backup models for overload resilience, plus real file-access security controls",
+          "key_fact": "fallbackModel supports up to 3 chained backup models"
+        },
+        {
+          "id": 47883,
+          "title": "Ollama Adds IDE Agent Integration and Apple Silicon Quantization",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Oh My Pi integration and NVFP4 quantization on MLX — the local AI runtime keeps eating into cloud-only workflows",
+          "key_fact": "Native integration with Oh My Pi AI coding agent"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 48105,
+          "title": "Anthropic's Decision Framework: When to Use Agent Teams vs. Workflows",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Mollick highlights the chart that should be on every AI architect's wall — a practical rubric for choosing between orchestration patterns",
+          "key_fact": "Framework distinguishes agent teams, workflows, and single agents by task characteristics"
+        },
+        {
+          "id": 48098,
+          "title": "The Question Mark Trick: Why Appending '?' Beats Plan Mode",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "swyx discovers that framing tasks as questions makes the model push back and suggest alternatives instead of blindly executing — one character, outsized impact",
+          "key_fact": "Adding '?' to prompts shifts model behavior from execution to evaluation"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 48042,
+          "title": "Anthropic Publishes Internal Data on Recursive Self-Improvement",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Claude is now accelerating Anthropic's own AI development — the RSI data from this week's most-discussed thread shows the feedback loop is real and measurable",
+          "key_fact": "Anthropic publishes concrete internal metrics showing Claude accelerating AI R&D"
+        },
+        {
+          "id": 47651,
+          "title": "Sakana AI Opens the First Lab Dedicated to Recursive Self-Improvement",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The first research group explicitly chartered for open-ended self-improving AI — a bold organizational bet that RSI is the path to AGI",
+          "key_fact": "First dedicated RSI research lab"
+        },
+        {
+          "id": 47918,
+          "title": "Why Gemma 4's QAT Checkpoints Hold More Quality Than Post-Hoc Quantization",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Google's deep dive explains why training-aware compression preserves model quality that naive quantization destroys — important as on-device deployment accelerates",
+          "key_fact": "QAT preserves significantly more quality than post-training quantization at same compression ratios"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 48083,
+          "title": "The Most Insane Week for Open AI: 25+ Models in Seven Days",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "HuggingFace tallies the damage: this wasn't one or two launches, it was a coordinated industry-wide wave that may have permanently shifted the open-vs-closed balance",
+          "key_fact": "25+ notable open-weight model releases in a single week"
+        },
+        {
+          "id": 48384,
+          "title": "Meta Confirms Thousands of Instagram Accounts Hacked via Its AI Chatbot",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Attackers weaponized Meta's AI customer support to hijack real accounts — following Anthropic's MITRE ATT&CK mapping earlier this week, the AI attack surface is no longer theoretical",
+          "key_fact": "Thousands of Instagram accounts compromised through AI chatbot exploitation"
+        },
+        {
+          "id": 48104,
+          "title": "Gemini Pro Falls Behind as Google's Update Cadence Stalls",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Mollick flags a growing gap: Gemini Pro hasn't had a major update since February while Claude and GPT iterate weekly — is Google losing the frontier race?",
+          "key_fact": "No major Gemini Pro update since February 2026"
+        },
+        {
+          "id": 48041,
+          "title": "Anthropic Engineers Now Ship 8x More Code Per Quarter",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The most concrete AI productivity metric yet from a frontier lab — 8x code output per engineer compared to 2021-2025 baselines",
+          "key_fact": "8x increase in code output per engineer per quarter"
+        },
+        {
+          "id": 48131,
+          "title": "Jitendra Malik to CV Researchers: Don't Over-Focus on Perception",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "One of computer vision's founding figures challenges the assumption that perception is the bottleneck in robotics — timely as CV talent floods into embodied AI",
+          "key_fact": "Senior CV researcher argues perception is not the main robotics bottleneck"
+        },
+        {
+          "id": 48084,
+          "title": "Why Token Costs Will Save SaaS From the AI Apocalypse",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Delangue's counterargument: dev tools are cached intelligence that agents would otherwise pay per-token to recompute — SaaS doesn't die, it becomes the cache layer",
+          "key_fact": "Good dev tools amortize token costs that raw agent calls would repeat"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 48337,
+      "title": "Anthropic Python SDK v0.107.0 Adds Managed Agents Types",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Agent platform API types are evolving fast — stay current if you're building on Claude agents",
+      "key_fact": "New type definitions for Managed Agents API"
+    },
+    {
+      "id": 48339,
+      "title": "Anthropic TypeScript SDK v0.102.0 Fixes Middleware Signing Bug",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Matching Python update plus a Bedrock/Vertex middleware fix",
+      "key_fact": "Fix for middleware running before request signing"
+    },
+    {
+      "id": 47691,
+      "title": "YC Tool Promising 'Code Never Leaves Your Machine' Actually Sends It to LLM Proxies",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A cautionary tale for teams evaluating AI dev tools — always verify the network tab",
+      "key_fact": "Code excerpts, file paths, and diffs sent to external proxies despite local-only claims"
+    },
+    {
+      "id": 48385,
+      "title": "S&P 500 Profitability Rules Block OpenAI, Anthropic, and SpaceX From Index",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Frontier AI labs are still pre-profit despite massive valuations",
+      "key_fact": "S&P 500 won't waive profitability requirement for AI firms"
+    },
+    {
+      "id": 48141,
+      "title": "One Team Claims 100% AI-Written Code, AI Reviews, and AI-Managed Deploys",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Whether you believe the numbers, it signals where aggressive adopters are heading",
+      "key_fact": "100% of code, reviews, tests, and production deployments handled by AI"
+    },
+    {
+      "id": 47911,
+      "title": "MisoTTS Gains Traction in the Open TTS Race",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Another entry in the rapidly expanding open text-to-speech landscape",
+      "key_fact": "109 likes and trending on HuggingFace"
+    }
+  ],
+  "total_items": 23
+}
