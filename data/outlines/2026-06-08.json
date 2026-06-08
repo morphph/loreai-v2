@@ -1,0 +1,228 @@
+{
+  "date": "2026-06-08",
+  "headline_hook": "Jane Street Dumps Figma for Claude While Open Source Ships 25 Models in a Week",
+  "preview_topics": [
+    "Jane Street's Claude-first design workflow",
+    "OpenAI's anti-prompt-injection Lockdown Mode",
+    "the 10x cost hack for multi-agent loops"
+  ],
+  "pick_of_the_day": {
+    "item_id": 48808,
+    "thesis": "When a firm that optimizes every microsecond of its trading systems voluntarily replaces a visual tool with a text-based AI, it signals that the design→code boundary is collapsing — and the firms that recognize 'design' as a prompting skill will ship 10x faster than those still round-tripping through mockup tools."
+  },
+  "model_literacy": {
+    "concept": "Quantization-Aware Training (QAT)",
+    "relevance": "Google's Gemma 4 QAT checkpoints are already running locally via Unsloth's GGUF conversions — QAT produces models that expect to be quantized, so they lose far less quality at 4-bit than post-training quantization. This is why the open-weight flood matters: QAT makes 12B models practical on laptops."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 47924,
+          "title": "OpenAI Ships Lockdown Mode — First Platform-Level Prompt Injection Defense",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Enterprise deployments finally get a guardrail that restricts what data models can access mid-session — not perfect, but the first real architectural defense against injection",
+          "key_fact": "Restricts model data access and exfiltration during a session"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 48565,
+          "title": "25+ Open-Weight Models in One Week — LeCun Calls It the Most Insane Drop Ever",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The sheer volume validates that open-source isn't an underdog strategy anymore — it's becoming the default release channel for frontier-adjacent models",
+          "key_fact": "25+ notable open-weight models released in a single week"
+        },
+        {
+          "id": 48808,
+          "title": "Jane Street Now Designs in Claude Code More Than Figma",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The most technically rigorous trading firm on Earth publicly ditching visual design tools for AI is a signal no one should ignore — this isn't vibes, it's optimization",
+          "key_fact": "Jane Street publicly documents replacing Figma workflows with Claude Code"
+        },
+        {
+          "id": 48573,
+          "title": "Mythos Pricing Rumored at $400/M Tokens — GPT 5.6 and Gemini 3.5 Become the Practical Frontier",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "If the $400/M price tag holds, Mythos becomes a specialized capability tier while GPT 5.6 and Gemini 3.5 own the volume market",
+          "key_fact": "$400/M tokens rumored, up from earlier $70/M leak"
+        },
+        {
+          "id": 48541,
+          "title": "Mollick: Implementation Is Now Cheap — Unique Ideas Are the Scarce Resource",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The strategic reframe every builder needs: when execution costs collapse, the bottleneck shifts to having ideas worth executing",
+          "key_fact": "AI makes implementation extremely cheap, inverting the traditional idea-vs-execution hierarchy"
+        },
+        {
+          "id": 47925,
+          "title": "WWDC 2026 Preview: Siri's Overhaul and Apple Intelligence Finally Ship",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Apple's been the slowest mover in AI among big tech — this week they try to close the gap with a rebuilt Siri and deeper OS integration",
+          "key_fact": "Siri revamp and Apple Intelligence updates headline WWDC 2026"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 48572,
+          "title": "Multi-Agent Lite Swarms: Let Opus Plan, Let Cheap Models Execute — 10x Cost Reduction",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "The cost arbitrage pattern is becoming standard: frontier models for planning, commodity models for execution — and the quality gap is smaller than you'd expect",
+          "key_fact": "10x cost reduction claimed with comparable performance using Opus/GPT for planning, Deepseek Flash/Gemma for execution"
+        },
+        {
+          "id": 48511,
+          "title": "OpenAI Publishes Dozens of Real-World Automation Workflows",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Concrete patterns teams are actually using in production — steal these instead of building from scratch",
+          "key_fact": "Dozens of documented real-world workflows showing team automation patterns"
+        },
+        {
+          "id": 48553,
+          "title": "Codex's Five Primitives: Automations, Worktrees, Skills, Plugins, Sub-agents",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The insight that markdown + linear state tracking is sufficient for agent orchestration cuts through the framework bloat",
+          "key_fact": "Five core primitives compose into a full agent development environment"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 48549,
+          "title": "Sakana AI Launches RSI Lab — The First Lab Chartered for Recursive Self-Improvement",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Explicitly chartered for open-ended self-improving AI research — the first lab to make RSI its entire mission rather than a side project",
+          "key_fact": "First dedicated lab for recursive self-improvement, now actively recruiting"
+        },
+        {
+          "id": 48161,
+          "title": "Reports: Anthropic's Mythos Found Zero-Days in Every Major Browser and OS",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "If confirmed, this is the first case of an AI model doing frontier vulnerability research at scale — and Anthropic withheld release to allow patching",
+          "key_fact": "Previously unknown security holes found across all major browsers and OSes; release withheld for patching"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 48632,
+          "title": "Pentest-AI: 205 Security Tools Wrapped in One MCP Server",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Turns any Claude Code session into a pen-testing workstation — 17 specialist agents covering OWASP Top 10, no API key needed",
+          "key_fact": "205 wrapped tools, 17 specialist agents, no API key required on MCP path"
+        },
+        {
+          "id": 48765,
+          "title": "Anthropic Python SDK v0.107.1 Fixes Foundry Auth",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "If you're on Anthropic's managed deployment, this patch prevents silent auth failures that could break your pipeline",
+          "key_fact": "Fixes API key authentication for Foundry deployments"
+        },
+        {
+          "id": 47953,
+          "title": "MicroPython Compiled to WASM — Run Python in Browser Sandboxes",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Simon Willison ships a clean solution for AI tools that need to execute user-provided Python safely — no server round-trips needed",
+          "key_fact": "MicroPython running in browser via WebAssembly, zero server dependency"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 48798,
+          "title": "Unsloth Ships Gemma 4 12B QAT in GGUF — Local Multimodal Fast Path",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Community makes Google's quantization-aware checkpoints runnable on llama.cpp and Ollama within days — the open-source supply chain is absurdly fast",
+          "key_fact": "85.8K downloads; runs on llama.cpp and Ollama"
+        },
+        {
+          "id": 48745,
+          "title": "Baoyu-Design: Run Claude Design Locally as a Cursor/Claude Code Skill",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Open-source tool that brings Claude Design capabilities into your IDE — produce mockups and prototypes as self-contained HTML without claude.ai",
+          "key_fact": "Produces UI mockups, prototypes, and wireframes as self-contained HTML files"
+        },
+        {
+          "id": 48630,
+          "title": "Claude Agent + Obsidian: A Brain That Learns on Its Own via MCP",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The 'AI with persistent memory via markdown files' pattern is proving surprisingly effective — agents pull context, work, and write learnings back",
+          "key_fact": "MCP implementation connecting AI agents to Obsidian vaults for persistent memory"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 48807,
+      "title": "436 Upvotes Demand Claude Desktop for Linux",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Developer community signals a real gap in Anthropic's desktop strategy",
+      "key_fact": "436 HN points on a GitHub issue"
+    },
+    {
+      "id": 48334,
+      "title": "Claude Code v2.1.168 — Two Patches in One Day",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Active maintenance cadence continues",
+      "key_fact": "Two patch releases (v2.1.167 and v2.1.168) in a single day"
+    },
+    {
+      "id": 48340,
+      "title": "Anthropic TS SDK Fixes Bedrock Middleware Execution Order",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Middleware now runs before request signing — fixes silent custom auth breakage",
+      "key_fact": "bedrock-sdk-v0.30.1"
+    },
+    {
+      "id": 48773,
+      "title": "Ollama v0.30.7 Adds Native Zod JSON Schema Support",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Quality-of-life bump for local model structured output",
+      "key_fact": "Zod schema support + Windows Hermes config fix"
+    },
+    {
+      "id": 48806,
+      "title": "VibeOS: An AI-Native Operating System Concept Hits HN",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Early-stage signal that AI should be a system-level primitive, not an app bolt-on",
+      "key_fact": "AI-native OS with system-level AI integration"
+    }
+  ],
+  "total_items": 22
+}
