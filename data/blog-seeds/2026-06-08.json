@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "JimLiu/baoyu-design: Run Claude Design locally as an Agent Skill",
+    "url": "https://github.com/JimLiu/baoyu-design",
+    "source": "github:trending:AI IDE tools",
+    "x_engagement_24h": 266,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 41.0798,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Built a Claude agent connected to Obsidian — a brain that learns on its own",
+    "url": "https://x.com/undefinedKi/status/2063637596148756702",
+    "source": "twitter:search:\"MCP\" (implementation OR plugin OR server OR tool) min_faves:10 -crypto",
+    "x_engagement_24h": 193,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 32.0579,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "I design with Claude more than Figma now",
+    "url": "https://blog.janestreet.com/i-design-with-claude-code-more-than-figma-now-index/",
+    "source": "hackernews",
+    "x_engagement_24h": 470,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.141,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Multi-Agent Lite Agent Swarms — Optimize Cost On Large Agentic Loops",
+    "url": "https://x.com/bindureddy/status/2063671403870638399",
+    "source": "twitter:@bindureddy",
+    "x_engagement_24h": 309,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.0927,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic, please ship an official Claude Desktop for Linux",
+    "url": "https://github.com/anthropics/claude-code/issues/65697",
+    "source": "hackernews",
+    "x_engagement_24h": 683,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 20.2049,
+    "suggested_angle": "news"
+  }
+]
