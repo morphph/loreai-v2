@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Building intelligent apps for Apple platforms with Claude in the Foundation Models framework",
+    "url": "https://www.claude.com/blog/claude-for-foundation-models",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 37,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Microsoft's Parakhin: Claude Workflows tested on entire codebase with impressive results",
+    "url": "https://x.com/bcherny/status/2064097998309826748",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 451,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.1353,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Boris Cherny on one year of Claude Code: auto mode, routines, coding from phone",
+    "url": "https://x.com/bcherny/status/2064034799711588805",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 1406,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 32.4218,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code v2.1.169: safe mode, /cd command, disable bundled skills",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.169",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic Science Blog: Why AI advances faster in coding than biology",
+    "url": "https://x.com/AnthropicAI/status/2064054837294354677",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 2004,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.6012,
+    "suggested_angle": "news"
+  }
+]
