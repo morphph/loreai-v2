@@ -93,6 +93,7 @@ depends-on: []
 | [VPS Setup](guides/VPS-SETUP.md)                                   | Step-by-step VPS provisioning                    | 2026-03-30 |
 | [Human-in-the-Loop](guides/HUMAN-IN-THE-LOOP.md)                   | Manual touchpoints across pipeline               | 2026-03-27 |
 | [Video Pipeline](guides/VIDEO-PIPELINE.md)                         | Blog→video workflow: candidates, import, status  | 2026-03-30 |
+| [loreai-content CLI](guides/CONTENT-CLI.md)                        | Hermes-facing JSON CLI contract (draft/import/video) | 2026-06-09 |
 | [Testing](guides/TESTING.md)                                       | Vitest, Playwright E2E, pipeline validation      | 2026-03-30 |
 | [C5 Implementation Guide](guides/GUIDE-C5-implementation.md)       | Claude Code execution blueprint for C5           | 2026-03-20 |
 | [D1+D2 Implementation Guide](guides/GUIDE-D1-D2-implementation.md) | Phase-by-phase D1+D2 implementation              | 2026-03-27 |
