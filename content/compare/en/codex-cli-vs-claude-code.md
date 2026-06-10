@@ -1,193 +1,204 @@
 ---
 title: "Codex CLI vs Claude Code: Which AI Coding Agent Should You Use?"
 slug: codex-cli-vs-claude-code
-description: "Codex CLI vs Claude Code compared across architecture, execution model, pricing, and workflows. Find out which AI coding agent fits your stack."
+description: "Codex CLI vs Claude Code compared across architecture, workflows, pricing, and security. Find the right AI coding agent for your team."
 item_a: Codex CLI
 item_b: Claude Code
 category: tools
 related_glossary: [agentic-coding, agent-sdk]
-related_blog: [codex-complete-guide, claude-code-complete-guide, whats-so-special-about-the-claude-code, codex-vscode, claude-code-extension-stack-skills-hooks-agents-mcp]
+related_blog: [codex-complete-guide, claude-code-complete-guide, agent-harnesses-2026]
 related_compare: []
-related_faq: [using-codex, is-codex-cli-safe-to-use, codex-cli-download]
 related_topics: [claude-code, codex]
 lang: en
 ---
 
 # Codex CLI vs Claude Code: Which AI Coding Agent Should You Use?
 
-**TL;DR:** **Claude Code wins for interactive, real-time development** where you need an agent that works alongside you in the terminal with full local context. **Codex CLI wins for asynchronous, sandboxed task execution** where you want to fire off coding tasks and review results later. Claude Code gives you deeper project integration through its CLAUDE.md and skills system; Codex CLI gives you cloud isolation and parallel task running. For most solo developers and small teams doing day-to-day engineering, Claude Code is the more capable interactive tool. For teams that want sandboxed, auditable task execution — especially those already embedded in the OpenAI ecosystem — Codex CLI is worth evaluating.
+**TL;DR:** **Codex CLI** and **Claude Code** are both terminal-based AI coding agents, but they differ fundamentally in where code runs. **Codex CLI executes in a cloud sandbox** — safe by default, but disconnected from your local environment. **Claude Code runs locally** with full shell access — more powerful for real workflows, but requires trust in the agent's actions. Choose Codex CLI for isolated, fire-and-forget tasks on cloud-hosted repos. Choose Claude Code for deep, multi-step engineering work where local toolchain access matters.
 
 ## Overview: Codex CLI
 
-**Codex CLI** is OpenAI's [agentic coding](/glossary/agentic-coding) tool that runs coding tasks in a cloud-sandboxed environment. Rather than executing directly on your machine, Codex spins up an isolated cloud container, clones your repository, performs the requested work, and returns a diff or pull request. This architecture means your local environment is never touched during execution — the agent operates in a disposable sandbox with no persistent shell access to your workstation.
+**Codex CLI** is OpenAI's open-source terminal-based coding agent, launched in 2025 as part of OpenAI's push into [agentic coding](/glossary/agentic-coding) tools. It connects to OpenAI's cloud infrastructure to execute coding tasks in sandboxed environments, meaning your code changes are generated and tested remotely before being applied locally.
 
-Codex CLI is designed around an asynchronous workflow. You describe a task — "fix the failing test in auth.ts" or "refactor the payment module to use the new API" — and Codex processes it in the background. You can queue multiple tasks, walk away, and review results when they're ready. The tool integrates with GitHub, creating pull requests directly from completed work. It's powered by OpenAI's reasoning models, including o3 and o4-mini, which handle the planning and code generation steps. For a deeper look at the platform, see our [complete guide to OpenAI Codex](/blog/codex-complete-guide).
+Codex CLI targets developers who want AI-assisted coding without giving an agent unrestricted access to their machine. Every task runs in an isolated container — the agent can't accidentally delete files, run destructive commands, or interfere with your local environment. This makes it appealing for teams with strict security requirements or developers who want guardrails by default.
 
-Pricing follows OpenAI's API token model. Codex is available to ChatGPT Pro, Plus, and Team subscribers, with usage counted against API credits. Enterprise and edu tiers have separate allocation structures.
+The tradeoff is environment fidelity. Cloud sandboxes don't have your local dependencies, custom toolchains, database connections, or environment variables unless you explicitly configure them. For projects with complex local setups — monorepos with custom build systems, services that depend on local Docker containers, or workflows that require specific OS-level packages — the sandbox can feel like a limitation rather than a feature.
+
+For a deeper look at Codex's architecture and capabilities, see our [complete guide to OpenAI Codex](/blog/codex-complete-guide).
 
 ## Overview: Claude Code
 
-**Claude Code** is Anthropic's terminal-native AI coding agent. It runs directly in your shell — no cloud sandbox, no browser tab, no IDE fork. When you invoke Claude Code, it operates with full access to your local filesystem, shell environment, and development tools. It reads your project structure, understands file relationships through the CLAUDE.md context system, and executes commands in real time while you watch.
+**Claude Code** is Anthropic's AI coding agent that runs directly in your terminal with full access to your local filesystem, shell, and toolchain. Rather than sandboxing execution remotely, Claude Code operates as an autonomous agent on your machine — reading your codebase, running your build tools, executing your test suite, and committing changes through git.
 
-The interaction model is fundamentally conversational and synchronous. You describe what you want, Claude Code proposes a plan, you approve it, and it executes — editing files, running tests, staging commits — all in your terminal. The [extension stack](/blog/claude-code-extension-stack-skills-hooks-agents-mcp) (skills, hooks, agents, and MCP servers) makes it a programmable platform, not just a chat interface. Teams encode their engineering standards into SKILL.md files that travel with the repo, ensuring consistent AI behavior across developers.
+Claude Code's core differentiator is its project context system. [CLAUDE.md files](/blog/claude-code-complete-guide) define project-level instructions — coding standards, architecture constraints, deployment procedures — that persist across sessions. The SKILL.md system lets teams encode reusable workflows (test generation, PR review, content pipelines) that any team member can invoke consistently.
 
-Claude Code is powered by Anthropic's Claude model family (Opus, Sonnet, Haiku) with extended thinking and tool-use capabilities. Pricing is usage-based through Anthropic's API, or included with Claude Max subscription plans that offer higher rate limits. See our [analysis of what makes Claude Code different](/blog/whats-so-special-about-the-claude-code) for the architectural reasoning behind these choices.
+This local-first approach means Claude Code has access to everything a human developer would: your exact Node version, your database migrations, your Docker compose stack, your CI configuration. The cost is that you're giving an AI agent shell access to your machine, which requires a permission model you trust. Claude Code addresses this with a tiered approval system — you can auto-approve read-only operations while requiring confirmation for file writes, shell commands, or git operations.
+
+For teams already using Claude Code, our [extension stack deep dive](/blog/claude-code-extension-stack-skills-hooks-agents-mcp) explains how skills, hooks, agents, and MCP compose into a programmable platform.
 
 ## Feature Comparison
 
 | Feature | Codex CLI | Claude Code | Winner |
 |---------|-----------|-------------|--------|
-| **Execution model** | Cloud-sandboxed container | Local terminal, full shell access | Depends on needs |
-| **Interaction style** | Asynchronous (fire-and-forget) | Synchronous (interactive) | Depends on workflow |
-| **Project context** | Repository clone per task | CLAUDE.md + SKILL.md + auto-memory | Claude Code |
-| **Multi-file editing** | Yes, in sandbox | Yes, locally with real-time feedback | Claude Code |
-| **Safety model** | Network-disabled sandbox | Permission-based approval system | Codex CLI |
-| **Git integration** | Creates PRs from sandbox | Full local git (stage, commit, push, PR) | Tie |
-| **IDE integration** | VS Code extension available | VS Code + JetBrains extensions, plus standalone terminal | Claude Code |
-| **Parallel tasks** | Multiple concurrent cloud tasks | Agent teams with sub-agents | Tie |
-| **Model options** | o3, o4-mini (OpenAI) | Opus, Sonnet, Haiku (Anthropic) | Tie |
-| **Extensibility** | Limited | Skills, hooks, MCP servers, custom agents | Claude Code |
-| **Pricing model** | API tokens / subscription tier | API tokens / Max subscription | Tie |
-| **Platform** | macOS, Linux | macOS, Linux, Windows (via WSL) | Tie |
+| **Execution model** | Cloud sandbox | Local machine | Depends on needs |
+| **Interface** | Terminal CLI | Terminal CLI | Tie |
+| **Security model** | Sandboxed by default | Permission-based approval | Codex CLI |
+| **Local toolchain access** | Limited (sandbox) | Full access | Claude Code |
+| **Project context** | Basic file reading | CLAUDE.md + SKILL.md system | Claude Code |
+| **Multi-file editing** | Supported | Native with planning | Claude Code |
+| **Git integration** | Basic | Full (stage, commit, PR, push) | Claude Code |
+| **Sub-agents** | Not available | Agent teams for parallel work | Claude Code |
+| **Extensibility** | Open-source, forkable | Hooks, skills, MCP servers | Claude Code |
+| **Underlying model** | OpenAI models (o3, o4-mini) | Anthropic Claude (Opus, Sonnet) | Preference |
+| **Open source** | Yes (Apache 2.0) | No | Codex CLI |
+| **Pricing** | OpenAI API usage | Anthropic API or subscription | See pricing section |
 
 ## Execution Model: The Core Architectural Difference
 
-This is the single most important distinction between these two tools, and it shapes every other tradeoff.
+The single most important difference between Codex CLI and Claude Code is where your code actually runs. This architectural choice cascades into nearly every other difference between the tools.
 
-**Codex CLI runs your code in a disposable cloud container.** When you submit a task, Codex clones your repository into an isolated environment with network access disabled by default. The agent works inside this sandbox — reading files, writing code, running tests — and produces a diff when finished. Your local machine is never modified. This is a deliberate security choice: the agent physically cannot access your filesystem, environment variables, or running services.
+**Codex CLI** sends your code to OpenAI's cloud, where it executes in an isolated sandbox. The agent can read files, write code, and run tests — but only within that sandboxed environment. Results are sent back to your terminal, and you decide whether to apply the changes locally. This is fundamentally a remote-execution model with local review.
 
-The upside is strong isolation. A Codex task cannot accidentally delete your local files, leak credentials from your `.env`, or interact with running databases. The downside is equally clear: the agent cannot access anything outside the repository snapshot. If your project depends on a local database, a running Docker stack, or environment-specific configuration, Codex cannot interact with those systems during execution. It works on a frozen copy of your code, not your live development environment.
+**Claude Code** runs everything on your machine. When it executes `npm test`, it's running your actual test suite against your actual database with your actual environment variables. When it edits a file, it edits the real file. There's no roundtrip to a cloud environment — the agent is a process on your machine with the same access you have.
 
-**Claude Code runs directly in your terminal with full shell access.** When you invoke it, the agent shares your shell session. It can read any file on your system (with permission), run any command your user can run, interact with running services, and modify files in place. The safety model is permission-based: Claude Code shows you what it intends to do and waits for approval before executing potentially destructive operations.
+The practical implications are significant. If your project requires a running PostgreSQL instance, a Redis cache, and three microservices in Docker to pass its test suite, Claude Code can work with that setup because it's running locally. Codex CLI would need all of that replicated in its sandbox, which may not be feasible.
 
-This means Claude Code can do things Codex structurally cannot: run your test suite against a local database, interact with Docker containers, execute deployment scripts, or read configuration from services running on your machine. The tradeoff is that you need to pay attention — an approved command executes with your user's full permissions.
+Conversely, if you're worried about an AI agent running `rm -rf /` or accidentally pushing to production, Codex CLI's sandbox provides structural safety. Claude Code relies on its permission system and your judgment — you approve each potentially destructive action, but the responsibility is yours.
 
-For teams evaluating [whether Codex CLI is safe to use](/faq/is-codex-cli-safe-to-use), the sandbox model provides a clear security boundary. For teams that need the agent to interact with the full development environment, Claude Code's local execution is the only option.
+For teams evaluating the broader landscape of [agent harnesses in 2026](/blog/agent-harnesses-2026), this execution-model question is the first fork in the decision tree.
 
 ## Project Context and Memory
 
-How much an AI coding agent understands about your project directly determines the quality of its output. Vague context produces generic code; deep context produces code that fits your architecture, follows your conventions, and avoids known pitfalls.
+How well an AI coding agent understands your project determines whether it produces generic code or code that actually fits your codebase. This is where Claude Code has built a significant lead.
 
-**Claude Code's context system is significantly deeper.** The CLAUDE.md file at your project root acts as persistent instructions — coding standards, architecture decisions, known gotchas, and constraints that Claude Code reads at the start of every session. SKILL.md files encode task-specific instructions (how to write tests, generate content, review PRs) that travel with your repository. Auto-memory persists learnings across sessions: your preferences, feedback corrections, and project context accumulate over time.
+**Claude Code's context system** is multi-layered. At the project level, `CLAUDE.md` files define high-level instructions: what framework you use, what coding conventions to follow, what never to do. At the task level, `SKILL.md` files encode specific workflows — how to write tests for this repo, how to generate API documentation, how to structure commits. These files live in your repository and travel with it, meaning every developer on the team gets the same AI behavior.
 
-This layered context system means Claude Code gets better the longer you use it on a project. A new team member can invoke Claude Code and immediately benefit from the accumulated engineering standards encoded in these files. The [skills and hooks system](/blog/claude-code-extension-stack-skills-hooks-agents-mcp) makes this context programmable — you can trigger specific behaviors automatically based on file patterns, tool calls, or workflow stages.
+Beyond static files, Claude Code's [memory system](/blog/claude-code-memory) retains context across sessions. If you tell Claude Code that your team prefers functional components over class components, or that the auth module is being refactored and shouldn't be touched, it remembers that in future sessions. This eliminates the repeated context-setting that plagues most AI tool interactions.
 
-**Codex CLI's context model is simpler.** It ingests the repository at task time — reading the file tree, understanding the codebase structure, and using that snapshot to inform its work. There is no equivalent to CLAUDE.md's persistent instruction layer or the auto-memory system. Each task starts relatively fresh, with context derived from the repository contents and the task description you provide.
+**Codex CLI** reads your project files to build context but lacks an equivalent to the CLAUDE.md/SKILL.md system. It relies on the model's understanding of your code structure rather than explicit project-level instructions. For straightforward projects with conventional structures, this works adequately. For complex codebases with non-obvious conventions, custom build systems, or domain-specific patterns, the absence of explicit context files means more time spent correcting the agent's assumptions.
 
-For one-off tasks on well-documented codebases, this difference may not matter much. For ongoing development on complex projects with specific conventions, Claude Code's context system is a meaningful advantage. Teams that have invested in writing thorough CLAUDE.md and SKILL.md files report that AI-generated code matches their standards with minimal correction.
+The difference shows most clearly on teams. A solo developer can re-explain conventions each session. A team of ten cannot afford that — they need the AI to follow the same rules for everyone, which is exactly what skill files solve. Our guide to [writing effective Claude Code skills](/blog/9-principles-writing-claude-code-skills) covers how teams encode these standards in practice.
 
-## Workflow Integration: Synchronous vs Asynchronous
+## Security and Permissions
 
-The way these tools fit into your daily workflow is fundamentally different, and choosing the right one depends on how you prefer to work.
+Security is not just a feature checkbox — it's an architectural property that emerges from how each tool is built.
 
-**Claude Code is a pair programmer.** You work with it in real time — describe a task, watch it plan, approve actions, see files change, review output, course-correct if needed. The feedback loop is tight: if Claude Code misunderstands your intent, you catch it immediately and redirect. This interactive model works well for exploratory work, debugging, and tasks where the requirements aren't fully specified upfront.
+**Codex CLI's security model is structural.** Because code runs in a cloud sandbox, the agent physically cannot access your local filesystem, environment variables, or network services unless you explicitly provide them. This is security through isolation. Even if the agent attempts something destructive, the blast radius is limited to the disposable sandbox. For organizations with strict compliance requirements or developers working on sensitive codebases, this is a meaningful guarantee.
 
-The tradeoff is that interactive work requires your attention. You're in the loop for the duration of the task. Claude Code does support background agents and agent teams for parallelism, but the primary interaction model assumes you're watching.
+However, sandbox isolation creates its own security considerations. Your code is sent to OpenAI's cloud for execution. For proprietary codebases, this means evaluating OpenAI's data handling policies and whether cloud execution meets your organization's data residency requirements. For open-source work or non-sensitive code, this is rarely a concern.
 
-**Codex CLI is a task queue.** You describe what you want done, submit the task, and move on. Codex works in the background — potentially on multiple tasks simultaneously — and delivers results as diffs or pull requests. This asynchronous model excels when you have a clear, well-specified task and don't need to supervise execution. "Write unit tests for the auth module," "migrate these API calls from v2 to v3," "fix all TypeScript strict mode errors" — these are ideal Codex tasks.
+**Claude Code's security model is permission-based.** The agent runs locally and requests approval for potentially destructive actions. You can configure auto-approval for safe operations (file reads, grep, lint) while requiring explicit confirmation for file writes, shell commands, and git operations. [Hooks](/blog/claude-code-hooks-a-complete-guide-to-automating-your-ai-coding-workflow) add a deterministic layer — you can define rules that block specific actions regardless of what the agent requests.
 
-The tradeoff is that course-correction happens after the fact. If Codex misinterprets the task, you discover it when reviewing the output, not during execution. For ambiguous or exploratory work, this creates a slower feedback cycle.
+The permission model is flexible but requires active engagement. You need to read what the agent proposes before approving. In practice, most developers develop a rhythm — auto-approve reads and tests, review writes, always review git operations. But the responsibility for catching problematic actions falls on you, not on architectural constraints.
 
-Many developers find the sweet spot is using both: Claude Code for interactive development sessions and complex debugging, Codex for well-defined batch tasks that can run in parallel.
+For a detailed analysis of Claude Code's security capabilities, see our [security vulnerability scanning guide](/blog/claude-code-security-vulnerability-scanning). For Codex CLI's safety considerations, our FAQ on [whether Codex CLI is safe to use](/faq/is-codex-cli-safe-to-use) covers the key questions.
 
-## Extensibility and Customization
+## Extensibility and Ecosystem
 
-**Claude Code is a programmable platform.** Beyond basic prompting, it offers multiple extension points:
+The tools diverge sharply in how much you can customize and extend them.
 
-- **Skills (SKILL.md)**: Reusable instruction files that define how Claude Code approaches specific tasks. A skills file for "write tests" can encode your testing framework, naming conventions, coverage expectations, and assertion patterns.
-- **Hooks**: Deterministic shell commands that fire on specific events — before/after tool calls, on file edits, on commits. Hooks enforce invariants that prompts alone cannot guarantee.
-- **MCP servers**: The Model Context Protocol lets Claude Code connect to external tools — databases, monitoring systems, APIs, custom services — extending its capabilities beyond the filesystem and shell.
-- **Agent teams**: Sub-agents that run in parallel on separate parts of a task, coordinated by the main agent. Useful for large refactoring or multi-file analysis.
+**Claude Code** has built a deep extension stack. [Seven programmable layers](/blog/claude-code-seven-programmable-layers) give developers control over nearly every aspect of the agent's behavior:
 
-This extension stack is what transforms Claude Code from a chat interface into [a programmable AI platform](/blog/claude-code-extension-stack-skills-hooks-agents-mcp). Teams build custom workflows on top of it — automated PR reviews, content generation pipelines, security scanning, deployment orchestration.
+- **CLAUDE.md**: Project-level context and constraints
+- **SKILL.md**: Reusable task-specific workflows
+- **Hooks**: Deterministic pre/post actions on tool calls (linting before commit, notifications after deploy)
+- **Agent teams**: Spawn sub-agents for parallel work across large codebases
+- **MCP servers**: Connect to external tools — databases, APIs, monitoring systems, documentation sources — via the Model Context Protocol
 
-**Codex CLI's extensibility is more limited.** It focuses on doing one thing well: executing coding tasks in a sandbox and returning results. The [VS Code extension](/blog/codex-vscode) adds IDE integration, and the GitHub integration streamlines PR creation, but there is no equivalent to the skills, hooks, or MCP server system. Customization happens primarily through task description quality and repository documentation that Codex can read during execution.
+This composability means Claude Code is not just a coding tool but a [programmable platform](/blog/claude-code-extension-stack-skills-hooks-agents-mcp). Teams build custom workflows: automated PR review pipelines, content generation systems, security scanning harnesses. The investment in configuration pays dividends as usage scales.
 
-For teams that want an AI coding tool they can deeply integrate into their engineering workflow, Claude Code's extension stack is a significant differentiator. For teams that want a simple "describe task, get code" tool without configuration overhead, Codex's simplicity is an advantage.
+**Codex CLI** takes a different approach. It's open-source under Apache 2.0, which means you can fork it, modify its behavior, and contribute improvements upstream. This is genuine extensibility — you can change how the agent works at the source level, which is something closed-source tools can't offer. The community can build custom execution environments, add new model backends, or modify the sandbox behavior.
 
-## Safety and Security Models
+However, Codex CLI's extension model is more "modify the source" than "configure the tool." It lacks the layered configuration system (skills, hooks, MCP) that lets non-expert users customize behavior without writing infrastructure code. For developers who want to tinker with the agent itself, open source is ideal. For teams who want to configure standard workflows, Claude Code's extension stack is more immediately productive.
 
-Both tools take fundamentally different approaches to the question "how do you prevent an AI agent from doing something dangerous?"
+## Workflow Integration
 
-**Codex CLI uses architectural isolation.** The agent runs in a container with no network access (by default) and no access to your local filesystem. It physically cannot leak credentials, access databases, or modify local files. This is security through containment — the blast radius of any mistake is limited to the disposable sandbox. The resulting diff is reviewed by a human before merging.
+How each tool fits into your existing development workflow determines whether it accelerates or disrupts your process.
 
-This model is appealing for enterprise environments with strict security requirements. The agent never touches production systems, never sees environment variables outside the repo, and produces auditable output (a diff) that goes through normal code review.
+**Claude Code** integrates deeply with git-based workflows. It reads your branch state, understands your commit history, creates commits with structured messages, opens pull requests, and can even [run code review](/blog/claude-code-review-agents) on incoming PRs. The git integration is bidirectional — Claude Code both reads and writes git state as a natural part of its workflow.
 
-**Claude Code uses permission-based safety.** The agent operates in your environment but asks before taking potentially dangerous actions. You configure permission levels — from requiring approval for every action to allowing common operations automatically. Hooks add a deterministic enforcement layer: you can block specific commands, require confirmation for file deletions, or prevent edits to sensitive paths.
+Beyond git, Claude Code integrates with your entire local toolchain. If you use Make, Gradle, Cargo, or a custom build system, Claude Code can invoke it. If you have a Docker Compose stack for local development, Claude Code works within that environment. The agent adapts to your workflow rather than requiring you to adapt to its constraints.
 
-This model is more flexible but requires more trust. A well-configured Claude Code setup with appropriate permissions and hooks provides strong safety guarantees while allowing the agent to interact with your full environment. An unconfigured setup with blanket approvals offers less protection.
+**Codex CLI** focuses on the code-generation-and-review cycle. You describe a task, Codex generates code in its sandbox, and you review the diff before applying it. This is a clean, focused workflow that works well for discrete tasks: implement a function, fix a bug, write tests. The handoff between agent and developer is explicit and predictable.
 
-The right choice depends on your threat model. If you need to guarantee that the AI agent cannot access anything outside the codebase — even accidentally — Codex's sandbox wins. If you need the agent to interact with your full development environment and are comfortable managing permissions, Claude Code's model is more practical.
+Where Codex CLI's workflow becomes less fluid is in iterative development. If the first attempt doesn't quite work, you need to describe the correction, wait for another sandbox execution, and review again. Each iteration involves a cloud roundtrip. Claude Code's local execution makes iteration faster — you see results immediately, adjust course mid-task, and the agent can react to test failures in real time.
+
+## Multi-Agent and Parallel Execution
+
+For large codebases and complex tasks, the ability to parallelize work matters.
+
+**Claude Code** supports [agent teams](/blog/claude-code-agent-teams) — the ability to spawn sub-agents that work on different parts of a task simultaneously. A refactoring task that touches five modules can dispatch five sub-agents, each working on its module in a separate git worktree. Results merge back into the main session. This parallel execution model is critical for monorepo-scale work where sequential processing would take too long.
+
+**Codex CLI** does not currently offer multi-agent orchestration. Tasks run sequentially in the sandbox. For smaller projects and focused tasks, this is fine — you don't need parallel agents to fix a single bug. For large-scale refactoring, migration, or codebase-wide changes, the lack of parallelism means longer wait times and potentially splitting the work into multiple manual sessions.
 
 ## Pricing and Access
 
-Both tools use token-based pricing with subscription access options, but the structures differ.
+Both tools use consumption-based pricing tied to their respective AI providers, but the models differ in important ways.
 
-**Codex CLI** is available to OpenAI subscribers. ChatGPT Pro ($200/month) includes substantial Codex usage. Plus ($20/month) and Team ($25/user/month) plans include more limited access. API usage is billed per token using OpenAI's standard pricing for the underlying models (o3, o4-mini). Enterprise plans have custom allocation.
+**Codex CLI** uses OpenAI API billing. You pay per token for the underlying model (o3, o4-mini, or whichever model you configure). Since Codex CLI is open source, there's no software license fee — you only pay for API usage. Cloud sandbox compute is included in the API cost. OpenAI also offers [Codex for students](/blog/codex-for-students) with credits, and [Codex for open source](/blog/codex-for-open-source) maintainers with free Pro access.
 
-**Claude Code** is accessible through Anthropic's API with standard per-token billing, or through Claude Max subscription plans ($100/month and $200/month tiers) that provide higher rate limits for heavy usage. The Claude Pro plan ($20/month) includes some Claude Code access but at lower limits. Enterprise and team plans through Anthropic's console offer volume discounts.
+**Claude Code** offers two access paths. API-based usage bills per token through Anthropic's API — you pay for what you use with no monthly fee. Alternatively, Claude Pro ($20/month) and Max ($100-200/month) subscriptions include Claude Code access with usage limits. The subscription model can be more cost-effective for regular users, while API billing suits sporadic or automated usage.
 
-Direct cost comparison is difficult because the tools operate differently. A Codex task that runs in the background for ten minutes might consume different token volumes than an equivalent interactive Claude Code session. The execution model — sandboxed container vs. local terminal — adds infrastructure costs on Codex's side that are embedded in the pricing.
+Direct cost comparison is difficult because the underlying models have different pricing per token, different context window sizes, and different token efficiencies for coding tasks. The practical advice: estimate your monthly token usage based on a typical week, then compare costs on each platform's pricing page. Pricing changes frequently in this market — what's true today may shift next quarter.
 
-For individual developers, both tools are accessible at the $20/month tier with usage limitations. For heavy professional use, both require the $100-200/month tier or direct API billing.
+## Model Quality and Capabilities
 
-## Models and Reasoning Quality
+The quality of generated code ultimately depends on the underlying language model.
 
-**Codex CLI** uses OpenAI's reasoning models: o3 for complex tasks requiring multi-step planning and o4-mini for faster, lighter work. These models are specifically designed for chain-of-thought reasoning, which maps well to coding tasks that require understanding constraints, planning changes across files, and verifying correctness.
+**Codex CLI** defaults to OpenAI's reasoning models (o3, o4-mini). These models excel at step-by-step reasoning through complex logic, which translates well to debugging and algorithmic tasks. The o3 model in particular has shown strong performance on coding benchmarks. You can configure which model to use, giving flexibility to trade speed for capability.
 
-**Claude Code** uses Anthropic's Claude model family. Opus (the most capable) handles complex reasoning and large-context tasks. Sonnet balances capability with speed for standard development work. Haiku provides fast responses for simpler queries. Extended thinking mode allows Claude to reason through complex problems step-by-step before generating output.
+**Claude Code** uses Anthropic's Claude models (Opus, Sonnet). Claude's strength in coding contexts is its combination of large context windows (up to 200K tokens) and instruction-following precision. The CLAUDE.md and SKILL.md system leverages this instruction-following capability — the model reliably adheres to project-specific constraints defined in those files. Extended thinking mode lets Claude reason through complex tasks before generating code.
 
-Both model families are highly capable for coding tasks. The practical difference is less about raw capability and more about ecosystem fit. If your team already uses OpenAI's API for other applications, Codex CLI keeps you in one billing and credential system. If you use Anthropic's API or prefer Claude's interaction style, Claude Code is the natural choice.
+In practice, both model families are competitive for mainstream coding tasks. Differences emerge at the edges: complex multi-step reasoning, adherence to nuanced style guides, handling of ambiguous requirements. The best advice is to try both on your actual codebase rather than relying on benchmark comparisons that may not reflect your workload.
 
 ## When to Choose Codex CLI
 
-**Choose Codex CLI when:**
+**Choose Codex CLI** if your priorities align with these scenarios:
 
-- **Security isolation is non-negotiable.** Your compliance requirements demand that AI agents cannot access the local filesystem, environment variables, or running services. Codex's sandbox provides architectural guarantees that no permission system can match.
-- **You have well-defined, batch-able tasks.** "Write tests for these 5 modules," "migrate all API calls to v3," "fix all lint errors" — tasks with clear specifications that don't need interactive guidance. For practical guidance on [using Codex effectively](/faq/using-codex), clear task descriptions are essential.
-- **You want asynchronous execution.** Fire off multiple tasks, work on something else, review results later. Codex's cloud execution model is built for this workflow.
-- **You're already in the OpenAI ecosystem.** If your team uses GPT-4, o3, or other OpenAI APIs, adding Codex keeps billing and credential management in one place.
-- **You want simple setup.** Codex CLI requires minimal configuration — install, authenticate, submit tasks. No CLAUDE.md files, no skills, no hooks to learn.
+- **Security-first environments**: Your organization requires that AI tools cannot access local filesystems or network resources. Sandbox isolation provides structural guarantees that permission systems cannot.
+- **Open-source contribution**: You want to modify the agent's behavior at the source level, contribute improvements upstream, or build custom execution environments.
+- **Simple, focused tasks**: You need an AI to implement a function, write tests for a module, or fix a well-defined bug — tasks where sandbox limitations don't matter because the task is self-contained.
+- **Onboarding and exploration**: You're evaluating AI coding agents and want a low-risk starting point. Codex CLI's sandbox means mistakes are harmless and contained.
+- **Cloud-native workflows**: Your codebase lives in the cloud (GitHub Codespaces, Gitpod) and your CI/CD handles all testing. Local toolchain access is irrelevant because you don't develop locally.
+
+For guidance on getting started, see our FAQ on [downloading Codex CLI](/faq/codex-cli-download) and [using Codex effectively](/faq/using-codex).
 
 ## When to Choose Claude Code
 
-**Choose Claude Code when:**
+**Choose Claude Code** if your work demands these capabilities:
 
-- **You need an interactive development partner.** Debugging, exploratory coding, architectural discussions, and tasks where requirements emerge during the session. The real-time feedback loop catches misunderstandings immediately.
-- **Your workflow needs local environment access.** Running tests against a local database, interacting with Docker containers, executing deployment scripts, or reading from running services. Claude Code can access anything your shell can.
-- **You want deep project customization.** CLAUDE.md files, SKILL.md instructions, hooks, and MCP servers let you build a tailored AI engineering workflow. Teams with strong conventions benefit most from this system.
-- **You're building on the Anthropic ecosystem.** If you use Claude for other applications or prefer its interaction style, Claude Code provides the tightest integration.
-- **Multi-agent coordination matters.** Claude Code's agent teams system allows spawning parallel sub-agents for large tasks, with coordination managed by the primary agent.
+- **Complex local environments**: Your project requires specific system dependencies, running services, or custom toolchains that can't be replicated in a generic sandbox.
+- **Multi-file, multi-step workflows**: You need the agent to refactor across modules, update tests, fix build errors, and commit — all in one session with iterative feedback.
+- **Team standardization**: You want every developer using AI to follow the same coding conventions, review standards, and workflow patterns. CLAUDE.md and SKILL.md encode these as code.
+- **Deep codebase integration**: Your workflow involves git operations, PR management, deployment scripts, or database migrations that require local shell access.
+- **Extensibility without forking**: You want to customize agent behavior through configuration (hooks, skills, MCP) rather than modifying source code.
+
+For practical guidance, our article on [what makes Claude Code special](/blog/whats-so-special-about-the-claude-code) explains the design philosophy, and our guide to [prompting Claude Code effectively](/blog/how-to-effectively-prompt-a-claude-code) covers day-to-day usage patterns.
 
 ## Verdict
 
-**For most day-to-day development work, Claude Code is the stronger choice.** Its interactive execution model, deep project context system, and extensible architecture make it more capable for the kind of work engineers actually do — debugging, refactoring, building features, and managing complex codebases. The [skills and hooks system](/blog/claude-code-extension-stack-skills-hooks-agents-mcp) turns it into a programmable platform that improves over time as you encode your team's standards.
+**If you need an AI coding agent that integrates deeply with your local development environment and scales to complex, multi-step workflows, Claude Code is the stronger choice.** Its project context system, extension stack, and local execution model make it the more capable tool for serious engineering work. The tradeoff is that you're giving an agent shell access to your machine, which requires trust in the permission model and your own review discipline.
 
-**Codex CLI earns its place in workflows that prioritize isolation and asynchronous execution.** If you need sandboxed safety guarantees, want to batch well-defined tasks, or are deeply invested in the OpenAI ecosystem, Codex is a capable tool. Its simplicity is a feature for teams that don't want to manage configuration files and extension points.
+**If you prioritize safety through isolation, want open-source transparency, or work primarily on focused tasks that don't require local toolchain access, Codex CLI is the better fit.** Its sandbox model provides structural security guarantees, and its open-source nature means you can audit and modify every line of code.
 
-The tools are not mutually exclusive. A practical workflow might use Claude Code for interactive development and Codex CLI for batch tasks that benefit from cloud isolation. As both platforms evolve rapidly, the gap between them will likely narrow — but the architectural distinction between local-interactive and cloud-sandboxed will remain a fundamental design choice.
+Many teams will end up using both. Codex CLI for quick, isolated tasks and experimentation. Claude Code for deep integration work, team workflows, and production engineering. The tools are complementary more than competitive — they reflect genuinely different philosophies about how AI agents should interact with your development environment.
 
 ## Frequently Asked Questions
 
-### Is Codex CLI the same as the original OpenAI Codex?
-
-No. The original OpenAI Codex (2021-2023) was a code completion model based on GPT-3. **Codex CLI** is a completely different product — a cloud-based [agentic coding](/glossary/agentic-coding) tool launched in 2025 that uses OpenAI's reasoning models (o3, o4-mini) to execute multi-step coding tasks in sandboxed environments. They share a name but not an architecture or purpose.
+### Is Codex CLI free to use?
+Codex CLI is open source and free to install, but you pay for OpenAI API usage when running tasks. OpenAI offers free credits for [students](/blog/codex-for-students) and [open-source maintainers](/blog/codex-for-open-source). There is no software license fee — costs are purely consumption-based API billing.
 
 ### Can I use Codex CLI and Claude Code together?
+Yes. Many developers use Codex CLI for isolated prototyping and quick bug fixes, then switch to Claude Code for multi-file refactoring and workflow automation. The tools don't conflict — they run as separate terminal processes with no shared state.
 
-Yes. Many developers use both tools for different parts of their workflow. Claude Code handles interactive development, debugging, and tasks requiring local environment access. Codex CLI handles batch tasks, well-specified refactoring, and work where sandboxed execution is preferred. The tools don't conflict — they operate in separate environments.
+### Which tool is better for large monorepos?
+Claude Code has an edge for monorepos due to its [agent teams](/blog/claude-code-agent-teams) feature, which parallelizes work across sub-agents in separate worktrees. Codex CLI processes tasks sequentially in a single sandbox, which can be slower for codebase-wide changes.
 
-### Which tool is better for large codebases?
+### Do these tools work with languages other than JavaScript/Python?
+Both tools are language-agnostic. Codex CLI supports any language its sandbox can execute. Claude Code supports any language your local machine can run — since it uses your actual toolchain, it works with Go, Rust, Java, C++, or any other language you have installed.
 
-**Claude Code** generally handles large codebases more effectively due to its persistent context system. CLAUDE.md files, auto-memory, and the skills system let it accumulate understanding of your project over time. Codex CLI starts fresh with each task, relying on the repository snapshot it ingests at execution time. For very large repos, Claude Code's ability to reference prior sessions and encoded conventions gives it an edge.
-
-### Which tool is safer to use with production code?
-
-**Codex CLI** offers stronger isolation guarantees — the agent runs in a sandboxed container and cannot access your local system. **Claude Code** runs locally with permission-based controls. Both are safe when configured properly, but Codex's architectural isolation provides a harder security boundary for teams with strict compliance requirements. For [Codex CLI safety details](/faq/is-codex-cli-safe-to-use), the sandbox model is the key differentiator.
-
-### Do I need to pay for both tools separately?
-
-Yes. Codex CLI usage is billed through OpenAI (subscription or API), and Claude Code usage is billed through Anthropic (subscription or API). There is no bundled pricing. Individual developers can access both at entry-level subscription tiers ($20/month each), but heavy usage requires higher-tier plans or direct API billing from each provider.
+### Which tool handles sensitive or proprietary code more safely?
+Codex CLI sends code to OpenAI's cloud for sandbox execution, which may not meet data residency requirements. Claude Code runs locally — your code never leaves your machine unless you explicitly push it. For proprietary codebases, evaluate each provider's data handling policies against your organization's compliance needs.
 
 ---
 
