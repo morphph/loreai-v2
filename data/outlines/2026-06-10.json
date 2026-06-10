@@ -1,0 +1,244 @@
+{
+  "date": "2026-06-10",
+  "headline_hook": "Fable 5 Lands, Gemini Breaks the Language Barrier, and Agents Learn to Delegate",
+  "preview_topics": [
+    "Anthropic's Fable 5 step change",
+    "Google's real-time speech translation",
+    "the hidden cost of new tokenizers"
+  ],
+  "pick_of_the_day": {
+    "item_id": 49399,
+    "thesis": "The 'third era' framing isn't hype — when models sustain multi-hour autonomous sessions with self-verification, the developer relationship shifts from 'use a tool' to 'delegate to a collaborator,' and that rewires how we architect software, not just how we write it."
+  },
+  "model_literacy": {
+    "concept": "Tokenizer Divergence",
+    "relevance": "Fable 5's new tokenizer produces ~30% more tokens for the same text — same prompt, very different bill. When switching model families, re-estimate costs using the provider's token counting API, not your old numbers."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 49298,
+          "title": "Anthropic ships Fable 5 and Mythos 5 — the biggest capability jump since Opus 4.5",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "SOTA across nearly all benchmarks and a Mythos-class model made safe for general use — every builder's cost-performance calculus just changed",
+          "key_fact": "Fable 5 is Mythos-class made generally available; Mythos 5 sets new SOTA"
+        },
+        {
+          "id": 49284,
+          "title": "Gemini 3.5 Live Translate ships real-time speech-to-speech in 70+ languages",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Google cracks streaming translation that listens and translates simultaneously — available now in AI Studio, Google Translate, and Meet",
+          "key_fact": "70+ languages with no awkward pauses, streaming while listening"
+        },
+        {
+          "id": 49285,
+          "title": "Gemma 4 12B: one model, no encoders, four modalities",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Google open-sources a unified multimodal model that skips specialized encoders — text, image, audio, and video through one architecture, already available as QAT GGUF",
+          "key_fact": "Encoder-free, handles 4 modalities, runs locally via GGUF"
+        },
+        {
+          "id": 49291,
+          "title": "Cohere enters the coding model race with North Mini Code",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A small developer-focused coding model already trending on HuggingFace — more competition means better options for cost-sensitive pipelines",
+          "key_fact": "First Cohere model targeting developers, trending on HuggingFace"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 49390,
+          "title": "Claude Code unlocks nested subagents — agents spawning agents, five levels deep",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Agents can now kick off child agents with isolated context, capped at depth 5 — the architecture unlock for complex multi-step workflows that outgrow a single context window",
+          "key_fact": "Nested subagents capped at depth 5 for context management"
+        },
+        {
+          "id": 49342,
+          "title": "Claude Managed Agents adds cron scheduling and secret vaults",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Two missing production primitives land at once — cron-scheduled sessions and secure environment variable injection fill the gap between 'demo' and 'deploy'",
+          "key_fact": "Cron-scheduled sessions + encrypted environment variable vaults"
+        },
+        {
+          "id": 49418,
+          "title": "OpenAI Responses API now returns image search results",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Web search in the Responses API surfaces images alongside text — apps can now show products, places, and visual references without a separate image search call",
+          "key_fact": "Image results returned programmatically alongside text search"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 49405,
+          "title": "Four tips for getting the most out of Fable 5",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Anthropic's Alex Albert says: give it bigger tasks, default to high effort, and rewrite your CLAUDE.md — old instructions anchor the model to weaker behaviors",
+          "key_fact": "Old CLAUDE.md instructions anchor Fable to prior model behaviors"
+        },
+        {
+          "id": 49358,
+          "title": "Fable 5's tokenizer produces ~30% more tokens for the same text",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Budget-breaking surprise: the new Opus 4.7 tokenizer means your existing prompts cost more — use the token counting API with model: 'claude-fable-5' before you get the bill",
+          "key_fact": "~30% more tokens per prompt vs pre-Opus-4.7 models"
+        },
+        {
+          "id": 49386,
+          "title": "Self-verification loops are the key ingredient for long-running Fable sessions",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "As models get more capable, they run longer — and longer runs accumulate more errors. Boris Cherny argues verification loops make the difference between impressive and trustworthy",
+          "key_fact": "Verification loops prevent error accumulation in extended autonomous sessions"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 49396,
+          "title": "Multi-agent Mythos teams write large programs 3x faster than solo agents",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Anthropic shares concrete data backing the multi-agent coordination thesis — teams of Mythos agents beat single agents by 3x on large programs",
+          "key_fact": "3x speedup on large programs with multi-agent teams"
+        },
+        {
+          "id": 49490,
+          "title": "Internal evals: Fable matches GPT-5.5 on 98% of coding tasks, shines on the hardest 2%",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The practical routing insight: Fable at 2x the cost delivers marginal gains on most tasks but meaningful quality jumps on the hardest problems — route accordingly",
+          "key_fact": "98% parity with GPT-5.5, quality edge on hardest 2% at 2x cost"
+        },
+        {
+          "id": 49278,
+          "title": "FrontierCode benchmark shows over half of SWE-Bench solutions fail real code review",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Latent Space digs into why passing a benchmark isn't passing a code review — essential reading for anyone building on coding eval scores",
+          "key_fact": "50%+ of SWE-Bench solutions fail real code review criteria"
+        },
+        {
+          "id": 49286,
+          "title": "DeepMind lays out its European robotics investment strategy",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Google bets on Europe's robotics ecosystem as VLA-JEPA and embodied AI advance — positioning for the hardware-AI convergence",
+          "key_fact": "Dedicated European robotics investment amid VLA-JEPA advances"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 49446,
+          "title": "Karpathy calls Fable 5 a major-version-bump step change",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The highest-engagement independent reaction: Karpathy says this is the same order of leap as Claude 4.5 in November, with peak performance on long, difficult problem-solving sessions",
+          "key_fact": "14,840 likes — compares to the Claude 4.5 step change"
+        },
+        {
+          "id": 49399,
+          "title": "Anthropic's Claude Code lead says 'a third era quietly started today'",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Felix Rieseberg frames Fable 5 as the shift from models-as-tools to models-as-collaborators — the product perspective from the person who built the flagship dev tools",
+          "key_fact": "Third era: tools → collaborators, from the Claude Code architect"
+        },
+        {
+          "id": 49752,
+          "title": "Apple pulls AI-powered Siri from the EU after failing to get a regulatory exemption",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "EU AI regulation just proved it has real consequences — Apple chose to pull Siri rather than comply, signaling the compliance bar is higher than many companies expected",
+          "key_fact": "Apple withdrew Siri rather than meet EU AI Act requirements"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 49419,
+          "title": "One dev replaced an OCR pipeline with GPT-5.5 to translate 23K Chinese research papers",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A solo developer used GPT-5.5 to translate 23K+ ChinaRxiv papers with better quality than the original OCR pipeline — a concrete case where LLMs outperform traditional NLP stacks",
+          "key_fact": "23,000+ papers translated with better quality than OCR pipeline"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 49694,
+      "title": "Claude Code v2.1.170 ships Fable 5 access and transcript fixes",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The release that enables Fable 5 in Claude Code",
+      "key_fact": "Fable 5 support + VS Code transcript fix + nested subagents"
+    },
+    {
+      "id": 49552,
+      "title": "Codex CLI 0.139.0 adds web search in code mode",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Web search now callable directly from code mode",
+      "key_fact": "Standalone web search + richer MCP tool schemas"
+    },
+    {
+      "id": 49750,
+      "title": "Viral post: Fable 5 may refuse to help competitors build competing products",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The counterpoint every Fable evaluator should read",
+      "key_fact": "Safety classifiers may trigger on competitor use cases"
+    },
+    {
+      "id": 49517,
+      "title": "Bezos backs $500M bet on brain-inspired AI that runs on 50 watts",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Neuro-AI startup Flourish bets current LLM architectures have efficiency limits",
+      "key_fact": "$500M raised, targeting 50-watt continuous learning system"
+    },
+    {
+      "id": 49749,
+      "title": "Kolmogorov-Arnold Networks hit FPGAs for ultrafast inference",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Bridging theoretical math and hardware-level ML deployment",
+      "key_fact": "KAN implemented on FPGAs for ultrafast inference"
+    },
+    {
+      "id": 49292,
+      "title": "An agent chained two HuggingFace Spaces to build a 3D Paris gallery",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The pattern — agents composing existing tools — matters more than the gallery",
+      "key_fact": "Autonomous tool chaining across two HuggingFace Spaces"
+    }
+  ],
+  "total_items": 24
+}
