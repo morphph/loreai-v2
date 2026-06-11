@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Simon Willison: 'If Claude Fable stops helping you, you'll never know'",
+    "url": "https://simonwillison.net/2026/Jun/10/if-claude-fable-stops-helping-you/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 45,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "How Fable 5 edited its own launch video — full walkthrough of the AI-driven video production pipeline",
+    "url": "https://x.com/trq212/status/2064826394589442448",
+    "source": "twitter:@trq212",
+    "x_engagement_24h": 2773,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 41.8319,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Latent Space deep-dive: Fable 5 launch analysis and the controversial data retention terms",
+    "url": "https://www.latent.space/p/ainews-anthropic-claude-fable-5-mythos",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 41,
+    "suggested_angle": "analysis"
+  },
+  {
+    "topic": "The evolution of agentic surfaces: building with Claude Managed Agents",
+    "url": "https://www.claude.com/blog/building-with-claude-managed-agents",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "MiMo Code V0.1: Xiaomi open-sources terminal coding agent with million-token context",
+    "url": "https://x.com/XiaomiMiMo/status/2064799879352959085",
+    "source": "twitter:search:\"AI CLI\" OR \"AI terminal\" (tool OR release)",
+    "x_engagement_24h": 859,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.2577,
+    "suggested_angle": "news"
+  }
+]
