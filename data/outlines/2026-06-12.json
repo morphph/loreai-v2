@@ -1,0 +1,244 @@
+{
+  "date": "2026-06-12",
+  "headline_hook": "Claude Corps Drops, DeepMind Funds Multi-Agent Safety, and LeCun Rewrites the Rules",
+  "preview_topics": [
+    "Anthropic's next-gen Claude Corps launch",
+    "DeepMind's $10M multi-agent safety bet",
+    "why LeCun says we measure intelligence wrong"
+  ],
+  "pick_of_the_day": {
+    "item_id": 50278,
+    "thesis": "Amodei's essay isn't governance theater — it's the first admission from a frontier lab CEO that the industry is outrunning its own safety mechanisms, and his concrete proposals would fundamentally reshape how labs self-regulate before governments do it for them."
+  },
+  "model_literacy": {
+    "concept": "Emergent Behavior in Multi-Agent Systems",
+    "relevance": "DeepMind just committed $10M to study what happens when AI agents interact at scale — because behaviors that don't exist in any single model can spontaneously arise when multiple agents coordinate, compete, or communicate, and we have almost no tooling to predict or control them."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 50335,
+          "title": "Anthropic launches Claude Corps — its next intelligence tier beyond Fable 5",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Not a model bump but a product evolution: Claude Corps targets sustained hard knowledge work and multi-step coding that current models still fumble",
+          "key_fact": "Positioned as Anthropic's next generation beyond Fable 5, targeting enterprise-grade knowledge work"
+        },
+        {
+          "id": 50437,
+          "title": "Fable 5's safety guardrails go transparent after community pushback",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Anthropic opened the hood on Fable 5's refusal logic — a direct response to developer frustration with opaque restrictions that actually got results",
+          "key_fact": "Community criticism led to a concrete policy reversal on Fable 5 restrictions"
+        },
+        {
+          "id": 50786,
+          "title": "SCAIL-2 joins the open-source image-to-video race",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Another capable image-to-video model goes open — the space is getting crowded enough that quality and speed, not novelty, now decide winners",
+          "key_fact": "Trending on HuggingFace as an open-source image-to-video model"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 50411,
+          "title": "Fable 5 generates a fully working V8 engine CAD model from a single prompt",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "LLMs designing mechanical hardware from text is no longer theoretical — this V8 model actually works in CAD software, pushing the boundary of what 'coding' means",
+          "key_fact": "Complete, functional V8 engine model generated from one prompt — previously considered beyond LLM capability"
+        },
+        {
+          "id": 50530,
+          "title": "Carmack proposes optimizing codebases for AI readability",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "If LLMs navigate your code daily, why not write code that's optimized for their comprehension? Carmack argues it'd help humans too",
+          "key_fact": "LLMs could discover coding styles that improve both machine and human code navigation"
+        },
+        {
+          "id": 50326,
+          "title": "HuggingFace deep-dive: fusing MLP layers for real PyTorch speedups",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Actionable profiling walkthrough — from nn.Linear to a fused MLP with concrete latency numbers you can reproduce on your own training runs",
+          "key_fact": "Part 2 of the profiling series with copy-paste-ready fusion techniques"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 50320,
+          "title": "DeepMind and Schmidt Sciences commit $10M to multi-agent AI safety",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "The first major funding specifically targeting what happens when AI agents interact at scale — emergent behaviors no single-model eval can catch",
+          "key_fact": "$10M research fund — the first dedicated to multi-agent emergent behavior safety"
+        },
+        {
+          "id": 50518,
+          "title": "LeCun argues Magnus Carlsen isn't 'good at chess' the way we think",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The most provocative AI paper of the year challenges how we define capability — if LeCun is right, most AI benchmarks are measuring the wrong thing entirely",
+          "key_fact": "Paper challenges fundamental assumptions about intelligence and capability measurement"
+        },
+        {
+          "id": 50799,
+          "title": "Independent benchmarks put Fable 5 coding at mid-tier",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Endor Labs tested Fable 5 on real coding tasks and found middling results — a useful counterweight to launch-day hype that builders should factor into their eval plans",
+          "key_fact": "Mid-tier performance on coding benchmarks vs. competitors"
+        },
+        {
+          "id": 50460,
+          "title": "Palmeiras becomes the first football club to build on DeepMind's TacticAI",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "AI sports analytics graduates from stats dashboards to real-time tactical simulation — predicting play dynamics 8 seconds ahead",
+          "key_fact": "First football club to deploy TacticAI for real-time tactical prediction"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 50278,
+          "title": "Dario Amodei publishes the most detailed AI governance blueprint from any lab CEO",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Not vague principles but concrete policy mechanisms — Amodei argues the industry is outpacing its own guardrails and proposes specific structures before governments impose their own",
+          "key_fact": "Most detailed governance position paper with concrete policy proposals from a frontier lab CEO"
+        },
+        {
+          "id": 50429,
+          "title": "Anthropic launches 1,000-fellow program to put AI in nonprofit hands",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The largest public-interest AI workforce program from a frontier lab — paid fellows matched with US nonprofits, not just another hackathon",
+          "key_fact": "1,000 paid fellows placed at US nonprofits — the largest such program from any AI lab"
+        },
+        {
+          "id": 50490,
+          "title": "Simon Willison confirms: community pushback on Fable 5 restrictions worked",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Developers complained about opaque refusals, Anthropic reversed course — a rare case where vocal community feedback directly changed a frontier model's behavior",
+          "key_fact": "Policy reversal confirmed by prominent developer advocate"
+        },
+        {
+          "id": 50338,
+          "title": "DXC brings Claude into banks, airlines, and regulated enterprise",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The compliance barrier that kept AI out of regulated industries is getting a formal bridge — DXC's alliance targets the systems where most enterprise revenue actually flows",
+          "key_fact": "Partnership targets banks, airlines, and other industries where compliance has blocked AI adoption"
+        },
+        {
+          "id": 50412,
+          "title": "Ramp's AI Index: OpenAI held flat despite Codex launch",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Enterprise spending data tells a different story than Twitter hype — OpenAI's Codex launch didn't move the needle in real business adoption metrics",
+          "key_fact": "OpenAI enterprise spending flat month-over-month despite Codex release"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 50755,
+          "title": "Vercel AI SDK patches a critical tool-call validation bypass — update now",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "If you use tool approvals in the Vercel AI SDK, client-submitted message history could bypass your validation entirely — this is a drop-everything update",
+          "key_fact": "Tool calls from client message history executed without re-validating input schemas or approval status"
+        },
+        {
+          "id": 50761,
+          "title": "CrewAI 1.14.7 adds pluggable backends and Snowflake Cortex",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Memory and knowledge backends are now pluggable, Snowflake Cortex is native — CrewAI's architecture is maturing for enterprise multi-agent deployments",
+          "key_fact": "Pluggable memory/knowledge backends + native Snowflake Cortex support"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 50426,
+          "title": "$50 espresso machine controller built with Claude in 3 hours",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Anthropic's own Claude Code lead used Fable to build a hardware controller — the gap between 'AI writes code' and 'AI controls physical objects' is now $50 and an afternoon",
+          "key_fact": "$50 part + 3 hours of Claude Code = working hardware controller"
+        },
+        {
+          "id": 50776,
+          "title": "DiffusionGemma GGUF: run Google's diffusion text gen locally via llama.cpp",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Unsloth quantized DiffusionGemma to GGUF so you can benchmark parallel text generation on your own machine — the fastest path to hands-on diffusion-based LLM experience",
+          "key_fact": "26B parameter model quantized to run locally via llama.cpp"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 50571,
+      "title": "Bezos's AI startup Prometheus reportedly valued at $41B",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Industrial AI, not chatbots — massive capital bet on engineering and manufacturing",
+      "key_fact": "$41B reported valuation targeting industrial applications"
+    },
+    {
+      "id": 50308,
+      "title": "Simon Willison: Fable is relentlessly proactive — plan accordingly",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Fable takes initiative without asking — a behavioral shift developers need to design around",
+      "key_fact": "Documented tendency to act without explicit prompting"
+    },
+    {
+      "id": 50617,
+      "title": "TestSprite: open-source CLI for agent end-to-end testing",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Bridges the gap between 'agent wrote code' and 'code actually works'",
+      "key_fact": "Apache-2.0 licensed CLI for automated agent testing"
+    },
+    {
+      "id": 50028,
+      "title": "OpenAI redesigns ChatGPT's model picker after user complaints",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The 'too many models' UX problem gets a response",
+      "key_fact": "Model selection redesign driven by user frustration feedback"
+    },
+    {
+      "id": 50744,
+      "title": "Claude Code v2.1.173 fixes Fable 5 model name normalization",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Strips the redundant [1m] suffix and fixes a Windows sandbox warning",
+      "key_fact": "Maintenance release for Fable 5 compatibility"
+    }
+  ],
+  "total_items": 24
+}
