@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Claude Fable 5 has solved CAD — fully working V8 engine model",
+    "url": "https://x.com/bcherny/status/2064974739626394053",
+    "source": "twitter:@bcherny",
+    "x_engagement_24h": 6003,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 11,
+    "composite_score": 45.8009,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Fable is relentlessly proactive",
+    "url": "https://simonwillison.net/2026/Jun/11/fable-is-relentlessly-proactive/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 41,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "We're launching Claude Corps, a national fellowship program matching people early in their careers with US nonprofits.",
+    "url": "https://x.com/AnthropicAI/status/2065057393927467084",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 5280,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 38.584,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Espresso machine display built with Claude in 3 hours for $50",
+    "url": "https://x.com/felixrieseberg/status/2064839830077579682",
+    "source": "twitter:@felixrieseberg",
+    "x_engagement_24h": 922,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 37.2766,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Introducing Claude Corps",
+    "url": "https://www.anthropic.com/news/claude-corps",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 37,
+    "suggested_angle": "news"
+  }
+]
