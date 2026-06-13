@@ -1,0 +1,244 @@
+{
+  "date": "2026-06-13",
+  "headline_hook": "MiniMax M3 Goes Open-Weight, Codex Gets DevTools, and Fable Ships Real Projects",
+  "preview_topics": [
+    "MiniMax M3's 428B open-weight MoE",
+    "Codex browser debugging powers",
+    "the open-vs-closed AI governance clash"
+  ],
+  "pick_of_the_day": {
+    "item_id": 51021,
+    "thesis": "When the loudest safety advocate proposes governance only their lab survives, the 'safety vs openness' debate reveals itself as a market structure argument — and builders need to recognize the difference before they pick a side."
+  },
+  "model_literacy": {
+    "concept": "Mixture of Experts (MoE) — Active vs Total Parameters",
+    "relevance": "MiniMax M3 has 428B total parameters but only activates 23B per token — understanding MoE explains why a model can be massive yet cheap to run, and why 'parameter count' alone no longer predicts cost or speed."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 50970,
+          "title": "MiniMax M3 Drops 428B Open-Weight MoE With Only 23B Active Parameters",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The efficiency ratio is the headline — a model this large running this lean, fully open-weight and pip-installable day one, resets what 'open-source competitive' means against frontier closed models.",
+          "key_fact": "428B total / 23B activated parameters, open-weight on HuggingFace with Transformers v5.12 native support"
+        },
+        {
+          "id": 51261,
+          "title": "Moonshot AI Drops Kimi K2.7 Code Into the Open-Weight Ring",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The open-weight coding model field now has serious Chinese lab entrants alongside Cohere and Meta — the supply of competent coding models is becoming abundant.",
+          "key_fact": "Dedicated coding variant from Moonshot AI, open-weight on HuggingFace"
+        },
+        {
+          "id": 50959,
+          "title": "Google Opens Project Genie Globally for Ultra 5X Subscribers",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Google is mirroring Anthropic's premium capability tiers — the most advanced AI features are now explicitly gated behind premium subscriptions across all major labs.",
+          "key_fact": "Project Genie now available globally for Google AI Ultra 5X subscribers"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 50954,
+          "title": "Codex Gets Chrome DevTools Protocol — Real Browser Debugging From Inside the Agent",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "JavaScript profiling, network inspection, and page state debugging from within the agent makes Codex genuinely viable for frontend work — not just code generation, but live debugging.",
+          "key_fact": "Chrome DevTools Protocol access for JavaScript profiling, network debugging, and page state inspection"
+        },
+        {
+          "id": 51097,
+          "title": "GitHub Copilot Code Review Now Supports MCP and Custom Agent Skills",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Bringing org-specific tools and standards directly into the PR review flow is the extensibility unlock enterprise teams have been waiting for.",
+          "key_fact": "MCP server connections and custom agent skills in public preview for code review"
+        },
+        {
+          "id": 51238,
+          "title": "Claude Code Ships Three Releases in a Day Post-Fable",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The shipping cadence — localized sessions, Bedrock caching, scroll controls — signals how aggressively Anthropic is iterating on developer tooling while Fable attention is high.",
+          "key_fact": "v2.1.174–176: localized session titles, Bedrock credential caching, scroll acceleration"
+        },
+        {
+          "id": 51246,
+          "title": "Transformers v5.12 Ships Same-Day MiniMax M3 Vision-Language Support",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "HuggingFace's ecosystem velocity means new models go from announcement to pip-installable within hours — the infrastructure layer is no longer the bottleneck.",
+          "key_fact": "MiniMax-M3-VL support with CLIP-style tower and 3D rotary position embeddings"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 50991,
+          "title": "Simon Willison Goes From Fable Skeptic to 'Relentlessly Proactive' Convert",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "One of the loudest Fable 5 critics now shows it spinning up custom CORS servers and debugging tools autonomously from a single screenshot — the critic-to-convert arc is itself a signal about the model's practical capability.",
+          "key_fact": "Fable autonomously created Python CORS proxy servers and debugging tools from a screenshot"
+        },
+        {
+          "id": 50943,
+          "title": "How to Manage Fable's Overwhelming Output in Long Agentic Sessions",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Anthropic's own developer relations lead shares a concrete prompting pattern for taming Fable's proactivity — practical technique for anyone hitting the 'too much output' wall.",
+          "key_fact": "Specific prompt snippet for controlling output volume in extended agent conversations"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 50942,
+          "title": "Fable 5 Hits 87–88% on FrontierMath Without Being a Reasoning Specialist",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Independent benchmark confirmation from Epoch AI — these scores from a non-reasoning-specialized model suggest the gap between 'general' and 'reasoning' models is closing fast.",
+          "key_fact": "87% on FrontierMath Tiers 1–3, 88% on Tier 4 (independently verified by Epoch AI)"
+        },
+        {
+          "id": 50998,
+          "title": "Frontier LLMs Now Outperform Purpose-Built Clinical AI Across the Board",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "General-purpose models beating specialized clinical tools in all three evaluations is a death knell for vertical AI products built on older architectures.",
+          "key_fact": "Frontier LLMs outperformed clinical AI tools in all three evaluation categories"
+        },
+        {
+          "id": 51011,
+          "title": "Microsoft Research Ships Arbor — a Generalist Autonomous Research Agent",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Persistent hypothesis-tree refinement is a structural advance over linear agent chains — the field is moving past task-specific agent designs toward generalist research autonomy.",
+          "key_fact": "Uses persistent hypothesis-tree refinement for autonomous research across domains"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 50939,
+          "title": "48 Hours of Fable 5: The Community Build Showcase That Benchmarks Can't Capture",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Official Claude account curates the most impressive community projects built in Fable's first 48 hours — what people actually ship with a model matters more than what it scores.",
+          "key_fact": "29,885 likes on the community showcase thread — highest engagement of any Fable post"
+        },
+        {
+          "id": 51021,
+          "title": "LeCun Fires Back: Amodei's Safety Governance Would Kill Open-Source AI",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The sharpest counter-argument to Anthropic's policy positioning — 'declare AI too dangerous for competition, then propose a regime only your lab survives' — forces the industry to separate safety arguments from market structure arguments.",
+          "key_fact": "1,985 likes — LeCun's most-engaged AI policy post this month"
+        },
+        {
+          "id": 50860,
+          "title": "TCS Partners With Anthropic to Push Claude Into Banks and Government",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Following DXC yesterday, Anthropic is systematically locking down the enterprise consulting layer — TCS gives Claude a direct channel into regulated industries worldwide.",
+          "key_fact": "TCS is one of the world's largest IT services firms serving banks, insurers, and government agencies"
+        },
+        {
+          "id": 50859,
+          "title": "Anthropic Publishes Its First 'Public Record' With Chris Olah on the Pope's AI Encyclical",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A new transparency initiative that bridges AI safety with broader societal discourse — Anthropic is deliberately positioning itself in conversations beyond the tech bubble.",
+          "key_fact": "First release in a new 'Public Record' series combining AI safety with societal perspectives"
+        },
+        {
+          "id": 50988,
+          "title": "Richard Socher Claims Recursive Has Achieved Self-Improving AI Research",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Whether you believe the claim or not, serious researchers saying 'AI agents are now doing our AI research' in public signals where the frontier labs think they're headed.",
+          "key_fact": "Recursive claims agents are doing the research that makes better agents"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 51107,
+          "title": "Extend CLI Open-Sources Document Parsing With Built-In Agent Skills",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "CLI tools shipping with agent skills baked in is becoming the pattern — this is how the tool ecosystem adapts to agentic workflows where Claude Code or Codex drives execution.",
+          "key_fact": "Built-in agent skill so Claude Code and Codex can drive document parsing natively"
+        },
+        {
+          "id": 51218,
+          "title": "architect-loop: Fable as Architect, Codex as Builder — Cross-Vendor Agent Arbitrage",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The first clean implementation of model arbitrage in a practical dev tool — use the best model for each phase instead of locking into one vendor for everything.",
+          "key_fact": "Claude Code skill routing architectural decisions to Fable and code-writing to GPT-5.5 Codex"
+        },
+        {
+          "id": 51291,
+          "title": "Step-by-Step: Setting Up a Local Coding Agent on macOS",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Fills the gap between 'coding agents exist' and 'here's exactly how to run one on your machine' — trending on HN for a reason.",
+          "key_fact": "226 HN points, practical macOS-specific walkthrough"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 51263,
+      "title": "MiniMax M3 Weights Now Live on HuggingFace",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Model weights available for download — companion to the M3 launch story above",
+      "key_fact": "245 likes, early downloads climbing"
+    },
+    {
+      "id": 50958,
+      "title": "Google's Week in AI: Live Translate GA, NotebookLM Upgrade, Genie Expansion",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Three Google product updates bundled in one thread",
+      "key_fact": "Gemini 3.5 Live Translate GA, NotebookLM agentic chat, Project Genie global"
+    },
+    {
+      "id": 50953,
+      "title": "OpenAI Adds ⌘K Search to the API Dashboard",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Quality-of-life DX improvement for the API console",
+      "key_fact": "Search across pages, settings, and docs from one shortcut"
+    },
+    {
+      "id": 51251,
+      "title": "Ollama v0.30.8 Improves Prompt Caching and MLX Stability",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Better local inference speed for Apple Silicon users",
+      "key_fact": "Prompt caching decoupled from context shift, hardened MLX support"
+    }
+  ],
+  "total_items": 24
+}
