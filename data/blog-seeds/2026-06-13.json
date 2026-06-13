@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Claude Fable 5 has been out for a couple of days. Some projects people have already built with it:",
+    "url": "https://x.com/claudeai/status/2065456678909227064",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 31481,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 42.4443,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "After two days with Claude Fable 5 the best way I can describe it is 'relentlessly proactive'",
+    "url": "https://x.com/simonw/status/2065216774992515342",
+    "source": "twitter:@simonw",
+    "x_engagement_24h": 711,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.213300000000004,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "TCS and Anthropic partner to bring Claude to regulated industries",
+    "url": "https://www.anthropic.com/news/tcs-anthropic-partnership",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code v2.1.176 — session titles in conversation language, Bedrock credential caching",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.176",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 28,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Fable feels superhuman at working over long agentic conversations, sometimes to the point where I can't keep up with what it's telling me",
+    "url": "https://x.com/alexalbert__/status/2065493229760565758",
+    "source": "twitter:@alexalbert__",
+    "x_engagement_24h": 690,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.207,
+    "suggested_angle": "news"
+  }
+]
