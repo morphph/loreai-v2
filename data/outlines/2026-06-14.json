@@ -1,0 +1,236 @@
+{
+  "date": "2026-06-14",
+  "headline_hook": "Washington Pulls the Plug on Fable as Kimi and Fusion Race to Fill the Void",
+  "preview_topics": [
+    "the overnight Fable 5 export ban",
+    "Kimi 2.7's agentic coding surge",
+    "why open weights are suddenly insurance"
+  ],
+  "pick_of_the_day": {
+    "item_id": 51779,
+    "thesis": "The Fable ban isn't a national security story — it's a cloud wars story. Amazon's CEO lobbied officials to restrict his own portfolio company's flagship product, revealing that in the age of AI, your largest investor can also become your most effective regulator."
+  },
+  "model_literacy": {
+    "concept": "Model Weights vs. API Access",
+    "relevance": "The Fable ban was possible because API access can be revoked with a single directive. Open-weight models like Llama or Mistral can't be 'turned off' once downloaded. This distinction — who holds the kill switch — is now the central question in AI infrastructure decisions."
+  },
+  "sections": [
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 51425,
+          "title": "US Government Orders Fable 5 and Mythos 5 Suspended for All Foreign Nationals",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The most aggressive AI export control action ever — not a future regulation but an immediate kill switch on live API access affecting every non-US Anthropic customer overnight",
+          "key_fact": "Suspension covers all foreign nationals, whether inside or outside the US, under national security authorities"
+        },
+        {
+          "id": 51779,
+          "title": "Amazon CEO's Lobbying Directly Triggered the Fable Crackdown",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "WSJ investigation reveals the corporate politics behind the directive — Amazon lobbied to restrict its own investment's most powerful product, rewriting the rules on investor-lab dynamics",
+          "key_fact": "Amazon CEO's direct conversations with US officials precipitated the export control action"
+        },
+        {
+          "id": 51348,
+          "title": "Anthropic's Official Statement on the Fable and Mythos Suspension",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Anthropic's compliance response provides the full scope — what's suspended, who's affected, and what comes next",
+          "key_fact": "Official statement confirms full compliance with the directive and outlines the access suspension timeline"
+        },
+        {
+          "id": 51328,
+          "title": "Latent Space: Fable and Mythos 'Officially Too Dangerous to Release'",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The industry commentary layer — what happens when a government declares your best model a national security risk",
+          "key_fact": "First major AI newsletter to frame the suspension as a precedent for all frontier labs, not just Anthropic"
+        },
+        {
+          "id": 51481,
+          "title": "Mollick: Don't Expect This Ban to Help Open-Source AI",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The contrarian take — if Mythos-level models are deemed risky, no government including China's will want them open-weight either",
+          "key_fact": "If the risk framing sticks, open-source faces the same regulatory pressure as closed-source"
+        },
+        {
+          "id": 50960,
+          "title": "Google DeepMind Launches European Robotics Accelerator with Gemini Access",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Physical AI enters the accelerator phase — 15 startups get Gemini Robotics models, signaling Google's embodied intelligence bet",
+          "key_fact": "15 startups in a three-month program with access to Google's full AI stack and Gemini Robotics models"
+        }
+      ]
+    },
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 51514,
+          "title": "Kimi 2.7 Code Drops 'Mind-Blowing' Agentic Coding Benchmarks",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Arriving at the exact moment Fable access gets restricted — if benchmarks hold, Kimi 2.7 becomes the default alternative for teams losing their best coding model",
+          "key_fact": "Benchmark results reportedly rival or exceed Fable 5 on agentic coding tasks"
+        },
+        {
+          "id": 51471,
+          "title": "Fusion API Claims Fable-Level Deep Research at Half the Cost",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Launched the same day as the Fable ban — if performance claims hold, Fusion becomes the first credible drop-in for deep research workflows",
+          "key_fact": "Claims Fable-level performance on deep research tasks at 50% of the cost"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 50952,
+          "title": "OpenAI Adds an AI Docs Agent to Its Developer Platform",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Natural language questions answered with direct links to relevant docs — a quality-of-life win for anyone building on OpenAI's API",
+          "key_fact": "Live on platform.openai.com, answers developer questions with links to official documentation"
+        },
+        {
+          "id": 51781,
+          "title": "OpenAI Opens Codex to Open-Source Maintainers",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Free AI coding compute for OSS projects — with Fable restricted, Codex positions itself as the default coding tool for the open-source community",
+          "key_fact": "Free Codex access for open-source maintainers via application"
+        },
+        {
+          "id": 51699,
+          "title": "Omnigent: A Meta-Harness That Swaps AI Agents Without Rewriting",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Provider-agnostic agent orchestration — suddenly very relevant when your primary model can get banned overnight",
+          "key_fact": "Common layer over Claude Code, Codex, Pi, and custom agents with hot-swappable providers"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 51323,
+          "title": "Simon Willison on What Developers Should Do After the Fable Ban",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "From Fable convert to exiled user in 48 hours — practical guidance on model migration from someone living through it in real time",
+          "key_fact": "Willison went from skeptic to daily Fable user to forced migration within the same week"
+        },
+        {
+          "id": 51783,
+          "title": "AI Coding at Home Without Going Broke",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Practical cost-optimization guide trending on HN — especially timely as developers reassess model dependencies and monthly AI spend",
+          "key_fact": "Step-by-step setup guide for cost-effective local and hybrid AI coding workflows"
+        },
+        {
+          "id": 50835,
+          "title": "Loopcraft: The Emerging Art of Stacking AI Agent Loops",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The meta-technique for getting more from AI agents — composing feedback loops from Steinberger, Cherny, and Karpathy's patterns",
+          "key_fact": "Distills loop-stacking patterns from three practitioners into a reusable framework"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 50847,
+          "title": "Allen AI Releases olmo-eval: An Eval Workbench for the Model Dev Loop",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Fills the gap between 'run one eval' and 'build your own eval infrastructure from scratch' — designed for iterative model development, not just final benchmarks",
+          "key_fact": "Full evaluation workbench covering the iterative development loop, not just one-shot benchmarking"
+        },
+        {
+          "id": 50999,
+          "title": "Frontier Models Fail a Simple Instruction-Following Test",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "GPT-5.5 and Fable both refuse to change 'three words' to 'four' — revealing systematic over-alignment that persists at the frontier",
+          "key_fact": "Both GPT-5.5 Pro Extended and Fable Max fail the same instruction-following edge case"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 50996,
+          "title": "Mollick Recreates Lost SimRefinery Game from Screenshots Using Claude Code + Fable",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A vivid capability demo that now carries extra weight — this is what's being taken away from non-US users overnight",
+          "key_fact": "Fully playable SimRefinery reconstructed from surviving screenshots and documentation alone"
+        },
+        {
+          "id": 51476,
+          "title": "Simon Willison Builds a WebRTC Voice Playground for OpenAI's gpt-realtime-2",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Open-source tooling filling product gaps — OpenAI hasn't shipped gpt-realtime-2 in ChatGPT, so Willison built his own interface with document context",
+          "key_fact": "WebRTC playground supports document context for grounded voice conversations"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 51515,
+      "title": "The Fable Ban Reignites the Open-Source AI Sovereignty Argument",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "If governments can kill API access overnight, open weights become resilience infrastructure",
+      "key_fact": "504 likes on the 'this is why you should support open source AI' framing"
+    },
+    {
+      "id": 51728,
+      "title": "Claude Code Ships v2.1.177 Amid the Fable Chaos",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Anthropic's dev tools team keeps shipping despite the access suspension",
+      "key_fact": "Latest release in Anthropic's rapid-fire Claude Code cadence"
+    },
+    {
+      "id": 51324,
+      "title": "Full Write-Up: Building Voice-First AI with WebRTC and Document Context",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Detailed implementation notes for anyone building voice-first AI interfaces",
+      "key_fact": "Companion post to Simon Willison's gpt-realtime-2 playground"
+    },
+    {
+      "id": 51785,
+      "title": "Paca: A Lightweight Jira Alternative for Human-AI Team Workflows",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Project management that treats AI agents as first-class team members",
+      "key_fact": "Open-source, trending on Show HN with 129 upvotes"
+    },
+    {
+      "id": 51780,
+      "title": "UK Police Officer Investigated for Using AI to Fabricate Evidence",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A concrete case of AI misuse in high-stakes institutions — output verification isn't optional",
+      "key_fact": "Multiple cases affected by AI-generated evidence under investigation"
+    }
+  ],
+  "total_items": 23
+}
