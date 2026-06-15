@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "RT @ClaudeDevs: As a result of a US government directive, we are suspending access to Claude Fable 5 for all users. You can continue to use…",
+    "url": "https://x.com/claudeai/status/2065599937530999254",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 49941,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 47.9823,
+    "suggested_angle": "comparison"
+  },
+  {
+    "topic": "Amazon CEO reportedly raised Anthropic model concerns before government crackdown",
+    "url": "https://techcrunch.com/2026/06/13/amazon-ceo-reportedly-raised-anthropic-model-concerns-before-government-crackdown/",
+    "source": "rss:TechCrunch AI",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 45,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Rio de Janeiro's \"homegrown\" LLM appears to be a merge of an existing model",
+    "url": "https://github.com/nex-agi/Nex-N2/issues/4",
+    "source": "hackernews",
+    "x_engagement_24h": 399,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.1197,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "anthropics/claude-plugins-official: Official, Anthropic-managed directory of high quality Claude Code Plugins.",
+    "url": "https://github.com/anthropics/claude-plugins-official",
+    "source": "github:trending:Agent/MCP tools",
+    "x_engagement_24h": 33383,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 27.0149,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @ZyphraAI: Today we're releasing ZONOS2, our next-generation real-time TTS model with high-fidelity voice cloning.",
+    "url": "https://x.com/huggingface/status/2065990543855722601",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 771,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.231299999999997,
+    "suggested_angle": "news"
+  }
+]
