@@ -1,0 +1,236 @@
+{
+  "date": "2026-06-15",
+  "headline_hook": "Anthropic Ships a Plugin Ecosystem While Engineers Write Their Own Survival Guide",
+  "preview_topics": [
+    "Anthropic's official plugin directory",
+    "a 7-model autoresearch benchmark",
+    "why AI still won't replace engineers"
+  ],
+  "pick_of_the_day": {
+    "item_id": 51815,
+    "thesis": "The developer who spent a week converting to Fable's capabilities — then lost access overnight — writes the strongest case yet for why AI augments rather than replaces engineering judgment. His timing makes the argument land harder than any think piece could: you don't get to dismiss 'AI won't take your job' when the guy saying it just lost his favorite tool and is more productive, not less, for understanding why."
+  },
+  "model_literacy": {
+    "concept": "Model Merging (SLERP / TIES / DARE)",
+    "relevance": "Rio de Janeiro's '397B homegrown LLM' turned out to be a merge of existing open-weight models. Understanding merge techniques — how SLERP interpolates weights, how TIES resolves parameter conflicts — explains both why merging is a legitimate research technique and why calling the result 'homegrown' is misleading. As open models proliferate, provenance verification becomes as important as benchmark scores."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 51940,
+          "title": "Zyphra Drops ZONOS2 for Real-Time Voice Cloning",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Open-source TTS keeps closing the gap with commercial voice APIs — ZONOS2 brings high-fidelity cloning with real-time latency",
+          "key_fact": "Real-time inference with high-fidelity voice cloning from a single reference sample"
+        },
+        {
+          "id": 51941,
+          "title": "Rio de Janeiro Claims a 397B 'Homegrown' LLM",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A municipal government releasing a frontier-scale model sounds historic — until the community digs into the weights",
+          "key_fact": "397B parameters, based on Qwen 7/2 with SwiReLU modifications"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 52191,
+          "title": "Anthropic Launches an Official Plugin Directory for Claude Code",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Claude Code evolves from standalone coding agent to extensible platform — Anthropic is building its ecosystem layer, and 30K stars on day one says developers were waiting for exactly this",
+          "key_fact": "30,126 GitHub stars already; official Anthropic-curated directory"
+        },
+        {
+          "id": 52190,
+          "title": "Oh-My-Codex Turns Codex Into a Multi-Agent System",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The oh-my-zsh pattern hits AI coding agents — hooks, agent teams, HUDs, and customization layers signal we've moved from 'does it work?' to 'how do I make it mine?'",
+          "key_fact": "30,898 GitHub stars in days; adds hooks, agent teams, and HUDs to Codex"
+        },
+        {
+          "id": 52076,
+          "title": "Xiaomi's MiMo Code: A Free Claude Code Alternative With Persistent Memory",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Another entrant in the AI coding agent space — persistent memory and subagents at zero cost raises the floor for what developers expect from coding assistants",
+          "key_fact": "8K GitHub stars in 4 days; zero-config setup with persistent cross-session memory"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 52074,
+          "title": "Google Publishes a 421-Page AI Agent Engineering Playbook",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A free curriculum covering prompt chaining, memory, MCP, multi-agent systems, and guardrails — Google effectively open-sourced their internal agent-building knowledge",
+          "key_fact": "421 pages with code examples covering the full agent engineering stack"
+        },
+        {
+          "id": 52081,
+          "title": "The June 2026 Guide to Running Local LLMs on Consumer GPUs",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Especially timely as developers seek alternatives post-Fable ban — specific VRAM requirements and performance numbers for Gemma 4, Qwen, and more via llama.cpp",
+          "key_fact": "Covers models from 1B to 70B with exact VRAM requirements per quantization level"
+        },
+        {
+          "id": 51975,
+          "title": "Codex Mobile Power User Guide: Your Phone as a Coding Control Plane",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Using your phone to manage coding agents running on desktop — branch selection, worktrees, and /plan mode from mobile",
+          "key_fact": "Covers branch selection, worktrees, /side threads, and /plan mode from mobile"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 51953,
+          "title": "New Benchmark Pits 7 Frontier Models on Autoresearch Tasks",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Independent benchmarks on agentic research capabilities are rare — this one tests ML engineering, prompt engineering, and open-ended research across every major frontier model",
+          "key_fact": "7 frontier models tested across 3 categories of autoresearch tasks"
+        },
+        {
+          "id": 52273,
+          "title": "Community Investigation Exposes Rio's 'Homegrown' LLM as a Model Merge",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A GitHub issue thread systematically dismantles the provenance claims — a cautionary tale about AI announcements from non-traditional players",
+          "key_fact": "Weight analysis suggests the model is a merge of existing open-weight models, not original training"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 51815,
+          "title": "Simon Willison: Why AI Hasn't Replaced Software Engineers, and Won't",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "From the developer who went from Fable skeptic to convert to losing access in one week — the definitive piece on AI as augmentation, not replacement, carrying extra weight from lived experience",
+          "key_fact": "Written by the developer who just spent a week demonstrating Fable's capabilities before the ban"
+        },
+        {
+          "id": 51427,
+          "title": "Fable 5 Suspension Crosses 42K Likes as the Fallout Continues",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The official suspension tweet keeps climbing in engagement — the story has legs beyond day-one shock",
+          "key_fact": "42,873 likes and 7,068 retweets on the official Anthropic suspension notice"
+        },
+        {
+          "id": 51958,
+          "title": "Simon Willison: The Fable Jailbreak Probably Works on Every Frontier Model",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The vulnerability that triggered the ban likely isn't unique to Fable — banning one model while the same exploit works on others is security theater",
+          "key_fact": "1,577 likes on the observation that Opus 4.x and GPT 5.x likely share the same vulnerability"
+        },
+        {
+          "id": 51296,
+          "title": "State Attorneys General Open Investigation Into OpenAI",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Regulatory pressure now hits multiple frontier labs simultaneously — this isn't just an Anthropic story anymore",
+          "key_fact": "Investigation covers ad policies and health data handling practices"
+        },
+        {
+          "id": 51295,
+          "title": "Amazon CEO Raised Anthropic Concerns Before the Government Crackdown",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The investor-triggering-regulation narrative is now mainstream tech press — Amazon's dual role as investor and potential complainant raises uncomfortable questions",
+          "key_fact": "Amazon CEO reportedly raised concerns before the government directive was issued"
+        },
+        {
+          "id": 51825,
+          "title": "Interconnects: Welcome to the AGI Era of AI Governance",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "We crossed a one-way door into AGI-era governance and weren't ready — the Fable ban is exhibit A in a new regulatory paradigm",
+          "key_fact": "Argues the Fable ban represents a permanent shift in how governments treat frontier AI models"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 51964,
+          "title": "Mollick's Last Fable Project: A One-Shot FTL Travel Simulator",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A bittersweet demo of Fable's creative coding capability at the exact moment it became unavailable — the best argument for what developers lost",
+          "key_fact": "Single-prompt generation of an interactive FTL travel simulation with multiple drive types"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 52275,
+      "title": "Did Anthropic Actually Ask for the Fable Ban?",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "HN-trending analysis questioning whether Anthropic welcomed the government intervention",
+      "key_fact": "119 likes on HN-front-page analysis"
+    },
+    {
+      "id": 51294,
+      "title": "KPMG Pulls AI Report After Its Own AI Hallucinated the Data",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Big Four firm ships unverified AI output in a report about AI usage — the irony writes itself",
+      "key_fact": "Full report retraction due to AI-generated hallucinated statistics"
+    },
+    {
+      "id": 51982,
+      "title": "LeCun: Americans Will Have Walled AI Gardens",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The Fable ban as proof that API-dependent AI creates access-as-privilege",
+      "key_fact": "895 likes on the 'walled gardens' framing shared by Yann LeCun"
+    },
+    {
+      "id": 51942,
+      "title": "HuggingFace CEO: Two Paths for AI — Closed APIs or Open Models",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Clement Delangue crystallizes the post-Fable-ban debate into a binary choice",
+      "key_fact": "895 likes framing closed vs. open as the defining choice"
+    },
+    {
+      "id": 52276,
+      "title": "The Register: AI Is Code, Not Magic — Stop Trying to Prompt It Smarter",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Useful framing for developers managing stakeholder expectations about AI capabilities",
+      "key_fact": "Argues prompting gains are fundamentally bounded by model architecture"
+    },
+    {
+      "id": 51962,
+      "title": "Mollick: Nobody Actually Knows How to Restructure Companies Around AI Agents",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A useful dose of humility — practical agents are six months old and best practices don't exist yet",
+      "key_fact": "294 likes on the candid admission from a leading AI adoption researcher"
+    }
+  ],
+  "total_items": 23
+}
