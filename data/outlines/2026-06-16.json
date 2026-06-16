@@ -1,0 +1,252 @@
+{
+  "date": "2026-06-16",
+  "headline_hook": "Fable's Fallout Deepens, Sakana Launches Marlin, and Ultracode Burns Tokens",
+  "preview_topics": [
+    "the Fable personality-clash bombshell",
+    "Sakana's autonomous research agent",
+    "why your model vibes might be lying"
+  ],
+  "pick_of_the_day": {
+    "item_id": 52479,
+    "thesis": "The persistent gap between measured model quality and perceived model quality isn't user error — it's a systematic evaluation blind spot that grows worse as frontier models converge, and it's already distorting how we judge every new release."
+  },
+  "model_literacy": {
+    "concept": "Model Collapse",
+    "relevance": "Today's DeepMind research shows models inherit behavioral quirks from training on predecessor outputs. Model collapse describes how recursive self-training amplifies these artifacts across generations — explaining why models from the same lineage 'feel' alike and why synthetic data pipelines need diversity guardrails."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 52441,
+          "title": "Sakana AI Ships Marlin, Its First Paid Product: An Autonomous Research Agent",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Ex-Google Brain researchers bet their first commercial product on autonomous deep research — positioning directly against Gemini Deep Research and Perplexity Pro with a 'Virtual CSO' pitch.",
+          "key_fact": "Built on their NeurIPS-spotlighted AB-MCTS (tree search) architecture"
+        },
+        {
+          "id": 52373,
+          "title": "Claude Code Hackathon Winners Reveal Where the Ecosystem Is Heading",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The winning projects aren't demos — they signal which Claude Code patterns are production-ready and where Anthropic's developer ecosystem is actually gaining traction.",
+          "key_fact": "Hackathon built on Opus 4.7, showcasing agentic coding workflows"
+        },
+        {
+          "id": 51990,
+          "title": "Zhipu Drops GLM 5.2, Claims Opus 4.7 Parity",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Another Chinese open-weight model claiming frontier parity — the gap between open and closed keeps narrowing on benchmarks, even if vibes tell a different story.",
+          "key_fact": "Released hours after announcement, positioned as Opus 4.7-class"
+        },
+        {
+          "id": 52716,
+          "title": "Microsoft Drops FastContext: A 4B Model Built for Speed",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Microsoft quietly investing in small, fast models alongside its GPT partnership — a bet that not every inference needs a frontier model.",
+          "key_fact": "4B parameters, optimized for efficient text generation on modest hardware"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 52409,
+          "title": "OpenAI Ships a First-Party Codex Plugin — Treating Codex as a Platform",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "OpenAI embeds API key setup, docs surfacing, and inline debugging directly in Codex — the shift from coding assistant to developer platform is explicit now.",
+          "key_fact": "602 likes — strong developer interest in native integrations"
+        },
+        {
+          "id": 52684,
+          "title": "Claude Code v2.1.178: Fine-Grained Permission Rules and Monorepo Skills",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "New Tool(param:value) syntax lets teams lock down which subagent models get auto-approved. Nested .claude/ directories finally make monorepo workflows first-class.",
+          "key_fact": "Permission rules can now target specific tool parameters"
+        },
+        {
+          "id": 52516,
+          "title": "Codex CLI Adds Usage Tracking and One-Command Claude Code Import",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "OpenAI makes switching from Claude Code trivially easy with config import — the AI IDE tool war is now about reducing migration friction.",
+          "key_fact": "One-command import of Claude Code project config and setup"
+        },
+        {
+          "id": 52659,
+          "title": "tmux Plugin Manages Multiple Claude Code Sessions Across Repos",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "From craftzdog: jump between parallel agentic sessions and see which are done vs. still working. Solves a real pain point as developers run more concurrent AI workflows.",
+          "key_fact": "Single popup to manage all Claude Code sessions"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 52420,
+          "title": "swyx: Ultracode Is Scarily Good — But Your Repo Has to Be Ready",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "The first serious practitioner breakdown of Claude Code's multi-agent Ultracode mode. The real unlock isn't the feature — it's structuring your repo so parallel fan-out actually works.",
+          "key_fact": "Subagents framed as 'intelligent subroutines' — repo structure is the bottleneck"
+        },
+        {
+          "id": 52524,
+          "title": "MCP vs CLI: Stop Overthinking It — Use Both",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "CLI for tools the model already knows (git, npm, docker). MCP for integrations it doesn't (Slack, Notion, Linear). A clean mental model that ends the debate.",
+          "key_fact": "CLI calls are cheaper in context; MCP adds capabilities the model can't infer"
+        },
+        {
+          "id": 52537,
+          "title": "Skip the Figma MCP Server — Just Give Your Agent Browser Access",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Point a coding agent at window.figma in a browser and you get full design automation — no dedicated MCP server needed. One instruction replaces an entire integration.",
+          "key_fact": "Full Figma plugin API access through browser automation"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 52433,
+          "title": "DeepMind Finds AI Models Inherit 'Strange Habits' From Predecessor Outputs",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Models trained on outputs of previous-generation models pick up hard-to-filter quirks — a concrete mechanism for why models from the same family 'feel' alike.",
+          "key_fact": "Behavioral artifacts persist through synthetic data pipelines across model generations"
+        },
+        {
+          "id": 52479,
+          "title": "'Phantom Quantization': Why You Think Models Get Worse (Even When They Don't)",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Users reliably perceive model degradation over time that benchmarks can't detect. If this bias is real, every 'they nerfed it' complaint needs a double-take.",
+          "key_fact": "Objective metrics flat while user perception consistently trends negative"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 52307,
+          "title": "Personality Clashes Sent Anthropic's Models Offline, Axios Reports",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "If accurate, Fable and Mythos going offline wasn't purely a safety call — it was partly an organizational failure. That reframes the entire suspension narrative.",
+          "key_fact": "Axios report surfaces internal personality clashes as a contributing factor"
+        },
+        {
+          "id": 52423,
+          "title": "Anthropic Quietly Updated Its Privacy Policy One Day Before Fable Launched",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "New 'verification data' language appeared June 8th — one day before Fable launched, four days before government action. The timing raises questions about what Anthropic anticipated.",
+          "key_fact": "Privacy policy updated June 8th with 'verification data' collection language"
+        },
+        {
+          "id": 52730,
+          "title": "HN Reality Check: Can Local Models Actually Replace Claude for Daily Coding?",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "600+ point thread consensus: local works for autocomplete and small edits, but still can't match cloud models on complex multi-file reasoning. A useful data point amid the Fable fallout.",
+          "key_fact": "603 points on HN — unusually high engagement for a practical comparison thread"
+        },
+        {
+          "id": 52432,
+          "title": "Mollick: AI Is Ready for Moonshots — But They Need Public R&D, Not Just Startups",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Universal tutoring, replication systems, remote medicine — Mollick argues these are now feasible but require consensus and public investment, not another VC sprint.",
+          "key_fact": "394 likes — Mollick's highest-engagement post this week"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 52495,
+          "title": "Build a GPT-Style Transformer From Scratch — No High-Level Libraries",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Attention, multi-head attention, feed-forward blocks, embeddings, layer norm — all from raw components. The best way to understand what's under the hood.",
+          "key_fact": "Full path from data download to generated text with zero abstractions"
+        },
+        {
+          "id": 52195,
+          "title": "fusion-fable: Fuse Opus 4.8 + GPT-5.5 to Approximate Suspended Fable",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "With Fable suspended, developers are building cross-vendor workarounds. Opus drafts, GPT-5.5 checks, results fuse — a practical arbitrage pattern from available models.",
+          "key_fact": "225 stars — strong interest in Fable-replacement workarounds"
+        },
+        {
+          "id": 52263,
+          "title": "Qwen 3.6 40B GGUF Hits 376K Downloads as Local Model Demand Spikes",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "376K downloads and the 'uncensored thinking' framing — demand for unrestricted local models is spiking post-Fable suspension.",
+          "key_fact": "376K downloads, 336 likes on HuggingFace"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 52685,
+      "title": "Anthropic Python SDK v0.109.2 Removes Retired Model IDs",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Check your hardcoded model strings — retired IDs will break",
+      "key_fact": "Breaking change if pinned to removed model identifiers"
+    },
+    {
+      "id": 52686,
+      "title": "Anthropic TypeScript SDK v0.104.2: Same Retired-Model Cleanup",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Both SDKs shipped same-day — Anthropic is deprecating older endpoints",
+      "key_fact": "Mirrors the Python SDK cleanup"
+    },
+    {
+      "id": 52255,
+      "title": "Community Fine-Tune: Gemma 4 12B Coder With Fable-Style Composition",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Open-weight community racing to distill Fable-like coding into runnable models",
+      "key_fact": "161 likes, 6.2K downloads on HuggingFace"
+    },
+    {
+      "id": 52733,
+      "title": "Fata: Spaced Repetition to Fight Skill Rot From AI Coding",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "If AI writes all your code, do you still learn? This tool bets you won't",
+      "key_fact": "73 HN points — niche but timely"
+    },
+    {
+      "id": 52323,
+      "title": "Google Commits $1.5B to Alabama Data Center Expansion",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "AI infrastructure buildout continues at multi-billion-dollar scale",
+      "key_fact": "$1.5B through 2027 in Jackson County, Alabama"
+    }
+  ],
+  "total_items": 25
+}
