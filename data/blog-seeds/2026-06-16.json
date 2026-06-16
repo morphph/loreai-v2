@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Codex CLI 0.140.0: /usage tracking, session deletion, and import from Claude Code",
+    "url": "https://x.com/CodexReleases/status/2066629339287036036",
+    "source": "twitter:search:\"MCP\" (implementation OR plugin OR server OR tool) min_faves:10 -crypto",
+    "x_engagement_24h": 258,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 37.0774,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Meet the winners of Built with Opus 4.7 Claude Code hackathon",
+    "url": "https://www.claude.com/blog/meet-the-winners-of-built-with-opus-4-7-claude-code-hackathon",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "GLM 5.2 drops from China — Opus 4.7 class model",
+    "url": "https://x.com/bindureddy/status/2066091588040970382",
+    "source": "twitter:@bindureddy",
+    "x_engagement_24h": 304,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.0912,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Mollick: DeepMind researcher shows AI models inherit 'strange habits' from training on predecessor outputs",
+    "url": "https://x.com/emollick/status/2066301578194166046",
+    "source": "twitter:@emollick",
+    "x_engagement_24h": 354,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.1062,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Anthropic's new privacy policy with 'verification data' language published the day before Fable 5 release",
+    "url": "https://x.com/simonw/status/2066541206402969672",
+    "source": "twitter:@simonw",
+    "x_engagement_24h": 217,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.0651,
+    "suggested_angle": "news"
+  }
+]
