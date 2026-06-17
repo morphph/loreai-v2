@@ -1,0 +1,231 @@
+{
+  "date": "2026-06-17",
+  "headline_hook": "Cursor Ships a Git Killer While NVIDIA's Robots Run Their Own Research Lab",
+  "preview_topics": [
+    "Cursor's post-Git version control",
+    "autonomous robot research fleets",
+    "China's open-weight Opus challenger"
+  ],
+  "pick_of_the_day": {
+    "item_id": 52879,
+    "thesis": "Origin isn't just another dev tool — it's the first admission that AI agents have outgrown the infrastructure humans built for themselves, and version control is merely the first domino in a full-stack rebuild of developer tooling around agent-native workflows."
+  },
+  "model_literacy": {
+    "concept": "Benchmark Saturation",
+    "relevance": "With OpenAI's evals lead declaring current benchmarks broken and SkillsBench 1.1 launching as the first audited agent benchmark, today's news illustrates why the industry is scrambling to replace metrics that frontier models have already gamed or outgrown."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 52879,
+          "title": "Cursor Unveils Origin — a Git Replacement Built for the Agent Era",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "If every AI agent spawns branches in parallel, Git's merge model breaks. Origin is built from scratch for that world — extensible via API and MCP, with native conflict resolution for concurrent agent sessions.",
+          "key_fact": "Built-in MCP integration and API-first extensibility for agent workflows"
+        },
+        {
+          "id": 53168,
+          "title": "Zhipu Drops GLM-5.2 Open Weights — Claims Opus 4.8 Parity With 1M Context",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "A novel IS attention mechanism that reuses one indexer every 4 sparse layers delivers 2.9x performance gains. China's open-weight frontier keeps closing the gap at a pace that makes export controls look like speed bumps.",
+          "key_fact": "2.9x performance gain via IS attention, 1M context window, open weights"
+        },
+        {
+          "id": 52909,
+          "title": "OpenAI Codex Gains Browser, Computer Use, and Memory Across the EU",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Codex crosses from code-only into full desktop automation for European users — Chrome control, computer use, persistent memory, and chronicle all land at once.",
+          "key_fact": "Chrome, Computer Use, Memory, and Chronicle now available in EU/EEA/UK"
+        },
+        {
+          "id": 53198,
+          "title": "Alibaba's Qwen Releases a Full Foundation Model Suite for Robotics",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Alongside NVIDIA's ENPIRE, Qwen's Robot Suite marks a breakout week for physical AI — two major releases from different continents within days.",
+          "key_fact": "Purpose-built model suite for physical world intelligence"
+        },
+        {
+          "id": 52776,
+          "title": "UK Government Taps DeepMind to Fix Housing Planning With AI",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A direct government-DeepMind partnership tackling one of Britain's most intractable policy problems — AI leaves the lab for real bureaucratic operations.",
+          "key_fact": "AI-powered prototype for housing planning decisions"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 52900,
+          "title": "NVIDIA's ENPIRE: 8 Codex Agents Autonomously Running a Robot Research Lab",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "The first demonstration of fully autonomous AI research in the physical world — agents coordinate robots, GPUs, and token budgets with zero human intervention. AutoResearch graduates from simulation to real hardware.",
+          "key_fact": "8 Codex agents controlling a fleet of robots with no human in the loop"
+        },
+        {
+          "id": 52857,
+          "title": "Anthropic Publishes Its Framework for Measuring Claude Code Economics at Scale",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Rare transparency into how agentic coding actually scales — Anthropic's first framework tracks usage patterns across users and task types, giving the industry real data instead of vibes.",
+          "key_fact": "First published framework for measuring real-world agentic coding economics"
+        },
+        {
+          "id": 52859,
+          "title": "OpenAI Simulates Deployment With Real User Requests Before Shipping Models",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A new pre-deployment safety method bridges the gap between lab evals and production by replaying de-identified user requests against unreleased models.",
+          "key_fact": "De-identified user requests used to simulate real-world model behavior pre-release"
+        },
+        {
+          "id": 52949,
+          "title": "SkillsBench 1.1: The First Fully Audited Benchmark for AI Agent Skill Use",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Benchmarks with errors poison model comparisons. SkillsBench 1.1 is end-to-end audited and verified error-free — setting a new bar for eval integrity.",
+          "key_fact": "First benchmark for agent skill use that's been verified error-free"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 52766,
+          "title": "Willison: Fable 5 Export Controls Are Actively Weakening US Cyber Defense",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A counterintuitive but well-sourced argument — blocking Fable 5 from allied researchers denies them the best defensive AI tools available, making everyone less safe.",
+          "key_fact": "Allied security researchers cut off from the most capable defensive AI"
+        },
+        {
+          "id": 52889,
+          "title": "Mollick: You Have 4–8 Months to Harden Systems Before Mythos-Class Goes Open",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "If open models trail closed source by 8–12 months and Mythos-class capabilities are now known, the math gives defenders a concrete countdown — not a vague warning.",
+          "key_fact": "4–8 month window before Mythos-class capabilities appear in open weights"
+        },
+        {
+          "id": 52769,
+          "title": "Satya Nadella on Loopcraft: How Microsoft Thinks About the AI Platform Layer",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Nadella's essay on building AI ecosystems through stacked feedback loops gets the Latent Space deep-dive — a strategic lens for understanding Microsoft's platform bets.",
+          "key_fact": "'Loopcraft' framework — stacked feedback loops as platform strategy"
+        },
+        {
+          "id": 52860,
+          "title": "OpenAI's Evals Lead: Current Benchmarks Are Failing and Here's What Comes Next",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "As every lab races past existing benchmarks, OpenAI's frontier evals lead makes the case that the metrics themselves need replacing, not just topping.",
+          "key_fact": "Benchmark saturation and gaming are undermining model comparisons"
+        },
+        {
+          "id": 52922,
+          "title": "Reports: GPT 5.6 and Gemini 3.5 Approaching Fable Parity at Half the Cost",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "If true, the Fable suspension matters less than it seems — equivalent capability from multiple providers may be weeks away at 2x lower cost.",
+          "key_fact": "Fable-level performance reportedly at over 2x lower cost from OpenAI and Google"
+        },
+        {
+          "id": 52912,
+          "title": "OpenAI Commits $160K to Astral and Codex Open-Source Maintainers",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Part of a $1M fund for developer tools — AI labs are now competing on ecosystem, not just model quality. Astral (ruff/uv) gets direct OpenAI backing.",
+          "key_fact": "$160K to Astral and Codex maintainers, $1M total fund"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 52971,
+          "title": "Claude Code's Creator: 'My Entire CLAUDE.md Is Two Lines'",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Boris Cherny argues most engineers are over-engineering their configs — with better models you need less instruction, not more. A contrarian take from the person who built the thing.",
+          "key_fact": "Creator of Claude Code uses a minimal 2-line configuration"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 53145,
+          "title": "Claude Code v2.1.179: Mid-Stream Connection Fix and Sandbox Performance",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Partial responses now survive connection drops, WSL2 scrolling works again, and sandbox no longer bloats tool descriptions on large repos.",
+          "key_fact": "Mid-stream connection drops now preserve partial responses"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 52956,
+      "title": "India's Sarvam AI Hits Unicorn Status With $234M Raise",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "HCL Tech takes 10.4% stake; sovereign AI investment continues globally",
+      "key_fact": "$234M at $1.5B valuation"
+    },
+    {
+      "id": 53158,
+      "title": "Ollama v0.30.9 Adds Cohere2Moe and Context Window Guardrails",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "New architecture support plus proper errors when messages exceed context",
+      "key_fact": "Cohere2Moe support, context window error handling"
+    },
+    {
+      "id": 53175,
+      "title": "Weibo Enters the Model Game With VibeThinker-3B",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Social media platforms now training their own models; 3B hits the edge deployment sweet spot",
+      "key_fact": "3B reasoning model from Weibo"
+    },
+    {
+      "id": 53195,
+      "title": "The Netherlands Launches GPT-NL Sovereign Language Model",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Post-Fable ban, European sovereign AI projects accelerate",
+      "key_fact": "TNO-led national model initiative"
+    },
+    {
+      "id": 52306,
+      "title": "Willison Ships datasette-agent 0.3a0 — Agentic Data Exploration",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Point an LLM agent at a SQLite database, get conversational analysis",
+      "key_fact": "Agentic AI for datasette databases"
+    },
+    {
+      "id": 52764,
+      "title": "datasette-tailscale 0.1a0: Zero-Config Auth for Internal Data Tools",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Pairs with datasette-agent for secure internal data access",
+      "key_fact": "Zero-config Tailscale authentication for datasette"
+    }
+  ],
+  "total_items": 23
+}
