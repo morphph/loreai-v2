@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "OpenAI shares method for simulating model deployment with de-identified user requests before release",
+    "url": "https://x.com/OpenAI/status/2066969635099144682",
+    "source": "twitter:@OpenAI",
+    "x_engagement_24h": 1605,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 9,
+    "composite_score": 45.4815,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "WeiboAI VibeThinker-3B: a 3B reasoning model from Weibo",
+    "url": "https://huggingface.co/WeiboAI/VibeThinker-3B",
+    "source": "huggingface:trending",
+    "x_engagement_24h": 164,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.0492,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic shares economic research framework tracking Claude Code at scale",
+    "url": "https://x.com/AnthropicAI/status/2066969532380721386",
+    "source": "twitter:@AnthropicAI",
+    "x_engagement_24h": 1619,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.4857,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "OpenAI commits $160K to sponsor Astral and Codex open-source maintainers",
+    "url": "https://x.com/reach_vb/status/2066641173926572222",
+    "source": "twitter:@reach_vb",
+    "x_engagement_24h": 289,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.0867,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Cursor/Graphite announces Origin — a Git competitor built for agent workloads",
+    "url": "https://x.com/swyx/status/2066928345246470204",
+    "source": "twitter:@swyx",
+    "x_engagement_24h": 2298,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.6894,
+    "suggested_angle": "news"
+  }
+]
