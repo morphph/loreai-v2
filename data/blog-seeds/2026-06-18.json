@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "New in Claude Design: it stays on brand with your design system across projects, lets you edit directly on the canvas, syncs with Claude Code, and connects to more of the tools you already use.",
+    "url": "https://x.com/claudeai/status/2067325887909884315",
+    "source": "twitter:@claudeai",
+    "x_engagement_24h": 6590,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 38.977000000000004,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Meet the winners of our Claude Opus 4.8 Build Day hackathon",
+    "url": "https://www.claude.com/blog/meet-the-winners-of-our-claude-opus-4-8-build-day-hackathon",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "RT @lvwerra: We launched an agent collaboration with a simple task: make Gemma 4 faster. Over 100 agents from all over the world joined...",
+    "url": "https://x.com/huggingface/status/2067243527638061091",
+    "source": "twitter:@huggingface",
+    "x_engagement_24h": 2054,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.6162,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "I made Physical AutoResearch sound simple (conceptually), but it took a village to pull off and lots of design thinking into the robot /loopcraft.",
+    "url": "https://x.com/DrJimFan/status/2067283904986517866",
+    "source": "twitter:@drjimfan",
+    "x_engagement_24h": 471,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.1413,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Secure access to the Claude Platform with Workload Identity Federation",
+    "url": "https://www.claude.com/blog/workload-identity-federation",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25,
+    "suggested_angle": "news"
+  }
+]
