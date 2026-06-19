@@ -1,0 +1,228 @@
+{
+  "date": "2026-06-19",
+  "headline_hook": "Shazeer Lands at OpenAI, Midjourney Goes Medical, and Claude Code Ships Artifacts",
+  "preview_topics": [
+    "the Transformer inventor's blockbuster move to OpenAI",
+    "Midjourney's surprise medical imaging pivot",
+    "enterprise MCP auth goes zero-touch"
+  ],
+  "pick_of_the_day": {
+    "item_id": 53941,
+    "thesis": "Shazeer's move reveals that the Transformer architecture race is far from over — the co-inventor of attention joining OpenAI signals the next frontier isn't replacing Transformers but radically reimagining them from the inside, and the talent consolidation at frontier labs is accelerating faster than the open-source community can absorb."
+  },
+  "model_literacy": {
+    "concept": "Low-Rank Adaptation Variants (DoRA, PiSSA, rsLoRA)",
+    "relevance": "Today's HuggingFace survey shows vanilla LoRA is no longer the automatic best choice for fine-tuning — newer variants like DoRA (weight-decomposed adaptation) and PiSSA (principal singular value adaptation) can outperform LoRA on specific tasks, making PEFT method selection a real engineering decision rather than a default."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 53666,
+          "title": "Midjourney's Second Act: A Full-Body Scanner for Consumer Health",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The bootstrapped image generation lab that scaled without VC funding is now betting its architecture expertise on medical imaging — a pivot that redefines what an 'AI company' can be",
+          "key_fact": "Consumer-grade full-body organ scanner positioned as routine health screening"
+        },
+        {
+          "id": 53725,
+          "title": "Claude Code Gets Artifacts — Preview React and HTML Without Leaving the Terminal",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The interactive previews that made claude.ai sticky now work in Claude Code, closing the gap between chat and IDE workflows for frontend developers",
+          "key_fact": "Supports React components, HTML pages, and data visualizations inline"
+        },
+        {
+          "id": 53417,
+          "title": "AWS Launches Continuum and Context at New York Summit",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Two new services plus five tool updates signal AWS is building the full infrastructure layer for enterprise agent deployments",
+          "key_fact": "Continuum (AI security at machine speed) and Context (knowledge graph for agents) plus updates to Kiro, DevOps Agent, and Bedrock AgentCore"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 53724,
+          "title": "MCP Gets Enterprise-Grade Auth — Admins Can Now Centrally Manage Connector Access",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The biggest friction point for MCP adoption in enterprise — every user managing their own OAuth flows — is gone, making MCP deployable at organizational scale",
+          "key_fact": "Admins pre-authorize OAuth flows so end users never see an auth prompt"
+        },
+        {
+          "id": 53739,
+          "title": "Claude's Code Execution Tool Gets 90-Second Cell Budgeting",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "No more silent timeouts on complex computations — the updated tool version lets Claude budget long-running cells against the time limit",
+          "key_fact": "code_execution_20260521 version, no beta header required"
+        },
+        {
+          "id": 53898,
+          "title": "Ollama v0.30.10 Brings Command A and North Models to Apple Silicon",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The MLX engine integration expands which models Mac users can run locally without GPU servers",
+          "key_fact": "Command A and North family models now supported via MLX on Apple Silicon"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 53723,
+          "title": "The Complete Guide to Steering Claude Code: CLAUDE.md, Skills, Hooks, and Subagents",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "Anthropic's official deep-dive into Claude Code's full customization surface — essential reading for teams moving from casual use to production-grade agentic workflows",
+          "key_fact": "Covers CLAUDE.md files, skills, hooks, rules, and subagent orchestration in one comprehensive guide"
+        },
+        {
+          "id": 53678,
+          "title": "Beyond LoRA: HuggingFace Benchmarks the Fine-Tuning Methods You're Not Using",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "If you've been defaulting to vanilla LoRA, this head-to-head comparison of DoRA, LoRA+, rsLoRA, and PiSSA might change your mind",
+          "key_fact": "Newer PEFT variants outperform vanilla LoRA on specific task types and model sizes"
+        },
+        {
+          "id": 53939,
+          "title": "Zero-Touch OAuth: How Enterprise MCP Deployments Kill the Auth Prompt",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The protocol-level companion piece to Anthropic's managed auth announcement — details the OAuth flow that makes MCP invisible to end users",
+          "key_fact": "Pre-authorized connector flows eliminate per-user OAuth prompts entirely"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 53674,
+          "title": "DeepMind Publishes a Concrete Roadmap for Securing AI Agents",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Not another thought piece — this is a practical security framework combining traditional safeguards with real-time monitoring for agentic systems",
+          "key_fact": "AI Control Roadmap for securing internal systems against agentic AI risks"
+        },
+        {
+          "id": 53679,
+          "title": "Stop Using Generic Benchmarks — Build Agentic Evals for Your Own Tools",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "HuggingFace's framework for evaluating how well open models handle tool use with your specific tools, not synthetic benchmarks",
+          "key_fact": "Custom agentic evals that predict production performance, not leaderboard position"
+        },
+        {
+          "id": 53677,
+          "title": "MosaicLeaks: Your Research Agent Might Be Leaking Private Data",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "ServiceNow tests whether agents with broad file access leak sensitive data — timely as teams deploy agents with document access at scale",
+          "key_fact": "Research agents tested for private data leakage when given access to sensitive documents"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 53941,
+          "title": "Noam Shazeer Joins OpenAI — The Transformer's Co-Inventor Switches Sides",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The co-inventor of the attention mechanism and Character.AI founder joining OpenAI is the most consequential AI talent move this year — his architecture expertise could reshape OpenAI's model roadmap",
+          "key_fact": "Co-inventor of the Transformer's attention mechanism, previously founded Character.AI"
+        },
+        {
+          "id": 53236,
+          "title": "GLM-5.2's Frontend Coding Dominance and the IndexShare Decoding Trick",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Latent Space's deeper analysis of what makes GLM-5.2 the top frontend coding model and how IndexShare speculative decoding actually works under the hood",
+          "key_fact": "GLM-5.2 tops frontend coding benchmarks; IndexShare enables faster speculative decoding"
+        },
+        {
+          "id": 53372,
+          "title": "Mollick: AI Interfaces Aren't Intuitive — You've Just Internalized the Tricks",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "576 likes on a thread about the invisible knowledge gap between AI power users and everyone else — critical framing for anyone building AI products",
+          "key_fact": "Power users have internalized dozens of tricks that are invisible barriers for new users"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 53533,
+          "title": "last30days-skill: Cross-Platform Research Agent Hits 44K Stars",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Drop-in agent skill that synthesizes recent discussion across Reddit, X, YouTube, HN, and Polymarket — the star count signals massive demand for cross-platform research automation",
+          "key_fact": "44K GitHub stars; covers Reddit, X, YouTube, HN, Polymarket, and web"
+        },
+        {
+          "id": 53920,
+          "title": "GLM-5.2 GGUF Quantizations Drop — Run the New Open-Weight Leader Locally",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Unsloth's GGUF quantization is already trending, making GLM-5.2 runnable on consumer hardware for teams evaluating local deployment",
+          "key_fact": "Trending on HuggingFace with 305 downloads; multiple quantization levels available"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 53882,
+      "title": "Anthropic Python SDK v0.111.0 — Refusal Middleware + Code Execution",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Two releases in one day: refusal-fallback middleware tagging and code execution tool support",
+      "key_fact": "v0.110.0 adds code execution, v0.111.0 adds refusal-fallback middleware"
+    },
+    {
+      "id": 53885,
+      "title": "Anthropic TS SDK v0.105.0 — Lazy Tool JSON Parsing",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Streaming tool calls now parse incrementally — reduces time-to-first-token for tool-heavy agents",
+      "key_fact": "Lazy partial JSON parsing for streaming tool calls"
+    },
+    {
+      "id": 53625,
+      "title": "OpenRouter's Robot Combat Arena Pits Claude vs Grok in Real-Time",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Creative stress test reveals model differences in real-time decision-making under pressure",
+      "key_fact": "AI models compete head-to-head in robot combat simulations"
+    },
+    {
+      "id": 53891,
+      "title": "LangGraph 1.2.6 Fixes Nested Subgraph Checkpoint Bug",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "If you're on LangGraph 1.2.3+, update immediately — nested subgraphs were losing parent checkpoints",
+      "key_fact": "Fixes regression where nested subgraphs lost parent checkpoint namespace"
+    },
+    {
+      "id": 53419,
+      "title": "'Done' Is the Most Expensive Word Your Agent Says",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Practical demo of the /goal verification pattern — a cheap verifier model catches garbage before it ships",
+      "key_fact": "Same task, dramatically different quality with vs without a verifier step"
+    }
+  ],
+  "total_items": 22
+}
