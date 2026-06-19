@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "MosaicLeaks: Can your research agent keep a secret?",
+    "url": "https://huggingface.co/blog/ServiceNow/mosaicleaks",
+    "source": "rss:HuggingFace Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Code execution tool now supports code_execution_20260521 with 90-second per-cell time limit disclosure",
+    "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool",
+    "source": "docs:Platform Release Notes",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic Python SDK v0.111.0 — refusal-fallback middleware and code execution tool support",
+    "url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.111.0",
+    "source": "github:release:anthropics/anthropic-sdk-python",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic TypeScript SDK v0.105.0 — lazy tool JSON parsing and code execution support",
+    "url": "https://github.com/anthropics/anthropic-sdk-typescript/releases/tag/sdk-v0.105.0",
+    "source": "github:release:anthropics/anthropic-sdk-typescript",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "A robot is sprinting towards you. Do you want it running on Claude or Grok?",
+    "url": "https://openrouter.ai/blog/insights/royale-last-agent-standing/",
+    "source": "hackernews",
+    "x_engagement_24h": 258,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.0774,
+    "suggested_angle": "news"
+  }
+]
