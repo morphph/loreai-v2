@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "ponytail: Makes your AI agent think like the laziest senior dev — the best code is the code you never wrote",
+    "url": "https://github.com/DietrichGebert/ponytail",
+    "source": "github:trending:Agent/MCP tools",
+    "x_engagement_24h": 41912,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 37.5736,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "AI SDK TUI v1.0.0-beta.18 — Sandbox Support for Terminal Agent UIs",
+    "url": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/tui%401.0.0-beta.18",
+    "source": "github:release:vercel/ai",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "anthropics/launch-your-agent: Claude Code skills that take a founder from idea to a live Claude Managed Agent",
+    "url": "https://github.com/anthropics/launch-your-agent",
+    "source": "github:trending:AI IDE tools",
+    "x_engagement_24h": 129,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29.0387,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic Vertex TS SDK v0.18.0 — Lazy Partial Tool JSON Parsing",
+    "url": "https://github.com/anthropics/anthropic-sdk-typescript/releases/tag/vertex-sdk-v0.18.0",
+    "source": "github:release:anthropics/anthropic-sdk-typescript",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "CrewAI 1.14.8a2 — Single Agent Actions, Flow CEL Validation, Datadog Integration",
+    "url": "https://github.com/crewAIInc/crewAI/releases/tag/1.14.8a2",
+    "source": "github:release:crewAIInc/crewAI",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25,
+    "suggested_angle": "news"
+  }
+]
