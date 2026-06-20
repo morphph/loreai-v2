@@ -1,0 +1,186 @@
+{
+  "date": "2026-06-20",
+  "headline_hook": "Ponytail Hits 40K Stars, GLM-5.2 Challenges GPT, and Claude Code Locks Down Auto-Mode",
+  "preview_topics": [
+    "the 40K-star anti-sprawl agent",
+    "GLM-5.2's open-weights vibe check",
+    "a wave of SDK upgrades for agent builders"
+  ],
+  "pick_of_the_day": {
+    "item_id": 54150,
+    "thesis": "40K stars in days proves developers don't want agents that write more code — they want agents that write less. Ponytail's viral ascent signals a design shift: the next generation of coding agents will be judged not by output volume but by output restraint."
+  },
+  "model_literacy": {
+    "concept": "Open Weights vs. Open Source",
+    "relevance": "GLM-5.2 is being crowned the most powerful 'open' LLM, but 'open weights' means you get model parameters without training code, data, or full reproduction rights. As the open-weights frontier closes the gap with proprietary models, understanding what 'open' actually grants you determines whether you can fine-tune, redistribute, or just run inference."
+  },
+  "sections": [
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 53977,
+          "title": "GLM-5.2 Passes the Vibe Check — and Z.ai Forecasts Open Fable by December",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The open-weights frontier is closing faster than the labs predicted — builders need to re-evaluate build-vs-buy as the gap shrinks to months, not years",
+          "key_fact": "Z.ai forecasts an open-weight Fable-class model by December 2026"
+        },
+        {
+          "id": 53660,
+          "title": "Simon Willison: GLM-5.2 Is the Open-Weights Text Leader",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Independent hands-on evaluation from a trusted source confirms what the benchmarks suggest — GLM-5.2 is real",
+          "key_fact": "Willison's testing ranks GLM-5.2 as the most capable open-weights text-only model available"
+        },
+        {
+          "id": 54235,
+          "title": "Norway Bans AI in Elementary Schools",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "First country to impose a near-total K-6 AI ban — a leading indicator for how EU/Nordic regulation will shape the edtech market",
+          "key_fact": "Near-total ban on AI tools in Norwegian elementary education"
+        },
+        {
+          "id": 53665,
+          "title": "Inside AMP's Playbook for Picking Foundation Model Winners",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The investor behind Anthropic, Mistral, and Black Forest Labs explains the pattern-matching that drives foundation-layer bets",
+          "key_fact": "AMP backed Anthropic, Mistral, and Black Forest Labs across the model stack"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 54180,
+          "title": "Claude Code v2.1.183 Blocks Destructive Git Commands in Auto-Mode",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "If you're running Claude Code in CI or shared repos, auto-mode just got meaningfully safer — destructive git operations now require explicit opt-in",
+          "key_fact": "Destructive git commands (force push, reset --hard, checkout .) now blocked unless explicitly requested"
+        },
+        {
+          "id": 53883,
+          "title": "Anthropic Python SDK Adds Native Code Execution Tool Support",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Sandboxed code execution is now a first-class SDK primitive — no more rolling your own sandbox wrappers for agent loops",
+          "key_fact": "code_execution_20260120 tool type now handled natively in SDK v0.110.0"
+        },
+        {
+          "id": 53889,
+          "title": "LangChain Fixes Silent Model Misrouting for Dated GPT-5.x Snapshots",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "If you're using OpenAI's dated model IDs with LangChain, your requests might have been silently going to the wrong model — update now",
+          "key_fact": "Provider detection for dated GPT-5.2/5.4 snapshot IDs was broken before v1.3.10"
+        },
+        {
+          "id": 53902,
+          "title": "CrewAI Adds Single-Agent Actions and Datadog Integration",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Enterprise observability is becoming table stakes for agent frameworks — CrewAI's Datadog integration signals where the market is heading",
+          "key_fact": "CEL expressions now validated at load time instead of runtime"
+        },
+        {
+          "id": 54192,
+          "title": "AI SDK Workflow Rejects System Messages by Default — Check Your Prompts",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Breaking change alert: if you're using Vercel AI SDK workflows, system messages in prompt/messages will now be rejected unless you opt in",
+          "key_fact": "WorkflowAgent default behavior change — system messages rejected in prompt/messages"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 54150,
+          "title": "Ponytail: The 40K-Star Tool That Tells Your AI Agent to Write Less Code",
+          "section": "BUILD",
+          "prominence": "hero",
+          "angle": "The viral backlash against agent code sprawl has a name — and 40K developers agree that the best code is the code you never wrote",
+          "key_fact": "40,020 GitHub stars with 1,892 retweets in the first wave"
+        },
+        {
+          "id": 54157,
+          "title": "Anthropic Ships a Turnkey Skill Set for Launching Managed Agents",
+          "section": "BUILD",
+          "prominence": "hero",
+          "angle": "From idea to live managed agent with Claude Code skills — Anthropic is making agent deployment a non-engineer-friendly workflow",
+          "key_fact": "Full lifecycle: interview → scope → launch → grade → iterate → schedule"
+        },
+        {
+          "id": 53973,
+          "title": "Datasette Becomes a Lightweight App Platform with Custom HTML Hosting",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Simon Willison's data explorer now hosts full HTML apps — build internal tools on SQLite without a separate frontend stack",
+          "key_fact": "Custom HTML applications can now run directly inside Datasette"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 54236,
+          "title": "DuckDB Internals: What AI Pipeline Builders Should Know",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Understanding DuckDB's architecture helps you make the right call between DuckDB, SQLite, and Postgres for agent data processing workloads",
+          "key_fact": "Part 1 of a deep architectural walkthrough of the embedded analytics engine"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 53884,
+      "title": "Anthropic Vertex TS SDK Gets Lazy Partial Tool JSON Parsing",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Streaming tool calls are faster on GCP",
+      "key_fact": "Lazy partial JSON parsing reduces latency for tool-heavy Vertex workloads"
+    },
+    {
+      "id": 53886,
+      "title": "Foundry TS SDK Matches Vertex with Lazy Tool Parsing",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Same streaming performance fix, now across both Anthropic deployment surfaces",
+      "key_fact": "Parity with Vertex SDK's lazy partial tool JSON parsing"
+    },
+    {
+      "id": 53890,
+      "title": "LangChain Core Memoizes Tool Schemas for Faster Agent Loops",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Performance boost that compounds with agent complexity",
+      "key_fact": "BaseTool.tool_call_schema now memoized"
+    },
+    {
+      "id": 54193,
+      "title": "AI SDK TUI Adds Sandbox Support for Terminal Agent UIs",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Build terminal-based agent interfaces with sandboxed tool execution",
+      "key_fact": "runAgentTUI forwards sandbox option to every stream call"
+    },
+    {
+      "id": 54195,
+      "title": "llama.cpp Fixes Router-Child Communication in Multi-Model Serving",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Status propagation bugs fixed for inference router deployments",
+      "key_fact": "Reworked router-child communication in server mode"
+    }
+  ],
+  "total_items": 18
+}
