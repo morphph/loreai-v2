@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "ui-ux-pro-max-skill: AI Design Intelligence for Professional UI/UX",
+    "url": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+    "source": "github:trending:Agent/MCP tools",
+    "x_engagement_24h": 104238,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 31.2714,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "llama.cpp b9731: 12x logprobs performance improvement",
+    "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b9731",
+    "source": "github:release:ggerganov/llama.cpp",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Next.js v16.3.0-canary.59",
+    "url": "https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.59",
+    "source": "github:release:vercel/next.js",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "llama.cpp b9743",
+    "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b9743",
+    "source": "github:release:ggerganov/llama.cpp",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 12,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Zen and the Art of Machine Learning Research",
+    "url": "https://blog.jxmo.io/p/zen-and-the-art-of-machine-learning",
+    "source": "hackernews",
+    "x_engagement_24h": 305,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.0915,
+    "suggested_angle": "news"
+  }
+]
