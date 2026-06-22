@@ -1,147 +1,187 @@
 ---
-title: "Claude Code Desktop vs Terminal: Which Interface Should You Use?"
+title: "Claude Code Desktop vs Terminal: Which Interface Fits Your Workflow?"
 slug: claude-code-desktop-vs-terminal
-description: "Compare Claude Code's desktop app, terminal CLI, and VS Code extension to find the right interface for your workflow."
-item_a: Claude Code Terminal (CLI)
-item_b: Claude Code Desktop App
+description: "Claude Code runs as a desktop app, terminal CLI, web app, and VS Code extension. Here's how to pick the right interface for your workflow."
+item_a: Claude Code Desktop App
+item_b: Claude Code Terminal CLI
 category: tools
 related_glossary: [agentic-coding, agent-sdk]
-related_blog: [claude-code-complete-guide, anthropic-cowork-claude-desktop-agent, claude-code-extension-stack-skills-hooks-agents-mcp]
+related_blog: [claude-code-complete-guide, claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-remote-sessions-phone]
 related_compare: []
 related_topics: [claude-code]
 lang: en
 ---
 
-# Claude Code Desktop vs Terminal: Which Interface Should You Use?
+# Claude Code Desktop vs Terminal: Which Interface Fits Your Workflow?
 
-**TL;DR:** The **Claude Code terminal CLI** is the most powerful interface — full shell access, hooks, agent teams, and deep programmability for engineers who live in the terminal. The **desktop app** provides the same Claude model in a visual GUI that's more accessible for non-terminal users and collaborative workflows. The **VS Code extension** splits the difference, embedding Claude Code inside your editor. Choose based on how you already work, not which sounds more impressive.
-
-## Overview: Claude Code Terminal (CLI)
-
-**Claude Code's terminal interface** is the original and most fully-featured way to use Anthropic's [agentic coding](/glossary/agentic-coding) tool. It runs directly in your shell on macOS and Linux, with full access to your filesystem, git, build tools, and any command-line program. The CLI is where every Claude Code capability shipped first — skills, hooks, MCP servers, agent teams, memory, and the seven programmable layers that make it a platform rather than just a tool.
-
-The terminal version targets professional software engineers who already spend most of their day in a shell. You type natural language, Claude Code plans a multi-step approach, and executes it — editing files, running tests, committing code — with your approval at each step. The interaction model is conversational but the execution is autonomous. As covered in our [complete guide to Claude Code](/blog/claude-code-complete-guide), the CLI's power comes from composability: it connects to your entire development environment rather than mediating it through a GUI.
+**TL;DR:** The **Claude Code terminal CLI** is the original and most powerful interface — full shell access, hooks, headless automation, and deep scriptability make it the default for experienced developers. The **Claude Code desktop app** (Mac and Windows) wraps the same agent in a native GUI with visual file diffs, drag-and-drop context, and a lower barrier to entry. The **VS Code and JetBrains extensions** split the difference, embedding Claude Code directly into your IDE. Same underlying model, same capabilities — the choice comes down to how you prefer to work and what you need to automate.
 
 ## Overview: Claude Code Desktop App
 
-**Claude Code's desktop application** brings the same underlying Claude model into a native GUI on macOS and Windows. Instead of typing in a terminal, you interact through a visual chat interface with file previews, diff views, and project navigation built in. The desktop app launched alongside Anthropic's [Cowork mode](/blog/anthropic-cowork-claude-desktop-agent), which gives Claude file-level agent capabilities accessible to people who don't use the terminal.
+The Claude Code desktop app is a native application for macOS and Windows that provides a graphical interface to Claude Code's [agentic coding](/glossary/agentic-coding) capabilities. Instead of typing prompts into a terminal, you interact through a dedicated window with visual file diffs, inline code rendering, and drag-and-drop file attachment. The desktop app targets developers who prefer GUI-driven workflows or who split their time between coding and non-coding tasks — project managers reviewing code changes, designers tweaking frontend markup, or engineers who simply prefer a visual diff over terminal output.
 
-The desktop app targets a broader audience: product managers reviewing code, designers collaborating on implementation, junior developers who prefer visual feedback, and anyone who finds terminal workflows intimidating. It maintains core capabilities — file reading, editing, project context — while wrapping them in a more approachable interface. Windows support is a significant differentiator, since the CLI currently requires macOS or Linux (or WSL on Windows).
+The app runs the same Claude model and agent architecture underneath. It supports CLAUDE.md project context, skills, and MCP server connections. The key addition is the visual layer: rendered markdown responses, syntax-highlighted code blocks with one-click copy, and a persistent sidebar for conversation history. For teams adopting Claude Code alongside non-terminal users, the desktop app removes the "must be comfortable in a shell" prerequisite. Anthropic's [Cowork mode](/blog/anthropic-cowork-claude-desktop-agent) extends this further, giving the desktop agent file-level access for non-developers who need AI assistance without touching the command line.
+
+Pricing is usage-based through your Anthropic account or a Claude Pro/Team subscription — the same billing model regardless of which interface you use.
+
+## Overview: Claude Code Terminal CLI
+
+The Claude Code terminal CLI is the original interface and remains the most feature-complete way to use Claude Code. It runs directly in your shell — bash, zsh, or any POSIX-compatible terminal — and operates as a fully autonomous agent with direct shell access. You describe a task, Claude Code plans the steps, executes commands, edits files, runs tests, and commits changes. The CLI is where every new Claude Code feature lands first: [hooks](/blog/claude-code-hooks-a-complete-guide-to-automating-your-ai-coding-workflow), headless mode, agent teams, worktree isolation, and the full [seven programmable layers](/blog/claude-code-seven-programmable-layers) that make Claude Code a platform rather than just a tool.
+
+The terminal CLI is built for developers who live in the shell. It integrates with your existing dotfiles, shell aliases, and CI/CD pipelines. Headless mode (`claude --headless`) enables fully automated runs — no human in the loop — which powers scheduled tasks, pre-commit validation, and batch processing. The [extension stack](/blog/claude-code-extension-stack-skills-hooks-agents-mcp) — skills, hooks, agents, and MCP — is most naturally configured and invoked from the CLI, where you have direct access to configuration files and can test each layer independently.
+
+For teams building production workflows around Claude Code, the CLI is the canonical interface. It is scriptable, composable with Unix tools, and runs identically across local development machines, remote servers, and CI environments.
 
 ## Feature Comparison
 
-| Feature | Terminal (CLI) | Desktop App | VS Code Extension |
-|---------|---------------|-------------|-------------------|
-| **Platform** | macOS, Linux | macOS, Windows | macOS, Windows, Linux |
-| **Shell access** | Full — any command | Limited | Scoped to workspace |
-| **Hooks** | Full support | Not available | Not available |
-| **Skills (SKILL.md)** | Full support | Partial | Partial |
-| **MCP servers** | Full support | Supported | Supported |
-| **Agent teams** | Full support | Not available | Not available |
-| **CLAUDE.md context** | Full support | Supported | Supported |
-| **Git integration** | Native — commit, push, PR | Basic | Via terminal panel |
-| **Voice mode** | Supported | Not yet | Not yet |
-| **Remote sessions** | Supported | Not yet | Not yet |
-| **Visual diff review** | Text-based | GUI diffs | Inline diffs |
-| **Multi-file navigation** | Via shell commands | Visual file tree | Editor tabs |
-| **Fast mode (Opus)** | Toggle with /fast | Available | Available |
+| Feature | Desktop App | Terminal CLI | Winner |
+|---------|-------------|-------------|--------|
+| **Setup complexity** | Download and install | `npm install -g @anthropic-ai/claude-code` | Desktop App |
+| **Visual diffs** | Native rendered diffs | Text-based diffs in terminal | Desktop App |
+| **Shell access** | Sandboxed through agent | Full direct shell access | Terminal CLI |
+| **Hooks system** | Supported | Full support + easy debugging | Terminal CLI |
+| **Headless / CI mode** | Not available | Full support (`--headless`) | Terminal CLI |
+| **CLAUDE.md support** | Yes | Yes | Tie |
+| **Skills (SKILL.md)** | Yes | Yes | Tie |
+| **MCP servers** | Yes | Yes (+ easier config debugging) | Tie |
+| **Agent teams** | Supported | Full support + monitoring | Terminal CLI |
+| **File context** | Drag-and-drop + file picker | Path arguments + `@file` references | Desktop App |
+| **Conversation history** | Visual sidebar | Session-based, searchable | Desktop App |
+| **Remote sessions** | Not natively | Full support | Terminal CLI |
+| **Voice input** | Platform-dependent | Supported via voice mode | Tie |
+| **Platform** | macOS, Windows | macOS, Linux, Windows (via WSL) | Tie |
+| **Pricing** | Usage-based / subscription | Usage-based / subscription | Tie |
 
-## Programmability and Extension: Detailed Analysis
+## Interface and Workflow: Detailed Analysis
 
-The terminal CLI's deepest advantage is its [programmable layer stack](/blog/claude-code-extension-stack-skills-hooks-agents-mcp). Claude Code in the terminal isn't just a chat interface — it's a platform with seven distinct extension points that let you customize behavior deterministically.
+The most significant difference between the desktop app and terminal CLI is how you interact with the agent moment-to-moment. This shapes everything from how you provide context to how you review changes.
 
-**Hooks** are shell commands that fire before or after specific tool calls. They enable automated workflows: run linters before every commit, block edits to sensitive files, trigger notifications when tasks complete. Hooks only work in the terminal because they depend on shell execution — the desktop app has no equivalent mechanism.
+**Terminal CLI workflow.** You open a terminal, navigate to your project directory, and type `claude`. The agent loads your CLAUDE.md, discovers your project structure, and waits for instructions. You type natural language prompts, and Claude Code responds with a mix of explanations, file edits, and command executions — all rendered as text in your terminal. When Claude Code wants to run a command or edit a file, it shows you what it intends to do and waits for approval (unless you have configured automatic permissions). The entire interaction is text-based, which means it composes naturally with terminal multiplexers like tmux, screen recordings, and log capture. You can pipe output, redirect to files, and chain Claude Code invocations in shell scripts.
 
-**Agent teams** let the CLI spawn sub-agents for parallel work. When refactoring a large codebase, Claude Code can assign different modules to independent agents that work simultaneously, then merge results. This capability requires the orchestration infrastructure that only the terminal runtime provides.
+For developers already fluent in the terminal, this workflow has zero friction. You stay in the same environment where you run git, npm, docker, and everything else. There is no context switch — Claude Code is just another tool in your shell.
 
-**Skills** (SKILL.md files) work in both interfaces but reach their full potential in the terminal. Complex skills that invoke shell commands, chain multiple tools, or use conditional logic rely on the CLI's execution environment. The desktop app supports simpler declarative skills but can't execute skills that depend on shell access.
+**Desktop app workflow.** You launch the app, open or create a project, and start a conversation in the chat interface. File context can be added by dragging files into the window or using the file picker. Claude Code's responses include syntax-highlighted code blocks, rendered markdown, and visual diffs that show exactly which lines changed. The conversation persists visually in a sidebar, making it easy to scroll back through a long session.
 
-The [seven programmable layers](/blog/claude-code-seven-programmable-layers) — from user prompts through system instructions, skills, hooks, agents, MCP, and model behavior — are fully accessible only in the terminal. The desktop app exposes perhaps three of these layers to the user. For teams that treat Claude Code as infrastructure rather than a chat tool, this difference is decisive.
+For developers who prefer visual feedback — especially when reviewing multi-file changes — the desktop app makes diffs easier to scan than raw terminal output. It is also more approachable for team members who are not daily terminal users. A product manager reviewing Claude Code's suggested changes to a README, or a designer adjusting CSS, can follow the visual diff without needing to parse unified diff format.
 
-## Accessibility and Workflow Integration: Detailed Analysis
+**The tradeoff is scriptability.** The desktop app is an interactive tool. You cannot invoke it from a shell script, chain it with other commands, or run it in CI. The terminal CLI can do all of those things. If your workflow involves any form of automation — pre-commit hooks, scheduled tasks, batch processing across repos — the terminal CLI is the only option.
 
-The desktop app's primary strength is reducing the barrier to entry. Not every team member who benefits from AI-assisted development is comfortable in a terminal. Product managers reviewing implementation details, technical writers updating documentation, and junior developers still building terminal confidence all get value from a visual interface.
+## Automation and Extensibility: Detailed Analysis
 
-**Visual diff review** is genuinely better in the desktop app. Terminal diffs work, but seeing highlighted inline changes with full syntax coloring in a proper GUI reduces cognitive load during code review. For teams where non-engineers participate in review workflows — as discussed in our coverage of [Claude Code for product managers](/blog/claude-code-for-product-managers) — the desktop app makes AI-assisted development collaborative rather than engineer-only.
+Claude Code's power scales with how deeply you integrate it into your development workflow. The terminal CLI has a substantial lead in automation capabilities, and this gap is the single biggest factor in choosing between the two interfaces.
 
-**Windows support** matters for organizations with mixed-OS development teams. The terminal CLI requires macOS or Linux (WSL works but adds friction). The desktop app runs natively on Windows, removing the platform barrier entirely.
+**Hooks.** The [hooks system](/blog/claude-code-hooks-a-complete-guide-to-automating-your-ai-coding-workflow) lets you attach shell commands to Claude Code lifecycle events — before a tool runs, after a tool runs, on session start, on session end. Hooks are configured in your project's `.claude/settings.json` and execute as regular shell commands. This is the [deterministic layer](/blog/claude-code-hooks-mastery) that makes AI coding reliable: you can enforce lint checks before every commit, block edits to sensitive files, or trigger notifications when Claude Code completes a task. Hooks work in both the desktop app and terminal CLI, but debugging and iterating on hooks is significantly easier in the terminal, where you can test the shell commands directly and inspect the hook output in your terminal session.
 
-**Project navigation** in the desktop app uses a visual file tree rather than shell commands. For developers who think spatially about project structure, clicking through directories is faster than `find` and `ls`. The tradeoff: you lose the composability of piping shell output into Claude Code's context.
+**Headless mode.** Running `claude --headless` launches Claude Code without any interactive UI. It reads a prompt from stdin or command-line arguments, executes the task, and exits. This is the foundation for CI/CD integration — you can run Claude Code as a step in your GitHub Actions workflow, generate code reviews on every PR, or batch-process documentation updates across dozens of repos. Headless mode is terminal-only. The desktop app has no equivalent.
 
-The VS Code extension occupies middle ground — it embeds Claude Code in an environment developers already have open. You get visual diffs, file tree navigation, and inline suggestions without leaving your editor, plus access to the integrated terminal for shell commands when needed.
+**Remote sessions.** The terminal CLI supports [remote sessions](/blog/claude-code-remote-sessions-phone) — you launch Claude Code on a remote server (your VPS, a cloud instance, a beefy build machine) and connect to it from another device. This enables workflows like kicking off a long-running refactor on your laptop and [monitoring it from your phone](/blog/claude-code-remote-control-mobile). The desktop app does not currently support remote connections.
 
-## Performance and Model Access
+**Agent teams.** Claude Code can spawn sub-agents to work on parallel tasks — analyzing different subsystems, running independent searches, or editing files in isolated worktrees. While agent teams are supported in both interfaces, the terminal CLI provides better visibility into agent lifecycle events and makes it easier to inspect individual agent outputs through the session transcript.
 
-Both interfaces use the same underlying Claude model — there's no quality difference in the AI's output between terminal and desktop. The model powering Claude Code (currently Opus 4.6 and the Claude 4.X family) is identical regardless of interface.
+**The bottom line on extensibility:** If you need Claude Code to do anything beyond interactive chat-style coding, the terminal CLI is the only serious option. The desktop app is a consumption interface — great for interactive work, but not a platform you can build on.
 
-**Fast mode** is available across all interfaces, using Claude Opus with faster output rather than downgrading to a smaller model. In the terminal, toggle it with `/fast`. The desktop app and VS Code extension offer equivalent toggles.
+## IDE Extensions: The Third Option
 
-**Context handling** differs slightly. The terminal CLI uses CLAUDE.md files and the full project structure for context. The desktop app reads the same files but may present context management differently in its UI. Both support the auto-memory system that persists across sessions — documented in detail in our [Claude Code memory guide](/blog/claude-code-memory).
+The comparison between desktop and terminal is incomplete without mentioning the **VS Code and JetBrains extensions**, which represent a middle ground. These extensions embed Claude Code directly into your IDE, giving you the agent's capabilities without leaving your editor.
 
-**Token usage** is identical — you're billed the same regardless of interface. The difference is operational: terminal power users tend to consume more tokens because they delegate larger tasks (agent teams, multi-file refactors), while desktop users often interact in shorter, more focused sessions.
+The VS Code extension runs in the editor's integrated terminal and adds a dedicated Claude Code panel. You get visual diffs in the IDE's native diff viewer, file context from your open editor tabs, and terminal access through the same VS Code terminal you already use for git and build commands. It bridges the gap between the desktop app's visual feedback and the terminal CLI's proximity to your development environment.
 
-## When to Choose the Terminal CLI
+For developers already working in VS Code or a JetBrains IDE full-time, the extension may be the best of both worlds. You keep the visual diff rendering and file browser integration of the desktop app, while retaining access to the terminal for scripting and automation. The extension supports CLAUDE.md, skills, hooks, and MCP servers — the full feature set.
 
-Choose the terminal if you're a professional engineer who already works in a shell. The CLI rewards you with:
+The tradeoff: IDE extensions depend on the IDE. If you work across multiple editors, switch between terminal-heavy and IDE-heavy workflows, or need to run Claude Code on a headless server, the terminal CLI remains more versatile. See our [complete guide to Claude Code](/blog/claude-code-complete-guide) for a full breakdown of all interface options.
 
-- **Full automation**: Hooks, skills, and agent teams let you build reproducible workflows that go far beyond chat. The [hooks mastery guide](/blog/claude-code-hooks-mastery) shows how deterministic shell automation layers onto Claude's probabilistic outputs.
-- **Composability**: Pipe output from any tool into Claude Code. Chain it with git, make, docker, kubectl, or anything else in your PATH.
-- **Remote sessions**: SSH into a server and run Claude Code there. Control it from your phone while away from your desk — covered in our [remote sessions guide](/blog/claude-code-remote-sessions-phone).
-- **Maximum capability ceiling**: Every new Claude Code feature ships to the terminal first. Agent teams, voice mode, and advanced MCP integrations all debuted in the CLI.
+## Project Context and Configuration
 
-The terminal is not the right choice if you're uncomfortable with command-line interfaces, work primarily on Windows without WSL, or need to collaborate with non-technical team members in the same tool.
+Both the desktop app and terminal CLI share the same project context system. CLAUDE.md files, skill definitions, hook configurations, and MCP server settings work identically across interfaces. This means you can switch between interfaces freely without reconfiguring anything — your project instructions follow you.
 
-## When to Choose the Desktop App
+The [memory system](/blog/claude-code-memory) also works across interfaces. Claude Code's auto-memory writes to the same `.claude/` directory regardless of whether you are in the desktop app or terminal. Session history is interface-specific (desktop keeps visual conversation logs, terminal keeps session transcripts), but the persistent memory layer is shared.
 
-Choose the desktop app if you want Claude Code's intelligence without terminal friction:
+One practical difference: **editing configuration files** is more natural in the terminal. When you need to add a hook, configure an MCP server, or update CLAUDE.md, you will likely open a text editor or use Claude Code itself to make the change. In the desktop app, you would need to either switch to an editor or ask Claude Code to edit the file for you — an extra step. In the terminal CLI, you edit the file directly in the same environment.
 
-- **Windows-native workflow**: No WSL setup, no compatibility issues — it just works on Windows.
-- **Visual collaboration**: Share your screen and reviewers can follow along without needing terminal literacy. Product managers and designers can participate in AI-assisted development conversations.
-- **Lower learning curve**: If you're new to AI coding tools or to Claude specifically, the GUI reduces the initial overwhelm of learning both a new tool and terminal conventions simultaneously.
-- **Focused editing sessions**: For shorter tasks — reviewing a file, understanding code, making targeted edits — the visual interface can be faster than the terminal's text-based flow.
+For teams, this shared configuration means you can standardize on a single set of CLAUDE.md files and skills, then let individual developers choose their preferred interface. The agent behaves identically regardless of how you invoke it. The [extension stack](/blog/claude-code-extension-stack-skills-hooks-agents-mcp) — skills, hooks, agents, and MCP — is interface-agnostic by design.
 
-The desktop app is not the right choice if you need hooks, agent teams, or deep shell integration. It's also not ideal for large-scale automation or CI/CD integration where the CLI's scriptability matters.
+## Performance and Resource Usage
 
-## When to Choose the VS Code Extension
+Both interfaces run the same Claude model on Anthropic's servers, so inference speed and output quality are identical. The differences are in local resource consumption and perceived responsiveness.
 
-Choose the VS Code extension if your IDE is already your primary workspace:
+The **terminal CLI** is lightweight. It is a Node.js process that uses minimal memory and CPU. Terminal rendering is fast — there is no DOM to update, no syntax highlighting to compute client-side, no visual diff to render. On resource-constrained machines or when running multiple Claude Code sessions (for agent teams or parallel tasks), the terminal CLI's low overhead is a meaningful advantage.
 
-- **Inline assistance**: Get Claude's help without context-switching to another window or terminal tab.
-- **Editor-aware context**: Claude sees your open files, cursor position, and workspace structure natively.
-- **Cross-platform with full features**: Works on macOS, Windows, and Linux — broader platform support than either the CLI or desktop app alone.
-- **Gradual adoption**: Start using Claude Code within a familiar environment before deciding whether to invest in terminal or desktop workflows.
+The **desktop app** is an Electron-based application (or native wrapper, depending on platform). It uses more memory and CPU for the GUI rendering layer. Visual diffs, syntax highlighting, and conversation history all consume resources. On a modern development machine with 16GB+ of RAM, this overhead is negligible. On a lightweight laptop or when running alongside heavy build processes, it can add up.
+
+For most developers, performance differences between the two interfaces are not a deciding factor. The model inference time dominates the total wait — whether you see the response in a terminal or a GUI window, the thinking time is the same. Choose based on workflow fit, not performance.
+
+## Security and Permissions
+
+Claude Code's permission model works identically across interfaces. By default, Claude Code asks for approval before running shell commands, editing files outside the project directory, or accessing network resources. You can configure automatic permissions in `.claude/settings.json` to reduce prompts for trusted operations.
+
+The terminal CLI provides one security advantage for automation use cases: **you can run it under restricted shell environments, containerized builds, or CI workers with limited filesystem access.** This lets you control exactly what Claude Code can reach. The desktop app runs with your user-level permissions and does not offer additional sandboxing beyond the built-in approval prompts.
+
+For sensitive projects, the terminal CLI's compatibility with standard Unix security tools (chroot, containers, restricted shells, file permissions) gives you more options for defense in depth. The desktop app relies entirely on Claude Code's built-in permission system.
+
+## When to Choose Claude Code Desktop App
+
+**Choose the desktop app if:**
+
+- You prefer visual diffs and rendered markdown over terminal output. The desktop app makes reviewing multi-file changes significantly easier for visual thinkers.
+- You split your time between coding and non-coding tasks. The desktop app sits alongside your browser, Slack, and documentation — it does not require a terminal context switch.
+- Your team includes non-terminal users. Product managers, designers, or junior developers who need AI assistance but are not comfortable in a shell will find the desktop app more approachable.
+- You want persistent, scrollable conversation history. The desktop app's sidebar makes it easy to reference earlier parts of a long session without searching terminal scrollback.
+- You work primarily on macOS or Windows and prefer native app conventions (Cmd+C/V, system notifications, dock/taskbar integration).
+
+**The desktop app is not the right choice if** you need headless automation, CI integration, remote sessions, or deep hook debugging. For these workflows, you will end up in the terminal anyway.
+
+## When to Choose Claude Code Terminal CLI
+
+**Choose the terminal CLI if:**
+
+- You live in the terminal. If your daily workflow involves tmux, vim/neovim, shell scripts, and SSH sessions, Claude Code fits right in without adding another application to manage.
+- You need automation. Headless mode, hooks, and CI integration are terminal-only. If Claude Code is part of a larger automated pipeline — pre-commit checks, scheduled code reviews, batch documentation generation — the CLI is your only option.
+- You work on remote servers. SSH into a VPS, run Claude Code there, and optionally [connect from your phone](/blog/claude-code-remote-sessions-phone). No GUI required, no port forwarding for a desktop app.
+- You want maximum scriptability. Piping, redirection, environment variables, shell functions — the CLI composes with every tool in your Unix toolkit.
+- You are building [skills](/blog/5-claude-code-skills-i-use-every-single-day) and hooks. Developing and testing Claude Code's extension stack is substantially easier in the terminal, where you can run individual commands, inspect outputs, and iterate quickly.
+- Resource efficiency matters. On constrained machines or when running multiple sessions, the CLI's minimal footprint leaves more resources for builds and tests.
+
+## When to Use Both
+
+Many developers find that the optimal setup uses multiple interfaces depending on the task:
+
+1. **Terminal CLI for automation and complex engineering** — refactoring, test generation, CI integration, batch processing, and any workflow that benefits from scripting
+2. **Desktop app or IDE extension for interactive coding sessions** — exploratory work, code review, pair programming with AI, and tasks where visual diffs speed up review
+3. **IDE extension for in-editor flow** — when you want Claude Code's capabilities without leaving your editor, especially for focused editing sessions
+
+This is not a "pick one forever" decision. Your CLAUDE.md, skills, hooks, and MCP configurations work across all interfaces. Start with whichever feels natural, and add others as your workflow demands.
 
 ## Verdict
 
-**For maximum power and programmability, use the terminal CLI.** It's the only interface that gives you the full Claude Code platform — hooks, agent teams, skills, remote sessions, and composable shell integration. If you're a professional engineer comfortable in the terminal, there's no reason to accept a reduced feature set.
+**For most developers, start with the terminal CLI.** It is the most capable interface, supports every Claude Code feature, and works everywhere — local machines, remote servers, CI environments. If you are comfortable in a shell, there is no reason to add a GUI layer between you and the agent. The CLI is where Claude Code's full power lives: hooks for [reliable automation](/blog/claude-code-hooks-mastery), headless mode for CI, remote sessions for mobile control, and seamless composition with Unix tools.
 
-**For accessibility and visual workflows, use the desktop app.** It's genuinely the right choice for Windows users, non-engineers who participate in development workflows, and anyone who prefers GUI interactions. It's not a lesser tool — it's a different tool for different people.
+**Choose the desktop app if the terminal is not your natural habitat** or if you specifically want visual diffs and a GUI conversation interface. It is the right entry point for teams bringing non-terminal users into Claude Code workflows, and it works well for interactive sessions where visual feedback matters more than scriptability.
 
-**For staying in your editor, use the VS Code extension.** It balances capability with convenience, especially for developers who context-switch frequently between reading, writing, and reviewing code.
+**The VS Code / JetBrains extensions are the best of both worlds for IDE-centric developers** — visual feedback plus terminal access, all without leaving your editor.
 
-Many developers use multiple interfaces depending on context. Run the terminal CLI for large refactoring sessions and automation, the desktop app for collaborative review, and the VS Code extension for quick inline assistance. They all authenticate to the same account and share memory context.
+The underlying agent is identical across all interfaces. Your choice is about ergonomics, not capability — with one important exception: if you need automation, headless mode, or remote sessions, the terminal CLI is the only option.
 
 ## Frequently Asked Questions
 
-### Is there a quality difference between Claude Code terminal and desktop?
+### Can I switch between Claude Code desktop and terminal without losing context?
 
-No. Both interfaces use the same underlying Claude model (currently the Claude 4.X family). The AI's reasoning, code generation, and task planning are identical regardless of whether you interact via terminal, desktop app, or VS Code extension. The difference is in available tooling and workflow integration, not model quality.
+Yes. Both interfaces read the same CLAUDE.md project files, skill definitions, and hook configurations from your project directory. The auto-memory system writes to the same `.claude/` folder regardless of interface. Individual session history is interface-specific, but your project context and persistent memories carry across seamlessly.
 
-### Can I use Claude Code desktop on Linux?
+### Does the Claude Code desktop app support all the same features as the terminal CLI?
 
-The desktop app currently supports macOS and Windows. Linux users should use the terminal CLI, which runs natively, or the VS Code extension. The web app at claude.ai/code is also accessible from any platform with a browser.
+The desktop app supports core features — CLAUDE.md, skills, MCP servers, hooks, and agent teams. It does not support headless mode, remote sessions, or CLI-specific features like piping and shell script composition. The terminal CLI is strictly a superset of the desktop app's capabilities for automation and scripting use cases.
 
-### Do hooks and skills work in the desktop app?
+### Is there a performance difference between Claude Code desktop and terminal?
 
-Hooks require shell execution and are terminal-only. Skills work partially in the desktop app — declarative skills that don't depend on shell commands function correctly, but skills requiring command execution or complex scripting need the terminal CLI. MCP servers work across all interfaces.
+Model inference speed is identical — both interfaces call the same Claude API. The difference is in local resource usage: the terminal CLI is a lightweight Node.js process, while the desktop app uses more memory for GUI rendering. On modern hardware, this difference is negligible for interactive use.
 
-### Can I switch between interfaces on the same project?
+### Can I use Claude Code's VS Code extension and terminal CLI together?
 
-Yes. All interfaces read the same CLAUDE.md and project configuration files. Memory and session history sync across interfaces when using the same account. You can start a task in the terminal and review results in the desktop app, or vice versa.
+Yes. The VS Code extension runs in the editor's integrated terminal and shares the same project context. You can have the extension open in VS Code for interactive editing while running a separate terminal CLI session for automation or a different task — they operate independently but share CLAUDE.md and memory.
 
-### Is the VS Code extension the same as Cursor?
+### Is Claude Code desktop free?
 
-No. The Claude Code VS Code extension is Anthropic's official integration that brings Claude Code's agentic capabilities into VS Code. Cursor is a separate product — a VS Code fork with its own AI integration supporting multiple models. They're different tools from different companies with different architectures, though both aim to assist coding within an editor environment.
+Claude Code uses the same billing model regardless of interface — usage-based API billing or a Claude Pro/Team/Enterprise subscription. The desktop app, terminal CLI, web app, and IDE extensions all use the same account and pricing. There is no additional cost for choosing one interface over another.
 
 ---
 
