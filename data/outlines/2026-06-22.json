@@ -1,0 +1,151 @@
+{
+  "date": "2026-06-22",
+  "headline_hook": "A Nobel Laureate Defects to Anthropic While Claude Rolls Out Identity Checks",
+  "preview_topics": [
+    "Jumper's DeepMind-to-Anthropic leap",
+    "a 41K-star context compression tool",
+    "AI training data gets searchable"
+  ],
+  "pick_of_the_day": {
+    "item_id": 54240,
+    "thesis": "Jumper's move from DeepMind to Anthropic reveals that the frontier lab war has shifted from compute stockpiling to scientific talent acquisition — and signals Anthropic is building a research agenda far beyond language models."
+  },
+  "model_literacy": {
+    "concept": "Context Window Compression",
+    "relevance": "Headroom's 60-95% token reduction shows why raw context length is less important than effective context density — as agentic workflows balloon tool outputs, compression before the LLM becomes a first-class optimization layer."
+  },
+  "sections": [
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 54240,
+          "title": "Nobel Laureate John Jumper Leaves DeepMind for Anthropic",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The AlphaFold creator choosing Anthropic over Google signals a talent shift — frontier labs now compete on scientific vision, not just compute budgets.",
+          "key_fact": "Jumper won the 2024 Nobel Prize in Chemistry for AlphaFold's protein structure predictions"
+        },
+        {
+          "id": 54795,
+          "title": "Anthropic Introduces Identity Verification for Claude Users",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Claude getting identity checks marks the transition from 'cool demo' to regulated platform — trust infrastructure is now table stakes as capabilities scale.",
+          "key_fact": "515 HN points — unusually high engagement for a platform policy change"
+        },
+        {
+          "id": 54243,
+          "title": "The Atlantic Publishes Searchable Database of 21M+ AI Music Training Tracks",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The most comprehensive training data transparency effort to date — artists can finally check whether their work was used, shifting the burden of proof on AI training.",
+          "key_fact": "Four datasets totaling 21M+ music tracks made searchable"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 54446,
+          "title": "Headroom Compresses Tool Output Before It Hits the LLM — 60-95% Fewer Tokens",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Agentic workflows drown in bloated tool output — Headroom attacks the biggest cost and latency bottleneck with library, proxy, and MCP server modes.",
+          "key_fact": "41,817 GitHub stars; claims 60-95% token reduction with equivalent answer quality"
+        },
+        {
+          "id": 54551,
+          "title": "sqlite-utils 4.0 Adds Built-in Migrations and Nested Transactions",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Two of SQLite's biggest production pain points — schema migrations and nested transactions — finally get first-class support in the most popular Python SQLite toolkit.",
+          "key_fact": "Release candidate 1 — stable release imminent"
+        },
+        {
+          "id": 54553,
+          "title": "Cloudflare Ships Ephemeral Accounts for AI Agents",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Disposable infrastructure accounts scoped to a single agent session — a new auth primitive for the agentic stack that sidesteps persistent credential management.",
+          "key_fact": "Simon Willison analysis adds practitioner angle on agent auth patterns"
+        }
+      ]
+    },
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 54794,
+          "title": "Apertus: A New Open Foundation Model Built for AI Sovereignty",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "As regulatory pressure on AI sovereignty grows globally, Apertus bets that nations and regions will want foundation models outside the US-China duopoly.",
+          "key_fact": "130 HN points — niche but genuine interest in sovereign AI alternatives"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 54796,
+          "title": "CivBench: Evaluating AI Decision-Making by Letting It Run a Civilization",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Using Civilization gameplay to benchmark strategic reasoning and escalation tendencies — the 'built a nuke' headline grabs attention but the methodology for testing complex tradeoffs is the real contribution.",
+          "key_fact": "AI chose nuclear escalation in the simulation — raises questions about optimization pressure in open-ended environments"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 54452,
+          "title": "Agent Apprenticeship: Agents That Learn From Real-World Work Across Tasks",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Moves beyond one-shot agent execution to agents that accumulate experience through iterative workflow loops — the shift from stateless tools to learning systems.",
+          "key_fact": "520 GitHub stars; shared training signals across agent sessions"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 54238,
+      "title": "Signal's Whittaker: AI Chatbots Are Not Your Friends",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Timely pushback on AI anthropomorphization as identity verification deepens user-AI relationships",
+      "key_fact": "Signal president — one of tech's most credible privacy voices"
+    },
+    {
+      "id": 54759,
+      "title": "llama.cpp Gets Aho-Corasick Parser for Stricter Structured Output",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Grammar-constrained generation gets more reliable enforcement for local models",
+      "key_fact": "Build b9754 — AC parser replaces previous grammar engine"
+    },
+    {
+      "id": 54239,
+      "title": "In the Weights: Search What AI Models Know About You",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A vanity search for the training data era — check your digital footprint across models",
+      "key_fact": "Reveals how public figures appear in AI training data"
+    },
+    {
+      "id": 54757,
+      "title": "Next.js Canary Removes Embedded Claude Code Plugin Marketplace",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Vercel rethinking AI tooling integration in the framework",
+      "key_fact": "v16.3.0-canary.60 drops the plugin marketplace"
+    }
+  ],
+  "total_items": 13
+}
