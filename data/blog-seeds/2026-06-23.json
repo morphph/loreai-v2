@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "The full Claude Desktop experience on AWS, Google Cloud, and Microsoft Foundry",
+    "url": "https://www.claude.com/blog/the-full-claude-desktop-experience-on-aws-google-cloud-and-microsoft-foundry",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "The text in Claude Code's \"Extended Thinking\" output",
+    "url": "https://patrickmccanna.net/the-text-in-claude-codes-extended-thinking-output-is-not-authentic/",
+    "source": "hackernews",
+    "x_engagement_24h": 449,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.134700000000002,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Porting the Moebius 0.2B image inpainting model to run in the browser with Claude Code",
+    "url": "https://simonwillison.net/2026/Jun/22/porting-moebius/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 20,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "ggerganov/llama.cpp b9761: b9761",
+    "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b9761",
+    "source": "github:release:ggerganov/llama.cpp",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "ggerganov/llama.cpp b9760: b9760",
+    "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b9760",
+    "source": "github:release:ggerganov/llama.cpp",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  }
+]
