@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI News 2026-06-24</title>
+<!--[if mso]>
+<style>body{font-family:Arial,sans-serif !important;}</style>
+<![endif]-->
+</head>
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%;">
+
+<!-- Preheader (hidden preview text) -->
+<div style="display:none; max-height:0; overflow:hidden; font-size:1px; line-height:1px; color:#f3f4f6;">
+  AI News 2026-06-24
+</div>
+
+<!-- Outer wrapper -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f3f4f6;">
+<tr><td align="center" style="padding:24px 16px;">
+
+<!-- Inner container -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:620px;">
+
+<!-- Hero / Header Card -->
+<tr><td style="background-color:#ffffff; border-radius:12px 12px 0 0; padding:24px 20px 18px; border-bottom:3px solid #3b82f6;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+      <a href="https://loreai.dev" style="text-decoration:none; font-size:22px; font-weight:800; color:#111; letter-spacing:-0.5px;">LoreAI</a>
+      <span style="font-size:11px; color:#6b7280; margin-left:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.5px;">AI 日报</span>
+    </td>
+    <td align="right">
+      <span style="font-size:12px; color:#9ca3af;">2026-06-24</span>
+    </td>
+  </tr>
+  </table>
+</td></tr>
+
+<!-- Body -->
+<tr><td style="background-color:#ffffff; padding:20px 20px 24px; border-radius:0 0 12px 12px;">
+  
+<p style="margin:0 0 14px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">1. Claude Tag 来了：Anthropic 要在 AI 内容溯源上卡位。</strong>
+你生成的每一段文字、每一张图，现在都能带上加密签名的"出生证明"。<strong style="color:#111; font-weight:600;">Claude Tag</strong> 基于 C2PA 标准，从内容创建到每次编辑形成不可篡改的溯源链 — 下游消费者不需要靠"AI 检测器"猜，直接验签就行。这不是功能更新，是基础设施级别的布局：当监管和平台都开始要求标注 AI 内容时，先把管道铺好的人吃肉。如果你的产品涉及 AI 生成内容，现在就该评估接入方案。 <a href="https://www.anthropic.com/news/introducing-claude-tag" style="color:#3b82f6; text-decoration:none; font-weight:500;">详情 →</a></p>
+<p style="margin:0 0 14px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">2. Agent 身份管理：Claude Tag 给自主 Agent 发"工牌"了。</strong>
+Claude Tag 的技术细节篇回答了一个企业部署 Agent 时绕不过去的问题：Agent 以谁的身份操作？答案是给每个 Agent 持久身份和最小权限范围的访问模型。这意味着审计追踪不再是"某个 API key 调了什么"，而是"哪个 Agent、在哪个团队、用什么权限、做了什么"。跑多 Agent 架构的团队，对照这个规范审一遍你的 Agent 鉴权模型。 <a href="https://www.claude.com/blog/agent-identity-access-model" style="color:#3b82f6; text-decoration:none; font-weight:500;">详情 →</a></p>
+<p style="margin:0 0 14px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">3. 去审查版 Gemma 4 Coder 蒸馏 Fable 5 数据，HuggingFace 上火了。</strong>
+<strong style="color:#111; font-weight:600;">Huihui-gemma-4-12B-coder</strong> 拿 Google 最新的 Gemma 4 12B Coder 做底座，用 <strong style="color:#111; font-weight:600;">Fable 5</strong> 和 Composer 2.5 的数据蒸馏，再移除安全过滤器 — 本地跑代码补全的又多了个选择。3300+ 下载量说明社区在投票。跑本地模型的，拿你的编码基准测一测再决定。 <a href="https://huggingface.co/huihui-ai/Huihui-gemma-4-12B-coder-fable5-composer2.5-v1-abliterated" style="color:#3b82f6; text-decoration:none; font-weight:500;">详情 →</a></p>
+
+<h3>快讯</h3>
+<ul style="margin:0 0 14px; padding-left:20px;">
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">Simon Willison 重新定义 Prompt 注入为"角色混淆"</strong>：本质不是恶意输入被执行，而是模型搞混了指令和数据，防御方向应从输入消毒转向架构层面分离指令通道和数据通道。 <a href="https://simonwillison.net/2026/Jun/22/prompt-injection-as-role-confusion/#atom-everything" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">《艾尔登法环》的敌人 AI 跑的是行为树</strong>：FromSoftware 用经典行为树和状态机，没有 ML，没有 LLM — 什么时候不该用模型，这篇给了清醒的参照。 <a href="https://nega.tv/posts/low-tech-ai-of-elden-ring.html" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">IBM 发布 CUGA 框架，带 24 个完整 Agent 应用示例</strong>：从客服到代码审查到数据分析，覆盖主流场景，能直接跑起来的代码，Clone 一个最接近你场景的改就完了。 <a href="https://huggingface.co/blog/ibm-research/cuga-apps" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">本地模型免费帮你分拣 PR</strong>：HuggingFace 展示了用本地模型在真实开源项目上做 PR 自动分拣的完整流程，零 API 成本。 <a href="https://huggingface.co/blog/local-models-pr-triage" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">Claude Code v2.1.187 锁紧沙箱凭证管理</strong>：新增 <code>sandbox.credentials</code> 配置，阻止沙箱内命令读取密钥，在共享机器上跑的团队尽快配好。 <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.187" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">CrewAI 走向声明式</strong>：1.14.8 alpha 支持 YAML 定义多 Agent 流水线，合并了 <code>crewai run</code> 和 <code>crewai flow kickoff</code> 命令。 <a href="https://github.com/crewAIInc/crewAI/releases/tag/1.14.8a3" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">HuggingFace 公开 AI 辅助周更发版手册</strong>：AI 在 CI 环节辅助，关键节点人工把关，想提高发版频率又怕翻车的团队值得参考。 <a href="https://huggingface.co/blog/huggingface-hub-release-ci" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">Cross-Origin Storage API 可能解决浏览器端模型缓存问题</strong>：不同站点可以共享缓存的模型权重，做浏览器端 ML 的关注这个提案。 <a href="https://huggingface.co/blog/cross-origin-storage" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">OPFS + Pyodide：浏览器里跑 Python，完全离线还能持久存储</strong>：Simon Willison 在浏览器中实现了带持久文件存储的 Python 运行环境。 <a href="https://simonwillison.net/2026/Jun/23/opfs-pyodide/#atom-everything" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">SpaceX 悄悄成了年营收 280 亿美元的算力玩家</strong>：AI 基础设施层整合速度比模型层快得多，算力基建格局值得跟踪。 <a href="https://www.latent.space/p/ainews-spacex-is-already-a-28byr" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">"AI 已经杀死了我们认识的学术界"？</strong>：结构性批判 — 如果同行评审和学历认证体系在松动，你的产品假设还成立吗？ <a href="https://truths-and-loves.ghost.io/ai-has-already-killed-academia-as-we-know-it/" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">AI SDK v6.0.209</strong>：修复 OTLP span 中无效数组属性导致的遥测数据静默丢失。 <a href="https://github.com/vercel/ai/releases/tag/ai%406.0.209" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">llama.cpp b9773–b9775</strong>：Vulkan 后端大幅扩展算子支持，非 NVIDIA 显卡的差距在缩小。 <a href="https://github.com/ggml-org/llama.cpp/releases/tag/b9774" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">langchain-openrouter 0.2.4</strong>：<code>bind_tools</code> 支持 <code>parallel_tool_calls</code>，Agent 多工具并发调度提速。 <a href="https://github.com/langchain-ai/langchain/releases/tag/langchain-openrouter%3D%3D0.2.4" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">Next.js v16.3.0-canary.62</strong>：修复 Cache Components 中 <code>export const dynamic</code> 的误报检测。 <a href="https://github.com/vercel/next.js/releases/tag/v16.3.0-canary.62" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+</ul>
+
+<div style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; margin-bottom: 12px; background-color:#f0f4ff; border-color:#6366f1;">
+  <div style="display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px; padding: 2px 8px; border-radius: 4px; background-color:#f3f4f6; color:#374151;">模型小课堂</div>
+  
+<p style="margin:0 0 14px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">内容溯源（C2PA）</strong>：今天 Claude Tag 上线，背后的核心技术就是 C2PA（Coalition for Content Provenance and Authenticity，内容来源和真实性联盟）。简单说：每一段 AI 生成的内容在创建时就被打上加密签名，之后每一次编辑、转发、裁剪都会在这条签名链上加一环。下游的任何人都可以验证这条链是否完整、是否被篡改 — 不需要靠"AI 检测器"猜，直接看签名就行。这比检测方法可靠得多，因为检测是概率性的，而签名验证是确定性的。</p>
+
+
+</div>
+<div style="border: 1px solid #e5e7eb; border-radius: 8px; padding: 16px; margin-bottom: 12px; background-color:#fffbeb; border-color:#f59e0b;">
+  <div style="display: inline-block; font-size: 11px; font-weight: 700; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: 8px; padding: 2px 8px; border-radius: 4px; background-color:#f3f4f6; color:#374151;">今日精选</div>
+  
+<p style="margin:0 0 14px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">把 Prompt 注入重新定义为"角色混淆"，不只是换个名字 — 是换了整套防御逻辑</strong>：Simon Willison 这篇文章看起来只是语义层面的重新定义，但影响是实质性的。传统的"prompt 注入"类比来自 SQL 注入，防御思路自然是输入消毒 — 过滤、转义、黑名单。但 LLM 不是数据库，输入消毒在自然语言场景下是一场注定打不赢的仗，因为你无法穷举所有恶意输入的形式。Willison 提出的"角色混淆"框架把问题重新定位到架构层面：模型分不清"我该执行的指令"和"我在处理的数据"，这才是根因。防御方向因此从"过滤坏输入"变成"在架构上分离指令通道和数据通道" — 这是唯一能在自主 Agent 场景下规模化的路径。如果你在构建任何形式的 Agent，现在就去审视你的 prompt 架构，指令和用户数据的边界是否足够清晰。 <a href="https://simonwillison.net/2026/Jun/22/prompt-injection-as-role-confusion/#atom-everything" style="color:#3b82f6; text-decoration:none; font-weight:500;">详情 →</a></p>
+
+<p style="margin:0 0 14px; font-size:16px; color:#374151; line-height:1.65;">下期见 ✌️</p>
+
+</div>
+</td></tr>
+
+<!-- Spacer -->
+<tr><td style="height:16px;"></td></tr>
+
+<!-- Footer Card -->
+<tr><td style="background-color:#ffffff; border-radius:12px; padding:20px 20px; text-align:center;">
+  <p style="margin:0 0 12px; font-size:14px; color:#6b7280; line-height:1.5;">
+    每个工作日早晨，最精炼的 AI 简报。
+  </p>
+  <p style="margin:0 0 16px; font-size:13px; color:#9ca3af; line-height:1.8;">
+    <a href="https://loreai.dev/zh/newsletter/2026-06-24" style="color:#3b82f6; text-decoration:none; font-weight:500;">在浏览器中阅读</a>
+    &nbsp;&middot;&nbsp;
+    <a href="https://loreai.dev/zh/newsletter" style="color:#3b82f6; text-decoration:none; font-weight:500;">历史存档</a>
+    &nbsp;&middot;&nbsp;
+    <a href="mailto:?subject=%E6%8E%A8%E8%8D%90%EF%BC%9ALoreAI%20AI%20%E7%AE%80%E6%8A%A5&body=%E6%AF%8F%E5%A4%A9%205%20%E5%88%86%E9%92%9F%E6%8E%8C%E6%8F%A1%20AI%20%E5%8A%A8%E6%80%81%EF%BC%9Ahttps%3A%2F%2Floreai.dev%2Fzh%2Fsubscribe%3Fref%3Dnewsletter-share" style="color:#3b82f6; text-decoration:none; font-weight:500;">推荐给朋友</a>
+    &nbsp;&middot;&nbsp;
+    <a href="{{ unsubscribe_url }}" style="color:#9ca3af; text-decoration:none;">退订</a>
+  </p>
+  <p style="margin:0; font-size:12px; color:#d1d5db;">
+    <a href="https://x.com/loreai_dev" style="color:#9ca3af; text-decoration:none;">𝕏</a>
+    &nbsp;&nbsp;
+    <a href="https://loreai.dev" style="color:#9ca3af; text-decoration:none;">loreai.dev</a>
+  </p>
+</td></tr>
+
+</table>
+<!-- /Inner container -->
+
+</td></tr>
+</table>
+<!-- /Outer wrapper -->
+
+</body>
+</html>
