@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Which tokens does a hybrid model predict better?",
+    "url": "https://huggingface.co/blog/allenai/hybrid-token-prediction",
+    "source": "rss:HuggingFace Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Show HN: OpenKnowledge – open source AI-first alternative to Obsidian/Notion",
+    "url": "https://github.com/inkeep/open-knowledge",
+    "source": "hackernews",
+    "x_engagement_24h": 254,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.0762,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "vercel/ai ai@7.0.0",
+    "url": "https://github.com/vercel/ai/releases/tag/ai%407.0.0",
+    "source": "github:release:vercel/ai",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "anthropics/claude-code v2.1.193",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.193",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Run a vLLM Server on HF Jobs in One Command",
+    "url": "https://huggingface.co/blog/vllm-jobs",
+    "source": "rss:HuggingFace Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  }
+]
