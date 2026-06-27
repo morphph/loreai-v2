@@ -1,0 +1,207 @@
+{
+  "date": "2026-06-27",
+  "headline_hook": "Washington Decides Who Gets GPT-5.6 While Anthropic Unshackles the API",
+  "preview_topics": [
+    "GPT-5.6 Sol and its government gatekeepers",
+    "Anthropic's unified rate limit overhaul",
+    "what 2,000 hackers learned attacking an AI assistant"
+  ],
+  "pick_of_the_day": {
+    "item_id": 56128,
+    "thesis": "State-gated access to commercial models isn't a one-off policy quirk — it's the birth of a tiered distribution system that will split the AI market by geography and clearance level, forcing every builder to plan for a world where frontier capabilities have border controls."
+  },
+  "model_literacy": {
+    "concept": "Capability Thresholds",
+    "relevance": "With GPT-5.6 and Mythos both subject to government vetting, today's news makes concrete the idea that models cross invisible lines where their capabilities trigger regulatory intervention — understanding where those thresholds sit determines whether your product can access frontier models at all."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 55931,
+          "title": "OpenAI previews GPT-5.6 'Sol' — the next frontier benchmark",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The first official look at Sol: what capabilities OpenAI is telegraphing, and why the preview-before-release cadence itself signals a shift in how frontier models get rolled out.",
+          "key_fact": "GPT-5.6 is codenamed Sol and comes with government-level access vetting — a first for OpenAI"
+        },
+        {
+          "id": 55951,
+          "title": "Anthropic unifies Claude API rate limits — Sonnet and Haiku match Opus",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Five tiers collapse to three, every model gets the same ceiling, and most orgs auto-upgrade. The rate limit wall that forced production workarounds is gone.",
+          "key_fact": "Tiers consolidate from five to three (Start, Build, Scale); Sonnet and Haiku now match Opus limits at every tier"
+        },
+        {
+          "id": 56113,
+          "title": "DeepReinforce drops Ornith-1.0 — a 9B/35B/397B model family hits HuggingFace",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A full model family spanning edge to datacenter, with the 35B landing in the sweet spot for local deployment and GGUF already available for the 9B.",
+          "key_fact": "Three sizes (9B, 35B, 397B) all trending on HuggingFace simultaneously; 9B has GGUF quantizations ready"
+        },
+        {
+          "id": 56116,
+          "title": "Liquid AI ships LFM2.5 at 230M params — ultra-small models for edge inference",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "At 230M parameters, LFM2.5 targets the embedded and on-device slot that transformers struggle to fill. 8K+ downloads in hours.",
+          "key_fact": "230M parameters; 8,300+ downloads already; designed for edge and embedded deployment"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 56128,
+          "title": "The U.S. government will decide who gets GPT-5.6 — a first for commercial AI",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "State-level access control on a commercial model is unprecedented. This isn't export policy — it's the government inserting itself into the API onboarding flow.",
+          "key_fact": "First major commercial AI model where the U.S. government vets individual users before granting access"
+        },
+        {
+          "id": 56127,
+          "title": "Anthropic's Mythos cleared for 'trusted partners' by U.S. government",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A second frontier model under government distribution control in the same week. The pattern is now undeniable: tiered access is the new normal for frontier AI.",
+          "key_fact": "Limited release to vetted domestic partners only — mirrors the GPT-5.6 access structure"
+        },
+        {
+          "id": 55903,
+          "title": "OpenAI's internal AI usage exploded 56x in Research since November 2025",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The company building the models is also the most aggressive user. 56x growth in Research output tokens means AI-generated text is becoming the default medium for internal work.",
+          "key_fact": "Median output tokens grew 56x in Research, 32x in Customer Support, 27x in Engineering, 13x in Legal"
+        },
+        {
+          "id": 56129,
+          "title": "The real gap between open-weights and closed models in 2026",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A data-driven look at where open models actually compete and where they don't — especially relevant now that government controls are creating artificial scarcity at the frontier.",
+          "key_fact": "Analysis published alongside GLM-5.2's gains and the new government access tiers for GPT-5.6 and Mythos"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 55899,
+          "title": "What 2,000 people learned trying to hack Simon Willison's AI assistant",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "The largest public red-team dataset for a consumer AI product. Real attack patterns, real defenses, and the failure modes that surprised even the builder.",
+          "key_fact": "2,000 participants; detailed breakdown of successful and failed prompt injection patterns"
+        },
+        {
+          "id": 55900,
+          "title": "CVE-2026-LGTM post-mortem: when AI security goes wrong in production",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A detailed incident analysis that turns abstract AI security risks into concrete production lessons — the kind of post-mortem that should be required reading before shipping AI-facing features.",
+          "key_fact": "Full incident timeline and root-cause analysis from Simon Willison"
+        },
+        {
+          "id": 56132,
+          "title": "A modern GPU programming course built for ML systems in 2026",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "MLC.ai's course covers the kernel and memory patterns that actually matter for inference optimization — not GPU programming in general, but the specific subset ML engineers need.",
+          "key_fact": "Free, comprehensive course covering kernels and memory patterns for inference and training"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 56130,
+          "title": "WorkWeave ships an open-source model router for Claude Code, Codex, and Cursor",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Automatic model selection per task without changing your workflow — 133 HN upvotes suggest developers want routing as infrastructure, not configuration.",
+          "key_fact": "Open-source; plugs into Claude Code, Codex, and Cursor; 133 HN upvotes in hours"
+        },
+        {
+          "id": 56079,
+          "title": "Claude Code v2.1.195 fixes hook matching and adds fullscreen mode controls",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The hook matcher fix is the real story — hyphenated identifiers like code-reviewer and mcp__brave-search were substring-matching, causing false triggers.",
+          "key_fact": "Fixes hook matchers that substring-matched hyphenated identifiers; adds CLAUDE_CODE_DISABLE_MOUSE_CLICKS env var"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 55684,
+          "title": "Lemma Platform: an open-source workspace where humans and agents collaborate",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Positions itself as the team coordination layer on top of individual coding agents — the missing piece between 'agent writes code' and 'team ships product.'",
+          "key_fact": "Open-source; 110 GitHub stars; trending on GitHub in AI/Python"
+        },
+        {
+          "id": 55687,
+          "title": "GITVERSE reverse-engineers any repo into an AI-ready build prompt",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Converts a codebase into an architecture breakdown with a reconstruction prompt — useful for onboarding coding agents to unfamiliar repos without manual context dumps.",
+          "key_fact": "98 GitHub stars; TypeScript; generates portable project blueprints from any repo"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 56086,
+      "title": "Vercel AI SDK adds first-class audio generation",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "generateAudio joins text and image as a unified SDK call",
+      "key_fact": "AI SDK v6.0.213; audio is now a first-class generation mode"
+    },
+    {
+      "id": 56082,
+      "title": "langchain-anthropic fixes streaming truncation bug",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "First tokens of streamed responses were silently dropped on content_block_start",
+      "key_fact": "v1.4.8; fixes dropped initial text in streaming responses"
+    },
+    {
+      "id": 56091,
+      "title": "llama.cpp optimizes multi-GPU sync for faster inference",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Async CPU-to-CUDA copy with relaxed sync reduces multi-GPU idle time",
+      "key_fact": "Build b9820; less synchronization overhead for split compute"
+    },
+    {
+      "id": 56093,
+      "title": "CrewAI patches SSRF redirect bypass in agent scraping",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Security fix for agents that fetch external URLs",
+      "key_fact": "v1.15.1a1; SSRF redirect bypass patched in scraping fetches"
+    },
+    {
+      "id": 56131,
+      "title": "IEEE Spectrum: AI is forcing epistemological questions in mathematics",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "From proof verification to conjecture generation — what counts as understanding?",
+      "key_fact": "IEEE Spectrum feature on AI reshaping mathematical research methods"
+    }
+  ],
+  "total_items": 20
+}

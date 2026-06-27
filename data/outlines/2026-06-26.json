@@ -1,0 +1,228 @@
+{
+  "date": "2026-06-26",
+  "headline_hook": "Gemini Flash Grabs the Desktop While Lilian Weng Tears Up the Scaling Playbook",
+  "preview_topics": [
+    "Gemini's desktop agent play",
+    "Lilian Weng's scaling law reckoning",
+    "the AI SDK v7 migration clock"
+  ],
+  "pick_of_the_day": {
+    "item_id": 55628,
+    "thesis": "The scaling-laws consensus that drove $100B in training compute is built on assumptions that break at the frontier — Weng's synthesis shows where the power laws bend, and why the next generation of training budgets can't just extrapolate from Chinchilla."
+  },
+  "model_literacy": {
+    "concept": "Compute-Optimal Training (Chinchilla Scaling)",
+    "relevance": "Today's scaling laws deep dive reveals that 'compute-optimal' depends on assumptions about data quality, mixture, and evaluation methodology that most scaling analyses gloss over — understanding where the framework's power laws break down matters as frontier training runs push past $1B."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 55589,
+          "title": "Gemini 3.5 Flash Gets Computer Use — Google's Fastest Model Takes the Desktop",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Google commoditizes desktop automation at Flash-tier pricing, directly challenging Anthropic's computer use lead and making agentic UI control accessible to cost-sensitive teams",
+          "key_fact": "Computer use now available in Gemini 3.5 Flash, Google's fastest and cheapest model tier"
+        },
+        {
+          "id": 55822,
+          "title": "Vercel AI SDK Hits v7.0 With Breaking Changes You'll Feel",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Telemetry goes stable, deprecated media types get removed, and prepareStep message overrides are fixed — if you're on v6, check your imports before Monday",
+          "key_fact": "Major version bump: experimental_ telemetry prefix dropped, deprecated ToolResultOutput media types removed"
+        },
+        {
+          "id": 55827,
+          "title": "CrewAI 1.15 Goes All-In on Declarative YAML Flows",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Multi-agent pipelines defined in YAML with conditional expressions and inline crew definitions — the biggest release since CrewAI's declarative pivot",
+          "key_fact": "YAML-defined flows now support conditional expressions, composite actions, and a conversational TUI"
+        },
+        {
+          "id": 55823,
+          "title": "Ollama Auto-Installs Claude Code and OpenCode",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Ollama positions itself as the local inference layer that coding agents launch on top of — auto-install plus thinking capability detection",
+          "key_fact": "Auto-install support for Claude Code and OpenCode, plus thinking capability detection for compatible models"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 55681,
+          "title": "Anthropic Adds Device Trust to Remote Claude Code Sessions",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Enterprise security teams get a trust boundary before anyone can view or steer a developer's local Claude Code session — remote control without device verification is now opt-out, not opt-in",
+          "key_fact": "Device verification required before remote viewing or steering of Claude Code sessions"
+        },
+        {
+          "id": 55810,
+          "title": "Claude Code v2.1.193: classifyAllShell Routes Every Bash Command Through Auto-Mode",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "New setting classifies every Bash command via the auto-mode classifier, plus denial reasons in transcripts and OpenTelemetry log events for observability pipelines",
+          "key_fact": "classifyAllShell setting applies auto-mode classification to all Bash commands, not just arbitrary-code patterns"
+        },
+        {
+          "id": 55547,
+          "title": "AI SDK xAI Provider Adds Grok 4.3 and Build Model",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "First SDK integration for xAI's latest model lineup including grok-build-0.1 and configurable reasoning effort",
+          "key_fact": "Adds Grok 4.3, grok-build-0.1, grok-imagine-image-quality, plus 'none' and 'medium' reasoning effort levels"
+        },
+        {
+          "id": 55826,
+          "title": "llama.cpp Gets SYCL Tensor Parallelism for Dual-GPU Inference",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Intel and AMD multi-GPU inference becomes a first-class citizen with backend-specific all-reduce mirroring the CUDA pattern",
+          "key_fact": "--split-mode tensor now supported on SYCL backend for dual-GPU setups"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 55628,
+          "title": "Lilian Weng's Definitive Scaling Laws Guide Exposes Where the Power Laws Break",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "The most comprehensive public treatment of scaling laws — covering Chinchilla, compute-optimal training, and the blind spots that could mislead billion-dollar training budget decisions",
+          "key_fact": "Covers Chinchilla, compute-optimal training, and identifies specific regimes where power-law extrapolation fails"
+        },
+        {
+          "id": 55639,
+          "title": "AllenAI Maps Where Hybrid Architectures Beat Pure Transformers Token by Token",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Practical guidance for architecture selection: hybrid attention + state-space models outperform pure transformers on specific token patterns",
+          "key_fact": "Token-level analysis reveals which prediction patterns favor hybrid architectures over pure transformers"
+        },
+        {
+          "id": 55862,
+          "title": "Un-0 Generates Images With Coupled Oscillators Instead of Diffusion",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A physics-inspired approach that sidesteps both diffusion and autoregression — opens a genuinely new design space for generative models",
+          "key_fact": "Uses coupled oscillator dynamics for image generation, a fundamentally different approach from diffusion or autoregressive models"
+        },
+        {
+          "id": 55866,
+          "title": "Trakkr Maps Political Bias Across Major AI Models",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Structured methodology for comparing model biases — useful reference for teams evaluating model choices in politically sensitive domains",
+          "key_fact": "213 retweets and 104 likes; structured bias comparison across major commercial models"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 55638,
+          "title": "One Command to a vLLM Server on HuggingFace Jobs",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Self-hosting open models without managing GPU clusters — HuggingFace wraps vLLM inference into a managed job you launch from the CLI",
+          "key_fact": "Single CLI command spins up a managed vLLM inference server on HuggingFace infrastructure"
+        },
+        {
+          "id": 55407,
+          "title": "Hello-Agents: From Agent Fundamentals to Production Multi-Agent Systems",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Trending tutorial that fills the gap between hello-world agent demos and real system design — walks the full path from basics to production-grade multi-agent applications",
+          "key_fact": "127 GitHub stars; covers fundamentals through production-grade multi-agent architecture"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 55865,
+          "title": "OpenAI Pushes IPO to 2027 — and the Valuation Ripple Hits Everyone",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The delay signals OpenAI wants more time to solidify revenue and governance, but public market comps drive private AI valuations — every AI startup's fundraise just lost a benchmark",
+          "key_fact": "NYT reports OpenAI targeting 2027 for IPO, pushing back from earlier 2026 timeline"
+        },
+        {
+          "id": 55623,
+          "title": "Simon Willison on AI Liability: Who Pays When Agents Break Things?",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "As AI agents take real actions in production, liability frameworks will shape what developers can and can't ship — Willison maps the fault lines",
+          "key_fact": "Liability analysis focused on AI agents that take real-world actions, not just generate text"
+        },
+        {
+          "id": 55629,
+          "title": "Latent Space Declares 'Meta-Harness Summer'",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The orchestration-layer-on-orchestration-layer trend gets a name — useful framing for the current wave of agent-framework-of-frameworks proliferation",
+          "key_fact": "Coins the term 'Meta-Harness Summer' for the trend of building orchestration layers atop orchestration layers"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 55863,
+          "title": "OpenKnowledge: Open-Source AI-First Alternative to Obsidian and Notion",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "175 HN points signal real demand for AI-native note-taking without vendor lock-in — Inkeep's open-source play against the incumbents",
+          "key_fact": "175 HN points; open-source knowledge management designed for AI-native workflows"
+        },
+        {
+          "id": 55791,
+          "title": "OpenTag Routes @agent Mentions in Slack and GitHub to Codex or Claude Code",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Open-source agent routing for team workflows — @mention an agent in Slack or GitHub, get results in-thread without platform lock-in",
+          "key_fact": "136 GitHub stars; routes @agent mentions to Codex or Claude Code and returns results in-thread"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 55830,
+      "title": "MCP TypeScript SDK Ships server-legacy Package for v1→v2 Migration",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Clean migration path from MCP v1 SSE transport to v2 without breaking existing clients",
+      "key_fact": "Dedicated server-legacy package freezes v1 SSE transport and OAuth helpers"
+    },
+    {
+      "id": 55536,
+      "title": "Claude Code v2.1.190: Stability Fixes Between Feature Drops",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Maintenance release with bug fixes between v2.1.187 and v2.1.193",
+      "key_fact": "Bug fixes and reliability improvements"
+    },
+    {
+      "id": 55637,
+      "title": "Google Finance Exits Beta With New Android App",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Not AI-specific yet, but Google's finance push may incorporate AI-powered analysis",
+      "key_fact": "New standalone Android app for Google Finance"
+    }
+  ],
+  "total_items": 22
+}

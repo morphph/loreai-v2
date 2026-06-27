@@ -1,0 +1,204 @@
+{
+  "date": "2026-06-25",
+  "headline_hook": "Google Ships Computer Use for Gemini Flash as OpenAI Unveils Custom Silicon",
+  "preview_topics": [
+    "computer use goes Flash-tier",
+    "OpenAI's custom Broadcom chip",
+    "the Qualcomm-Modular edge AI play"
+  ],
+  "pick_of_the_day": {
+    "item_id": 55587,
+    "thesis": "Qualcomm isn't just buying an inference engine — it's acquiring the only credible systems language challenger to C++ for on-device AI, and that bet reveals exactly where the industry thinks compute is heading."
+  },
+  "model_literacy": {
+    "concept": "Computer Use vs. Tool Use",
+    "relevance": "Gemini Flash adding computer use highlights the spectrum from structured API tool calls to pixel-level GUI control — and Flash-tier pricing means agentic desktop automation just became economically viable at scale."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 55363,
+          "title": "Gemini 3.5 Flash Gets Computer Use — and Flash-Tier Pricing Changes the Math",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Google brings agentic desktop control to its cheapest model, directly undercutting Anthropic's computer use pricing while matching the capability — the feature just went from premium to commodity.",
+          "key_fact": "Computer use now available on Flash, Google's fastest and cheapest model tier"
+        },
+        {
+          "id": 55586,
+          "title": "OpenAI Joins the Custom Silicon Race with Broadcom",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "OpenAI's first custom chip signals it's done being dependent on NVIDIA's roadmap — and the Broadcom partnership puts it on the same path Google TPU and Amazon Trainium blazed.",
+          "key_fact": "First custom AI chip from OpenAI, built in partnership with Broadcom"
+        },
+        {
+          "id": 55591,
+          "title": "Krea 2 Drops a 12B Open-Weights Image Model That Punches Up",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A self-hostable 12B image model claiming SOTA, with Turbo and Raw variants already on HuggingFace — gives teams a real alternative to closed image APIs.",
+          "key_fact": "12B parameters, open weights, 878+ downloads for Turbo variant on day one"
+        },
+        {
+          "id": 55569,
+          "title": "Qwen's AgentWorld: 35B MoE with Only 3B Active Parameters",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A purpose-built agentic model you can actually run on consumer hardware — 3B active params from a 35B MoE means laptop-scale inference for tool use and planning.",
+          "key_fact": "35B total / 3B active parameters, designed specifically for agentic tasks"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 55389,
+          "title": "Anthropic's Playbook for Human-Agent Teams Goes Public",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Anthropic publishes its internal framework for designing workflows where agents and humans complement each other — essentially the operating manual for teams shipping Claude in production.",
+          "key_fact": "First public framework from a frontier lab on human-agent collaboration design"
+        },
+        {
+          "id": 55587,
+          "title": "Qualcomm Acquires Modular — and With It, Mojo's Future",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "This isn't just an acqui-hire: Qualcomm gets MAX inference and the Mojo language, potentially reshaping edge AI toolchains for Snapdragon devices.",
+          "key_fact": "Qualcomm acquires Modular (Mojo language + MAX inference platform)"
+        },
+        {
+          "id": 55356,
+          "title": "Databricks CTO: Every Company Needs Its Own Agent Cloud",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Matei Zaharia and Reynold Xin make the case for open frontier ecosystems — and reveal Databricks' thesis that enterprise AI needs its own cloud layer, not just API wrappers.",
+          "key_fact": "Rare double-interview: CTO + technical co-founder lay out the enterprise AI data stack vision"
+        },
+        {
+          "id": 55592,
+          "title": "AI Labs Are Hiring Philosophers — and It's Not for the PR",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The Economist reports on the accelerating philosophy hiring trend at frontier labs, signaling the hardest remaining AI problems are conceptual, not computational.",
+          "key_fact": "Major labs accelerating philosopher hires for alignment, policy, and model behavior"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 55535,
+          "title": "Claude Code Gets /rewind — Undo for Context Resets",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The new /rewind command lets you resume conversations from before /clear, plus a fix for zombie background agents — two workflow-breaking pain points addressed in one release.",
+          "key_fact": "/rewind command for conversation recovery, background agent resurrection bug fixed"
+        },
+        {
+          "id": 55538,
+          "title": "Anthropic Python SDK Adds System Message Streaming",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "System.message streaming events let developers receive system-level messages mid-stream — important for agents that need to react to infrastructure signals during generation.",
+          "key_fact": "New system.message streaming events + memory tool directory creation fix"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 55364,
+          "title": "NeMo AutoModel Removes the Worst Part of Multi-GPU Training",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "NVIDIA and HuggingFace co-publish a system that auto-selects tensor, pipeline, and data parallelism strategies — the config nightmare that keeps teams from fine-tuning at scale.",
+          "key_fact": "Auto-selects optimal parallelism strategies, eliminating manual multi-GPU config"
+        },
+        {
+          "id": 55590,
+          "title": "NVIDIA's 45°C Liquid Cooling Cuts Data Center Water Use to Near Zero",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A cooling architecture that eliminates water consumption at 45°C operating temps — directly addressing the sustainability bottleneck slowing permits for new GPU clusters.",
+          "key_fact": "Near-zero water consumption at 45°C, targeting the permitting bottleneck for AI data centers"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 55365,
+          "title": "FFASR Leaderboard: ASR Benchmarks Finally Hit the Real World",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "HuggingFace launches an ASR benchmark for noisy, accented, domain-specific speech — the conditions your users actually speak in, not clean studio recordings.",
+          "key_fact": "First standardized ASR benchmark covering noise, accents, and domain-specific vocabulary"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 55588,
+          "title": "RubyLLM Gives Ruby Shops a First-Class AI SDK",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A unified Ruby interface for Claude, GPT, and Gemini — filling a gap that left Ruby teams bolting together HTTP clients while Python and TS developers had polished SDKs.",
+          "key_fact": "333 HN points, unified interface across Claude/GPT/Gemini/others"
+        },
+        {
+          "id": 55408,
+          "title": "Tupper: Open-Source Sandboxes for Code-Executing Agents",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Run untrusted AI-generated code safely on your own hardware — for teams building code agents who can't or won't depend on cloud sandboxes like E2B.",
+          "key_fact": "Open-source, self-hosted sandboxing for AI code execution"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 55539,
+      "title": "Anthropic TS SDK v0.106.0 mirrors Python with system.message streaming",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Feature parity with Python SDK release",
+      "key_fact": "system.message streaming events + single-source-of-truth helper fix"
+    },
+    {
+      "id": 55541,
+      "title": "OpenAI Node SDK adds afterCompletion hook for tool-use loops",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Inject logging and caching between tool-use cycles",
+      "key_fact": "afterCompletion hook for runTools + Realtime API sideband call_id"
+    },
+    {
+      "id": 55552,
+      "title": "CrewAI patches symlink path traversal in skill archive extraction",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Security fix — apply if you use CrewAI skills",
+      "key_fact": "Symlink path traversal vulnerability patched in 1.14.8a4"
+    },
+    {
+      "id": 55549,
+      "title": "llama.cpp gets 32×32 tiled repacking for Qualcomm Hexagon DSP",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Major on-device inference speedup for Snapdragon hardware",
+      "key_fact": "Hexagon DSP rework: tiled weight repacking, kernel fusion, cached MUL_MAT graphs"
+    }
+  ],
+  "total_items": 19
+}

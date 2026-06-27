@@ -1,0 +1,196 @@
+{
+  "date": "2026-06-24",
+  "headline_hook": "Anthropic Ships Claude Tag for AI Provenance While Willison Rewrites the Prompt Injection Playbook",
+  "preview_topics": [
+    "Anthropic's content provenance push",
+    "prompt injection reframed as role confusion",
+    "IBM's 24 ready-made agent blueprints"
+  ],
+  "pick_of_the_day": {
+    "item_id": 55093,
+    "thesis": "Reframing prompt injection as 'role confusion' isn't just semantics — it shifts defense strategy from input sanitization (a losing game) to architectural separation of instruction and data channels, which is the only path that scales for autonomous agents."
+  },
+  "model_literacy": {
+    "concept": "Content Provenance (C2PA)",
+    "relevance": "Claude Tag launches today as AI-generated content infrastructure — understanding C2PA (Coalition for Content Provenance and Authenticity) explains how cryptographic signatures chain from creation through every edit, giving downstream consumers a tamper-evident trail without relying on detection heuristics."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 55111,
+          "title": "Claude Tag: Anthropic's Play for AI Content Provenance at Scale",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "This isn't a watermark — it's infrastructure. Anthropic is building the identity layer for AI-generated content, positioning itself as the trust backbone before regulation forces everyone to retrofit.",
+          "key_fact": "New product for identifying and managing AI-generated content across the full lifecycle"
+        },
+        {
+          "id": 55131,
+          "title": "Agent Identity Gets Its Own Access Model in Claude Tag",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The missing piece for enterprise agent deployments: persistent agent identities with scoped access and audit trails. This is how you give an AI agent a company badge without giving it the keys to the building.",
+          "key_fact": "Defines persistent identities and least-privilege access for autonomous agents within teams"
+        },
+        {
+          "id": 55309,
+          "title": "Abliterated Gemma 4 Coder Distilled on Fable 5 Data Hits HuggingFace Trending",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Google's latest coder base + frontier model distillation + safety-filter removal — trending for local coding setups where uncensored completions matter.",
+          "key_fact": "12B parameter model with 112 likes and 3.3K downloads in early traction"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 55093,
+          "title": "Simon Willison Reframes Prompt Injection as Role Confusion",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "The 'injection' metaphor borrows from SQL injection but misleads defense strategy. 'Role confusion' — when models lose track of which inputs are instructions vs. data — is a sharper lens for building safer agents.",
+          "key_fact": "New mental model reframes the core LLM security problem from input sanitization to architectural role separation"
+        },
+        {
+          "id": 55320,
+          "title": "Elden Ring's Enemy AI Runs on Behavior Trees, Not Neural Nets",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A deep teardown reveals FromSoftware ships some of gaming's best AI using decades-old techniques — a useful counterpoint to the 'ML everything' reflex.",
+          "key_fact": "Classic behavior trees and state machines, zero neural networks, in one of the decade's most acclaimed games"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 55105,
+          "title": "IBM Drops 24 Working Agentic App Examples You Can Actually Tear Apart",
+          "section": "BUILD",
+          "prominence": "hero",
+          "angle": "Unlike agent frameworks that give you abstractions, CUGA gives you 24 running applications on a lightweight harness. Copy, gut, rebuild — the fastest path from 'agent-curious' to 'agent-deployed'.",
+          "key_fact": "24 working examples covering real agentic patterns on a minimal harness from IBM Research"
+        },
+        {
+          "id": 55109,
+          "title": "Local Models Can Triage Your PRs for Free — Here's the Setup",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "HuggingFace shows the exact prompts and configuration for zero-cost automated PR triage using local models. Copy-paste-ready for maintainers drowning in contributions.",
+          "key_fact": "Zero API cost using local models on real open-source repo PR workflows"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 55273,
+          "title": "Claude Code Locks Down Sandbox Credentials and Adds Org Model Controls",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The new sandbox.credentials setting blocks sandboxed commands from reading secrets — a real security improvement for teams running Claude Code on shared machines.",
+          "key_fact": "New credential sandboxing, org-level model restrictions, and mouse click support for select menus"
+        },
+        {
+          "id": 55286,
+          "title": "CrewAI Goes Declarative: Define Multi-Agent Pipelines in YAML",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Unified declarative flow loading lets you define multi-agent pipelines in YAML instead of code. The gap between 'I have an idea' and 'I have a running agent pipeline' just got smaller.",
+          "key_fact": "Consolidates run commands, adds typed output schemas for tools, and @router() as flow start"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 55106,
+          "title": "HuggingFace's Playbook for Weekly AI-Assisted Releases With Human Gates",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A concrete internal workflow for shipping huggingface_hub weekly using AI in the CI loop with human checkpoints — the 'ship faster without losing quality' recipe teams actually want.",
+          "key_fact": "Weekly release cadence maintained with AI-in-the-loop CI and explicit human approval gates"
+        },
+        {
+          "id": 55107,
+          "title": "Cross-Origin Storage Could Fix Browser ML Model Caching for Good",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The proposed Cross-Origin Storage API would let sites share cached model weights — dramatically improving load times for browser-based ML if it ships.",
+          "key_fact": "Proposed browser API enabling shared model weight caching across origins"
+        },
+        {
+          "id": 55092,
+          "title": "OPFS + Pyodide: Fully Offline Python in the Browser With Persistent Storage",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Simon Willison combines the Origin Private File System with Pyodide for browser-based Python with persistent files — a building block for offline data tools and AI demos.",
+          "key_fact": "Test harness combining OPFS and Pyodide enables persistent file storage for in-browser Python"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 55096,
+          "title": "SpaceX Is Quietly a $28B/yr Compute Player",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The AI infrastructure layer is consolidating faster than the model layer — SpaceX's revenue positions it as a neocloud contender worth tracking alongside the hyperscalers.",
+          "key_fact": "$28B/yr revenue positions SpaceX as significant infrastructure player"
+        },
+        {
+          "id": 55319,
+          "title": "The Argument That AI Has Already Broken Academic Credentialing",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Not just workflow disruption — a structural critique that peer review and credentialing systems are fundamentally incompatible with AI-assisted research. Matters for anyone building research or education tools.",
+          "key_fact": "Claims AI has broken peer review and credentialing systems, not just augmented them"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 55280,
+      "title": "AI SDK Fixes Silent OTLP Span Breakage",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "If AI SDK + OpenTelemetry spans were vanishing, this invalid-attribute fix is why",
+      "key_fact": "Fixes undefined/null/mixed-type array attributes breaking OTLP ingestion"
+    },
+    {
+      "id": 55284,
+      "title": "llama.cpp Vulkan Backend Closes Gap With CUDA",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Three builds land a wave of new Vulkan ops for non-NVIDIA inference",
+      "key_fact": "Full SQR/SQRT/SIN/COS/CLAMP/LEAKY_RELU/NORM ops plus non-contiguous row handling"
+    },
+    {
+      "id": 55275,
+      "title": "LangChain OpenRouter Gets Parallel Tool Calls",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Parallel tool dispatch + cache_control passthrough for OpenRouter users",
+      "key_fact": "parallel_tool_calls on bind_tools and cache_control on tool definitions"
+    },
+    {
+      "id": 55278,
+      "title": "Next.js Canary Fixes False-Positive Cache Component Flags",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Cache Components incorrectly flagged for export const dynamic — now fixed",
+      "key_fact": "v16.3.0-canary.62 resolves false-positive detection plus new Interactive Apps guide"
+    }
+  ],
+  "total_items": 18
+}
