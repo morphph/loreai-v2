@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "US allows Anthropic to release Mythos to 'trusted partners'",
+    "url": "https://www.reuters.com/technology/us-releases-anthropic-model-mythos-some-us-companies-semafor-reports-2026-06-26/",
+    "source": "hackernews",
+    "x_engagement_24h": 145,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.0435,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic raises rate limits across the Claude API",
+    "url": "https://platform.claude.com/docs/en/api/rate-limits",
+    "source": "docs:Platform Release Notes",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 16,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "The gap between open weights LLMs and closed source LLMs",
+    "url": "https://blog.doubleword.ai/frontier-os-llm",
+    "source": "hackernews",
+    "x_engagement_24h": 160,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.048,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "OpenAI reports median internal Codex output tokens grew 56x in Research, 32x in Customer Support, 27x in Engineering, and 13x in Legal since November 2025",
+    "url": "https://www.latent.space/p/ainews-openai-reports-median-internal",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "U.S. government will decide who gets to use GPT-5.6",
+    "url": "https://www.washingtonpost.com/technology/2026/06/26/openai-says-us-government-will-vet-users-its-latest-ai-model/",
+    "source": "hackernews",
+    "x_engagement_24h": 1604,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.4812,
+    "suggested_angle": "news"
+  }
+]
