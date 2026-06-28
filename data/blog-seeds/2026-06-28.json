@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Simon Willison quoting OpenAI",
+    "url": "https://simonwillison.net/2026/Jun/26/openai/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "llama.cpp b9827: CUDA cudaMemcpy2DAsync fast path for strided copies",
+    "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b9827",
+    "source": "github:release:ggerganov/llama.cpp",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "llama.cpp b9817: OpenVINO 2026.2.1 with self-contained release packages",
+    "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b9817",
+    "source": "github:release:ggerganov/llama.cpp",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Vercel AI SDK v7.0.4",
+    "url": "https://github.com/vercel/ai/releases/tag/ai%407.0.4",
+    "source": "github:release:vercel/ai",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "OpenAI poaches Uber India chief to lead its biggest market outside the US",
+    "url": "https://techcrunch.com/2026/06/26/openai-poaches-uber-india-chief-to-lead-its-biggest-market-outside-the-u-s/",
+    "source": "rss:TechCrunch AI",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  }
+]
