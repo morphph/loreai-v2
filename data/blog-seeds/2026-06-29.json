@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "A way to exclude sensitive files issue still open for OpenAI Codex",
+    "url": "https://github.com/openai/codex/issues/2847",
+    "source": "hackernews",
+    "x_engagement_24h": 290,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.087,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "GLM 5.2 beats Claude in our benchmarks",
+    "url": "https://semgrep.dev/blog/2026/we-have-mythos-at-home-glm-52-beats-claude-in-our-cyber-benchmarks/",
+    "source": "hackernews",
+    "x_engagement_24h": 495,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.1485,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "[AINews] OpenAI GPT-5.6 Sol / Terra / Luna — restricted to trusted partners",
+    "url": "https://www.latent.space/p/ainews-openai-gpt-56-sol-terra-luna",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Professor denounces mass AI fraud on an exam at Brown",
+    "url": "https://english.elpais.com/education/2026-06-28/ai-fraud-at-brown-university-academic-integrity-is-at-risk.html",
+    "source": "hackernews",
+    "x_engagement_24h": 397,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.1191,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Awesome Gamedev Agent Skills: 66 version-pinned skills for AI coding agents",
+    "url": "https://github.com/gamedev-skills/awesome-gamedev-agent-skills",
+    "source": "github:trending:AI IDE tools",
+    "x_engagement_24h": 167,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.0501,
+    "suggested_angle": "news"
+  }
+]
