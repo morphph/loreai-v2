@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Introducing the Claude apps gateway for Amazon Bedrock and Google Cloud",
+    "url": "https://www.claude.com/blog/introducing-the-claude-apps-gateway",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code v2.1.196",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.196",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic TypeScript SDK v0.107.0",
+    "url": "https://github.com/anthropics/anthropic-sdk-typescript/releases/tag/sdk-v0.107.0",
+    "source": "github:release:anthropics/anthropic-sdk-typescript",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude in Microsoft Foundry is now generally available",
+    "url": "https://www.claude.com/blog/claude-in-microsoft-foundry",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 12,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Working With AI: A Concrete Example",
+    "url": "https://htmx.org/essays/working-with-ai/",
+    "source": "hackernews",
+    "x_engagement_24h": 100,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.03,
+    "suggested_angle": "news"
+  }
+]
