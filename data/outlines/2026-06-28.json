@@ -1,0 +1,196 @@
+{
+  "date": "2026-06-28",
+  "headline_hook": "DeepSeek Ships Speculative Decoding in the Weights While Vercel Rewrites the AI SDK Playbook",
+  "preview_topics": [
+    "DeepSeek's built-in speculative decoding",
+    "Vercel AI SDK's v7 breaking changes",
+    "agents that render video from HTML"
+  ],
+  "pick_of_the_day": {
+    "item_id": 56368,
+    "thesis": "DeepSeek baking speculative decoding directly into V4 Pro's weights — shipping model and paper on the same day — signals that inference optimization is becoming a first-class model design decision, not a post-training bolt-on. This collapses the traditional boundary between model architecture and serving infrastructure."
+  },
+  "model_literacy": {
+    "concept": "Speculative Decoding",
+    "relevance": "DSpark shows how draft-then-verify inference can be integrated at the model-weights level rather than requiring a separate draft model. With DeepSeek shipping it natively, builders need to understand when speculative decoding helps (long outputs, high latency tolerance) versus hurts (short completions, memory-constrained deployments)."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 56368,
+          "title": "DeepSeek V4 Pro Ships with Speculative Decoding Baked Into the Weights",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "First major open-weights model to integrate speculative decoding natively — builders get inference speedups without a separate draft model setup",
+          "key_fact": "121 HuggingFace likes within hours of release; companion DSpark paper dropped simultaneously"
+        },
+        {
+          "id": 56341,
+          "title": "Vercel AI SDK Jumps to v7 with Breaking Changes Across the Board",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The most-used LLM frontend framework makes a major version leap — every integration point needs an audit before upgrading",
+          "key_fact": "Major version bump from v6 to v7.0.4, with v6 LTS maintained in parallel"
+        },
+        {
+          "id": 56347,
+          "title": "CrewAI 1.15.1 Patches an SSRF Bypass in Agent Web Scraping",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "If your agents scrape the web via CrewAI, this redirect-based SSRF bypass could let them hit internal endpoints — patch now",
+          "key_fact": "SSRF redirect bypass fix in scraping fetches; new explicit project definition requirement"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 56380,
+          "title": "The DSpark Paper: How DeepSeek Made Speculative Decoding a Native Model Feature",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "714 HN upvotes for the architecture paper behind V4 Pro's inference speedups — practitioners want the details on draft-then-verify at the weights level",
+          "key_fact": "714 HN upvotes, 293 RTs; details the draft-then-verify architecture integrated into DeepSeek V4 Pro"
+        },
+        {
+          "id": 56381,
+          "title": "AI Cracks RF Chip Design — The 'Dark Art' Gets an Apprentice",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "AI expanding from digital software into analog hardware design signals a new frontier — RF circuits were long considered too intuition-dependent for automation",
+          "key_fact": "IEEE Spectrum report; 169 HN upvotes on AI breaking into RFIC design"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 56319,
+          "title": "HeyGen Open-Sources HyperFrames: Write HTML, Get Rendered Video for Your Agent Pipeline",
+          "section": "BUILD",
+          "prominence": "hero",
+          "angle": "The missing piece in agent toolchains — programmatic video generation from HTML templates, designed specifically for AI agent workflows",
+          "key_fact": "31,767 likes, 2,959 RTs; open-sourced on GitHub"
+        },
+        {
+          "id": 56328,
+          "title": "Tidal Echo: A Mobile-to-Claude-Code Chat Channel via PWA",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Novel UX pattern for long-running agent sessions — message from your phone, get AI responses as push notifications on desktop",
+          "key_fact": "42 GitHub stars; Claude Code plugin connecting mobile PWA to desktop sessions"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 56344,
+          "title": "llama.cpp Rewrites OpenCL Flash Attention with Smart KV Tile Classification",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Prefill prepass kernels now skip fully-masked KV tiles entirely — a meaningful speedup for anyone running local models on non-NVIDIA hardware",
+          "key_fact": "New prefill prepass classifies KV tiles as fully-masked, mixed, or unmasked to skip unnecessary compute"
+        },
+        {
+          "id": 56345,
+          "title": "llama.cpp Adds CUDA Fast Path for Strided Tensor Copies",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Replaces a slow scalar copy path with cudaMemcpy2DAsync — targets a common bottleneck when tensor rows are contiguous but layout isn't",
+          "key_fact": "cudaMemcpy2DAsync replaces element-wise scalar copy for strided tensors on NVIDIA GPUs"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 56089,
+          "title": "Ollama Fixes a Silent GPU Misroute on Windows Vulkan",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "An inverted iGPU/dGPU classification was silently routing inference to the wrong GPU — if your Ollama felt slow on Windows, this might be why",
+          "key_fact": "Vulkan GPU classification fix; also adds thinking capability detection for OpenCode"
+        },
+        {
+          "id": 56092,
+          "title": "llama.cpp Goes Self-Contained with OpenVINO 2026.2.1 Packages",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "No more managing external OpenVINO dependencies — release packages now bundle everything for Intel hardware inference",
+          "key_fact": "Self-contained release packages eliminate external OV dependency management"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 55868,
+          "title": "OpenAI Poaches Uber India Chief — The Consumer AI Race Moves to Emerging Markets",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Hiring a distribution expert for India signals the AI race is shifting from model benchmarks to market penetration in the next billion users",
+          "key_fact": "OpenAI taps Uber India's head to run its largest non-US market"
+        },
+        {
+          "id": 55897,
+          "title": "Simon Willison Surfaces Dean W. Ball's AI Governance Framework",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Ball's Mercatus Center analysis connects AI capability trajectories to regulatory design — worth tracking for builders who'll be shipping under whatever rules emerge",
+          "key_fact": "Dean W. Ball (Mercatus Center) on AI governance; curated by Willison"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 55901,
+      "title": "Willison's OpenAI Commentary Cuts Through the PR Framing",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Quote-and-annotate format separating signal from announcement noise",
+      "key_fact": "Simon Willison's annotated OpenAI commentary"
+    },
+    {
+      "id": 55898,
+      "title": "Timothy B. Lee Adds a Policy-Economics Lens to AI Coverage",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Policy and economics perspective that pure technical coverage misses",
+      "key_fact": "Via Willison's curation of Lee's AI analysis"
+    },
+    {
+      "id": 56343,
+      "title": "Vercel Maintains AI SDK v6 LTS Alongside the v7 Launch",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "v6.0.214 patch signals a deliberate migration window — no forced upgrades",
+      "key_fact": "provider-utils bumped to 4.0.33 on the v6 LTS line"
+    },
+    {
+      "id": 56088,
+      "title": "AI SDK xAI Provider Patch Keeps Grok Integration Current",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Aligns with @ai-sdk/provider v3.0.12",
+      "key_fact": "@ai-sdk/xai v3.0.99 compatibility update"
+    },
+    {
+      "id": 56081,
+      "title": "LangChain-Fireworks Dependency Bump",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Maintenance release keeping Fireworks integration current",
+      "key_fact": "langsmith, vcrpy, pytest bumps in v1.4.3"
+    }
+  ],
+  "total_items": 18
+}

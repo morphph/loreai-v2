@@ -1,0 +1,196 @@
+{
+  "date": "2026-06-29",
+  "headline_hook": "GPT-5.6 Goes Invite-Only as Asian Labs Ship Frontier Rivals",
+  "preview_topics": [
+    "GPT-5.6's Sol/Terra/Luna access tiers",
+    "GLM 5.2's cybersecurity benchmark upset",
+    "AI's creep into medical decision-making"
+  ],
+  "pick_of_the_day": {
+    "item_id": 56169,
+    "thesis": "The Sol/Terra/Luna naming isn't marketing theater — it's OpenAI hardcoding a permanent product hierarchy that tells you more about their enterprise strategy than any capabilities announcement ever could."
+  },
+  "model_literacy": {
+    "concept": "Domain-Specific vs. General Benchmarks",
+    "relevance": "GLM 5.2 beating Claude on Semgrep's cyber benchmarks while trailing on general evals shows why single-number leaderboards are misleading — the models that matter are the ones that win on YOUR task, not MMLU."
+  },
+  "sections": [
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 56169,
+          "title": "OpenAI's GPT-5.6 Splits Into Sol, Terra, and Luna — Access Is the New Moat",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The tiered naming signals a permanent product hierarchy: frontier capability is no longer something you ship to everyone, it's something you ration by trust level.",
+          "key_fact": "Restricted to trusted partners only — no public API access at launch"
+        },
+        {
+          "id": 56632,
+          "title": "A Developer Used Claude Code to Get a Second Opinion on His MRI",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Not a medical startup pitch — a solo developer feeding DICOM files into an LLM and getting actionable analysis. The 418 RTs tell you how many people want this.",
+          "key_fact": "308 HN likes, 418 retweets — massive engagement on medical AI use case"
+        },
+        {
+          "id": 56134,
+          "title": "Apple's Vision Pro Chief Jumps Ship to OpenAI's Hardware Team",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "When Apple's spatial computing VP leaves for an AI lab's hardware division, you're watching the next device form factor get designed in real time.",
+          "key_fact": "Paul Meade, VP of Vision Pro, joining OpenAI hardware"
+        },
+        {
+          "id": 56412,
+          "title": "Simon Willison Resurfaces Jon Udell's Thinking on AI Tooling",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Udell has been mapping developer tool paradigms for decades — his AI tooling perspective carries historical pattern-matching most hot-takes lack.",
+          "key_fact": "Published via Willison's link blog, connecting decades of developer tool thinking to AI"
+        }
+      ]
+    },
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 56136,
+          "title": "Asian Startups Ship Mythos-Class Models While US Export Bans Hold Anthropic Back",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Export restrictions designed to maintain US AI dominance are having the opposite effect — forcing Asian labs to build independent frontier capability faster than they otherwise would have.",
+          "key_fact": "Multiple Asian startups shipping Mythos-comparable models during Anthropic export restrictions"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 56631,
+          "title": "GLM 5.2 Tops Claude on Semgrep's Cybersecurity Benchmarks",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "A credible security tooling company's domain-specific eval shows a Chinese lab winning on the tasks that matter for AppSec — general leaderboards didn't predict this.",
+          "key_fact": "GLM 5.2 outperforms Claude on Semgrep's cyber-specific benchmarks"
+        },
+        {
+          "id": 56423,
+          "title": "Zyphra, Cohere, and Poolside Expand the Open Model Ecosystem",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "With frontier closed models gated behind access tiers and export controls, open alternatives are becoming strategically important — not just ideologically preferred.",
+          "key_fact": "Three companies simultaneously expanding open-weight model offerings"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 56636,
+          "title": "OpenAI Codex Still Can't Exclude Your .env Files",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A basic security feature — excluding sensitive files from AI context — remains an open GitHub issue. 172 likes on the issue says this isn't a niche complaint.",
+          "key_fact": "Issue #2847 with 172 likes, still open — no .gitignore-style exclusion for Codex"
+        },
+        {
+          "id": 56598,
+          "title": "llama.cpp Adds Native MiniCPM5 Tool Calling",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "First-class function calling for MiniCPM5 in llama.cpp via autoparser — local models get tool-use parity without hacks.",
+          "key_fact": "b9833 release adds XML tool call parser and PEG grammar support for MiniCPM5"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 56413,
+          "title": "Simon Willison's Guide to Productive Summer Hacking with AI",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Practical project selection and AI-assisted dev workflow advice from the person who ships more AI side projects than anyone in the community.",
+          "key_fact": "Covers project scoping, AI tool selection, and workflow patterns for solo builders"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 56570,
+          "title": "66 Game-Dev Agent Skills: A Template for Domain-Specific AI Skill Libraries",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The SKILL.md portable format and master router pattern isn't just for gamedev — it's a blueprint for packaging any domain expertise into agent-consumable units.",
+          "key_fact": "66 version-pinned skills covering Godot, Unity, Unreal, and web game engines"
+        },
+        {
+          "id": 56635,
+          "title": "NanoEuler: GPT-2 From Scratch in Pure C/CUDA, No Frameworks",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "In the tradition of Karpathy's nanoGPT — understand transformers at the metal level by building one without PyTorch as a safety net.",
+          "key_fact": "Complete GPT-2 scale model in C/CUDA with zero framework dependencies"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 56633,
+      "title": "Mass AI Cheating Scandal Hits Brown University",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Professor denounces widespread AI fraud — credentialing meets capability",
+      "key_fact": "169 HN likes, 228 RTs on the story"
+    },
+    {
+      "id": 56135,
+      "title": "A Founder Used AI to Navigate Cancer Treatment",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Claude synthesized blood work, scans, and wearable data during treatment",
+      "key_fact": "Combined multiple data sources for personalized treatment insights"
+    },
+    {
+      "id": 56133,
+      "title": "SoftBank's CEO Questions Musk's Orbital Data Center Plans",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Growing industry skepticism about space-based AI compute",
+      "key_fact": "SoftBank CEO publicly questioning the orbital data center feasibility"
+    },
+    {
+      "id": 56634,
+      "title": "Bash4LLM+: Call Claude or GPT From Shell Scripts, No Runtime Needed",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Zero-dependency Bash wrapper for LLM APIs — great for CI/CD",
+      "key_fact": "No Python or Node required — pure Bash"
+    },
+    {
+      "id": 56330,
+      "title": "QuotaLens: Menu-Bar Gauge for Claude & Codex API Limits",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "macOS app that shows API quota at a glance",
+      "key_fact": "Tracks both Claude and Codex quota usage in real-time"
+    },
+    {
+      "id": 56594,
+      "title": "Vercel AI SDK Adds Fireworks Service Tier Routing",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Route requests to serverless vs dedicated Fireworks compute from AI SDK code",
+      "key_fact": "@ai-sdk/fireworks@2.0.62 with serviceTier provider option"
+    }
+  ],
+  "total_items": 18
+}
