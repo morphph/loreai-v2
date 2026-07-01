@@ -1,193 +1,207 @@
 ---
-title: "Claude Memory vs CLAUDE.md: Which Context System Should You Use?"
+title: "Claude Memory vs CLAUDE.md: Which Persistence System Should You Use?"
 slug: claude-memory-vs-claude-md
-description: "Claude Memory stores personal preferences across chats. CLAUDE.md defines project instructions in code. Here's when to use each."
+description: "Claude Memory stores personal context across sessions; CLAUDE.md defines shared project rules. Here's when to use each."
 item_a: Claude Memory
 item_b: CLAUDE.md
 category: tools
 related_glossary: [agentic-coding]
-related_blog: [claude-code-memory, anthropic-claude-memory-upgrades-importing, claude-code-complete-guide, claude-code-extension-stack-skills-hooks-agents-mcp, claude-code-seven-programmable-layers]
+related_blog: [claude-code-memory, claude-code-complete-guide, claude-code-extension-stack-skills-hooks-agents-mcp]
 related_compare: []
 related_topics: [claude-code-memory]
 lang: en
 ---
 
-# Claude Memory vs CLAUDE.md: Which Context System Should You Use?
+# Claude Memory vs CLAUDE.md: Which Persistence System Should You Use?
 
-**TL;DR:** **Claude Memory** and **CLAUDE.md** solve different problems entirely. Claude Memory is Anthropic's built-in system for remembering your personal preferences, facts, and context across conversations — it's tied to your account and works in Claude.ai and Claude apps. **CLAUDE.md** is a markdown file you commit to your code repository that gives Claude Code project-specific instructions — it's tied to the repo, shared with your team, and deterministic. **Use Claude Memory for personal context. Use CLAUDE.md for project context.** Most developers should use both.
+**TL;DR:** **Claude Memory** and **CLAUDE.md** solve different persistence problems in Claude Code, and most teams should use both. **CLAUDE.md wins for shared project rules** — build commands, architecture constraints, coding standards — because it's version-controlled and every team member gets the same instructions. **Claude Memory wins for personal context** — your role, preferences, feedback corrections, and cross-session learning — because it's per-user and accumulates automatically. The confusion arises because both feed context into Claude Code at the start of every conversation, but they serve fundamentally different purposes: CLAUDE.md is a project constitution, Claude Memory is a personal notebook.
 
 ## Overview: Claude Memory
 
-Claude Memory is Anthropic's system for giving Claude persistent context about you across conversations. When you tell Claude "I'm a backend engineer working in Go" or "I prefer concise answers," Claude stores that as a memory fact tied to your account. The next time you start a conversation — even days later — Claude recalls those preferences and adjusts its behavior accordingly.
+**Claude Memory** is Claude Code's automatic, per-user persistence system that stores learned context across conversations. When you tell Claude your role, correct its behavior, or share project context that isn't derivable from code, Claude saves that information as structured memory files in `~/.claude/projects/*/memory/`. These memories load automatically in future conversations, so Claude doesn't start from zero each time.
 
-Memory operates at the user level. It stores things like your role, your communication preferences, facts about your projects, and context you've explicitly asked Claude to remember. Anthropic recently [upgraded Claude Memory with importing capabilities](/blog/anthropic-claude-memory-upgrades-importing), allowing users switching from other AI assistants to bring their accumulated context with them. You can view, edit, and delete individual memories through the Claude.ai interface.
+The system organizes memories into four types: **user memories** (your role, expertise, preferences), **feedback memories** (corrections and confirmed approaches), **project memories** (ongoing work, deadlines, decisions), and **reference memories** (pointers to external systems like Linear boards or Grafana dashboards). Each memory is a standalone markdown file with frontmatter metadata, indexed in a central `MEMORY.md` file.
 
-The key characteristic of Claude Memory is that it's **implicit and personal**. You don't write a specification — you just talk to Claude, and it learns. This makes it frictionless but also non-deterministic: two users talking to Claude about the same project will have different memory states, and there's no version control over what Claude remembers.
+What makes Claude Memory distinct from CLAUDE.md is ownership and scope. Memories are personal — they live outside your repo, aren't version-controlled, and only apply to you. Your colleague's Claude Memory captures their preferences and corrections, not yours. The system is also dynamic: Claude creates, updates, and retires memories as your working context evolves. For a deeper look at how both systems interact, see our [guide to Claude Code's memory architecture](/blog/claude-code-memory).
 
 ## Overview: CLAUDE.md
 
-**CLAUDE.md** is a markdown file that lives in the root of your code repository and provides project-level instructions to [Claude Code](/blog/claude-code-complete-guide). Think of it as a README for your AI coding agent — it tells Claude Code how your project works, what conventions to follow, what commands to run, and what mistakes to avoid.
+**CLAUDE.md** is a static instruction file that defines project-level rules, conventions, and context for Claude Code. It lives at the root of your repository (or in the `.claude/` directory) and is loaded into every Claude Code conversation that runs in that project. Think of it as the project's constitution — it tells Claude what to do and what never to do, regardless of who's running the session.
 
-Unlike Claude Memory, CLAUDE.md is **explicit and shared**. You write it deliberately, commit it to version control, and every developer on your team gets the same instructions. When Claude Code opens your project, it reads CLAUDE.md before doing anything else. This means the AI follows the same rules regardless of who's running it — consistent behavior across your entire team.
+A typical CLAUDE.md includes build commands (`npm run build`, `npm test`), coding standards (naming conventions, test requirements), architecture constraints (don't import server modules in client code), and workflow rules (run linting before commit). It can also define quality gates — a checklist of validations that must pass before any commit. Because CLAUDE.md is checked into version control, every team member and CI pipeline gets identical instructions.
 
-CLAUDE.md is part of a broader [programmable extension stack](/blog/claude-code-extension-stack-skills-hooks-agents-mcp) that includes skill files, hooks, agents, and MCP servers. It sits at the project layer — above user-level settings but below task-specific skill instructions. For a deeper breakdown of this system, see our guide to [Claude Code's seven programmable layers](/blog/claude-code-seven-programmable-layers).
+The file format is plain markdown with no special syntax requirements. Claude Code reads it at session start and treats its contents as high-priority instructions that override default behavior. Teams typically iterate on their CLAUDE.md over weeks, adding rules as they discover edge cases where Claude needs explicit guidance. Unlike Claude Memory, CLAUDE.md doesn't change automatically — a human edits it deliberately, reviews the diff, and commits it like any other code change.
 
 ## Feature Comparison
 
-| Feature | Claude Memory | CLAUDE.md |
-|---------|--------------|-----------|
-| **Scope** | User-level (your account) | Project-level (your repo) |
-| **Storage** | Anthropic's servers | Your git repository |
-| **Format** | Implicit facts Claude extracts | Explicit markdown you write |
-| **Version control** | No (managed by Anthropic) | Yes (committed to git) |
-| **Team sharing** | Not shareable | Shared via repo |
-| **Works in** | Claude.ai, Claude apps | Claude Code (terminal agent) |
-| **Persistence** | Across all conversations | Across all Claude Code sessions in that project |
-| **Control** | View/edit/delete in UI | Full edit control in your editor |
-| **Determinism** | Non-deterministic (varies by user) | Deterministic (same file = same rules) |
-| **Content type** | Personal preferences, facts, context | Build commands, conventions, constraints, architecture |
+| Feature | Claude Memory | CLAUDE.md | Winner |
+|---------|--------------|-----------|--------|
+| **Scope** | Per-user, per-project | Per-project, shared | Depends on use case |
+| **Version controlled** | No (lives in `~/.claude/`) | Yes (committed to repo) | CLAUDE.md |
+| **Team sharing** | Personal only | Everyone gets same rules | CLAUDE.md |
+| **Update mechanism** | Automatic (Claude writes) | Manual (human edits) | Claude Memory |
+| **Content type** | Learned preferences, corrections, context | Rules, commands, constraints | Tie |
+| **Loaded when** | Every session in that project | Every session in that project | Tie |
+| **Maintenance burden** | Low (self-managing) | Medium (needs manual updates) | Claude Memory |
+| **Reliability** | Can become stale | Deterministic — what you write is what you get | CLAUDE.md |
+| **Override priority** | Lower (contextual) | Higher (explicit instructions) | CLAUDE.md |
 
-## How Context Is Stored: Fundamental Architecture Difference
+## Persistence Model: How Each System Stores and Retrieves Context
 
-Claude Memory and CLAUDE.md represent two fundamentally different approaches to giving an AI system persistent context, and understanding this difference is essential to using them effectively.
+Claude Memory and CLAUDE.md use fundamentally different persistence models, and understanding the difference explains most of the confusion between them.
 
-**Claude Memory uses a fact-extraction model.** When you interact with Claude, it identifies statements worth remembering — your job title, your preferred programming language, a project deadline you mentioned — and stores them as discrete facts in a database linked to your account. These facts are injected into future conversations as additional context. You don't control the exact format; Claude decides what's worth remembering and how to phrase it internally. You can review and delete memories, but you can't write raw memory entries the way you'd write a config file.
+**CLAUDE.md is declarative and deterministic.** You write the rules, Claude follows them. Every session loads the exact same file contents. If you write "never use `any` in TypeScript," Claude sees that instruction identically in every conversation, whether it's your session or your colleague's. The file is static between human edits — Claude Code never modifies CLAUDE.md on its own. This determinism is why CLAUDE.md is the right place for build commands, quality gates, and hard constraints. You need these to be reliable and identical across the team.
 
-**CLAUDE.md uses a document-injection model.** The entire file is loaded into Claude Code's context window at the start of every session. You control every word. If you write "Never use `any` types in TypeScript," Claude Code sees that instruction verbatim. If you write "Run `npm test` before every commit," that's exactly what it reads. There's no interpretation layer, no extraction — just your document, your words, loaded as system-level instructions.
+**Claude Memory is observational and evolving.** Claude watches the conversation, notices when you share context or correct its behavior, and writes memory files proactively. Over time, these memories accumulate into a profile: your role, your preferences, what feedback you've given, what external systems you reference. Memories can also become stale — a project decision from three months ago may no longer apply. Claude is instructed to verify memories against current state before acting on them, but the system is inherently less deterministic than CLAUDE.md.
 
-This architectural difference has practical consequences. Claude Memory can surprise you — it might remember something you mentioned offhandedly three weeks ago, or it might forget something you thought was important. CLAUDE.md never surprises you. It does exactly what the file says, every time. For personal workflows, Memory's flexibility is a feature. For team engineering workflows, CLAUDE.md's determinism is non-negotiable.
+The practical implication: if you need Claude to always do something the same way, put it in CLAUDE.md. If you need Claude to gradually learn how you work, let Memory handle it.
 
-Claude Code also has its own **auto-memory system** — a `.claude/` directory where it stores session-level memories like user preferences and feedback. This is a third layer, distinct from both Claude Memory and CLAUDE.md. It's covered in detail in our [Claude Code memory system guide](/blog/claude-code-memory). The auto-memory sits between the two: it's user-specific (like Claude Memory) but file-based and project-scoped (like CLAUDE.md).
+Claude Code's [extension stack](/blog/claude-code-extension-stack-skills-hooks-agents-mcp) layers these two systems alongside skills, hooks, and agents — each serving a different role in the persistence hierarchy. CLAUDE.md sits near the top as explicit project instructions; Memory operates as accumulated personal context that fills gaps CLAUDE.md doesn't address.
 
-## Team Workflows: Where the Gap Widens
+## Scope and Sharing: Team vs Individual Context
 
-For solo developers, the distinction between Claude Memory and CLAUDE.md can feel academic — both give Claude context, and both make it more useful. But for teams, the gap between these systems becomes a chasm.
+This is the most important distinction for teams adopting Claude Code, and it's where the two systems complement each other most clearly.
 
-**Claude Memory is inherently individual.** Developer A might have told Claude "we use Prisma for our ORM," while Developer B told Claude "I prefer raw SQL queries." Both developers are working on the same project, but Claude gives them contradictory suggestions because their memory states diverge. There's no mechanism to synchronize memories across team members, no way to audit what Claude "knows" about your project across the team, and no way to enforce consistency.
+**CLAUDE.md is the team's shared brain.** When a new engineer joins the team and clones the repo, they get the CLAUDE.md file immediately. Claude Code will know the project's build commands, test requirements, coding standards, and architectural constraints from their very first session. No onboarding needed — the project's rules travel with the code. This is why [effective Claude Code usage at scale](/blog/claude-code-complete-guide) starts with a well-maintained CLAUDE.md: it standardizes AI behavior across the entire team.
 
-**CLAUDE.md is inherently collaborative.** It lives in your repo, goes through code review, and applies equally to everyone. When a senior engineer adds a rule like "Never import Next.js modules inside pipeline scripts," every team member's Claude Code session respects that constraint from the next `git pull`. When conventions change, you update the file, commit it, and the entire team is in sync.
+**Claude Memory is your personal assistant's notebook.** It knows that you're a senior backend engineer who prefers terse responses. It knows you corrected Claude last Tuesday about not mocking the database in integration tests. It knows your team tracks bugs in a specific Linear project. None of this belongs in CLAUDE.md — it's personal context that helps Claude work better with you specifically, not project rules that should apply to everyone.
 
-This is why organizations adopting [agentic coding](/glossary/agentic-coding) at scale — where Claude Code handles refactoring, test generation, and code review — rely on CLAUDE.md rather than individual memory. The AI needs to follow the team's rules, not one person's preferences. Companies like Ramp, Shopify, and Spotify have built extensive CLAUDE.md configurations to standardize AI behavior across their engineering organizations, as covered in our [enterprise adoption analysis](/blog/claude-code-enterprise-engineering-ramp-shopify-spotify).
+The boundary is clear in practice: if removing the information would break Claude's behavior for the whole team, it belongs in CLAUDE.md. If removing it would only affect your personal experience, it belongs in Memory. A common mistake is putting personal preferences into CLAUDE.md ("always explain code changes in detail") when they should be Memory entries, or leaving team-critical constraints in Memory ("never deploy on Fridays") when they should be in CLAUDE.md where everyone benefits.
 
-For practical guidance on writing effective project-level instructions, see [how to effectively prompt Claude Code](/blog/how-to-effectively-prompt-a-claude-code).
+## Maintenance and Lifecycle: Set-and-Forget vs Deliberate Updates
 
-## Content Types: What Belongs Where
+**Claude Memory is largely self-managing.** Claude creates new memories when it learns something worth persisting, updates existing memories when information changes, and is instructed to remove memories that become stale. The user can explicitly ask Claude to remember or forget something, but the system operates mostly in the background. Each memory file includes a description in its frontmatter so Claude can judge relevance in future sessions without reading every file.
 
-One of the most common mistakes is putting the wrong information in the wrong system. Here's a practical breakdown of what belongs in each.
+The downside of automatic management is drift. Memories accumulate, some become outdated, and Claude may act on stale context. The system includes safeguards — Claude is told to verify memory against current state before recommending actions — but it's not foolproof. Periodic cleanup (reviewing the `MEMORY.md` index and pruning irrelevant entries) keeps the system sharp.
 
-### What belongs in Claude Memory
+**CLAUDE.md requires deliberate human maintenance.** Every rule, command, and constraint is hand-written and version-controlled. This means it never drifts accidentally — but it also means it can fall behind. If your build system changes and nobody updates CLAUDE.md, Claude will run the wrong commands. Teams that treat CLAUDE.md as living documentation (updating it in the same PR that changes the code it describes) keep it accurate. Teams that write it once and forget it end up with Claude following obsolete instructions.
 
-- **Your role and expertise level**: "I'm a senior backend engineer" or "I'm new to React"
-- **Communication preferences**: "I prefer concise answers" or "Always explain your reasoning"
-- **Personal workflow habits**: "I use vim keybindings" or "I deploy to AWS"
-- **Cross-project facts**: "My company uses a monorepo" or "We're a Python shop"
-- **Temporal context**: "I'm preparing for a launch next Thursday" or "We're in a code freeze"
+For teams building sophisticated Claude Code workflows, the [seven programmable layers](/blog/claude-code-seven-programmable-layers) guide explains how CLAUDE.md, Memory, skills, and hooks each handle different types of persistence — and why maintenance strategy matters for each layer.
 
-### What belongs in CLAUDE.md
+## Content Boundaries: What Goes Where
 
-- **Build and test commands**: `npm run build`, `npm test`, `npm run lint`
-- **Project architecture constraints**: "This is a Next.js 16 app with SQLite"
-- **Code conventions**: "Use snake_case for database columns, camelCase for TypeScript"
-- **Safety rules**: "Never edit .env files" or "Never skip failing tests"
-- **Quality gates**: "Before any commit, all tests must pass and the build must succeed"
-- **File organization**: "Pipeline scripts live in `scripts/`, skill files in `skills/`"
-- **Known gotchas**: "Chinese content must use CJK word count, not English space tokenization"
+A decision framework for where to store different types of information:
 
-### The decision rule
+### Belongs in CLAUDE.md
 
-**If the information is about you → Claude Memory.** If the information is about the project → CLAUDE.md. If it's about how you specifically interact with this specific project (e.g., "I own the auth module"), it could go in either place, but Claude Code's auto-memory system in `.claude/` is often the best fit for that middle ground.
+- **Build and test commands**: `npm run build`, `npm test`, `cargo clippy`
+- **Quality gates**: "All tests must pass before commit"
+- **Architecture constraints**: "Never import server modules in client code"
+- **Coding standards**: "Use snake_case for Python, camelCase for TypeScript"
+- **Never-do rules**: "Never delete migration files," "Never skip failing tests"
+- **File organization conventions**: "Tests go in `__tests__/` next to source files"
+- **Deployment instructions**: "Push to `main` triggers Vercel deploy"
+- **Workflow rules**: "Discuss design before implementing new features"
 
-## Durability and Maintenance
+### Belongs in Claude Memory
 
-**Claude Memory requires no maintenance but offers no guarantees.** Anthropic manages the storage, handles capacity, and decides retention policies. You can't back up your memories to a file, export them to another system, or restore them if something goes wrong. If Anthropic changes how memory works — which they've done several times, including the recent [memory importing upgrade](/blog/anthropic-claude-memory-upgrades-importing) — your experience changes whether you want it to or not.
+- **Your role and expertise**: "Senior backend engineer, new to React"
+- **Behavior corrections**: "Don't add trailing summaries to responses"
+- **Confirmed approaches**: "Bundled PRs preferred over many small ones for refactors"
+- **External system references**: "Bugs tracked in Linear project INGEST"
+- **Project context not in code**: "Merge freeze starts July 5 for mobile release"
+- **Working relationship preferences**: "Prefers terse responses, no emoji"
 
-**CLAUDE.md requires deliberate maintenance but gives you full control.** It's a file in your repo. You can diff it, blame it, revert it, branch it. When your project's conventions evolve, you update the file. When a new team member joins, they get the full instruction set on their first `git clone`. The tradeoff is that CLAUDE.md doesn't update itself — if your build command changes and nobody updates the file, Claude Code will run the wrong command until someone fixes it.
+### Belongs in Neither
 
-The best CLAUDE.md files are treated like living documentation. They're updated in the same PR that changes the convention they describe. If you add a new linting rule, you add the corresponding instruction to CLAUDE.md in the same commit. This discipline is what separates teams that get consistent value from Claude Code and teams that fight it.
+- **Code patterns and architecture** — derivable from reading the code
+- **Git history** — `git log` and `git blame` are authoritative
+- **Debugging solutions** — the fix is in the code, context in the commit message
+- **Ephemeral task state** — use Claude Code's task system for current-session tracking
 
-## When to Choose Claude Memory
+The boundary between CLAUDE.md and Memory occasionally blurs. A rule like "run integration tests against a real database, not mocks" could live in either place. If it's a project-wide standard that every developer should follow, put it in CLAUDE.md. If it's a correction you gave Claude after it mocked a database in your session, it starts as Memory — and you might later promote it to CLAUDE.md when you realize the whole team needs it.
 
-Choose Claude Memory when the context is about **you as a person**, not about a specific codebase:
+## Priority and Override Behavior: What Happens When They Conflict
 
-- **You work across many projects** and want Claude to remember your preferences regardless of which repo you're in. Your communication style, expertise level, and general tooling preferences are the same everywhere.
-- **You use Claude.ai for non-coding tasks** — writing, research, analysis, brainstorming. Claude Memory works across all Claude interactions, not just coding.
-- **You want zero-effort personalization.** You don't want to write a config file; you just want Claude to learn from how you interact with it over time.
-- **You're a solo developer** and the distinction between "my preferences" and "project rules" is blurry. For solo projects, Claude Memory can cover a lot of what CLAUDE.md does, albeit with less precision.
-- **You're evaluating Claude** and haven't committed to Claude Code yet. Claude Memory works immediately in Claude.ai — no setup, no file creation, no terminal required.
+When CLAUDE.md and Memory provide conflicting guidance, CLAUDE.md wins. This is by design — explicit project rules take precedence over accumulated personal context. If CLAUDE.md says "use Jest for testing" and a Memory entry says "the user prefers Vitest," Claude follows the CLAUDE.md instruction.
 
-## When to Choose CLAUDE.md
+This priority order matters for teams. It means a team lead can set non-negotiable standards in CLAUDE.md, and individual developers' Memory entries won't override them. The hierarchy reinforces the distinction: CLAUDE.md defines what the project requires, Memory captures how you personally prefer to work within those requirements.
 
-Choose CLAUDE.md when the context is about **a specific project** and needs to be **consistent across people and time**:
+In practice, conflicts are rare because the two systems cover different ground. CLAUDE.md rarely says anything about communication style, response length, or personal workflow — those are Memory's domain. And Memory rarely captures build commands or architecture constraints — those belong in CLAUDE.md. Conflicts typically emerge during transition periods: you gave Claude feedback that became Memory, then later the team formalized a different approach in CLAUDE.md.
 
-- **You work on a team.** Any project with more than one developer needs CLAUDE.md. Individual memories diverge; CLAUDE.md doesn't.
-- **You use Claude Code for engineering tasks.** CLAUDE.md is the primary way to configure Claude Code's behavior. Without it, Claude Code has no project-specific context beyond what it reads from the code itself.
-- **You need deterministic AI behavior.** If Claude Code must always run tests before committing, always use a specific linting config, or never touch certain files, those rules belong in CLAUDE.md where they're enforced consistently.
-- **You want version-controlled instructions.** When your team's conventions evolve, you need a history of what changed and why. CLAUDE.md gives you that through git.
-- **You're building [skill files](/blog/5-claude-code-skills-i-use-every-single-day)** and need a project-level foundation. CLAUDE.md defines the base rules; skill files define task-specific instructions on top of that foundation.
+## The Interaction Model: How They Work Together
 
-## How They Work Together
+The real power of Claude Code's persistence isn't choosing one system over the other — it's using both together effectively. Here's how the interaction plays out in practice:
 
-Claude Memory and CLAUDE.md are not competing systems — they're complementary layers. The most effective setup uses both:
+**Session start**: Claude loads CLAUDE.md (project rules) and reads the MEMORY.md index (personal context). It now knows both the project's constraints and your personal working style. A session for a senior backend engineer on a Next.js project looks different from one for a junior frontend developer on the same project — same CLAUDE.md, different Memory.
 
-1. **Claude Memory** handles your personal context: your role, your expertise, your communication style, your cross-project preferences.
-2. **CLAUDE.md** handles project context: build commands, code conventions, architectural constraints, quality gates.
-3. **Auto-memory** (`.claude/` directory) handles the intersection: your relationship with this specific project, feedback you've given Claude Code about its behavior in this repo, task-specific context.
+**During work**: Claude follows CLAUDE.md rules (run tests before commit, use the project's coding style) while adapting to your preferences from Memory (terse responses, no emoji, prefer bundled PRs). If you correct Claude's behavior, it saves a feedback Memory for next time — but doesn't touch CLAUDE.md.
 
-When Claude Code starts a session, it loads all three layers. CLAUDE.md provides the project rules. Auto-memory provides your session history and preferences for this project. And if you're using Claude.ai alongside Claude Code, Claude Memory carries your personal context across both interfaces.
+**Over time**: Your Memory accumulates patterns specific to your workflow. If you consistently give the same feedback across projects ("always show me the diff before committing"), Claude learns it once and applies it everywhere. CLAUDE.md stays stable until someone deliberately updates it.
 
-The layering is deliberate. Anthropic designed Claude Code's [extension stack](/blog/claude-code-extension-stack-skills-hooks-agents-mcp) so that each layer has a clear scope and authority. CLAUDE.md can override Claude's default behavior for the project. Skill files can override CLAUDE.md for specific tasks. Hooks can enforce hard constraints that no layer can bypass. Understanding this hierarchy is key to getting consistent results from Claude Code.
+Understanding [how to effectively work with Claude Code](/blog/how-to-effectively-prompt-a-claude-code) means leveraging both systems: invest time upfront in a solid CLAUDE.md, then let Memory handle the personal refinement over subsequent sessions.
 
-## Common Confusion Points
+## Migration Path: When Memory Should Become CLAUDE.md
 
-### "Can I put project rules in Claude Memory instead of CLAUDE.md?"
+A useful pattern that emerges in practice: corrections start as Memory, then graduate to CLAUDE.md when they prove universally valuable.
 
-Technically yes — you can tell Claude "whenever I work on project X, always run tests first." But this approach breaks down quickly. The instruction only applies to your conversations, not your teammates'. It might be paraphrased or partially forgotten over time. And you have no way to review, version, or audit it. For anything you'd put in a team wiki or a contributing guide, use CLAUDE.md.
+**Step 1**: You tell Claude "don't use `any` types in this project." Claude saves it as a feedback Memory.
 
-### "Does Claude Code read Claude Memory?"
+**Step 2**: Over several sessions, you notice Claude consistently follows this rule for you but other team members still get `any` types in their generated code.
 
-Claude Code and Claude Memory operate in different contexts. Claude Code runs in your terminal and reads CLAUDE.md and auto-memory files. Claude Memory is tied to Claude.ai and Claude's conversational interface. They don't directly share state, though both are powered by the same underlying Claude model. If you want context to be available in Claude Code, put it in CLAUDE.md or the `.claude/` auto-memory directory.
+**Step 3**: You add `Never use the 'any' type — use proper TypeScript types or 'unknown' if the type is genuinely unknown` to CLAUDE.md and commit it.
 
-### "My CLAUDE.md is getting huge. Should I move some of it to Claude Memory?"
+**Step 4**: Every team member benefits. The Memory entry becomes redundant for you (CLAUDE.md now covers it), and Claude's Memory system may eventually clean it up.
 
-No. If your CLAUDE.md is growing unwieldy, the solution is to split content into skill files (`skills/*/SKILL.md`) that are loaded only when relevant tasks are invoked. This keeps project instructions modular without losing determinism or team-sharing. See [9 principles for writing great Claude Code skills](/blog/9-principles-writing-claude-code-skills) for practical guidance on this split.
+This migration pattern is how healthy CLAUDE.md files grow. They don't start comprehensive — they start minimal and accumulate rules that were battle-tested as personal Memory entries first. The [skills system](/blog/5-claude-code-skills-i-use-every-single-day) follows a similar evolution: start with inline prompts, formalize the good ones as reusable SKILL.md files.
 
-### "Which one handles coding style preferences?"
+## When to Invest in CLAUDE.md
 
-Both, but at different scopes. "I prefer functional programming" is a personal preference — Claude Memory. "This project uses functional patterns with immutable data structures" is a project convention — CLAUDE.md. The distinction matters when your personal preference conflicts with a project's established patterns.
+**CLAUDE.md is essential when:**
+
+- **You work on a team.** Even a two-person team benefits from shared rules. Without CLAUDE.md, each developer's Claude operates under different assumptions.
+- **Your project has hard constraints.** Build systems, deployment pipelines, security requirements — anything where Claude doing the wrong thing causes real damage.
+- **You onboard new people.** A good CLAUDE.md means new team members get Claude's help immediately, following the same standards as everyone else.
+- **You use CI/CD with Claude.** Automated Claude Code sessions (code review, test generation) need CLAUDE.md because there's no human in the loop to provide corrections.
+
+**Skip CLAUDE.md (or keep it minimal) when:**
+
+- You're working on a personal project where you're the only user
+- The project is simple enough that defaults work fine
+- You're still figuring out your workflow and would rather let Memory accumulate patterns first
+
+## When to Rely on Claude Memory
+
+**Memory shines when:**
+
+- **Your preferences differ from the project's defaults.** You want verbose explanations; your colleague wants terse responses. Memory handles this without CLAUDE.md becoming a list of per-developer exceptions.
+- **Context is temporal.** "We're in a code freeze until Friday" is valuable for a week, then irrelevant. Memory's natural lifecycle handles this better than manually editing and un-editing CLAUDE.md.
+- **You're course-correcting Claude's behavior.** When Claude does something you don't like, correcting it once and having Memory persist the correction is faster than updating CLAUDE.md.
+- **You reference external systems.** "Check the #deploys Slack channel for rollback procedures" is personal workflow context, not a project rule.
+
+**Don't over-rely on Memory when:**
+
+- The information is critical for project correctness — CLAUDE.md is more reliable
+- You want consistent behavior across team members — Memory is personal
+- The context is derivable from code — neither system should store it
 
 ## Verdict
 
-**Claude Memory and CLAUDE.md are not alternatives — they're different tools for different jobs.** Claude Memory personalizes your Claude experience across all conversations and projects. CLAUDE.md standardizes Claude Code's behavior within a specific codebase. Choosing between them is like choosing between your IDE settings and your project's `.editorconfig` — you use your personal settings everywhere, and the project config overrides them when you're in that repo.
+**Use both systems — they're complementary, not competitive.** Start with CLAUDE.md for your project's non-negotiable rules: build commands, quality gates, architecture constraints, and coding standards. These travel with the repo and ensure consistent Claude behavior across your team. Then let Memory handle everything personal: your role, preferences, behavioral corrections, and temporal project context.
 
-**If you use Claude Code, you need CLAUDE.md.** It's the single most impactful thing you can do to improve Claude Code's output quality. Start with build commands, test commands, and your top three "never do this" rules. Expand from there.
-
-**If you use Claude.ai regularly, Claude Memory improves over time with no effort.** Just use Claude normally, and it accumulates useful context about you.
-
-**If you're on a team, CLAUDE.md is mandatory and Claude Memory is a bonus.** The team's shared conventions must live in a file that's version-controlled and code-reviewed. Personal preferences are nice to have but never a substitute.
-
-For a hands-on walkthrough of setting up both systems, read our [complete Claude Code memory system guide](/blog/claude-code-memory).
+The common mistake is trying to use only one system. Teams that skip CLAUDE.md end up with each developer's Claude operating under different rules. Developers who ignore Memory end up repeating the same corrections every session. **The sweet spot is a well-maintained CLAUDE.md covering project rules, with Memory accumulating the personal refinements that make Claude work better for you specifically.** For teams scaling their [agentic coding](/glossary/agentic-coding) workflows, getting this boundary right is the difference between Claude that helps consistently and Claude that needs constant hand-holding.
 
 ## Frequently Asked Questions
 
-### Is CLAUDE.md the same as Claude's memory feature?
+### Can Claude Memory override CLAUDE.md instructions?
 
-No. CLAUDE.md is a markdown file you create and commit to your git repository — it provides project-specific instructions to Claude Code. Claude Memory is Anthropic's built-in system that automatically stores personal preferences and facts from your conversations across Claude.ai. They operate at different scopes and serve different purposes.
+No. CLAUDE.md takes precedence when instructions conflict. This is intentional — project rules set by the team always override individual preferences stored in Memory. If your Memory says "prefer Vitest" but CLAUDE.md says "use Jest," Claude will use Jest. Memory operates within the boundaries CLAUDE.md defines.
 
-### Can Claude Memory replace CLAUDE.md for solo developers?
+### Does Claude Memory sync across machines?
 
-For very simple projects, Claude Memory can cover basic preferences. But CLAUDE.md is still recommended even for solo work because it's deterministic — the same file produces the same behavior every time. Claude Memory can drift, paraphrase, or deprioritize facts over time, which makes it unreliable for critical project constraints like build commands and safety rules.
+Claude Memory lives in `~/.claude/projects/` on your local machine and is tied to your project directory path. It does not sync across machines automatically. If you work on the same project from two different computers, each machine accumulates its own Memory independently. CLAUDE.md, by contrast, syncs automatically through version control whenever you pull the repo.
 
-### Do Claude Memory and CLAUDE.md work together?
+### How often should I update CLAUDE.md?
 
-They operate in separate systems — Claude Memory in Claude.ai conversations, CLAUDE.md in Claude Code terminal sessions. They don't directly share state. However, Claude Code has its own auto-memory system (`.claude/` directory) that serves a similar role to Claude Memory but is scoped to the project and stored locally.
+Update CLAUDE.md in the same PR that changes the code it describes. If you switch from Jest to Vitest, update the test command in CLAUDE.md in the same commit. Treat it like any other code documentation — it should always reflect the current state of the project. A quarterly review to prune outdated rules also helps keep it focused.
 
-### Where should I put coding style preferences?
+### Can I see what Claude has stored in Memory?
 
-Personal style preferences ("I prefer concise variable names") belong in Claude Memory or Claude Code's auto-memory. Project-wide conventions ("use camelCase for TypeScript, snake_case for database columns") belong in CLAUDE.md. When a personal preference conflicts with a project convention, CLAUDE.md takes precedence in Claude Code sessions.
+Yes. Memory files are plain markdown stored in `~/.claude/projects/*/memory/`. You can read them directly, and the `MEMORY.md` index file lists all active memories with one-line summaries. You can also ask Claude to recall or forget specific memories during a conversation.
 
-### How do I get started with CLAUDE.md?
+### Should I commit Memory files to the repo?
 
-Create a file named `CLAUDE.md` in your project root. Add your build command, test command, and two or three rules Claude Code should always follow. Commit it to your repo. Claude Code reads it automatically on every session. Expand the file as you discover more conventions worth codifying.
+No. Memory files are personal context that wouldn't make sense for other team members. They contain your individual preferences, corrections, and workflow context. If a Memory entry proves universally valuable, promote it to CLAUDE.md instead of committing the Memory file.
 
 ---
 
