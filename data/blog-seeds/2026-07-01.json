@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Introducing Claude Sonnet 5",
+    "url": "https://www.anthropic.com/news/claude-sonnet-5",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Start building with Nano Banana 2 Lite and Gemini Omni Flash",
+    "url": "https://deepmind.google/blog/start-building-with-nano-banana-2-lite-and-gemini-omni-flash/",
+    "source": "rss:DeepMind Blog",
+    "x_engagement_24h": 392,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.1176,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic Python SDK v0.115.0",
+    "url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.115.0",
+    "source": "github:release:anthropics/anthropic-sdk-python",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Anthropic Vertex SDK v0.19.0",
+    "url": "https://github.com/anthropics/anthropic-sdk-typescript/releases/tag/vertex-sdk-v0.19.0",
+    "source": "github:release:anthropics/anthropic-sdk-typescript",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code is steganographically marking requests",
+    "url": "https://thereallo.dev/blog/claude-code-prompt-steganography",
+    "source": "hackernews",
+    "x_engagement_24h": 1697,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 16.5091,
+    "suggested_angle": "news"
+  }
+]
