@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Access to Claude Fable 5 and Claude Mythos 5 restored",
+    "url": "https://support.claude.com/en/articles/12138966-release-notes#july-1-2026",
+    "source": "docs:Claude Apps Release Notes",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code v2.1.198",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.198",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 16,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Redeploying Fable 5",
+    "url": "https://www.anthropic.com/news/redeploying-fable-5",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Autoresearch: The feedback loop behind self-improving agents",
+    "url": "https://www.latent.space/p/autoresearch-introspection",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "The Coolest Diffusion Research Isn't in LLMs — Evan Feinberg & Sergey Edunov, Genesis Molecular AI",
+    "url": "https://www.latent.space/p/the-coolest-diffusion-research-isnt",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  }
+]
