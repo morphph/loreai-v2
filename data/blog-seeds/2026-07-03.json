@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Giving admins more visibility and control over Claude spend",
+    "url": "https://www.claude.com/blog/giving-admins-more-visibility-and-control-over-claude-usage-and-spend",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "New York City educators and industry leaders gathered at Google's offices to shape the future of AI in classrooms.",
+    "url": "https://blog.google/products-and-platforms/products/education/nyc-ai-summit/",
+    "source": "rss:Google AI Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "analysis"
+  },
+  {
+    "topic": "The website of the future may assemble itself for every visitor",
+    "url": "https://www.latent.space/p/the-website-of-the-future",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "analysis"
+  },
+  {
+    "topic": "Skill engineering and the case against one-shot AI design",
+    "url": "https://www.latent.space/p/skill-engineering-design",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Launch HN: Manufact (YC S25) – MCP Cloud",
+    "url": "https://manufact.com",
+    "source": "hackernews",
+    "x_engagement_24h": 158,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.0474,
+    "suggested_angle": "news"
+  }
+]
