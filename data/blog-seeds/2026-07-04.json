@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "New serious vulnerabilities spiked around release of Claude Mythos Preview",
+    "url": "https://epoch.ai/data-insights/cve-severity-spike",
+    "source": "hackernews",
+    "x_engagement_24h": 22,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.0066,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "More details on Fable 5's cyber safeguards and our jailbreak framework",
+    "url": "https://www.anthropic.com/news/fable-safeguards-jailbreak-framework",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Vercel's Andrew Qu on why agents are a new kind of software",
+    "url": "https://www.latent.space/p/vercel-agents-new-software",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Simon Willison: Fable's judgement",
+    "url": "https://simonwillison.net/2026/Jul/3/judgement/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Jamesob's guide to running SOTA LLMs locally",
+    "url": "https://github.com/jamesob/local-llm",
+    "source": "hackernews",
+    "x_engagement_24h": 374,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.1122,
+    "suggested_angle": "tutorial"
+  }
+]
