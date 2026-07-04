@@ -1,0 +1,212 @@
+{
+  "date": "2026-07-03",
+  "headline_hook": "Anthropic Ships Enterprise Spend Controls as SDK Headers Leak an Agent Memory API",
+  "preview_topics": [
+    "Anthropic's enterprise cost guardrails",
+    "agent-memory signals in both SDKs",
+    "Google's tabular foundation model vs. XGBoost"
+  ],
+  "pick_of_the_day": {
+    "item_id": 57733,
+    "thesis": "The 'agent-memory-2026-07-22' beta header showing up in both Python and TypeScript SDKs simultaneously isn't a routine version bump — it's Anthropic telegraphing that persistent agent memory is weeks away, which would collapse the entire 'memory layer' startup category and force every agentic framework to rethink state management."
+  },
+  "model_literacy": {
+    "concept": "Agent Memory: In-Context vs. Persistent State",
+    "relevance": "Today's SDK headers hint at a native agent memory API. Understanding the difference between stuffing prior turns into context (expensive, lossy) and true persistent memory (durable, retrievable) is critical for anyone building agents that need to remember users, tasks, or decisions across sessions."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 57561,
+          "title": "Anthropic Gives Enterprises a Spending Dashboard and Kill Switch",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "As Claude usage balloons inside orgs, admins had zero granular visibility — now they get per-team spend tracking and hard caps, the table-stakes controls that procurement teams demand before signing annual contracts.",
+          "key_fact": "New admin dashboards with per-team spend visibility and usage controls for Claude enterprise and team accounts"
+        },
+        {
+          "id": 57781,
+          "title": "Manufact (YC S25) Launches Hosted MCP Infrastructure",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Self-hosting MCP servers is the biggest friction point for teams adopting the protocol — a managed cloud layer was inevitable, and YC is betting on it.",
+          "key_fact": "YC S25 company offering managed MCP server hosting, removing self-hosting requirement"
+        },
+        {
+          "id": 57774,
+          "title": "BugTraceAI Ships a 27B Model Purpose-Built for Code Debugging",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Domain-specific coding models are fragmenting the market — this Q6-quantized 27B bug tracer hit 8K downloads fast, suggesting developers want specialist tools over generalist models for specific workflows.",
+          "key_fact": "27B parameter Q6 model specialized for bug tracing, 8K+ downloads on HuggingFace"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 57733,
+          "title": "Anthropic's Python SDK Quietly Adds an 'Agent Memory' Beta Header",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Buried in a point release: the 'agent-memory-2026-07-22' header appears in both Python and TypeScript SDKs simultaneously, strongly signaling a persistent memory API launch within weeks.",
+          "key_fact": "'agent-memory-2026-07-22' beta header added to SDK, plus v0.115.1 patch removing nonfunctional types"
+        },
+        {
+          "id": 57731,
+          "title": "Claude Code v2.1.199 Stacks Up to 5 Skills Per Invocation",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The compound-skill pattern — chaining multiple slash commands in one go — just became practical, and the SSL fast-fail fix stops agents from silently burning retries on cert errors.",
+          "key_fact": "Stacked slash-skill invocations load up to 5 skills at once; SSL cert errors now fail fast with actionable guidance"
+        },
+        {
+          "id": 57735,
+          "title": "TypeScript SDK Mirrors the Agent Memory Header at v0.110.0",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Both SDKs shipping the same beta header in lockstep means this isn't experimental — Anthropic is prepping the entire ecosystem for agent memory simultaneously.",
+          "key_fact": "TypeScript SDK v0.110.0 adds identical 'agent-memory-2026-07-22' beta header as the Python SDK"
+        },
+        {
+          "id": 57740,
+          "title": "Vercel AI SDK Adds Experimental Streaming Transcription",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Real-time audio-to-text via OpenAI's gpt-realtime-whisper and xAI WebSocket bridges the last major gap in the AI SDK's multimodal pipeline.",
+          "key_fact": "Streaming transcription support for OpenAI gpt-realtime-whisper and xAI WebSocket STT in ai@7.0.14"
+        },
+        {
+          "id": 57747,
+          "title": "MCP TypeScript SDK Beta.2 Ships CommonJS Builds",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The ESM-only requirement was the single biggest adoption complaint — CJS support removes the blocker for the majority of Node.js projects that haven't migrated.",
+          "key_fact": "CommonJS builds now ship alongside ESM in @modelcontextprotocol/server@2.0.0-beta.2"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 57780,
+          "title": "The 'Short Leash' Method for Keeping AI Coding Agents on Track",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A practical framework for taming agentic coding: scoped tasks, tight verification loops, and explicit rollback points — community-tested specifically against Fable 5's tendency to go off-script.",
+          "key_fact": "Methodology validated against Fable 5: small scoped tasks + tight verification loops + explicit rollback points"
+        },
+        {
+          "id": 57525,
+          "title": "Willison Uses DSPy to Systematically Optimize Agent Prompts",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Instead of hand-tuning prompts, Willison treats them as optimizable components via DSPy — a reproducible method anyone can apply to evaluate and improve their own agent system prompts.",
+          "key_fact": "DSPy used to evaluate and improve Datasette Agent's SQL system prompts with measurable results"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 57773,
+          "title": "Google Drops TabFM 1.0 — A Foundation Model Gunning for XGBoost's Crown",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "For years, gradient-boosted trees owned tabular data. Google's TabFM is the first serious foundation model attempt to unseat XGBoost and LightGBM on structured data — if it works, it reshapes how every data team handles classification.",
+          "key_fact": "First Google foundation model purpose-built for tabular data classification, released as open weights on HuggingFace"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 57529,
+          "title": "Adobe Experiments with Websites That Rebuild Themselves Per Visitor",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Agentic sites that dynamically generate pages per visitor would break every assumption in web development — from caching to SEO to testing — and Adobe is already prototyping it.",
+          "key_fact": "Adobe experimenting with 'agentic sites' that dynamically generate pages tailored to each visitor's intent"
+        },
+        {
+          "id": 57530,
+          "title": "Skill Engineering: Why One-Shot AI Design Is a Dead End",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Paul Bakaus argues the 'loopmaxxing' era makes iterative skill composition — not clever single prompts — the differentiator, with human judgment as the irreplaceable quality gate.",
+          "key_fact": "Paul Bakaus's thesis: effective AI design requires iterative skill composition, not one-shot prompting"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 57524,
+          "title": "Simon Willison Ships an Alpha Coding Agent on His llm Library",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "When Willison builds something, it tends to become the community default — his llm-coding-agent alpha signals coding agents are about to get the same accessible, composable treatment his other tools are known for.",
+          "key_fact": "Alpha coding agent built on Willison's llm library, which has a track record of becoming community standard tooling"
+        },
+        {
+          "id": 57710,
+          "title": "claude-real-video Lets Any LLM Actually Watch a Video",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Extracts scene-aware deduplicated frames plus transcript from any video, runs entirely locally — a clean bridge between video content and LLM context windows.",
+          "key_fact": "Open-source, MIT-licensed tool that extracts scene-aware frames + transcript from video URLs or local files for LLM consumption"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 57743,
+      "title": "llama.cpp Exposes Quantization Type Names via New C API",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "New llama_model_ftype_name() API lets tooling programmatically query Q8_0, Q4_K, etc.",
+      "key_fact": "Public C API for quantization type names in llama.cpp b9860"
+    },
+    {
+      "id": 57779,
+      "title": "ctx: Search Your Local Coding Agent Conversation History",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "CLI tool that indexes and searches past agent conversations without any cloud dependency.",
+      "key_fact": "Indexes local coding agent history for instant search"
+    },
+    {
+      "id": 57238,
+      "title": "Google Hosts NYC Summit to Shape AI in K-12 Classrooms",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "150 education and industry leaders set direction for AI in schools and workforce training.",
+      "key_fact": "Google, NYC Jobs CEO Council, and Urban Assembly hosted 150 leaders at Google's NYC offices"
+    },
+    {
+      "id": 57532,
+      "title": "AIEWF Dispatch: The Tension Between AI Automation and Human Agency",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Speakers push back against the full-automation narrative, defending human understanding and control.",
+      "key_fact": "Software factory vision met resistance at AIEWF from speakers defending human agency"
+    },
+    {
+      "id": 57777,
+      "title": "Rampart: Lightweight Token Classification Model Trending on HuggingFace",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Niche NER and structured extraction model gaining traction — 103 likes, 790 downloads.",
+      "key_fact": "Token classification model with 103 likes and 790 downloads on HuggingFace"
+    }
+  ],
+  "total_items": 20
+}

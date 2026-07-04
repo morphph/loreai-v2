@@ -1,0 +1,191 @@
+{
+  "date": "2026-07-04",
+  "headline_hook": "Anthropic Opens the Jailbreak Playbook as DeepMind Goes Hollywood",
+  "preview_topics": [
+    "Anthropic's open-sourced red-team framework",
+    "DeepMind's indie-film AI partnership",
+    "KimiK and Cosmos 3 hit HuggingFace"
+  ],
+  "pick_of_the_day": {
+    "item_id": 57838,
+    "thesis": "Open-sourcing the attack playbook is Anthropic's bet that transparency accelerates defense faster than it arms attackers — and it forces every other lab to either match or explain why they won't."
+  },
+  "model_literacy": {
+    "concept": "Jailbreak Evaluation Frameworks",
+    "relevance": "Anthropic just published theirs in full. Understanding how labs systematically probe their own models — automated attack generation, graded severity taxonomies, regression suites — explains why 'jailbreak-proof' is a moving target, not a finish line."
+  },
+  "sections": [
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 57838,
+          "title": "Anthropic Publishes Its Full Jailbreak Evaluation Framework for Fable 5",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "First frontier lab to open-source its red-team methodology at this level of detail — sets a new transparency bar for the industry",
+          "key_fact": "Includes the complete jailbreak framework and cyber safeguard architecture used to evaluate Fable 5"
+        },
+        {
+          "id": 58071,
+          "title": "High-Severity CVEs Spiked Around the Mythos Preview Launch Window",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "First empirical data linking frontier model releases to vulnerability discovery rates — correlation or causation, the timing demands attention",
+          "key_fact": "Statistically significant spike in newly reported high-severity CVEs timed with the Mythos Preview launch"
+        },
+        {
+          "id": 58068,
+          "title": "Dispersion Loss Stops Small Language Models from Collapsing Their Embeddings",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A training technique that prevents embedding condensation in sub-3B models — potentially free performance if you're fine-tuning small models",
+          "key_fact": "Targets the known embedding-space collapse problem that limits SLM quality"
+        }
+      ]
+    },
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 58024,
+          "title": "HuggingFace Transformers Ships Native KimiK 2.5–2.7 Support",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Moonshot's open multimodal agentic models now have first-class HF integration — the barrier to testing just dropped to pip install",
+          "key_fact": "Transformers v5.13.0 adds native architecture support for KimiK 2.5, 2.6, and 2.7"
+        },
+        {
+          "id": 58025,
+          "title": "Diffusers Brings NVIDIA Cosmos 3 Into the Standard Pipeline",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "One model now handles world generation, physical reasoning, and action generation — unified world foundation models are arriving in production tooling",
+          "key_fact": "Cosmos 3 is a Mixture-of-Transformers world foundation model, now available via diffusers v0.39.0"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 57823,
+          "title": "DeepMind and A24 Launch the First Frontier-AI-Meets-Film-Studio Research Partnership",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The first formal collaboration between a frontier lab and a major creative studio — expect it to define how AI tools enter professional creative workflows",
+          "key_fact": "A24 is the first major film studio to formally partner with a frontier AI lab on creative workflow research"
+        },
+        {
+          "id": 57817,
+          "title": "AIEWF Wraps With a Fight Over Agentic Loops and an H2 Roadmap",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The closing keynotes at AI Engineer World's Fair focused on what to build next — useful for setting your second-half priorities",
+          "key_fact": "Featured a heated debate on agentic loop architectures and a comprehensive state-of-AI-engineering report"
+        },
+        {
+          "id": 57818,
+          "title": "Vercel's Chief of Software: Skills, Sandboxes, and Agent-Readable Websites Are the New Primitives",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Concrete details on how Vercel rearchitected for agents — not an AI tab bolted on, but a rethink of what software ships as",
+          "key_fact": "Vercel built an internal agent framework called 'eve' around skills, sandboxes, and agent-readable web surfaces"
+        },
+        {
+          "id": 57812,
+          "title": "Simon Willison Maps the Gaps Between Open-Source and Closed AI",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A clear-eyed inventory of where open models still can't match closed providers — and where the biggest contributor opportunities lie",
+          "key_fact": "Identifies specific capability gaps where open-source AI lags closed providers in production readiness"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 58020,
+          "title": "Claude Code Renames 'Default' to 'Manual' and Stops Auto-Continuing Dialogs",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "If you run Claude Code in semi-autonomous mode, these UX changes affect your workflow — permission prompts now behave differently",
+          "key_fact": "v2.1.200 renames 'default' permission mode to 'Manual' and stops AskUserQuestion dialogs from auto-continuing"
+        },
+        {
+          "id": 58034,
+          "title": "llama.cpp Fuses 288-Expert MoE Routing Into a Single CUDA Kernel",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Three releases in two days slash routing overhead for massive MoE models — from 330 extra kernel launches to one fused call",
+          "key_fact": "b9866 adds CUDA topk-MoE fusion for 288-expert models, cutting routing to one fused kernel at batch size 1"
+        },
+        {
+          "id": 58072,
+          "title": "mcpsnoop: Wireshark for Model Context Protocol Debugging",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "MCP tool calls have been a black box — this transparent proxy gives you a live TUI of every message between client and server",
+          "key_fact": "Sits as a transparent proxy with live TUI visualization of all MCP messages"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 58069,
+          "title": "A Practical Guide to Running Frontier-Class Open Models Locally",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Hardware selection, quantization choices, and serving configs — everything you need if you're evaluating on-prem inference for privacy or latency",
+          "key_fact": "254 HN points — covers the full stack from hardware to serving for current SOTA open models"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 58070,
+      "title": "GLM-5.2 on AMD MI355X Hits 2,626 tok/s at Half the Blackwell Cost",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "AMD's new accelerators posting credible open-model inference numbers against NVIDIA",
+      "key_fact": "2,626 tok/s per node at over 2x lower cost than Blackwell"
+    },
+    {
+      "id": 57814,
+      "title": "Willison's Independent Take on Fable 5's Ethical Judgment Calls",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Pairs with Anthropic's own safeguards post — an outside perspective on where Fable draws its lines",
+      "key_fact": "Analyzes how Fable handles ambiguous ethical scenarios"
+    },
+    {
+      "id": 57742,
+      "title": "Vercel AI SDK Fixes Tool-Result Ordering in Agent Chains",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Small fix, big impact — tool results now sort by original call order",
+      "key_fact": "v7.0.12 fixes tool-result ordering that affected every agent chain"
+    },
+    {
+      "id": 57868,
+      "title": "Talos: Earn GPU Payouts by Serving Open-Model Inference Over WebSocket",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Decentralized inference network for spare GPU capacity",
+      "key_fact": "307 GitHub stars — GPU worker client for distributed open-model serving"
+    },
+    {
+      "id": 57782,
+      "title": "deptrust: Dependency Vulnerability Scanner for AI Agents",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Guardrail for agentic coding — scans packages before an agent installs them",
+      "key_fact": "Addresses the growing attack surface of autonomous package installation"
+    }
+  ],
+  "total_items": 18
+}

@@ -1,0 +1,236 @@
+{
+  "date": "2026-07-01",
+  "headline_hook": "Sonnet 5 Drops With a Science Lab While Claude Code's Hidden Markers Spark a Trust Debate",
+  "preview_topics": [
+    "Sonnet 5's native million-token context",
+    "Claude Code's steganographic markers",
+    "the small-model wars heat up"
+  ],
+  "pick_of_the_day": {
+    "item_id": 57191,
+    "thesis": "The steganographic markers reveal a growing tension between product telemetry and developer trust — and how AI tooling companies navigate this tension will define whether power users stay or flee to open-source alternatives."
+  },
+  "model_literacy": {
+    "concept": "Native vs. Effective Context Length",
+    "relevance": "Sonnet 5 touts a 1M-token native context window, but native length and the amount of context a model can reliably attend to are two different numbers. Understanding this gap is how you evaluate any model's long-context claims without getting burned."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 56948,
+          "title": "Anthropic's Sonnet 5 Goes All-In on Agentic Coding With 1M Native Context",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The most capable Sonnet yet ships with native 1M-token context and aggressive promo pricing — Anthropic is betting that agent-grade reasoning at Sonnet-tier cost wins the developer market.",
+          "key_fact": "$2/$10 per Mtok promotional pricing through August 31"
+        },
+        {
+          "id": 56949,
+          "title": "Claude Science Launches as Anthropic's First Vertical Product",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "A dedicated AI workbench for scientists isn't just a feature — it's Anthropic signaling that the highest-leverage Claude applications live in domain-specific tools, not general chat.",
+          "key_fact": "335 likes and 112 RTs in first hours — scientists are paying attention"
+        },
+        {
+          "id": 56937,
+          "title": "Google Fires Two Shots: Nano Banana 2 Lite for Edge, Omni Flash for Multimodal",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "DeepMind is splitting its model strategy into edge-optimized and multimodal-cheap tiers, directly challenging both Apple's on-device play and the API pricing war.",
+          "key_fact": "Two models targeting opposite ends of the cost-capability spectrum"
+        },
+        {
+          "id": 57195,
+          "title": "Mistral Drops Leanstral 1.5 as the Efficient-Model Race Gets Crowded",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Another entrant in the small-model tier — the real story is how fast this market segment is filling up.",
+          "key_fact": "Third lean model launch this week alongside Nano Banana and Apple's on-device push"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 57158,
+          "title": "MCP TypeScript SDK v2 Beta Lands With Breaking Changes and a Deadline",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The MCP team is asking developers to break things now so the July 28 stable release doesn't break them later — upgrade your integrations before it ships.",
+          "key_fact": "Split wire-layer codecs and per-era protocol handling — this isn't a minor bump"
+        },
+        {
+          "id": 57139,
+          "title": "Claude Code v2.1.197 Makes Sonnet 5 the Default",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "If you're using Claude Code, you're now on Sonnet 5 by default — update to get the 1M-token context window without config changes.",
+          "key_fact": "Sonnet 5 is now the out-of-the-box model for all Claude Code users"
+        },
+        {
+          "id": 57141,
+          "title": "Anthropic's Python SDK Expands the Managed Agents API Surface",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Back-to-back releases add event delta streaming, vault credential injection, and webhook events — the agent-builder API is growing fast.",
+          "key_fact": "v0.114.0–v0.115.0 shipped same-day with full Managed Agents feature parity"
+        },
+        {
+          "id": 56944,
+          "title": "HuggingFace Puts Every Eval Result on Every Model Page",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "No more hunting through scattered leaderboards — community eval results are now integrated directly into model pages.",
+          "key_fact": "Community-contributed evals surfaced alongside official benchmarks on model cards"
+        },
+        {
+          "id": 57152,
+          "title": "Ollama v0.31 Brings Tighter Gemma 4 MoE and an MLX Matmul Kernel",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The version jump from 0.30.x signals meaningful internal changes — local inference tooling keeps shipping weekly.",
+          "key_fact": "New small-batch matmul kernel from MLX and llama.cpp bumped to b9840"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 56969,
+          "title": "Anthropic's Official Guide to Agentic Loops in Claude Code",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The run-evaluate-rerun pattern is becoming the default for agentic coding — this walkthrough shows you how to actually use it.",
+          "key_fact": "Official guide covering iterative loop patterns for Claude Code workflows"
+        },
+        {
+          "id": 56929,
+          "title": "Simon Willison: Have Your Agent Record Video Demos of Its Work",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Using shot-scraper to auto-record agent work sessions is a clever trust-building pattern — show stakeholders what your agent actually did, not just what it says it did.",
+          "key_fact": "shot-scraper video captures full browser sessions driven by AI agents"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 56942,
+          "title": "IBM's ScarfBench Finally Benchmarks What Developers Actually Do: Migrate Java",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Most AI coding benchmarks test greenfield generation — this one tests the painful real-world task of framework migration on enterprise Java codebases.",
+          "key_fact": "Purpose-built benchmark for evaluating AI agents on enterprise Java framework migrations"
+        },
+        {
+          "id": 57192,
+          "title": "Meta's Brain2Qwerty Translates Brain Waves to Text Without Surgery",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Non-invasive BCI that actually produces readable text from EEG — a step toward communication for people who can't speak or type.",
+          "key_fact": "EEG-to-text without surgical implants, from Meta AI Research"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 57191,
+          "title": "Researcher Catches Claude Code Embedding Steganographic Markers in API Requests",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "1,300+ upvotes on an exposé about hidden telemetry in the most popular AI coding tool — the developer trust implications go far beyond one product.",
+          "key_fact": "1,319 likes on the blog post revealing invisible markers in Claude Code's API calls"
+        },
+        {
+          "id": 56943,
+          "title": "The Case That General-Purpose Models Will Give Way to Specialists",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Dharma AI's specialization thesis directly contradicts the one-model-fits-all trend — and Claude Science's launch the same day is Exhibit A.",
+          "key_fact": "Published on HuggingFace, argues domain-specialized models will outcompete generalists"
+        },
+        {
+          "id": 56931,
+          "title": "After Two AIEWF Workshops, the Verdict: Local AI Is Closing the Gap",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Ahmad Osman's argument lands as Ollama, llama.cpp, and MLX ship improvements weekly — the local-vs-cloud gap is narrowing faster than most assume.",
+          "key_fact": "Post-workshop analysis from two AIEWF sessions on local AI adoption"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 56987,
+          "title": "Fundamental-Ava: Open-Source Framework for Socially Intelligent Digital Humans",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "592 stars for an autonomous digital human framework — the intersection of embodied AI and multi-agent collaboration is attracting serious builder interest.",
+          "key_fact": "592 GitHub stars, targeting autonomous agents with social intelligence"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 57145,
+      "title": "Anthropic TS SDK v0.109.0 Adds Full Managed Agents API",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Same-day parity with the Python SDK — event streaming, agent overrides, vault scoping",
+      "key_fact": "Full Managed Agents feature set now in TypeScript"
+    },
+    {
+      "id": 57144,
+      "title": "Anthropic Vertex SDK Bumps to google-auth-library ^10.2.0",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "GCP-deployed Claude users: update for latest auth features",
+      "key_fact": "google-auth-library bumped to ^10.2.0"
+    },
+    {
+      "id": 57149,
+      "title": "Vercel AI SDK v7.0.8 Adds First-Class Video Generation Support",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "frameImages and inputReferences make video a first-class SDK modality",
+      "key_fact": "Video generation now alongside text and image in the SDK"
+    },
+    {
+      "id": 57157,
+      "title": "CrewAI 1.15.2a1 Gets Inline Skills and Stream Frame Protocol",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Define and stream multi-agent flows without external YAML",
+      "key_fact": "Inline skill definitions replace external config files"
+    },
+    {
+      "id": 57154,
+      "title": "llama.cpp b9851 Fixes CUDA Flash Attention KV Mask Strides",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Integer truncation fix for CUDA plus Qwen3Next model support",
+      "key_fact": "CUDA flash attention fix and Qwen3Next support in b9850-b9851"
+    },
+    {
+      "id": 56939,
+      "title": "Google UK Quantifies AI's Productivity Impact Across British Industries",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Economic impact report signals UK's AI policy direction",
+      "key_fact": "Google's latest UK AI adoption and productivity report"
+    }
+  ],
+  "total_items": 23
+}

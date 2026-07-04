@@ -1,0 +1,220 @@
+{
+  "date": "2026-07-02",
+  "headline_hook": "Fable 5 Returns to Production as Cerebras Fires Up Real-Time Voice AI",
+  "preview_topics": [
+    "Anthropic's Fable 5 redeployment saga",
+    "Cerebras-powered real-time voice with Gemma 4",
+    "why diffusion's biggest impact may be outside language"
+  ],
+  "pick_of_the_day": {
+    "item_id": 57232,
+    "thesis": "Meta's former Llama lead betting his career on molecular diffusion suggests that the transformer obsession in AI is masking where generative models could have their most transformative real-world impact — and the zero-shot protein binding results hint he may be right."
+  },
+  "model_literacy": {
+    "concept": "Model Rollback and Staged Redeployment",
+    "relevance": "Fable 5's pull-and-redeploy cycle illustrates a maturing industry practice: frontier models now go through staged rollouts with circuit breakers, not one-shot launches — understanding this process helps builders plan around availability gaps and design resilient fallback strategies."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 57247,
+          "title": "Anthropic Redeploys Fable 5 After Safety-Driven Pause",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The redeployment confirms Fable 5's capabilities are too important to shelve — but the pause itself sets a precedent for how frontier labs handle post-launch safety signals.",
+          "key_fact": "Fable 5 is back after being temporarily pulled, marking Anthropic's first public model rollback-and-redeploy cycle"
+        },
+        {
+          "id": 57242,
+          "title": "Cerebras and Hugging Face Make Gemma 4 Talk in Real Time",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Custom silicon finally delivers on the promise of real-time voice with open models — this is the demo that makes 'run your own voice AI' feel achievable.",
+          "key_fact": "Cerebras inference speeds enable real-time voice applications with Google's open Gemma 4 model"
+        },
+        {
+          "id": 57480,
+          "title": "Agents-A1: An Open Model Built Specifically for Tool Use",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Purpose-built agent models are emerging as a distinct category — general chat ability matters less than reliable tool calling and multi-step planning.",
+          "key_fact": "InternScience's Agents-A1 trending on HuggingFace with 138 likes, optimized for tool use over general chat"
+        },
+        {
+          "id": 57193,
+          "title": "Claude Science Keeps Climbing on Hacker News",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Anthropic's first vertical product continues generating discussion — the sustained interest signals genuine demand for domain-specific AI tools beyond general assistants.",
+          "key_fact": "335 likes on HN and still trending, making it one of Anthropic's most-discussed product launches"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 57440,
+          "title": "Claude Code Ships Chrome GA, Background Agents, and /dataviz",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "This isn't an incremental patch — Chrome going GA, background agent notifications, and a new visualization skill make Claude Code meaningfully more useful for daily development workflows.",
+          "key_fact": "Claude in Chrome reaches general availability; background agent notifications and /dataviz skill added in v2.1.198"
+        },
+        {
+          "id": 57284,
+          "title": "Fable 5 and Mythos 5 Restored — Plus Enterprise Model Governance",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The model restoration matters, but the quiet addition of per-org model access and effort-level controls is the real enterprise play — IT admins can now gate which models their teams use.",
+          "key_fact": "Enterprise admins can now control model access and effort levels per organization"
+        },
+        {
+          "id": 57493,
+          "title": "ZCode: China's Answer to Claude Code Ships on GLM-5.2",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Zhipu's IDE harness built on GLM-5.2 proves the AI coding tool race has gone global — every major AI lab now has a code assistant strategy.",
+          "key_fact": "132 likes and 184 RTs on launch; built around Zhipu's GLM-5.2 model"
+        },
+        {
+          "id": 57159,
+          "title": "MCP TypeScript SDK Hits 2.0 Beta — Migration Clock Starts",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Four weeks until stable means MCP server maintainers need to start testing against beta.1 now — breaking changes in the transport layer won't wait.",
+          "key_fact": "v2.0.0-beta.1 released with ~4 weeks until stable; the version to start testing against"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 57230,
+          "title": "Autoresearch: Teaching Agents to Evaluate Their Own Research Loops",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Self-improving research agents aren't science fiction — Introspection's approach gives teams a concrete pattern for building agents that get better at finding information over time.",
+          "key_fact": "Introspection's co-founder details the feedback loop architecture behind self-improving research agents"
+        },
+        {
+          "id": 56927,
+          "title": "Simon Willison's Technical Breakdown of What Actually Changed in Sonnet 5",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Skip the press release — Willison's independent teardown reveals which Sonnet 5 improvements matter and which are marketing.",
+          "key_fact": "Independent technical analysis covering architecture and capability changes beyond the official announcement"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 57232,
+          "title": "Meta's Former Llama Lead Bets on Diffusion for Drug Discovery",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "PEARL's zero-shot protein binding results suggest diffusion models may have their most transformative impact far from chatbots — in molecular design where the stakes are literally life and death.",
+          "key_fact": "Sergey Edunov left as Meta's Llama lead to co-found Genesis Molecular AI; PEARL achieves zero-shot protein binding prediction"
+        },
+        {
+          "id": 57479,
+          "title": "NVIDIA Quantizes Qwen 3.6-27B to Custom 4-Bit for TensorRT",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "NVIDIA's NVFP4 format is a play to make their hardware the default for open model deployment — custom quantization that only runs fast on NVIDIA silicon.",
+          "key_fact": "NVFP4 is NVIDIA's custom 4-bit quantization format optimized specifically for TensorRT inference"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 57237,
+          "title": "Google's June AI Recap: Everything Shipped in One Place",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Useful as a velocity check — Google's monthly roundup reveals just how many AI features shipped in June, from Gemini updates to Search changes.",
+          "key_fact": "Single-page summary of all Google AI product launches and updates from June 2026"
+        },
+        {
+          "id": 57231,
+          "title": "How Cursor Actually Gets Enterprises to Adopt AI Coding Tools",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Forward-deployed engineers embedding with customer teams isn't new, but Cursor's playbook for AI tool adoption reveals patterns any developer tools company should study.",
+          "key_fact": "Cursor's forward-deployed engineering team reveals their enterprise AI adoption playbook"
+        },
+        {
+          "id": 57233,
+          "title": "Warp's CEO: Software Factories Will Replace AI Copilots",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A provocative thesis — that individual AI copilots are a transitional phase and automated software factories are the endgame — from someone building the tooling to make it happen.",
+          "key_fact": "Zach Lloyd argues automated software factories, not copilots, represent the industry's next phase"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 57392,
+          "title": "cc-simplerouter: Route Claude Code Through Any OpenRouter Model in 26 Seconds",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Dead-simple model routing without config files — useful for teams that want Claude Code's interface but need flexibility to swap in different models for different tasks.",
+          "key_fact": "26-second setup, no config files or env vars required; 178 GitHub stars"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 57452,
+      "title": "Vercel AI SDK Adds Retry Logic for Failed MCP Tool Calls",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Critical reliability feature for production MCP pipelines",
+      "key_fact": "maxRetries option added in v7.0.10"
+    },
+    {
+      "id": 57494,
+      "title": "Google Open-Sources Zero-Knowledge Proofs for Age Verification",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Privacy-preserving age gates without revealing personal data",
+      "key_fact": "ZKP-based age assurance, now open-source"
+    },
+    {
+      "id": 57458,
+      "title": "CrewAI 1.15 Adds Streaming Docs and Flow Agent Options",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Incremental multi-agent orchestration improvements",
+      "key_fact": "Streaming docs, flow agent options, and CEL text helpers"
+    },
+    {
+      "id": 57455,
+      "title": "llama.cpp Gets Precompiled OpenCL Kernels for AMD and Intel GPUs",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Significant local inference speedup for non-CUDA users",
+      "key_fact": "Precompiled binary kernel loading for OpenCL in b9859"
+    },
+    {
+      "id": 57148,
+      "title": "LangGraph 1.2.7 Fixes State Corruption Bugs in Production Agents",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Snapshot overwrites and JSON roundtrip bugs fixed",
+      "key_fact": "DeltaChannel snapshot and Overwrite serialization bugs resolved"
+    }
+  ],
+  "total_items": 21
+}
