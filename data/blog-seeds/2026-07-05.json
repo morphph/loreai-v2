@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Graphify-Labs/graphify: Turn any folder of code, SQL schemas, docs, images, or videos into a queryable knowledge graph",
+    "url": "https://github.com/Graphify-Labs/graphify",
+    "source": "github:trending:Agent/MCP tools",
+    "x_engagement_24h": 85359,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 34.607699999999994,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "ggerganov/llama.cpp b9871",
+    "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b9871",
+    "source": "github:release:ggerganov/llama.cpp",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Kulaxyz/token-diet: Always-on token-efficiency skill for coding agents",
+    "url": "https://github.com/Kulaxyz/token-diet",
+    "source": "github:trending:AI IDE tools",
+    "x_engagement_24h": 452,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.1356,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Potential session/cache leakage between workspace instances or consumer accounts",
+    "url": "https://github.com/anthropics/claude-code/issues/74066",
+    "source": "hackernews",
+    "x_engagement_24h": 391,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.1173,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "AliesTaha/fable-traces: text-generation",
+    "url": "https://huggingface.co/AliesTaha/fable-traces",
+    "source": "huggingface:trending",
+    "x_engagement_24h": 117,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.0351,
+    "suggested_angle": "news"
+  }
+]
