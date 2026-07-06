@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Imbad0202/academic-research-skills: Academic Research Skills for Claude Code",
+    "url": "https://github.com/Imbad0202/academic-research-skills",
+    "source": "github:trending:Agent/MCP tools",
+    "x_engagement_24h": 39202,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 36.7606,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "sqlite-utils 4.0rc2, mostly written by Claude Fable (for about $149.25)",
+    "url": "https://simonwillison.net/2026/Jul/5/sqlite-utils-fable/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "koala73/worldmonitor: Real-time global intelligence dashboard",
+    "url": "https://github.com/koala73/worldmonitor",
+    "source": "github:trending:Agent/MCP tools",
+    "x_engagement_24h": 70945,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 30.283499999999997,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "SuperJJ007/CSSwitch: One-click API switching for Claude Science",
+    "url": "https://github.com/SuperJJ007/CSSwitch",
+    "source": "github:trending:AI IDE tools",
+    "x_engagement_24h": 251,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.0753,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Building a World Map with only 500 bytes",
+    "url": "https://simonwillison.net/2026/Jul/4/building-a-world-map-with-only-500-bytes/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  }
+]
