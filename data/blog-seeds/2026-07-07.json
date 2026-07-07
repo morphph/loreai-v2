@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "claude-code-merge-queue: Local merge queue for parallel Claude Code agents",
+    "url": "https://github.com/funador/claude-code-merge-queue",
+    "source": "github:trending:AI IDE tools",
+    "x_engagement_24h": 295,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.0885,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Tencent Hy3: text-generation model trending on HuggingFace",
+    "url": "https://huggingface.co/tencent/Hy3",
+    "source": "huggingface:trending",
+    "x_engagement_24h": 324,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.0972,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Government of Alberta uses Claude to find and fix cybersecurity vulnerabilities across government systems",
+    "url": "https://www.anthropic.com/news/alberta-government-claude-cybersecurity",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "HuggingFace Kernels: Major Updates",
+    "url": "https://huggingface.co/blog/revamped-kernels",
+    "source": "rss:HuggingFace Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "OfficeCLI: Office suite for AI agents to read and edit Microsoft Office files",
+    "url": "https://github.com/iOfficeAI/OfficeCLI",
+    "source": "hackernews",
+    "x_engagement_24h": 143,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.0429,
+    "suggested_angle": "news"
+  }
+]
