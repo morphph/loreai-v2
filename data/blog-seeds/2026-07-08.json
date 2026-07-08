@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Bringing Claude Code and Claude Cowork to government",
+    "url": "https://www.claude.com/blog/bringing-claude-code-and-claude-cowork-to-government",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Cowork is coming to mobile and web",
+    "url": "https://www.claude.com/blog/cowork-web-mobile",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code v2.1.203",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.203",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Choosing a Claude model and effort level in Claude Code",
+    "url": "https://www.claude.com/blog/claude-model-and-effort-level-in-claude-code",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 7,
+    "composite_score": 28,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Show HN: Rowboat – Open-source, local-first alternative to Claude Desktop",
+    "url": "https://github.com/rowboatlabs/rowboat",
+    "source": "hackernews",
+    "x_engagement_24h": 98,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 24.0294,
+    "suggested_angle": "tutorial"
+  }
+]
