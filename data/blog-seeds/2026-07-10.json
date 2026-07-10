@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "A new way to reflect with Claude",
+    "url": "https://support.claude.com/en/articles/12138966-release-notes#july-9-2026",
+    "source": "docs:Claude Apps Release Notes",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Introducing GPT‑Live",
+    "url": "https://simonwillison.net/2026/Jul/8/introducing-gptlive/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Introducing a way to reflect on how you use Claude",
+    "url": "https://www.anthropic.com/news/reflect-with-claude",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 16,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "[AINews] SpaceXAI launches Grok 4.5, first Opus-class model post Cursor acquisition",
+    "url": "https://www.latent.space/p/ainews-spacexai-launches-grok-45",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "ChatGPT Work",
+    "url": "https://openai.com/index/chatgpt-for-your-most-ambitious-work/",
+    "source": "hackernews",
+    "x_engagement_24h": 470,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.141,
+    "suggested_angle": "news"
+  }
+]
