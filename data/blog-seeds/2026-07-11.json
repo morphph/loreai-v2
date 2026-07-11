@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Working at the frontier: How Cognition trusts Claude Fable 5 to work through the night",
+    "url": "https://www.claude.com/blog/working-at-the-frontier-how-cognition-trusts-claude-fable-5-to-work-through-the-night",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Anthropic found a hidden space where Claude puzzles over concepts",
+    "url": "https://www.technologyreview.com/2026/07/09/1140293/anthropic-found-a-hidden-space-where-claude-puzzles-over-concepts/",
+    "source": "rss:MIT Tech Review AI",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "LangChain v1.3.13 adds Meta model support and explicit prompt caching",
+    "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain%3D%3D1.3.13",
+    "source": "github:release:langchain-ai/langchain",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "moore-wechat-article-downloader: Local-first WeChat intelligence for Claude Code and Codex",
+    "url": "https://github.com/Moore-developers/moore-wechat-article-downloader",
+    "source": "github:trending:AI IDE tools",
+    "x_engagement_24h": 269,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 20.0807,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "UST is bringing Claude to physical AI",
+    "url": "https://www.anthropic.com/news/ust-claude",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 20,
+    "suggested_angle": "news"
+  }
+]
