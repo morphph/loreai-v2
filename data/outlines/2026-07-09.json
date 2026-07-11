@@ -1,0 +1,220 @@
+{
+  "date": "2026-07-09",
+  "headline_hook": "OpenAI Ships GPT Live, Grok 4.5 Lands, and Mistral Steers Into Robotics",
+  "preview_topics": [
+    "the GPT Live and Grok 4.5 arms race",
+    "Mistral's robotics navigation play",
+    "why in-person finals exposed an AI competence gap"
+  ],
+  "pick_of_the_day": {
+    "item_id": 59396,
+    "thesis": "The 50% score collapse doesn't just prove students are cheating — it reveals that AI-assisted learning creates an illusion of competence that universities, employers, and the entire credentialing system have no framework to detect or address."
+  },
+  "model_literacy": {
+    "concept": "Benchmark Signal vs. Noise",
+    "relevance": "With Grok 4.5, SWE-1.7, and OpenAI all claiming SOTA this week, OpenAI's own paper on separating signal from noise in coding evals gives readers the lens to evaluate which claims hold up and which are cherry-picked slices."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 59169,
+          "title": "OpenAI launches GPT Live — real-time AI gets its own product line",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "OpenAI bets that real-time voice-and-video interaction is a distinct enough use case to warrant a standalone product, not just a ChatGPT feature — positioning against every live AI assistant on the market.",
+          "key_fact": "First standalone product line from OpenAI outside the GPT/ChatGPT family"
+        },
+        {
+          "id": 59394,
+          "title": "xAI drops Grok 4.5 with massive community reception",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Another frontier model in a week already packed with releases — the cadence itself is the story, as the gap between major model drops shrinks from months to days.",
+          "key_fact": "432 likes and 467 RTs on Hacker News"
+        },
+        {
+          "id": 59393,
+          "title": "Mistral enters robotics with Robostral Navigate",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "A text-and-code lab building a dedicated robotics navigation model signals that frontier labs see embodied AI as the next competitive moat — not just another benchmark category.",
+          "key_fact": "392 likes on HN — strong developer signal for specialized robotics models from frontier labs"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 59397,
+          "title": "Cognition's SWE-1.7 claims it's closing in on GPT 5.5 and Opus",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "The Devin team benchmarking against frontier models — not other agents — reframes the coding agent race as model-tier competition, and the community's 244 likes suggest they're buying it.",
+          "key_fact": "Claims near GPT 5.5 and Opus performance on coding tasks"
+        },
+        {
+          "id": 59392,
+          "title": "OpenAI publishes a framework for separating signal from noise in coding evals",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A meta-evaluation paper from the lab with the most to gain from rigorous benchmarking — read it as both methodology and strategy document.",
+          "key_fact": "126 likes, 55 RTs — community wants better eval methodology"
+        },
+        {
+          "id": 59150,
+          "title": "NVIDIA and HuggingFace lay out open data requirements for agents",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Agent training data is fundamentally different from chat data — this collaboration defines what that actually means for the open-source stack.",
+          "key_fact": "Joint NVIDIA-HuggingFace open data initiative specifically for agent training and evaluation"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 59151,
+          "title": "HuggingFace transformers becomes a native-speed vLLM backend",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The performance penalty for using transformers models in production inference is gone — this unifies research and production into one pipeline.",
+          "key_fact": "Native-speed modeling backend eliminates the transformers-to-vLLM performance gap"
+        },
+        {
+          "id": 59395,
+          "title": "Microsoft open-sources Flint, a visualization language built for AI agents",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Agents can write code but producing clean charts has been a persistent weak spot — Flint gives them a DSL purpose-built for data viz.",
+          "key_fact": "167 likes on Show HN — fills a real gap in agent tooling"
+        },
+        {
+          "id": 59360,
+          "title": "CrewAI 1.15.2 ships inline skills and dynamic model selection",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Inline skill definitions remove a major friction point in multi-agent orchestration — define capabilities right where you use them.",
+          "key_fact": "New inline skills, dynamic LLM model selection wizard, and Flow Definition authoring"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 59188,
+          "title": "Thomson Reuters shows what enterprise AI adoption actually looks like in regulated industries",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "One of the most conservative enterprise customers detailing how they build with Claude for legal and tax — the gap between AI demos and production in regulated industries, closed.",
+          "key_fact": "Production Claude deployment in legal and tax workflows at Thomson Reuters"
+        },
+        {
+          "id": 59143,
+          "title": "Modal's CTO argues AI infrastructure must be rebuilt for agents",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Request-response infrastructure breaks under long-running, stateful, bursty agent workloads — Modal has two years of receipts to prove it.",
+          "key_fact": "Latent Space follow-up two years after Modal's first appearance, now with production data on agent infra patterns"
+        },
+        {
+          "id": 59396,
+          "title": "Brown professor's in-person final experiment: scores drop 50% without AI",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The most concrete data point yet on the gap between AI-assisted and unassisted student performance — and universities have no playbook for what comes next.",
+          "key_fact": "Exam scores fell 50% when students couldn't use AI tools"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 59189,
+          "title": "Anthropic's marketing ops team shows how they actually use Cowork",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Anthropic eating its own dogfood — specific workflows for automated reporting and campaign builds, not just 'we use AI internally.'",
+          "key_fact": "Detailed playbook for marketing ops automation with Claude Cowork"
+        },
+        {
+          "id": 59144,
+          "title": "Lilian Weng's 35-paper harness engineering taxonomy, distilled",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Latent Space condenses the comprehensive RSI harness survey into actionable takeaways — a practical companion to yesterday's deep dive.",
+          "key_fact": "35 papers on self-improvement harness engineering condensed into one read"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 59314,
+          "title": "Fable Advisor: an open-source multi-model orchestrator using Claude Fable as the router",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A practical answer to 'which model for which task' — Fable as the meta-orchestrator that routes across Opus, GPT, and Sonnet by complexity.",
+          "key_fact": "152 likes — uses Claude Fable to route tasks across multiple frontier models"
+        },
+        {
+          "id": 59038,
+          "title": "Rabbithole turns learning into an infinite canvas with MCP support",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Select text, ask questions, and answers branch out as navigable documents — works as an MCP server for Claude Code and Codex, bridging research and coding.",
+          "key_fact": "134 likes — MCP-native learning tool compatible with Claude Code and Codex"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 59345,
+      "title": "Claude Code v2.1.205 fixes silent schema failures and transcript tampering",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The --json-schema fix alone will save teams debugging phantom failures",
+      "key_fact": "Blocks transcript tampering in auto mode, fixes schema output and max-turns message loss"
+    },
+    {
+      "id": 59346,
+      "title": "Claude Code v2.1.204 fixes hook streaming for headless sessions",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Prevents remote agents from being idle-reaped mid-hook in CI/CD",
+      "key_fact": "SessionStart hook events now stream correctly in headless mode"
+    },
+    {
+      "id": 58876,
+      "title": "sqlite-migrate 0.2 ships schema migration tooling for the SQLite ecosystem",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Simon Willison expands the sqlite-utils companion toolkit",
+      "key_fact": "Schema migration companion to sqlite-utils"
+    },
+    {
+      "id": 59398,
+      "title": "Onboard-CLI: AST-based codebase visualization powered by LLMs",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Visual maps of unfamiliar codebases — addresses the onboarding pain point",
+      "key_fact": "LLM-powered AST analysis generates navigable codebase maps"
+    },
+    {
+      "id": 58877,
+      "title": "github-code web component embeds syntax-highlighted snippets without iframes",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Clean solution to the 'show code in blog posts' problem — no API keys needed",
+      "key_fact": "Zero-dependency web component for embedding GitHub code"
+    }
+  ],
+  "total_items": 21
+}

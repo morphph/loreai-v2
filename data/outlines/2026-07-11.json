@@ -1,0 +1,196 @@
+{
+  "date": "2026-07-11",
+  "headline_hook": "Sol Ultra Cracks an Open Math Conjecture While Apple Fires Its Legal Salvo at OpenAI",
+  "preview_topics": [
+    "Sol Ultra's graph theory breakthrough",
+    "Apple's trade-secret war with OpenAI",
+    "Anthropic's dreaming API and concept space"
+  ],
+  "pick_of_the_day": {
+    "item_id": 59997,
+    "thesis": "The proof itself matters less than the verification bottleneck it exposes — when AI can generate candidate proofs faster than mathematicians can check them, the scarce resource shifts from creativity to rigor, and that reshapes which open problems get tackled next."
+  },
+  "model_literacy": {
+    "concept": "Jacobian Lens Interpretability",
+    "relevance": "Anthropic's discovery of Claude's internal 'concept space' uses Jacobian analysis to map how abstract reasoning transforms between layers — it matters because it's the first method showing not just what a model knows, but how it reasons before generating output, and that distinction is critical as we hand models harder problems like open conjectures."
+  },
+  "sections": [
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 59997,
+          "title": "GPT-5.6 Sol Ultra Produces a Proof of a 50-Year-Old Graph Theory Conjecture",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "A frontier model claims to have resolved the Cycle Double Cover Conjecture — if the proof holds, it's the first time an AI has cracked a longstanding open problem in pure mathematics",
+          "key_fact": "Verification is underway; the paper is already circulating among graph theorists with no immediate counterexample found"
+        },
+        {
+          "id": 59414,
+          "title": "Anthropic Discovers a Hidden 'Concept Space' Inside Claude's Reasoning",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A new Jacobian lens technique reveals where Claude processes abstract concepts before generating output — the clearest window yet into the gap between prompt and response",
+          "key_fact": "Findings range from mundane pattern-matching to unnerving emergent abstraction behaviors"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 59996,
+          "title": "Apple Sues OpenAI Over Ex-Employee Trade Secrets, Escalating the Talent War",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The lawsuit signals that talent-poaching litigation is becoming a standard weapon in the AI race — expect this to chill cross-company hiring at the frontier",
+          "key_fact": "Apple is accusing former employees now at OpenAI of stealing trade secrets"
+        },
+        {
+          "id": 59781,
+          "title": "How Cognition Trusts Claude Fable 5 to Code Through the Night Unsupervised",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The Devin team shares concrete patterns for managing reliability in overnight autonomous coding runs — the first serious case study on trusting agentic AI with production codebases for hours",
+          "key_fact": "First-party case study with specific patterns for long-running agentic workflow reliability"
+        },
+        {
+          "id": 60000,
+          "title": "CASP Report Documents How Boko Haram Actively Uses Frontier AI Tools",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The most concrete public evidence yet that AI safety concerns aren't hypothetical — a documented case of a terrorist organization using frontier models operationally",
+          "key_fact": "Detailed documentation of active frontier AI use by a designated terrorist organization"
+        }
+      ]
+    },
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 59744,
+          "title": "Anthropic Partners with UST to Bring Claude Into Physical AI and Lab Workflows",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Claude Science integrates lab tools, auditable artifacts, and compute — this is Anthropic's clearest play for scientific computing and robotics-adjacent domains",
+          "key_fact": "Claude Science is a customizable app with direct lab tool integration and audit trails"
+        },
+        {
+          "id": 59947,
+          "title": "Anthropic TypeScript SDK Ships 'Dreaming' Support in v0.111.0",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The SDK now includes an undocumented 'dreaming' capability and gated session tool calls — likely a signal of a bigger API announcement incoming",
+          "key_fact": "Dreaming feature is new and undocumented beyond the SDK changelog"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 59957,
+          "title": "Vercel AI SDK Lands Cartesia Speech Provider and Stabilizes repairToolCall",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Three rapid-fire releases add Sonic 3.5 speech generation, enforce consistent zod/v4 imports, and fix chunked streaming — the speech provider alone opens new multimodal app patterns",
+          "key_fact": "Cartesia provider includes Sonic 3.5 speech generation and Ink-Whisper transcription"
+        },
+        {
+          "id": 59960,
+          "title": "llama.cpp Overhauls Server Tools: apply_diff Removed, New Abstraction Layer",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A breaking change for anyone using llama.cpp's built-in tool-use server — apply_diff is gone, replaced by a cleaner edit tool and a tools_io abstraction",
+          "key_fact": "Breaking change: apply_diff removed in favor of new edit tool and tools_io layer"
+        },
+        {
+          "id": 59946,
+          "title": "Claude Code v2.1.206 Adds /doctor for Bloated CLAUDE.md and Smarter /cd",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Sharp quality-of-life upgrades: directory suggestions in /cd, a health check that flags oversized CLAUDE.md files, and auto-allowed git push to configured remotes",
+          "key_fact": "/doctor now proposes trimming bloated CLAUDE.md files; /commit-push-pr auto-allows git push"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 59735,
+          "title": "HuggingFace's Guide to Profiling Attention Mechanisms in PyTorch",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The third installment targets the hardest-to-profile component in transformers — if you're optimizing inference or training throughput, this is the profiling tutorial that was missing",
+          "key_fact": "Focuses specifically on attention mechanisms — the most performance-critical transformer component"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 60002,
+          "title": "Frugon: Find Which LLM Calls a Cheaper Model Could Handle",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "An MIT-licensed local tool that analyzes your API call patterns and identifies downgrade opportunities — directly addresses the biggest cost question in production LLM systems",
+          "key_fact": "Runs locally, analyzes existing call patterns, identifies calls routable to cheaper models"
+        },
+        {
+          "id": 59905,
+          "title": "WeChat Article Downloader Purpose-Built for Claude Code and Codex Research",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Fills a real gap for Chinese-language AI content pipelines — syncs WeChat articles with comments and engagement data into a local database for LLM-assisted research",
+          "key_fact": "236 stars; includes curated comments and engagement data, not just article text"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 59950,
+      "title": "LangChain v1.3.13 Adds Meta Model Support and Explicit Prompt Caching",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Meta models get first-class LangChain integration; OpenAI prompt caching now explicit",
+      "key_fact": "init_chat_model supports langchain-meta; explicit caching in langchain-openai v1.3.5"
+    },
+    {
+      "id": 59962,
+      "title": "llama.cpp Optimizes DeepSeek V4 Flash Attention with f16 KQ Masks",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Meaningful speedup for local DeepSeek V4 inference",
+      "key_fact": "Forces all KQ masks to f16 with flash attention; removes redundant raw_k repeats"
+    },
+    {
+      "id": 59623,
+      "title": "fable-method: The Fable Workflow Distilled into Portable Skills for Any Model",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Fable 5's think/act/prove pattern as a model-agnostic skill set with eval harness",
+      "key_fact": "73 stars; includes eval harness to verify workflow rigor across providers"
+    },
+    {
+      "id": 59675,
+      "title": "MiniCPM5-1B GGUF: Claude Opus/Fable 5 Thinking Patterns in a 1B Model",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Community distillation of frontier reasoning into a locally-runnable 1B parameter model",
+      "key_fact": "2,200+ downloads on HuggingFace; trending"
+    },
+    {
+      "id": 59998,
+      "title": "AI 2040: A Structured Scenario Analysis for the Next 15 Years",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Long-range AI trajectory thinking gains urgency as frontier capabilities accelerate",
+      "key_fact": "110 likes on HN; structured scenario planning through 2040"
+    }
+  ],
+  "total_items": 18
+}

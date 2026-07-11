@@ -1,0 +1,191 @@
+{
+  "date": "2026-07-06",
+  "headline_hook": "Claude Fable Ships sqlite-utils for $149 While Alibaba Bans Claude Code",
+  "preview_topics": [
+    "Claude Fable's $149 open-source rewrite",
+    "Alibaba's Claude Code security ban",
+    "AI tutoring that rivals human teachers"
+  ],
+  "pick_of_the_day": {
+    "item_id": 58368,
+    "thesis": "The $149 price tag isn't a parlor trick — it's the first credible, auditable data point for AI-as-primary-author in serious open-source infrastructure, and it forces every maintainer to recalculate the economics of library development."
+  },
+  "model_literacy": {
+    "concept": "Agentic Loop Architecture",
+    "relevance": "The sqlite-utils rewrite shows how modern coding agents decompose multi-thousand-line library rewrites into sequential, verifiable steps — not one giant generation pass, but an iterative plan-write-test-fix loop that mirrors how experienced developers actually ship at scale."
+  },
+  "sections": [
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 58368,
+          "title": "Simon Willison's sqlite-utils 4.0 Was Mostly Written by Claude Fable — for $149",
+          "section": "BUILD",
+          "prominence": "hero",
+          "angle": "A credible developer publicly audits the cost and quality of letting an AI agent write an entire library release — real numbers builders can benchmark against",
+          "key_fact": "$149.25 total cost for Claude Fable to write most of sqlite-utils 4.0rc2"
+        },
+        {
+          "id": 58505,
+          "title": "WorldMonitor: Open-Source AI Dashboard Hits 61K Stars Overnight",
+          "section": "BUILD",
+          "prominence": "hero",
+          "angle": "A real-time OSINT dashboard that aggregates geopolitical events, news, and infrastructure status into one AI-powered interface — and it's fully open source",
+          "key_fact": "61,391 GitHub stars with 9,554 forks"
+        },
+        {
+          "id": 58257,
+          "title": "Academic Research Skills Pack Gives Claude Code a Full Research Workflow",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The most popular Claude Code skills repo (36K stars) shows how domain-specific agent workflows should be packaged — research, write, review, revise, finalize",
+          "key_fact": "36,237 GitHub stars — most popular Claude Code skills repo to date"
+        },
+        {
+          "id": 58263,
+          "title": "LoopKit: 33 Battle-Tested Skills That Work Across Every Coding Agent",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A cross-platform skill harness that works on Claude Code, Cursor, Codex, and Gemini CLI — the first serious attempt at agent-skill portability",
+          "key_fact": "33 production-tested skills with a minimal .claude harness"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 58592,
+          "title": "AI Tutor Achieves Effect Sizes That Rival Human Tutoring at Dartmouth",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "The strongest empirical evidence yet for AI in education — effect sizes (0.71–1.30 SD) approaching Bloom's famous 2-sigma finding for 1-on-1 human tutoring",
+          "key_fact": "0.71–1.30 standard deviation improvement in a controlled Dartmouth course study"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 58075,
+          "title": "Alibaba Bans Claude Code, Classifying It as High-Risk Software",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "A policy move that signals how Chinese tech giants are drawing security boundaries around Western AI dev tools — and could cascade across the industry",
+          "key_fact": "Alibaba classified Claude Code as high-risk software, banning employee use"
+        },
+        {
+          "id": 58078,
+          "title": "The Fanfiction Community's AI Detection War Is Catching Innocent Writers",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "AO3's AI detector crusade is a microcosm of the authenticity crisis hitting every creative platform — unreliable tools, false positives, and community fractures",
+          "key_fact": "AI detectors deployed on AO3 are flagging human-written fiction as AI-generated"
+        },
+        {
+          "id": 58074,
+          "title": "Midjourney Flips the Transparency Argument on Hollywood Studios",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Midjourney is forcing studios to disclose their own AI usage in court — turning the exact transparency demand that Hollywood used against AI companies back on itself",
+          "key_fact": "Court orders sought against three Hollywood studios to reveal AI usage details"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 58563,
+          "title": "llama.cpp Fixes Tensor-Parallel + MoE Crash That Hit Without Warning",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "If you run large MoE models across multiple GPUs with llama.cpp, this fixes a warm-up abort you might not know you're at risk for",
+          "key_fact": "Fixes crash when combining tensor parallelism with CPU-offloaded MoE experts"
+        },
+        {
+          "id": 58558,
+          "title": "Vercel AI SDK Fixes Silent Multimodal Image Failures",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Images in OpenAI chat requests were being sent as bare base64 instead of data URLs — causing silent failures in multimodal workflows",
+          "key_fact": "Inline images now sent as proper data URLs instead of bare base64 strings"
+        },
+        {
+          "id": 58556,
+          "title": "LangChain's Mistral Integration Now Surfaces Citation Metadata",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "RAG pipelines using Mistral models can now get source attribution directly from chat responses — no post-processing needed",
+          "key_fact": "Citation metadata from Mistral chat responses now exposed in LangChain"
+        },
+        {
+          "id": 58261,
+          "title": "CSSwitch: One-Click API Provider Swapping for Claude Science",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Swap Claude Science's backend to DeepSeek, Qwen, or any OpenAI-compatible provider with a single click — useful for cost control or region-specific models",
+          "key_fact": "Supports DeepSeek, Qwen, GLM, Kimi, and any OpenAI/Anthropic-compatible endpoint"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 58102,
+          "title": "Building a Recognizable World Map in Only 500 Bytes",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A constraint-driven engineering challenge that sharpens thinking about data representation — how much geographic information can you encode in half a kilobyte?",
+          "key_fact": "500 bytes total to render a recognizable world map"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 58073,
+      "title": "Google's July 4th Ad Imagines the Founders Using AI",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "AI-as-creative-partner messaging now mainstream enough for holiday advertising",
+      "key_fact": "Google Workspace commercial reimagines the Declaration of Independence with AI assistance"
+    },
+    {
+      "id": 58369,
+      "title": "sqlite-utils 4.0rc2 Release Notes",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The actual release notes if you want to test the new version in your pipelines",
+      "key_fact": "Major improvements to the SQLite CLI Swiss Army knife"
+    },
+    {
+      "id": 58076,
+      "title": "TechCrunch's Full Mistral AI Profile",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Comprehensive overview of Mistral's open-source strategy and European positioning",
+      "key_fact": "Covers funding, open-source strategy, and competitive positioning against OpenAI"
+    },
+    {
+      "id": 58561,
+      "title": "llama.cpp Fixes Stale Tensor-Split for Speculative Decoding",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Prevents silently wrong model placement in split-tensor speculative decoding setups",
+      "key_fact": "Fixes stale GQA attention metadata for draft models across devices"
+    },
+    {
+      "id": 58301,
+      "title": "Vercel AI SDK Workflow Package Syncs to Core v7.0.15",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Keeps workflow orchestration aligned with latest gateway fixes",
+      "key_fact": "Patch release syncing @ai-sdk/workflow with ai@7.0.15 dependency"
+    }
+  ],
+  "total_items": 18
+}

@@ -1,0 +1,212 @@
+{
+  "date": "2026-07-07",
+  "headline_hook": "Anthropic Cracks Open the Global Workspace While Alberta Deploys Claude for Cybersecurity",
+  "preview_topics": [
+    "Anthropic's global workspace research",
+    "Fable 5's blind-spot hunting guide",
+    "the coming AI API margin collapse"
+  ],
+  "pick_of_the_day": {
+    "item_id": 58841,
+    "thesis": "GLM 5.2's price-performance isn't just competitive pressure — it's evidence that frontier inference is commoditizing faster than any lab's business model can sustain, and builders betting on a single provider are the most exposed."
+  },
+  "model_literacy": {
+    "concept": "Global Workspace Theory in Transformers",
+    "relevance": "Anthropic's new research applies cognitive science's Global Workspace Theory to understand how information integrates across transformer layers — directly relevant as today's models get deeper and the question shifts from 'how big' to 'how does information actually flow between layers to produce coherent reasoning.'"
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 58816,
+          "title": "Tencent Drops Hy3 and the Chinese Frontier Race Gets Another Contender",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Another major Chinese lab enters the frontier text-generation arena — 324 HuggingFace likes signal real interest, and the benchmarking window against your current stack starts now.",
+          "key_fact": "324 likes on HuggingFace within hours of release"
+        },
+        {
+          "id": 58636,
+          "title": "LeRobot v0.6.0 Brings Agentic Iteration to Physical Robotics",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "HuggingFace's leading open-source robotics framework now has an 'Imagine, Evaluate, Improve' loop — the same agentic pattern powering code agents, applied to physical systems.",
+          "key_fact": "New 'Imagine, Evaluate, Improve' training loop in v0.6.0"
+        },
+        {
+          "id": 58846,
+          "title": "AMD's $4K Ryzen AI Halo Dev Kit Puts CPU+GPU+NPU on Your Desk",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The most accessible high-performance local AI development hardware yet — a single box with CPU, GPU, and NPU that could redefine what 'local inference' means for indie developers.",
+          "key_fact": "$4,000 for integrated CPU/GPU/NPU dev kit"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 58842,
+          "title": "Anthropic Finds a 'Global Workspace' Inside Language Models",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "A fundamental contribution to mechanistic interpretability — applying cognitive science's global workspace theory to understand how transformers integrate information across layers. 240 HN upvotes say the research community agrees this matters.",
+          "key_fact": "240 HN upvotes; maps cognitive science framework onto transformer internals"
+        },
+        {
+          "id": 58637,
+          "title": "Photoroom Opens Up the Data Strategy Behind PRX",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Rare transparency into how a commercial AI company actually curates and scales training data — a useful blueprint if you're building domain-specific vision models.",
+          "key_fact": "Full data curation pipeline for a production image model revealed"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 58655,
+          "title": "The Official Fable 5 Field Guide: Finding Your Unknowns",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "Anthropic's own guide to Fable 5's unique capabilities — the 'finding your unknowns' framing teaches you to use the model to surface blind spots in your reasoning, not just answer questions you already know to ask.",
+          "key_fact": "Official Anthropic technique guide for Fable 5's reasoning capabilities"
+        },
+        {
+          "id": 58843,
+          "title": "How Kapa.ai Prunes RAG Context Down to What the Answer Actually Needs",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A battle-tested production technique that directly cuts token cost and improves answer quality — applicable to any RAG pipeline today.",
+          "key_fact": "Production RAG context pruning reducing tokens while improving accuracy"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 58638,
+          "title": "HuggingFace Kernels Gets a Major Revamp: Custom CUDA as pip Packages",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Custom CUDA and Triton kernels now ship as pip-installable packages with automatic hardware dispatch — if you've been hand-wiring kernels into your inference pipeline, this standardizes the distribution layer.",
+          "key_fact": "CUDA/Triton kernels as pip-installable packages with auto hardware dispatch"
+        },
+        {
+          "id": 58801,
+          "title": "Claude Code v2.1.202 Ships Dynamic Workflow Sizing and OTel Tracing",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "You can now control how many agents Claude Code spawns in workflows, plus OpenTelemetry attributes for tracing multi-agent runs in production.",
+          "key_fact": "New dynamic workflow size control + OTel tracing attributes"
+        },
+        {
+          "id": 58847,
+          "title": "OfficeCLI Gives AI Agents Native Word, Excel, and PowerPoint Access",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Fills a critical gap in agentic workflows where document manipulation was a manual handoff — 110 HN upvotes confirm this is a real pain point.",
+          "key_fact": "110 HN upvotes; CLI-native read/edit for .docx, .xlsx, .pptx"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 58645,
+          "title": "Alberta Goes All-In on Claude for Government Cybersecurity",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The first major government case study of Claude in cybersecurity — AI-powered vulnerability scanning crosses from private-sector experimentation to public-sector critical infrastructure deployment.",
+          "key_fact": "First government-scale Claude deployment for cybersecurity vulnerability scanning"
+        },
+        {
+          "id": 58593,
+          "title": "That 'AI-Run' Ransomware Attack? A Human Still Pulled Every Lever",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "An important corrective to last week's hysteria — the human chose the target, set up infrastructure, and supplied credentials. Calibrates the actual vs. hyped risk of AI-enabled cyberattacks.",
+          "key_fact": "Human selected targets, configured infra, and provided credentials in the 'AI' attack"
+        },
+        {
+          "id": 58841,
+          "title": "GLM 5.2 and the Case for an Imminent AI API Margin Collapse",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "If this analysis is right, the current pricing structure of frontier APIs is unsustainable — anyone budgeting AI spend should stress-test their assumptions.",
+          "key_fact": "GLM 5.2's price-performance ratio challenges frontier API pricing sustainability"
+        },
+        {
+          "id": 58339,
+          "title": "Amazon Winds Down Mechanical Turk After Two Decades",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The platform that defined human-in-the-loop AI training data for over a decade stops accepting new customers — a symbolic marker that training data workflows have moved to synthetic and automated approaches.",
+          "key_fact": "No new customers accepted; end of the platform that powered early AI training data"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 58778,
+          "title": "claude-code-merge-queue Solves the Multi-Agent Merge Conflict Problem",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Trending at 295 stars — a local merge queue that prevents conflicts when running multiple Claude Code agents in parallel on the same repo. Addresses a real scaling pain point.",
+          "key_fact": "295 GitHub stars; local merge queue for parallel Claude Code agents"
+        },
+        {
+          "id": 58621,
+          "title": "sqlite-utils 4.0 Hits RC3: The AI-Authored Library Keeps Shipping",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Follow-up to yesterday's headline — the AI-authored open-source library experiment continues with rc3, proving the iterative release cycle works in practice.",
+          "key_fact": "Third release candidate for the AI-authored sqlite-utils 4.0"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 58840,
+      "title": "Ternlight: A 7MB Embedding Model That Runs Entirely in Your Browser",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "WASM-powered semantic search with zero server calls",
+      "key_fact": "7MB model, browser-only via WASM"
+    },
+    {
+      "id": 58606,
+      "title": "What Your Family's '$300 Stake' in OpenAI Actually Means",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "MIT Tech Review dissects the economics behind Altman's wealth-sharing proposal",
+      "key_fact": "Analysis of proposed per-family AI wealth distribution"
+    },
+    {
+      "id": 58805,
+      "title": "Vercel AI SDK v7.0.16 Preserves Signed Tool Approval Metadata",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Small fix with big implications for agentic audit trails",
+      "key_fact": "Signed tool-call authorization now survives response recording"
+    },
+    {
+      "id": 58804,
+      "title": "LangGraph 1.2.8 Fixes Silent State Corruption on Fresh Threads",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Delta channel bug could force snapshots instead of stubs — update if in production",
+      "key_fact": "updateState on fresh threads now creates stub checkpoints correctly"
+    }
+  ],
+  "total_items": 20
+}

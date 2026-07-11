@@ -1,0 +1,212 @@
+{
+  "date": "2026-07-08",
+  "headline_hook": "Claude Cowork Goes Mobile While Google Races to Build Its Own Agent Runtime",
+  "preview_topics": [
+    "Claude Cowork's cross-platform launch",
+    "Lilian Weng's self-improvement blueprint",
+    "the emerging market for AI code cleanup"
+  ],
+  "pick_of_the_day": {
+    "item_id": 58880,
+    "thesis": "Weng's harness taxonomy reveals that recursive self-improvement is no longer a thought experiment — it's an engineering pattern, and the teams that master it will compound capability gains while everyone else trains linearly."
+  },
+  "model_literacy": {
+    "concept": "Recursive Self-Improvement Harnesses",
+    "relevance": "With Weng's paper laying out the taxonomy and both Anthropic and Google shipping managed agent infrastructure, understanding how AI systems can improve their own training loops is the gap between using agents and building ones that get better on their own."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 58911,
+          "title": "Claude Cowork Breaks Free of the Desktop",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Persistent agentic sessions now run on any device — Cowork on web and mobile means your AI collaborator follows you from laptop to phone without losing context.",
+          "key_fact": "Rolling out to Max plan subscribers first, sessions persist across devices"
+        },
+        {
+          "id": 58887,
+          "title": "Google Fires Back With Background Agents and Remote MCP in Gemini API",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Google adds the exact infrastructure pieces — background tasks, remote MCP, persistent execution — that make Anthropic's agent stack sticky. The managed-agent runtime war is now a two-horse race.",
+          "key_fact": "Managed agents now support background execution and remote MCP server connections"
+        },
+        {
+          "id": 58909,
+          "title": "Anthropic Takes Claude Code and Cowork Into Government",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Government adoption of agentic coding tools signals that Claude Code has crossed the compliance threshold federal buyers demand — a meaningful enterprise validation beyond the Alberta pilot.",
+          "key_fact": "Claude Code and Cowork now available for government use cases"
+        },
+        {
+          "id": 58875,
+          "title": "sqlite-utils 4.0 Ships With Full Schema Migrations",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The AI-written utility library completes its journey from RC to production release with the migration support that makes it viable for real database workflows.",
+          "key_fact": "Database schema migration support added in the 4.0 stable release"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 59062,
+          "title": "Claude Code v2.1.203 Polishes the Production Edges",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Login expiry warnings and MCP roots/list fixes target the exact friction points teams hit when running Claude Code across org environments.",
+          "key_fact": "Adds login expiry warnings, manual-mode badge, MCP roots/list improvements"
+        },
+        {
+          "id": 58890,
+          "title": "HuggingFace to SageMaker in One Click",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Eliminates the export-configure-deploy friction that makes model evaluation on SageMaker slower than it needs to be — Hub models now deploy directly.",
+          "key_fact": "One-click deployment from HuggingFace Hub to SageMaker Studio"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 58910,
+          "title": "The Official Guide to Picking Your Claude Code Model and Effort Level",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Anthropic's own decision framework for when to use Opus vs Sonnet and how effort levels affect cost-quality tradeoffs in agentic coding — stops the guesswork.",
+          "key_fact": "First official guide to model selection and effort-level tuning in Claude Code"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 58880,
+          "title": "Lilian Weng Maps the Full Landscape of Self-Improvement Harnesses",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "From I.J. Good's ultraintelligent machine to modern recursive training loops — Weng's taxonomy is the reference doc for understanding how AI systems can improve themselves. Essential reading.",
+          "key_fact": "Comprehensive survey from I.J. Good's theory through modern recursive self-improvement implementations"
+        },
+        {
+          "id": 59104,
+          "title": "AI Finds Real Bugs in Cloudflare's Cryptography Library",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "An AI-assisted security audit surfaces genuine implementation flaws in CIRCL — concrete evidence that AI catches subtle crypto bugs humans miss, not just toy examples.",
+          "key_fact": "Real vulnerabilities found in Cloudflare's CIRCL cryptographic library via AI-assisted audit"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 58912,
+          "title": "Early Cowork Adopters Reveal Which Workflows Actually Stick",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Usage patterns from real Cowork users show which collaboration modes deliver value versus which feel like demos — the signal for builders deciding whether persistent agents are worth the investment.",
+          "key_fact": "Anthropic shares real-world usage patterns from early Cowork adopters"
+        },
+        {
+          "id": 58881,
+          "title": "Latent Space Publishes the Definitive Fable Field Guide",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Consolidates the scattered Fable 5 reactions into a coherent analysis of what the model launch actually changed — the synthesis the launch week needed.",
+          "key_fact": "Comprehensive digest of Fable 5's impact and implications for the field"
+        },
+        {
+          "id": 59105,
+          "title": "The Paradox of Automating AI Away",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "When the automation layer becomes the bottleneck instead of the model — a sharp counterpoint to the 'just add agents' consensus worth reading before you ship your next orchestration layer.",
+          "key_fact": "Essay argues automation layers themselves become bottlenecks, not the underlying models"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 59103,
+          "title": "Rowboat: Local-First, Open-Source Claude Desktop Alternative",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "For teams that want Claude's UX without sending data to the cloud — runs models locally with a familiar chat interface.",
+          "key_fact": "Open-source, 75 HN likes, runs models locally"
+        },
+        {
+          "id": 58932,
+          "title": "rocketplaneIO: AI SRE That Diagnoses and Fixes K8s Without Phoning Home",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "eBPF observability + AI copilot with guardrailed actions — BYO-LLM and air-gap capable for teams that want AI ops but can't send data out.",
+          "key_fact": "122 GitHub stars, zero-instrumentation eBPF + BYO-LLM, air-gapped capable"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 59090,
+      "title": "ThinkingCap Adds Structured Reasoning to Qwen 3.6 27B",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Community fine-tune trending on HuggingFace — reasoning-enhanced open model at a practical scale",
+      "key_fact": "103 likes on HuggingFace, 27B parameter reasoning fine-tune"
+    },
+    {
+      "id": 58891,
+      "title": "HuggingFace Models Now Run Natively on Microsoft Foundry",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Another cloud provider ships Hub-as-first-class-model-source",
+      "key_fact": "Foundry managed compute integration with HuggingFace Hub"
+    },
+    {
+      "id": 58892,
+      "title": "SkyPilot + HuggingFace Storage Kills Multi-Cloud Egress Fees",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Zero-egress storage for model weights across cloud providers",
+      "key_fact": "Eliminates egress fees when running HuggingFace models on any cloud"
+    },
+    {
+      "id": 59068,
+      "title": "Vercel AI SDK Fixes a Silent Timeout Bug in streamText",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Step-level timeouts now actually enforce — was only checking initial connection",
+      "key_fact": "v6.0.221 fixes step timeout enforcement in streamText"
+    },
+    {
+      "id": 59106,
+      "title": "A Consultancy Charges $10K/Week Just to Delete AI-Generated Code",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "'AI debt' cleanup is now a real service category",
+      "key_fact": "$10K/week engagement rate for AI code remediation"
+    },
+    {
+      "id": 58924,
+      "title": "Cowork Web/Mobile Release Notes Confirm Max-Plan-First Rollout",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Official release notes with rollout details for the Cowork expansion",
+      "key_fact": "Max plan subscribers get access first, sessions persist across devices"
+    }
+  ],
+  "total_items": 20
+}
