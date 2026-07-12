@@ -200,10 +200,12 @@ function verbImportApproved(flags: Record<string, string | boolean>, taskId: str
   const dryRun = flags['dry-run'] === true;
   const force = flags.force === true;
   const withSeo = flags['with-seo'] === true; // opt-in only; off by default to avoid LLM cost
+  const noDiagrams = flags['no-diagrams'] === true; // S11: figures come from S2 whiteboard SVGs — deterministic import
 
   // Shell the battle-tested import-blog.ts — never with git, never with SEO unless opted in.
   const importArgs = ['tsx', 'scripts/import-blog.ts', `--file=${draftPath}`, '--no-git'];
   if (!withSeo) importArgs.push('--no-seo');
+  if (noDiagrams) importArgs.push('--no-diagrams');
   if (dryRun) importArgs.push('--dry-run');
   if (force) importArgs.push('--force');
 
