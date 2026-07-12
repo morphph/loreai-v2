@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "[AINews] OpenAI launches GPT 5.6 Sol/Terra/Luna, Codex becomes ChatGPT superapp",
+    "url": "https://www.latent.space/p/ainews-openai-launches-gpt-56-solterraluna",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Apple sues OpenAI over alleged trade secret theft",
+    "url": "https://techcrunch.com/2026/07/10/apple-sues-openai-over-alleged-trade-secret-theft/",
+    "source": "rss:TechCrunch AI",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "[AINews] not much happened today",
+    "url": "https://www.latent.space/p/ainews-not-much-happened-today-f5c",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "vercel/ai @ai-sdk/groq@4.0.8",
+    "url": "https://github.com/vercel/ai/releases/tag/%40ai-sdk/groq%404.0.8",
+    "source": "github:release:vercel/ai",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "modelcontextprotocol/servers 2026.7.10: Release 2026.7.10",
+    "url": "https://github.com/modelcontextprotocol/servers/releases/tag/2026.7.10",
+    "source": "github:release:modelcontextprotocol/servers",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  }
+]
