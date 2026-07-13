@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "sickn33/agentic-awesome-skills: Installable GitHub library of 1,900+ agentic skills for Claude Code, Cursor, Codex CLI, and more",
+    "url": "https://github.com/sickn33/agentic-awesome-skills",
+    "source": "github:trending:Agent/MCP tools",
+    "x_engagement_24h": 49834,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 27.950200000000002,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "llama.cpp b9979: Fix silent prompt truncation on embedded NUL",
+    "url": "https://github.com/ggml-org/llama.cpp/releases/tag/b9979",
+    "source": "github:release:ggerganov/llama.cpp",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Show HN: Agent Draw — an agent draws while you talk, built on TLDraw",
+    "url": "https://techstackups.com/articles/tldraw-agent-draw/",
+    "source": "hackernews",
+    "x_engagement_24h": 57,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.0171,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Claude Code sends 33k tokens before reading the prompt; OpenCode sends 7k",
+    "url": "https://systima.ai/blog/claude-code-vs-opencode-token-overhead",
+    "source": "hackernews",
+    "x_engagement_24h": 660,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.198,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "theteatoast/local-vuln-research-pipeline: Fully local vulnerability research pipeline",
+    "url": "https://github.com/theteatoast/local-vuln-research-pipeline",
+    "source": "github:trending:AI Python",
+    "x_engagement_24h": 128,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.0384,
+    "suggested_angle": "news"
+  }
+]
