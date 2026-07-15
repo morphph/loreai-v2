@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Introducing Claude for Teachers",
+    "url": "https://www.anthropic.com/news/claude-for-teachers",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "HIPAA configuration for Claude organizations is now self-serve",
+    "url": "https://support.claude.com/en/articles/12138966-release-notes#july-14-2026",
+    "source": "docs:Claude Apps Release Notes",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Celebrating 25 years of visual search innovation",
+    "url": "https://blog.google/products-and-platforms/products/search/google-images-25th-anniversary/",
+    "source": "rss:Google AI Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "How to stop Claude from saying load-bearing",
+    "url": "https://jola.dev/posts/how-to-stop-claude-from-saying-load-bearing",
+    "source": "hackernews",
+    "x_engagement_24h": 876,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 12.2628,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Claude Code v2.1.208–2.1.210",
+    "url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.210",
+    "source": "github:release:anthropics/claude-code",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 12,
+    "suggested_angle": "news"
+  }
+]
