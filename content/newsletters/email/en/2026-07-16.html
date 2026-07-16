@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI News 2026-07-16</title>
+<!--[if mso]>
+<style>body{font-family:Arial,sans-serif !important;}</style>
+<![endif]-->
+</head>
+<body style="margin:0; padding:0; background-color:#f3f4f6; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; -webkit-font-smoothing:antialiased; -webkit-text-size-adjust:100%;">
+
+<!-- Preheader (hidden preview text) -->
+<div style="display:none; max-height:0; overflow:hidden; font-size:1px; line-height:1px; color:#f3f4f6;">
+  AI News 2026-07-16
+</div>
+
+<!-- Outer wrapper -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f3f4f6;">
+<tr><td align="center" style="padding:24px 16px;">
+
+<!-- Inner container -->
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:620px;">
+
+<!-- Hero / Header Card -->
+<tr><td style="background-color:#ffffff; border-radius:12px 12px 0 0; padding:24px 20px 18px; border-bottom:3px solid #3b82f6;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+  <tr>
+    <td>
+      <a href="https://loreai.dev" style="text-decoration:none; font-size:22px; font-weight:800; color:#111; letter-spacing:-0.5px;">LoreAI</a>
+      <span style="font-size:11px; color:#6b7280; margin-left:6px; font-weight:500; text-transform:uppercase; letter-spacing:0.5px;">DAILY AI BRIEFING</span>
+    </td>
+    <td align="right">
+      <span style="font-size:12px; color:#9ca3af;">2026-07-16</span>
+    </td>
+  </tr>
+  </table>
+</td></tr>
+
+<!-- Body -->
+<tr><td style="background-color:#ffffff; padding:20px 20px 24px; border-radius:0 0 12px 12px;">
+  
+<p style="margin:0 0 14px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">1. Thinking Machines Drops Inkling: 975B Open-Weights, Day-One HuggingFace Support</strong></p>
+<p style="margin:0 0 14px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">Inkling</strong> is a 975B-parameter multimodal model with 41B active parameters via mixture-of-experts — open-weights, not open-wash. You get frontier-class capability at a fraction of dense-model inference cost. HuggingFace Transformers had native support ready on launch day, signaling ecosystem coordination that closed-model releases rarely achieve. If you're evaluating open alternatives for production workloads, Inkling just became the benchmark to beat. <a href="https://thinkingmachines.ai/news/introducing-inkling/" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></p>
+<p style="margin:0 0 14px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">2. Claude Code Patches Bidi-Override Permission Spoof, Adds Screen Reader Mode</strong></p>
+<p style="margin:0 0 14px; font-size:16px; color:#374151; line-height:1.65;">Three <strong style="color:#111; font-weight:600;">Claude Code</strong> releases in two days. The one that matters: v2.1.211 fixes a security issue where bidirectional-override Unicode characters could spoof what you see in permission previews — an attacker could make a dangerous command look benign. Also ships <code>--ax-screen-reader</code> mode and <code>--forward-subagent-text</code> for streaming subagent output. Update now; the bidi fix alone justifies it. <a href="https://github.com/anthropics/claude-code/releases/tag/v2.1.211" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></p>
+<p style="margin:0 0 14px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">3. Simon Willison Demonstrates Web-Fetch Data Exfiltration Against Claude</strong></p>
+<p style="margin:0 0 14px; font-size:16px; color:#374151; line-height:1.65;">The story every AI builder should read today. <strong style="color:#111; font-weight:600;">Simon Willison</strong> shows how a crafted prompt can trick Claude into using its web-fetch tool to exfiltrate sensitive user data to an attacker-controlled URL. The attack doesn't exploit a model weakness — it exploits the <em>permissions you gave the model</em>. If your Claude integration has both access to sensitive data and the ability to make outbound web requests, you have an exfiltration vector. The fix isn't better guardrails; it's smaller permission surfaces. <a href="https://simonwillison.net/2026/Jul/15/claude-web-fetch-exfiltration/#atom-everything" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></p>
+
+<h3>Quick Hits</h3>
+<ul style="margin:0 0 14px; padding-left:20px;">
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">HuggingFace Transformers v5.14.0</strong>: Ships same-day Inkling support — if your model isn't in Transformers, it doesn't exist for most developers. <a href="https://github.com/huggingface/transformers/releases/tag/v5.14.0" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">deja-vu</strong>: Zero-dep memory layer for Claude Code, Codex, and OpenCode — persistent memory, search, auto-context, and secret redaction across agent sessions. <a href="https://github.com/vshulcz/deja-vu" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">llama.cpp b10032</strong>: CUDA Lightning Indexer for faster NVIDIA inference, plus Adreno GPU MoE workarounds that matter now that 975B MoE models exist. <a href="https://github.com/ggml-org/llama.cpp/releases/tag/b10032" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">IBM Research on model routing</strong>: As model tiers multiply, routing queries to the right model is becoming a real engineering discipline with its own failure modes. <a href="https://huggingface.co/blog/ibm-research/model-routing-is-simple-until-it-isnt" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">Allen AI's Shippy post-mortem</strong>: Hard-won lessons from building their agent system — specific failure modes, not "agents are the future" platitudes. <a href="https://huggingface.co/blog/allenai/shippy-tech-blog" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">LLMs meet MikroTik</strong>: Hands-on guide to using LLMs for network config automation — unsexy domain, genuine time savings. <a href="https://blog.greg.technology/2026/07/14/llm-networking-with-mikrotik.html" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">Base44 joins the Fable 5 production club</strong>: Another company publicly documenting how they deploy Fable for agentic coding at scale — the pattern is forming. <a href="https://www.claude.com/blog/working-at-the-frontier-why-base44-trusts-claude-fable-5-with-their-most-challenging-engineering-work" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">lobste.rs migrates to SQLite</strong>: Another high-profile validation of SQLite in production for serious web apps. <a href="https://simonwillison.net/2026/Jul/14/lobsters-sqlite/#atom-everything" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">QuantumByte</strong>: Describe what you want, get a running app — another intent-to-code entry trending fast on GitHub. <a href="https://github.com/QuantumByteOSS/quantumbyte" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">Java native local LLM inference</strong>: Panama FFM API (Java 22+) cracks the door open for JVM-based local inference without Python dependencies. <a href="https://github.com/projectargus-cc/libargus.cc" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">Vercel AI SDK v7.0.27–7.0.29</strong>: Fixes a silent streaming deadlock in <code>experimental_streamTranscribe</code>. <a href="https://github.com/vercel/ai/releases/tag/ai%407.0.27" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">Siegel Endowment</strong>: David Siegel argues open-source AI is infrastructure, not charity — lands the same week Inkling proves the point. <a href="https://www.siegelendowment.org/wp-content/uploads/2026/07/fortune-david-siegel-open-source-ai.pdf" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">VoiceEQ</strong>: HuggingFace benchmark that measures how voice AI actually <em>sounds</em>, not just word error rate. <a href="https://huggingface.co/blog/real-world-voiceeq" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">Brainless</strong>: Shadcn components that mimic Claude Code, Codex, and Grok UIs — terminal-native aesthetic out of the box. <a href="https://brainless.swerdlow.dev" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+<li style="margin:0 0 8px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">Datasette 1.0a37</strong>: Simon Willison's SQLite explorer hits alpha 37 — increasingly relevant as more AI pipelines use SQLite for everything. <a href="https://simonwillison.net/2026/Jul/14/datasette/#atom-everything" style="color:#3b82f6; text-decoration:none; font-weight:500;">→</a></li>
+</ul>
+
+<h3>🎓 MODEL LITERACY</h3>
+<p style="margin:0 0 14px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">Tool-Use Attack Surface</strong>: Today's exfiltration attack from Willison exploits web-fetch permissions, not the model itself. As AI agents gain more tools — file access, code execution, web browsing, database queries — the attack surface becomes the <em>union</em> of all tool capabilities. The critical question isn't "can the model be tricked?" (it can) but "which tools can both read sensitive data AND reach the network?" A tool that reads your codebase is fine. A tool that fetches URLs is fine. An agent with <em>both</em> is an exfiltration vector. Understanding which tool combinations create dangerous capability surfaces is the new security audit — and most builders haven't done it yet.</p>
+
+<h3>🎯 PICK OF THE DAY</h3>
+<p style="margin:0 0 14px; font-size:16px; color:#374151; line-height:1.65;"><strong style="color:#111; font-weight:600;">Willison's exfiltration demo proves the AI security perimeter has already shifted — and most builders are defending the wrong layer.</strong> Simon Willison didn't find a bug in Claude. He found a bug in how we <em>deploy</em> Claude. The web-fetch exfiltration attack works because tool permissions are configured additively — each tool seems safe in isolation, but the combination of "can read user data" and "can make outbound HTTP requests" creates a side channel that no amount of model alignment will close. This is the same class of vulnerability that plagued early web apps (SSRF, open redirects) — we solved it there with least-privilege access and network segmentation, not by making the application smarter. The fix for AI tools is the same: smaller permission surfaces, not better guardrails. Audit which of your agent's tools can read sensitive data. Audit which can reach the network. If any tool can do both, you have a problem. The uncomfortable truth is that most production AI deployments haven't done this audit yet. <a href="https://simonwillison.net/2026/Jul/15/claude-web-fetch-exfiltration/#atom-everything" style="color:#3b82f6; text-decoration:none; font-weight:500;">Read more →</a></p>
+
+<p style="margin:0 0 14px; font-size:16px; color:#374151; line-height:1.65;">Until next time ✌️</p>
+
+</td></tr>
+
+<!-- Spacer -->
+<tr><td style="height:16px;"></td></tr>
+
+<!-- Footer Card -->
+<tr><td style="background-color:#ffffff; border-radius:12px; padding:20px 20px; text-align:center;">
+  <p style="margin:0 0 12px; font-size:14px; color:#6b7280; line-height:1.5;">
+    The sharpest AI briefing, every weekday morning.
+  </p>
+  <p style="margin:0 0 16px; font-size:13px; color:#9ca3af; line-height:1.8;">
+    <a href="https://loreai.dev/newsletter/2026-07-16" style="color:#3b82f6; text-decoration:none; font-weight:500;">View online</a>
+    &nbsp;&middot;&nbsp;
+    <a href="https://loreai.dev/newsletter" style="color:#3b82f6; text-decoration:none; font-weight:500;">Archive</a>
+    &nbsp;&middot;&nbsp;
+    <a href="mailto:?subject=Check%20out%20LoreAI&body=Daily%20AI%20briefing%2C%205%20minutes%3A%20https%3A%2F%2Floreai.dev%2Fsubscribe%3Fref%3Dnewsletter-share" style="color:#3b82f6; text-decoration:none; font-weight:500;">Share with a friend</a>
+    &nbsp;&middot;&nbsp;
+    <a href="{{ unsubscribe_url }}" style="color:#9ca3af; text-decoration:none;">Unsubscribe</a>
+  </p>
+  <p style="margin:0; font-size:12px; color:#d1d5db;">
+    <a href="https://x.com/loreai_dev" style="color:#9ca3af; text-decoration:none;">𝕏</a>
+    &nbsp;&nbsp;
+    <a href="https://loreai.dev" style="color:#9ca3af; text-decoration:none;">loreai.dev</a>
+  </p>
+</td></tr>
+
+</table>
+<!-- /Inner container -->
+
+</td></tr>
+</table>
+<!-- /Outer wrapper -->
+
+</body>
+</html>

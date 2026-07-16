@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Working at the frontier: Why Base44 trusts Claude Fable 5 with their most challenging engineering work",
+    "url": "https://www.claude.com/blog/working-at-the-frontier-why-base44-trusts-claude-fable-5-with-their-most-challenging-engineering-work",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Brainless: Shadcn components that look like Claude Code, Codex and Grok",
+    "url": "https://brainless.swerdlow.dev",
+    "source": "hackernews",
+    "x_engagement_24h": 90,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.027,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "How I tricked Claude into leaking your deepest, darkest secrets",
+    "url": "https://simonwillison.net/2026/Jul/15/claude-web-fetch-exfiltration/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "deja-vu: Memory layer for coding agents with MCP recall and secret redaction",
+    "url": "https://github.com/vshulcz/deja-vu",
+    "source": "github:trending:AI IDE tools",
+    "x_engagement_24h": 194,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.0582,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Model Routing Is Simple. Until It Isn't.",
+    "url": "https://huggingface.co/blog/ibm-research/model-routing-is-simple-until-it-isnt",
+    "source": "rss:HuggingFace Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  }
+]
