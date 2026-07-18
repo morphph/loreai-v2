@@ -1,0 +1,196 @@
+{
+  "date": "2026-07-16",
+  "headline_hook": "Thinking Machines Drops 975B Open-Weights Inkling While Willison Exposes Claude's Fetch Blindspot",
+  "preview_topics": [
+    "Thinking Machines' open-weights Inkling at 975B",
+    "a web-fetch exfiltration attack on Claude tools",
+    "Fable 5 earning production trust at Base44"
+  ],
+  "pick_of_the_day": {
+    "item_id": 61089,
+    "thesis": "Willison's exfiltration demo proves the AI security perimeter has already shifted from model alignment to tool configuration — most builders are still defending the wrong layer, and the fix isn't better guardrails but smaller permission surfaces."
+  },
+  "model_literacy": {
+    "concept": "Tool-Use Attack Surface",
+    "relevance": "Today's exfiltration attack exploits web-fetch permissions, not the model itself. As agents gain more tools (file access, code execution, web browsing), the attack surface is the union of all tool capabilities — understanding which tools can read sensitive data AND reach the network is the new security audit."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 61328,
+          "title": "Thinking Machines Drops Inkling: 975B Open-Weights, Day-One HuggingFace Support",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "A 975B MoE model with 41B active params, open-weights, and already in Transformers v5.14 on launch day — the open-model ecosystem now moves at parity speed with closed labs",
+          "key_fact": "975B total / 41B active parameters, Mixture-of-Experts, multimodal, integrated into HuggingFace Transformers on day one"
+        },
+        {
+          "id": 61285,
+          "title": "HuggingFace Transformers v5.14.0 Ships Same-Day Inkling Support",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The de facto model integration layer adds Inkling support on launch day — if your model isn't in Transformers, it doesn't exist for most developers",
+          "key_fact": "v5.14.0 release with native Inkling support plus multi-model updates"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 61281,
+          "title": "Claude Code Patches Bidi-Override Permission Spoof, Adds Screen Reader Mode",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Three releases in two days: a security fix for bidirectional-override characters that could spoof permission previews, plus accessibility and streaming improvements — the kind of quiet security work that matters most",
+          "key_fact": "Security fix: bidirectional-override characters could disguise tool calls in permission dialogs"
+        },
+        {
+          "id": 61254,
+          "title": "deja-vu: Zero-Dep Memory Layer for Claude Code, Codex, and OpenCode",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A single binary that adds persistent memory and secret redaction across coding agents — solves 'my agent forgot yesterday' without changing your workflow",
+          "key_fact": "189 GitHub stars, supports MCP recall, works across Claude Code / Codex / OpenCode"
+        },
+        {
+          "id": 61292,
+          "title": "llama.cpp Gets CUDA Lightning Indexer for Faster NVIDIA Inference",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A dedicated CUDA kernel with generic vector and WMMA paths — the local inference stack keeps closing the gap with cloud APIs",
+          "key_fact": "New Lightning Indexer kernel; b10034 also works around Adreno GPU MoE bugs on mobile"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 61089,
+          "title": "Simon Willison Demonstrates Web-Fetch Data Exfiltration Against Claude",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "The attack isn't a jailbreak — it exploits the tool configuration layer, proving that AI security audits need to focus on which tools can read sensitive data AND reach the network simultaneously",
+          "key_fact": "Data exfiltration via web-fetch tool; attack surface is tool permissions, not model alignment"
+        },
+        {
+          "id": 61103,
+          "title": "IBM Research: Model Routing Gets Hard When Model Tiers Multiply",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "As every provider ships 3-5 model tiers, routing becomes a real engineering problem — IBM's analysis shows it's not just a cost toggle anymore",
+          "key_fact": "Routing complexity grows non-linearly with model tiers (GPT-5.6 Sol/Terra/Orbit, Claude Opus/Sonnet/Haiku)"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 61102,
+          "title": "What Allen AI Learned Building Shippy: An Agent Post-Mortem",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Hard-won lessons from a real agent deployment — what worked, what didn't, and why the agent-building community needs more experience reports like this",
+          "key_fact": "Post-mortem from Allen AI's Shippy agent system covering practical failure modes"
+        },
+        {
+          "id": 61330,
+          "title": "LLMs Meet MikroTik: Network Config Automation Where You Least Expect It",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A hands-on guide proving LLMs can handle niche infrastructure domains — network router config is the kind of 'long tail' use case that scales quietly",
+          "key_fact": "Practical walkthrough of LLM-driven MikroTik router configuration and troubleshooting"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 61130,
+          "title": "Base44 Joins the Fable 5 Production Club — A Pattern Is Forming",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "After Cognition, Base44 publicly documents trusting Fable 5 for their hardest engineering work — two case studies in a week signals agentic coding at scale is crossing the credibility threshold",
+          "key_fact": "Second public case study of Fable 5 in production engineering after Cognition"
+        },
+        {
+          "id": 60827,
+          "title": "lobste.rs Migrates to SQLite — Another High-Profile Validation",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The tech forum joins a growing list of production SQLite adopters — for AI developers running inference services, SQLite's operational simplicity is getting harder to argue against",
+          "key_fact": "lobste.rs now runs on SQLite in production, following Litestream and Turso adoptions"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 61149,
+          "title": "QuantumByte: Describe What You Want, Get a Running App",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "An open-source engine that goes from natural-language intent to working application — 310 stars and climbing in the intent-to-app space",
+          "key_fact": "310 GitHub stars, open-source, intent-to-working-app pipeline"
+        },
+        {
+          "id": 61332,
+          "title": "Java Gets Native Local LLM Inference via Panama FFM — No JNI Required",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Panama Foreign Function API finally unlocks local inference for the Java ecosystem without Python dependencies — relevant for enterprise shops locked into JVM stacks",
+          "key_fact": "Uses OpenJDK Java 22 Panama FFM API, zero JNI or native wrapper overhead"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 61010,
+      "title": "Vercel AI SDK Fixes Silent Streaming Deadlock",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "v7.0.27 fixes a transcription deadlock that looked fine until it wasn't",
+      "key_fact": "Deadlock in experimental_streamTranscribe when awaiting result.text alone"
+    },
+    {
+      "id": 61329,
+      "title": "Siegel Endowment: Open-Source AI Is Infrastructure, Not Charity",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Fortune op-ed argues for coordinated public investment in open AI — lands the same week as Inkling",
+      "key_fact": "David Siegel calls for treating open-source AI as public infrastructure"
+    },
+    {
+      "id": 61105,
+      "title": "VoiceEQ: A New Benchmark for How Voice AI Actually Sounds",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Measures human-perceived naturalness, not just word error rate",
+      "key_fact": "New voice AI benchmark focused on perceived quality over WER"
+    },
+    {
+      "id": 61331,
+      "title": "Brainless: Shadcn Components That Look Like Claude Code and Codex",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Terminal-native aesthetic as a component library for developer tool UIs",
+      "key_fact": "Shadcn components mimicking Claude Code, Codex, and Grok interfaces"
+    },
+    {
+      "id": 60829,
+      "title": "Datasette Hits Alpha 37 on the Road to 1.0",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The SQLite explorer keeps shipping as AI pipelines increasingly rely on SQLite stores",
+      "key_fact": "datasette 1.0a37 — increasingly relevant for AI pipeline data exploration"
+    }
+  ],
+  "total_items": 18
+}

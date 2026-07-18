@@ -1,0 +1,196 @@
+{
+  "date": "2026-07-14",
+  "headline_hook": "Samsung Holds Health Data Hostage While Hebbia Bets Finance on Claude",
+  "preview_topics": [
+    "Samsung's coercive health-data ultimatum",
+    "llama.cpp runs Hunyuan locally with speculative decoding",
+    "MCP SDK restructures ahead of 2.0"
+  ],
+  "pick_of_the_day": {
+    "item_id": 60788,
+    "thesis": "Samsung's delete-or-consent ultimatum isn't just bad UX — it's the first major test of whether health-data regulators will treat AI training consent the same way they treat medical consent, and the answer will set the template for every fitness and wellness app that follows."
+  },
+  "model_literacy": {
+    "concept": "Speculative Decoding (Multi-Token Prediction)",
+    "relevance": "llama.cpp's new Hy3 support uses multi-token prediction speculative decoding to run massive MoE models locally — a draft model proposes several tokens at once and the main model verifies them in a single forward pass, trading a little memory for dramatically faster inference. This is why architectures that were cloud-only months ago are now running on local hardware."
+  },
+  "sections": [
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 60599,
+          "title": "Hebbia Shows What 'Can't Miss a Detail' Actually Means for Frontier AI in Finance",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Not another chatbot wrapper — Hebbia is using Claude for financial due diligence where a single missed clause costs millions, and Anthropic is publishing the playbook.",
+          "key_fact": "Anthropic case study details how Hebbia automates financial diligence workflows where exhaustive document coverage is a legal requirement, not a nice-to-have."
+        },
+        {
+          "id": 60788,
+          "title": "Samsung Tells Health App Users: Let Us Train AI on Your Data or We Delete It",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "A coercive consent pattern in health data that will force regulators to draw a line — and set a precedent every wellness app will either follow or be measured against.",
+          "key_fact": "Samsung Health users who opt out of AI training consent are told their stored health data will be deleted."
+        }
+      ]
+    },
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 60749,
+          "title": "llama.cpp Cracks Open Hunyuan V3 with Multi-Token Speculative Decoding",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Tencent's massive MoE architecture now runs locally — and the speculative decoding support means it's actually fast enough to be usable.",
+          "key_fact": "Release b9993 adds Hy3 (HunyuanV3) architecture support with MTP speculative decoding; b9990 adds Minimax2 eagle3 spec decoding; b9992 refactors CUDA MMQ kernels for Blackwell GPUs."
+        },
+        {
+          "id": 60773,
+          "title": "Qwythos 9B Hits 45K Downloads as Local Multimodal Converges on the Sweet Spot",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Another data point that the 7–9B parameter range is becoming the standard for local multimodal inference.",
+          "key_fact": "9B multimodal image-text-to-text model in GGUF format with 45.2K downloads and 102 likes on HuggingFace."
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 60752,
+          "title": "MCP TypeScript SDK Splits Its Core for the 2.0 Era",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "If you're building MCP servers, your imports are about to break — schemas and protocol constants now live in @modelcontextprotocol/core.",
+          "key_fact": "Spec schemas, OAuth schemas, and protocol constants extracted to a shared @modelcontextprotocol/core package in v2.0.0-beta.4."
+        },
+        {
+          "id": 60746,
+          "title": "Vercel AI SDK Ships Four Patches in Three Days, Fixes a Streaming Memory Leak",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The v7.0.25 fix for cancelled transcription streams not aborting pending connections is the kind of silent leak that eats your serverless budget.",
+          "key_fact": "v7.0.25 fixes a streaming transcription memory leak where cancelled streams didn't abort pending connections; v7.0.26 groups orphaned tool calls under parent spans."
+        },
+        {
+          "id": 60743,
+          "title": "Next.js 16.3 Preview Graduates Request Insights, Fixes Turbopack CSS Ordering",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The CSS Modules ordering fix for Turbopack resolves a real pain point — styles that worked in webpack were breaking in Turbopack builds.",
+          "key_fact": "Request Insights graduates from canary to preview; Turbopack fix orders CSS modules by chunk-group co-occurrence."
+        },
+        {
+          "id": 60790,
+          "title": "Jacquard: A Language Designed from Scratch for AI-Written, Human-Reviewed Code",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The bet that existing languages weren't designed for the AI-writes-human-reviews workflow — worth watching whether purpose-built wins or better tooling for existing languages does.",
+          "key_fact": "New programming language explicitly designed for the AI-generation, human-review workflow pattern."
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 60792,
+          "title": "Academic Study Examines How Microsoft Deployed Claude Code Alongside Copilot CLI",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Rare empirical data on how a major tech company evaluates competing AI coding tools internally — not a benchmark, but a real deployment study.",
+          "key_fact": "Academic paper examines Microsoft's early 2026 internal rollout of Claude Code alongside GitHub Copilot CLI."
+        },
+        {
+          "id": 60789,
+          "title": "MIT Finds a Way to Audit AI Training Data for CSAM Without Generating Any",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A significant advance in AI safety auditing that solves the ethical paradox of verification — you can now check without reproducing the harm.",
+          "key_fact": "MIT technique detects whether models were trained on child abuse material without generating any harmful content during the audit."
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 60791,
+          "title": "Someone Built a Working Neural Network in Pure SQL",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "More interesting as a proof of SQL's computational completeness than a production pattern — but a reminder that your database can do more than you think.",
+          "key_fact": "Fully working neural network implementation using only SQL operations, demonstrated on MNIST."
+        },
+        {
+          "id": 60794,
+          "title": "The Practical Guide to Running RL Training at 4-Bit NVFP4 Precision",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Documents the exact stability–performance tradeoffs teams hit when pushing RL onto consumer GPUs with aggressive quantization.",
+          "key_fact": "Detailed guide to NVFP4 4-bit precision reinforcement learning, covering stability tradeoffs on consumer hardware."
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 60566,
+          "title": "DOOMQL: Yes, Someone Ran DOOM Through a Query Language",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "When Simon Willison covers a 'run DOOM in X' project, there's usually a genuine technical insight hiding under the fun.",
+          "key_fact": "DOOM running through query-language mechanics, highlighted by Simon Willison."
+        },
+        {
+          "id": 60620,
+          "title": "vox-director: An Agent That Turns a Topic into a Finished Vox-Style Explainer Video",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "One of the more complete open-source automated video production pipelines — topic in, finished paper-collage explainer video out.",
+          "key_fact": "End-to-end agent pipeline producing Vox-style explainer videos using Atlas Cloud + ffmpeg, 103 GitHub stars."
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 60734,
+      "title": "headroom: Track Claude & Codex Usage Across Accounts Without Spending Tokens",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Live dashboard for teams managing multiple AI coding subscriptions.",
+      "key_fact": "73 GitHub stars; monitors Claude and Codex usage across multiple accounts."
+    },
+    {
+      "id": 60283,
+      "title": "Lorde Calls Ray-Ban Meta AI Glasses 'Not Sexy' at Their Own Sponsored Festival",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Cultural backlash from a high-profile artist signals adoption headwinds for AI wearables.",
+      "key_fact": "Public criticism at a Ray-Ban-sponsored festival event."
+    },
+    {
+      "id": 60793,
+      "title": "BillAI Bass: AWS Strands Agents Wired to a Big Mouth Billy Bass",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A clean reference implementation for connecting agentic AI to physical hardware.",
+      "key_fact": "52 HN upvotes; uses AWS Strands Agents framework for IoT integration."
+    },
+    {
+      "id": 60787,
+      "title": "Claude as Mr. Meeseeks: Spawn an Agent, Do the Job, Vanish",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Ephemeral agent design pattern wrapped in a perfect metaphor.",
+      "key_fact": "87 HN upvotes; reframes Claude Code agents as single-purpose Meeseeks."
+    }
+  ],
+  "total_items": 18
+}

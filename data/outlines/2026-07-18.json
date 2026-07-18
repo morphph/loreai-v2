@@ -1,0 +1,212 @@
+{
+  "date": "2026-07-18",
+  "headline_hook": "Moonshot Drops the Biggest Open Model Ever While Cursor Goes All-In on Fable 5",
+  "preview_topics": [
+    "Kimi K3's 2.8-trillion-parameter MoE gambit",
+    "Anthropic's enterprise security playbook",
+    "AI finds bugs formal verification missed"
+  ],
+  "pick_of_the_day": {
+    "item_id": 61664,
+    "thesis": "K3's real disruption isn't the benchmark scores — it's proving that MoE economics can deliver Opus-class intelligence at Sonnet pricing, which means the frontier just became a commodity and the moat is no longer model quality but ecosystem lock-in."
+  },
+  "model_literacy": {
+    "concept": "Mixture of Experts (MoE) — Active vs. Total Parameters",
+    "relevance": "Both K3 (2.8T total, 50B active) and Inkling (975B total, 41B active) launched this week as massive MoE models. Understanding why a 2.8-trillion-parameter model runs at Sonnet-tier cost requires knowing that only a small expert subset activates per token — and that total parameter count is a capacity ceiling, not an inference cost."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 61664,
+          "title": "Kimi K3 Arrives at 2.8 Trillion Parameters — the Largest Open Model Ever Released",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Moonshot AI just made Opus-class performance available at Sonnet pricing via a 2.8T MoE architecture with only 50B active params — cost-conscious teams now have a frontier-class open option",
+          "key_fact": "2.8T total parameters, 50B active via MoE, benchmarks at Opus 4.8-class performance"
+        },
+        {
+          "id": 61374,
+          "title": "Thinky's Inkling Gets the Latent Space Deep-Dive — and the Open Model Landscape Shifts Again",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Independent benchmarking from Latent Space confirms Inkling holds up against K3 — two massive MoE models in one week is redrawing the open-source frontier",
+          "key_fact": "975B-A41B multimodal, Apache 2.0 licensed, Inkling-Small at 276B-A12B"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 61706,
+          "title": "Cursor Joins the Fable 5 Production Club — and the Pattern Is Now Undeniable",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Third 'Working at the frontier' case study this week — Cursor, Base44, and Cognition all publicly documenting Fable 5 in production means Anthropic's top-tier model has crossed from benchmarks to battle-tested",
+          "key_fact": "Third major dev tool company to publicly document Fable 5 production use in one week"
+        },
+        {
+          "id": 61707,
+          "title": "Anthropic Publishes a CISO's Guide to Agentic AI — Selling to Security Teams, Not Around Them",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Anthropic is giving enterprise security leaders a practical risk framework for agentic AI — a signal that the 'just deploy it' era is yielding to 'deploy it with governance'",
+          "key_fact": "Full risk assessment framework for CISOs evaluating agentic AI deployments"
+        },
+        {
+          "id": 61906,
+          "title": "The State of Open Source AI Report Lands — With Perfect Timing",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A comprehensive ecosystem report dropping the same week K3 and Inkling redraw the map gives builders actual data to benchmark the open-source trajectory against",
+          "key_fact": "353 HN likes; comprehensive ecosystem tracking across models, tools, and adoption"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 61850,
+          "title": "Claude Code Gets /fork — Split Conversations Into Parallel Background Sessions",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "/fork copies your conversation into a background session while you keep working in the foreground — a genuine workflow unlock for developers juggling multiple investigation threads",
+          "key_fact": "/fork creates independent background sessions visible in 'claude agents'; also adds session-wide WebSearch rate limits"
+        },
+        {
+          "id": 61868,
+          "title": "CrewAI Promotes Skills Repository to Stable — Reusable Skill Abstractions for Agent Teams",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Skills Repository moving out of experimental gives multi-agent workflows a first-class abstraction for reusable capabilities — CrewAI is quietly building the production agent framework gap",
+          "key_fact": "Skills Repository promoted from experimental to stable in v1.15.4"
+        },
+        {
+          "id": 61865,
+          "title": "llama.cpp Adds OpenCL MoE Kernel — Just in Time for the Giant MoE Models",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "New Q6_K MoE kernel for OpenCL lands right as K3 and Inkling create demand for efficient inference of massive MoE models on non-NVIDIA hardware",
+          "key_fact": "OpenCL MoE kernel for Q6_K quantization in b10066"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 61907,
+          "title": "AI Finds Real Bugs in a Zero-Knowledge VM — Where Correctness Is the Entire Product",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "AI-powered code analysis discovered actual vulnerabilities in OpenVM's formally-verified zkVM — concrete proof that AI bug-finding delivers value in the highest-stakes codebases",
+          "key_fact": "Multiple real bugs found in a zero-knowledge virtual machine via AI analysis"
+        },
+        {
+          "id": 61659,
+          "title": "Simon Willison Stress-Tests Kimi K3 — The Reality Check the Launch Hype Needs",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Willison's pelican benchmark and adversarial instruction-following tests provide the independent eval K3 needs beyond Moonshot's own benchmarks",
+          "key_fact": "Independent eval using pelican benchmark and adversarial instruction-following tests"
+        },
+        {
+          "id": 61385,
+          "title": "Newer Models, Same Advantage? What Happens to Your Fine-Tuning Investment Across Generations",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "If you've invested in prompt engineering or fine-tuning, Dharma AI's analysis on whether newer model generations preserve or erode those advantages is required reading",
+          "key_fact": "Analysis of optimization advantage persistence across model generations"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 61675,
+          "title": "NVIDIA and Hugging Face Team Up to Make Multi-GPU Diffusion Fine-Tuning Accessible",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "NeMo Automodel + Diffusers integration means scaling video and image model fine-tuning across GPUs now works through the API developers already know",
+          "key_fact": "Joint guide for multi-GPU fine-tuning via NeMo Automodel integrated with Diffusers"
+        },
+        {
+          "id": 61621,
+          "title": "Train a Generative Kick Drum Model on 6GB VRAM — Diffusion Audio Hits Consumer Hardware",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A practical guide proving generative audio is now accessible to hobbyists with old Linux desktops — you don't need an H100 cluster to train diffusion models for sound",
+          "key_fact": "Full training pipeline running on 6GB VRAM consumer GPU"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 61729,
+          "title": "KlaatCode: Open-Source Coding Agent With Smart Model Routing Claims 10x Cost Reduction",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "An open-source Claude Code alternative that automatically routes queries to the right model tier — the cost-optimization angle differentiates it in the crowded coding agent space",
+          "key_fact": "104 GitHub stars, trending; automatic model tier routing for cost optimization"
+        },
+        {
+          "id": 61660,
+          "title": "Simon Willison Builds an LLM Cliché Highlighter — Spot the 'Delves' Before You Ship",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A practical tool for catching LLM verbal tics in your content — companion piece to the viral 'load-bearing' post, useful for anyone editing AI-generated text",
+          "key_fact": "Highlights known LLM clichés and verbal patterns in text"
+        },
+        {
+          "id": 61619,
+          "title": "ReasonGate: A Prompt Injection Firewall That Explains Why It Blocked You",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Most prompt injection defenses are black boxes — ReasonGate explains its reasoning, which is invaluable for debugging false positives in production",
+          "key_fact": "Explainable allow/deny decisions for prompt injection attempts"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 61855,
+      "title": "OpenAI Python SDK adds project-scoped service account API keys",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Isolated credentials per project for enterprise OpenAI deployments",
+      "key_fact": "v2.46.0 — project-scoped service account key management"
+    },
+    {
+      "id": 61856,
+      "title": "OpenAI Node SDK mirrors Python's service account key endpoints",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Both SDKs now support project-scoped key management",
+      "key_fact": "v6.48.0 — parity with Python SDK's service account features"
+    },
+    {
+      "id": 61854,
+      "title": "Anthropic Google Cloud TypeScript SDK bumps google-auth-library",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Fixes auth compatibility for Claude on Vertex AI",
+      "key_fact": "v0.0.6 — google-auth-library bumped to ^10.2.0"
+    },
+    {
+      "id": 61861,
+      "title": "Vercel AI SDK fixes denied tool approval state and input event ordering",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Real UX bug fix for human-in-the-loop tool approval flows",
+      "key_fact": "v7.0.31 — correct denied state emission and non-streaming event ordering"
+    }
+  ],
+  "total_items": 20
+}

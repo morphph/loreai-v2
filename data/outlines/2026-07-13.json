@@ -1,0 +1,196 @@
+{
+  "date": "2026-07-13",
+  "headline_hook": "Claude Code's Hidden Token Tax Exposed While Open Models Get Six Months to Live",
+  "preview_topics": [
+    "Claude Code's 33K-token overhead",
+    "the open-model survival clock",
+    "1,900 installable agentic skills"
+  ],
+  "pick_of_the_day": {
+    "item_id": 60318,
+    "thesis": "The open-model viability crisis isn't about benchmarks — it's about the economic flywheel where closed-model revenue funds compute that open labs can't match, and six months is the window before the gap becomes permanently unbridgeable for builders who bet on open weights."
+  },
+  "model_literacy": {
+    "concept": "System Prompt and Tool-Definition Overhead",
+    "relevance": "The Claude Code token analysis reveals that agentic systems spend 70-80% of context on scaffolding before user content — understanding this hidden tax explains why context window size matters less than effective usable context for real coding workflows."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 60308,
+          "title": "Fable Gets Another Quiet Bump — Anthropic's Coding Model Keeps Iterating",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Anthropic's pattern of frequent incremental Fable updates suggests a 'ship small, ship often' strategy for coding models rather than big-bang releases",
+          "key_fact": "New Fable update documented by Simon Willison on July 12"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 60318,
+          "title": "Interconnects: Open Models Have Six Months Before the Gap Becomes Permanent",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The most credible threat assessment yet for open-source AI — not doomerism but economic math about compute access and capability curves",
+          "key_fact": "6-month viability window before frontier closed models pull permanently ahead"
+        },
+        {
+          "id": 60531,
+          "title": "Claude Code Ships 33K Tokens Before It Even Reads Your Prompt",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "A forensic teardown reveals the hidden cost of agentic coding — Claude Code's system overhead is 4.7x OpenCode's, raising questions about whether convenience justifies the token tax",
+          "key_fact": "33K tokens overhead (Claude Code) vs 7K tokens (OpenCode) — 424 likes"
+        },
+        {
+          "id": 60008,
+          "title": "Meta Kills Instagram's AI Muse After Deepfake Backlash",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The feature reframe from 'creative tool' to 'deepfake enabler' forced Meta's hand — a case study in how public narrative can kill shipped features overnight",
+          "key_fact": "Feature allowed AI-generated images of public accounts without consent"
+        },
+        {
+          "id": 60284,
+          "title": "Apple's Dead Car Project Secretly Built the M7 Ultra's AI Engine",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The cancelled Project Titan wasn't a waste — its autonomous driving silicon requirements directly shaped the neural engine architecture now powering Apple's AI ambitions",
+          "key_fact": "M7 Ultra AI performance traces directly to autonomous driving chip requirements"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 60460,
+          "title": "1,900 Installable Agentic Skills Hit 43K Stars — A Marketplace for the Coding Agent Era",
+          "section": "BUILD",
+          "prominence": "hero",
+          "angle": "The explosive adoption signals that developers want plug-and-play capabilities for their coding agents, not bespoke prompt engineering — skills are becoming the new packages",
+          "key_fact": "43,008 stars; covers Claude Code, Cursor, Codex CLI, and Gemini CLI"
+        },
+        {
+          "id": 60366,
+          "title": "A Fully Local Vulnerability Scanner That Never Sends Your Code to the Cloud",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Uses a 14B code-specialized LLM to review every source file exhaustively — security research for teams where 'just send it to GPT' isn't an option",
+          "key_fact": "14B parameter model, fully local execution, exhaustive file-by-file review"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 60532,
+          "title": "Production GPT-5.6 Migration: 2.2x Faster, 27% Cheaper — The Real Numbers",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "The kind of concrete migration data that cuts through launch-day hype — actual latency and cost deltas from a production agent workload",
+          "key_fact": "2.2x faster inference, 27% cost reduction vs GPT-5 on production agent workload"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 60497,
+          "title": "llama.cpp Fixes Silent Prompt Truncation — Your Multimodal Pipeline Was Probably Broken",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Embedded NUL bytes silently ate everything after them including the assistant marker — if you had mysteriously short responses from local models, this was the ghost in the machine",
+          "key_fact": "NUL bytes caused silent truncation of all subsequent prompt content"
+        },
+        {
+          "id": 60499,
+          "title": "llama.cpp Also Dropped Your Multimodal Tool Images — Now Fixed",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The Anthropic-to-OpenAI format converter was silently dropping image blocks in tool results — two critical silent-failure fixes in one week",
+          "key_fact": "Image blocks in tool_result messages were entirely dropped during format conversion"
+        },
+        {
+          "id": 60309,
+          "title": "sqlite-utils 4.1.1 Ships With Data Pipeline Quality-of-Life Fixes",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Simon Willison's Swiss Army knife for quick SQLite data wrangling gets another polish — a staple for anyone building AI data pipelines",
+          "key_fact": "Version 4.1.1 release from Simon Willison"
+        },
+        {
+          "id": 60367,
+          "title": "loop.js: An Agentic Framework Where a Skeptic Decides When You're Done",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A read-only Verify agent acts as adversarial skeptic — the loop runs until the verifier is satisfied, not until the builder model claims success",
+          "key_fact": "Skeptical verification loop pattern — separate read-only verifier agent"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 60534,
+          "title": "Rich Sutton on the One-Step Trap That's Undermining AI Research",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The author of 'The Bitter Lesson' warns that one-step optimization creates a systematic blind spot — relevant to anyone designing reward signals or eval frameworks",
+          "key_fact": "New essay from Rich Sutton arguing one-step optimization traps distort research incentives"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 60493,
+      "title": "Next.js Canary Adds 'Request Insights' Observability Surface",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "New dev observability via HMR — request history and framework spans",
+      "key_fact": "v16.3.0-canary.84 introduces request insights API"
+    },
+    {
+      "id": 60535,
+      "title": "Agent Draw: An AI Sketches on TLDraw While You Talk",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Real-time collaborative drawing with voice — novel interaction beyond text",
+      "key_fact": "Built on TLDraw canvas with live voice-to-sketch agent"
+    },
+    {
+      "id": 60003,
+      "title": "OpenAI Hires Dedicated PM for ChatGPT Family Experiences",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "ChatGPT's expansion from power-user tool to household utility",
+      "key_fact": "New PM role for family, caregiver, and elder use cases"
+    },
+    {
+      "id": 60533,
+      "title": "Against Usefulness: What If AI's Purpose Isn't Productivity?",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Contrarian essay arguing usefulness-obsession constrains AI's potential",
+      "key_fact": "76 likes on a philosophical challenge to AI development's dominant frame"
+    },
+    {
+      "id": 60237,
+      "title": "Vercel AI SDK Fixes Groq Prompt Cache Reporting (Again)",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Cache hits were silently undefined — your Groq cost estimates may still be wrong",
+      "key_fact": "@ai-sdk/groq@3.0.51 fixes prompt cache read surfacing"
+    }
+  ],
+  "total_items": 18
+}

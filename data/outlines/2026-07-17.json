@@ -1,0 +1,236 @@
+{
+  "date": "2026-07-17",
+  "headline_hook": "Claude Cowork Ships, GPT-Red Hunts Its Own Vulnerabilities, and Google Turns Search Into an App Platform",
+  "preview_topics": [
+    "Anthropic's new collaborative workspace",
+    "OpenAI's self-hacking red-teamer",
+    "Google Search as action engine"
+  ],
+  "pick_of_the_day": {
+    "item_id": 61074,
+    "thesis": "OpenAI deploying a dedicated LLM to red-team its own models isn't just a safety flex — it's the clearest signal yet that AI security is becoming an AI-native discipline, because manual red-teaming simply can't scale to match the models it's supposed to test."
+  },
+  "model_literacy": {
+    "concept": "Automated Red-Teaming",
+    "relevance": "GPT-Red operationalizes the idea that adversarial probing of LLMs should itself be done by LLMs. Understanding how automated red-teaming differs from traditional pen-testing — continuous, scalable, model-specific — helps readers evaluate safety claims from any lab."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 61417,
+          "title": "Anthropic Unveils Claude Cowork, a Shared Workspace for Fable 5",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Not just another chat UI — Cowork is Anthropic's bet that AI collaboration needs a persistent, shared canvas, not a text box",
+          "key_fact": "First official Anthropic product to pair Fable 5 with a dedicated collaborative workspace"
+        },
+        {
+          "id": 61381,
+          "title": "Google Opens Search to Third-Party App Integrations in AI Mode",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "This turns Google Search from an answer engine into an action engine — any app can now plug into the AI Mode surface",
+          "key_fact": "Users can link third-party apps directly into AI Mode in Google Search"
+        },
+        {
+          "id": 61432,
+          "title": "Claude's Memory Gets a Ground-Up Redesign",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Daily summaries are out, real-time categorized entries are in — long-running conversations should finally maintain coherence",
+          "key_fact": "Switches from daily memory summaries to individual categorized entries read and updated in real time"
+        },
+        {
+          "id": 61617,
+          "title": "Google Folds NotebookLM Into the Gemini Brand",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The rebrand signals Google is consolidating its scattered AI product portfolio under one roof — expect more merges",
+          "key_fact": "NotebookLM is now Gemini Notebook"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 61416,
+          "title": "Anthropic's Internal Playbook for Large-Scale Code Migrations with Claude Code",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "The AI lab eating its own dogfood — and sharing the recipe. Practical migration patterns you can lift for your own monorepo",
+          "key_fact": "Detailed internal methodology for running large-scale code migrations using Claude Code"
+        },
+        {
+          "id": 61618,
+          "title": "Classical ML Can Detect LLM-Generated Text — No LLM Required",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Old-school classifiers still work for text detection, sidestepping the cost and latency of LLM-based detectors",
+          "key_fact": "Traditional ML classifiers reliably detect LLM-generated text without needing another LLM"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 61074,
+          "title": "OpenAI Reveals GPT-Red: an LLM Built to Hack Its Own Models",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "AI testing AI is no longer theoretical — OpenAI credits this dedicated red-teaming LLM with making GPT-5.6 their most robust release",
+          "key_fact": "GPT-Red is a purpose-built LLM that automatically probes other OpenAI models for vulnerabilities"
+        },
+        {
+          "id": 61379,
+          "title": "DeepMind and Isomorphic Labs Publish a Joint Bioresilience Framework",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "As bio-capable AI matures, this dual-use risk framework sets precedent for how labs should govern life-science models",
+          "key_fact": "Joint framework between DeepMind and Isomorphic Labs for managing dual-use biological AI risk"
+        },
+        {
+          "id": 61384,
+          "title": "NVIDIA's Nemotron 3 Embed Takes #1 on RTEB for Agentic Retrieval",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The new embedding baseline for anyone building RAG pipelines for agents — optimized specifically for agentic retrieval patterns",
+          "key_fact": "Ranks #1 overall on the Retrieval Text Embedding Benchmark"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 61564,
+          "title": "Anthropic Python SDK Ships Dreaming + MCP Tunnels",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Two significant features in one release — dreaming support catches up to the TS SDK, and MCP Tunnels could simplify remote agent architectures",
+          "key_fact": "v0.117.0 adds dreaming support and MCP Tunnels for routing MCP connections through the API"
+        },
+        {
+          "id": 61616,
+          "title": "LM Studio Bionic Brings Agentic Capabilities to Local Models",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "If this works, it closes the gap between local inference and cloud agents like Claude Code or Codex",
+          "key_fact": "Agentic layer for open-weight models running locally via LM Studio"
+        },
+        {
+          "id": 61579,
+          "title": "CrewAI Adds Step Interception Hooks for Agent Orchestration",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "@on hooks let you intercept and modify agent behavior at execution boundaries — meaningful for production flows",
+          "key_fact": "v1.15.3 introduces @on hooks for step interception and ships a headless TUI for declarative flows"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 61386,
+          "title": "HuggingFace Discloses a July 2026 Security Incident",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "When the central hub for open-weight models has a breach, every downstream project inherits the supply-chain risk",
+          "key_fact": "Security incident at the platform hosting the majority of open-weight AI models"
+        },
+        {
+          "id": 61373,
+          "title": "Latent Space: Physical Labs Are AI's Last Untapped Data Moat",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A provocative thesis — the internet is scraped dry, so the next frontier of training data is in physical science labs",
+          "key_fact": "Lila Sciences argues labs, not the internet, are the last major source of novel training data"
+        },
+        {
+          "id": 61622,
+          "title": "A Developer Concedes Every LLM Criticism — and Keeps Using Them Anyway",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Articulates the uncomfortable middle ground most developers occupy: yes it's flawed, yes it's useful",
+          "key_fact": "180+ HN points for a piece that validates LLM critics while defending continued use"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 61541,
+          "title": "Cue: Open-Source macOS AI Copilot That Hides from Screen Shares",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A Cluely alternative that's fully open-source and BYOK — your data stays local while the AI watches your meetings",
+          "key_fact": "275+ GitHub stars, invisible to screen sharing, bring-your-own-key architecture"
+        },
+        {
+          "id": 61623,
+          "title": "Traceforce (YC S26): Centralized Security Monitoring for Enterprise AI Apps",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Betting that 'who's using what AI and how' visibility becomes table stakes for security teams",
+          "key_fact": "YC S26 startup addressing the enterprise AI monitoring gap"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 61382,
+      "title": "Google Vids Adds Gemini Omni and Personal Avatars",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Star in AI-generated videos using your own likeness, no camera required",
+      "key_fact": "Gemini Omni integration + personal avatar creation in Google Workspace"
+    },
+    {
+      "id": 61566,
+      "title": "Anthropic TS SDK v0.112.0 Adds MCP Tunnels",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Matches the Python SDK's MCP Tunnels support",
+      "key_fact": "TypeScript SDK now supports MCP Tunnel routing"
+    },
+    {
+      "id": 61369,
+      "title": "Simon Willison Stress-Tests Kimi K3 with the Pelican Benchmark",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Hands-on eval of Moonshot AI's latest, more revealing than leaderboard scores",
+      "key_fact": "Willison's pelican benchmark applied to Kimi K3"
+    },
+    {
+      "id": 61568,
+      "title": "Transformers v5.14.1 Fixes Silent Cache Corruption from Inkling Integration",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Update immediately if you pulled v5.14.0 — the StaticCache bug can silently corrupt outputs",
+      "key_fact": "Patches assisted generation and StaticCache bugs from v5.14.0"
+    },
+    {
+      "id": 61567,
+      "title": "LangChain v1.3.14 Adds ToolErrorMiddleware",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Structured error handling for tool chains, plus retry fixes for production agents",
+      "key_fact": "ToolErrorMiddleware + ToolRetryMiddleware now only retries retryable exceptions"
+    },
+    {
+      "id": 61575,
+      "title": "Ollama v0.32.1 Patches MLX Memory Leak on Apple Silicon",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The memory leak fix alone is worth updating for if you run Ollama on Mac",
+      "key_fact": "Fixes Gemma 4 tool calling, recurrent MLX memory leak, and cache snapshot performance"
+    }
+  ],
+  "total_items": 23
+}

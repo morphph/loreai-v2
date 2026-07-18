@@ -1,0 +1,204 @@
+{
+  "date": "2026-07-12",
+  "headline_hook": "Ollama Ships an Agent UI While Apple Fires Legal Shots at OpenAI",
+  "preview_topics": [
+    "Ollama's local agent interface",
+    "Apple's trade-secret war with OpenAI",
+    "a 29x regex bottleneck hiding in llama.cpp"
+  ],
+  "pick_of_the_day": {
+    "item_id": 59694,
+    "thesis": "Meta's Instagram AI pullback is the first major proof that 'ship fast, apologize later' breaks down for AI features — the withdrawal cost in trust and press cycles exceeds what a two-week consent review would have cost, and every product team shipping AI should internalize that asymmetry."
+  },
+  "model_literacy": {
+    "concept": "Agent Loops and Tool-Use Orchestration",
+    "relevance": "Ollama's new agent UI brings tool-calling loops to local models — understanding how an LLM decides 'call a tool' vs 'respond to user' in each turn is now relevant whether you're running cloud or laptop inference."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 60239,
+          "title": "Ollama Gets a Native Agent UI and Qwen3.5 Support",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Local LLM tooling stops playing catch-up — Ollama's agent UI means you can orchestrate tool-calling workflows without a cloud account or API key.",
+          "key_fact": "First local LLM runtime to ship a built-in agent interface alongside model support (Qwen3.5)"
+        },
+        {
+          "id": 60226,
+          "title": "Claude Code 2.1.207 Unlocks Auto Mode on Bedrock and Vertex",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Auto mode no longer requires opt-in on enterprise clouds — Claude Code is quietly becoming the default agent IDE for teams already on AWS/GCP.",
+          "key_fact": "Auto mode available without opt-in on Bedrock, Vertex, and Foundry; terminal freeze fix for long streaming responses"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 59729,
+          "title": "Latent Space Dissects GPT-5.6 and ChatGPT's Superapp Pivot",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The best single synthesis of last week's biggest launch — frames why Codex becoming ChatGPT matters more than the model benchmarks.",
+          "key_fact": "GPT-5.6 Sol/Terra/Luna tiers plus Codex absorption into ChatGPT as a unified 'superapp'"
+        },
+        {
+          "id": 59695,
+          "title": "Apple Sues OpenAI Over Alleged Trade Secret Theft",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Not just a lawsuit — this sets precedent for how AI talent mobility works when everyone's building on everyone else's ideas.",
+          "key_fact": "Apple alleges senior-leadership-directed trade secret theft; still developing after initial filing July 10"
+        },
+        {
+          "id": 59694,
+          "title": "Meta Pulls Instagram AI Feature After User Backlash",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A live case study in why shipping AI features without consent design costs more than delaying them.",
+          "key_fact": "Feature removed entirely after backlash — not patched, not toggled, pulled"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 59951,
+          "title": "LangChain Adds Explicit Prompt Caching for OpenAI Models",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Direct cost optimization lever for production chains running GPT-5.6 — caching is now a first-class config, not a workaround.",
+          "key_fact": "langchain-openai 1.3.5 ships explicit prompt caching support for OpenAI models"
+        },
+        {
+          "id": 60236,
+          "title": "Vercel AI SDK Fixes Silent Groq Cache Breakage",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "If you use Groq through the AI SDK, your cache hit metrics were lying to you — now fixed.",
+          "key_fact": "Implicit prompt caching reported cache hits as undefined; cost estimates may have been wrong"
+        },
+        {
+          "id": 59963,
+          "title": "MCP Reference Servers Get Coordinated Release",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Filesystem, time, fetch, and git servers all updated together — pin to 2026.7.10 if you're building MCP integrations.",
+          "key_fact": "All official MCP reference servers (filesystem, time, fetch, git) released in sync"
+        },
+        {
+          "id": 60233,
+          "title": "HuggingFace Transformers 5.13.1 Unblocks vLLM Upgrades",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A focused compatibility patch — if vLLM upgrades were blocked, this is your green light.",
+          "key_fact": "Enables transformers compatibility with latest vLLM release"
+        },
+        {
+          "id": 59953,
+          "title": "LangGraph 1.2.9 Fixes State Corruption in Multi-Step Agents",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "A subtle metadata bug that could silently corrupt agent state — check if your delta-channel graphs were affected.",
+          "key_fact": "Fixes metadata and counter handling in updateState for delta channels"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 60240,
+          "title": "llama.cpp Kills a 29x Regex Recompilation Bottleneck",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A textbook profiling win: 29 regex recompilations per tensor per token was dominating decode threads in tensor-split mode.",
+          "key_fact": "Static regex compilation eliminates per-token recompilation across all tensor splits"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 59709,
+          "title": "MIT Tech Review Makes Claude's Concept Space Discovery Accessible",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Anthropic's interpretability breakthrough gets the mainstream-technical treatment — good primer to share with skeptical colleagues.",
+          "key_fact": "Covers Anthropic's discovery of hidden concept spaces in Claude's internal representations"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 60275,
+          "title": "Mesh LLM: Distributed Inference Over iroh's P2P Network",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Run models across heterogeneous hardware without centralized orchestration — a novel mesh approach to the 'I have three GPUs in different rooms' problem.",
+          "key_fact": "Distributed LLM inference over mesh network using iroh protocol"
+        },
+        {
+          "id": 59800,
+          "title": "AI Market Pulse: Automated Stock Research Reports for Developers",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Turn any stock watchlist into daily AI-generated market research — practical for quant-curious devs who want market intelligence without building infrastructure.",
+          "key_fact": "106 GitHub stars; generates daily AI research reports from any stock watchlist"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 59958,
+      "title": "Vercel AI SDK 7.0.21 Enforces Consistent Zod v4 Imports",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Fixes subtle validation bugs from the Zod 4 migration",
+      "key_fact": "Enforces consistent Zod v4 imports across the SDK"
+    },
+    {
+      "id": 60038,
+      "title": "Latent Space: 'Not Much Happened Today'",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Market-tempo signal — the breather after a week of nonstop launches",
+      "key_fact": "First quiet day after sustained model release cadence"
+    },
+    {
+      "id": 60276,
+      "title": "Inside the Circular Financing of the GPU Boom",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "How much of the 'AI boom' is Nvidia-CoreWeave-Nebius financing each other",
+      "key_fact": "130 HN likes; deep dive into GPU supplier-cloud provider financial interdependencies"
+    },
+    {
+      "id": 60274,
+      "title": "Stop Telling Me to Ask an LLM",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "High-engagement pushback on the 'just use AI' advice pattern",
+      "key_fact": "108 likes, 59 RTs — articulates when human expertise beats LLM delegation"
+    },
+    {
+      "id": 60203,
+      "title": "Project r0x: Claude Code Plugin for Crypto Payments",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Early signal of AI agents interacting with payment protocols",
+      "key_fact": "x402 payments on Robinhood Chain via Claude Code; 122 GitHub stars"
+    }
+  ],
+  "total_items": 19
+}

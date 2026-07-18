@@ -1,0 +1,204 @@
+{
+  "date": "2026-07-15",
+  "headline_hook": "Anthropic Ships Claude for Classrooms While a Cursor Zero-Day Shakes Dev Tooling",
+  "preview_topics": [
+    "Claude's push into education and healthcare",
+    "a Cursor zero-day and responsible disclosure failure",
+    "the shift from building agents to building agent systems"
+  ],
+  "pick_of_the_day": {
+    "item_id": 61052,
+    "thesis": "The Cursor zero-day reveals that AI code editors' deepest feature — full codebase access — is also their biggest liability, and the industry has no playbook for securing tools that sit between your repo and a language model."
+  },
+  "model_literacy": {
+    "concept": "Ternary (1.58-bit) Quantization",
+    "relevance": "Today's Ternary-Bonsai-27B release shows a model squeezed to just three weight values (-1, 0, +1). Understanding how ternary quantization preserves model quality while slashing memory by ~10x explains why edge deployment of large models is suddenly viable."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 60844,
+          "title": "Claude Gets a Classroom: Anthropic Launches Purpose-Built Teacher Experience",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "This isn't another chatbot wrapper — Anthropic built a dedicated educator product, signaling that vertical-specific AI experiences are the next battleground after generic assistants plateau.",
+          "key_fact": "Purpose-built Claude experience for educators, not a feature flag on the existing product"
+        },
+        {
+          "id": 60869,
+          "title": "HIPAA on Claude Is Now Self-Serve — No Sales Call Required",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Healthcare teams can now enable HIPAA compliance with a checkbox instead of a multi-week sales process — removing the single biggest friction point for regulated industry adoption.",
+          "key_fact": "Admins can review BAA, download implementation guide, and enable HIPAA compliance without contacting sales"
+        },
+        {
+          "id": 60836,
+          "title": "Google and AIM Deploy Gemini-Powered AI Across India's Tinkering Labs",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "ATL Saathi puts a Gemini-powered teaching tool in front of Indian students learning robotics — a concrete bet that frontier models can work in low-resource education settings at national scale.",
+          "key_fact": "Deployed across India's Atal Tinkering Labs network with AIM partnership"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 61052,
+          "title": "A Cursor Zero-Day Goes Public After Responsible Disclosure Fails",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "A security firm drops a Cursor zero-day via full disclosure after the company failed to respond — the attack surface in AI coding tools is real, growing, and apparently under-resourced on the vendor side.",
+          "key_fact": "Full disclosure after responsible disclosure process failed; 215 HN upvotes"
+        },
+        {
+          "id": 60831,
+          "title": "AI Engineer World's Fair Recap: The Industry Shifted From Agents to Agent Systems",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Latent Space distills five defining trends from the conference — the key shift is that teams are no longer building individual agents but designing the orchestration, evaluation, and guardrail systems around them.",
+          "key_fact": "Five macro trends identified; 'agent systems' framing replaces 'agent building'"
+        },
+        {
+          "id": 60832,
+          "title": "Codex Hits 7M Users — Up 10x in Six Months, Adding 1M Per Day",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Hard usage numbers for the agentic coding race finally surface, and the growth curve is staggering — but Latent Space notes Claude Code's conspicuous silence on its own metrics.",
+          "key_fact": "7M users, 10x growth in 6 months, +1M in a single day"
+        },
+        {
+          "id": 60845,
+          "title": "Anthropic Commits $10M to Canadian AI Research",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A $10M commitment to Canadian institutions like MILA and Vector — Anthropic is building academic pipelines outside the US, likely to secure both talent and policy goodwill.",
+          "key_fact": "$10M for Canadian AI research institutions"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 61002,
+          "title": "Claude Code Ships Three Releases: Screen Reader Mode, Live Timers, Worktree Fixes",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Three rapid-fire releases in a week — the standout additions are accessibility (screen reader mode, vim remaps) and a fix for worktree subagents running git against the wrong repo.",
+          "key_fact": "v2.1.208–210: screen reader mode, vim insert-mode remaps, elapsed-time counter, worktree git fix"
+        },
+        {
+          "id": 61005,
+          "title": "openai-node v6.47.0 Adds Async Iterators and Web Streams Support",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Two new streaming primitives — async event iterators and fromReadableStream — make it significantly easier to build streaming UIs that compose with the Web Streams API.",
+          "key_fact": "Async event iterators + fromReadableStream for ResponseStream"
+        },
+        {
+          "id": 61056,
+          "title": "Agnost AI (YC S26) Extracts Structured Feedback From Agent Conversations",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "As more products ship agentic features, understanding what users actually say to your agents is a real analytics blind spot — Agnost automates that extraction.",
+          "key_fact": "YC S26 batch; structured feedback extraction from agent conversation logs"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 61053,
+          "title": "How to Stop Claude From Saying 'Load-Bearing' (and Other Verbal Tics)",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A practical guide with 408 HN upvotes — the broader lesson is that LLM output style is a controllable parameter if you know which system prompt levers to pull.",
+          "key_fact": "408 HN upvotes; uses system prompts and style instructions to control Claude's verbal patterns"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 61054,
+          "title": "Gwern's 'Guardian Angels': A Personal LLM That Mediates All Your Digital Interactions",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Gwern proposes a deeply researched architecture where a personal LLM agent sits between you and every digital interaction, optimizing for productivity and security simultaneously.",
+          "key_fact": "Full design document from Gwern; personal LLM mediating all digital interactions"
+        },
+        {
+          "id": 61030,
+          "title": "Ternary-Bonsai-27B: A 1.58-Bit Model That's Actually Usable",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A 27B model quantized to ternary precision that still performs — pushing the boundary of how small you can make a model before it breaks, with direct implications for running large models on edge devices.",
+          "key_fact": "27B params at 1.58-bit (ternary) precision; 119 HuggingFace likes"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 60872,
+          "title": "Flawless: An AI SRE Agent That Diagnoses and Remediates Kubernetes Issues",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Trending at 616 stars, this autonomous SRE agent handles K8s diagnosis and remediation — compare with existing AI ops tools if you're evaluating this space.",
+          "key_fact": "616 GitHub stars; autonomous Kubernetes diagnosis and remediation"
+        },
+        {
+          "id": 61057,
+          "title": "Juggler: Open-Source GUI Coding Agent From the Creator of JUCE",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The creator of JUCE — the dominant C++ audio framework — brings a framework builder's sensibility to the GUI coding agent problem. The pedigree suggests this is worth watching.",
+          "key_fact": "Open-source; built by JUCE creator; 163 HN upvotes"
+        },
+        {
+          "id": 60875,
+          "title": "J-Wash: Make Anthropic's Jacobian Lens Interpretability Research Actually Usable",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Built on Anthropic's Jacobian Lens research, this framework lets you analyze and modify LLM internal representations with exportable results — turning a research paper into a practical tool.",
+          "key_fact": "139 GitHub stars; exports analysis results; built on Anthropic's interpretability work"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 61041,
+      "title": "M87: New Text-to-Image Model Trending With 2.4K Downloads",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Another contender alongside FLUX and Stable Diffusion",
+      "key_fact": "2.4K HuggingFace downloads, 104 likes"
+    },
+    {
+      "id": 61055,
+      "title": "Are We Offloading Too Much Thinking to AI?",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "357-upvote essay on cognitive atrophy from AI delegation",
+      "key_fact": "357 HN upvotes"
+    },
+    {
+      "id": 60837,
+      "title": "Google Images Turns 25 — and Previews AI-Powered Visual Search",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Anniversary retrospective with a peek at multimodal search roadmap",
+      "key_fact": "New AI-powered visual content exploration features previewed"
+    }
+  ],
+  "total_items": 19
+}
