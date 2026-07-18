@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "KlaatCode: open-source terminal AI coding agent with smart model routing",
+    "url": "https://github.com/KlaatAI/klaatcode",
+    "source": "github:trending:LLM TypeScript",
+    "x_engagement_24h": 115,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.0345,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Kimi K3 2.8T-A50B: the largest open model ever released; Opus 4.8-class at Sonnet 5 pricing",
+    "url": "https://www.latent.space/p/ainews-kimi-k3-28t-a50b-the-largest",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Thinky's Inkling: 975B-A41B multimodal, new best American Apache 2.0 open model",
+    "url": "https://www.latent.space/p/ainews-thinkys-inkling-975b-a41b",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 20,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "The state of open source AI",
+    "url": "https://stateofopensource.ai/",
+    "source": "hackernews",
+    "x_engagement_24h": 613,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.1839,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Working at the frontier: How Cursor knew Claude Fable 5 was ready for the hardest 1% of problems",
+    "url": "https://www.claude.com/blog/working-at-the-frontier-cursor",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "tutorial"
+  }
+]
