@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Fable 5 vs. GPT-5.6 Sol on an NP-Hard Problem: Does /goal help?",
+    "url": "https://charlesazam.com/blog/fable-5-gpt-5-6-sol-goal/",
+    "source": "hackernews",
+    "x_engagement_24h": 307,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.092100000000002,
+    "suggested_angle": "comparison"
+  },
+  {
+    "topic": "Setting up your spare Mac for Claude Code to control, a step-by-step guide",
+    "url": "https://ykdojo.github.io/claude-controls-mac/",
+    "source": "hackernews",
+    "x_engagement_24h": 291,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.0873,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "GPT-5.6 used a prompt to close a 30-year gap in convex optimization",
+    "url": "https://old.reddit.com/r/math/comments/1uxj3cy/after_openais_cdc_proof_announcement_gpt56_used_a/",
+    "source": "hackernews",
+    "x_engagement_24h": 792,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.2376,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude make Fable 5 permanent",
+    "url": "https://simonwillison.net/2026/Jul/18/claude-make-fable-5-permanent/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 12,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "What AI did to stackoverflow in a graph",
+    "url": "https://data.stackexchange.com/stackoverflow/query/1953768#graph",
+    "source": "hackernews",
+    "x_engagement_24h": 760,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.228,
+    "suggested_angle": "news"
+  }
+]
