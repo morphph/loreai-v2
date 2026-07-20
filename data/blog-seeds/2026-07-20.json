@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Claude Code uses Bun written in Rust now",
+    "url": "https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/",
+    "source": "hackernews",
+    "x_engagement_24h": 878,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.2634,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "AI advice made people 3x less accurate but 2x confident, researchers found",
+    "url": "https://thenextweb.com/news/ai-advice-suppresses-critical-thinking-wrong-answers-study",
+    "source": "hackernews",
+    "x_engagement_24h": 313,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.0939,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Moonshot AI suspends new subscriptions due to Kimi K3 demand",
+    "url": "https://twitter.com/kimi_moonshot/status/2078855608565207130",
+    "source": "hackernews",
+    "x_engagement_24h": 264,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.0792,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Qwen3.6-27B-Fable-Fusion GGUF",
+    "url": "https://huggingface.co/DavidAU/Qwen3.6-27B-Fable-Fusion-711-Uncensored-Heretic-NM-DAU-NEO-MAX-MTP-GGUF",
+    "source": "huggingface:trending",
+    "x_engagement_24h": 103,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.0309,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "What to watch for after Jensen Huang's Japan visit",
+    "url": "https://techcrunch.com/2026/07/19/what-to-watch-for-after-jensen-huangs-japan-visit/",
+    "source": "rss:TechCrunch AI",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9,
+    "suggested_angle": "news"
+  }
+]
