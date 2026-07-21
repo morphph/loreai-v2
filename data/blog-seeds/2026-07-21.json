@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Agent swarms and the new model economics",
+    "url": "https://cursor.com/blog/agent-swarm-model-economics",
+    "source": "hackernews",
+    "x_engagement_24h": 135,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21.0405,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "China's AI models have Trump's AI world at war with itself",
+    "url": "https://www.technologyreview.com/2026/07/20/1140675/chinas-ai-models-have-trumps-ai-world-at-war-with-itself/",
+    "source": "rss:MIT Tech Review AI",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Kimi K3, Qwen 3.8, and Anthropic's (Potential) Unravelling",
+    "url": "https://www.emergingtrajectories.com/lh/frontier-lab-economics/",
+    "source": "hackernews",
+    "x_engagement_24h": 551,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.1653,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Apply for Anthropic's AI for Science rare disease research grants",
+    "url": "https://www.anthropic.com/news/rare-disease-research-grants",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Claude Code uses Bun written in Rust now",
+    "url": "https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  }
+]
