@@ -4,6 +4,40 @@
 Bilingual (EN/ZH) AI news platform. Daily newsletter + deep blog + SEO pages.
 Stack: Next.js 16 + TypeScript + Tailwind v4 + SQLite. Vercel (frontend) + VPS (pipelines).
 
+## Repository structure
+- `src/` — Next.js app (App Router, server + UI).
+- `scripts/` — content/SEO pipeline (`*.ts`, run via `tsx`; e.g. `scripts/loreai-content.ts`, `validate-pipeline.ts`). **Server-only — never import Next.js modules here.**
+- `skills/` — 19 root generation prompts (blog/email/newsletter/seo/…); iterate, never rewrite from scratch.
+- `server/` — backend services. `content/`, `data/`, `reports/` — generated newsletters / news / SEO data (git-tracked output).
+- `__tests__/`, `__fixtures__/` — Vitest unit tests + fixtures. `e2e/` — Playwright config + specs.
+- `.claude/` — skills, agents (`pipeline-reviewer`), `known-issues.md` (Claude Code; kept intact).
+- `.codex/config.toml` — Codex shell-env policy. `.mcp.json` — registers the public `context7` MCP (docs lookup).
+- Config: `next.config.ts`, `tsconfig.json`, `eslint.config.mjs`, `vitest.config.ts`, `postcss.config.mjs`, `vercel.json`.
+
+## Setup & development commands
+```bash
+npm install          # install deps (Next.js, vitest, playwright, tailwind …)
+npm run dev          # local dev server
+npm run build        # production SSG build
+npm run lint         # ESLint
+npm test             # Vitest (must pass before commit)
+```
+Env: copy `.env.example` → `.env` and fill values locally. `.env*` are git-ignored and PreToolUse-hook-protected — edit them manually, never via an agent.
+
+## Safety constraints
+- Do **not** trigger production deploys (Vercel) or any live publish — this is dev-only.
+- Do **not** run live content generation or model batches: avoid `npm run content` / `scripts/loreai-content.ts` and other pipeline runners that call **paid** model APIs. Use fixtures / mocks / `--dry-run` and the Vitest suite instead.
+- Do **not** write to the production database or live news store.
+- Do **not** run `test:e2e` against live services; do not print or commit model-service API keys.
+- `.env.bak*` must never be committed (now git-ignored) — treat any committed env backup as a secret incident.
+
+## Definition of Done (Backpressure — all must pass before commit)
+1. `npm run build` — SSG build succeeds.
+2. `npm test` — all Vitest tests pass (never skip failing tests or disable lint rules).
+3. `npm run lint` — clean.
+4. For pipeline changes: `validate-pipeline.ts` passes.
+5. No secrets, `.env*`, or `node_modules/` staged; commit message descriptive.
+
 ## Commands — Build & Validate
 npm run dev          # Local dev server
 npm run build        # Production build (SSG)
