@@ -3,3 +3,6 @@ inherit = "core"
 
 [shell_environment_policy.set]
 CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS = "1"
+
+[mcp_servers.context7]
+url = "https://mcp.context7.com/mcp"
