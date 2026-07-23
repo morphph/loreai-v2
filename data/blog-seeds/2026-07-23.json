@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Ask Claude about the Anthropic Economic Index",
+    "url": "https://www.anthropic.com/news/anthropic-economic-index-connector",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Building verification loops in Claude Code with skills",
+    "url": "https://www.claude.com/blog/building-verification-loops-in-claude-code-with-skills",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "How Outtake built a cyber investigator on Claude",
+    "url": "https://www.claude.com/blog/how-outtake-built-a-cyber-investigator-on-claude",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 16,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Nanbeige/Nanbeige4.2-3B: text-generation",
+    "url": "https://huggingface.co/Nanbeige/Nanbeige4.2-3B",
+    "source": "huggingface:trending",
+    "x_engagement_24h": 228,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.0684,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "A research agenda for the Economic Futures Research Fund",
+    "url": "https://www.anthropic.com/news/economic-futures-research-fund-agenda",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "analysis"
+  }
+]
