@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "The arguments against open source AI are bad",
+    "url": "https://tombedor.dev/arguments-against-open-source-ai-are-very-bad/",
+    "source": "hackernews",
+    "x_engagement_24h": 318,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.0954,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "unsloth/Laguna-S-2.1-GGUF: text-generation",
+    "url": "https://huggingface.co/unsloth/Laguna-S-2.1-GGUF",
+    "source": "huggingface:trending",
+    "x_engagement_24h": 105,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.0315,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Startup founders urge U.S. government not to shut off Chinese open weight AI",
+    "url": "https://www.politico.com/news/2026/07/22/startup-founders-urge-trump-not-to-shut-off-chinese-open-weight-ai-01008992",
+    "source": "hackernews",
+    "x_engagement_24h": 1296,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.3888,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "AI Companies Are Trying to Hide a Staggering Amount of Debt",
+    "url": "https://futurism.com/artificial-intelligence/ai-companies-hide-debt-off-balance-sheet",
+    "source": "hackernews",
+    "x_engagement_24h": 860,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.258,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Show HN: Palmier Pro – Open-source macOS video editor built for AI",
+    "url": "https://github.com/palmier-io/palmier-pro",
+    "source": "hackernews",
+    "x_engagement_24h": 126,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.0378,
+    "suggested_angle": "tutorial"
+  }
+]
