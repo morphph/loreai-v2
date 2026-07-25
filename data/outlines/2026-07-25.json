@@ -1,0 +1,172 @@
+{
+  "date": "2026-07-25",
+  "headline_hook": "Opus 5 Ships at Half the Fable Price as FLUX 3 Drops and Context Engineering Gets New Rules",
+  "preview_topics": [
+    "Opus 5's frontier debut at half the cost",
+    "FLUX 3's multimodal and robotics play",
+    "the new rules of context engineering"
+  ],
+  "pick_of_the_day": {
+    "item_id": 62739,
+    "thesis": "Anthropic publishing a 'new rules' guide for their own models reveals that prompt engineering isn't converging on universal principles — it's fragmenting by model generation, and builders who don't retool their context strategies per-family are leaving real performance on the table."
+  },
+  "model_literacy": {
+    "concept": "Context Engineering",
+    "relevance": "With Opus 5 launching and Anthropic publishing explicit new prompting rules for the Claude 5 generation, the shift from 'prompt engineering' to 'context engineering' — orchestrating system prompts, tool definitions, examples, and conversation history as a unified context-window strategy — is no longer theoretical. Model providers now expect developers to treat the full context as an engineering surface, not just the user message."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 62718,
+          "title": "Anthropic Drops Opus 5: Tops the Leaderboard at Half the Fable 5 Price",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The new frontier model isn't just better — it's cheaper than the competition, forcing a price-performance rethink across the industry",
+          "key_fact": "#1 on Artificial Analysis Intelligence Leaderboard at 50% the cost of Fable 5"
+        },
+        {
+          "id": 62705,
+          "title": "Black Forest Labs Launches FLUX 3: Multimodal Flow Models That Beat Seedance, Gemini, and Grok",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "FLUX 3 isn't just another image model — it's a multimodal flow architecture that outperforms dedicated video and image generators, plus a robotics variant",
+          "key_fact": "Beats Seedance 2.0, Gemini Omni, and Grok Imagine on quality benchmarks"
+        },
+        {
+          "id": 62788,
+          "title": "FLUX-mimic Brings Video-Action Models to Robotics",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "BFL's robotics-specific variant shows the FLUX architecture extending beyond creative media into embodied AI",
+          "key_fact": "Purpose-built for video-action robotics tasks, not just generation"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 62739,
+          "title": "The Prompting Playbook Just Changed: Anthropic's New Context Engineering Rules for Claude 5",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "What worked for Claude 3.5 may actively hurt performance on Claude 5 — Anthropic is telling builders to retool, not just upgrade",
+          "key_fact": "Official Anthropic guidance acknowledging that prior prompting strategies may not be optimal for the new generation"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 62740,
+          "title": "The Post-Opus 5 Model Selection Guide: When to Use Haiku, Sonnet, Opus, or Fable",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "With Opus 5 reshuffling the lineup, the cost-speed-capability tradeoff matrix needs updating for every production deployment",
+          "key_fact": "Updated decision framework covering all current Claude models including Opus 5"
+        },
+        {
+          "id": 62741,
+          "title": "Anthropic Launches Four Role-Based Claude Certifications",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Anthropic is standardizing AI expertise credentials the way AWS and Google did for cloud — a sign the deployment market is maturing",
+          "key_fact": "Four distinct certification tracks for customer-facing Claude deployments"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 62786,
+          "title": "Independent Benchmark Confirms Opus 5 at #1 on Intelligence Leaderboard",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Third-party validation matters more than vendor benchmarks — Artificial Analysis confirms the frontier claim independently",
+          "key_fact": "84 likes and 35 RTs on the leaderboard result, signaling community consensus"
+        },
+        {
+          "id": 62567,
+          "title": "AI Drug Design Pipeline Is Producing Real Pharmaceutical Results",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The AI-for-science pipeline is moving from papers to actual drug candidates — protein engineering and clinical trial optimization are seeing tangible output",
+          "key_fact": "MIT Tech Review survey covers protein engineering through clinical trial optimization"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 62787,
+          "title": "Nvidia, Microsoft, and Meta Escalate the Open-Weight Fight to Big Tech Level",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The open-weight policy debate just jumped from startup founders to the three biggest compute and model providers — this coalition has lobbying power the 684-founder letter didn't",
+          "key_fact": "Joint pushback from Nvidia, Microsoft, and Meta follows the 684-founder open letter earlier this week"
+        },
+        {
+          "id": 62700,
+          "title": "Simon Willison's Independent Opus 5 Assessment",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Willison's track record of fair model evaluations makes this the external take worth reading before forming your own opinion",
+          "key_fact": "Independent analysis from the most trusted voice in LLM evaluation commentary"
+        },
+        {
+          "id": 62738,
+          "title": "How Claude Design's Own Designer Uses It: Ideation Before Building",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A real workflow pattern for design-heavy teams: use AI to explore the solution space before committing to a build direction",
+          "key_fact": "Designer of Claude Design reveals their own pre-build exploration workflow"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 62774,
+          "title": "KAT-Coder V2.5: Kuaishou's Entry Into the Coding Model Race",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Another Chinese lab enters the coding model space with a development-focused variant trending on HuggingFace",
+          "key_fact": "121 likes and 396 downloads on HuggingFace, trending"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 62789,
+      "title": "The Guardian Pushes Back on OpenAI's Rogue Hacker Agent Narrative",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Healthy skepticism about AI safety theater from a major outlet",
+      "key_fact": "385 likes, 210 RTs on the counterpoint story"
+    },
+    {
+      "id": 62582,
+      "title": "Thomas Ptacek's AI Security Architecture Takes",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "One of appsec's most respected voices weighs in on AI security",
+      "key_fact": "Highlighted by Simon Willison for production security relevance"
+    },
+    {
+      "id": 62566,
+      "title": "US-China AI Tensions Meet Energy Infrastructure Constraints",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The two biggest AI scaling constraints converge in policy",
+      "key_fact": "MIT Tech Review covers the intersection of geopolitics and compute energy"
+    }
+  ],
+  "total_items": 15
+}

@@ -1,0 +1,204 @@
+{
+  "date": "2026-07-22",
+  "headline_hook": "Google Ships a Cybersecurity Model While Quietly Killing Temperature Controls",
+  "preview_topics": [
+    "Google's triple Gemini drop",
+    "Anthropic's AI-native security playbook",
+    "the eval pipeline trust problem"
+  ],
+  "pick_of_the_day": {
+    "item_id": 62424,
+    "thesis": "Google silently deprecating temperature, top_p, and top_k reveals that frontier labs now trust their models to self-regulate output distribution — breaking the one control surface every LLM integration assumes exists, and signaling a future where developers lose fine-grained control over model behavior in exchange for 'the model knows best' defaults."
+  },
+  "model_literacy": {
+    "concept": "Sampling Parameters (Temperature, Top-p, Top-k)",
+    "relevance": "Today's Gemini deprecation makes this the most practically urgent concept: these three knobs control how models choose their next token, and understanding what they actually do helps you assess whether your production integrations are silently misbehaving now that Google ignores them."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 62344,
+          "title": "Google Drops Three Gemini Models — Including Its First Cybersecurity Specialist",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The triple release is aggressive, but Flash Cyber is the real story — first time a major lab ships a domain-specific security model alongside general-purpose tiers, signaling that vertical specialization is the next frontier.",
+          "key_fact": "Three models in one drop: 3.6 Flash (speed), 3.5 Flash-Lite (cost), 3.5 Flash Cyber (security-specific)"
+        },
+        {
+          "id": 62426,
+          "title": "Qwen Image 3.0 Targets the Hallucination Problem in Visual AI",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Alibaba's Qwen team goes after factual accuracy in image generation — the outputs are genuinely impressive enough to pull 537 HN likes.",
+          "key_fact": "537 HN likes; emphasizes content richness and factual accuracy over pure aesthetics"
+        },
+        {
+          "id": 62423,
+          "title": "Jack Dorsey Bets Developer Collaboration Should Be Rebuilt Around Agents",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Buzz merges chat, agents, and Git into one surface — the thesis is that bolting AI onto Slack/GitHub is the wrong approach and the collaboration layer needs to be agent-native from scratch.",
+          "key_fact": "Combines team chat, AI agent orchestration, and Git hosting in a single platform"
+        },
+        {
+          "id": 62425,
+          "title": "Poolside Drops Laguna S 2.1 as Code Models Heat Up",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Trending on both HN and HuggingFace, Poolside's latest code model enters an increasingly crowded race — but 3K+ downloads on day one suggest the coding community sees real improvements.",
+          "key_fact": "170 HN likes, 3K+ HuggingFace downloads"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 62369,
+          "title": "Anthropic Opens Its Playbook for Securing AI-Written Code in Production",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "Not theory but production practices — this is the first detailed look at how a frontier lab actually handles the security implications when AI agents write most of the code. Every team adopting agentic coding should read this.",
+          "key_fact": "First public documentation of a frontier lab's internal AI-native secure development lifecycle"
+        },
+        {
+          "id": 62424,
+          "title": "Google Quietly Deprecates Temperature, Top-p, and Top-k for Latest Gemini Models",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "If you're calling Gemini in production, your sampling parameters are being silently ignored — a breaking change hidden in docs that challenges the universal assumption that you control model output randomness.",
+          "key_fact": "Temperature, top_p, and top_k are now deprecated and ignored for latest Gemini models"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 62370,
+          "title": "Datadog's Universal Adapter Gives Claude Code Access to an Entire Internal Toolchain",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The architecture pattern — wrapping heterogeneous internal tools behind a single agent-accessible surface — is the part that matters. Any large eng org can replicate this for their own toolchain.",
+          "key_fact": "Single unified interface lets Claude Code interact with Datadog's entire internal tool ecosystem"
+        },
+        {
+          "id": 62333,
+          "title": "Nativ Brings Polished Local Inference to Mac",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "The local-model tooling space keeps getting more refined — Simon Willison flagged this as worth evaluating for cloud-free model inference.",
+          "key_fact": "Local inference tool for Mac; highlighted by Simon Willison"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 62419,
+          "title": "A Security Incident Between OpenAI and Hugging Face Exposes Eval Pipeline Trust Gaps",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The incident itself matters less than what it reveals: the trust assumptions baked into the model-sharing pipeline are weaker than anyone assumed. If you run third-party model evals, your threat model just changed.",
+          "key_fact": "585 HN likes, 386 RTs; security incident during model evaluation between two major AI infrastructure companies"
+        },
+        {
+          "id": 62334,
+          "title": "Inside Claude Code: A Rare Look at the Product Decisions Behind the Fastest-Growing AI Dev Tool",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Simon Willison interviews two Claude Code leads — the human context behind the technical trade-offs and roadmap thinking, arriving right after the Bun runtime swap coverage.",
+          "key_fact": "Fireside chat with Cat and Thariq from the Claude Code team via Simon Willison"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 62420,
+          "title": "Independent Benchmarks Put Kimi K3 Neck-and-Neck with Fable",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Fireworks AI's third-party validation matters more than vendor claims — they serve both models at scale and have real inference cost data to back the comparison.",
+          "key_fact": "First independent third-party benchmark validation; Fireworks has real inference cost data for both models"
+        },
+        {
+          "id": 62349,
+          "title": "NVIDIA Maps the State of Simulation for Physical AI",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A comprehensive overview covering synthetic data generation, sim-to-real transfer, and the tooling landscape — essential if you work in robotics or embodied AI and need to know where the field actually stands.",
+          "key_fact": "Published on HuggingFace; covers synthetic data, sim-to-real transfer, and full tooling landscape"
+        },
+        {
+          "id": 62338,
+          "title": "Xaira Argues Causal Models Need Causal Data — and Builds the Lab to Prove It",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The core argument — that training on observational datasets can't produce causal models — has implications far beyond drug discovery. Xaira is generating its own experimental data instead of relying on existing datasets.",
+          "key_fact": "Xaira investing in generating proprietary experimental data rather than training on existing datasets"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 62350,
+          "title": "Grabette: Open-Source Robot Manipulation Data Collection",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Solves the data collection bottleneck that makes training manipulation models painful — pairs with NVIDIA's simulation overview as the physical-data complement to synthetic approaches.",
+          "key_fact": "Open-source system for recording robot manipulation data; addresses key training bottleneck"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 62402,
+      "title": "Motif-3-Beta Enters the Mid-Tier Open Model Race",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "New text generation model trending on HuggingFace (119 likes)",
+      "key_fact": "119 HuggingFace likes; from Motif Technologies"
+    },
+    {
+      "id": 62318,
+      "title": "Chinese AI Divides the White House as Anthropic Pays Record Copyright Settlement",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Two regulatory pressure points shifting fast for US AI companies",
+      "key_fact": "MIT Tech Review; covers White House AI policy fracture and record copyright payout"
+    },
+    {
+      "id": 62319,
+      "title": "Materials Science Is the Hidden Bottleneck for AI Scaling",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The argument that hardware materials — not algorithms — gate the next generation",
+      "key_fact": "MIT Tech Review; advanced materials as limiting factor for AI hardware"
+    },
+    {
+      "id": 62422,
+      "title": "Frontier Models Try to Draw the Mona Lisa in a Head-to-Head Comparison",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Controlled visual generation benchmark across GPT-5.6, Claude, Gemini, and Grok",
+      "key_fact": "69 HN likes; reproducible test across four frontier models"
+    },
+    {
+      "id": 62169,
+      "title": "Trump's Latest AI Czar Has Already Resigned",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The US AI policy revolving door signals sustained regulatory instability",
+      "key_fact": "Latest CAISI director steps down; second policy departure in recent months"
+    }
+  ],
+  "total_items": 19
+}

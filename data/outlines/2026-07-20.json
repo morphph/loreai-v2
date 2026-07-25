@@ -1,0 +1,127 @@
+{
+  "date": "2026-07-20",
+  "headline_hook": "Claude Code Goes Rust-Native While Codex Shrinks and AI Makes People Confidently Wrong",
+  "preview_topics": [
+    "Claude Code's Rust-powered engine swap",
+    "Kimi K3's subscription-breaking demand",
+    "the confidence trap in AI-assisted decisions"
+  ],
+  "pick_of_the_day": {
+    "item_id": 62165,
+    "thesis": "The 3x-less-accurate-but-2x-more-confident finding isn't a UX footnote — it's an indictment of every product that ships AI suggestions without friction, and the first rigorous evidence that 'AI-assisted' can mean 'AI-impaired' at scale."
+  },
+  "model_literacy": {
+    "concept": "Context Window Economics",
+    "relevance": "OpenAI cutting Codex from 372k to 272k tokens reveals that context windows have real cost-per-token trade-offs — bigger isn't always sustainable, and developers need to understand the inference cost curve that drives these decisions."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 62168,
+          "title": "Kimi K3 demand forces Moonshot AI to halt new signups",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A capacity-driven subscription freeze validates K3's disruptive positioning and signals genuine market pull, not just benchmark hype",
+          "key_fact": "Moonshot suspended all new subscriptions due to overwhelming K3 demand"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 62166,
+          "title": "Anthropic quietly rewrites Claude Code on Bun's Rust runtime",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The biggest AI coding tool just swapped its entire JS runtime for performance — a signal that CLI tool architecture is entering its compiled-first era",
+          "key_fact": "Claude Code now runs on Bun (Rust-based JS runtime), replacing Node.js"
+        },
+        {
+          "id": 62167,
+          "title": "OpenAI cuts Codex context window by 100K tokens",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "A rare public regression that exposes the unsustainable economics of long-context inference — developers with >272K workflows need to restructure now",
+          "key_fact": "Context reduced from 372K to 272K tokens, a 27% cut"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 62165,
+          "title": "Study: AI advice makes people 3x less accurate but 2x more confident",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "First rigorous quantification of the confidence-accuracy inversion in AI-assisted decisions — a direct challenge to every 'copilot' product's value proposition",
+          "key_fact": "Users became 3x less accurate while reporting 2x higher confidence when following AI advice"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 62080,
+          "title": "Simon Willison: AI mania is degrading institutional decision-making",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "One of tech's most credible voices argues the damage isn't just individual hype — it's systemic, warping how organizations allocate resources and evaluate risk",
+          "key_fact": "Essay argues AI hype is degrading decision quality at institutional scale, not just individual"
+        },
+        {
+          "id": 62045,
+          "title": "Jensen Huang's Japan tour locks in NVIDIA's Asia infrastructure play",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The deals span data centers to automotive AI — anyone building on NVIDIA infrastructure should watch the chip supply chain implications",
+          "key_fact": "Huang secured deals across Japan's entire tech ecosystem from data centers to automotive"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 62150,
+          "title": "Qwen3.6-27B Fable Fusion: community mashup hits 16.7K downloads",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Open-model builders keep shipping creative architecture fusions that run on consumer GPUs — the gap between lab models and community models is narrowing",
+          "key_fact": "27B multimodal GGUF with multi-token prediction, 16.7K downloads on HuggingFace"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 62046,
+      "title": "Apple lawsuit could derail OpenAI's hardware and IPO timeline",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Legal and strategic angles most coverage has missed",
+      "key_fact": "Apple's suit targets OpenAI's hardware ambitions directly"
+    },
+    {
+      "id": 61914,
+      "title": "Dave Eggers tells 200 OpenAI staff that ChatGPT is 'silencing a generation'",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Altman invited the critique — says something about internal culture debate",
+      "key_fact": "Sam Altman personally invited Eggers to address staff"
+    },
+    {
+      "id": 61910,
+      "title": "Index Ventures co-founder: AI wealth concentration will face redistribution pressure",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A VC insider publicly acknowledging the political trajectory",
+      "key_fact": "Neil Rimer predicts voluntary or forced redistribution of AI wealth"
+    }
+  ],
+  "total_items": 10
+}

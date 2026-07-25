@@ -1,0 +1,204 @@
+{
+  "date": "2026-07-23",
+  "headline_hook": "An Eval Pipeline Accidentally Attacks Hugging Face While Anthropic Maps AI's Economic Future",
+  "preview_topics": [
+    "the OpenAI–Hugging Face security incident",
+    "Anthropic's economic research push",
+    "a wave of open-weight model drops"
+  ],
+  "pick_of_the_day": {
+    "item_id": 62460,
+    "thesis": "The accidental DDoS reveals that eval pipelines — the invisible plumbing of open model sharing — are an unguarded attack surface, and the industry's trust model for model distribution assumes a level of coordination that doesn't exist."
+  },
+  "model_literacy": {
+    "concept": "Eval Pipeline as Attack Surface",
+    "relevance": "When OpenAI's automated evaluation hammered Hugging Face's infrastructure, it exposed how model-sharing pipelines can become unintentional weapons — understanding this failure mode is prerequisite to building resilient open-model infrastructure."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 62525,
+          "title": "Upstage Drops Solar Open2 at 250B Parameters",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "A serious open-weights contender at frontier scale — the 250B parameter class is no longer closed-model territory",
+          "key_fact": "250B parameters, open weights, trending with 214 HuggingFace likes"
+        },
+        {
+          "id": 62524,
+          "title": "Nanbeige 4.2-3B Packs Heat in the Small-Model Race",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "The 3B parameter sweet spot keeps getting more competitive as labs race to fit frontier reasoning into edge-deployable sizes",
+          "key_fact": "3B parameters, 228 HuggingFace likes — outpacing much larger model launches in community interest"
+        },
+        {
+          "id": 62533,
+          "title": "Microsoft Quietly Enters Text-to-Image with Mage-Flow",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Microsoft has been conspicuously absent from the image generation race — Mage-Flow signals they're done sitting it out",
+          "key_fact": "Microsoft's first open text-to-image model, 116 HuggingFace likes"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 62487,
+          "title": "Anthropic Makes Its Economic Index Queryable Through Claude",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Turning a static research report into an interactive data connector shows where conversational AI is heading — from answering questions to being the interface to live datasets",
+          "key_fact": "Interactive connector lets anyone query real AI economic data through Claude conversations"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 62500,
+          "title": "How to Build Verification Loops in Claude Code with Skills",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "The most actionable piece today — a practical pattern for making Claude Code workflows self-correcting, directly applicable to anyone's automation stack",
+          "key_fact": "Uses the skills system to create automated verification loops that catch errors before they ship"
+        },
+        {
+          "id": 62553,
+          "title": "Making LeRobot's Video Reader 15× Faster",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A nuts-and-bolts engineering deep-dive into the kind of infrastructure optimization that unlocks new robotics training workflows",
+          "key_fact": "15× speedup on HuggingFace's LeRobot video pipeline"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 62470,
+          "title": "The Open-Closed Model Gap Is Shrinking Faster Than Expected",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Interconnects' comprehensive roundup of Kimi K3, Qwen 3.8, and distillation debates paints a picture of open models closing ground at an accelerating pace",
+          "key_fact": "Covers Kimi K3, Qwen 3.8, Xi's WAIC speech, and the distillation controversy in one analysis"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 62460,
+          "title": "OpenAI's Eval Pipeline Accidentally DDoS'd Hugging Face — And It's a Wake-Up Call",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Simon Willison's breakdown reveals how automated eval infrastructure became an unintentional attack vector — the kind of failure that forces the industry to rethink how model sharing works",
+          "key_fact": "OpenAI's evaluation pipeline generated enough traffic to constitute an accidental cyberattack on HuggingFace's infrastructure"
+        },
+        {
+          "id": 62486,
+          "title": "Anthropic Publishes Its Economic Futures Research Agenda",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "While other labs ship products, Anthropic is investing in understanding what AI does to jobs and economies — a bet that being right about impacts matters as much as being first to market",
+          "key_fact": "Full research agenda for the Economic Futures Research Fund, focused on AI's labor market and economic impact"
+        },
+        {
+          "id": 62488,
+          "title": "Anthropic Puts Another $20M Behind Policy Influence",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The second major donation to Public First Action cements Anthropic's strategy of buying a seat at the policy table — a play none of its competitors are matching at this scale",
+          "key_fact": "$20M additional donation to Public First Action, on top of previous funding"
+        },
+        {
+          "id": 62465,
+          "title": "AI Cybersecurity Hits a Tipping Point This Week",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Flash Cyber, Outtake, and the OpenAI/HF incident all in one week — Latent Space argues this is the moment cybersecurity-AI convergence goes mainstream",
+          "key_fact": "Multiple cybersecurity-AI launches and incidents in a single week signal an industry inflection point"
+        },
+        {
+          "id": 62472,
+          "title": "Google Commits $40M in Compute to Scientific Discovery",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The largest AI-for-science commitment from a major lab this year — Google is betting that scientific discovery is where AI compute generates the highest-leverage returns",
+          "key_fact": "$40M in AI compute credits through the Genesis Mission, Google's biggest science-focused AI commitment"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 62501,
+          "title": "How Outtake Built a Production Cyber Investigator on Claude",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A case study in building real cybersecurity tooling on top of Claude — pairs with the week's broader cybersecurity-AI trend to show what the application layer looks like",
+          "key_fact": "Production cybersecurity investigation tool built on Claude, from architecture to deployment"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 62548,
+      "title": "Are AI Labs 'Pelicanmaxxing' Their Capability Claims?",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Growing skepticism about demo-driven marketing vs. real-world performance",
+      "key_fact": "350 likes, 138 RTs — the meme is resonating"
+    },
+    {
+      "id": 62476,
+      "title": "Google Brings AI Features to Samsung's Galaxy Unpacked",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "AI integration is now the default pitch for consumer hardware",
+      "key_fact": "AI features for foldables, watches, and glasses"
+    },
+    {
+      "id": 62298,
+      "title": "Meta Tests StoryKit, an AI Bedtime Story App for Kids",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Meta's first consumer AI product aimed at families",
+      "key_fact": "AI-generated children's stories — Meta's family-market test"
+    },
+    {
+      "id": 62550,
+      "title": "How Children Anthropomorphize AI Chatbots",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Timely research as AI products target younger users",
+      "key_fact": "Study on children's anthropomorphism patterns with LLM chatbots"
+    },
+    {
+      "id": 62549,
+      "title": "What Happens to 'Making' When AI Handles the Execution?",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A philosophical essay resonating hard with builders — 257 HN likes",
+      "key_fact": "257 likes on Hacker News"
+    },
+    {
+      "id": 62551,
+      "title": "A Catalog of AI Menu Redesigns Gone Horribly Wrong",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Entertaining cautionary tale about deploying generative AI for visual design",
+      "key_fact": "169 HN likes, 133 RTs — viral for good reason"
+    }
+  ],
+  "total_items": 19
+}

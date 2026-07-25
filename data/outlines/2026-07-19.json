@@ -1,0 +1,191 @@
+{
+  "date": "2026-07-19",
+  "headline_hook": "GPT-5.6 Closes a 30-Year Math Gap While Stack Overflow Falls Off a Cliff",
+  "preview_topics": [
+    "GPT-5.6's convex optimization proof",
+    "Stack Overflow's post-AI collapse",
+    "speech recognition in 500 kilobytes"
+  ],
+  "pick_of_the_day": {
+    "item_id": 62040,
+    "thesis": "Closing a 30-year-old gap in convex optimization isn't impressive because a model did math — it's impressive because it suggests frontier LLMs are now generating novel mathematical objects that human researchers can verify but hadn't discovered, fundamentally changing the researcher-tool relationship."
+  },
+  "model_literacy": {
+    "concept": "Proof Discovery vs. Proof Verification",
+    "relevance": "GPT-5.6's convex optimization result crosses the line from AI-as-calculator (verifying or reproducing known proofs) to AI-as-collaborator (proposing novel constructions humans hadn't found). Understanding this distinction helps builders evaluate which 'AI does math' claims represent genuine capability advances."
+  },
+  "sections": [
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 62040,
+          "title": "GPT-5.6 Bridges a 30-Year Gap in Convex Optimization",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Not a benchmark flex — a frontier model producing a novel mathematical construction that closes an open problem. This is AI contributing to unsolved research, not reproducing textbook answers.",
+          "key_fact": "30-year gap in convex optimization theory reportedly closed via a prompt-driven approach"
+        },
+        {
+          "id": 62042,
+          "title": "Fable 5 vs. GPT-5.6 Sol: Does /goal Actually Help on NP-Hard Problems?",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Independent benchmark pitting Anthropic's /goal reasoning mode against OpenAI's Sol on genuinely hard combinatorial problems — the kind of eval that marketing decks can't fabricate.",
+          "key_fact": "Head-to-head on NP-hard problems tests whether structured goal-setting provides measurable reasoning advantages"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 62044,
+          "title": "Stack Overflow's Traffic Collapse, in One Graph",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The clearest quantitative evidence that LLM coding assistants have fundamentally redirected how developers seek knowledge — not a vibe, a cliff in the data.",
+          "key_fact": "Stack Overflow traffic visualized as a sharp post-LLM decline, not a gradual trend"
+        },
+        {
+          "id": 61945,
+          "title": "Anthropic Makes Fable 5 a Permanent Model",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Moving from 'limited preview' to permanent offering signals Anthropic's confidence that Fable occupies a durable niche in their lineup — developers can now build against it without sunset anxiety.",
+          "key_fact": "Fable 5 transitions from preview to permanent availability"
+        },
+        {
+          "id": 61905,
+          "title": "Kaiser Nurses Say AI Surveillance Is Making Patient Care Worse",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Front-line healthcare workers reporting AI monitoring degrades care quality — a data point enterprise AI vendors need to reconcile with their efficiency narratives.",
+          "key_fact": "Nurses link AI workplace surveillance directly to worse patient outcomes"
+        },
+        {
+          "id": 62041,
+          "title": "First City Bans Undisclosed AI Images in Real Estate Ads",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Municipal-level regulation targeting AI-generated imagery in a specific industry — a bellwether for disclosure mandates spreading across sectors.",
+          "key_fact": "First municipal ban on undisclosed AI-generated images in property advertising"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 61944,
+          "title": "SQLite Query Explainer Translates EXPLAIN Plans to English",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "AI-powered plain-English breakdowns of SQLite execution plans — immediately useful for debugging local-first and embedded database performance.",
+          "key_fact": "Converts raw EXPLAIN output into readable explanations"
+        },
+        {
+          "id": 61862,
+          "title": "Vercel AI SDK 6.0.230 Fixes Non-Streaming Tool Call Ordering",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Event ordering fix for non-streaming tool calls matters most in human-in-the-loop agent UIs where timing determines whether users see coherent state transitions.",
+          "key_fact": "Input event ordering corrected for non-streaming tool calls"
+        },
+        {
+          "id": 61866,
+          "title": "llama.cpp Gets OpenCL Transpose Optimization for Q4_K Models",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Continued non-NVIDIA inference optimization — coalesced reads for quantized models on OpenCL hardware widens the local-inference hardware surface.",
+          "key_fact": "OpenCL transpose with coalesced reads for Q4_K quantization"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 62039,
+          "title": "Full Speech Recognition + TTS in Under 500KB",
+          "section": "BUILD",
+          "prominence": "hero",
+          "angle": "Voice AI that fits on a microcontroller opens a deployment surface that didn't exist before — offline, embedded, zero-network voice interaction for IoT and edge devices.",
+          "key_fact": "Complete ASR and TTS pipeline in less than 500 kilobytes"
+        },
+        {
+          "id": 61661,
+          "title": "Spot Birds Not Golf: Vision Models for Hobbyist Projects",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "A charming demo that computer vision models are accessible enough for weekend nature projects — no PhD required.",
+          "key_fact": "Uses off-the-shelf vision models for real-time bird identification"
+        },
+        {
+          "id": 61847,
+          "title": "bbarit-agent: MIT-Licensed Terminal Coding Agent in a Single Rust Binary",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Self-hostable, connects to 15+ LLM providers — the option for teams whose security posture won't permit cloud-hosted coding agents.",
+          "key_fact": "Single Rust binary, 1,000+ model support, MIT license"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 62043,
+          "title": "Turn a Spare Mac into a Claude Code-Controlled Workstation",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Step-by-step guide to the autonomous coding setup developers keep asking about — from 'cool idea' to running this weekend.",
+          "key_fact": "Complete walkthrough for dedicating a Mac to Claude Code autonomous operation"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 61859,
+      "title": "Next.js Canary 89 Packages Claude Code Skills as a Plugin",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "AI-native dev tooling integration continues",
+      "key_fact": "Claude Code skills as Next.js plugin + Turbopack SSR fix"
+    },
+    {
+      "id": 61946,
+      "title": "Quixote: New AI Tooling Project Flagged by Willison",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Simon's signal-to-noise on tool picks remains high",
+      "key_fact": "New project in the AI tooling space worth watching"
+    },
+    {
+      "id": 61846,
+      "title": "Free Claude Code Skills Collection Gains Traction",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Community curation for the growing skill ecosystem",
+      "key_fact": "Curated free skills repo trending on GitHub"
+    },
+    {
+      "id": 61852,
+      "title": "Anthropic TypeScript SDK v0.112.3",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Documentation improvements ship",
+      "key_fact": "Patch release with doc fixes"
+    },
+    {
+      "id": 61949,
+      "title": "Even Latent Space Says 'Not Much Happened Today'",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Meta-signal: incremental day, depth over breadth",
+      "key_fact": "Latent Space acknowledges a quiet news cycle"
+    }
+  ],
+  "total_items": 18
+}

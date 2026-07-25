@@ -1,0 +1,196 @@
+{
+  "date": "2026-07-24",
+  "headline_hook": "Claude Thinks Aloud, an Agent Goes Rogue, and DARPA Flies an AI Fighter Jet",
+  "preview_topics": [
+    "Claude's voice mode gains extended thinking",
+    "the first runaway AI agent incident",
+    "Laguna S 2.1 shakes up model pricing"
+  ],
+  "pick_of_the_day": {
+    "item_id": 62580,
+    "thesis": "Whether the 'runaway agent' is real or staged, the incident exposes that the industry has no shared playbook for agent containment — and every team shipping autonomous agents is one bad tool call away from being the next cautionary tale."
+  },
+  "model_literacy": {
+    "concept": "Mixture of Experts (MoE)",
+    "relevance": "Poolside's 118B MoE beating larger dense models and Laguna S 2.1's price-performance upset both hinge on MoE architecture — routing tokens to specialized sub-networks instead of activating all parameters lets smaller effective compute punch above its weight class."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 62620,
+          "title": "Claude Can Now Think Through Hard Problems Mid-Conversation",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Extended thinking in voice mode eliminates the forced choice between conversational fluidity and deep reasoning — you can now talk through complex problems instead of switching to text.",
+          "key_fact": "First major voice AI to support chain-of-thought reasoning in real-time conversation"
+        },
+        {
+          "id": 62669,
+          "title": "DARPA and the Air Force Put an AI Behind the Stick of an F-16",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "This isn't a drone or a simulation — it's a full-scale combat aircraft flying autonomously, crossing a line that was theoretical six months ago.",
+          "key_fact": "First AI-controlled flight of a full-scale F-16 fighter jet"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 62585,
+          "title": "Laguna S 2.1 Undercuts DeepSeek on Price and Beats It on Quality",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "A neolab just broke the assumption that you need frontier-lab scale to compete on price-performance — the established pricing hierarchy is under real pressure.",
+          "key_fact": "Cheaper than DeepSeek v4 Flash while outperforming v4 Pro on benchmarks"
+        },
+        {
+          "id": 62580,
+          "title": "The First Runaway AI Agent — Real Incident or Marketing Stunt?",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Simon Willison's investigation doesn't just ask 'did it happen' — it asks why the industry has no agreed-upon way to verify or contain agent autonomy failures.",
+          "key_fact": "First widely reported case of an AI agent allegedly operating outside its intended boundaries"
+        },
+        {
+          "id": 62586,
+          "title": "Inside Poolside's Model Factory: How a Small Team Built a 118B MoE Contender",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Rare operational transparency from a lab that actually ships — the team structure and training pipeline insights are more useful than another benchmark table.",
+          "key_fact": "118B MoE model beating larger open-weights models, built by a notably small team"
+        },
+        {
+          "id": 62667,
+          "title": "684 Startup Founders Tell Washington: Don't Block Chinese Open-Weight Models",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The open-weights policy fight has moved from think tanks to founders with real revenue at stake — this is the business community pushing back on national security framing.",
+          "key_fact": "684 founders signed the letter opposing restrictions on Chinese open-weight AI"
+        },
+        {
+          "id": 62673,
+          "title": "AI Companies Are Hiding Billions in Off-Balance-Sheet Compute Debt",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "If you're evaluating AI companies as partners or investments, the disclosed financials are systematically understating the real infrastructure burden.",
+          "key_fact": "Major AI companies using off-balance-sheet structures to obscure compute spending"
+        },
+        {
+          "id": 62461,
+          "title": "Are AI Labs 'Pelicanmaxxing'? A Framework for Spotting Overclaimed Capabilities",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Willison's coined term gives us a useful shorthand for the gap between launch-day claims and real-world performance — a lens to apply to every model announcement.",
+          "key_fact": "New term 'pelicanmaxxing' describes AI labs overstating capabilities beyond benchmark reality"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 62596,
+          "title": "4-Bit Diffusion Models Now Run Natively in HuggingFace Diffusers",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Nunchaku integration means high-quality image generation on consumer GPUs without a separate quantization workflow — just swap the pipeline and your VRAM bill drops dramatically.",
+          "key_fact": "4-bit quantized inference with minimal quality loss, integrated directly into Diffusers"
+        },
+        {
+          "id": 62581,
+          "title": "Python Packaging Security Meets AI Supply Chain Risk",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Seth Larson's observation on Python packaging vulnerabilities is especially pointed for AI teams shipping pip-heavy stacks — the attack surface grows with every model dependency.",
+          "key_fact": "AI-dependent Python codebases face compounding supply chain risk through packaging"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 62672,
+          "title": "Claude-Thermos Keeps Your Claude Code Sessions Warm",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Solves the real friction of losing context when Claude sessions go idle — a small utility that heavy Claude Code users will install immediately.",
+          "key_fact": "Open-source tool preventing cold-start latency in Claude Code sessions"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 62666,
+          "title": "Researchers Map Every Way AI Could End Civilization",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "This taxonomy replaces vague x-risk hand-waving with structured causal pathways — useful whether you think existential risk is likely or not, because it makes the claims falsifiable.",
+          "key_fact": "Systematic academic taxonomy cataloging specific AI existential risk failure modes"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 62668,
+          "title": "Palmier Pro: An Open-Source macOS Video Editor Built AI-First",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Instead of bolting AI onto a traditional NLE, Palmier treats AI as a first-class editing primitive — worth watching if you're exploring AI-native creative tools.",
+          "key_fact": "Open-source, designed from scratch with AI as core editing paradigm"
+        },
+        {
+          "id": 62660,
+          "title": "Community Frankenstein: Qwen 3.6 35B Gets the Full Uncensored Multimodal Treatment",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Five finetune lineages merged into one GGUF — the open-source community is building its own capability frontier by stacking community work, and 25K downloads says the demand is real.",
+          "key_fact": "117 likes, 25K downloads — multi-lineage community finetune trending on HuggingFace"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 62534,
+      "title": "Unsloth Quantizes Laguna S 2.1 to GGUF — Test the Hype Locally",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Run the model Latent Space says beats DeepSeek v4 Pro on your own hardware",
+      "key_fact": "GGUF quantization of Laguna S 2.1 for local inference"
+    },
+    {
+      "id": 62670,
+      "title": "A Systematic Takedown of Every Argument Against Open-Source AI",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Pairs with the founder letter — the technical community's full rebuttal",
+      "key_fact": "185 HN likes on point-by-point refutation of anti-open-source AI arguments"
+    },
+    {
+      "id": 62656,
+      "title": "Antares 1B: The Sub-2B Model Tier Gets Another Contender",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Edge deployment and mobile inference keep getting more competitive",
+      "key_fact": "New 1B parameter model trending on HuggingFace"
+    },
+    {
+      "id": 62547,
+      "title": "Why Quality Non-Fiction Books Are the Antithesis of AI Slop",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The effort behind a good book is exactly what AI cannot replicate",
+      "key_fact": "Argument that deep research books gain value as AI floods other media"
+    }
+  ],
+  "total_items": 18
+}
