@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "The new rules of context engineering for Claude 5 generation models",
+    "url": "https://www.claude.com/blog/the-new-rules-of-context-engineering-for-claude-5-generation-models",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 10,
+    "composite_score": 40,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Flux 3 X Mimic: The Next Generation of Video-Action Models",
+    "url": "https://bfl.ai/blog/flux-3-mimic",
+    "source": "hackernews",
+    "x_engagement_24h": 356,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33.1068,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "How the product designer who built Claude Design uses it to explore ideas before building them",
+    "url": "https://www.claude.com/blog/how-the-product-designer-who-built-claude-design-uses-it-to-explore-ideas-before-building-them",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 6,
+    "composite_score": 33,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "Claude models explained: choosing the best model for your use case",
+    "url": "https://www.claude.com/blog/claude-models-explained-choosing-the-best-model-for-your-use-case",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 8,
+    "composite_score": 32,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Introducing Claude Opus 5",
+    "url": "https://www.anthropic.com/news/claude-opus-5",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 5,
+    "composite_score": 29,
+    "suggested_angle": "news"
+  }
+]
