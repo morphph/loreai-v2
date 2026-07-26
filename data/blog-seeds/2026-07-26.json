@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Claude Opus 5 launch",
+    "url": "https://support.claude.com/en/articles/12138966-release-notes#july-24-2026",
+    "source": "docs:Claude Apps Release Notes",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "[AINews] Claude Opus 5: Fable-level performance at Opus price (half Fable)",
+    "url": "https://www.latent.space/p/ainews-claude-opus-5-fable-level",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "General Resolution: LLM Usage in Debian",
+    "url": "https://www.debian.org/vote/2026/vote_002",
+    "source": "hackernews",
+    "x_engagement_24h": 75,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.0225,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Show HN: Yorishiro – a macOS terminal where AI agents live",
+    "url": "https://github.com/sktkkoo/Yorishiro",
+    "source": "hackernews",
+    "x_engagement_24h": 38,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.0114,
+    "suggested_angle": "tutorial"
+  },
+  {
+    "topic": "What is happening to jobs? Separating AI hype from reality",
+    "url": "https://siepr.stanford.edu/publications/policy-brief/what-really-happening-jobs-separating-ai-hype-reality",
+    "source": "hackernews",
+    "x_engagement_24h": 21,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.0063,
+    "suggested_angle": "news"
+  }
+]
