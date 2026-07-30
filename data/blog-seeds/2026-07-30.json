@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "unsloth/Kimi-K3-GGUF: image-text-to-text",
+    "url": "https://huggingface.co/unsloth/Kimi-K3-GGUF",
+    "source": "huggingface:trending",
+    "x_engagement_24h": 156,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.0468,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "[AINews] AI is eating Finance; AIE NYC now open",
+    "url": "https://www.latent.space/p/ainews-ai-is-eating-finance-aie-nyc",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Discovering cryptographic weaknesses with Claude",
+    "url": "https://simonwillison.net/2026/Jul/28/discovering-cryptographic-weaknesses-with-claude/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Document-borne AI worms can self-propagate through Copilot for Word",
+    "url": "https://enklypesalt.com/posts/context-collapse-part3-ai-worming-through-word/",
+    "source": "hackernews",
+    "x_engagement_24h": 579,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.1737,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Some thoughts about Anthropic's new cryptanalysis results",
+    "url": "https://blog.cryptographyengineering.com/2026/07/29/some-notes-about-anthropics-new-results/",
+    "source": "hackernews",
+    "x_engagement_24h": 144,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.0432,
+    "suggested_angle": "analysis"
+  }
+]

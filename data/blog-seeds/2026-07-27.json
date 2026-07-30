@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Hugging Face CEO calls for 'radical transparency' after 'unprecedented' OpenAI hack",
+    "url": "https://techcrunch.com/2026/07/26/hugging-face-ceo-calls-for-radical-transparency-after-unprecedented-openai-hack/",
+    "source": "rss:TechCrunch AI",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "owensong/Inflect-Micro-v2: text-to-speech",
+    "url": "https://huggingface.co/owensong/Inflect-Micro-v2",
+    "source": "huggingface:trending",
+    "x_engagement_24h": 175,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.0525,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "The New AI Superpowers: Focus and Followthrough",
+    "url": "https://www.rickmanelius.com/p/the-new-ai-superpowers-focus-and",
+    "source": "hackernews",
+    "x_engagement_24h": 160,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.048,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "An Inside Look at the Relay Market Powering Token Resellers and Fraud",
+    "url": "https://simonwillison.net/2026/Jul/26/relay-market/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Librarians are hosting viral 'Avoiding AI' workshops for people who are fed up with Big Tech",
+    "url": "https://techcrunch.com/2026/07/25/librarians-are-hosting-viral-avoiding-ai-workshops-for-people-who-are-fed-up-with-big-tech/",
+    "source": "rss:TechCrunch AI",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9,
+    "suggested_angle": "news"
+  }
+]
