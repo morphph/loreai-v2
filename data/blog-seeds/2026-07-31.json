@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Agent Skill to Force Docs in ASD-STE100 Simplified Technical English",
+    "url": "https://github.com/AminBlg/SimpleEnglish",
+    "source": "hackernews",
+    "x_engagement_24h": 208,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.0624,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Gemini Robotics ER 2: powering robotics with video understanding, task orchestration, and multi-robot collaboration",
+    "url": "https://deepmind.google/blog/gemini-robotics-er-2-powering-robotics-with-video-understanding-task-orchestration-and-multi-robot-collaboration/",
+    "source": "rss:DeepMind Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Gemini Robotics 2 brings whole body intelligence to robots",
+    "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+    "source": "rss:DeepMind Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Advancing the price-performance frontier with GPT‑5.6",
+    "url": "https://openai.com/index/advancing-the-price-performance-frontier-with-gpt-5-6/",
+    "source": "hackernews",
+    "x_engagement_24h": 775,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.2325,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "GCC steering committee announces AI policy",
+    "url": "https://lwn.net/Articles/1086041/",
+    "source": "hackernews",
+    "x_engagement_24h": 499,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.1497,
+    "suggested_angle": "news"
+  }
+]
