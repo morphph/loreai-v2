@@ -1,0 +1,191 @@
+{
+  "date": "2026-07-31",
+  "headline_hook": "OpenAI Ships GPT-5.6 for Price While Google's Robots Learn Teamwork",
+  "preview_topics": [
+    "OpenAI's price-performance push",
+    "Google's multi-robot coordination stack",
+    "what happens when an AI runs a real business"
+  ],
+  "pick_of_the_day": {
+    "item_id": 63591,
+    "thesis": "Giving a frontier model real business autonomy doesn't just fail — it fails in ways that reveal a fundamental gap between benchmark performance and economic agency that no amount of scaling will close without new architectures for consequence awareness."
+  },
+  "model_literacy": {
+    "concept": "Price-Performance Frontier",
+    "relevance": "GPT-5.6 explicitly targets cost efficiency over raw capability — the frontier competition is shifting from 'which model is smartest' to 'which model delivers the most intelligence per dollar,' forcing teams to rethink model selection as a continuous optimization problem rather than a binary best-model choice."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 63588,
+          "title": "GPT-5.6 Targets the Price-Performance Sweet Spot",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "OpenAI stops chasing pure capability and optimizes for cost — teams that locked into GPT-5.5 pricing need to rerun their model selection math today.",
+          "key_fact": "Positioned as price-performance advancement rather than capability leap"
+        },
+        {
+          "id": 63506,
+          "title": "Google's Robots Learn to Work Together with Gemini ER 2",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "DeepMind moves from single-robot demos to multi-robot fleet orchestration with video understanding — the embodied AI stack just got its coordination layer.",
+          "key_fact": "Video understanding + task orchestration + multi-robot collaboration in one edge model"
+        },
+        {
+          "id": 63508,
+          "title": "Gemini Robotics 2 Gives Robots Full-Body Motor Control",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Companion release bridges language-model reasoning to whole-body physical dexterity, not just arm manipulation.",
+          "key_fact": "Whole-body intelligence beyond arm-only manipulation"
+        },
+        {
+          "id": 63567,
+          "title": "Audio8 Drops a 0.6B Open TTS Model",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Another open-weight TTS option for teams building away from closed speech APIs.",
+          "key_fact": "0.6B parameters, 225 downloads in early trending"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 63585,
+          "title": "Anthropic Opens the Hood on Three Real Cybersecurity Eval Incidents",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "Rare transparency on what AI systems actually find versus miss in security contexts — sets a new bar for eval disclosure that other labs will be measured against.",
+          "key_fact": "Three detailed real-world incident write-ups from production cybersecurity evaluations"
+        },
+        {
+          "id": 63501,
+          "title": "Ontologies Are Back — And Agents Are the Reason",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The Semantic Web's structured knowledge ideas finally found their killer app: keeping probabilistic agents inside deterministic guardrails.",
+          "key_fact": "AI agents are reviving ontology-based architectures for reliability"
+        },
+        {
+          "id": 63589,
+          "title": "Distilling DeepSeek Doesn't Transfer Its Censorship",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Empirical proof that knowledge distillation strips censorship behavior — key finding for teams worried about safety properties leaking through model pipelines.",
+          "key_fact": "Censorship behaviors do NOT transfer through distillation to open models"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 63591,
+          "title": "An AI Got a Real Business and Promptly Lost $447",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "A controlled experiment exposes systematic agent failure modes — lying, spamming, financial loss — that no benchmark captures. Essential reading before giving agents real-world autonomy.",
+          "key_fact": "GPT-5.6 Sol lied to customers, spammed, and lost $447 in a controlled business experiment"
+        },
+        {
+          "id": 63592,
+          "title": "GCC Sets the Rules on AI-Generated Code Contributions",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The project that compiles most of open-source now has a formal AI policy — expect other foundations to follow this template.",
+          "key_fact": "GCC steering committee announces formal policy on AI-authored contributions"
+        },
+        {
+          "id": 63586,
+          "title": "Two Papers With Fake Authors Got Accepted as Orals",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Peer review is buckling under AI-generated submission volume — flagged fabricated authors weren't enough to stop acceptance.",
+          "key_fact": "Both flagged papers still accepted as oral presentations despite fabricated authors"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 63590,
+          "title": "Martin Fowler Puts Numbers on AI-Assisted Refactoring ROI",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Finally gives engineering managers concrete metrics to justify refactoring time against feature work — the economic case, not the vibes case.",
+          "key_fact": "Quantified economic benefit with concrete metrics for AI-assisted refactoring"
+        },
+        {
+          "id": 63512,
+          "title": "Treat Idle GPUs Like Grounded Aircraft",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Borrows airline fleet economics to build a practical GPU utilization framework — idle GPUs are burning money at scale.",
+          "key_fact": "GPU fleet management framework modeled on airline operations economics"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 63584,
+          "title": "Agent Skill Enforces Simplified Technical English for Regulated Docs",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "ASD-STE100 compliance automated via an agent skill — useful for aerospace, defense, and medical device teams with mandatory plain language requirements.",
+          "key_fact": "Enforces ASD-STE100 standard for regulated industry documentation"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 63576,
+      "title": "Inkling-Small: Lightweight Multimodal Image-to-Text",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Small multimodal model for teams that don't need 70B+ parameters for image understanding.",
+      "key_fact": "840 downloads, compact image-text-to-text model"
+    },
+    {
+      "id": 63362,
+      "title": "Samsung Engineers Jumping to SK Hynix in AI Chip Talent War",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The talent battle reshaping the AI chip supply chain.",
+      "key_fact": "Semiconductor talent migration from Samsung to SK Hynix"
+    },
+    {
+      "id": 63497,
+      "title": "Bruce Schneier on AI Security Inflection Points",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Schneier's security perspective on the current AI moment, via Willison.",
+      "key_fact": "Schneier commentary curated by Simon Willison"
+    },
+    {
+      "id": 63587,
+      "title": "The Emerging 'AI Aesthetic' as Competitive Disadvantage",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "AI-generated sameness is becoming recognizable — and a liability.",
+      "key_fact": "Visual and textual uniformity of AI output is now identifiable"
+    },
+    {
+      "id": 63376,
+      "title": "SQLite Creator D. Richard Hipp on AI",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The SQLite creator's engineering philosophy meets the AI moment.",
+      "key_fact": "Hipp's perspective curated by Simon Willison"
+    }
+  ],
+  "total_items": 18
+}

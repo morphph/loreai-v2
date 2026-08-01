@@ -1,0 +1,148 @@
+{
+  "date": "2026-07-26",
+  "headline_hook": "Open Weights Hit Their Kubernetes Moment as Opus 5 Halves the Frontier Price",
+  "preview_topics": [
+    "the Opus 5 price-performance shakeup",
+    "open-weight AI's infrastructure inflection",
+    "context engineering for Claude 5 models"
+  ],
+  "pick_of_the_day": {
+    "item_id": 62937,
+    "thesis": "Open-weight AI crossing from 'interesting alternative' to 'default infrastructure' follows the exact Kubernetes playbook — and history says once that threshold is crossed, the proprietary incumbents don't lose market share gradually, they lose it all at once in specific segments."
+  },
+  "model_literacy": {
+    "concept": "Knowledge Distillation",
+    "relevance": "Opus 5 achieving Fable-level performance at half the cost is a distillation story — a smaller model trained to replicate a larger model's behavior. Understanding distillation explains why frontier performance keeps getting cheaper and why today's premium tier becomes tomorrow's default."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 62753,
+          "title": "Opus 5 Ships: Anthropic's New Flagship Goes Official",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "The official release notes confirm what leaked yesterday — Opus 5 is live and the benchmark story is secondary to the pricing story",
+          "key_fact": "Fable-level performance at half the Fable price point"
+        },
+        {
+          "id": 62674,
+          "title": "Reid Hoffman and Mark Pincus Bet $100M on Computer-Use Agents",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "A new AI neolab entering the computer-use space with serious capital signals the market believes task automation will outpace coding as AI's killer app",
+          "key_fact": "$100M raise for Prentis, focused on automating routine computer tasks"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 62934,
+          "title": "Anthropic Publishes the Context Engineering Playbook for Claude 5",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "The official guide is gaining a second wave on HN — community discussion adds practical edge cases Anthropic's post doesn't cover",
+          "key_fact": "Anthropic's first-party context engineering guide specifically for Claude 5 generation models"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 62821,
+          "title": "Latent Space Decodes Opus 5: The Distillation Thesis",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The 'distilled Fable' framing adds a technical narrative that Anthropic's own marketing carefully avoids — and it explains the pricing better than any benchmark table",
+          "key_fact": "Latent Space positions Opus 5 as a distillation of Fable rather than an independent training run"
+        },
+        {
+          "id": 62937,
+          "title": "Open-Weight AI Is Having Its Kubernetes Moment",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "295 HN likes validate the thesis — open weights are crossing from 'viable alternative' to 'default infrastructure choice' the same way K8s displaced proprietary orchestrators",
+          "key_fact": "295 likes on HN, highest engagement of any AI infrastructure essay this week"
+        },
+        {
+          "id": 62936,
+          "title": "Debian Votes on LLM Policy — Linux's AI Precedent",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Whatever Debian decides about AI-generated code becomes the de facto policy for the entire Linux ecosystem downstream",
+          "key_fact": "Formal general resolution vote on LLM usage policy for Debian project contributions"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 62935,
+          "title": "Stanford Separates AI Job Displacement Hype from Data",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Hard data from Stanford's economics institute cuts through both doom and dismissal narratives on AI employment impact",
+          "key_fact": "SIEPR policy brief with empirical data on actual job market changes vs. predictions"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 62938,
+          "title": "A 28.9M Parameter LLM Running on an $8 ESP32",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Truly offline, truly private AI at the extreme edge — the engineering to fit a functional LLM on a microcontroller opens IoT use cases nobody priced in",
+          "key_fact": "28.9M parameter model running on an ESP32 microcontroller costing $8"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 62816,
+          "title": "Ruff v0.16.0: The Rust Linter That's Eating Python Tooling",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Another major release cements Ruff as the default Python linting choice for ML teams who can't afford slow CI",
+          "key_fact": "v0.16.0 release — rapidly replacing flake8 and pylint in production Python stacks"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 62675,
+      "title": "Cognition Acquires Poke: The Coding Agent UX War Begins",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Devin maker buys a personality startup — how your AI talks is now a competitive moat",
+      "key_fact": "Cognition acquired conversational-personality startup Poke"
+    },
+    {
+      "id": 62939,
+      "title": "Yorishiro: A macOS Terminal Built for Agent-Native Workflows",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Native terminal where AI agents are first-class persistent residents, not plugins",
+      "key_fact": "Open-source macOS terminal designed ground-up for AI agent sessions"
+    },
+    {
+      "id": 62817,
+      "title": "Boris Cherny on the State of AI-Assisted Development",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Curated insight via Simon Willison on where AI dev tooling is heading",
+      "key_fact": "Notable perspective highlighted by Simon Willison"
+    }
+  ],
+  "total_items": 12
+}

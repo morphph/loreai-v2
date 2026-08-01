@@ -1,0 +1,172 @@
+{
+  "date": "2026-07-30",
+  "headline_hook": "Google Ships Lyria 3.5 as AI Worms Burrow Through Copilot and Frontier Labs Blink",
+  "preview_topics": [
+    "Google's Lyria 3.5 music platform",
+    "self-propagating AI worms in Copilot",
+    "frontier labs jointly urge pacing AI"
+  ],
+  "pick_of_the_day": {
+    "item_id": 63464,
+    "thesis": "The document-borne AI worm isn't just a clever exploit — it reveals that every enterprise document ecosystem with copilot access is now an attack surface, and the implicit trust chains organizations built by giving AI read-write permissions are the real vulnerability."
+  },
+  "model_literacy": {
+    "concept": "Context Poisoning (Indirect Prompt Injection Propagation)",
+    "relevance": "Today's AI worm exploits the fact that LLMs cannot distinguish instructions from data in documents they process — when your copilot reads an infected doc, malicious instructions execute as if they were user commands, then propagate to new documents. Builders integrating document-processing AI need to understand this trust boundary failure."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 63386,
+          "title": "Google DeepMind Drops Lyria 3.5 — AI Music Gets Its GPT-4 Moment",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Lyria 3.5 leapfrogs Suno and Udio with improved vocals, lyrics understanding, and granular creative controls — Google is positioning Flow Music as the professional-grade AI music platform, not a toy",
+          "key_fact": "Advances across musicality, lyrics, vocals, and creative control in Google Flow Music"
+        },
+        {
+          "id": 63413,
+          "title": "OpenAI Launches ChatGPT for Academic Researchers",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "OpenAI's first purpose-built vertical product beyond coding signals that enterprise growth now comes from domain-specific offerings, not general-purpose chat improvements",
+          "key_fact": "First dedicated academic research product from a frontier AI lab"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 63464,
+          "title": "AI Worms Self-Propagate Through Microsoft Copilot for Word",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "A security researcher demonstrates a novel attack vector where malicious instructions embedded in documents spread through Copilot — every doc your AI touches becomes a potential infection point",
+          "key_fact": "Worm self-propagates when Copilot processes an infected document, then injects itself into new documents the user creates"
+        },
+        {
+          "id": 63254,
+          "title": "Willison Unpacks Anthropic's Claude Cryptanalysis Breakthrough",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Accessible bridge between Anthropic's dense HAWK-256 research paper and what it actually means for practitioners building on post-quantum crypto",
+          "key_fact": "Claude discovered a genuine weakness in the HAWK-256 post-quantum signature scheme"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 63382,
+          "title": "OpenAI, Anthropic, DeepMind, and Meta Jointly Urge Pacing AI Development",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The biggest labs co-signing a 'pace AI' letter while HuggingFace simultaneously publishes machine-speed cyberattack details creates the most consequential safety policy moment of 2026",
+          "key_fact": "Major frontier labs cosign RSI-concerns letter as HuggingFace details a machine-speed offensive cyberattack"
+        },
+        {
+          "id": 63467,
+          "title": "Cryptography Expert Matthew Green Weighs In on Anthropic's HAWK-256 Finding",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Green's independent assessment adds crucial nuance — what the finding actually means for post-quantum migration timelines and which concerns are overhyped",
+          "key_fact": "Independent expert analysis of what the Claude-discovered HAWK-256 attack means for post-quantum cryptography"
+        },
+        {
+          "id": 63463,
+          "title": "The Open Research Era at AI Startups Is Officially Over",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Science magazine documents the measurable publication decline — the gap between what the public knows and what labs know is widening fast",
+          "key_fact": "Measurable decline in research publications from top AI startups documented by Science"
+        },
+        {
+          "id": 63257,
+          "title": "Inside the July 2026 Agent Intrusion: A Technical Post-Mortem",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Willison's forensic breakdown of the tool permission chain that enabled the breach is a blueprint for what NOT to do with agent permissions",
+          "key_fact": "Detailed technical timeline showing the specific chain of tool permissions that enabled the breach"
+        },
+        {
+          "id": 63381,
+          "title": "AI Is Eating Finance — And the Budgets Are Real",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Finance emerges as the next major AI vertical after coding, with trading, compliance, and risk management automation already in production",
+          "key_fact": "Finance identified as the enterprise vertical where AI budgets are actively shifting"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 63379,
+          "title": "Build One MCP Server, Connect to Both Claude and ChatGPT",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Practical cross-platform MCP guide arrives just as the protocol goes production-ready — build once, plug into both major AI assistants",
+          "key_fact": "Step-by-step guide for custom MCP server compatible with both Claude and ChatGPT"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 63466,
+          "title": "LLM Honeypot: Can You Tell the Human from the Machine?",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "An interactive benchmark for your own AI detection instincts — and a sobering demo of how far generation quality has come",
+          "key_fact": "Interactive tool challenging users to distinguish LLM-generated responses from human ones"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 63445,
+          "title": "Kimi K3 Gets the GGUF Treatment — Run Moonshot's Flagship Locally",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "Unsloth's quantization makes the trending multimodal model from Moonshot AI runnable on consumer hardware, with 156 HuggingFace likes signaling serious community demand",
+          "key_fact": "156 likes on HuggingFace for GGUF quantization of Kimi K3 multimodal model"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 63465,
+      "title": "The Circular AI Deal Problem Nobody Wants to Talk About",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Cloud providers invest in AI startups who spend it on cloud credits — growth without real value creation",
+      "key_fact": "Analysis of circular deal structures inflating AI industry growth metrics"
+    },
+    {
+      "id": 63450,
+      "title": "Solar Open2 250B Squeezed to 4-Bit NVFP4 — Actually Deployable",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Nota AI's FP4 quantization could change the economics of running frontier-scale open models",
+      "key_fact": "250B parameter model made practically deployable via NVIDIA NVFP4 quantization, 6.2K downloads"
+    },
+    {
+      "id": 63458,
+      "title": "Qwen 3.5 9B Hits 112K Downloads as Local Multimodal Race Heats Up",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Download numbers suggest real production usage of small multimodal models, not just hobbyist tinkering",
+      "key_fact": "112.1K downloads for optimized Qwen 3.5 9B GGUF quantization"
+    }
+  ],
+  "total_items": 15
+}

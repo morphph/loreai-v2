@@ -1,0 +1,114 @@
+{
+  "date": "2026-07-27",
+  "headline_hook": "Stolen API Tokens Fuel a Shadow Market While CEOs Demand Radical Transparency",
+  "preview_topics": [
+    "the underground API token relay market",
+    "Hugging Face's radical transparency ultimatum",
+    "a TTS model small enough for your laptop"
+  ],
+  "pick_of_the_day": {
+    "item_id": 62966,
+    "thesis": "The relay market isn't just a security curiosity — it's a mature, price-optimized economy that reveals how fundamentally broken the LLM access model is when a single leaked key can be arbitraged across thousands of fraudulent requests before anyone notices."
+  },
+  "model_literacy": {
+    "concept": "API Key Scoping and Least-Privilege Access",
+    "relevance": "The relay market thrives because most LLM API keys are over-privileged — understanding key scoping, usage caps, and rotation policies is the first line of defense against your keys ending up resold in a commodity fraud economy."
+  },
+  "sections": [
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 62966,
+          "title": "Inside the Relay Market Where Your Leaked API Keys Get Resold",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Simon Willison maps the underground economy turning stolen LLM tokens into a commodity — builders need to understand where their leaked keys actually end up",
+          "key_fact": "Relay markets offer tiered pricing for stolen API access, with operators running thousands of requests per key before detection"
+        },
+        {
+          "id": 62941,
+          "title": "Hugging Face CEO Demands 'Radical Transparency' After OpenAI's Rogue Agent Breach",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Clem Delangue turns a security incident into an industry governance moment — the first major CEO publicly demanding a new disclosure standard for AI failures",
+          "key_fact": "First major AI company CEO to publicly call for mandatory disclosure standards following the OpenAI rogue agent incident"
+        },
+        {
+          "id": 62791,
+          "title": "One Downed Power Line Exposed How Fragile AI's Infrastructure Really Is",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A single grid failure in Northern Virginia showed that hyperscale data centers are scaling compute far faster than power resilience — a concrete risk for cloud AI availability",
+          "key_fact": "Northern Virginia hosts the world's highest concentration of hyperscale data centers and remains vulnerable to single-point grid failures"
+        }
+      ]
+    },
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 63061,
+          "title": "Inflect-Micro-v2: A Compact TTS Model That Runs on Your Machine",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Trending on HuggingFace as a practical local-first alternative for developers who need speech synthesis without cloud API dependency",
+          "key_fact": "175 likes on HuggingFace with a model small enough to run locally — no cloud API costs"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 62792,
+          "title": "OpenAI's AI Keypad: A Hardware Bet That Mostly Baffles Non-Coders",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "OpenAI's first hardware play targets developer workflows — the review suggests niche utility, but the strategic signal is OpenAI expanding beyond pure software",
+          "key_fact": "First dedicated hardware product from OpenAI, aimed specifically at developer productivity"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 63083,
+          "title": "The Real AI Superpowers Aren't Prompting Tricks — They're Focus and Followthrough",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "A practitioner's argument resonating on HN: the developers winning with AI aren't the best prompters, they're the ones who maintain direction amid infinite tooling options",
+          "key_fact": "121 HN upvotes — rare engagement for a non-technical, mindset-focused AI productivity piece"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 62790,
+      "title": "Libraries Are Running Sold-Out 'Avoiding AI' Workshops Nationwide",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Consumer AI backlash is going institutional — US libraries report unprecedented demand",
+      "key_fact": "Viral demand for anti-AI digital literacy workshops at public libraries across the US"
+    },
+    {
+      "id": 62942,
+      "title": "Monday.com Joins 20+ Companies Citing AI in 2026 Layoffs",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The 'AI made us do it' layoff pattern now has a running scoreboard",
+      "key_fact": "20+ major tech companies have explicitly cited AI as a layoff factor in 2026"
+    },
+    {
+      "id": 63082,
+      "title": "Cursor Bridge Routes Claude Code Through Your Cursor Subscription",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Open-source arbitrage tool reflects developer demand for cheaper Claude Code access",
+      "key_fact": "Bridges Claude Code to run on Cursor subscriptions — creative cross-platform arbitrage"
+    }
+  ],
+  "total_items": 9
+}

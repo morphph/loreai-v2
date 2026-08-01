@@ -1,0 +1,122 @@
+{
+  "date": "2026-07-28",
+  "headline_hook": "Google and Microsoft Ship Cybersecurity Models as Anthropic Draws the Line on Open Weights",
+  "preview_topics": [
+    "the cybersecurity model arms race",
+    "Anthropic's cross-industry jailbreak severity framework",
+    "Simon Willison's frontier model decision guide"
+  ],
+  "pick_of_the_day": {
+    "item_id": 63132,
+    "thesis": "The real story isn't Anthropic's open-weights position — it's that five competing labs quietly agreed on a shared jailbreak severity scoring standard, which tells us the industry's safety coordination is outpacing its safety theater and could give us the CVSS equivalent for model failures."
+  },
+  "model_literacy": {
+    "concept": "Domain-Specialized Models vs. General-Purpose Fine-Tuning",
+    "relevance": "Both Google (Flash Cyber) and Microsoft (MAI-Cyber-1-Flash) shipped purpose-built cybersecurity models today rather than fine-tuning or prompting general models — understanding when to train a domain specialist versus adapt a generalist is the architectural decision every enterprise AI team will face as this pattern spreads beyond security."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 63124,
+          "title": "Google Drops Three Gemini Models — Including Its First Cybersecurity Specialist",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "A triple launch that buries the lede: Flash 3.6 and Flash-Lite are iterative, but Flash Cyber signals Google sees security as a model vertical worth owning.",
+          "key_fact": "Three simultaneous releases: Gemini 3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber"
+        },
+        {
+          "id": 63226,
+          "title": "Microsoft Answers Google's Cyber Model With MAI-Cyber-1-Flash Inside MDASH",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Same-day as Google's Flash Cyber, Microsoft ships its own security-specialist model directly into its security dashboard — the cybersecurity model race is officially on.",
+          "key_fact": "MAI-Cyber-1-Flash integrated directly into Microsoft's MDASH security dashboard"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 63132,
+          "title": "Anthropic Publishes Its Open-Weights Stance — With a Cross-Industry Jailbreak Severity Framework",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The position paper matters less than the appendix: Amazon, Microsoft, Google, and Anthropic co-developed a jailbreak severity scoring standard that could become the industry's CVSS for model safety.",
+          "key_fact": "Cross-industry jailbreak severity scoring framework co-developed with Amazon, Microsoft, Google, and Glasswing partners"
+        },
+        {
+          "id": 63133,
+          "title": "Cognizant Goes Deeper on Claude for Enterprise Deployments",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A giant systems integrator expanding its Claude integration means Anthropic's enterprise distribution story just got more concrete.",
+          "key_fact": "Cognizant is one of the world's largest IT services firms with massive enterprise reach"
+        },
+        {
+          "id": 63097,
+          "title": "MIT Tech Review: The Hugging Face Attack Wasn't 'Unprecedented' — We've Been Here Before",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "A sharp counter-narrative to OpenAI's framing — the real gap isn't technical containment but institutional memory of past failures.",
+          "key_fact": "Documents prior containment failures the industry has systematically downplayed"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 63113,
+          "title": "Simon Willison's Opinionated Guide to Picking the Right AI for the Job",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "With Opus 5, Gemini 3.6, Kimi K3, and Fable all landing in the same window, a practical decision framework is exactly the signal-to-noise filter developers need.",
+          "key_fact": "Task-type-based decision framework across current frontier models"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 63126,
+          "title": "NVIDIA's Cosmos World Model Goes Into the Operating Room",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Foundation-model-powered simulation moves from tech demos to safety-critical surgical robotics — generative world models are production-ready for high-stakes domains.",
+          "key_fact": "Real-time generative simulation for surgical robot training and planning"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 63100,
+      "title": "MIT Tech Review Maps the Road to Superintelligence — Through Multi-Agent Networks",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Not a single god-model but coordinated agent networks as the practical path",
+      "key_fact": "Argues superintelligence emerges from multi-agent coordination, not monolithic scaling"
+    },
+    {
+      "id": 62940,
+      "title": "TechCrunch Separates Kimi K3 Competitive Threat From China AI Panic",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Useful corrective to a week of overheated US-China AI takes",
+      "key_fact": "Dissects market panic triggered by Moonshot AI's Kimi K3 launch"
+    },
+    {
+      "id": 63101,
+      "title": "Closing the Data Loop in AI Drug Discovery",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The harder infrastructure problem: computation-to-wet-lab feedback loops",
+      "key_fact": "Tackles Eroom's Law through closed-loop AI-to-lab validation pipelines"
+    }
+  ],
+  "total_items": 10
+}
