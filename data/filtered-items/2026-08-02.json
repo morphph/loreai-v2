@@ -1,0 +1,72 @@
+[
+  {
+    "id": 63833,
+    "title": "Flint: A Visualization Language for the AI Era",
+    "url": "https://microsoft.github.io/flint-chart/",
+    "source": "hackernews",
+    "category": "TOOL",
+    "score": 82,
+    "why_it_matters": "Microsoft releases Flint, a new visualization language designed specifically for AI-era workflows. Strong HN traction (248 points) signals genuine developer interest in rethinking how we build charts alongside LLMs.",
+    "action": "Try building a chart with Flint",
+    "engagement_likes": 248,
+    "engagement_retweets": 66,
+    "engagement_downloads": 0,
+    "detected_at": "2026-08-02 00:00:29"
+  },
+  {
+    "id": 63832,
+    "title": "AI financial advice is surprisingly good if you ask the right questions",
+    "url": "https://mitsloan.mit.edu/ideas-made-to-matter/ai-financial-advice-surprisingly-good-especially-if-you-ask-right-questions",
+    "source": "hackernews",
+    "category": "INSIGHT",
+    "score": 68,
+    "why_it_matters": "MIT Sloan research finds AI financial advice quality depends heavily on prompt framing — a concrete case study in how question design determines output quality across professional domains.",
+    "action": "Read the prompting patterns that worked",
+    "engagement_likes": 78,
+    "engagement_retweets": 52,
+    "engagement_downloads": 0,
+    "detected_at": "2026-08-02 00:00:29"
+  },
+  {
+    "id": 63746,
+    "title": "Quoting Greg Brockman",
+    "url": "https://simonwillison.net/2026/Aug/1/greg-brockman/#atom-everything",
+    "source": "rss:Simon Willison",
+    "category": "INSIGHT",
+    "score": 65,
+    "why_it_matters": "Simon Willison surfaces and comments on a notable Greg Brockman statement — Willison's curation consistently highlights the signal in founder-level industry commentary.",
+    "action": "Read Willison's take",
+    "engagement_likes": 0,
+    "engagement_retweets": 0,
+    "engagement_downloads": 0,
+    "detected_at": "2026-08-02 00:00:29"
+  },
+  {
+    "id": 63747,
+    "title": "datasette-apps 0.2a0",
+    "url": "https://simonwillison.net/2026/Aug/1/datasette-apps/#atom-everything",
+    "source": "rss:Simon Willison",
+    "category": "TOOL",
+    "score": 64,
+    "why_it_matters": "New alpha of datasette-apps extends the Datasette ecosystem — relevant for teams building lightweight data apps and exploring how structured data tools intersect with AI workflows.",
+    "action": "Check the changelog",
+    "engagement_likes": 0,
+    "engagement_retweets": 0,
+    "engagement_downloads": 0,
+    "detected_at": "2026-08-02 00:00:29"
+  },
+  {
+    "id": 63748,
+    "title": "Ten advances in mathematics and theoretical computer science",
+    "url": "https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/#atom-everything",
+    "source": "rss:Simon Willison",
+    "category": "RESEARCH",
+    "score": 62,
+    "why_it_matters": "Willison highlights key recent breakthroughs in math and theoretical CS — several have direct implications for algorithm design and computational complexity relevant to ML infrastructure.",
+    "action": "Scan for AI-adjacent breakthroughs",
+    "engagement_likes": 0,
+    "engagement_retweets": 0,
+    "engagement_downloads": 0,
+    "detected_at": "2026-08-02 00:00:29"
+  }
+]

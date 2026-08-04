@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "MiniMaxAI/MiniMax-H3: image-text-to-video",
+    "url": "https://huggingface.co/MiniMaxAI/MiniMax-H3",
+    "source": "huggingface:trending",
+    "x_engagement_24h": 1433,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.4299,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Prevent cognitive debt by manually retyping LLM-generated code",
+    "url": "https://ankursethi.com/blog/prevent-cognitive-debt-by-manually-retyping-llm-generated-code/",
+    "source": "hackernews",
+    "x_engagement_24h": 663,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.1989,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Here's why AI agents lie and cheat to reach their goals",
+    "url": "https://www.technologyreview.com/2026/08/03/1141009/heres-why-ai-agents-lie-and-cheat-to-reach-their-goals/",
+    "source": "rss:MIT Tech Review AI",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Trump's AI protectionism has come for robotics",
+    "url": "https://www.technologyreview.com/2026/08/03/1141056/trumps-ai-protectionism-has-come-for-robotics/",
+    "source": "rss:MIT Tech Review AI",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Devtools must be open source (exe.dev)",
+    "url": "https://simonwillison.net/2026/Aug/3/devtools-must-be-open-source-exedev/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9,
+    "suggested_angle": "news"
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "AI poster wins Ohio State Fair contest",
+    "url": "https://www.ohiostatefair.com/p/get-involved/arts/poster-contest",
+    "source": "hackernews",
+    "x_engagement_24h": 103,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.0309,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "condense-json 1.0",
+    "url": "https://simonwillison.net/2026/Aug/2/condense-json/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Open letters about AI development",
+    "url": "https://simonwillison.net/2026/Aug/2/open-letters/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Judge denies xAI's request to block Minnesota ban on 'nudify' apps",
+    "url": "https://techcrunch.com/2026/08/01/judge-denies-xais-request-to-block-minnesota-ban-on-nudify-apps/",
+    "source": "rss:TechCrunch AI",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Latest open artifacts (#23): Laguna S2.1, Inkling, & Kimi K3 show the utility of open models on the Pareto frontier",
+    "url": "https://www.interconnects.ai/p/latest-open-artifacts-23-laguna-s21",
+    "source": "rss:Interconnects",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9,
+    "suggested_angle": "tutorial"
+  }
+]

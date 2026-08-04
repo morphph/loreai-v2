@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Flint: A Visualization Language for the AI Era",
+    "url": "https://microsoft.github.io/flint-chart/",
+    "source": "hackernews",
+    "x_engagement_24h": 314,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.0942,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Quoting Greg Brockman",
+    "url": "https://simonwillison.net/2026/Aug/1/greg-brockman/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "datasette-apps 0.2a0",
+    "url": "https://simonwillison.net/2026/Aug/1/datasette-apps/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Ten advances in mathematics and theoretical computer science",
+    "url": "https://simonwillison.net/2026/Aug/1/ten-advances-in-mathematics/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "AI financial advice is surprisingly good if you ask the right questions",
+    "url": "https://mitsloan.mit.edu/ideas-made-to-matter/ai-financial-advice-surprisingly-good-especially-if-you-ask-right-questions",
+    "source": "hackernews",
+    "x_engagement_24h": 130,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 0.039,
+    "suggested_angle": "news"
+  }
+]
