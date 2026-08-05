@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Qwen 3.8 Max (2.4T) and 27B: new open weights models for Coding and Cowork",
+    "url": "https://www.latent.space/p/ainews-qwen-38-max24t-and-27b-new",
+    "source": "rss:Latent Space",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Mistral's Shieldstral: 3B open-weights model for multimodal moderation",
+    "url": "https://mistral.ai/news/shieldstral/",
+    "source": "hackernews",
+    "x_engagement_24h": 353,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.1059,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Inside our 353,000-person vibe coding course",
+    "url": "https://blog.google/innovation-and-ai/technology/developers-tools/ai-agents-intensive-recap-2026/",
+    "source": "rss:Google AI Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "AI fuels more than half of cybercrime in Africa as scams surge – Interpol",
+    "url": "https://www.africanews.com/2026/08/04/ai-fuels-more-than-half-of-cybercrime-in-africa-as-digital-scams-surge-interpol/",
+    "source": "hackernews",
+    "x_engagement_24h": 160,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.048,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "LGAI-EXAONE/K-EXAONE-2.0-750B-A37B",
+    "url": "https://huggingface.co/LGAI-EXAONE/K-EXAONE-2.0-750B-A37B",
+    "source": "huggingface:trending",
+    "x_engagement_24h": 116,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.0348,
+    "suggested_angle": "news"
+  }
+]
