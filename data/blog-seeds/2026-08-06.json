@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Third-party cyber evaluations involving OpenAI models",
+    "url": "https://simonwillison.net/2026/Aug/5/third-party-cyber-evaluations/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 3,
+    "composite_score": 21,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "nvidia/NVIDIA-NemotronLabs-VoiceChat-11B: model",
+    "url": "https://huggingface.co/nvidia/NVIDIA-NemotronLabs-VoiceChat-11B",
+    "source": "huggingface:trending",
+    "x_engagement_24h": 123,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.0369,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Incident Report: unsanctioned agent behaviour during cyber testing",
+    "url": "https://simonwillison.net/2026/Aug/5/incident-report/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "LuffyTheFox/Qwen3.6-35B-A3B-Uncensored-Genesis-Hermes-V7-GGUF: image-text-to-text",
+    "url": "https://huggingface.co/LuffyTheFox/Qwen3.6-35B-A3B-Uncensored-Genesis-Hermes-V7-GGUF",
+    "source": "huggingface:trending",
+    "x_engagement_24h": 385,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.1155,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Beating GPT-5.6 Sol on retrieval with 100x cheaper open models",
+    "url": "https://neon.com/blog/how-castform-neon-beats-frontier-models-on-price-and-efficiency",
+    "source": "hackernews",
+    "x_engagement_24h": 224,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.0672,
+    "suggested_angle": "news"
+  }
+]
