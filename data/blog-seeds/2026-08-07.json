@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Qwen3.8 Max now ranked as the best overall model by agentic index",
+    "url": "https://artificialanalysis.ai/?intelligence=agentic-index",
+    "source": "hackernews",
+    "x_engagement_24h": 658,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25.197400000000002,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "WeatherNext: AI model achieves breakthrough in forecasting cyclones",
+    "url": "https://deepmind.google/blog/weathernext-ai-model-achieves-breakthrough-in-forecasting-cyclones/",
+    "source": "rss:DeepMind Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 25,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "AMD acquires Taalas to boost inference performance by etching models in silicon",
+    "url": "https://www.theregister.com/systems/2026/08/06/amd-acquires-ai-chip-startup-taalas-to-boost-inference-performance-by-etching-models-into-silicon/5284344",
+    "source": "hackernews",
+    "x_engagement_24h": 526,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.1578,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Baseten on Hugging Face Inference Providers 🔥",
+    "url": "https://huggingface.co/blog/baseten",
+    "source": "rss:HuggingFace Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "An AI model from Meta also hacked another company during testing",
+    "url": "https://simonwillison.net/2026/Aug/6/an-ai-model-from-meta/#atom-everything",
+    "source": "rss:Simon Willison",
+    "x_engagement_24h": 0,
+    "brave_has_results": false,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 4,
+    "composite_score": 16,
+    "suggested_angle": "news"
+  }
+]
