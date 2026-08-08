@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Run Claude Code sessions on your own compute",
+    "url": "https://www.claude.com/blog/run-claude-code-sessions-on-your-own-compute",
+    "source": "blog:Claude Blog",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "The Download: Google's AI shake-up and Meta's rogue model",
+    "url": "https://www.technologyreview.com/2026/08/06/1141278/the-download-google-ai-shake-up-meta-rogue-model/",
+    "source": "rss:MIT Tech Review AI",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Oracle bans AI-generated code from OpenJDK",
+    "url": "https://app.dealroom.co/news/feed/oracle-bans-ai-generated-code-from-openjdk-despite-ellison-s-claim-oracle-isn-t-writing-its-own-code",
+    "source": "hackernews",
+    "x_engagement_24h": 599,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.1797,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Kitesurf: Agent-first browser that runs in V8 isolates",
+    "url": "https://blog.cloudflare.com/kitesurf/",
+    "source": "hackernews",
+    "x_engagement_24h": 198,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.0594,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Mariano-Florentino (Tino) Cuéllar to join Anthropic as Chief Global Affairs Officer",
+    "url": "https://www.anthropic.com/news/tino-cuellar",
+    "source": "blog:Anthropic News",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9,
+    "suggested_angle": "news"
+  }
+]
