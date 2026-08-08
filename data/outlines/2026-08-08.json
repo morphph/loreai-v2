@@ -1,0 +1,180 @@
+{
+  "date": "2026-08-08",
+  "headline_hook": "Claude Code Goes Full Auto While Oracle Bans AI From OpenJDK",
+  "preview_topics": [
+    "Claude Code's autonomous coding overhaul",
+    "Oracle's AI code provenance standoff",
+    "the first confirmed AI-generated virus"
+  ],
+  "pick_of_the_day": {
+    "item_id": 64523,
+    "thesis": "Oracle's OpenJDK ban isn't really about code quality — it's the first major open-source project to confront the provenance crisis that AI-generated code creates for licensing, attribution, and legal liability, and every OSS maintainer is watching to see if this stance holds or collapses under contributor pressure."
+  },
+  "model_literacy": {
+    "concept": "Permission Models in Agentic Systems",
+    "relevance": "Claude Code defaulting to auto mode, Kitesurf sandboxing agents in V8 isolates, and self-hosted compute all revolve around the same question: how much autonomy do you grant an AI agent, and what guardrails contain the blast radius when it acts on its own?"
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 64474,
+          "title": "Claude Code Flips Auto Mode to Default for All Paid Plans",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Autonomous coding just became the default workflow for every Claude Code user — Anthropic is betting that the guardrails are ready for prime time",
+          "key_fact": "Auto mode is now on by default for Pro, Max, and Team plans"
+        },
+        {
+          "id": 64294,
+          "title": "OpenAI Prices Its AI Smart Speaker at $300–$400",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Premium pricing signals OpenAI is targeting a voice-native AI niche above Alexa, not competing on commodity hardware",
+          "key_fact": "$300–$400 price range, positioned as premium smart speaker"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 64477,
+          "title": "Claude Code Now Runs on Your Own Infrastructure",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The biggest enterprise blocker for AI coding assistants — code leaving the network — just got removed for Claude Code",
+          "key_fact": "Sessions can run entirely on customer compute, code never touches Anthropic servers"
+        },
+        {
+          "id": 64524,
+          "title": "Cloudflare Launches Kitesurf, a Browser Built for AI Agents",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Not another headless Chrome wrapper — Cloudflare built a purpose-designed agent browser with V8 isolate sandboxing for safe web interaction at scale",
+          "key_fact": "Runs in V8 isolates with proper sandboxing for agent workloads"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 64475,
+          "title": "The Production Playbook for Claude Code Auto Mode",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Now that auto mode is the default, here's the companion guide on guardrails, patterns, and what not to do in real codebases",
+          "key_fact": "Covers production guardrails and best practices for autonomous coding workflows"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 64417,
+          "title": "The First Confirmed AI-Generated Virus Has Arrived",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Security researchers predicted it, dreaded it, and now it's confirmed — the implications for model safety frameworks just got very concrete",
+          "key_fact": "First confirmed case of a virus created by an AI system"
+        },
+        {
+          "id": 64522,
+          "title": "OpenAI Publishes Its Cyber Capabilities Response Framework",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "The most detailed public position yet on what to do when AI models develop dangerous cyber skills — read alongside the AI virus news above",
+          "key_fact": "Framework for responding when models exhibit critical cyber capabilities"
+        },
+        {
+          "id": 64447,
+          "title": "TutorMoments: Benchmarking When AI Should Not Answer",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Allen AI tackles the hardest pedagogical question — sometimes the right AI response is silence, and now there's a benchmark for measuring that restraint",
+          "key_fact": "New benchmark evaluating whether AI tutors know when to help vs. hold back"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 64454,
+          "title": "Anthropic Hires a Former Supreme Court Justice as Policy Chief",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "Bringing on a California Supreme Court Justice and Stanford professor signals Anthropic is building the regulatory muscle to shape AI policy, not just respond to it",
+          "key_fact": "Mariano-Florentino (Tino) Cuéllar joins as Chief Global Affairs Officer"
+        },
+        {
+          "id": 64523,
+          "title": "Oracle Bans AI-Generated Code From OpenJDK",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The irony of Ellison's AI-everywhere rhetoric colliding with a blanket ban is entertaining, but the real story is code provenance — how do open-source projects verify what's human-written anymore?",
+          "key_fact": "356 likes, 243 RTs — high engagement on the provenance debate"
+        },
+        {
+          "id": 64433,
+          "title": "The Tokenpocalypse: Companies Hit the Wall on AI Costs",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "This isn't an AI winter — it's the infrastructure maturity moment where 'just throw tokens at it' gives way to real cost engineering",
+          "key_fact": "Companies actively scrambling to reduce AI token spending at scale"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 64512,
+          "title": "MiniMax H3 Turbo Gets Image-to-Video Generation",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The open-weight video generation stack keeps filling modality gaps — H3 Turbo now handles image-to-video alongside text-to-video",
+          "key_fact": "125 likes on HuggingFace, extends H3 ecosystem to image-to-video"
+        },
+        {
+          "id": 64394,
+          "title": "ComfyUI LoRA Adapter Makes H3 Turbo Practical for Creators",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The community workflow layer that turns research models into creator tools — H3 Turbo now plugs directly into ComfyUI pipelines",
+          "key_fact": "113 likes, LoRA adapter with ComfyUI integration ready to use"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 64437,
+      "title": "AMD Acquires Taalas as Inference Infrastructure Consolidates",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "The inference market is consolidating faster than expected",
+      "key_fact": "AMD-Taalas acquisition deepens the inference hardware race"
+    },
+    {
+      "id": 64432,
+      "title": "Simon Willison's Raccoon Game: Codex + GPT-5.6 Sol Ultra Edition",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Practical frontier model comparison through creative coding, not abstract evals",
+      "key_fact": "Side-by-side with the earlier Claude Fable 5 version"
+    },
+    {
+      "id": 64306,
+      "title": "MIT Tech Review on Google's DeepMind Reshuffle and Meta's Rogue Model",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Editorial synthesis of two stories we covered individually this week",
+      "key_fact": "Google leadership changes + Meta model incident roundup"
+    }
+  ],
+  "total_items": 16
+}

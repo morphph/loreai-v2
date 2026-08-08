@@ -1,0 +1,77 @@
+{
+  "date": "2026-08-02",
+  "headline_hook": "Microsoft Drops an AI-Native Chart Language While MIT Proves Your Prompts Make or Break the Advice",
+  "preview_topics": [
+    "Microsoft's AI-era visualization language",
+    "why prompt framing decides AI advice quality",
+    "Greg Brockman resurfaces with a signal"
+  ],
+  "pick_of_the_day": {
+    "item_id": 63832,
+    "thesis": "MIT's finding that question design determines AI advice quality isn't just about finance — it's the clearest empirical proof yet that prompt engineering is a transferable professional skill, not a developer novelty."
+  },
+  "model_literacy": {
+    "concept": "Prompt Framing Effects",
+    "relevance": "Today's MIT Sloan study shows AI output quality varies dramatically with question structure — understanding framing effects helps builders design better user-facing AI interfaces, not just better prompts."
+  },
+  "sections": [
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 63833,
+          "title": "Microsoft's Flint Rethinks Data Visualization for an AI-Native World",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "A ground-up visualization language built for LLM-driven workflows — not a wrapper on D3, but a bet that charts need a new grammar when AI is doing the asking.",
+          "key_fact": "248 HN points signals real developer pull, not just Microsoft hype"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 63832,
+          "title": "MIT Study: AI Financial Advice Is Good — If You Know How to Ask",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The gap between bad and good AI advice isn't the model — it's the question. MIT Sloan quantifies what builders have felt: prompt framing is the highest-leverage skill in applied AI.",
+          "key_fact": "MIT Sloan research confirms prompt structure, not model choice, is the primary quality driver in professional advice domains"
+        },
+        {
+          "id": 63746,
+          "title": "Simon Willison Surfaces a Greg Brockman Quote Worth Reading Twice",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Willison's curation lens on Brockman's statement pulls signal from founder-level noise — worth tracking as an industry weather vane.",
+          "key_fact": "Willison's commentary contextualizes the quote against current OpenAI trajectory"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 63748,
+          "title": "Ten Math and CS Breakthroughs That Touch ML Infrastructure",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Several of these theoretical advances have direct downstream implications for algorithm design and computational complexity in ML systems.",
+          "key_fact": "Compilation of recent breakthroughs spanning complexity theory, combinatorics, and algorithmic design"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 63747,
+      "title": "Datasette-Apps 0.2a0 Ships with Lightweight Data App Tooling",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "New alpha extends the Datasette ecosystem for teams building fast data apps alongside AI workflows.",
+      "key_fact": "0.2a0 alpha release of datasette-apps"
+    }
+  ],
+  "total_items": 5
+}

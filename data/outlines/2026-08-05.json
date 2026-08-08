@@ -1,0 +1,196 @@
+{
+  "date": "2026-08-05",
+  "headline_hook": "Qwen Ships a 2.4-Trillion-Parameter Coding Giant While Latent Space Cracks Open ChatGPT Work's Agent Architecture",
+  "preview_topics": [
+    "Qwen's 2.4T coding colossus",
+    "the ChatGPT Work agent teardown",
+    "on-device models go mainstream"
+  ],
+  "pick_of_the_day": {
+    "item_id": 64096,
+    "thesis": "Latent Space's teardown of ChatGPT Work reveals that OpenAI's real moat isn't model quality — it's the orchestration layer (Memory, Proactivity, Scheduling, Skills) that turns a chatbot into a persistent coworker, and every builder shipping agents should study this playbook before reinventing it."
+  },
+  "model_literacy": {
+    "concept": "Active Parameters vs. Total Parameters in MoE Models",
+    "relevance": "Today's launches include a 2.4T Qwen Max and a 750B K-EXAONE with only 37B active — understanding Mixture-of-Experts routing explains why a 750B model can run on hardware that would choke on a dense 70B, and why raw parameter counts are increasingly misleading as a proxy for capability or cost."
+  },
+  "sections": [
+    {
+      "name": "LAUNCH",
+      "items": [
+        {
+          "id": 64097,
+          "title": "Qwen 3.8 Max Drops 2.4 Trillion Parameters Aimed Squarely at Coding",
+          "section": "LAUNCH",
+          "prominence": "hero",
+          "angle": "Alibaba's largest model yet is explicitly positioned against GPT-5 and Claude on code — the 27B coding-optimized variant signals that the real race is specialized performance, not just scale",
+          "key_fact": "2.4T-parameter Max model plus a 27B coding/cowork variant released simultaneously"
+        },
+        {
+          "id": 64107,
+          "title": "Liquid AI Ships a 2.6B Agent Model Built for Your Phone",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "Purpose-built for on-device agent deployment, already at 47K downloads — the edge-agent category is solidifying fast",
+          "key_fact": "47K HuggingFace downloads since launch"
+        },
+        {
+          "id": 64176,
+          "title": "Mistral's Shieldstral: A 3B Open-Weight Safety Filter You Can Run Locally",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "An open-weight multimodal moderation model small enough to bolt onto any pipeline as a guardrail — fills a gap most teams solve with expensive API calls",
+          "key_fact": "3B parameters, handles both text and image moderation"
+        },
+        {
+          "id": 64170,
+          "title": "LG AI Research Enters the Frontier Ring with a 750B MoE Model",
+          "section": "LAUNCH",
+          "prominence": "regular",
+          "angle": "K-EXAONE 2.0 from South Korea shows frontier-scale development is no longer a US-China duopoly — 37B active params keep inference tractable",
+          "key_fact": "750B total parameters, 37B active via MoE routing"
+        }
+      ]
+    },
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 64130,
+          "title": "Anthropic Finally Publishes the Claude Cost Control Playbook",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "The first official guide covering dashboards, spend alerts, rate limits, and org-level controls — every team running Claude in production needs to read this before their next billing surprise",
+          "key_fact": "Covers usage dashboards, rate limits, spend alerts, and org-level controls in one guide"
+        },
+        {
+          "id": 63990,
+          "title": "Interconnects Launches a Public Dashboard Tracking Which Open Models People Actually Use",
+          "section": "TOOL",
+          "prominence": "regular",
+          "angle": "Downloads, deployments, and community forks in one view — finally separating 'benchmarked well' from 'actually adopted'",
+          "key_fact": "Tracks downloads, deployments, and community forks across open models"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 64096,
+          "title": "Latent Space Reverse-Engineers How ChatGPT Work Actually Works",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "The most detailed external teardown of OpenAI's agent architecture — Memory, Proactivity, Scheduling, Browser Use, Skills — reveals the orchestration layer that turns a chatbot into a persistent workplace agent",
+          "key_fact": "Identifies six core subsystems: Memory, Proactivity, Scheduling, Browser Use, Plugins, Skills/Tools"
+        },
+        {
+          "id": 64105,
+          "title": "Google's July 2026 AI Recap: Everything You Missed in One Place",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "The official consolidation of every Google AI announcement from last month — useful as a reference doc and a signal of how fast even keeping up with one company has become",
+          "key_fact": "Official recap covering all model updates, product launches, and research from July 2026"
+        },
+        {
+          "id": 64177,
+          "title": "Interpol: AI Now Powers Over Half of Cybercrime Across Africa",
+          "section": "INSIGHT",
+          "prominence": "regular",
+          "angle": "Voice cloning, deepfake scams, and automated phishing at a scale outpacing enforcement — the clearest data point yet on how AI misuse distributes globally",
+          "key_fact": "AI fuels more than 50% of cybercrime across the continent per Interpol"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 64106,
+          "title": "353,000 People Took Google's Free AI Agents Course — Here's What They Built",
+          "section": "TECHNIQUE",
+          "prominence": "hero",
+          "angle": "The sheer scale — 353K learners in a single agent-development course — is the story: agent building is crossing from niche developer skill to mainstream competency",
+          "key_fact": "353,000 participants in Kaggle's free AI Agents Intensive course"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 64180,
+          "title": "When Benchmarks Stop Working: A Systematic Study of Saturation",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Proposes metrics for detecting when a benchmark has lost its discriminative power — directly relevant to every 'new SOTA' claim you'll read this week",
+          "key_fact": "Documents systematic saturation patterns across major AI benchmarks"
+        },
+        {
+          "id": 64178,
+          "title": "A Ternary 20B MoE Model Hits 120 Tokens/Second on an iPhone",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "Maple-Preview's ternary weights prove that useful-scale on-device inference is arriving faster than the industry's timeline assumed",
+          "key_fact": "120 tok/s from a 20B MoE model running on-device via ternary quantization"
+        },
+        {
+          "id": 64065,
+          "title": "OpenAI Highlights Ten Math and CS Breakthroughs with ML Implications",
+          "section": "RESEARCH",
+          "prominence": "regular",
+          "angle": "A curated list of advances touching optimization, complexity theory, and algorithm design — worth scanning for the papers that will show up in model architectures next year",
+          "key_fact": "389 HN upvotes, 673 retweets — unusually high engagement for a math-focused post"
+        }
+      ]
+    },
+    {
+      "name": "BUILD",
+      "items": [
+        {
+          "id": 64091,
+          "title": "MiniMax H3 Now Runs Natively on Your Mac via MLX",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "The PipeNetwork MLX port eliminates the cloud GPU requirement for the open-weight video model — local video generation on Apple Silicon is here",
+          "key_fact": "Native Apple Silicon support via MLX, no cloud GPU needed"
+        },
+        {
+          "id": 64040,
+          "title": "The MiniMax H3 Ecosystem Explodes: ComfyUI, GGUF, and INT8 Variants",
+          "section": "BUILD",
+          "prominence": "regular",
+          "angle": "440 likes on the ComfyUI integration plus 40K downloads of quantized variants — the community is making H3 production-ready faster than the lab itself",
+          "key_fact": "440 likes on Comfy-Org integration, 40K downloads of community quantizations"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 64179,
+      "title": "OpenAI Publishes Third-Party Cyber Evaluations of Its Models",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A transparency precedent for how frontier labs share security risk assessments",
+      "key_fact": "Independent third-party security evaluations, publicly released"
+    },
+    {
+      "id": 64092,
+      "title": "Simon Willison Surfaces a Steve Yegge Quote That Aged Perfectly",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Yegge's platform-thinking take on AI development, contextualized by Willison",
+      "key_fact": "Yegge's platform-era insights applied to the current AI landscape"
+    },
+    {
+      "id": 63951,
+      "title": "Palantir Posts $1B Profit, CEO Karp Calls AI Industry 'Marxist'",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "A business move dressed as philosophy — positioning Palantir as the 'trustworthy' enterprise alternative",
+      "key_fact": "$1B quarterly profit, CEO argues frontier labs are too untrustworthy for enterprises"
+    }
+  ],
+  "total_items": 18
+}

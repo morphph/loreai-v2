@@ -1,0 +1,98 @@
+{
+  "date": "2026-08-03",
+  "headline_hook": "A Federal Judge Backs Minnesota's AI Ban While Open Models Storm the Frontier",
+  "preview_topics": [
+    "Minnesota's nudify ban survives court",
+    "open-weight models crashing the Pareto frontier",
+    "a JSON compressor for token-starved prompts"
+  ],
+  "pick_of_the_day": {
+    "item_id": 63716,
+    "thesis": "Minnesota's surviving ban reveals that state-level AI regulation is quietly assembling the patchwork legal framework federal lawmakers can't agree on — and xAI's failed challenge may have actually hardened the precedent it tried to kill."
+  },
+  "model_literacy": {
+    "concept": "Pareto Frontier in Model Evaluation",
+    "relevance": "Today's open-model roundup ranks Laguna S2.1, Inkling, and Kimi K3 on the Pareto frontier — the curve where no model dominates another on every metric at once. Understanding this concept explains why 'best model' is always the wrong question; the real question is which tradeoffs you're willing to accept for your use case."
+  },
+  "sections": [
+    {
+      "name": "TOOL",
+      "items": [
+        {
+          "id": 63864,
+          "title": "Simon Willison Ships condense-json 1.0 to Squeeze Your Context Windows",
+          "section": "TOOL",
+          "prominence": "hero",
+          "angle": "Every token wasted on JSON formatting is a token you can't spend on reasoning — this tool attacks the problem at the serialization layer",
+          "key_fact": "condense-json 1.0 compresses JSON payloads for LLM consumption, cutting token waste from structural formatting"
+        }
+      ]
+    },
+    {
+      "name": "RESEARCH",
+      "items": [
+        {
+          "id": 63874,
+          "title": "Laguna S2.1, Inkling, and Kimi K3 Redraw the Open-Weight Map",
+          "section": "RESEARCH",
+          "prominence": "hero",
+          "angle": "The ability to train frontier-competitive open models is proliferating beyond the Big 3 — and the Pareto frontier is getting crowded fast",
+          "key_fact": "Three new open-weight models simultaneously push the Pareto frontier, demonstrating competitive training capability is no longer concentrated"
+        }
+      ]
+    },
+    {
+      "name": "INSIGHT",
+      "items": [
+        {
+          "id": 63716,
+          "title": "Federal Judge Lets Minnesota's AI Nudification Ban Stand Against xAI",
+          "section": "INSIGHT",
+          "prominence": "hero",
+          "angle": "State-level AI content regulation is surviving First Amendment challenges — this ruling sets the template other states will copy",
+          "key_fact": "Federal judge denied xAI's injunction request, letting Minnesota's ban on AI nudification apps stand despite free-speech arguments"
+        }
+      ]
+    },
+    {
+      "name": "TECHNIQUE",
+      "items": [
+        {
+          "id": 63950,
+          "title": "The Habsburg Frog: A Personal Benchmark That Exposes Real Model Differences",
+          "section": "TECHNIQUE",
+          "prominence": "regular",
+          "angle": "Silly prompt, serious signal — SVG generation reveals stark gaps in spatial reasoning and instruction-following across frontier models",
+          "key_fact": "Asking models to draw an SVG frog with a Habsburg jaw produces wildly divergent outputs that map to real capability differences"
+        }
+      ]
+    }
+  ],
+  "quick_links": [
+    {
+      "id": 63865,
+      "title": "The Open Letter Tracker: Which AI Petitions Actually Moved the Needle",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Willison catalogues every major AI open letter and separates signal from performative noise",
+      "key_fact": "Comprehensive analysis of which open letters produced real policy or industry change vs. vanity signatures"
+    },
+    {
+      "id": 63717,
+      "title": "Hank Green Admits His AI Usage Has Become 'Not Healthy'",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Highest-profile acknowledgment yet that LLM interaction creates dopamine-driven dependency patterns",
+      "key_fact": "YouTuber with 18M+ subscribers publicly calls his own AI usage psychologically unhealthy"
+    },
+    {
+      "id": 63949,
+      "title": "AI Poster Wins Ohio State Fair Contest — Again",
+      "section": "QUICK_LINKS",
+      "prominence": "quick",
+      "angle": "Four years after the Colorado incident, competition rules still haven't caught up with generative AI",
+      "key_fact": "AI-generated entry wins the 2026 Ohio State Fair poster contest"
+    }
+  ],
+  "total_items": 7
+}
