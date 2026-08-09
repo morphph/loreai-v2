@@ -1,0 +1,62 @@
+[
+  {
+    "topic": "Lost my phone at the office. Claude suggested tracking Bluetooth signal strength",
+    "url": "https://twitter.com/un1c0rnioz/status/2084686552299634805",
+    "source": "hackernews",
+    "x_engagement_24h": 361,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.1083,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Message your other Claude Code sessions",
+    "url": "https://code.claude.com/docs/en/cross-session-messaging",
+    "source": "hackernews",
+    "x_engagement_24h": 68,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17.020400000000002,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "OpenAI says it slowed Astra model development over security concerns",
+    "url": "https://techcrunch.com/2026/08/07/openai-says-it-slowed-astra-model-development-over-security-concerns/",
+    "source": "rss:TechCrunch AI",
+    "x_engagement_24h": 0,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 2,
+    "composite_score": 17,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Kijai/MiniMax-H3-experimental: model",
+    "url": "https://huggingface.co/Kijai/MiniMax-H3-experimental",
+    "source": "huggingface:trending",
+    "x_engagement_24h": 139,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 1,
+    "composite_score": 13.0417,
+    "suggested_angle": "news"
+  },
+  {
+    "topic": "Denmark Requires Oral Defenses for Students' Written Work to Counter AI Cheating",
+    "url": "https://mezha.net/eng/bukvy/ca117584_denmark_requires_oral/",
+    "source": "hackernews",
+    "x_engagement_24h": 706,
+    "brave_has_results": true,
+    "brave_related_searches": [],
+    "brave_discussions": [],
+    "mention_count_7d": 0,
+    "composite_score": 9.2118,
+    "suggested_angle": "news"
+  }
+]
