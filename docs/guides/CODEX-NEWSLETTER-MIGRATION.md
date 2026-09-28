@@ -10,7 +10,7 @@ depends-on: ["PIPELINE", "DEPLOY"]
 
 ## Scope and current state
 
-Development configuration and the newsletter-only runtime adapter are implemented locally. Claude remains the default. Production has not been switched and no subscriber messages have been sent. The standalone CLI initially rejected authorized GPT-6 Sol sample attempts; the desktop-bundled CLI successfully generated both local samples. No database schema changes are needed.
+Development configuration and the newsletter-only runtime adapter are deployed. The authorized website workflow explicitly selects GPT-6 Sol with medium reasoning; the generic adapter still defaults to Claude for callers without that configuration. Daily email work is disabled, and this rollout sent no subscriber messages. No database schema changes were needed. The final operational acceptance record is below; earlier audit sections describe the state before rollout.
 
 The 2026-09-28 read-only audit found the latest stored daily newsletters dated 2026-08-09 even though collection was current. Diagnose the existing failure separately; an installed cron entry is not proof of successful publication.
 
@@ -73,7 +73,7 @@ Check the production checkout and schedule through `ssh loreai`. Record and pin 
 
 Switch only the newsletter provider after successful sample evaluation. Start with a controlled run before allowing the publishing wrapper, which commits/pushes content and sends Buttondown emails. Monitor generation, validation, website output and delivery as distinct outcomes.
 
-For rollback, stop the new run, restore the previously verified code/runtime configuration and select `NEWSLETTER_AI_PROVIDER=claude`. Do not reset selection markers, overwrite content or resend emails automatically. If a run partially persisted, inspect its artifacts and delivery status before deciding the recovery action.
+For rollback, stop the new daily launcher and restore a previously verified code/runtime configuration. The legacy Claude newsletter job was failing, so selecting Claude is not a verified availability fallback. Do not reset selection markers, overwrite content or resend emails automatically. If a run partially persisted, inspect its artifacts and delivery status before deciding the recovery action.
 
 ## Development workflow notes
 
@@ -84,7 +84,7 @@ Official references: [non-interactive execution](https://learn.chatgpt.com/docs/
 ## Verification record — 2026-09-28
 
 - Focused runtime/sanitizer suite: 19 tests passed without model calls.
-- Final offline full suite: 918 tests passed; 30 external-service integration tests not enabled. The suite includes a real successful `npm run build`.
+- Final offline full suite: 929 tests passed; 30 external-service integration tests not enabled. The suite includes a real successful `npm run build`.
 - All five development skills passed skill metadata validation; Codex TOML/JSON parsed successfully.
 - Historical newsletter validation (2026-07-22): passed, with one existing duplicate-link warning per language.
 - Newsletter/runtime files passed focused lint and strict TypeScript checks.
@@ -96,13 +96,13 @@ Official references: [non-interactive execution](https://learn.chatgpt.com/docs/
 - The user authorized GPT-6 Sol with medium reasoning. Both local sample attempts failed before generation. One diagnostic replay confirmed HTTP 400: the model is not supported with this CLI's ChatGPT account login. The standalone CLI model list (0.153.4) includes GPT-6 Astra and GPT-5.6 Sol, but not GPT-6 Sol. A read-only model/list query through desktop-bundled CLI 0.155.0-alpha.9.2 includes GPT-6 Sol. The retry successfully used that binary, without changing login or substituting a model.
 - After pinning medium reasoning, 12 focused offline tests passed and changed files passed lint; pipeline review found no blockers. The full-suite record above predates this small follow-up.
 - GPT-6 Sol / medium produced EN in 54.9 seconds and ZH in 66.7 seconds. Both passed structure checks and preserved all 19 source URLs. The English short-bold warning and Chinese 35% overlap warning mostly matched emphasized names rather than defective headlines or repeated events; they remain in the raw report. ZH repeats one source in the daily pick. Editorial review found readable but cautious prose, repetitive testing advice, and one unsupported growth claim based on a static engagement snapshot. Continue evaluating Sol; this is not production approval.
-- Local samples and the detailed assistant review are retained in ignored evaluation output. No token usage was captured, so cost was not estimated. User editorial acceptance, broader sample testing, VPS model access, backup/restore rehearsal and production switching remain pending.
+- Local samples and the detailed assistant review are retained in ignored evaluation output. No token usage was captured, so cost was not estimated. At this evaluation stage, user editorial acceptance, VPS model access, backup/restore rehearsal and production switching were still pending; subsequent rollout evidence is recorded below.
 
 ## Pre-launch audit — 2026-09-28
 
 The user accepted the current-news Chinese preview. It used manually verified selection; this does not establish fully automated selection or end-to-end readiness. During final checks the production adapter was found to omit the evaluator's medium reasoning setting; all local Codex newsletter calls now explicitly use medium, including retries and the optional fallback. The provider-routing regression assertions cover both models.
 
-Production remains on the legacy runtime and has not received the local migration. Required release work:
+At the time of this audit, production remained on the legacy runtime. The release checklist was:
 
 1. Install and authenticate a Linux Codex binary that can run the exact selected model under the service account and cron environment. Confirm real model access with a bounded smoke call; installation and login status alone are insufficient. Use the [official authentication guide](https://learn.chatgpt.com/docs/auth) for headless login and automation credentials. Do not copy the macOS app binary to Linux.
 2. Create a SQLite-consistent backup and prove restoration/read-back in a disposable database. Retain the original, job configuration and code rollback reference.
@@ -112,4 +112,17 @@ Production remains on the legacy runtime and has not received the local migratio
 6. If subscriber delivery is included, verify language audiences and add a durable date/language delivery record with an ambiguous-result reconciliation path. Never retry a partially sent issue blindly. The current sender does not supply a language audience and creates a fresh email on each invocation.
 7. Establish a monitored success deadline with notifications for failure/missing output. Alert destinations and email delivery scope remain user decisions. Weekly digest and other pipelines still use Claude and require separate verification if included in launch.
 
-No production writes, deployment, subscriber messages or new schedules were performed by this audit. Detailed operational evidence and validation logs are stored in the ignored local readiness report directory.
+The read-only audit itself performed no production writes, deployment, subscriber messages or schedule changes. The user later authorized restoring daily website publication while deferring email; the following rollout is a separate, authorized operation. Detailed operational evidence and validation logs are stored in the ignored local readiness report directory.
+
+## Authorized website rollout acceptance — 2026-09-28
+
+- The user authorized restoring daily EN/ZH website updates and deferred email. The daily workflow performs no email rewrite or send.
+- Fixed application release: `1ab8196a9c1c491461706d48b3f0995f4cbd40df`. Linux Codex CLI: `0.158.0`; model: `gpt-6-sol`; reasoning: medium. A real server model smoke and both full writers succeeded.
+- Consistent SQLite backup and restore/read-back succeeded before schedule changes. Integrity checks returned `ok` and all checked table counts matched. Operational backup paths and runtime evidence remain private on the VPS.
+- An isolated full run completed. Editorial review found stale original articles resurfacing through new posts; publication metadata verification and source-correct engagement labels were added before the production run.
+- Production selected 18 items and independently generated EN/ZH, saved both database records as `codex:gpt-6-sol`, and passed website validation. The optional outline failed its headline-hook check and used the existing free-form writing fallback. Remaining heuristic warnings were inspected, not suppressed.
+- Website-only upload `4ae63f3cac539e4739f9229eebaa0b8dac826bd6` deployed successfully. Both September 28 live page titles matched generated content at 16:43 SGT; the Chinese page was also visually inspected.
+- Replacement daily timers are active and old daily timers inactive: 08:00 SGT collection, 10:00 SGT generation, every day, beginning September 29. A daily 11:00 Codex read-only check is configured; its host must be available. Production cron is independent of the local Mac.
+- Final offline full suite: 929 passed, 30 external integrations not enabled, including a successful production build. Lint: zero errors, 65 existing warnings. Python wrapper tests: four passed. Historical newsletter validation passed. The production release remains fixed when later documentation or website-content commits advance main.
+
+This validates today's restored flow and tomorrow's installed schedule. Future model/network/hosting failures remain possible and are surfaced in execution state and the follow-up check; partial generation and diverged Git history require inspection before recovery. Weekly and other Claude pipelines were not included in this acceptance.

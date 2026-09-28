@@ -12,23 +12,21 @@ depends-on: []
 
 ## Verified operational snapshot — 2026-09-28
 
-Read-only inspection found daily collection and newsletter schedules still installed. Collection records reached September 28, while the latest stored EN and ZH newsletters and generated files were dated August 9. Recent newsletter logs contained Claude CLI failures; the root cause has not been established. The older “Operational” labels below describe historical configuration, not a current health guarantee. Entity extraction, flagship freshness/discovery, content generation and keyword discovery schedules were commented out in production; performance and weekly schedules remained installed.
+Daily English and Chinese website publication has been restored with the user's authorization. The September 28 editions were generated with GPT-6 Sol and medium reasoning, uploaded, and verified on both public pages at 16:43 Singapore time. Each edition covers 18 selected items. This is a completed website publication, not just a successful generation or upload. Subscriber email generation and sending are disabled in the restored daily workflow.
 
-The production database is on the VPS; the local news database placeholder is empty. Local and production repository revisions differ, but the newsletter writer, database adapter, AI adapter, send script and scheduler matched by checksum at inspection time.
+The next scheduled run is September 29: collection starts at 08:00 and newsletter generation starts at 10:00 Singapore time, every day including weekends. Website publication follows generation, validation and hosting deployment; 10:00 is the start time, not a guaranteed appearance time. The two daily timers were installed and read back, the old daily jobs are inactive, and the server scheduler is active. Execution stays on a fixed tested application release; normal repository updates do not silently replace it. A shared lock prevents simultaneous pipeline writers.
 
-A newsletter-only Codex adapter has been implemented locally with Claude retained as the default. Codex requires an explicit model selection. It receives historical coverage as supplied text rather than executing history tools. Production scheduling, credentials, database and active runtime have not been changed. Mock tests establish adapter behavior only; a first real writer sample has now completed, while broader quality comparison and server rollout remain pending.
+The production database remains on the VPS. A consistent backup and a disposable restored copy both passed integrity checks and matched table counts before the switch. Server model authentication and exact model access were verified. An isolated full bilingual rehearsal exposed stale articles resurfacing through aggregators; the released workflow now checks available original publication metadata and correctly labels Hacker News points/comments. Unknown publication dates still need editorial judgment.
 
-The repository lint gate now passes after correcting existing errors. A frozen set of 19 historical news items and both language prompts is prepared for a bounded writing evaluation. That evaluation saves local drafts and a validation report; it does not test selection, news freshness, outline generation, email rewriting or publishing. The user selected GPT-6 Sol with medium reasoning, but the local CLI's ChatGPT login rejected the model before generation on September 28. The desktop-bundled CLI has a newer model catalog including GPT-6 Sol; the local sample run successfully used that version, without changing the production runtime. English and Chinese drafts passed structural validation and each preserved all 19 source URLs. Initial editorial review found clear but cautious prose. The user subsequently accepted a seven-item Chinese preview using current news and manually verified selection. Production selection, full EN/ZH generation and delivery still require an isolated rehearsal. The runtime now explicitly fixes medium reasoning to match the accepted writing settings.
+Today's production writer saved both language records with Codex model provenance. Website validation passed; repeated daily-pick links and the intentionally omitted blog-seed file generated non-blocking warnings. The optional outline generator exhausted its headline validation retries; the existing free-form writer fallback completed both editions. This is a known quality/reliability follow-up, not a failed publication. The full offline suite passed 929 tests, with 30 external-service integration tests not enabled; production build, lint and historical content validation passed.
 
-### Pre-launch recheck — September 28
+A daily 11:00 Singapore-time Codex check is configured to read server status and both live pages, report the first scheduled success, and then notify on meaningful failures or recovery. This follow-up requires its Codex host to be available; production publishing itself runs on the VPS independently. Status records distinguish generated, uploaded, verified and failed runs. Publication-only retries reuse validated drafts; partial generation or repository conflicts require inspection rather than blind regeneration.
 
-The public English and Chinese archives also end on August 9; the September 28 edition is absent. The email service accepts authenticated read requests, but its returned delivery history ends on June 19. These are three distinct outcomes: current collection, stale website content, and older email delivery.
+Before restoration, collection was current but both website archives ended on August 9, and the old newsletter logs showed Claude CLI failures. That legacy path is not a verified rollback for availability. Rollback retains the backup, generated artifacts and previous launch configuration; reverting code does not overwrite newer database data.
 
-The server has no Codex installation or saved Codex login in the checked service-account locations. Its active newsletter still calls Claude and fails during generation; a deprecation warning accompanies the failures but is not sufficient to establish the underlying cause. The actual daily starts are 08:00 for collection and 10:00 for newsletter generation in Singapore time, as observed in logs; schedule comments claim different times. Both jobs run every day.
+Other pipeline schedules were not expanded by this rollout. Entity extraction, flagship freshness/discovery, content generation and keyword discovery remain paused in the inspected configuration. Performance and weekly jobs retain their existing schedules and runtime; their old “Operational” labels below are historical descriptions, not acceptance results from this daily-website rollout.
 
-Launch remains blocked on a verified server runtime, a database backup/restore rehearsal, an isolated full newsletter run, and a controlled release with a rollback path. Publishing also needs explicit handling of repository upload failures and a fixed application version. Email additionally needs recipient-language verification and resumable duplicate-send prevention. Existing timers and the single-writer lock are present, but no working alert path was established in this inspection. That audit made no production changes. The user has since authorized website-only restoration; rollout is in progress. A consistent backup and restored read-back passed, the old daily newsletter timer is paused, and server GPT-6 Sol access is verified. The new fixed-release workflow omits email work. The isolated bilingual run completed, but editorial review found older articles resurfacing through aggregators. Original-article publication metadata checks and source-correct engagement labels are being validated before final activation. Final schedule and live-page acceptance are still pending.
-
-## Pipeline Overview
+## Historical Pipeline Overview
 
 ```
 12am    2am     4am    4:30am   6am     7:30am   8am     10am    5am     9pm
@@ -44,9 +42,9 @@ Collect  News   Entity  Fresh   Generate  D1     Disc    Perf   Weekly  Review
 | Attribute | Value |
 |-----------|-------|
 | Script | `scripts/collect-news.ts` |
-| Schedule | Daily 12:00am SGT |
-| Trigger | Cron via `daily-pipeline.sh collect` |
-| Status | **Operational** |
+| Schedule | Daily 08:00 SGT |
+| Trigger | Fixed-release daily website scheduler |
+| Status | Collection verified September 28; replacement timer active |
 
 **What it does**: Collects AI news from 7 source tiers in parallel:
 - Tier 0: 14 RSS feeds (~35 items)
@@ -69,19 +67,18 @@ Collect  News   Entity  Fresh   Generate  D1     Disc    Perf   Weekly  Review
 | Attribute | Value |
 |-----------|-------|
 | Script | `scripts/write-newsletter.ts` |
-| Schedule | Daily 2:00am SGT |
-| Trigger | Cron via `daily-pipeline.sh newsletter` |
-| Status | **Operational** |
+| Schedule | Daily 10:00 SGT generation start |
+| Trigger | Fixed-release daily website scheduler |
+| Status | September 28 EN/ZH pages verified live; daily timer active |
 
-**Stages**:
-1. DB query (72h window)
-2. Pre-filter (hard caps per source type)
-3. 3-tier agent filter (Claude Opus → single-shot → rule-based fallback) + cross-day dedup
-3b. Outline generation (Claude Opus)
-4. EN newsletter (Claude Opus + `skills/newsletter-en/`)
-5. ZH newsletter (Claude Opus → Claude Sonnet fallback (or explicitly selected Codex runtime) + `skills/newsletter-zh/`)
-6. Blog seed extraction (legacy)
-7. Persist & publish (git commit+push, Buttondown send EN+ZH)
+**Active daily stages**:
+1. Query recent news, enforce age filters and check available original publication dates.
+2. Select with GPT-6 Sol, historical coverage and cross-day deduplication; existing filter fallbacks remain.
+3. Attempt an outline, then independently write EN and ZH with GPT-6 Sol / medium. Validated free-form writing is the fallback if the optional outline fails.
+4. Validate and save both editions with a recovery receipt.
+5. Upload only the two website editions and verify their live page titles.
+
+Daily email rewriting/sending and blog-seed generation are omitted from this workflow.
 
 **Output**: `content/newsletters/{en,zh}/YYYY-MM-DD.md`, `data/filtered-items/YYYY-MM-DD.json`
 **Validation**: `validate-pipeline.ts --step=newsletter` runs after.

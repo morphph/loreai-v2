@@ -73,7 +73,10 @@ git config user.email "bot@loreai.dev"
 # Ensure SSH key has push access to the repo
 ```
 
-### Crontab
+### Historical crontab example (not the current daily schedule)
+
+Do not install this block as the active daily configuration. The verified website schedule and UTC host timezone are documented in the fixed-release section below.
+
 ```cron
 # === LoreAI v2 Pipeline ===
 # All times are SGT (Asia/Singapore)
@@ -192,9 +195,11 @@ Local access evidence (2026-09-28): standalone CLI 0.153.4 rejected `gpt-6-sol` 
 
 The CLI installation check only runs `--version`; it does not verify authentication, quota or model access. Authenticate the production service account separately when rollout is authorized. All Codex newsletter calls now explicitly use medium reasoning, matching the accepted preview and evaluator. Model parameters `maxTokens` and `temperature` are legacy caller hints and are not mapped to unsupported Codex CLI flags.
 
-See [Codex newsletter migration](CODEX-NEWSLETTER-MIGRATION.md) for offline validation, runtime verification and rollback. No scheduler changes or production switch have been applied. The existing scheduler pulls `main` automatically, so an authorized rollout must account for that behavior rather than treating a push as an isolated development action.
+See [Codex newsletter migration](CODEX-NEWSLETTER-MIGRATION.md) for offline validation, runtime verification and rollback. The authorized daily website rollout now uses the fixed-release workflow below. The retained legacy wrapper pulls `main` automatically and must not be re-enabled alongside the new daily jobs.
 
 ## Website-only fixed release (September 2026 rollout)
+
+Activated September 28 after both public editions were verified. The application release is `1ab8196a9c1c491461706d48b3f0995f4cbd40df`, with Linux Codex CLI `0.158.0`, GPT-6 Sol and medium reasoning. Daily collection and newsletter timers are active for 08:00 and 10:00 SGT; the first scheduled run after restoration is September 29. A separate Codex follow-up checks at 11:00 SGT when its host is available. The VPS jobs do not require the local Mac. Retain private backup and launch-state records on the server.
 
 The new `scripts/run-website-daily.py` takes `collect|newsletter`, `--publisher`, `--state-dir`, and `--expected-revision`. Its own checkout is the fixed execution release. Supply `DB_PATH` and `DOTENV_CONFIG_PATH` to the existing production database and configuration file; do not copy/edit environment files. Supply `NEWSLETTER_AI_PROVIDER=codex`, `NEWSLETTER_CODEX_MODEL=gpt-6-sol`, and the absolute, pinned Linux CLI path. Reasoning is medium. The publishing checkout must be on main with no unrelated tracked/staged changes.
 
