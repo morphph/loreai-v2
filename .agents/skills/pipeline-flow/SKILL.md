@@ -1,3 +1,8 @@
+---
+name: pipeline-flow
+description: Inspect LoreAI pipeline code and schedules and produce a current HTML data-flow diagram. Use for a requested pipeline visualization.
+---
+
 # Pipeline Flow Visualization
 
 Generate an up-to-date visual pipeline flow diagram as a self-contained HTML file, then open it in the browser.

@@ -1,3 +1,8 @@
+---
+name: implement-spec
+description: Implement an approved LoreAI specification and run project quality gates. Use for spec-driven development; deployment requires separate authorization.
+---
+
 # Implement Spec
 
 Implement a spec document into production-ready code with full validation.
@@ -22,18 +27,10 @@ User provides a spec file path (e.g., `docs/specs/B4-priority-scoring.md`) or a 
 8. Run `npm run build` — if errors, fix and re-run. Loop until build succeeds
 9. Run `npm run lint` — fix any lint issues
 
-### Phase 4: Visual Verify (when applicable)
-10. If the change affects any user-facing page, use computer use to:
-    - Open the affected page(s) on **https://loreai.dev** (wait for Vercel deploy after push)
-    - Take screenshots and verify: content renders correctly, no layout issues, no broken elements
-    - For newsletter changes: check both EN (`/newsletter/YYYY-MM-DD`) and ZH (`/zh/newsletter/YYYY-MM-DD`)
-    - For blog changes: check both EN and ZH versions
-    - For dashboard changes: check `https://loreai.dev/dashboard?key=aeodashboard`
-
-### Phase 5: Ship
-11. Git add relevant files, commit with a descriptive message, and push
-12. If Phase 4 applies: wait ~30s for Vercel deploy, then do visual verification
-13. Report summary: files created/modified, tests written & passing, build status, screenshots (if any), and any design decisions made
+### Phase 4: Verify and hand off
+10. For UI changes, preview the affected pages locally and inspect both languages when relevant.
+11. Report changes, validation results, and remaining issues. Do not commit, push, deploy, or update the VPS as an implicit implementation step.
+12. If the user explicitly invokes commit-with-gates, use that skill for commit/push and honor the project's live-publish restrictions. Production switching remains a separate authorized action.
 
 ## Rules
 - Do NOT skip failing tests or comment out lint rules

@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import os from 'os';
 import type Database from 'better-sqlite3';
+import type { QualityReport } from '../review';
 
 // ── Test setup: in-memory SQLite via DB_PATH ──
 
@@ -19,6 +20,7 @@ beforeEach(async () => {
 });
 
 afterEach(() => {
+  vi.useRealTimers();
   try { db.closeDb(); } catch { /* ignore */ }
   try { fs.rmSync(tmpDir, { recursive: true }); } catch { /* ignore */ }
   delete process.env.DB_PATH;
@@ -54,16 +56,12 @@ describe('saveReport', () => {
 
   it('saves quality report as JSON', async () => {
     const { saveReport } = await import('../review');
-    const report = {
-      generated_at: '2026-03-27T00:00:00Z',
+    const report: QualityReport = {
+      ...makeMockQualityReport(4.0, 3.5, 3.8, 0.1),
       overall_quality: 'yellow',
-      pure_checks: {},
-      llm_calls: 5,
-      llm_model: 'sonnet',
-      duration_ms: 1000,
     };
 
-    const filePath = saveReport(report as any, 'quality', tmpDir);
+    const filePath = saveReport(report, 'quality', tmpDir);
     expect(filePath).toContain('quality-');
     expect(filePath).toMatch(/\.json$/);
   });
@@ -92,6 +90,8 @@ describe('saveReport', () => {
 
 describe('cleanOldReports', () => {
   it('deletes reports older than 30 days', async () => {
+    vi.useFakeTimers({ toFake: ['Date'] });
+    vi.setSystemTime(new Date('2026-03-27T00:00:00Z'));
     const { cleanOldReports } = await import('../review');
     const dir = path.join(tmpDir, 'data', 'review');
     fs.mkdirSync(dir, { recursive: true });
@@ -154,6 +154,8 @@ describe('loadLatestReport', () => {
 
 describe('loadReportsInRange', () => {
   it('loads reports within the date range', async () => {
+    vi.useFakeTimers({ toFake: ['Date'] });
+    vi.setSystemTime(new Date('2026-03-27T00:00:00Z'));
     const { loadReportsInRange } = await import('../review');
     const dir = path.join(tmpDir, 'data', 'review');
     fs.mkdirSync(dir, { recursive: true });
@@ -165,9 +167,8 @@ describe('loadReportsInRange', () => {
     fs.writeFileSync(path.join(dir, 'quality-2026-03-10.json'), JSON.stringify({ day: 10 }));
 
     const results = loadReportsInRange<{ day: number }>('quality', 7, tmpDir);
-    // Should include reports from last 7 days (depends on "now")
-    // All should be sorted by date
-    expect(results.length).toBeGreaterThanOrEqual(1);
+    // Freeze the clock so this assertion remains meaningful after March 2026.
+    expect(results.map(result => result.date)).toEqual(['2026-03-20', '2026-03-24', '2026-03-25']);
     for (let i = 1; i < results.length; i++) {
       expect(results[i].date >= results[i - 1].date).toBe(true);
     }
@@ -190,7 +191,7 @@ describe('computeQualityTrends', () => {
 
     // Save a "previous" quality report
     const prev = makeMockQualityReport(3.5, 3.0, 3.2, 0.2);
-    saveReport(prev as any, 'quality', tmpDir);
+    saveReport(prev, 'quality', tmpDir);
 
     // Wait a bit to ensure different filename (in real use they'd be on different dates)
     const current = makeMockQualityReport(4.0, 3.5, 3.8, 0.1);
@@ -353,7 +354,7 @@ describe('generateStrategicReport', () => {
 
 function makeMockQualityReport(
   coherence: number, intent: number, aeo: number, junkRate: number,
-) {
+): QualityReport {
   return {
     generated_at: new Date().toISOString(),
     pure_checks: {

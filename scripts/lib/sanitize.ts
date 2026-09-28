@@ -14,11 +14,14 @@ export function sanitizeOutput(raw: string): string {
   s = s.replace(/\n```\s*$/, '');
   s = s.trim();
 
-  // 2. If content has frontmatter but doesn't start with it,
-  //    Claude added preamble text — strip everything before first ---
-  if (!s.startsWith('---') && s.includes('\n---\n')) {
-    const idx = s.indexOf('\n---\n');
-    s = s.slice(idx + 1);
+  // 2. Only strip a preamble before a real frontmatter block. A newsletter's
+  //    horizontal rule after its headline/preview is ordinary Markdown.
+  if (!s.startsWith('---') && !s.startsWith('#')) {
+    const frontmatter = /\n---\r?\n(?=[\w-]+:\s)[\s\S]*?\r?\n---(?:\r?\n|$)/.exec(s);
+    const heading = s.indexOf('\n# ');
+    if (frontmatter && (heading === -1 || frontmatter.index < heading)) {
+      s = s.slice(frontmatter.index + 1);
+    }
   }
   // Also handle: preamble text followed by # heading (no frontmatter case, like newsletters)
   if (!s.startsWith('---') && !s.startsWith('#') && s.includes('\n# ')) {

@@ -2,7 +2,7 @@
  * Integration tests for B2 — Keyword Grouping
  *
  * Uses real Claude API + in-memory SQLite DB.
- * Only runs when ANTHROPIC_API_KEY is set.
+ * Live CLI calls require RUN_LIVE_MODEL_TESTS=1 and an installed/authenticated CLI.
  */
 
 import { describe, it, expect } from 'vitest';
@@ -127,7 +127,8 @@ const hasCli = (() => {
   } catch { return false; }
 })();
 
-const describeIfCli = hasCli ? describe : describe.skip;
+// Installing a CLI must not opt a developer into paid model calls during npm test.
+const describeIfCli = process.env.RUN_LIVE_MODEL_TESTS === '1' && hasCli ? describe : describe.skip;
 
 describeIfCli('Claude CLI integration — keyword grouping', () => {
   it('groups pricing keywords via callClaude()', { timeout: 120000 }, async () => {

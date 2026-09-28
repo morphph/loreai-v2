@@ -2,7 +2,7 @@
 title: "Skills Index"
 status: active
 category: guide
-last-updated: 2026-04-09
+last-updated: 2026-09-28
 depends-on: []
 ---
 
@@ -50,3 +50,9 @@ depends-on: []
 - Newsletter and blog skills have separate EN/ZH versions (independent creation, not translation)
 - SEO skill handles multiple content types via unified prompt with type-specific sections
 - Skills are referenced by scripts via file read — the SKILL.md content becomes the system prompt
+
+## Codex development workflows — 2026-09-28
+
+Five repository workflows are available to Codex: gated commits, approved-spec implementation, local blog import, pipeline visualization, and read-only production health inspection. Each has discovery metadata. Application generation prompts remain separate and are loaded by pipeline code, not discovered as development skills.
+
+The pipeline reviewer uses the existing shared known-issues registry. Development workflows no longer imply deployment or production database writes. Legacy Claude workflows are retained for compatibility; Codex workflow maintenance happens in the Codex skill collection. Codex currently has no equivalent environment-file edit blocking hook: the prohibition is an agent instruction, not a verified tool-level control.

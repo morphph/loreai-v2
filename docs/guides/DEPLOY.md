@@ -2,7 +2,7 @@
 title: "Deploy & Operations Guide"
 status: active
 category: guide
-last-updated: 2026-03-31
+last-updated: 2026-09-28
 depends-on: ["PIPELINE"]
 ---
 
@@ -172,3 +172,38 @@ Pipeline is active during these times (SGT, Mon-Fri unless noted):
 - **Sun 5:00am** — Weekly digest
 
 Do NOT push to the repo during these windows.
+
+## Codex development and newsletter runtime
+
+Use Node 22 for the current lockfile (`better-sqlite3` does not support Node 26). The developer shell may need its Node 22 binary directory prepended to `PATH` before installing or testing.
+
+Codex project workflows live in `.agents/skills/`; `.codex/agents/pipeline-reviewer.toml` uses `.claude/known-issues.md`. Removed unrelated VPS vault lifecycle hooks from `.codex/hooks.json`; the file now explicitly contains no hooks. Environment-file protection is currently an AGENTS instruction, not a Codex tool-level blocker. Existing Claude configuration is retained, but is not loaded as Codex configuration.
+
+Newsletter runtime settings (set manually or by the authorized scheduler environment, never edit `.env*` through an agent):
+
+| Variable | Default | Purpose |
+| --- | --- | --- |
+| `NEWSLETTER_AI_PROVIDER` | `claude` | Newsletter-only `claude` or `codex` selection |
+| `NEWSLETTER_CODEX_MODEL` | unset | Required explicit Codex model; no moving default |
+| `NEWSLETTER_CODEX_BIN` | `codex` | Absolute CLI binary path recommended for cron |
+| `NEWSLETTER_CODEX_FALLBACK_MODEL` | unset | Optional ZH fallback model within Codex |
+
+Local access evidence (2026-09-28): standalone CLI 0.153.4 rejected `gpt-6-sol` with ChatGPT login, while the desktop-bundled 0.155.0-alpha.9.2 successfully generated both samples. Verify the actual binary and model catalog used by a job; an available model in the desktop app is not proof that another CLI version can run it. The sample evaluator explicitly pins medium reasoning.
+
+The CLI installation check only runs `--version`; it does not verify authentication, quota or model access. Authenticate the production service account separately when rollout is authorized. All Codex newsletter calls now explicitly use medium reasoning, matching the accepted preview and evaluator. Model parameters `maxTokens` and `temperature` are legacy caller hints and are not mapped to unsupported Codex CLI flags.
+
+See [Codex newsletter migration](CODEX-NEWSLETTER-MIGRATION.md) for offline validation, runtime verification and rollback. No scheduler changes or production switch have been applied. The existing scheduler pulls `main` automatically, so an authorized rollout must account for that behavior rather than treating a push as an isolated development action.
+
+## Website-only fixed release (September 2026 rollout)
+
+The new `scripts/run-website-daily.py` takes `collect|newsletter`, `--publisher`, `--state-dir`, and `--expected-revision`. Its own checkout is the fixed execution release. Supply `DB_PATH` and `DOTENV_CONFIG_PATH` to the existing production database and configuration file; do not copy/edit environment files. Supply `NEWSLETTER_AI_PROVIDER=codex`, `NEWSLETTER_CODEX_MODEL=gpt-6-sol`, and the absolute, pinned Linux CLI path. Reasoning is medium. The publishing checkout must be on main with no unrelated tracked/staged changes.
+
+The new launcher uses the same pipeline lock as legacy jobs. Replace, rather than duplicate, daily collection/newsletter timers. On the current UTC cron host, `0 0 * * *` means 08:00 SGT collection and `0 2 * * *` means 10:00 SGT newsletter generation. Do not rely on `TZ=Asia/Singapore` in crontab to change Debian cron's matching timezone.
+
+Only EN/ZH website Markdown is pushed. Filtered source snapshots, execution state and credentials stay on the VPS. Email generation/sending is disabled in this workflow. The launcher fails on unsuccessful generation, validation, Git upload or missing live titles. A successful upload is not a successful deployment until both language pages match.
+
+Status files record `running`, `uploaded_waiting_for_site`, `verified`, or `failed`. Generated-content receipts allow safe publication-only retries. If today's files exist without a receipt, inspect partial DB/file state before restarting; do not clear selection markers or resend anything automatically. On a release upgrade, carry forward required past website/filtered-history artifacts through the approved private process without changing the code revision.
+
+Rollback: stop the new daily launcher, retain all output/receipts, restore the previous launch configuration and tested release. Do not restore the whole old DB over newer production data merely to revert code. The old Claude path is currently broken, so returning to it is not a verified availability fallback.
+
+Before release, run all standard gates plus `python3 -m unittest discover -s scripts/__tests__ -p 'website_daily_test.py'`, perform SQLite backup/restore/read-back, and rehearse the complete writer on a separate DB.

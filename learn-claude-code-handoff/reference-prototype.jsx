@@ -147,15 +147,15 @@ function ChapterIntro() {
       <p>我们从泄漏的源码中提炼出了Claude Code的核心产品设计哲学——尤其是<strong>Agent Harness架构</strong>和<strong>Prompt Engineering方法论</strong>——并将其组织成一个结构化的学习路径。</p>
 
       <InsightBox type="key" title="核心论点">
-        Claude Code之所以被很多开发者认为是"最好用"的AI编程工具，不是因为Claude模型本身比GPT-4o或Gemini强多少——而是因为模型周围的工程系统（Harness）做得好。模型是引擎，Harness是整辆车。
+        Claude Code之所以被很多开发者认为是&quot;最好用&quot;的AI编程工具，不是因为Claude模型本身比GPT-4o或Gemini强多少——而是因为模型周围的工程系统（Harness）做得好。模型是引擎，Harness是整辆车。
       </InsightBox>
 
       <h3>适合谁</h3>
-      <p><strong>AI产品经理和创业者：</strong>理解"AI Agent产品的核心竞争力到底是什么"，获取可复制的产品方法论。</p>
+      <p><strong>AI产品经理和创业者：</strong>理解&quot;AI Agent产品的核心竞争力到底是什么&quot;，获取可复制的产品方法论。</p>
       <p><strong>AI开发者：</strong>学习生产级Agent系统的架构设计、上下文管理、工具编排和记忆系统。</p>
 
       <h3>学习路径</h3>
-      <p>建议按顺序阅读。从架构全景开始，逐步深入各个子系统，最后在"实战启示"中提炼可落地的方法论。</p>
+      <p>建议按顺序阅读。从架构全景开始，逐步深入各个子系统，最后在&quot;实战启示&quot;中提炼可落地的方法论。</p>
       <ArchDiagram
         title="学习路径概览"
         centerLabel="Claude Code 设计哲学"
@@ -180,7 +180,7 @@ function ChapterArchitecture() {
       <p>在深入任何具体子系统之前，我们先建立一个全景认知：Claude Code的整体架构长什么样？各个部分之间是什么关系？</p>
 
       <h3>Harness的定义</h3>
-      <p>"Harness"这个概念来自于对泄漏源码的整体分析。它指的是<strong>模型之外的所有工程系统</strong>——从用户输入到模型输出之间的整个编排层。</p>
+      <p>&quot;Harness&quot;这个概念来自于对泄漏源码的整体分析。它指的是<strong>模型之外的所有工程系统</strong>——从用户输入到模型输出之间的整个编排层。</p>
 
       <InsightBox type="compare" title="类比理解">
         如果把AI Agent比作一辆赛车：模型（Claude/GPT/Gemini）是发动机，Harness是底盘、变速箱、悬挂、空气动力学套件。发动机马力差不多的情况下，谁的车造得好，谁就赢。
@@ -216,7 +216,7 @@ function ChapterArchitecture() {
       />
 
       <InsightBox type="key" title="设计哲学">
-        Claude Code的架构设计遵循一个核心原则：<strong>让模型"看到"的信息尽可能准确、结构化、高信噪比。</strong>所有工程努力——上下文加载、记忆管理、工具设计——都在服务这个目标。模型的能力是固定的，但你喂给它什么、怎么喂，决定了产品的上限。
+        Claude Code的架构设计遵循一个核心原则：<strong>让模型&quot;看到&quot;的信息尽可能准确、结构化、高信噪比。</strong>所有工程努力——上下文加载、记忆管理、工具设计——都在服务这个目标。模型的能力是固定的，但你喂给它什么、怎么喂，决定了产品的上限。
       </InsightBox>
 
       <h3>技术栈选择</h3>
@@ -236,14 +236,14 @@ function ChapterContext() {
       <h3>传统做法的问题</h3>
       <InsightBox type="compare" title="对比：传统做法 vs Claude Code">
         <p style={{margin:"4px 0"}}><strong>传统做法：</strong>把尽可能多的代码塞进context window。代码库大了就截断，或者做一次embedding检索（RAG）。问题是：信噪比低，很多token浪费在不相关的代码上。</p>
-        <p style={{margin:"4px 0"}}><strong>Claude Code：</strong>多层级文件索引 → 精准定位 → 只加载最相关的代码片段。同样200K的context window，能装进更多"有用信息"。</p>
+        <p style={{margin:"4px 0"}}><strong>Claude Code：</strong>多层级文件索引 → 精准定位 → 只加载最相关的代码片段。同样200K的context window，能装进更多&quot;有用信息&quot;。</p>
       </InsightBox>
 
       <h3>多层级文件索引系统</h3>
       <p>当你给Claude Code一个任务时，它不会立刻去读文件。它的上下文加载过程分为几个阶段：</p>
 
       <p><strong>阶段1：项目结构感知</strong></p>
-      <p>使用轻量级的Glob工具扫描项目目录结构，建立"项目地图"。这个过程消耗的token极少，但让模型对项目的整体布局有了认知。</p>
+      <p>使用轻量级的Glob工具扫描项目目录结构，建立&quot;项目地图&quot;。这个过程消耗的token极少，但让模型对项目的整体布局有了认知。</p>
 
       <CodeBlock
         filename="上下文加载 - 阶段1示意"
@@ -269,12 +269,12 @@ const projectStructure = await glob("**/*.{ts,tsx,js,jsx}", {
 
       <InsightBox type="key" title="核心洞察：信噪比 > 信息量">
         同样200K的context window：
-        其他工具可能用30%的窗口装了你根本不需要的代码。Claude Code把这30%省下来装更精准的上下文。结果就是——模型的"注意力"更集中，输出质量更高。
+        其他工具可能用30%的窗口装了你根本不需要的代码。Claude Code把这30%省下来装更精准的上下文。结果就是——模型的&quot;注意力&quot;更集中，输出质量更高。
       </InsightBox>
 
       <h3>Prompt缓存边界计算</h3>
       <p>Claude的API支持prompt caching——如果请求的前缀和上次一样，就不需要重新处理，速度更快、成本更低。</p>
-      <p>但"从哪里切"是个工程难题：</p>
+      <p>但&quot;从哪里切&quot;是个工程难题：</p>
       <p>切得太短 → 缓存命中率低，因为每次请求的变化部分占比太大。</p>
       <p>切得太长 → 稍有变化就全部失效，缓存形同虚设。</p>
       <p>Claude Code在查询引擎的46,000行代码中做了大量的启发式优化来找到最优的切割点——这是一个看不见但直接影响用户体验和成本的关键工程。</p>
@@ -304,11 +304,11 @@ const prompt = [
 function ChapterMemory() {
   return (
     <div>
-      <p>记忆系统可能是Claude Code与其他AI编程工具拉开差距最大的地方。它用一个三层架构解决了"Context Entropy"问题。</p>
+      <p>记忆系统可能是Claude Code与其他AI编程工具拉开差距最大的地方。它用一个三层架构解决了&quot;Context Entropy&quot;问题。</p>
 
       <h3>什么是Context Entropy</h3>
-      <p>随着对话轮数增加，context window中的信息越来越杂乱：旧的决策、过时的代码片段、不再相关的讨论——这些"噪声"会稀释模型的注意力，导致输出质量下降。</p>
-      <p>大多数AI工具的做法是"存储一切"——把所有对话历史塞进context或向量数据库。Claude Code的解法完全不同。</p>
+      <p>随着对话轮数增加，context window中的信息越来越杂乱：旧的决策、过时的代码片段、不再相关的讨论——这些&quot;噪声&quot;会稀释模型的注意力，导致输出质量下降。</p>
+      <p>大多数AI工具的做法是&quot;存储一切&quot;——把所有对话历史塞进context或向量数据库。Claude Code的解法完全不同。</p>
 
       <h3>三层记忆架构</h3>
       <LayerDiagram layers={[
@@ -344,11 +344,11 @@ function ChapterMemory() {
       <p><strong>整合</strong>：更新MEMORY.md，合并新信息，淘汰过时信息。</p>
 
       <InsightBox type="key" title="产品启示">
-        这意味着Claude Code有"成长性"——你用得越多，它对你的项目和习惯理解得越深。这不是简单的对话历史记录，而是一个持续的<strong>提炼→压缩→索引</strong>循环，确保记忆始终紧凑且高质量。
+        这意味着Claude Code有&quot;成长性&quot;——你用得越多，它对你的项目和习惯理解得越深。这不是简单的对话历史记录，而是一个持续的<strong>提炼→压缩→索引</strong>循环，确保记忆始终紧凑且高质量。
       </InsightBox>
 
       <h3>第三层：子Agent缓存继承</h3>
-      <p>当主Agent生成子Agent时，子Agent直接继承父Agent的prompt缓存——相当于"天生"就了解项目背景，无需额外初始化。</p>
+      <p>当主Agent生成子Agent时，子Agent直接继承父Agent的prompt缓存——相当于&quot;天生&quot;就了解项目背景，无需额外初始化。</p>
       <p>关键机制——<strong>可变状态感知</strong>：如果在子Agent运行期间，项目文件发生了变化（比如父Agent修改了某个文件），子Agent能知道自己继承的哪些缓存内容可能过期，需要重新加载。</p>
 
       <InsightBox type="key" title="三层设计的核心思想">
@@ -365,7 +365,7 @@ function ChapterTools() {
 
       <h3>工具设计哲学</h3>
       <InsightBox type="key" title="核心原则">
-        工具的本质作用是：<strong>让模型"看到"的信息更准确、更结构化、更接近人类开发者的视角。</strong>一个好的工具不只是"执行命令"——它要把结果转化为模型最容易理解和利用的格式。
+        工具的本质作用是：<strong>让模型&quot;看到&quot;的信息更准确、更结构化、更接近人类开发者的视角。</strong>一个好的工具不只是&quot;执行命令&quot;——它要把结果转化为模型最容易理解和利用的格式。
       </InsightBox>
 
       <h3>关键工具深度拆解</h3>
@@ -392,20 +392,20 @@ interface GrepTool {
       />
 
       <p><strong>LSP集成 —— IDE级别的代码理解</strong></p>
-      <p>大多数AI编程工具只能"看到"代码的文本。Claude Code通过LSP（Language Server Protocol）集成，能获取：</p>
+      <p>大多数AI编程工具只能&quot;看到&quot;代码的文本。Claude Code通过LSP（Language Server Protocol）集成，能获取：</p>
       <p><strong>类型定义</strong>：知道变量和函数的类型签名，而不只是猜测。</p>
       <p><strong>引用关系</strong>：知道一个函数被哪些地方调用，改了它会影响什么。</p>
       <p><strong>编译错误</strong>：实时知道代码是否有语法或类型错误，不需要等到运行时。</p>
 
       <InsightBox type="insight" title="为什么这很重要">
-        LSP集成让Claude Code从"文本处理工具"升级为"具有IDE级别代码理解能力的Agent"。它能做出更准确的重构建议，因为它真正理解代码的语义关系——而不只是模式匹配。
+        LSP集成让Claude Code从&quot;文本处理工具&quot;升级为&quot;具有IDE级别代码理解能力的Agent&quot;。它能做出更准确的重构建议，因为它真正理解代码的语义关系——而不只是模式匹配。
       </InsightBox>
 
       <p><strong>Read工具 —— 精准读取</strong></p>
-      <p>支持行号范围读取，可以只读一个文件的特定部分。这和上下文引擎配合——先用Grep定位到具体行号，再用Read精准读取相关代码段。避免了"为了找10行代码而读入整个文件"的浪费。</p>
+      <p>支持行号范围读取，可以只读一个文件的特定部分。这和上下文引擎配合——先用Grep定位到具体行号，再用Read精准读取相关代码段。避免了&quot;为了找10行代码而读入整个文件&quot;的浪费。</p>
 
       <p><strong>Edit工具 —— 精确字符串替换</strong></p>
-      <p>不是让模型输出整个文件再覆盖写入。而是基于精确字符串匹配的替换操作——模型只需要指定"把什么改成什么"，工具负责验证唯一性并执行替换。这大幅降低了编辑大文件时的token消耗和出错率。</p>
+      <p>不是让模型输出整个文件再覆盖写入。而是基于精确字符串匹配的替换操作——模型只需要指定&quot;把什么改成什么&quot;，工具负责验证唯一性并执行替换。这大幅降低了编辑大文件时的token消耗和出错率。</p>
 
       <h3>工具编排的整体设计</h3>
       <ArchDiagram
@@ -430,7 +430,7 @@ function ChapterAgents() {
       <p>当任务足够复杂时，Claude Code不是一股脑自己干完——它会拆分成子任务，给每个子任务启动一个子Agent。</p>
 
       <h3>子Agent的工作原理</h3>
-      <p>比如你说："重构这个模块的API并更新所有调用方"。Claude Code会将其拆解为：</p>
+      <p>比如你说：&quot;重构这个模块的API并更新所有调用方&quot;。Claude Code会将其拆解为：</p>
       <p><strong>子Agent A</strong>：分析当前API的所有调用方，列出影响范围。</p>
       <p><strong>子Agent B</strong>：设计新的API接口。</p>
       <p><strong>主Agent</strong>：基于子Agent的结果，执行重构并逐个更新调用方。</p>
@@ -457,14 +457,14 @@ const subAgent = createSubAgent({
 
       <h3>可变状态感知</h3>
       <p>这是子Agent协调中最精妙的设计。问题是：如果父Agent在子Agent运行期间修改了某个文件，子Agent继承的缓存就可能过期。</p>
-      <p>Claude Code的解决方案：子Agent持有一个file watcher引用。当父Agent或其他子Agent修改了文件，watcher会标记相关缓存为"可能过期"，子Agent在下次使用该缓存前会重新验证。</p>
+      <p>Claude Code的解决方案：子Agent持有一个file watcher引用。当父Agent或其他子Agent修改了文件，watcher会标记相关缓存为&quot;可能过期&quot;，子Agent在下次使用该缓存前会重新验证。</p>
 
       <InsightBox type="key" title="设计精髓">
-        这解决了多Agent系统中最核心的问题：<strong>如何在并行效率和状态一致性之间找到平衡。</strong>不是悲观锁（全部串行），也不是乐观放任（可能读到脏数据）——而是"乐观继承 + 脏标记检测"的中间路线。
+        这解决了多Agent系统中最核心的问题：<strong>如何在并行效率和状态一致性之间找到平衡。</strong>不是悲观锁（全部串行），也不是乐观放任（可能读到脏数据）——而是&quot;乐观继承 + 脏标记检测&quot;的中间路线。
       </InsightBox>
 
       <h3>权限范围控制</h3>
-      <p>子Agent不是拥有和主Agent一样的权限。每个子Agent在创建时会被分配一个受限的工具集——比如一个只负责"分析"的子Agent可能只有Grep和Read权限，没有Edit和Bash权限。</p>
+      <p>子Agent不是拥有和主Agent一样的权限。每个子Agent在创建时会被分配一个受限的工具集——比如一个只负责&quot;分析&quot;的子Agent可能只有Grep和Read权限，没有Edit和Bash权限。</p>
       <p>这是安全和效率的双重考量：限制权限既减少了子Agent意外修改文件的风险，也简化了它的决策空间，让它更专注于自己的子任务。</p>
     </div>
   );
@@ -509,19 +509,19 @@ function ChapterPrompt() {
       <h3>Prompt设计的关键原则</h3>
 
       <InsightBox type="key" title="原则1：指令要具体到可执行">
-        不说"写好代码"，而是说"使用Edit工具时，old_string必须在文件中唯一匹配。如果不唯一，提供更多上下文使其唯一"。每条指令都具体到模型能直接执行的粒度。
+        不说&quot;写好代码&quot;，而是说&quot;使用Edit工具时，old_string必须在文件中唯一匹配。如果不唯一，提供更多上下文使其唯一&quot;。每条指令都具体到模型能直接执行的粒度。
       </InsightBox>
 
       <InsightBox type="key" title="原则2：用约束代替期望">
-        不说"尽量少用token"，而是说"读取文件时，如果你已经知道需要哪个部分，只读取那个部分的行号范围"。把抽象的期望转化为具体的行为约束。
+        不说&quot;尽量少用token&quot;，而是说&quot;读取文件时，如果你已经知道需要哪个部分，只读取那个部分的行号范围&quot;。把抽象的期望转化为具体的行为约束。
       </InsightBox>
 
       <InsightBox type="key" title="原则3：负面示例和正面示例并用">
-        Claude Code的prompt中大量使用"DO NOT"和"INSTEAD"的配对。不只是说"不要做X"，而是同时说"而是要做Y"——给模型一条明确的替代路径。
+        Claude Code的prompt中大量使用&quot;DO NOT&quot;和&quot;INSTEAD&quot;的配对。不只是说&quot;不要做X&quot;，而是同时说&quot;而是要做Y&quot;——给模型一条明确的替代路径。
       </InsightBox>
 
       <h3>工具使用指导的设计</h3>
-      <p>泄漏的prompt中，工具使用指导占了很大比重。这不是简单的"你可以使用以下工具"——而是精心设计的行为引导：</p>
+      <p>泄漏的prompt中，工具使用指导占了很大比重。这不是简单的&quot;你可以使用以下工具&quot;——而是精心设计的行为引导：</p>
 
       <CodeBlock
         filename="prompts/tool-guidance.ts - 工具使用引导示例"
@@ -541,8 +541,8 @@ function ChapterPrompt() {
       />
 
       <h3>情绪感知Prompt</h3>
-      <p>一个有趣的发现：Claude Code的prompt中包含了情绪感知相关的逻辑。代码中有正则表达式检测用户是否在表达烦躁情绪，以及一个matchesKeepGoingKeyword()函数来区分"用户在催我"和"用户在骂我"。</p>
-      <p>这说明生产级AI产品的prompt设计不只考虑"任务完成度"——还考虑"用户情绪管理"。</p>
+      <p>一个有趣的发现：Claude Code的prompt中包含了情绪感知相关的逻辑。代码中有正则表达式检测用户是否在表达烦躁情绪，以及一个matchesKeepGoingKeyword()函数来区分&quot;用户在催我&quot;和&quot;用户在骂我&quot;。</p>
+      <p>这说明生产级AI产品的prompt设计不只考虑&quot;任务完成度&quot;——还考虑&quot;用户情绪管理&quot;。</p>
     </div>
   );
 }
@@ -575,12 +575,12 @@ if (ANTI_DISTILLATION_CC) {
       />
 
       <InsightBox type="insight" title="商业启示">
-        <p style={{margin:"4px 0"}}>反蒸馏机制的核心思路是：<strong>让"抄作业"的成本高于"自己做"的成本。</strong></p>
-        <p style={{margin:"4px 0"}}>如果你在做AI产品，值得思考：你的产品能力是否容易被竞争对手通过API抓取来"蒸馏"？如果是，有没有类似的防御策略？</p>
+        <p style={{margin:"4px 0"}}>反蒸馏机制的核心思路是：<strong>让&quot;抄作业&quot;的成本高于&quot;自己做&quot;的成本。</strong></p>
+        <p style={{margin:"4px 0"}}>如果你在做AI产品，值得思考：你的产品能力是否容易被竞争对手通过API抓取来&quot;蒸馏&quot;？如果是，有没有类似的防御策略？</p>
       </InsightBox>
 
       <h3>Undercover模式——以及它的完美讽刺</h3>
-      <p>代码中的undercover.ts实现了一个"卧底模式"。当Anthropic工程师使用Claude Code向公共开源仓库贡献代码时，该模式自动激活。</p>
+      <p>代码中的undercover.ts实现了一个&quot;卧底模式&quot;。当Anthropic工程师使用Claude Code向公共开源仓库贡献代码时，该模式自动激活。</p>
 
       <CodeBlock
         filename="utils/undercover.ts - 核心逻辑"
@@ -628,7 +628,7 @@ function ChapterProduct() {
 
       <h3>KAIROS：从工具到守护进程</h3>
       <p>代码中被提及超过150次的feature flag——KAIROS——是一个全自主守护进程模式。</p>
-      <p>当前的Claude Code是"被动式"的：你给指令，它执行。KAIROS改变了这个范式：</p>
+      <p>当前的Claude Code是&quot;被动式&quot;的：你给指令，它执行。KAIROS改变了这个范式：</p>
 
       <ArchDiagram
         title="KAIROS vs 传统模式"
@@ -643,7 +643,7 @@ function ChapterProduct() {
       />
 
       <InsightBox type="insight" title="产品启示">
-        KAIROS代表了AI Agent产品形态的下一阶段：从Copilot（副驾驶）到Autopilot（自动驾驶）。被动式AI工具的天花板可能比我们想象的低。下一波竞争可能在"主动性"上——AI不是你去找它，是它来找你。
+        KAIROS代表了AI Agent产品形态的下一阶段：从Copilot（副驾驶）到Autopilot（自动驾驶）。被动式AI工具的天花板可能比我们想象的低。下一波竞争可能在&quot;主动性&quot;上——AI不是你去找它，是它来找你。
       </InsightBox>
 
       <h3>Buddy：电子宠物留存系统</h3>
@@ -655,17 +655,17 @@ function ChapterProduct() {
       <p>一个$2.5B年收入的严肃编程工具，认真做了一个电子宠物。这看似荒谬，实则非常聪明：</p>
 
       <InsightBox type="key" title="增长策略分析">
-        <p style={{margin:"4px 0"}}><strong>情感化留存：</strong>如果你的编程环境里养了一只三个月的闪光稀有宠物——切换到另一个工具的心理成本就完全不同了。这是把"工具粘性"从"功能依赖"升级为"情感依赖"。</p>
-        <p style={{margin:"4px 0"}}><strong>社交传播：</strong>"你的Claude Code宠物是什么物种？"这种对话天然具有传播力。就像Spotify Wrapped一样，它制造分享冲动。</p>
+        <p style={{margin:"4px 0"}}><strong>情感化留存：</strong>如果你的编程环境里养了一只三个月的闪光稀有宠物——切换到另一个工具的心理成本就完全不同了。这是把&quot;工具粘性&quot;从&quot;功能依赖&quot;升级为&quot;情感依赖&quot;。</p>
+        <p style={{margin:"4px 0"}}><strong>社交传播：</strong>&quot;你的Claude Code宠物是什么物种？&quot;这种对话天然具有传播力。就像Spotify Wrapped一样，它制造分享冲动。</p>
         <p style={{margin:"4px 0"}}><strong>游戏化激励：</strong>宠物的稀有度和属性可以和编程行为挂钩——写的代码越多，宠物越强/越稀有，形成正向反馈循环。</p>
       </InsightBox>
 
       <h3>Frustration Detection：情绪感知</h3>
-      <p>代码中包含一个情绪检测模块，用正则表达式判断用户是否烦躁。同时有一个matchesKeepGoingKeyword()函数，区分"用户在催我"（继续、接着做）和"用户在表达不满"。</p>
-      <p>一家做大语言模型的公司，用正则表达式做情感分析——这本身就很有趣。但更重要的启示是：<strong>生产级AI产品的用户体验不只是"任务完成度"，还包括情绪管理。</strong></p>
+      <p>代码中包含一个情绪检测模块，用正则表达式判断用户是否烦躁。同时有一个matchesKeepGoingKeyword()函数，区分&quot;用户在催我&quot;（继续、接着做）和&quot;用户在表达不满&quot;。</p>
+      <p>一家做大语言模型的公司，用正则表达式做情感分析——这本身就很有趣。但更重要的启示是：<strong>生产级AI产品的用户体验不只是&quot;任务完成度&quot;，还包括情绪管理。</strong></p>
 
       <h3>187个Spinner动词</h3>
-      <p>Claude Code有187种不同的加载状态文案——"Thinking..."、"Analyzing..."、"Processing..."等等。Anthropic的工程师认真写了187种方式来告诉你"请稍等"。</p>
+      <p>Claude Code有187种不同的加载状态文案——&quot;Thinking...&quot;、&quot;Analyzing...&quot;、&quot;Processing...&quot;等等。Anthropic的工程师认真写了187种方式来告诉你&quot;请稍等&quot;。</p>
       <p>这揭示了一个产品细节：<strong>等待体验是AI工具用户体验中被严重低估的环节。</strong>当用户在等待模型响应时（可能是几秒到几十秒），一个有变化的、有趣的状态提示可以显著改善感知等待时间。</p>
     </div>
   );
@@ -684,7 +684,7 @@ function ChapterTakeaway() {
       <h3>方法论2：用指针索引代替全量存储</h3>
       <p>MEMORY.md的设计模式可以直接复制：</p>
       <p><strong>不要</strong>把所有信息塞进context或向量数据库。</p>
-      <p><strong>要</strong>维护一个紧凑的"指针索引"，常驻context中，成本极低但覆盖面极广。</p>
+      <p><strong>要</strong>维护一个紧凑的&quot;指针索引&quot;，常驻context中，成本极低但覆盖面极广。</p>
       <p>需要细节时，再通过工具按需加载。</p>
 
       <h3>方法论3：为LLM优化工具输出格式</h3>
@@ -692,16 +692,16 @@ function ChapterTakeaway() {
       <p>如果你在做Agent产品，审视一下你的工具输出：它们的格式是模型最容易理解的吗？</p>
 
       <h3>方法论4：考虑反蒸馏防御</h3>
-      <p>如果你的AI产品有独特的能力，思考一下：竞争对手能否通过截取你的API流量来"蒸馏"这些能力？如果能，假工具注入式的"数据下毒"策略值得考虑。</p>
+      <p>如果你的AI产品有独特的能力，思考一下：竞争对手能否通过截取你的API流量来&quot;蒸馏&quot;这些能力？如果能，假工具注入式的&quot;数据下毒&quot;策略值得考虑。</p>
 
       <h3>方法论5：情感化设计不只是给C端产品用的</h3>
-      <p>Buddy宠物系统、187个spinner动词、情绪感知——这些都说明：即使是面向开发者的"硬核"工具，情感化设计也能显著提升留存和口碑。</p>
+      <p>Buddy宠物系统、187个spinner动词、情绪感知——这些都说明：即使是面向开发者的&quot;硬核&quot;工具，情感化设计也能显著提升留存和口碑。</p>
 
       <h3>方法论6：从被动到主动</h3>
-      <p>KAIROS暗示了AI Agent产品的演进方向。如果你的产品目前是"用户问→AI答"的被动模式，考虑一下：有没有场景可以让AI主动发起行动？</p>
+      <p>KAIROS暗示了AI Agent产品的演进方向。如果你的产品目前是&quot;用户问→AI答&quot;的被动模式，考虑一下：有没有场景可以让AI主动发起行动？</p>
 
       <InsightBox type="key" title="一句话总结">
-        AI Agent赛道的竞争，正在从"谁的模型好"转向"谁的工程好"。模型是引擎，Harness是整辆车。
+        AI Agent赛道的竞争，正在从&quot;谁的模型好&quot;转向&quot;谁的工程好&quot;。模型是引擎，Harness是整辆车。
       </InsightBox>
 
       <div style={{ margin: "40px 0", padding: 32, background: "linear-gradient(135deg, #6366f1, #8b5cf6)", borderRadius: 16, textAlign: "center", color: "white" }}>

@@ -153,7 +153,7 @@ export const chapterArchitecture: ContentBlock[] = [
     type: "insight",
     variant: "key",
     title: "设计哲学",
-    content: "Claude Code的架构设计遵循一个核心原则：让模型"看到"的信息尽可能准确、结构化、高信噪比。所有工程努力——上下文加载、记忆管理、工具设计——都在服务这个目标。模型的能力是固定的，但你喂给它什么、怎么喂，决定了产品的上限。",
+    content: "Claude Code的架构设计遵循一个核心原则：让模型\"看到\"的信息尽可能准确、结构化、高信噪比。所有工程努力——上下文加载、记忆管理、工具设计——都在服务这个目标。模型的能力是固定的，但你喂给它什么、怎么喂，决定了产品的上限。",
   },
   { type: "heading", text: "技术栈选择" },
   { type: "paragraph", text: "**TypeScript + Bun + React + Ink** ——这个选择本身就很有意思：" },

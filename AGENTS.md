@@ -10,7 +10,8 @@ Stack: Next.js 16 + TypeScript + Tailwind v4 + SQLite. Vercel (frontend) + VPS (
 - `skills/` — 19 root generation prompts (blog/email/newsletter/seo/…); iterate, never rewrite from scratch.
 - `server/` — backend services. `content/`, `data/`, `reports/` — generated newsletters / news / SEO data (git-tracked output).
 - `__tests__/`, `__fixtures__/` — Vitest unit tests + fixtures. `e2e/` — Playwright config + specs.
-- `.claude/` — skills, agents (`pipeline-reviewer`), `known-issues.md` (Claude Code; kept intact).
+- `.agents/skills/` — canonical Codex development workflows; `.codex/agents/` — pipeline reviewer.
+- `.claude/` — retained legacy Claude workflows and the shared `known-issues.md` registry; do not treat legacy workflows as Codex configuration.
 - `.codex/config.toml` — Codex shell-env policy. `.mcp.json` — registers the public `context7` MCP (docs lookup).
 - Config: `next.config.ts`, `tsconfig.json`, `eslint.config.mjs`, `vitest.config.ts`, `postcss.config.mjs`, `vercel.json`.
 
@@ -22,7 +23,7 @@ npm run build        # production SSG build
 npm run lint         # ESLint
 npm test             # Vitest (must pass before commit)
 ```
-Env: copy `.env.example` → `.env` and fill values locally. `.env*` are git-ignored and PreToolUse-hook-protected — edit them manually, never via an agent.
+Env: copy `.env.example` → `.env` and fill values manually. Never edit `.env*` via an agent. Claude has a legacy edit hook; Codex currently relies on this instruction, not an equivalent tool-level block. Do not assume shell writes are hook-protected.
 
 ## Safety constraints
 - Do **not** trigger production deploys (Vercel) or any live publish — this is dev-only.
@@ -48,7 +49,7 @@ npm run lint         # ESLint
 - Never skip failing tests or comment out lint rules to make the build pass
 - Never rewrite prompts in `skills/` from scratch — iterate only (battle-tested)
 - Never import Next.js modules inside pipeline scripts (they are server-only)
-- Never edit `.env*` files via Claude (PreToolUse hook blocks these — change manually)
+- Never edit `.env*` files via any agent — change manually
 - Never commit pipeline changes without running `validate-pipeline.ts`
 
 ## Backpressure (Quality Gates)
@@ -70,7 +71,7 @@ Chinese: NOT translation. Independent creation. WeChat-group tone.
 
 ## Skills, Agents & Prompts
 
-**`.claude/skills/`** (invoke via `/<name>`):
+**`.agents/skills/`** (Codex, invoke via `$<name>`):
 | Skill | When |
 |-------|------|
 | commit-with-gates | Run all gates + commit. User-only (no auto-invoke). |
@@ -79,9 +80,16 @@ Chinese: NOT translation. Independent creation. WeChat-group tone.
 | pipeline-flow | Generate up-to-date pipeline flow HTML diagram. |
 | pipeline-health | Weekly health check or scheduled Telegram summary. |
 
-**`.claude/agents/`**: `pipeline-reviewer` — auto-invoked after editing `scripts/*.ts`, cross-checks against `.claude/known-issues.md`.
+**`.codex/agents/pipeline-reviewer.toml`**: explicitly invoke the `pipeline-reviewer` subagent after editing pipeline scripts and before committing pipeline changes. It reads `.claude/known-issues.md`; this is a workflow requirement, not an installed edit hook.
 
 **`skills/`** (root, 19 prompts): blog-en/zh, email-en/zh, newsletter-*, seo-*, topic-blog-*, video-to-blog-zh, entity-extraction, keyword-grouping, flagship-*. See NEVER list — iterate only.
+
+## Development and production runtime
+
+- Codex development configuration does not select the production model. Newsletter uses `NEWSLETTER_AI_PROVIDER=claude|codex` (default `claude`); Codex additionally requires `NEWSLETTER_CODEX_MODEL`. See `docs/guides/DEPLOY.md` for validation and switching.
+- Root `skills/` files are application prompts loaded by pipeline code. Keep them separate from `.agents/skills/` development workflows.
+- Production data lives on VPS (`ssh loreai`), in `/home/ubuntu/loreai-v2/loreai.db`; local `data/news.db` is not production data. Use temporary databases and fixtures for development.
+- Production switching follows verified code, explicit authorization, a readable backup/restore rehearsal, and a rollback path. Do not run two production writers.
 
 ## Newsletter Quality Guardrails
 See `.claude/known-issues.md` for the full list of known newsletter bugs.

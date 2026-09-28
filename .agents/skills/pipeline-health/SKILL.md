@@ -1,3 +1,8 @@
+---
+name: pipeline-health
+description: Inspect LoreAI production pipeline health using read-only dashboard or SSH checks. Send Telegram only when explicitly requested.
+---
+
 # Pipeline Health Check
 
 Weekly health check that opens the unified dashboard Health Report tab, or sends a Telegram summary for scheduled runs.
@@ -79,23 +84,13 @@ Summary format:
 ⚠️ {N} action items
 ```
 
-#### Phase 4: Write Snapshots
-
-```bash
-ssh loreai "cd /home/ubuntu/loreai-v2 && sqlite3 loreai.db \"
-  INSERT OR REPLACE INTO snapshots (snapshot_date, metric_group, metric_key, metric_value)
-  VALUES
-    (date('now'), 'pipeline_health', 'score', {SCORE}),
-    (date('now'), 'pipeline_health', 'queue_depth', {PENDING}),
-    (date('now'), 'pipeline_health', 'seo_orphans', {ORPHANS}),
-    (date('now'), 'pipeline_health', 'live_site_ok', {1_OR_0});
-\""
-```
+#### Phase 4: Report
+Return the findings without writing production snapshots. Snapshot writes require a separate authorized production task and the project's normal data entrypoint.
 
 ## Rules
 
 - **All data comes from VPS** — the live DB is on VPS, local DB is stale. Always use dashboard API or SSH.
-- **Read-only** — never write to content tables or queue. Only write to `snapshots` table.
+- **Read-only** — do not write to the database, including snapshots. Telegram sends require explicit `--telegram` or equivalent user authorization.
 - **DB path** — `loreai.db` at project root on VPS, not `data/loreai.db`.
 - **Fail gracefully** — if any check fails, note it and continue. Never abort the whole check.
 - **Dashboard is source of truth** — the web dashboard at `/dashboard` shows real-time data. The skill just opens it or generates a Telegram summary.

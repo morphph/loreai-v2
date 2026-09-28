@@ -3,7 +3,7 @@
 ## title: "Documentation Index"
 status: active
 category: guide
-last-updated: 2026-04-08
+last-updated: 2026-09-28
 depends-on: []
 
 # Documentation Index
@@ -154,3 +154,11 @@ depends-on: []
 | [PRD v1](archive/PRD.md) | Original product requirements (superseded by STRATEGY.md) | 2026-03-30 |
 
 
+
+## Codex newsletter migration
+
+- [Migration and validation](guides/CODEX-NEWSLETTER-MIGRATION.md): newsletter provider selection, fixed-input verification, production prerequisites and rollback.
+- New modules: `scripts/lib/newsletter-ai.ts` (newsletter routing and history) and `scripts/lib/codex.ts` (isolated non-interactive CLI adapter), documented in [Pipeline Architecture](specs/PIPELINE.md).
+- Fixed-input writer evaluation: `scripts/evaluate-newsletter.ts` and shared `scripts/lib/newsletter-prompts.ts`; commands and evaluation limits are documented in the migration guide.
+
+- Fixed-release website runner (`scripts/run-website-daily.py`) and original-publication freshness checks (`scripts/lib/news-freshness.ts`): [Pipeline Architecture](specs/PIPELINE.md), [Deployment](guides/DEPLOY.md).

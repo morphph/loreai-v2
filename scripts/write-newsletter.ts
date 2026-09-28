@@ -8,8 +8,8 @@
  *   2. Pre-filter (hard caps by source)
  *   3. Agent Filter (3-tier: agent w/ tools → single-shot → rule-based)
  *   3b. Outline Generator (structured JSON outline for writers)
- *   4. EN Newsletter (Claude Opus + outline + recent pages + validation + retry)
- *   5. ZH Newsletter (3-level fallback cascade + outline + recent pages)
+ *   4. EN Newsletter (selected provider + outline + recent pages + validation + retry)
+ *   5. ZH Newsletter (provider-specific fallback + outline + recent pages)
  *   6. Blog Seed Extraction (3-signal scoring) — optional, skip with --skip-seeds
  *   7. Topic Cluster Update (no AI)
  *   8. Persist & Publish
@@ -30,7 +30,9 @@ import {
   type NewsItem,
   type RecentSeoPage,
 } from './lib/db';
-import { callClaudeWithRetry, callClaudeAgent, callZhNewsletterWithFallback, checkClaudeHealth } from './lib/ai';
+import type { AIResponse } from './lib/ai';
+import { createNewsletterAI } from './lib/newsletter-ai';
+import { buildENNewsletterPrompts, buildZHNewsletterPrompts, formatEngagement, type FilteredItem } from './lib/newsletter-prompts';
 import { validateOutline, extractJsonObject, type NewsletterOutline } from './lib/outline';
 import { sanitizeOutput } from './lib/sanitize.js';
 import { validateNewsletter, validateZhNewsletter, validateNewsletterQuality } from './lib/validate';
@@ -38,6 +40,7 @@ import { extractBoldTitles } from './lib/dedup';
 import { validateAndExpand } from './lib/brave';
 import { markdownToEmailHtml } from './lib/email-html';
 import { isAnthropicSource } from './lib/anthropic-sources';
+import { isRecentNews, sourcePublishedAt } from './lib/news-freshness';
 // Parse args
 const dateArg = process.argv.find((a) => a.startsWith('--date='));
 import { todaySGT } from './lib/date.js';
@@ -45,6 +48,8 @@ const DATE = dateArg ? dateArg.split('=')[1] : todaySGT();
 const DRY_RUN = process.argv.includes('--dry-run');
 const DIFF_MODE = process.argv.includes('--diff');
 const SKIP_SEEDS = process.argv.includes('--skip-seeds');
+const WEBSITE_ONLY = process.argv.includes('--website-only');
+const newsletterAI = createNewsletterAI();
 
 console.log(`📰 Newsletter Pipeline — ${DATE}`);
 console.log('='.repeat(50));
@@ -67,13 +72,9 @@ async function stage1_dbQuery(): Promise<NewsItem[]> {
 function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   console.log('\n🔍 Stage 2: Pre-filter');
 
-  // Hard age gate: drop items detected >48h ago (DB queries 72h for buffer, but >48h is stale per policy)
-  const AGE_LIMIT_MS = 48 * 60 * 60 * 1000;
+  // Use source publication time when available; fresh collection does not make an old article new.
   const now = Date.now();
-  const ageFiltered = items.filter(item => {
-    if (!item.detected_at) return true;
-    return (now - new Date(item.detected_at).getTime()) <= AGE_LIMIT_MS;
-  });
+  const ageFiltered = items.filter(item => isRecentNews(item, now));
   const droppedByAge = items.length - ageFiltered.length;
   if (droppedByAge > 0) {
     console.log(`  Age filter: dropped ${droppedByAge} items older than 48h`);
@@ -164,7 +165,7 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   ]);
   // Only block github:trending, not github:release (releases are actual news)
   const filteredGithub = github.filter(item =>
-    !item.source.startsWith('github:trending') || !GITHUB_BLOCKLIST.has(item.url)
+    !item.source.startsWith('github:trending') || !GITHUB_BLOCKLIST.has(item.url ?? '')
   );
 
   // Sort remaining groups by score desc
@@ -222,7 +223,7 @@ function stage2_preFilter(items: NewsItem[]): NewsItem[] {
   ];
 
   // Deduplicate (priority items may overlap with normal pools)
-  const seenIds = new Set<number>();
+  const seenIds = new Set<NewsItem['id']>();
   const deduped = filtered.filter(item => {
     if (seenIds.has(item.id)) return false;
     seenIds.add(item.id);
@@ -261,20 +262,7 @@ function extractJsonArray(content: string): string {
 // STAGE 3: Agent Filter (Claude Opus)
 // ============================================================
 
-interface FilteredItem {
-  id: number;
-  title: string;
-  url: string;
-  source: string;
-  category: string;
-  score: number;
-  why_it_matters: string;
-  action: string;
-  engagement_likes: number;
-  engagement_retweets: number;
-  engagement_downloads: number;
-  detected_at?: string;
-}
+
 
 function loadPreviousBoldTitles(): string[] {
   const dir = path.join(process.cwd(), 'content', 'newsletters', 'en');
@@ -282,7 +270,7 @@ function loadPreviousBoldTitles(): string[] {
 
   const files = fs
     .readdirSync(dir)
-    .filter((f) => f.endsWith('.md') && !f.startsWith('.'))
+    .filter((f) => /^\d{4}-\d{2}-\d{2}\.md$/.test(f) && f.slice(0, 10) < DATE)
     .sort()
     .reverse()
     .slice(0, 7); // Last 7 newsletters
@@ -412,6 +400,7 @@ function formatFilterInput(items: NewsItem[]) {
     score: item.score,
     summary: item.summary?.slice(0, 400) || null,
     detected_at: item.detected_at || null,
+    published_at: sourcePublishedAt(item) || null,
     likes: item.engagement_likes,
     retweets: item.engagement_retweets,
     downloads: item.engagement_downloads,
@@ -469,6 +458,8 @@ Ensure at least 2 items per main category when possible.
 Prioritize items that developers can ACT on today over industry news/business deals.
 
 ## Hard Filters (MUST apply)
+- These filters override source priority and quotas. Never fill quotas with stale news or empty hype.
+- Publication date is different from detection date. A recent repost of an older launch is not a new launch. Use only supplied evidence; do not guess release dates.
 - Skip pure sentiment/celebration posts ("Proud to work at X", "What a day!", personal milestones)
 - Skip bare RT links with no descriptive text
 - Skip political content from thought leaders (not AI industry-related)
@@ -561,7 +552,13 @@ Your final message must contain ONLY the JSON array. No explanation, no markdown
 
   const userPrompt = `Select 18-25 items from these ${inputItems.length} news items for today's AI newsletter (${DATE}):\n\n${JSON.stringify(inputItems, null, 0)}`;
 
-  const response = await callClaudeAgent(systemPrompt, userPrompt, { timeoutMs: 180_000 });
+  const codexSystem = `You are LoreAI's AI news curation expert. Select 18-25 items.
+Use the supplied historical editions and filtered items to check recent coverage.
+Skip previously covered events unless there is a major new development; avoid repeated headlines.
+All coverage evidence is included in the prompt. Do not read files or run helpers.
+${FILTER_SELECTION_RULES}
+Return ONLY the JSON array, without explanation or markdown wrapping.`;
+  const response = await newsletterAI.filter(systemPrompt, codexSystem, userPrompt, process.cwd(), DATE);
 
   const json = extractJsonArray(response.content);
   const parsed = JSON.parse(json);
@@ -601,7 +598,7 @@ ${previousStoriesSection}`;
 
   const userPrompt = `Select 18-25 items from these ${inputItems.length} news items for today's AI newsletter (${DATE}):\n\n${JSON.stringify(inputItems, null, 0)}`;
 
-  const response = await callClaudeWithRetry(systemPrompt, userPrompt, {
+  const response = await newsletterAI.generate(systemPrompt, userPrompt, {
     maxTokens: 8192,
     temperature: 0.3,
     maxRetries: 2,
@@ -663,7 +660,7 @@ async function stage3b_generateOutline(filtered: FilteredItem[]): Promise<Newsle
   const userPrompt = `Generate the structural outline for today's LoreAI newsletter (${DATE}) using these ${filtered.length} curated items:\n\n${itemsText}`;
 
   try {
-    const response = await callClaudeWithRetry(systemPrompt, userPrompt, {
+    const response = await newsletterAI.generate(systemPrompt, userPrompt, {
       maxTokens: 4096,
       temperature: 0.3,
       maxRetries: 2,
@@ -695,87 +692,15 @@ async function stage3b_generateOutline(filtered: FilteredItem[]): Promise<Newsle
 // Recent Cluster Pages (graph consumer)
 // ============================================================
 
-const SEO_TYPE_URL_PREFIX: Record<string, string> = {
-  faq: '/faq/',
-  compare: '/compare/',
-  glossary: '/glossary/',
-  blog: '/blog/',
-  'topic-hub': '/topics/',
-  'deep-dive': '/blog/',
-  cornerstone: '/blog/',
-};
-
-function formatRecentPages(pages: RecentSeoPage[]): string {
-  if (pages.length === 0) return '';
-  const lines = pages.map(p => {
-    const urlPrefix = SEO_TYPE_URL_PREFIX[p.type] || `/${p.type}/`;
-    return `- [${p.title || p.slug}](https://loreai.dev${urlPrefix}${p.slug}) (${p.type}, ${p.created_at.split(' ')[0]})`;
-  });
-  return `\n\n## Recently Published on LoreAI (last 7 days)\nThese pages were recently published on our site. You may optionally weave 1-2 of the most relevant ones into the newsletter as "deep dive" or "further reading" links where they naturally fit a story. Do NOT force them in — only include if genuinely relevant to today's news items.\n${lines.join('\n')}\n`;
-}
-
-// ============================================================
-// STAGE 4: EN Newsletter
-// ============================================================
-
-function formatEngagement(item: FilteredItem): string {
-  const parts: string[] = [];
-
-  if (item.engagement_likes > 0 && item.engagement_downloads > 0) {
-    // HuggingFace style
-    const likesStr = item.engagement_likes.toLocaleString();
-    const dlStr =
-      item.engagement_downloads >= 1_000_000
-        ? `${(item.engagement_downloads / 1_000_000).toFixed(2)}M`
-        : item.engagement_downloads >= 1_000
-          ? `${(item.engagement_downloads / 1_000).toFixed(1)}K`
-          : item.engagement_downloads.toString();
-    parts.push(`(${likesStr} likes | ${dlStr} downloads)`);
-  } else if (item.engagement_likes > 0 && item.engagement_retweets > 0) {
-    // Twitter style
-    parts.push(`(${item.engagement_likes.toLocaleString()} likes | ${item.engagement_retweets} RTs)`);
-  } else if (item.engagement_likes > 0) {
-    parts.push(`(${item.engagement_likes.toLocaleString()} likes)`);
-  }
-
-  return parts.join(' ');
-}
-
-async function stage4_writeEN(filtered: FilteredItem[], outline: NewsletterOutline | null, recentPages: RecentSeoPage[] = []): Promise<string> {
+async function stage4_writeEN(filtered: FilteredItem[], outline: NewsletterOutline | null, recentPages: RecentSeoPage[] = []): Promise<AIResponse> {
   console.log('\n📝 Stage 4: EN Newsletter');
 
   const skillPath = path.join(process.cwd(), 'skills', 'newsletter-en', 'SKILL.md');
   const skill = fs.readFileSync(skillPath, 'utf-8');
 
-  // Format items by category for the writer
-  const byCategory = new Map<string, FilteredItem[]>();
-  for (const item of filtered) {
-    const cat = item.category || 'PRODUCT';
-    if (!byCategory.has(cat)) byCategory.set(cat, []);
-    byCategory.get(cat)!.push(item);
-  }
+  const { systemPrompt, userPrompt } = buildENNewsletterPrompts(DATE, skill, filtered, outline, recentPages);
 
-  let itemsText = '';
-  for (const [category, catItems] of byCategory) {
-    itemsText += `\n## ${category}\n`;
-    for (const item of catItems) {
-      const engagement = formatEngagement(item);
-      itemsText += `- ${item.title} ${engagement}\n  URL: ${item.url}\n  Source: ${item.source}\n  Why: ${item.why_it_matters}\n  Action: ${item.action || ''}\n\n`;
-    }
-  }
-
-  // Build outline section if available
-  const outlineSection = outline
-    ? `\n\n## Structural Plan (FOLLOW THIS)\nYou MUST follow this outline. Do not reorganize or reassign items.\n- Use the headline_hook as the basis for your H1: "${outline.headline_hook}"\n- Preview line topics: ${outline.preview_topics.join(', ')}\n- PICK OF THE DAY: item #${outline.pick_of_the_day.item_id} — thesis: "${outline.pick_of_the_day.thesis}"\n- MODEL LITERACY: "${outline.model_literacy.concept}" — ${outline.model_literacy.relevance}\n- Section order and item assignment:\n${outline.sections.map(s => `  ${s.name}: ${s.items.map(i => `[${i.id}] ${i.prominence === 'hero' ? '###' : '**'} "${i.title}"`).join(', ')}`).join('\n')}\n- Quick links: ${outline.quick_links.map(i => `[${i.id}] "${i.title}"`).join(', ')}\n\nYour task is WRITING, not EDITING. Do not reorganize or reassign items. Follow the section order and prominence levels exactly.\n`
-    : '';
-
-  const recentPagesSection = formatRecentPages(recentPages);
-
-  const systemPrompt = `${skill}${outlineSection}${recentPagesSection}\n\n## This Run\n- Date: ${DATE}\n- Items provided: ${filtered.length}\n- Outline: ${outline ? 'YES — follow it strictly' : 'NO — use your editorial judgment'}\n- IMPORTANT STRUCTURE: You MUST start with a # headline, then **${DATE}**, then a 1-2 sentence intro paragraph, then a "Today: X, Y, and Z." preview line, then --- before sections. These are required for the frontend — do NOT skip any of them.\n- Output ONLY the newsletter markdown. No frontmatter, no meta-commentary.\n- CRITICAL — Attribution accuracy: Do NOT infer or guess which product/company an item is about. Use ONLY the product/company names explicitly stated in the item title or summary. If the source doesn't name the product, describe the features without attributing them to a specific product.`;
-
-  const userPrompt = `Write today's LoreAI AI News newsletter (${DATE}) using these ${filtered.length} curated items:\n\n${itemsText}`;
-
-  const response = await callClaudeWithRetry(systemPrompt, userPrompt, {
+  const response = await newsletterAI.generate(systemPrompt, userPrompt, {
     maxTokens: 8192,
     temperature: 0.5,
     maxRetries: 3,
@@ -788,65 +713,37 @@ async function stage4_writeEN(filtered: FilteredItem[], outline: NewsletterOutli
   const content = sanitizeOutput(response.content);
   const validation = validateNewsletter(content);
   if (!validation.valid) {
+    if (newsletterAI.provider === 'codex') throw new Error(`EN structure invalid after cleanup: ${validation.errors.join(', ')}`);
     console.warn('  ⚠️ Validation warnings (accepted anyway):', validation.errors);
   }
 
-  return content;
+  return { ...response, content };
 }
 
 // ============================================================
 // STAGE 5: ZH Newsletter (3-level fallback)
 // ============================================================
 
-async function stage5_writeZH(filtered: FilteredItem[], outline: NewsletterOutline | null, recentPages: RecentSeoPage[] = []): Promise<string> {
+async function stage5_writeZH(filtered: FilteredItem[], outline: NewsletterOutline | null, recentPages: RecentSeoPage[] = []): Promise<AIResponse> {
   console.log('\n📝 Stage 5: ZH Newsletter (fallback cascade)');
 
   const skillPath = path.join(process.cwd(), 'skills', 'newsletter-zh', 'SKILL.md');
   const skill = fs.readFileSync(skillPath, 'utf-8');
 
-  // Format items
-  let itemsText = '';
-  const byCategory = new Map<string, FilteredItem[]>();
-  for (const item of filtered) {
-    const cat = item.category || 'PRODUCT';
-    if (!byCategory.has(cat)) byCategory.set(cat, []);
-    byCategory.get(cat)!.push(item);
-  }
-  for (const [category, catItems] of byCategory) {
-    itemsText += `\n## ${category}\n`;
-    for (const item of catItems) {
-      const engagement = formatEngagement(item);
-      itemsText += `- ${item.title} ${engagement}\n  URL: ${item.url}\n  Source: ${item.source}\n  Why: ${item.why_it_matters}\n  Action: ${item.action || ''}\n\n`;
-    }
-  }
+  const { systemPrompt, userPrompt } = buildZHNewsletterPrompts(DATE, skill, filtered, outline, recentPages);
 
-  // Build outline section if available (ZH adapts titles/angles but follows structure)
-  const outlineSection = outline
-    ? `\n\n## 结构大纲（严格遵循）\n你必须遵循以下大纲，不要重新组织或重新分配条目。\n- 标题 hook 基础："${outline.headline_hook}"（翻译并适配中文表达）\n- 预览主题：${outline.preview_topics.join('、')}\n- 今日精选：条目 #${outline.pick_of_the_day.item_id} — 论点："${outline.pick_of_the_day.thesis}"\n- 模型小课堂："${outline.model_literacy.concept}" — ${outline.model_literacy.relevance}\n- 版块顺序和条目分配：\n${outline.sections.map(s => `  ${s.name}: ${s.items.map(i => `[${i.id}] ${i.prominence === 'hero' ? '###' : '**'} "${i.title}"`).join(', ')}`).join('\n')}\n- 快讯：${outline.quick_links.map(i => `[${i.id}] "${i.title}"`).join(', ')}\n\n你的任务是写作，不是编辑。不要重新组织或重新分配条目。按大纲的版块顺序和重要度等级来写。\n`
-    : '';
-
-  const recentPagesSection = recentPages.length > 0
-    ? `\n\n## 近期发布的 LoreAI 内容（最近 7 天）\n以下页面是近期在网站上发布的深度内容。如果其中有与今天新闻高度相关的，可以在正文中自然地以"延伸阅读"形式插入 1-2 个链接。不要强行插入 — 只在真正相关时使用。\n${recentPages.map(p => {
-      const urlPrefix = SEO_TYPE_URL_PREFIX[p.type] || `/${p.type}/`;
-      return `- [${p.title || p.slug}](https://loreai.dev${urlPrefix}${p.slug}) (${p.type}, ${p.created_at.split(' ')[0]})`;
-    }).join('\n')}\n`
-    : '';
-
-  const systemPrompt = `${skill}${outlineSection}${recentPagesSection}\n\n## 本期规则\n- 日期：${DATE}\n- 提供条目：${filtered.length}\n- 大纲：${outline ? '有 — 严格遵循' : '无 — 自行组织'}\n- 重要结构：必须以 # 中文标题开头，然后 **${DATE}**，然后 1-2 句开场白，然后"今天聊：X、Y、Z。"预览行，然后 --- 分隔再开始正文。这些是前端显示必需的，不能省略任何一项。\n- 只输出 Newsletter 正文 Markdown，不要 frontmatter，不要元描述\n- 关键 — 归属准确性：不要推断或猜测某条新闻是关于哪个产品/公司的。只使用标题或摘要中明确提到的产品/公司名。如果来源没有点名产品，就描述功能本身，不要张冠李戴。`;
-
-  const userPrompt = `基于以下 ${filtered.length} 条精选 AI 新闻，创作今日 LoreAI AI 简报中文版（${DATE}）：\n\n${itemsText}`;
-
-  const response = await callZhNewsletterWithFallback(systemPrompt, userPrompt, validateZhNewsletter);
+  const response = await newsletterAI.writeZh(systemPrompt, userPrompt, validateZhNewsletter);
 
   console.log(`  ZH newsletter generated (model: ${response.model})`);
 
   const content = sanitizeOutput(response.content);
   const validation = validateZhNewsletter(content);
   if (!validation.valid) {
+    if (newsletterAI.provider === 'codex') throw new Error(`ZH structure invalid after cleanup: ${validation.errors.join(', ')}`);
     console.warn('  ⚠️ Validation warnings:', validation.errors);
   }
 
-  return content;
+  return { ...response, content };
 }
 
 // ============================================================
@@ -944,7 +841,7 @@ async function generateEmailContent(newsletterMd: string, lang: string): Promise
   const systemPrompt = `${skill}\n\n## This Run\n- Date: ${DATE}\n- Lang: ${lang}`;
   const userPrompt = `Rewrite this newsletter for email:\n\n${stripped}`;
 
-  const response = await callClaudeWithRetry(systemPrompt, userPrompt, {
+  const response = await newsletterAI.generate(systemPrompt, userPrompt, {
     maxTokens: 6144,
     temperature: 0.4,
     maxRetries: 2,
@@ -1068,7 +965,8 @@ function extractDescription(md: string): string {
 async function stage7_persist(
   enContent: string,
   zhContent: string,
-  filtered: FilteredItem[]
+  filtered: FilteredItem[],
+  models: { en: string; zh: string }
 ): Promise<void> {
   console.log('\n💾 Stage 7: Persist & Publish');
 
@@ -1100,31 +998,35 @@ async function stage7_persist(
   console.log(`  Written: ${enPath}`);
   console.log(`  Written: ${zhPath}`);
 
-  // Generate and save email HTML versions
-  const emailEnDir = path.join(process.cwd(), 'content', 'newsletters', 'email', 'en');
-  const emailZhDir = path.join(process.cwd(), 'content', 'newsletters', 'email', 'zh');
-  fs.mkdirSync(emailEnDir, { recursive: true });
-  fs.mkdirSync(emailZhDir, { recursive: true });
+  if (!WEBSITE_ONLY) {
+    // Generate and save email HTML versions
+    const emailEnDir = path.join(process.cwd(), 'content', 'newsletters', 'email', 'en');
+    const emailZhDir = path.join(process.cwd(), 'content', 'newsletters', 'email', 'zh');
+    fs.mkdirSync(emailEnDir, { recursive: true });
+    fs.mkdirSync(emailZhDir, { recursive: true });
 
-  console.log('\n📧 Generating email versions...');
-  const [enEmailContent, zhEmailContent] = await Promise.all([
-    generateEmailContent(enFixed, 'en'),
-    generateEmailContent(zhFixed, 'zh'),
-  ]);
+    console.log('\n📧 Generating email versions...');
+    const [enEmailContent, zhEmailContent] = await Promise.all([
+      generateEmailContent(enFixed, 'en'),
+      generateEmailContent(zhFixed, 'zh'),
+    ]);
 
-  // Extract email-specific titles (may differ from website titles)
-  const enEmailTitle = extractTitle(enEmailContent) || enTitle;
-  const zhEmailTitle = extractTitle(zhEmailContent) || zhTitle;
+    // Extract email-specific titles (may differ from website titles)
+    const enEmailTitle = extractTitle(enEmailContent) || enTitle;
+    const zhEmailTitle = extractTitle(zhEmailContent) || zhTitle;
 
-  const enEmailHtml = await markdownToEmailHtml(enEmailContent, { title: enEmailTitle, date: DATE, lang: 'en' });
-  const zhEmailHtml = await markdownToEmailHtml(zhEmailContent, { title: zhEmailTitle, date: DATE, lang: 'zh' });
+    const enEmailHtml = await markdownToEmailHtml(enEmailContent, { title: enEmailTitle, date: DATE, lang: 'en' });
+    const zhEmailHtml = await markdownToEmailHtml(zhEmailContent, { title: zhEmailTitle, date: DATE, lang: 'zh' });
 
-  const enEmailPath = path.join(emailEnDir, `${DATE}.html`);
-  const zhEmailPath = path.join(emailZhDir, `${DATE}.html`);
-  fs.writeFileSync(enEmailPath, enEmailHtml);
-  fs.writeFileSync(zhEmailPath, zhEmailHtml);
-  console.log(`  Email HTML: ${enEmailPath}`);
-  console.log(`  Email HTML: ${zhEmailPath}`);
+    const enEmailPath = path.join(emailEnDir, `${DATE}.html`);
+    const zhEmailPath = path.join(emailZhDir, `${DATE}.html`);
+    fs.writeFileSync(enEmailPath, enEmailHtml);
+    fs.writeFileSync(zhEmailPath, zhEmailHtml);
+    console.log(`  Email HTML: ${enEmailPath}`);
+    console.log(`  Email HTML: ${zhEmailPath}`);
+  } else {
+    console.log('  Website-only run: email generation disabled');
+  }
 
   // Save filtered items
   const filteredPath = path.join(process.cwd(), 'data', 'filtered-items', `${DATE}.json`);
@@ -1139,7 +1041,7 @@ async function stage7_persist(
     title: enTitle,
     body_markdown: enFull,
     meta_json: JSON.stringify({ categories, items_count: filtered.length }),
-    generated_by: 'claude',
+    generated_by: `${newsletterAI.provider}:${models.en}`,
   });
 
   const zhContentId = upsertContent({
@@ -1149,7 +1051,7 @@ async function stage7_persist(
     title: zhTitle,
     body_markdown: zhFull,
     meta_json: JSON.stringify({ categories, items_count: filtered.length }),
-    generated_by: 'claude',
+    generated_by: `${newsletterAI.provider}:${models.zh}`,
   });
 
   // Link content to news items & mark as selected (prevents re-selection in future runs)
@@ -1172,9 +1074,9 @@ async function stage7_persist(
 async function main() {
   if (DRY_RUN) console.log('🧪 DRY RUN — skipping AI calls and git push\n');
 
-  // Pre-flight: verify Claude CLI is working
+  // Pre-flight: check selected CLI installation (not login/quota/model availability)
   if (!DRY_RUN) {
-    checkClaudeHealth();
+    await newsletterAI.checkHealth();
   }
 
   // Stage 1
@@ -1256,10 +1158,13 @@ async function main() {
   const outline = await stage3b_generateOutline(filtered);
 
   // Stage 4 & 5 (EN and ZH can run in parallel, both receive outline + recent pages)
-  const [enContent, zhContent] = await Promise.all([
+  const [enResponse, zhResponse] = await Promise.all([
     stage4_writeEN(filtered, outline, recentPagesEn),
     stage5_writeZH(filtered, outline, recentPagesZh),
   ]);
+
+  const enContent = enResponse.content;
+  const zhContent = zhResponse.content;
 
   // Quality validation gate (runs before persist — catches content issues)
   console.log('\n🔍 Quality Validation');
@@ -1344,7 +1249,7 @@ async function main() {
   }
 
   // Stage 7
-  await stage7_persist(enContent, zhContent, filtered);
+  await stage7_persist(enContent, zhContent, filtered, { en: enResponse.model, zh: zhResponse.model });
 
   closeDb();
   console.log('\n✅ Newsletter pipeline complete');

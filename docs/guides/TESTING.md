@@ -2,7 +2,7 @@
 title: "Testing Guide"
 status: active
 category: guide
-last-updated: 2026-03-30
+last-updated: 2026-09-28
 depends-on: []
 ---
 
@@ -16,7 +16,7 @@ depends-on: []
 npm test
 ```
 
-Must pass before every commit (backpressure gate defined in `CLAUDE.md`).
+Must pass before every commit (backpressure gate defined in `AGENTS.md`).
 
 ## E2E Tests
 
@@ -89,3 +89,21 @@ Validates narrative JSON schema: references, FAQs, diagrams, story spine, SEO fi
 ```bash
 npx tsx scripts/validate-narrative.ts path/to/narrative.json
 ```
+
+## Offline model-runtime checks
+
+The newsletter Codex tests mock the CLI and never call a model. Run the suite with Node 22. The legacy keyword-grouping live CLI integration now requires `RUN_LIVE_MODEL_TESTS=1`; having Claude installed is no longer sufficient. This opt-in prevents incidental paid generation, not a way to bypass failing unit tests. Do not enable it without explicit authorization.
+
+For a local run with external integrations disabled by their existing environment gates:
+
+```bash
+RUN_LIVE_MODEL_TESTS=0 EXA_API_KEY= SERPER_API_KEY= GSC_SITE_URL= npm test
+```
+
+See [Codex newsletter migration](CODEX-NEWSLETTER-MIGRATION.md) for the focused runtime tests and historical newsletter validation. Passing mocked tests does not verify login, model access, quota or editorial quality.
+
+Report retention/range tests freeze the clock at the fixture date so passing results do not depend on when the suite runs.
+
+`scripts/__tests__/evaluate-newsletter.test.ts` tests frozen prompt snapshots, checksum rejection, required model selection, and two-attempt output/report handling using a fake CLI executable. No real model or database is used. Whole-repository lint now passes with zero errors and 65 non-blocking warnings; no lint rules were disabled.
+
+The learning-page hash-state correction was smoke-tested in a local browser against the production build: initial chapter deep link, next chapter, subsequent hash changes, invalid-hash fallback and reload all passed without runtime errors.

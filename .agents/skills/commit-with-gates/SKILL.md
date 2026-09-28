@@ -1,7 +1,6 @@
 ---
 name: commit-with-gates
 description: Run all AGENTS.md quality gates (build, test, validate-pipeline) and only commit + push if every gate passes. User-only invocation — never auto-commit.
-disable-model-invocation: true
 ---
 
 # /commit-with-gates

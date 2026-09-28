@@ -2,7 +2,7 @@
 title: "Pipeline Architecture"
 status: active
 category: spec
-last-updated: 2026-04-19
+last-updated: 2026-09-28
 depends-on: []
 ---
 
@@ -12,6 +12,27 @@ depends-on: []
 
 Daily automated pipeline: collect raw AI news → curate newsletter → extract entities → discover flagship subtopics → generate content → expand keywords → monitor performance.
 Each stage feeds the next. The **Keyword Engine** (B1→B4) is the core content generation driver. The **Flagship Discovery Agent** (D1) maintains subtopic authority for flagship topics via weekly full discovery and daily freshness routing.
+
+## Newsletter runtime migration (2026-09-28)
+
+`write-newsletter.ts` now routes through `scripts/lib/newsletter-ai.ts`. `NEWSLETTER_AI_PROVIDER` defaults to `claude`; `codex` requires an explicit `NEWSLETTER_CODEX_MODEL`. Other pipelines continue to call the unchanged Claude adapter in `scripts/lib/ai.ts`.
+
+- `scripts/lib/codex.ts` invokes `codex exec` with argument arrays and stdin, an ephemeral temporary working directory, read-only sandbox, disabled shell/web search, ignored user configuration, and a final-answer file. It removes temporary output on success and failure, bounds runtime/output, and excludes collector/database/email credentials from the process environment. Saved CLI authentication is reused; no auth files are copied.
+- Codex filtering receives the last five past EN editions and filtered-item files as prompt data. It does not execute the Claude coverage helper. Both this snapshot and the existing bold-title history exclude the target date and future editions. The three-tier recovery flow remains: history-aware filter, single-shot filter, rule-based fallback.
+- Outline, EN/ZH writing and both email rewrites use the selected provider. Codex structural validation retries fail closed. Optional ZH fallback stays within Codex and requires an explicitly configured model. Existing heuristic quality checks remain warnings because they can reject legitimate emphasized text.
+- Newsletter `generated_by` records `provider:model` from each actual writer result, including ZH fallback. No database schema or historical record migration is required.
+- `sanitizeOutput` distinguishes real YAML frontmatter from a newsletter horizontal rule, preserving headline and preview lines.
+- `scripts/lib/newsletter-prompts.ts` shares the existing EN/ZH writer prompts with `scripts/evaluate-newsletter.ts`. Its offline prepare mode freezes curated items, prompts and historical references with a checksum. Explicit run mode requires a model and makes two isolated writer attempts, saving drafts and validation reports under ignored `tmp/newsletter-eval/`. It does not initialize a database or publish. Selection, outline generation, news freshness and email rewriting remain outside this evaluation.
+
+The Codex newsletter runtime and fixed-input evaluator both explicitly set medium reasoning effort, matching the accepted local preview. This includes selection, outline, EN/ZH writing, corrective retries and email rewriting. Local mocks and historical artifact validation do not establish model quality or production readiness. See [Codex newsletter migration](../guides/CODEX-NEWSLETTER-MIGRATION.md) for rollout status and checks.
+
+## Fixed-release website operation
+
+`scripts/run-website-daily.py` runs collection or daily newsletters from an explicitly verified Git revision. The production launcher supplies the database path, dotenv read path, Codex binary/model and a separate main-branch publishing checkout. The release never pulls application code. It shares the existing OS writer lock, writes local status/receipt JSON outside Git, validates content, publishes only the two website Markdown files, and verifies both live H1 titles after upload. Git failures stop the run. A verified generation receipt permits publication-only retries; partial or conflicting issues require inspection instead of regeneration/overwrite. There is no email send path.
+
+`write-newsletter.ts --website-only --skip-seeds` omits email rewrites/rendering and unrelated blog work. `scripts/lib/news-freshness.ts` checks known RSS/blog/tweet publication timestamps as well as UTC detection timestamps against the 48-hour window; absent metadata falls back to detection time. Source dates also reach selection prompts. Old launch reposts still require editorial judgment.
+
+Deployment and recovery instructions are in the deployment guide. The historic schedule below is retained as background; actual production schedule is recorded in Pipeline Status.
 
 ## Schedule (SGT — crontab uses `TZ=Asia/Singapore`)
 

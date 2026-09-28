@@ -215,7 +215,7 @@ export function checkEntityExtractRuns(db: Database.Database, opts?: CheckOption
       `SELECT COUNT(*) as cnt FROM topic_clusters WHERE last_seen > datetime('now', '-7 days')`
     ).get() as { cnt: number };
     const value = row.cnt;
-    let status: CheckStatus = value > 0 ? 'green' : 'red';
+    const status: CheckStatus = value > 0 ? 'green' : 'red';
     return {
       check_id: 'entity_extract_runs',
       window: 'rolling_7d',

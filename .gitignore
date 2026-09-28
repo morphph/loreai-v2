@@ -70,3 +70,7 @@ logs/*.gz
 tmp/
 *.db.backup-*
 IMPROVE-NEWSLETTER.md
+
+# Python validation artifacts
+__pycache__/
+*.pyc

@@ -461,7 +461,7 @@ function _checkRefreshPipeline(
 
   // Striking distance conversions: queries that improved position after refresh
   // This requires at least 2 snapshot dates and completed refresh jobs
-  let strikingConversions = 0;
+  const strikingConversions = 0;
   // For now, we can't measure conversions without actual position data per-page
   // This would need a more complex query joining snapshots with refresh metadata
   // Mark as 0 and let the status logic handle it

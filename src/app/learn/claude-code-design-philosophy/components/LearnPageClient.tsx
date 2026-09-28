@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useSyncExternalStore, useCallback } from 'react';
 import { allChapters, chapterMetas } from '../content/chapters';
 import type { ContentBlock } from '../content/chapters';
 import LearnSidebar from './LearnSidebar';
@@ -65,26 +65,32 @@ function renderBlock(block: ContentBlock, index: number) {
 // Chapters after which we insert a CTA (0-indexed)
 const CTA_AFTER_CHAPTERS = new Set([5, 9]); // after chapter 6 (agents) and chapter 10 (takeaway)
 
+function subscribeChapter(onChange: () => void) {
+  window.addEventListener('hashchange', onChange);
+  return () => window.removeEventListener('hashchange', onChange);
+}
+
+function getChapterSnapshot() {
+  const hash = window.location.hash.slice(1);
+  return chapterMetas.some((chapter) => chapter.id === hash) ? hash : 'intro';
+}
+
+function getServerChapterSnapshot() {
+  return 'intro';
+}
+
 export default function LearnPageClient() {
-  const [currentChapterId, setCurrentChapterId] = useState('intro');
+  const currentChapterId = useSyncExternalStore(subscribeChapter, getChapterSnapshot, getServerChapterSnapshot);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
   const currentIndex = chapterMetas.findIndex((c) => c.id === currentChapterId);
   const chapter = allChapters[currentIndex];
 
-  // Sync hash on load
-  useEffect(() => {
-    const hash = window.location.hash.slice(1);
-    if (hash && chapterMetas.some((c) => c.id === hash)) {
-      setCurrentChapterId(hash);
-    }
-  }, []);
-
   const goTo = useCallback((id: string) => {
-    setCurrentChapterId(id);
     setSidebarOpen(false);
     window.history.replaceState(null, '', `#${id}`);
+    window.dispatchEvent(new HashChangeEvent('hashchange'));
     if (contentRef.current) contentRef.current.scrollTop = 0;
   }, []);
 
