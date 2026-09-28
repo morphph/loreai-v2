@@ -41,6 +41,9 @@ function formatRecentPages(pages: RecentSeoPage[]): string {
 
 export function formatEngagement(item: FilteredItem): string {
   const parts: string[] = [];
+  if (item.source.startsWith('hackernews')) {
+    return `(${item.engagement_likes.toLocaleString()} points | ${item.engagement_retweets.toLocaleString()} comments)`;
+  }
 
   if (item.engagement_likes > 0 && item.engagement_downloads > 0) {
     // HuggingFace style

@@ -52,6 +52,7 @@ def main():
     parser.add_argument('--expected-revision', required=True)
     parser.add_argument('--date', default=dt.datetime.now(dt.timezone(dt.timedelta(hours=8))).date().isoformat())
     parser.add_argument('--site', default='https://loreai.dev')
+    parser.add_argument('--generate-only', action='store_true', help='Save a validated issue for controlled first-run review, without Git publication')
     args = parser.parse_args()
     if not re.fullmatch(r'\d{4}-\d{2}-\d{2}', args.date):
         raise ValueError('Invalid issue date')
@@ -93,6 +94,12 @@ def main():
                     run(['node_modules/.bin/tsx', 'scripts/validate-pipeline.ts', '--step=newsletter', f'--date={args.date}'], root)
                     save(generated, {'release': revision, 'hashes': {f: digest(root / f) for f in files}})
                 run(['node_modules/.bin/tsx', 'scripts/validate-pipeline.ts', '--step=newsletter', f'--date={args.date}'], root)
+                if args.generate_only:
+                    info['status'] = 'generated'
+                    info['finished_at'] = dt.datetime.now(dt.timezone.utc).isoformat()
+                    save(status, info)
+                    print(json.dumps(info, ensure_ascii=False), flush=True)
+                    return
                 if run(['git', 'branch', '--show-current'], publisher, True).strip() != 'main':
                     raise RuntimeError('Publisher must be on main')
                 changed = run(['git', 'status', '--porcelain', '--untracked-files=no'], publisher, True).splitlines()

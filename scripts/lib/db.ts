@@ -205,6 +205,8 @@ export interface NewsItem {
   engagement_downloads: number;
   detected_at?: string;
   raw_json?: string;
+  /** Ephemeral metadata check; not persisted to the database. */
+  verified_published_at?: string;
 }
 
 export function insertNewsItem(item: NewsItem): number | null {

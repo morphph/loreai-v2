@@ -161,4 +161,4 @@ depends-on: []
 - New modules: `scripts/lib/newsletter-ai.ts` (newsletter routing and history) and `scripts/lib/codex.ts` (isolated non-interactive CLI adapter), documented in [Pipeline Architecture](specs/PIPELINE.md).
 - Fixed-input writer evaluation: `scripts/evaluate-newsletter.ts` and shared `scripts/lib/newsletter-prompts.ts`; commands and evaluation limits are documented in the migration guide.
 
-- Fixed-release website runner (`scripts/run-website-daily.py`) and original-publication freshness checks (`scripts/lib/news-freshness.ts`): [Pipeline Architecture](specs/PIPELINE.md), [Deployment](guides/DEPLOY.md).
+- Fixed-release website runner (`scripts/run-website-daily.py`) and original-publication freshness checks (`scripts/lib/news-freshness.ts`, `scripts/lib/news-publication.ts`): [Pipeline Architecture](specs/PIPELINE.md), [Deployment](guides/DEPLOY.md).

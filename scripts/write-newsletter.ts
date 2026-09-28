@@ -41,6 +41,7 @@ import { validateAndExpand } from './lib/brave';
 import { markdownToEmailHtml } from './lib/email-html';
 import { isAnthropicSource } from './lib/anthropic-sources';
 import { isRecentNews, sourcePublishedAt } from './lib/news-freshness';
+import { verifyPublicationDates } from './lib/news-publication';
 // Parse args
 const dateArg = process.argv.find((a) => a.startsWith('--date='));
 import { todaySGT } from './lib/date.js';
@@ -1087,7 +1088,10 @@ async function main() {
   }
 
   // Stage 2
-  const preFiltered = stage2_preFilter(rawItems);
+  const candidates = stage2_preFilter(rawItems);
+  const dated = DRY_RUN ? candidates : await verifyPublicationDates(candidates);
+  const preFiltered = dated.filter(item => isRecentNews(item));
+  console.log(`  After original-page date verification: ${preFiltered.length} candidates`);
 
   // Stage 3
   // Cross-day dedup is handled by DB (selected_for_newsletter_at IS NULL in getRecentNewsItems)

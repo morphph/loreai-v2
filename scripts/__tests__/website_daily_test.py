@@ -62,6 +62,12 @@ class WebsiteDailyTests(unittest.TestCase):
             def safe_open(name, *args, **kwargs):
                 return original_open(root / 'test.lock' if str(name) == '/tmp/loreai-pipeline.lock' else name, *args, **kwargs)
             with patch.object(module, '__file__', str(root / 'scripts/run.py')), patch('sys.argv', argv), patch.dict(module.os.environ, {'NEWSLETTER_AI_PROVIDER': 'codex', 'NEWSLETTER_CODEX_MODEL': 'gpt-6-sol'}), patch.object(module, 'run', side_effect=command), patch.object(module, 'open', side_effect=safe_open, create=True), patch.object(module, 'live_matches', return_value=True) as live:
+                argv.append('--generate-only')
+                module.main()
+                self.assertEqual(json.loads((state / 'newsletter-2026-09-29.json').read_text())['status'], 'generated')
+                self.assertFalse(any(call[:2] == ['git', 'push'] for call in calls))
+                live.assert_not_called()
+                argv.pop()
                 with self.assertRaises(module.subprocess.CalledProcessError): module.main()
                 live.assert_not_called()
                 self.assertEqual(json.loads((state / 'newsletter-2026-09-29.json').read_text())['status'], 'failed')
